@@ -1,0 +1,7 @@
+{
+ "A band 1.5-3.5k delayed 1 ms": true,
+ "A band 1.5-3.5k delayed 5 ms": true,
+ "A band 1.5-3.5k delayed 20 ms": true,
+ "A band 1.5-3.5k delayed 100 ms": false,
+ "A with B's (marked) 1.5-3.5k band": true
+}

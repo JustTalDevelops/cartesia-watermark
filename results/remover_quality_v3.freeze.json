@@ -1,0 +1,37 @@
+{
+  "status": "frozen_candidate_before_B3_processing",
+  "frozen_at_utc": "2026-11-13T01:22:53.662606+00:00",
+  "checkpoint": "results/remover_quality_v3.pt",
+  "checkpoint_sha256": "c5ddec58926c24e0f92c83475d589286ea98f2a8bc95124097ef567cc1910f8b",
+  "manifest_sha256": "74c36ea9fc727ef156513c82fe076fe97f2c0cfc62f5008ba101561c3e31a6d0",
+  "source_checkpoint_sha256": "d68cb9cd03b0a0344146f0a23086ed82b613455d5083f64fd5ce69fbb8c73081",
+  "baseline_checkpoint": "results/remover_quality_v2.pt",
+  "baseline_sha256": "803862a9f4f77a64c9ada05bfb8078b6eedbba15541337c36c751ce0312a95f1",
+  "B3_plan_sha256": "1175dcec60b7d3f34d719867f286f4f00aae70ea7ac347d4c7078e058242dde8",
+  "B3_API_plan_sha256": "5cc3a5ac623ca16f81bb7f4852067d538247c04e269b607182452307cb3a73dc",
+  "source_training_voice_overlap_with_B3": 0,
+  "readiness_policy": "results/remover_guarded_test_readiness_policy.json",
+  "readiness_policy_sha256": "b41f209c70c45c89a1d180deda781b00976eacda4725a3d3391414aaa563f515",
+  "native_quality": "results/remover_guarded_blend015_validation.json",
+  "retained_V2_verified_negatives": 4,
+  "extra_English_negative": "results/remover_guarded_blend015_english_equivalence.json",
+  "known_hard_native_API_result": "ARnegative,ENpositive,ESpositive(1/3),reportedratherthanhidden",
+  "quality_policy": {
+    "max_pesq_loss_vsV2": 0.015,
+    "max_estoi_loss_vsV2": 0.001,
+    "pesq_floor_or_baseline": 4.5,
+    "fractions": [
+      0.25,
+      0.125,
+      0
+    ],
+    "global_edit_snr_db": 30
+  },
+  "B3_procedure": "Processall16marked+4controlswithbothfrozenmodels;comparequalitywithoutretuning. Secondaryfixed6original-positive+2original-negativeAPIchecksforeachmodel. APIresponses120spacedandserialized. NoB3labelsusedtoretunefrozenmodels.",
+  "default_promotion": "Onlyifnewmodelkeepsstrictvoicequality,retainsbaselineverifiedtestsuccesses,andshowsadditionaltestremoval;otherwisekeepV2defaultandreportcandidatefailures.",
+  "inference_code_sha256": {
+    "tools/remover.py": "aad94e48280117f052aa8b0ce5ff8ae254154fb2611526852038912865666e6c",
+    "tools/quality_blend.py": "c74b1a6515d1b68d5edca69622b5242b78746b25186d8fab915194613d997df4",
+    "tools/remove_watermark.py": "276ccf3e0116f8d60e2a67f2131b97c74e938bb99e917e753e652707ab4ba295"
+  }
+}

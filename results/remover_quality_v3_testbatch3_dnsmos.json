@@ -1,0 +1,1031 @@
+{
+  "metric": {
+    "implementation": "dnsmos-p835-regular-v1",
+    "revision": "785ab12275d5cf9341c5e946b0eee9f8825ece3b",
+    "model_sha256": "269fbebdb513aa23cddfbb593542ecc540284a91849ac50516870e1ac78f6edd",
+    "librosa": "1.0.0",
+    "onnxruntime": "1.31.1",
+    "resampler": "librosa-soxr_hq",
+    "sample_rate": 16000,
+    "window_samples": 144160,
+    "hop_samples": 16000,
+    "short_clip_policy": "repeat inside quality estimator only"
+  },
+  "comparisons": [
+    {
+      "report": "results/remover_quality_v2_testbatch3_h2h4.json",
+      "report_sha256": "304fb7d5b438d9868a31dc6c35952866d9ee762af45c30f70871f2d28a5371b0",
+      "marked_clips": 16,
+      "summary": {
+        "signal": {
+          "median_before": 3.6404312133285774,
+          "median_after": 3.6404466984833106,
+          "median_paired_delta": 0.0005503744659569598,
+          "minimum_paired_delta": -0.020478894799853098
+        },
+        "background": {
+          "median_before": 4.12652252841241,
+          "median_after": 4.1245254464516545,
+          "median_paired_delta": -7.090234160989084e-05,
+          "minimum_paired_delta": -0.013034814376989168
+        },
+        "overall": {
+          "median_before": 3.380438385448791,
+          "median_after": 3.3867683813742744,
+          "median_paired_delta": 0.00036422076772235634,
+          "minimum_paired_delta": -0.022241281819830316
+        }
+      },
+      "clips": [
+        {
+          "source": "audio/h2h4/en_004_marked.wav",
+          "output": "audio/remover_quality_v2_testbatch3/h2h4/en_004_marked.wav",
+          "marked": true,
+          "before": {
+            "signal": 3.7463733477278622,
+            "background": 4.151004528287439,
+            "overall": 3.5060395480421875,
+            "windows": 1,
+            "natural_seconds": 9.5
+          },
+          "after": {
+            "signal": 3.7533695459656338,
+            "background": 4.160612534751687,
+            "overall": 3.5166295712016216,
+            "windows": 1,
+            "natural_seconds": 9.5
+          },
+          "delta": {
+            "signal": 0.006996198237771534,
+            "background": 0.009608006464247865,
+            "overall": 0.010590023159434026
+          }
+        },
+        {
+          "source": "audio/h2h4/en_008_marked.wav",
+          "output": "audio/remover_quality_v2_testbatch3/h2h4/en_008_marked.wav",
+          "marked": true,
+          "before": {
+            "signal": 3.7208024064107974,
+            "background": 4.183788017367085,
+            "overall": 3.519313258498457,
+            "windows": 1,
+            "natural_seconds": 9.26
+          },
+          "after": {
+            "signal": 3.733987409350966,
+            "background": 4.191050730248568,
+            "overall": 3.534241546608683,
+            "windows": 1,
+            "natural_seconds": 9.26
+          },
+          "delta": {
+            "signal": 0.013185002940168555,
+            "background": 0.007262712881482614,
+            "overall": 0.01492828811022573
+          }
+        },
+        {
+          "source": "audio/h2h4/en_009_marked.wav",
+          "output": "audio/remover_quality_v2_testbatch3/h2h4/en_009_marked.wav",
+          "marked": true,
+          "before": {
+            "signal": 3.5851918265987184,
+            "background": 4.157374320787722,
+            "overall": 3.3466973409936545,
+            "windows": 8,
+            "natural_seconds": 8.94
+          },
+          "after": {
+            "signal": 3.5808537701957652,
+            "background": 4.1576807658412935,
+            "overall": 3.3438108047450736,
+            "windows": 8,
+            "natural_seconds": 8.94
+          },
+          "delta": {
+            "signal": -0.00433805640295315,
+            "background": 0.0003064450535719132,
+            "overall": -0.0028865362485808177
+          }
+        },
+        {
+          "source": "audio/h2h4/en_010_marked.wav",
+          "output": "audio/remover_quality_v2_testbatch3/h2h4/en_010_marked.wav",
+          "marked": true,
+          "before": {
+            "signal": 3.5779683112270084,
+            "background": 3.9512379435278757,
+            "overall": 3.2321937595448316,
+            "windows": 6,
+            "natural_seconds": 7.66
+          },
+          "after": {
+            "signal": 3.5815086424774414,
+            "background": 3.965876392576765,
+            "overall": 3.2441642342725117,
+            "windows": 6,
+            "natural_seconds": 7.66
+          },
+          "delta": {
+            "signal": 0.00354033125043296,
+            "background": 0.014638449048889335,
+            "overall": 0.011970474727680092
+          }
+        },
+        {
+          "source": "audio/h2h4/en_011_marked.wav",
+          "output": "audio/remover_quality_v2_testbatch3/h2h4/en_011_marked.wav",
+          "marked": true,
+          "before": {
+            "signal": 3.631923959343862,
+            "background": 4.0003438118665695,
+            "overall": 3.3264710795951347,
+            "windows": 1,
+            "natural_seconds": 9.42
+          },
+          "after": {
+            "signal": 3.632425742711766,
+            "background": 3.999976645350335,
+            "overall": 3.328056925322668,
+            "windows": 1,
+            "natural_seconds": 9.42
+          },
+          "delta": {
+            "signal": 0.0005017833679037409,
+            "background": -0.0003671665162343629,
+            "overall": 0.001585845727533286
+          }
+        },
+        {
+          "source": "audio/h2h4/en_012_marked.wav",
+          "output": "audio/remover_quality_v2_testbatch3/h2h4/en_012_marked.wav",
+          "marked": true,
+          "before": {
+            "signal": 3.6255865238055085,
+            "background": 4.128909114487077,
+            "overall": 3.386729083993121,
+            "windows": 7,
+            "natural_seconds": 8.38
+          },
+          "after": {
+            "signal": 3.6288518194097565,
+            "background": 4.124689588732552,
+            "overall": 3.3866486138347187,
+            "windows": 7,
+            "natural_seconds": 8.38
+          },
+          "delta": {
+            "signal": 0.003265295604248042,
+            "background": -0.004219525754525222,
+            "overall": -8.047015840206839e-05
+          }
+        },
+        {
+          "source": "audio/h2h4/en_013_marked.wav",
+          "output": "audio/remover_quality_v2_testbatch3/h2h4/en_013_marked.wav",
+          "marked": true,
+          "before": {
+            "signal": 3.7219429826515817,
+            "background": 4.1996018551668275,
+            "overall": 3.4997799137483927,
+            "windows": 1,
+            "natural_seconds": 9.82
+          },
+          "after": {
+            "signal": 3.730044530936432,
+            "background": 4.1979365907017145,
+            "overall": 3.505019215700685,
+            "windows": 1,
+            "natural_seconds": 9.82
+          },
+          "delta": {
+            "signal": 0.008101548284850324,
+            "background": -0.0016652644651129478,
+            "overall": 0.005239301952292497
+          }
+        },
+        {
+          "source": "audio/h2h4/en_014_marked.wav",
+          "output": "audio/remover_quality_v2_testbatch3/h2h4/en_014_marked.wav",
+          "marked": true,
+          "before": {
+            "signal": 3.632418453290904,
+            "background": 4.11944509461332,
+            "overall": 3.3735160359266323,
+            "windows": 7,
+            "natural_seconds": 8.06
+          },
+          "after": {
+            "signal": 3.6258746712526877,
+            "background": 4.112213846441668,
+            "overall": 3.3614623509821553,
+            "windows": 7,
+            "natural_seconds": 8.06
+          },
+          "delta": {
+            "signal": -0.0065437820382161505,
+            "background": -0.007231248171651217,
+            "overall": -0.012053684944477006
+          }
+        },
+        {
+          "source": "audio/h2h4/en_015_marked.wav",
+          "output": "audio/remover_quality_v2_testbatch3/h2h4/en_015_marked.wav",
+          "marked": true,
+          "before": {
+            "signal": 3.6687834754006063,
+            "background": 4.032612846724207,
+            "overall": 3.374147686904461,
+            "windows": 7,
+            "natural_seconds": 8.22
+          },
+          "after": {
+            "signal": 3.6732740271922375,
+            "background": 4.050723744960107,
+            "overall": 3.3868881489138296,
+            "windows": 7,
+            "natural_seconds": 8.22
+          },
+          "delta": {
+            "signal": 0.004490551791631159,
+            "background": 0.018110898235899953,
+            "overall": 0.012740462009368514
+          }
+        },
+        {
+          "source": "audio/h2h4/en_016_marked.wav",
+          "output": "audio/remover_quality_v2_testbatch3/h2h4/en_016_marked.wav",
+          "marked": true,
+          "before": {
+            "signal": 3.7606985450895896,
+            "background": 4.179747343484743,
+            "overall": 3.560062074674839,
+            "windows": 1,
+            "natural_seconds": 9.26
+          },
+          "after": {
+            "signal": 3.7785214539309915,
+            "background": 4.18111458483148,
+            "overall": 3.576264160049642,
+            "windows": 1,
+            "natural_seconds": 9.26
+          },
+          "delta": {
+            "signal": 0.01782290884140192,
+            "background": 0.00136724134673738,
+            "overall": 0.016202085374803055
+          }
+        },
+        {
+          "source": "audio/h2h4/en_017_marked.wav",
+          "output": "audio/remover_quality_v2_testbatch3/h2h4/en_017_marked.wav",
+          "marked": true,
+          "before": {
+            "signal": 3.5671650209323937,
+            "background": 4.064040792516838,
+            "overall": 3.275723196826683,
+            "windows": 8,
+            "natural_seconds": 8.54
+          },
+          "after": {
+            "signal": 3.562378612842968,
+            "background": 4.051005978139849,
+            "overall": 3.264796813636644,
+            "windows": 8,
+            "natural_seconds": 8.54
+          },
+          "delta": {
+            "signal": -0.004786408089425542,
+            "background": -0.013034814376989168,
+            "overall": -0.010926383190039246
+          }
+        },
+        {
+          "source": "audio/h2h4/en_018_marked.wav",
+          "output": "audio/remover_quality_v2_testbatch3/h2h4/en_018_marked.wav",
+          "marked": true,
+          "before": {
+            "signal": 3.6484439733662506,
+            "background": 4.153426774616935,
+            "overall": 3.4274468715263695,
+            "windows": 7,
+            "natural_seconds": 8.06
+          },
+          "after": {
+            "signal": 3.6484676542548553,
+            "background": 4.1553204076299926,
+            "overall": 3.4271202518173736,
+            "windows": 7,
+            "natural_seconds": 8.06
+          },
+          "delta": {
+            "signal": 2.3680888604715733e-05,
+            "background": 0.0018936330130578938,
+            "overall": -0.0003266197089959455
+          }
+        },
+        {
+          "source": "audio/h2h4/en_019_marked.wav",
+          "output": "audio/remover_quality_v2_testbatch3/h2h4/en_019_marked.wav",
+          "marked": true,
+          "before": {
+            "signal": 3.6702034232419094,
+            "background": 4.124135942337744,
+            "overall": 3.4327144700307297,
+            "windows": 6,
+            "natural_seconds": 7.98
+          },
+          "after": {
+            "signal": 3.6700787168617452,
+            "background": 4.124361304170758,
+            "overall": 3.4335233817245765,
+            "windows": 6,
+            "natural_seconds": 7.98
+          },
+          "delta": {
+            "signal": -0.00012470638016415236,
+            "background": 0.00022536183301458124,
+            "overall": 0.0008089116938467811
+          }
+        },
+        {
+          "source": "audio/h2h4/hi_031_marked.wav",
+          "output": "audio/remover_quality_v2_testbatch3/h2h4/hi_031_marked.wav",
+          "marked": true,
+          "before": {
+            "signal": 3.681952393148701,
+            "background": 4.219781486156213,
+            "overall": 3.459784263627279,
+            "windows": 8,
+            "natural_seconds": 8.54
+          },
+          "after": {
+            "signal": 3.663148851074819,
+            "background": 4.2164032629422135,
+            "overall": 3.441247617869142,
+            "windows": 8,
+            "natural_seconds": 8.54
+          },
+          "delta": {
+            "signal": -0.018803542073881907,
+            "background": -0.0033782232139998314,
+            "overall": -0.018536645758137293
+          }
+        },
+        {
+          "source": "audio/h2h4/ta_042_marked.wav",
+          "output": "audio/remover_quality_v2_testbatch3/h2h4/ta_042_marked.wav",
+          "marked": true,
+          "before": {
+            "signal": 3.407591681489118,
+            "background": 4.105754778545732,
+            "overall": 3.1694195647176238,
+            "windows": 4,
+            "natural_seconds": 6.7
+          },
+          "after": {
+            "signal": 3.387112786689265,
+            "background": 4.096348229574652,
+            "overall": 3.1471782828977934,
+            "windows": 4,
+            "natural_seconds": 6.7
+          },
+          "delta": {
+            "signal": -0.020478894799853098,
+            "background": -0.009406548971080397,
+            "overall": -0.022241281819830316
+          }
+        },
+        {
+          "source": "audio/h2h4/tl_045_marked.wav",
+          "output": "audio/remover_quality_v2_testbatch3/h2h4/tl_045_marked.wav",
+          "marked": true,
+          "before": {
+            "signal": 3.548736793121146,
+            "background": 4.091973661795902,
+            "overall": 3.291780986628674,
+            "windows": 8,
+            "natural_seconds": 8.62
+          },
+          "after": {
+            "signal": 3.549335758685156,
+            "background": 4.088494490869785,
+            "overall": 3.2903227542560676,
+            "windows": 8,
+            "natural_seconds": 8.62
+          },
+          "delta": {
+            "signal": 0.0005989655640101788,
+            "background": -0.00347917092611727,
+            "overall": -0.0014582323726064494
+          }
+        },
+        {
+          "source": "audio/h2h4/en_004_clean.wav",
+          "output": "audio/remover_quality_v2_testbatch3/h2h4/en_004_clean.wav",
+          "marked": false,
+          "before": {
+            "signal": 3.639489959556727,
+            "background": 4.014873024941794,
+            "overall": 3.322510024060515,
+            "windows": 8,
+            "natural_seconds": 8.9725
+          },
+          "after": {
+            "signal": 3.637170655789326,
+            "background": 3.979922066482245,
+            "overall": 3.29852800099144,
+            "windows": 8,
+            "natural_seconds": 8.9725
+          },
+          "delta": {
+            "signal": -0.002319303767400971,
+            "background": -0.03495095845954932,
+            "overall": -0.023982023069075264
+          }
+        },
+        {
+          "source": "audio/h2h4/en_008_clean.wav",
+          "output": "audio/remover_quality_v2_testbatch3/h2h4/en_008_clean.wav",
+          "marked": false,
+          "before": {
+            "signal": 3.6938202155136435,
+            "background": 4.082414409383928,
+            "overall": 3.43217348523123,
+            "windows": 8,
+            "natural_seconds": 8.693875
+          },
+          "after": {
+            "signal": 3.6998074769593634,
+            "background": 4.080315088412855,
+            "overall": 3.4365044779822638,
+            "windows": 8,
+            "natural_seconds": 8.693875
+          },
+          "delta": {
+            "signal": 0.005987261445719927,
+            "background": -0.0020993209710722383,
+            "overall": 0.004330992751033769
+          }
+        },
+        {
+          "source": "audio/h2h4/en_009_clean.wav",
+          "output": "audio/remover_quality_v2_testbatch3/h2h4/en_009_clean.wav",
+          "marked": false,
+          "before": {
+            "signal": 3.6213946976292912,
+            "background": 4.185594200845787,
+            "overall": 3.395249769648501,
+            "windows": 1,
+            "natural_seconds": 9.0755625
+          },
+          "after": {
+            "signal": 3.624417311462118,
+            "background": 4.181990060835346,
+            "overall": 3.3957053398428942,
+            "windows": 1,
+            "natural_seconds": 9.0755625
+          },
+          "delta": {
+            "signal": 0.0030226138328268704,
+            "background": -0.0036041400104407373,
+            "overall": 0.00045557019439312896
+          }
+        },
+        {
+          "source": "audio/h2h4/en_010_clean.wav",
+          "output": "audio/remover_quality_v2_testbatch3/h2h4/en_010_clean.wav",
+          "marked": false,
+          "before": {
+            "signal": 3.632853493394721,
+            "background": 4.141753901005477,
+            "overall": 3.390583378655741,
+            "windows": 5,
+            "natural_seconds": 7.4216875
+          },
+          "after": {
+            "signal": 3.6293938313186667,
+            "background": 4.13951182631015,
+            "overall": 3.386674997606663,
+            "windows": 5,
+            "natural_seconds": 7.4216875
+          },
+          "delta": {
+            "signal": -0.003459662076054304,
+            "background": -0.002242074695327112,
+            "overall": -0.003908381049078091
+          }
+        }
+      ]
+    },
+    {
+      "report": "results/remover_quality_v3_testbatch3_h2h4.json",
+      "report_sha256": "821e13f4f080783e2b7037a8dadbab0c4d8415156880ca8a5cf8e12b2471c240",
+      "marked_clips": 16,
+      "summary": {
+        "signal": {
+          "median_before": 3.6404312133285774,
+          "median_after": 3.639943680780503,
+          "median_paired_delta": 9.062611732302273e-05,
+          "minimum_paired_delta": -0.021553740241244235
+        },
+        "background": {
+          "median_before": 4.12652252841241,
+          "median_after": 4.123846127322123,
+          "median_paired_delta": -0.0011509959587296947,
+          "minimum_paired_delta": -0.014324601087079003
+        },
+        "overall": {
+          "median_before": 3.380438385448791,
+          "median_after": 3.387771636874109,
+          "median_paired_delta": -0.00014174633527086478,
+          "minimum_paired_delta": -0.0231063145664554
+        }
+      },
+      "clips": [
+        {
+          "source": "audio/h2h4/en_004_marked.wav",
+          "output": "audio/remover_quality_v3_testbatch3/h2h4/en_004_marked.wav",
+          "marked": true,
+          "before": {
+            "signal": 3.7463733477278622,
+            "background": 4.151004528287439,
+            "overall": 3.5060395480421875,
+            "windows": 1,
+            "natural_seconds": 9.5
+          },
+          "after": {
+            "signal": 3.750530294164443,
+            "background": 4.157586607940552,
+            "overall": 3.51237460266522,
+            "windows": 1,
+            "natural_seconds": 9.5
+          },
+          "delta": {
+            "signal": 0.004156946436580711,
+            "background": 0.006582079653113304,
+            "overall": 0.006335054623032299
+          }
+        },
+        {
+          "source": "audio/h2h4/en_008_marked.wav",
+          "output": "audio/remover_quality_v3_testbatch3/h2h4/en_008_marked.wav",
+          "marked": true,
+          "before": {
+            "signal": 3.7208024064107974,
+            "background": 4.183788017367085,
+            "overall": 3.519313258498457,
+            "windows": 1,
+            "natural_seconds": 9.26
+          },
+          "after": {
+            "signal": 3.7359359294954664,
+            "background": 4.193238446678939,
+            "overall": 3.5373346645371058,
+            "windows": 1,
+            "natural_seconds": 9.26
+          },
+          "delta": {
+            "signal": 0.015133523084668976,
+            "background": 0.009450429311853803,
+            "overall": 0.018021406038648546
+          }
+        },
+        {
+          "source": "audio/h2h4/en_009_marked.wav",
+          "output": "audio/remover_quality_v3_testbatch3/h2h4/en_009_marked.wav",
+          "marked": true,
+          "before": {
+            "signal": 3.5851918265987184,
+            "background": 4.157374320787722,
+            "overall": 3.3466973409936545,
+            "windows": 8,
+            "natural_seconds": 8.94
+          },
+          "after": {
+            "signal": 3.5808537701957652,
+            "background": 4.1576807658412935,
+            "overall": 3.3438108047450736,
+            "windows": 8,
+            "natural_seconds": 8.94
+          },
+          "delta": {
+            "signal": -0.00433805640295315,
+            "background": 0.0003064450535719132,
+            "overall": -0.0028865362485808177
+          }
+        },
+        {
+          "source": "audio/h2h4/en_010_marked.wav",
+          "output": "audio/remover_quality_v3_testbatch3/h2h4/en_010_marked.wav",
+          "marked": true,
+          "before": {
+            "signal": 3.5779683112270084,
+            "background": 3.9512379435278757,
+            "overall": 3.2321937595448316,
+            "windows": 6,
+            "natural_seconds": 7.66
+          },
+          "after": {
+            "signal": 3.5822509411052366,
+            "background": 3.965076782819576,
+            "overall": 3.2442447374681422,
+            "windows": 6,
+            "natural_seconds": 7.66
+          },
+          "delta": {
+            "signal": 0.004282629878228139,
+            "background": 0.013838839291700378,
+            "overall": 0.012050977923310668
+          }
+        },
+        {
+          "source": "audio/h2h4/en_011_marked.wav",
+          "output": "audio/remover_quality_v3_testbatch3/h2h4/en_011_marked.wav",
+          "marked": true,
+          "before": {
+            "signal": 3.631923959343862,
+            "background": 4.0003438118665695,
+            "overall": 3.3264710795951347,
+            "windows": 1,
+            "natural_seconds": 9.42
+          },
+          "after": {
+            "signal": 3.6319321702375316,
+            "background": 3.9990160586882313,
+            "overall": 3.327226769945889,
+            "windows": 1,
+            "natural_seconds": 9.42
+          },
+          "delta": {
+            "signal": 8.210893669424735e-06,
+            "background": -0.0013277531783382202,
+            "overall": 0.000755690350754179
+          }
+        },
+        {
+          "source": "audio/h2h4/en_012_marked.wav",
+          "output": "audio/remover_quality_v3_testbatch3/h2h4/en_012_marked.wav",
+          "marked": true,
+          "before": {
+            "signal": 3.6255865238055085,
+            "background": 4.128909114487077,
+            "overall": 3.386729083993121,
+            "windows": 7,
+            "natural_seconds": 8.38
+          },
+          "after": {
+            "signal": 3.6285322877647053,
+            "background": 4.123330950473487,
+            "overall": 3.385689900971825,
+            "windows": 7,
+            "natural_seconds": 8.38
+          },
+          "delta": {
+            "signal": 0.0029457639591967677,
+            "background": -0.005578164013590126,
+            "overall": -0.0010391830212959086
+          }
+        },
+        {
+          "source": "audio/h2h4/en_013_marked.wav",
+          "output": "audio/remover_quality_v3_testbatch3/h2h4/en_013_marked.wav",
+          "marked": true,
+          "before": {
+            "signal": 3.7219429826515817,
+            "background": 4.1996018551668275,
+            "overall": 3.4997799137483927,
+            "windows": 1,
+            "natural_seconds": 9.82
+          },
+          "after": {
+            "signal": 3.730371772853777,
+            "background": 4.197220096760197,
+            "overall": 3.504646532187683,
+            "windows": 1,
+            "natural_seconds": 9.82
+          },
+          "delta": {
+            "signal": 0.008428790202195113,
+            "background": -0.002381758406630574,
+            "overall": 0.00486661843929026
+          }
+        },
+        {
+          "source": "audio/h2h4/en_014_marked.wav",
+          "output": "audio/remover_quality_v3_testbatch3/h2h4/en_014_marked.wav",
+          "marked": true,
+          "before": {
+            "signal": 3.632418453290904,
+            "background": 4.11944509461332,
+            "overall": 3.3735160359266323,
+            "windows": 7,
+            "natural_seconds": 8.06
+          },
+          "after": {
+            "signal": 3.6258746712526877,
+            "background": 4.112213846441668,
+            "overall": 3.3614623509821553,
+            "windows": 7,
+            "natural_seconds": 8.06
+          },
+          "delta": {
+            "signal": -0.0065437820382161505,
+            "background": -0.007231248171651217,
+            "overall": -0.012053684944477006
+          }
+        },
+        {
+          "source": "audio/h2h4/en_015_marked.wav",
+          "output": "audio/remover_quality_v3_testbatch3/h2h4/en_015_marked.wav",
+          "marked": true,
+          "before": {
+            "signal": 3.6687834754006063,
+            "background": 4.032612846724207,
+            "overall": 3.374147686904461,
+            "windows": 7,
+            "natural_seconds": 8.22
+          },
+          "after": {
+            "signal": 3.6742794540959953,
+            "background": 4.056131750180088,
+            "overall": 3.389853372776393,
+            "windows": 7,
+            "natural_seconds": 8.22
+          },
+          "delta": {
+            "signal": 0.005495978695388981,
+            "background": 0.023518903455881812,
+            "overall": 0.015705685871931774
+          }
+        },
+        {
+          "source": "audio/h2h4/en_016_marked.wav",
+          "output": "audio/remover_quality_v3_testbatch3/h2h4/en_016_marked.wav",
+          "marked": true,
+          "before": {
+            "signal": 3.7606985450895896,
+            "background": 4.179747343484743,
+            "overall": 3.560062074674839,
+            "windows": 1,
+            "natural_seconds": 9.26
+          },
+          "after": {
+            "signal": 3.780824782179071,
+            "background": 4.178773104745622,
+            "overall": 3.576767891624239,
+            "windows": 1,
+            "natural_seconds": 9.26
+          },
+          "delta": {
+            "signal": 0.020126237089481247,
+            "background": -0.0009742387391211693,
+            "overall": 0.0167058169494001
+          }
+        },
+        {
+          "source": "audio/h2h4/en_017_marked.wav",
+          "output": "audio/remover_quality_v3_testbatch3/h2h4/en_017_marked.wav",
+          "marked": true,
+          "before": {
+            "signal": 3.5671650209323937,
+            "background": 4.064040792516838,
+            "overall": 3.275723196826683,
+            "windows": 8,
+            "natural_seconds": 8.54
+          },
+          "after": {
+            "signal": 3.5628980637420242,
+            "background": 4.049716191429759,
+            "overall": 3.2648444859183297,
+            "windows": 8,
+            "natural_seconds": 8.54
+          },
+          "delta": {
+            "signal": -0.004266957190369514,
+            "background": -0.014324601087079003,
+            "overall": -0.010878710908353462
+          }
+        },
+        {
+          "source": "audio/h2h4/en_018_marked.wav",
+          "output": "audio/remover_quality_v3_testbatch3/h2h4/en_018_marked.wav",
+          "marked": true,
+          "before": {
+            "signal": 3.6484439733662506,
+            "background": 4.153426774616935,
+            "overall": 3.4274468715263695,
+            "windows": 7,
+            "natural_seconds": 8.06
+          },
+          "after": {
+            "signal": 3.6479551913234745,
+            "background": 4.154264045731409,
+            "overall": 3.4261002666861526,
+            "windows": 7,
+            "natural_seconds": 8.06
+          },
+          "delta": {
+            "signal": -0.0004887820427761369,
+            "background": 0.0008372711144746248,
+            "overall": -0.0013466048402168695
+          }
+        },
+        {
+          "source": "audio/h2h4/en_019_marked.wav",
+          "output": "audio/remover_quality_v3_testbatch3/h2h4/en_019_marked.wav",
+          "marked": true,
+          "before": {
+            "signal": 3.6702034232419094,
+            "background": 4.124135942337744,
+            "overall": 3.4327144700307297,
+            "windows": 6,
+            "natural_seconds": 7.98
+          },
+          "after": {
+            "signal": 3.6700787168617452,
+            "background": 4.124361304170758,
+            "overall": 3.4335233817245765,
+            "windows": 6,
+            "natural_seconds": 7.98
+          },
+          "delta": {
+            "signal": -0.00012470638016415236,
+            "background": 0.00022536183301458124,
+            "overall": 0.0008089116938467811
+          }
+        },
+        {
+          "source": "audio/h2h4/hi_031_marked.wav",
+          "output": "audio/remover_quality_v3_testbatch3/h2h4/hi_031_marked.wav",
+          "marked": true,
+          "before": {
+            "signal": 3.681952393148701,
+            "background": 4.219781486156213,
+            "overall": 3.459784263627279,
+            "windows": 8,
+            "natural_seconds": 8.54
+          },
+          "after": {
+            "signal": 3.6617711882799053,
+            "background": 4.216047946062568,
+            "overall": 3.4396861424651646,
+            "windows": 8,
+            "natural_seconds": 8.54
+          },
+          "delta": {
+            "signal": -0.02018120486879571,
+            "background": -0.003733540093644905,
+            "overall": -0.020098121162114513
+          }
+        },
+        {
+          "source": "audio/h2h4/ta_042_marked.wav",
+          "output": "audio/remover_quality_v3_testbatch3/h2h4/ta_042_marked.wav",
+          "marked": true,
+          "before": {
+            "signal": 3.407591681489118,
+            "background": 4.105754778545732,
+            "overall": 3.1694195647176238,
+            "windows": 4,
+            "natural_seconds": 6.7
+          },
+          "after": {
+            "signal": 3.386037941247874,
+            "background": 4.096377499322115,
+            "overall": 3.1463132501511684,
+            "windows": 4,
+            "natural_seconds": 6.7
+          },
+          "delta": {
+            "signal": -0.021553740241244235,
+            "background": -0.009377279223617307,
+            "overall": -0.0231063145664554
+          }
+        },
+        {
+          "source": "audio/h2h4/tl_045_marked.wav",
+          "output": "audio/remover_quality_v3_testbatch3/h2h4/tl_045_marked.wav",
+          "marked": true,
+          "before": {
+            "signal": 3.548736793121146,
+            "background": 4.091973661795902,
+            "overall": 3.291780986628674,
+            "windows": 8,
+            "natural_seconds": 8.62
+          },
+          "after": {
+            "signal": 3.5489098344621226,
+            "background": 4.08789209899776,
+            "overall": 3.2897985260440437,
+            "windows": 8,
+            "natural_seconds": 8.62
+          },
+          "delta": {
+            "signal": 0.00017304134097662072,
+            "background": -0.004081562798141647,
+            "overall": -0.0019824605846303633
+          }
+        },
+        {
+          "source": "audio/h2h4/en_004_clean.wav",
+          "output": "audio/remover_quality_v3_testbatch3/h2h4/en_004_clean.wav",
+          "marked": false,
+          "before": {
+            "signal": 3.639489959556727,
+            "background": 4.014873024941794,
+            "overall": 3.322510024060515,
+            "windows": 8,
+            "natural_seconds": 8.9725
+          },
+          "after": {
+            "signal": 3.636928566012315,
+            "background": 3.9778275136548946,
+            "overall": 3.297057544754773,
+            "windows": 8,
+            "natural_seconds": 8.9725
+          },
+          "delta": {
+            "signal": -0.002561393544412205,
+            "background": -0.03704551128689948,
+            "overall": -0.025452479305742237
+          }
+        },
+        {
+          "source": "audio/h2h4/en_008_clean.wav",
+          "output": "audio/remover_quality_v3_testbatch3/h2h4/en_008_clean.wav",
+          "marked": false,
+          "before": {
+            "signal": 3.6938202155136435,
+            "background": 4.082414409383928,
+            "overall": 3.43217348523123,
+            "windows": 8,
+            "natural_seconds": 8.693875
+          },
+          "after": {
+            "signal": 3.7001739009154138,
+            "background": 4.082678048170743,
+            "overall": 3.438113677240918,
+            "windows": 8,
+            "natural_seconds": 8.693875
+          },
+          "delta": {
+            "signal": 0.0063536854017702815,
+            "background": 0.00026363878681578967,
+            "overall": 0.0059401920096879834
+          }
+        },
+        {
+          "source": "audio/h2h4/en_009_clean.wav",
+          "output": "audio/remover_quality_v3_testbatch3/h2h4/en_009_clean.wav",
+          "marked": false,
+          "before": {
+            "signal": 3.6213946976292912,
+            "background": 4.185594200845787,
+            "overall": 3.395249769648501,
+            "windows": 1,
+            "natural_seconds": 9.0755625
+          },
+          "after": {
+            "signal": 3.625575239267366,
+            "background": 4.182378887690887,
+            "overall": 3.396946374245182,
+            "windows": 1,
+            "natural_seconds": 9.0755625
+          },
+          "delta": {
+            "signal": 0.004180541638074686,
+            "background": -0.003215313154900201,
+            "overall": 0.0016966045966810839
+          }
+        },
+        {
+          "source": "audio/h2h4/en_010_clean.wav",
+          "output": "audio/remover_quality_v3_testbatch3/h2h4/en_010_clean.wav",
+          "marked": false,
+          "before": {
+            "signal": 3.632853493394721,
+            "background": 4.141753901005477,
+            "overall": 3.390583378655741,
+            "windows": 5,
+            "natural_seconds": 7.4216875
+          },
+          "after": {
+            "signal": 3.6295705497159902,
+            "background": 4.139083418627055,
+            "overall": 3.386539588899133,
+            "windows": 5,
+            "natural_seconds": 7.4216875
+          },
+          "delta": {
+            "signal": -0.003282943678730721,
+            "background": -0.0026704823784218235,
+            "overall": -0.004043789756607907
+          }
+        }
+      ]
+    }
+  ],
+  "limitation": "Predicted quality, not a human listening test; 16kHz input. Native-band fidelity must also be checked."
+}

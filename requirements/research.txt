@@ -1,0 +1,4 @@
+# Optional raw-waveform oracle experiments. The exported remover needs none of these.
+audioseal==0.2.1
+omegaconf==2.4.0
+einops==0.8.2

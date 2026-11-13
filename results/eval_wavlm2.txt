@@ -1,0 +1,11 @@
+trained on 9029 windows
+== held-out voices, natural clips
+  max   AUC 0.993  flag rates: sonic-3.6=0.97 sonic-preview=1.00 sonic-3.5=0.39 sonic-3=0.11
+  top2  AUC 0.995  flag rates: sonic-3.6=0.97 sonic-preview=1.00 sonic-3.5=0.28 sonic-3=0.08
+  mean  AUC 0.995  flag rates: sonic-3.6=0.97 sonic-preview=1.00 sonic-3.5=0.22 sonic-3=0.03
+== pool=max: probe set 0.922 (marked 1.00, unmarked 0.84, cartesia-FP 0.20) | distill 0.798 on 198
+     distill by family: bandshift=0.71 bandswap=0.81 highpass=0.95 lowpass=0.78 mix=0.89 natural=0.83 snr=0.70 splice=0.65
+== pool=top2: probe set 0.922 (marked 0.98, unmarked 0.86, cartesia-FP 0.20) | distill 0.838 on 198
+     distill by family: bandshift=0.76 bandswap=0.78 highpass=0.95 lowpass=0.83 mix=0.95 natural=0.88 snr=0.70 splice=0.85
+== pool=mean: probe set 0.940 (marked 0.90, unmarked 0.98, cartesia-FP 0.20) | distill 0.838 on 198
+     distill by family: bandshift=0.71 bandswap=0.81 highpass=0.95 lowpass=0.89 mix=1.00 natural=0.88 snr=0.70 splice=0.75

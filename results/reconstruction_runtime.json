@@ -1,0 +1,41 @@
+{
+  "scope": "Local CPU reconstruction runtime; no detection or removal efficacy measured",
+  "python": "3.12.3",
+  "torch": "2.5.1+cpu",
+  "threads": 4,
+  "input": {
+    "sample_rate": 44100,
+    "samples": 176400,
+    "seconds": 4,
+    "channels": 1,
+    "provenance": "Crop of generated TTS corpus; no personal upload"
+  },
+  "cold_cli_seconds": {
+    "standard": 11.071740390732884,
+    "strong": 11.152308478020132
+  },
+  "warm_worker_seconds": {
+    "strong": 6.407260975800455,
+    "standard": 6.120791491121054
+  },
+  "decoded_pcm_exact_to_original_cli": true,
+  "preset_switch_sequence": [
+    "standard",
+    "strong",
+    "standard"
+  ],
+  "limits": "Single machine, short clip, timings vary. First request still loads the model. Longer audio spends proportionally more time in neural inference; speedup will be smaller.",
+  "validation": {
+    "unit_tests": 44,
+    "clean_publication_tree_tests_passed": true,
+    "fresh_reconstruction_environment_load_passed": true,
+    "upload_process_download_and_delete_passed": true,
+    "model_presets_and_waveform_function_unchanged": true,
+    "frozen_v3_source_hashes_unchanged": true
+  },
+  "runtime_source_sha256": {
+    "tools/reconstruction_worker.py": "1906d28a696de11fb2d9fac647a4a82c95510aa6c2b0b84ea3d1cefdd56a4923",
+    "tools/reconstruct_audio.py": "157dfc5e0130d747e64378191857a8f8f6272e14a0690a826351f4056f7a92d3",
+    "tools/serve_remover.py": "4aeb276d400c636d3920ee20a0e762adb6320af6f0e34a2889ee54aa7f690cc6"
+  }
+}

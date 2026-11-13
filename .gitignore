@@ -1,0 +1,90 @@
+# Secrets: API key and proxy credentials live only here (see .env.example)
+.env
+.env.*
+!.env.example
+
+# Python environment / caches
+.venv/
+__pycache__/
+.cache/
+
+# Generated audio (regenerate with tools/corpus*.py). Keep only the voice/text plans so the exact voices,
+# sentences and train/validation/sealed splits are reproducible.
+audio/**
+!audio/**/
+!audio/corpus3/voices.json
+!audio/corpus4/voices.json
+!audio/sealed/voices.json
+!audio/corpus5_plan.json
+!audio/corpus6_plan.json
+!audio/corpus7_plan.json
+
+# Extracted SSL features (tools/frames.py, tools/frames_contrast.py), ~20 GB
+features/
+features_*/
+
+# Results: only what the documentation cites (Cartesia labels, detector configs, per-clip scores) and the
+# round-4 detector heads. Intermediate checkpoints, arrays and raw logs stay local.
+results/*
+!results/align.json
+!results/mechanism.json
+!results/phase2.json
+!results/detect_cache.json
+!results/distill.json
+!results/eval_*.txt
+!results/*validate*.txt
+!results/sealed_eval.txt
+!results/val_label_order.txt
+!results/val_cartesia.json
+!results/val_scores_*.json
+!results/wavlm_detector2_config.json
+!results/final_detector_r2.json
+!results/final_detector_r3.json
+!results/final_detector_r3_val_members.json
+!results/final_detector_r4.json
+!results/final_detector_r4_val_members.json
+!results/final_val_members.json
+!results/sealed_scores.json
+!results/sealed[234]_cartesia.json
+!results/sealed[234]_final.json
+!results/h2h4_cartesia.json
+!results/h2h4_final.json
+!results/head_conv_heldout_x4c[012].pt
+!results/README.md
+!results/reconstruction_runtime.json
+
+# Local exports, tool state, and private follow-up recordings.
+/artifacts/
+/.impeccable/
+/experiments/continuous_followup/
+venv/
+*.py[cod]
+*.log
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+.DS_Store
+
+# Frozen editor releases and evidence cited in docs/editor.md.
+!results/remover_quality.pt
+!results/remover_quality.manifest.json
+!results/remover_quality_v1.pt
+!results/remover_quality_v1.manifest.json
+!results/remover_quality_v2.pt
+!results/remover_quality_v2.manifest.json
+!results/remover_quality_v3.pt
+!results/remover_quality_v3.manifest.json
+!results/remover_quality_v2.freeze.json
+!results/remover_quality_v2.release.json
+!results/remover_quality_v2_testbatch3_cartesia.json
+!results/remover_quality_v3.freeze.json
+!results/remover_quality_v3.release.json
+!results/remover_quality_v3_testbatch3_cartesia.json
+!results/remover_quality_v3_testbatch3_paired_quality.json
+!results/remover_quality_v3_testbatch3_dnsmos.json
+!results/remover_quality_v3_testbatch3_speaker.json

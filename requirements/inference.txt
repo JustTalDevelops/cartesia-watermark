@@ -1,0 +1,8 @@
+# Inference only; no transformer detector, AudioSeal, ONNX model, or API key.
+# The quality-gated checkpoint uses PESQ's C extension (a C compiler is needed to build it).
+numpy==2.5.4
+scipy==1.18.1
+soundfile==0.14.0
+torch==2.15.0
+pystoi==0.4.1
+pesq==0.0.4

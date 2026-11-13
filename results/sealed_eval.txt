@@ -1,0 +1,14 @@
+SEALED: 208 clips, threshold 0.74, AUC 0.962, accuracy 0.851
+  TPR 0.731   FPR 0.029
+  en sonic-3.6      n=36 flagged=0.72 mean=0.77
+  en sonic-preview  n=36 flagged=0.69 mean=0.79
+  en sonic-3.5      n=36 flagged=0.03 mean=0.18
+  en sonic-3        n=36 flagged=0.00 mean=0.04
+  es sonic-3.6      n= 8 flagged=1.00 mean=0.93
+  es sonic-preview  n= 8 flagged=0.50 mean=0.80
+  es sonic-3.5      n= 8 flagged=0.00 mean=0.24
+  es sonic-3        n= 8 flagged=0.00 mean=0.13
+  fr sonic-3.6      n= 8 flagged=0.75 mean=0.88
+  fr sonic-preview  n= 8 flagged=0.88 mean=0.85
+  fr sonic-3.5      n= 8 flagged=0.25 mean=0.41
+  fr sonic-3        n= 8 flagged=0.00 mean=0.13

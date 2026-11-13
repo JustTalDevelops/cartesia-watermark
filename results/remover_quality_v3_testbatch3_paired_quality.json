@@ -1,0 +1,379 @@
+{
+  "report_sha256": {
+    "v2": "304fb7d5b438d9868a31dc6c35952866d9ee762af45c30f70871f2d28a5371b0",
+    "v3": "821e13f4f080783e2b7037a8dadbab0c4d8415156880ca8a5cf8e12b2471c240"
+  },
+  "summary": {
+    "marked_voices": 16,
+    "v2": {
+      "marked_clips": 16,
+      "control_clips": 4,
+      "marked_scored_clips": 16,
+      "marked_detected_before": 13,
+      "marked_detected_after": 7,
+      "previously_detected_now_negative": 6,
+      "marked_median_snr_db": 34.81153326530274,
+      "marked_min_snr_db": 33.06083931486491,
+      "marked_median_stoi": 0.999033754538879,
+      "marked_min_stoi": 0.997656336435109,
+      "marked_median_estoi": 0.9975689725633173,
+      "marked_pesq_clips": 16,
+      "marked_median_pesq_wb": 4.5797953605651855,
+      "marked_min_pesq_wb": 4.426679611206055,
+      "marked_median_native_spectral_change_db": 0.839700276996781,
+      "marked_max_native_band_gain_change_db": 0.47824012509853214,
+      "control_median_snr_db": 35.40639778015034,
+      "control_detected_before": 0,
+      "control_detected_after": 0,
+      "control_median_stoi": 0.9989565835284907,
+      "control_median_pesq_wb": 4.5688111782073975
+    },
+    "v3": {
+      "marked_clips": 16,
+      "control_clips": 4,
+      "marked_scored_clips": 16,
+      "marked_detected_before": 13,
+      "marked_detected_after": 7,
+      "previously_detected_now_negative": 6,
+      "marked_median_snr_db": 34.467229049742514,
+      "marked_min_snr_db": 32.820537161990195,
+      "marked_median_stoi": 0.9989760577501232,
+      "marked_min_stoi": 0.9974806043070088,
+      "marked_median_estoi": 0.9973919381136387,
+      "marked_pesq_clips": 16,
+      "marked_median_pesq_wb": 4.568609237670898,
+      "marked_min_pesq_wb": 4.426679611206055,
+      "marked_median_native_spectral_change_db": 0.9276151730865545,
+      "marked_max_native_band_gain_change_db": 0.506083559715754,
+      "control_median_snr_db": 35.12441929161592,
+      "control_detected_before": 0,
+      "control_detected_after": 0,
+      "control_median_stoi": 0.998903823330539,
+      "control_median_pesq_wb": 4.560950040817261
+    },
+    "minimum_paired_pesq_delta": -0.013982772827148438,
+    "minimum_paired_estoi_delta": -0.000628460831530675,
+    "max_output_peak": 0.9934414029121399,
+    "quality_pass": true,
+    "absolute_floor_met_by_both_models": false,
+    "baseline_below_4_5": [
+      {
+        "source": "audio/h2h4/en_009_marked.wav",
+        "v2_pesq": 4.426679611206055,
+        "v3_pesq": 4.426679611206055,
+        "same_PCM": true
+      },
+      {
+        "source": "audio/h2h4/en_014_marked.wav",
+        "v2_pesq": 4.477237701416016,
+        "v3_pesq": 4.477237701416016,
+        "same_PCM": true
+      },
+      {
+        "source": "audio/h2h4/en_019_marked.wav",
+        "v2_pesq": 4.490952014923096,
+        "v3_pesq": 4.490952014923096,
+        "same_PCM": true
+      }
+    ]
+  },
+  "clips": [
+    {
+      "source": "audio/h2h4/en_004_marked.wav",
+      "marked": true,
+      "pesq_v2": 4.565327167510986,
+      "pesq_v3": 4.557838439941406,
+      "pesq_delta": -0.007488727569580078,
+      "estoi_delta": -0.00011487848773450438,
+      "v3_output_peak": 0.539453387260437,
+      "quality_decision": {
+        "fraction": 0.125,
+        "reason": "quality_limits_met",
+        "worst_pesq_delta": -0.007488727569580078,
+        "worst_estoi_delta": -0.00011487848773450438
+      }
+    },
+    {
+      "source": "audio/h2h4/en_008_marked.wav",
+      "marked": true,
+      "pesq_v2": 4.577138900756836,
+      "pesq_v3": 4.567864894866943,
+      "pesq_delta": -0.009274005889892578,
+      "estoi_delta": -0.00025568913369777846,
+      "v3_output_peak": 0.9024862051010132,
+      "quality_decision": {
+        "fraction": 0.25,
+        "reason": "quality_limits_met",
+        "worst_pesq_delta": -0.009274005889892578,
+        "worst_estoi_delta": -0.0002556891336980005
+      }
+    },
+    {
+      "source": "audio/h2h4/en_009_marked.wav",
+      "marked": true,
+      "pesq_v2": 4.426679611206055,
+      "pesq_v3": 4.426679611206055,
+      "pesq_delta": 0.0,
+      "estoi_delta": 0.0,
+      "v3_output_peak": 0.48336756229400635,
+      "quality_decision": {
+        "fraction": 0.0,
+        "reason": "quality_baseline"
+      }
+    },
+    {
+      "source": "audio/h2h4/en_010_marked.wav",
+      "marked": true,
+      "pesq_v2": 4.5868072509765625,
+      "pesq_v3": 4.578752040863037,
+      "pesq_delta": -0.00805521011352539,
+      "estoi_delta": -0.00021533875053025842,
+      "v3_output_peak": 0.552413821220398,
+      "quality_decision": {
+        "fraction": 0.125,
+        "reason": "quality_limits_met",
+        "worst_pesq_delta": -0.00805521011352539,
+        "worst_estoi_delta": -0.00021533875053025842
+      }
+    },
+    {
+      "source": "audio/h2h4/en_011_marked.wav",
+      "marked": true,
+      "pesq_v2": 4.517949104309082,
+      "pesq_v3": 4.507107734680176,
+      "pesq_delta": -0.01084136962890625,
+      "estoi_delta": -7.748628745474218e-05,
+      "v3_output_peak": 0.6285282373428345,
+      "quality_decision": {
+        "fraction": 0.125,
+        "reason": "quality_limits_met",
+        "worst_pesq_delta": -0.01084136962890625,
+        "worst_estoi_delta": -7.748628745452013e-05
+      }
+    },
+    {
+      "source": "audio/h2h4/en_012_marked.wav",
+      "marked": true,
+      "pesq_v2": 4.540987014770508,
+      "pesq_v3": 4.5303120613098145,
+      "pesq_delta": -0.01067495346069336,
+      "estoi_delta": -0.00025053380678974335,
+      "v3_output_peak": 0.9180251359939575,
+      "quality_decision": {
+        "fraction": 0.125,
+        "reason": "quality_limits_met",
+        "worst_pesq_delta": -0.01067495346069336,
+        "worst_estoi_delta": -0.0002505338067895213
+      }
+    },
+    {
+      "source": "audio/h2h4/en_013_marked.wav",
+      "marked": true,
+      "pesq_v2": 4.54224967956543,
+      "pesq_v3": 4.531327724456787,
+      "pesq_delta": -0.010921955108642578,
+      "estoi_delta": -0.00013873014882692658,
+      "v3_output_peak": 0.4907718598842621,
+      "quality_decision": {
+        "fraction": 0.125,
+        "reason": "quality_limits_met",
+        "worst_pesq_delta": -0.010921955108642578,
+        "worst_estoi_delta": -0.00013873014882714862
+      }
+    },
+    {
+      "source": "audio/h2h4/en_014_marked.wav",
+      "marked": true,
+      "pesq_v2": 4.477237701416016,
+      "pesq_v3": 4.477237701416016,
+      "pesq_delta": 0.0,
+      "estoi_delta": 1.1102230246251565e-16,
+      "v3_output_peak": 0.6041476726531982,
+      "quality_decision": {
+        "fraction": 0.0,
+        "reason": "quality_baseline"
+      }
+    },
+    {
+      "source": "audio/h2h4/en_015_marked.wav",
+      "marked": true,
+      "pesq_v2": 4.589373588562012,
+      "pesq_v3": 4.582683563232422,
+      "pesq_delta": -0.006690025329589844,
+      "estoi_delta": -0.00010858737424734866,
+      "v3_output_peak": 0.7302724123001099,
+      "quality_decision": {
+        "fraction": 0.25,
+        "reason": "quality_limits_met",
+        "worst_pesq_delta": -0.006690025329589844,
+        "worst_estoi_delta": -0.00010858737424734866
+      }
+    },
+    {
+      "source": "audio/h2h4/en_016_marked.wav",
+      "marked": true,
+      "pesq_v2": 4.5909223556518555,
+      "pesq_v3": 4.579559803009033,
+      "pesq_delta": -0.011362552642822266,
+      "estoi_delta": -0.00047948728591540313,
+      "v3_output_peak": 0.8101736903190613,
+      "quality_decision": {
+        "fraction": 0.25,
+        "reason": "quality_limits_met",
+        "worst_pesq_delta": -0.011362552642822266,
+        "worst_estoi_delta": -0.0004794872859152921
+      }
+    },
+    {
+      "source": "audio/h2h4/en_017_marked.wav",
+      "marked": true,
+      "pesq_v2": 4.605220794677734,
+      "pesq_v3": 4.591238021850586,
+      "pesq_delta": -0.013982772827148438,
+      "estoi_delta": -0.0004018024410566978,
+      "v3_output_peak": 0.9232007265090942,
+      "quality_decision": {
+        "fraction": 0.25,
+        "reason": "quality_limits_met",
+        "worst_pesq_delta": -0.013982772827148438,
+        "worst_estoi_delta": -0.0004018024410566978
+      }
+    },
+    {
+      "source": "audio/h2h4/en_018_marked.wav",
+      "marked": true,
+      "pesq_v2": 4.582451820373535,
+      "pesq_v3": 4.5693535804748535,
+      "pesq_delta": -0.01309823989868164,
+      "estoi_delta": -0.000628460831530675,
+      "v3_output_peak": 0.9256357550621033,
+      "quality_decision": {
+        "fraction": 0.25,
+        "reason": "quality_limits_met",
+        "worst_pesq_delta": -0.01309823989868164,
+        "worst_estoi_delta": -0.000628460831530675
+      }
+    },
+    {
+      "source": "audio/h2h4/en_019_marked.wav",
+      "marked": true,
+      "pesq_v2": 4.490952014923096,
+      "pesq_v3": 4.490952014923096,
+      "pesq_delta": 0.0,
+      "estoi_delta": 0.0,
+      "v3_output_peak": 0.5836899876594543,
+      "quality_decision": {
+        "fraction": 0.0,
+        "reason": "quality_baseline"
+      }
+    },
+    {
+      "source": "audio/h2h4/hi_031_marked.wav",
+      "marked": true,
+      "pesq_v2": 4.59468936920166,
+      "pesq_v3": 4.587906360626221,
+      "pesq_delta": -0.006783008575439453,
+      "estoi_delta": -0.0002481531643091506,
+      "v3_output_peak": 0.1922571063041687,
+      "quality_decision": {
+        "fraction": 0.125,
+        "reason": "quality_limits_met",
+        "worst_pesq_delta": -0.006783008575439453,
+        "worst_estoi_delta": -0.0002481531643091506
+      }
+    },
+    {
+      "source": "audio/h2h4/ta_042_marked.wav",
+      "marked": true,
+      "pesq_v2": 4.586214065551758,
+      "pesq_v3": 4.5770087242126465,
+      "pesq_delta": -0.009205341339111328,
+      "estoi_delta": -0.0004356391788811198,
+      "v3_output_peak": 0.9024907350540161,
+      "quality_decision": {
+        "fraction": 0.125,
+        "reason": "quality_limits_met",
+        "worst_pesq_delta": -0.009205341339111328,
+        "worst_estoi_delta": -0.0004356391788811198
+      }
+    },
+    {
+      "source": "audio/h2h4/tl_045_marked.wav",
+      "marked": true,
+      "pesq_v2": 4.593115329742432,
+      "pesq_v3": 4.585259437561035,
+      "pesq_delta": -0.007855892181396484,
+      "estoi_delta": -0.00021485544866217676,
+      "v3_output_peak": 0.9363113641738892,
+      "quality_decision": {
+        "fraction": 0.125,
+        "reason": "quality_limits_met",
+        "worst_pesq_delta": -0.007855892181396484,
+        "worst_estoi_delta": -0.00021485544866217676
+      }
+    },
+    {
+      "source": "audio/h2h4/en_004_clean.wav",
+      "marked": false,
+      "pesq_v2": 4.572075843811035,
+      "pesq_v3": 4.5637736320495605,
+      "pesq_delta": -0.00830221176147461,
+      "estoi_delta": -0.00012935544647518782,
+      "v3_output_peak": 0.9757721424102783,
+      "quality_decision": {
+        "fraction": 0.125,
+        "reason": "quality_limits_met",
+        "worst_pesq_delta": -0.00830221176147461,
+        "worst_estoi_delta": -0.00012935544647518782
+      }
+    },
+    {
+      "source": "audio/h2h4/en_008_clean.wav",
+      "marked": false,
+      "pesq_v2": 4.56554651260376,
+      "pesq_v3": 4.558126449584961,
+      "pesq_delta": -0.007420063018798828,
+      "estoi_delta": -0.0002581982069670419,
+      "v3_output_peak": 0.9934414029121399,
+      "quality_decision": {
+        "fraction": 0.25,
+        "reason": "quality_limits_met",
+        "worst_pesq_delta": -0.007420063018798828,
+        "worst_estoi_delta": -0.0002581982069672639
+      }
+    },
+    {
+      "source": "audio/h2h4/en_009_clean.wav",
+      "marked": false,
+      "pesq_v2": 4.517589092254639,
+      "pesq_v3": 4.50624418258667,
+      "pesq_delta": -0.01134490966796875,
+      "estoi_delta": -0.00041013701272807346,
+      "v3_output_peak": 0.5155929327011108,
+      "quality_decision": {
+        "fraction": 0.125,
+        "reason": "quality_limits_met",
+        "worst_pesq_delta": -0.01134490966796875,
+        "worst_estoi_delta": -0.0004101370127282955
+      }
+    },
+    {
+      "source": "audio/h2h4/en_010_clean.wav",
+      "marked": false,
+      "pesq_v2": 4.581747055053711,
+      "pesq_v3": 4.574899196624756,
+      "pesq_delta": -0.006847858428955078,
+      "estoi_delta": -6.669970444195261e-05,
+      "v3_output_peak": 0.9854042530059814,
+      "quality_decision": {
+        "fraction": 0.125,
+        "reason": "quality_limits_met",
+        "worst_pesq_delta": -0.006847858428955078,
+        "worst_estoi_delta": -6.669970444195261e-05
+      }
+    }
+  ],
+  "used_to_retune": false,
+  "criterion_correction": "InitialcheckerroneouslyrequiredabsolutePESQ>=4.5oneveryfreshfile. FrozeninferencepolicyandfreezeJSONexplicitlydefinefloorORbaseline:ifV2below4.5theguardmustnotworsenit. Model/thresholdsunchanged. Native17gateshadpassedbeforetest. Thisreportretainsabsolute-missinformationandchecksoriginalper-filebounds.",
+  "violations": []
+}

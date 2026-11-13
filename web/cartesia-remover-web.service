@@ -1,0 +1,16 @@
+[Unit]
+Description=Private audio watermark tester
+
+[Service]
+Type=simple
+# Replace /path/to/cartesia-watermark with your checkout's absolute path.
+WorkingDirectory=/path/to/cartesia-watermark
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
+ExecStart=/path/to/cartesia-watermark/.venv/bin/python tools/serve_remover.py --host 127.0.0.1 --port 7860
+Restart=on-failure
+RestartSec=5
+UMask=0077
+NoNewPrivileges=yes
+
+[Install]
+WantedBy=default.target

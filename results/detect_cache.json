@@ -1,0 +1,2172 @@
+{
+ "89e7754e267650a5548baa5dd24b9998a0398b8f": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "orig"
+ },
+ "f69be2d67ac336c0be3f9b503e88ed321c0c6014": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "orig"
+ },
+ "f2f5d99dcdb09623b6e2e6dc3ac23746de492aa3": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "gain-20dB"
+ },
+ "16f0ae041257411f749db89c5febf10f986b66b6": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "gain-20dB"
+ },
+ "220728d54c37bb4d41b48d0e227af7ade72947c1": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "invert"
+ },
+ "e497ac79bad212152c5baec016099b465942a090": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "invert"
+ },
+ "c4c91c11d69526bb3d46950075a8454cb364fe26": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "reverse"
+ },
+ "85adc0443e19cf18828d4c54409239621e1246b8": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "reverse"
+ },
+ "3b89ba38faae1ee2be1fdb9e0bd39d1961ead6ef": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "first5s"
+ },
+ "b0e9286cd5ba3ec0db0df1563cc6235117e02b0a": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "first5s"
+ },
+ "baba1d4ac893ccc9c3433e2e4db9d663f4b3b3ca": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "last6s"
+ },
+ "e3054986cd0f70137e1534f36ccb0c4e3cda08c0": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "last6s"
+ },
+ "d115d6ff225dc44d6b0437a2e6b67c30c3800933": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "shift1"
+ },
+ "34e26856353719d2b64fd9f47d49b02cda7f5bd7": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "shift1"
+ },
+ "d74d722e9bc420e56c4dea71ee60a4d4a7ba372c": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "shift257"
+ },
+ "f07bcacad0853bd55f873283129532c5d8512ceb": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "shift257"
+ },
+ "919f5973aee8156cc8b569936f187d8e0028a81a": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "lp8k"
+ },
+ "ca0c149d3a880ef426b6d30b489d90658b9d3229": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "lp8k"
+ },
+ "6d70abdaeeadc8b4c1b994ffcab63f1879dcbe03": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "lp4k"
+ },
+ "bb3aa74a562c9957b2adbc718e3bea3b98b14a8f": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "lp4k"
+ },
+ "47463c3d9c5db125c71717b54d43afa91d848fdc": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "lp2k"
+ },
+ "34072e0d0e92a4ed47f1ec9b8099b03d7ba9b891": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "lp2k"
+ },
+ "0fcdc15ba4ee1132c94a91ed3faebc12101a0a6a": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "lp1k"
+ },
+ "cc60765697a1ca317a4c22804889a442bda3ed27": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "lp1k"
+ },
+ "5fdf4a24179bd027d0e0f733a52fe728b75b4fb9": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "hp1k"
+ },
+ "60d65d7731e1d5a783144d57e888c1bd4c6b9076": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "hp1k"
+ },
+ "c16c9df0fed6b8e741cc6a9964ef18b8c19afe1a": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "hp4k"
+ },
+ "22bf2f2eef66fcdf9e78e64373ccf57a757d95d5": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "hp4k"
+ },
+ "26c7222903a97c5ac19af513e7969a97c89d87f6": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "hp8k"
+ },
+ "64bf011c34d37dbe029eb9cc6d72ce95d5d2f8a9": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "hp8k"
+ },
+ "97db0806f2cbd84a3cfdba0f9b56d5f6bdcb10dc": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "rs16k"
+ },
+ "c423f939338ed8d4261459ecaa4fc10357d0238a": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "rs16k"
+ },
+ "27fc681687ac7eaed955f9ade56adf9be61c1345": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "rs8k"
+ },
+ "16938f5b38c46715e1f2ca63cef6585cc186f7ad": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "rs8k"
+ },
+ "35558884210c240267ec34a1ba208657345358b3": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "mp3_64k"
+ },
+ "bf0f45a467da2d78e4ad3a3344e5c12e96025298": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "mp3_64k"
+ },
+ "ad17013c73b46c68929b2a0a5a6f8dbba558a11d": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "mp3_32k"
+ },
+ "023a295aa1770a1f4043ecab8b673b7d9b9b77e9": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "mp3_32k"
+ },
+ "2f582d258fdb1dd70a4b7bab7d6a4cf40330efae": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "opus_16k"
+ },
+ "33777794a1c52cc2053613dede144534bba2c347": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "opus_16k"
+ },
+ "96033f97296acfe08cb132780129ea8ea07485e5": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "snr20"
+ },
+ "f364d6fb063fb70de460d6aebe80790226991a18": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "snr20"
+ },
+ "08439f5a5d75d7d6f5d897ec6480d56a1c7cba1e": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "snr10"
+ },
+ "de20f45fc419a0c03428abe9170cb521af68f590": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "snr10"
+ },
+ "454b17803f09941ad15c05893aa7fa750285c4f1": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "snr0"
+ },
+ "6888ad72be510d518cfb5b4a281183a983ed3320": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "snr0"
+ },
+ "564a85aaa8d0079b60e566129490693bc1fb664e": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "speed1.05"
+ },
+ "48b0c8009bffc3922dd3d7f7e97e6fcc2fefa2fd": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "speed1.05"
+ },
+ "f4a308578b00dabc3c3723ff6466462e171a8a6e": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "neg"
+ },
+ "05fea311cb42d20b6bfd5230bc1c1aedb869b935": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "neg"
+ },
+ "d54b7cd4dc513d024ebab9881292c8acc724fb83": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "neg"
+ },
+ "a6ef48385396f9838091a5a3f452629bdd31114b": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "neg"
+ },
+ "8b32b8f21af34724df2682fee3e9c00657bc3425": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "neg"
+ },
+ "56a0fdf03052ee2180a203441bda849a66d26f26": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "neg"
+ },
+ "8953f26de4ab71ccbd251fe5cb9c2d29777e9405": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "neg"
+ },
+ "f04041a0e23dddcd61b72f9a95ffb743521f20da": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "zeros6s"
+ },
+ "97db32a048f9c0626d5c3ca2b1b9d6a985c1d0aa": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "white"
+ },
+ "d855a32ad9ad42e0cf55359d1be571f85ad91418": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "sine1k"
+ },
+ "d22e5be4b6e8b8d68f2e17e8d7e50b0a7b7db22a": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "lpnoise"
+ },
+ "4cd48997a4dbdef4bce030db980ee0b92533d259": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "bp"
+ },
+ "c95659d00bc81b7f6156c771fba4aecdbd9c3bbf": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tx"
+ },
+ "50aeec9c0d5d770fca8909ffc88ac1ba4a636f42": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tx"
+ },
+ "cd9fdc812373731a492f7187231f58b8e0cdc59a": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "bp"
+ },
+ "fa1d465e9be7e1a9946226561aa9d909d6d22b54": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tx"
+ },
+ "3e06eb5f09845e96f1c4b882bed5ae402cb00dd7": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tx"
+ },
+ "c181a8a74605c489475bc5e01faff96dcf383f52": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "bp"
+ },
+ "401b8cfacc3c4f55f87190849f0aff94b4a6717a": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tx"
+ },
+ "3a01b72b30cec6bb6d4d3038d29466916650bd55": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tx"
+ },
+ "2e5ff167f30f806c47f5c012948b5103054a3010": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "splice"
+ },
+ "e018699a97d561891e084db69b3c1d8719240fa6": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "splice"
+ },
+ "82050798f748c9b0c48dacf585e514467518604d": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "splice"
+ },
+ "50bffc2ce488b44cb75fc0737bdc1b2e5dca03f7": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "win"
+ },
+ "d4ddc1d030302f933893b22b81e1e1044a797f15": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "win"
+ },
+ "69296be5564de6a0b241928f12b49e627cfde16a": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "win"
+ },
+ "a4d00452564a75bad6d2d8de500aff48c2618630": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": ""
+ },
+ "3c0ed55e41d5deff6e7f3a346c1563e0e1785fc4": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": ""
+ },
+ "c29cbac48198c83f102645d48197797e9e3818c2": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": ""
+ },
+ "b2f5686befeb0c6ed0a2e3ae4a4bbfe5fbea211a": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": ""
+ },
+ "e33a6cddd39e9a78b843fb00d442f6ef10670dd3": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": ""
+ },
+ "f93b3799dfe2b189ba85cb558250c5cdc6470c82": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": ""
+ },
+ "a585753d72a70ee9b22da1036de7fc02e320a698": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": ""
+ },
+ "22b72281ecc3e42cb19727ed5a59979a823814be": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": ""
+ },
+ "e82c54c5833b54c91a52167c39ade1c47827f3c4": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": ""
+ },
+ "5aeb988cbaf99e00833c0f78d6eb25f0b8feae3d": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": ""
+ },
+ "b129b957b49e8fcbe80d66b9bcc9c69dfb8b8e8a": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": ""
+ },
+ "d43f61cbfff1c33c1b8a8318143ae7d23a63a706": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": ""
+ },
+ "bf2d43efe090b345b3bf66253d6db252614dfba5": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": ""
+ },
+ "0c7cb96b29f1c6708a36209bd6a2a35a25ef9e75": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": ""
+ },
+ "b25aafe43db5294387b72336f0b88e5fa20bacd0": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": ""
+ },
+ "2d9f5892b53be6a212006ada623c9508d6c9a8c1": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": ""
+ },
+ "1dc5a437788fe58ebf974c2e0614f3b72f1601af": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": ""
+ },
+ "5bcf5d6a2612e8ccd86a4862949d1f464935d721": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": ""
+ },
+ "ea32349fb637858730053172965f4833bec13e7f": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": ""
+ },
+ "ff2612759dd9c3aed20c5face9bea9a2a9327bf6": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": ""
+ },
+ "97d9e2cc3bbf59b2ad4a685c11bb0b9fb4810693": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": ""
+ },
+ "4de040d9684fa1bb11034f345ab223646ba28f79": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": ""
+ },
+ "dba3f9f9c142cae8ba86f632158c75853b5e9833": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": ""
+ },
+ "fdcd40e13ef2b81ea518aeb79f685816a315d7e0": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": ""
+ },
+ "0252f83a6f27bebdf8d50f93d77a228707bc74de": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": ""
+ },
+ "2cfe9bee94a13bd29d788c93a6c631150e25e58c": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": ""
+ },
+ "9fc698e7aafecb11b1732b1d19208c8abbc25fe8": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": ""
+ },
+ "dfae8443d4638e71dce6a39e1656aa3ccfa1f942": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": ""
+ },
+ "c21c8dad816a1f2840d97f6410226591d8ffdeb5": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": ""
+ },
+ "21bbffab470f3005bbd8e0f8f3d683e13d012c5e": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": ""
+ },
+ "43aceee1bfc262dc14e3d673af6bb1bf5323e32f": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": ""
+ },
+ "fff01b15a5f49d8a25cf00aad765654ac08b2d2d": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": ""
+ },
+ "38b6b100dd0d90f9bb7f74a0779a3c6c477ae531": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": ""
+ },
+ "ad0bed30752579a3e9230097df2f13b9f3106a8e": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": ""
+ },
+ "a4f9609d08bb1c9f5c4526eb47296e6ffe076bfc": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": ""
+ },
+ "612b851b1d8a3e6ca21d16f8e320f295fe595725": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": ""
+ },
+ "fb030ca116ddff01e9e49bed454d64fffab12134": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": ""
+ },
+ "9882650e7a985d188d20d7ac8281886f99baa251": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": ""
+ },
+ "58a5ff326427feab374268d0e340ab455291f6d8": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "nat_t0_v24_sonic-3.6"
+ },
+ "df6257c7dda62dc4d69e1a9feef726202ee7fea5": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "nat_t0_v24_sonic-preview"
+ },
+ "19e2cef0e38baf40789830143b5a84fe13655575": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "nat_t0_v24_sonic-3.5"
+ },
+ "489b7005502a1875364cff5b79e0c9c0b84a7495": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "nat_t0_v24_sonic-3"
+ },
+ "9ab94d4ae13cb7913a9b29af872ac304a1cce72d": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "nat_t1_v24_sonic-3.6"
+ },
+ "92dee75676a67165a3e0a491f994ecacf59c9dc6": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "nat_t1_v24_sonic-preview"
+ },
+ "37463cc255ebcd171b9aaebf17ea74cefe0df9fe": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "nat_t1_v24_sonic-3.5"
+ },
+ "e84d4a1c55671a7f7a6c7bd6670b71563ff19ec3": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf000_bandswap_bandswap_t0_v15_sonic-3"
+ },
+ "d9d86e707aa068d2af7ef7835432a7f556f247e4": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf001_bandshift_shift33ms_t2_v14_sonic-3"
+ },
+ "ac6fdf4658bc6db9ab23ad70fb5b6891e0b76cf7": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf002_lowpass_lp4094_t1_v20_sonic-3.5"
+ },
+ "d2b56050328912c7f76be83c21437c722fc0714f": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf003_highpass_hp1595_t1_v11_sonic-preview"
+ },
+ "a2ed2bb6dbfc57a0210200bc27b04abf970cd0e0": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "tf004_bandswap_bandswap_t2_v21_sonic-3.6"
+ },
+ "14761db85e236e30a96eb55565c9b971da958f7c": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf005_highpass_hp2557_t0_v11_sonic-preview"
+ },
+ "7c8a510102f61526162dbc216e26fcf78bb08cab": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf006_mix_mix0.68_t2_v23_sonic-3.6"
+ },
+ "16e8b765f7905fa0de49fb1e73d284709d21a5fe": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf007_lowpass_lp2577_t3_v13_sonic-3.6"
+ },
+ "ab779d34b269aab55618a39b31cd10d9c33260d3": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf008_bandshift_shift43ms_t3_v19_sonic-preview"
+ },
+ "4459f992be1ac6dc6ede1309b22ee0605ede981d": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf009_lowpass_lp2911_t4_v02_sonic-3.5"
+ },
+ "1d01b5b43bee4c4c6b9a33a3d240bd3492f169cb": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf010_snr_snr_t5_v14_sonic-3.6"
+ },
+ "0714b49a7506f7de3b23e54f9887893e1dbe0d23": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf011_bandswap_bandswap_t3_v21_sonic-3.6"
+ },
+ "f6fc82f44277c8f64f0abb7a7842bb1e932ae750": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf012_bandswap_bandswap_t5_v09_sonic-3.5"
+ },
+ "bd1c5132d0948d40828f9007940eeec114c7d1da": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf013_bandshift_shift46ms_t4_v08_sonic-3.6"
+ },
+ "f3da2f51366876ef9dff82f84a4a6d454627133d": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf014_splice_splice1.0s_t4_v06_sonic-preview"
+ },
+ "8714f2419c4438b3b3c9c5e4a5aecfc281f888dc": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "tf015_lowpass_lp4117_t2_v03_sonic-3.6"
+ },
+ "4a89c4149105a63d4c7396053794728efdddf0d5": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf016_highpass_hp1904_t2_v04_sonic-3"
+ },
+ "fcdce00dec469f4facffb3e92afbf628d569d659": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf017_highpass_hp2305_t4_v04_sonic-3.5"
+ },
+ "57a2d303cd6f2931d5b1294bcdf8838e4be771a5": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf018_bandshift_shift38ms_t4_v21_sonic-preview"
+ },
+ "c9a614bfc610c28075405983ef3f489bba2be6e4": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf019_highpass_hp2693_t0_v16_sonic-3.5"
+ },
+ "9094ad9632a166f7049bc28fc7b7fdbf8de83a78": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf020_highpass_hp3264_t4_v12_sonic-3"
+ },
+ "6260fa6692ff9f036517fb5f9139163962e1d4cd": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf021_splice_splice1.1s_t1_v07_sonic-3.5"
+ },
+ "d34173a265e32bfe65b94a9f718c6d7828698a16": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf022_bandswap_bandswap_t4_v02_sonic-preview"
+ },
+ "af72c53745a23bd98d537561f9b7d36c2dd860c6": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf023_mix_mix0.75_t0_v17_sonic-3.5"
+ },
+ "d4986aacd6b2530320de47d4cbe76fa9a7d07712": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "tf024_snr_snr_t0_v06_sonic-preview"
+ },
+ "3e2a8b8b6c2cec0e8826aee7e7584df46d0df5fe": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf025_bandswap_bandswap_t5_v19_sonic-3.6"
+ },
+ "99312658b6b8152d1018c0e307a0846c2295f06d": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf026_lowpass_lp3593_t1_v18_sonic-3.5"
+ },
+ "77a91b38b5a7efee4e336f818301697369f5a515": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf027_bandswap_bandswap_t4_v23_sonic-preview"
+ },
+ "5eff2ce8aa28bf35d7a73d5a7c7df09785cb8682": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf028_bandswap_bandswap_t2_v20_sonic-3"
+ },
+ "919cd330946c65ff1ad6327027a3c675ca9caff8": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf029_lowpass_lp3115_t5_v23_sonic-3"
+ },
+ "66e1f71c62837c44e3fe33f8e15cca4379f6ff2d": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf030_mix_mix0.52_t2_v03_sonic-3.5"
+ },
+ "f4ac0fe8d50af6a415bfc950d331588a357df13c": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "tf031_highpass_hp1031_t4_v17_sonic-3.6"
+ },
+ "ba93a5ea4f001ff981afb843d911cfc856c078a3": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf032_mix_mix0.25_t1_v08_sonic-3.5"
+ },
+ "9c682678345449425ddcba85cae08e3f77597a70": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf033_snr_snr_t5_v04_sonic-3.5"
+ },
+ "c9417108c855f4ccce958c5b1492e2f93cf14443": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "tf034_splice_splice1.7s_t2_v07_sonic-3.5"
+ },
+ "2659a5364c299b322e09808fbb3c6203310de28b": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "tf035_lowpass_lp3117_t1_v04_sonic-3.6"
+ },
+ "68730163d21cd7bc41c2c1aa49c4c936127fa8d0": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf036_bandswap_bandswap_t4_v02_sonic-preview"
+ },
+ "b2a5f9370465c78b9f945d77388982326f331763": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf037_mix_mix0.61_t0_v00_sonic-3.6"
+ },
+ "a48662d726f00707a21584cf6dff0a997675710d": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf038_mix_mix0.58_t4_v21_sonic-preview"
+ },
+ "1514e42c607af6c926c4a92ef303ccf3d7905094": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf039_snr_snr_t2_v03_sonic-3"
+ },
+ "c2bf41a21dfdff631787c250f6d5ea93b6e754f4": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf040_bandswap_bandswap_t4_v02_sonic-3.6"
+ },
+ "a7bf9405c028d98ff2e14f54ad270c681158094a": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "tf041_snr_snr_t5_v07_sonic-preview"
+ },
+ "9cc035d5f9b80cf5257a3ebe73b993b3bd64b280": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf042_snr_snr_t5_v08_sonic-3"
+ },
+ "6f1b356f1071b3cc6ff227c97c7d20de408c2add": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "tf043_bandswap_bandswap_t0_v23_sonic-3.6"
+ },
+ "4f35fec5efc3f42ecc609a67c425a5cf180052e4": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf044_highpass_hp2021_t0_v21_sonic-3"
+ },
+ "8df7dce17af626d348940665fee7442ed8379a28": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf045_bandswap_bandswap_t1_v03_sonic-3.5"
+ },
+ "ded9ed3cacef78c5f64d57e0f7994a3e21f05a24": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf046_snr_snr_t3_v13_sonic-3.5"
+ },
+ "b982aea734578c67995f2c438ca73518e4534241": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf047_splice_splice1.4s_t3_v18_sonic-3.6"
+ },
+ "789302cb93e457ab6469c3602b239a571c9439a5": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf048_snr_snr_t1_v14_sonic-3.6"
+ },
+ "46648a59170667920d00dfe6b5c4e7f3821616b2": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf049_bandshift_shift27ms_t4_v17_sonic-3.5"
+ },
+ "4aaaf81c477689835ed3a9165f4a1ec8be5c2487": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf050_splice_splice1.6s_t5_v02_sonic-preview"
+ },
+ "ed5bc0ff411f4878b5576100042849e9d1fe939d": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "tf051_splice_splice1.2s_t4_v12_sonic-preview"
+ },
+ "4fe5454e68b2906552954919dab868e07240a4a0": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf052_bandshift_shift118ms_t3_v21_sonic-3.6"
+ },
+ "83a9690b6104ed61b853460d447ba42145a42c7a": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf053_mix_mix0.57_t3_v00_sonic-preview"
+ },
+ "88b2af23bf254a52eb9daa2ebc886c05f5df4968": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf054_mix_mix0.75_t4_v20_sonic-3"
+ },
+ "f20a9a650c1add40363343513829eaf143053122": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf055_bandshift_shift29ms_t5_v14_sonic-3.5"
+ },
+ "16ad3a7e3a455f621e96f2ab942d25842e115c15": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf056_bandshift_shift117ms_t5_v19_sonic-preview"
+ },
+ "8ef0778b08a92765d8cd09f29fa645cb67f0cd96": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf057_snr_snr_t2_v03_sonic-3"
+ },
+ "f9e3fc8181d22f87eceede5aa5796de191bfd6cf": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf058_mix_mix0.55_t2_v19_sonic-3.6"
+ },
+ "8d902ddf57bc69c5483a2a280c50c1a49b050002": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf059_splice_splice1.2s_t2_v17_sonic-preview"
+ },
+ "31f705f94d5da003f9c33dd254278c12c09a4760": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf060_highpass_hp1770_t2_v23_sonic-3.5"
+ },
+ "56e288963aeadaeb3650d07fe06bd81f94c81b3d": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf061_highpass_hp2236_t3_v11_sonic-preview"
+ },
+ "fbdf37fd679e7174786e0007210ff55173bd56c5": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf062_mix_mix0.76_t0_v22_sonic-3"
+ },
+ "e856027c66cce60acec314d8b336ec0671e46d97": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "tf063_snr_snr_t1_v12_sonic-preview"
+ },
+ "b9d6c8c3696645a49b997369b4d1c95036524af2": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf064_splice_splice1.6s_t3_v22_sonic-preview"
+ },
+ "c43ed6aea927acd617eaa16d5df2f7101fb1604c": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf065_lowpass_lp2795_t3_v02_sonic-3"
+ },
+ "3dc79df1886c74f59e84ed2ccc12f154c4960c15": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf066_bandswap_bandswap_t5_v23_sonic-3"
+ },
+ "becaef5bb8df3ece71d2e1d153813555ea68186b": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf067_snr_snr_t0_v16_sonic-preview"
+ },
+ "bb0d24080092a9dc32c60ddc3a2ccb18fdaa35df": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf068_bandshift_shift94ms_t4_v16_sonic-preview"
+ },
+ "68d56991dd3e74c88ce8f8098be19f99e4ab35aa": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "tf069_lowpass_lp3442_t3_v02_sonic-3.6"
+ },
+ "c579858f7d8c9d0e523c7084c14b187ae29c4502": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf070_bandshift_shift111ms_t0_v16_sonic-3.5"
+ },
+ "c1e9ccc689cdd42487d53f837374ee37908a049e": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf071_bandswap_bandswap_t4_v08_sonic-3"
+ },
+ "5089a33619de4bf758a6078a982a61619008fbe3": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf072_mix_mix0.24_t0_v06_sonic-3.6"
+ },
+ "6a65b0e0649e8a4b01603638247bedb3bb70ec92": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf073_lowpass_lp2472_t0_v12_sonic-3"
+ },
+ "e19eefc3ca6198fcf9db58560251c58fd47ec4cf": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "tf074_splice_splice2.3s_t5_v00_sonic-3.6"
+ },
+ "59d8ab26c1c112f026271ed690b0217dbfcf7ea9": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf075_highpass_hp2127_t0_v08_sonic-3.6"
+ },
+ "43c735fe663bd28281159cf8f35fae41a75f2fb3": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "tf076_highpass_hp1926_t2_v11_sonic-preview"
+ },
+ "5151066815922b5ebe15e5544b011ffaebcff2e3": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf077_mix_mix0.68_t3_v04_sonic-preview"
+ },
+ "985587947f3a0475692c5ad9dfe79d3f24be2055": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf078_bandswap_bandswap_t0_v22_sonic-3"
+ },
+ "14f642d3e719e937d18388555891a33df35e11f1": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf079_snr_snr_t0_v16_sonic-3.5"
+ },
+ "2f623f50f11fd96ce426127565ebee3fc403aa9b": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf080_bandswap_bandswap_t5_v06_sonic-3.5"
+ },
+ "2d03326120ad165fa859cf4edd92c4720b5626a0": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf081_highpass_hp2265_t1_v04_sonic-3.5"
+ },
+ "8f70d625de73e8a01d527f850ecd061d06d208f9": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf082_bandshift_shift34ms_t0_v02_sonic-3.6"
+ },
+ "fa62d75bd05425a6777be2e84f2fd0c15fb372ae": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "tf083_splice_splice1.6s_t2_v19_sonic-3.5"
+ },
+ "d0ec2ba355d03b37234e7169630a363e1cfd87fc": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf084_bandshift_shift93ms_t5_v21_sonic-3.6"
+ },
+ "ad0b8d5367efc5033afd02eeba28bf504d7035df": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf085_lowpass_lp2279_t3_v22_sonic-3"
+ },
+ "3782b9fa7c3ae375aa9c23f00473fcf0bd6736b4": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "tf086_bandshift_shift99ms_t3_v08_sonic-preview"
+ },
+ "0d5dc08cb4bc340cfcd59bbb9a7b94d90abff1eb": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf087_highpass_hp1365_t1_v00_sonic-3.5"
+ },
+ "9d63f4f8a6b998f44b64f1908afe8addad8633fa": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "tf088_splice_splice1.5s_t2_v12_sonic-3.5"
+ },
+ "c5e5f3c52f1a1f59eddefbf8499d3b64d65ed1d4": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf089_bandswap_bandswap_t2_v03_sonic-3.5"
+ },
+ "2588b8aad192cf960a4d8bfe8994f187a9073e9d": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf090_bandswap_bandswap_t2_v02_sonic-3.6"
+ },
+ "e2dfac8c2ef0fe51d95e373627ab11dab9bf29c8": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf091_splice_splice0.9s_t2_v20_sonic-preview"
+ },
+ "a601460f3dc351f20e9bf0909eb1038e88dea874": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf092_bandshift_shift62ms_t1_v19_sonic-3"
+ },
+ "e85fddd1ea67c011f6a447354e3d70091d348454": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf093_bandshift_shift111ms_t5_v17_sonic-3.6"
+ },
+ "120730bba145b6f6f8a754f67175e3a8d855ded1": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf094_splice_splice1.7s_t1_v11_sonic-3.6"
+ },
+ "373226f50e4d85a868729fc4159512040dac1e20": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "tf095_bandswap_bandswap_t3_v11_sonic-3.6"
+ },
+ "7dd2ff6ffbd5d6b798c4eef14a4d22848e2923ea": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf096_bandswap_bandswap_t3_v11_sonic-3.5"
+ },
+ "140809cce840c4e2d7f4fe26aad0e0ba6b93e547": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf097_snr_snr_t3_v19_sonic-3.6"
+ },
+ "f2382d864667fcc79512762491d56007f2443bb0": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf098_lowpass_lp2655_t0_v12_sonic-3.5"
+ },
+ "20f3b7b81ecf015175776796398f2406aa218407": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "tf099_lowpass_lp2770_t3_v17_sonic-3.6"
+ },
+ "8ecbee6c6596e3be23b34c4cc288b06b0dd030ad": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf100_snr_snr_t5_v12_sonic-3.5"
+ },
+ "de1739493e667a269006bda09ab08370038e759c": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf101_mix_mix0.55_t5_v07_sonic-preview"
+ },
+ "09a7c6b8fade85a513bc602100f9c5bbca964ec9": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf102_highpass_hp1370_t0_v22_sonic-3"
+ },
+ "32aec8ed48dba902afa609c13c6fdc53a6a75da6": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf103_snr_snr_t5_v08_sonic-3.6"
+ },
+ "1272b8a928a4e11ff13af3e1e90565277165fc82": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "tf104_splice_splice2.4s_t0_v14_sonic-3.6"
+ },
+ "29b7afdb1fb4ebfff3df0fdf2ae8bab4d3520d76": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf105_snr_snr_t4_v19_sonic-3"
+ },
+ "5d8b1b8f0a6b593b30501f6c8df20b9b398fb65b": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf106_bandshift_shift91ms_t4_v17_sonic-3"
+ },
+ "589f3148990dcee3ebd9305c9440b585c26fb328": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf107_mix_mix0.35_t0_v15_sonic-preview"
+ },
+ "ce4f361160e82bfdea9f68e95f681adf4f5e08e3": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf108_bandshift_shift33ms_t4_v10_sonic-preview"
+ },
+ "51fdb204b29d5da64d27b58e6c31c50792f3d74e": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "tf109_bandswap_bandswap_t1_v15_sonic-preview"
+ },
+ "41f048375aa25916a236eaf76a6f533845024014": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf110_bandshift_shift113ms_t5_v03_sonic-3.6"
+ },
+ "20850b30caf8e7b41d614deb3c6465dbe663b4a8": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf111_snr_snr_t1_v23_sonic-3"
+ },
+ "ab0d10d4d4af7b560da7138a4d726d107f7297d6": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf112_snr_snr_t2_v14_sonic-3"
+ },
+ "2f94c3469e17f72bc0d14de53c28f6126e3d6885": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf113_splice_splice0.9s_t4_v08_sonic-3.6"
+ },
+ "79d8d2b71075c343dea46b8baa1cf9f9a401abe4": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf114_splice_splice1.2s_t3_v08_sonic-3.6"
+ },
+ "bf5234632fca698c8b57c65d1e8845ff7d323dc9": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf115_lowpass_lp3950_t1_v19_sonic-3.5"
+ },
+ "394c03d2cbcd2e3bbb7dc6ff5de7b5a95b6b6de4": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf116_snr_snr_t4_v06_sonic-3"
+ },
+ "2f706f46a8d846ea459707f734d4967129e8c419": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf117_lowpass_lp2376_t3_v18_sonic-3"
+ },
+ "f146fbd327290c74a4c72a03e06f801226f6fc7b": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf118_mix_mix0.63_t3_v17_sonic-3.5"
+ },
+ "f0f4e56662f085ac9fc42e9c33afaa9568f32f85": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf119_mix_mix0.76_t4_v19_sonic-preview"
+ },
+ "04e59e4133a7433c0a2edf264fffe1502ae6b023": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "tf120_splice_splice1.7s_t5_v12_sonic-3.6"
+ },
+ "a6e2110a678b467b51e4c80872bab0660cd80662": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf121_mix_mix0.25_t0_v12_sonic-3.5"
+ },
+ "77e9b9fee1b6e33c285edca091f5af288b6936b5": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf122_highpass_hp2275_t4_v10_sonic-preview"
+ },
+ "5a3f9065f3addd46bd0c4e552b397164d31a5265": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "tf123_bandswap_bandswap_t4_v14_sonic-preview"
+ },
+ "942dc6a33702ed2b5eef59aa151569dde46cae71": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf124_bandshift_shift116ms_t0_v03_sonic-3"
+ },
+ "c6c3af84066fb4a9b74b1fa9f5cb5a15b8717048": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf125_highpass_hp3250_t1_v03_sonic-3.6"
+ },
+ "2f3fabf47f12be971a91ce710312836a46bea941": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf126_splice_splice1.8s_t0_v11_sonic-3.6"
+ },
+ "67880aa2621f46e8a33e4b2628b8b5dbf773a145": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf127_bandswap_bandswap_t1_v12_sonic-3"
+ },
+ "e779182bc9aca927ab0e27e81e0a20c3985a30b5": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf128_bandswap_bandswap_t3_v22_sonic-preview"
+ },
+ "8d91896b45be6566d6e4051c62bb070286da110e": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf129_bandshift_shift79ms_t4_v18_sonic-3"
+ },
+ "5537f8eec2a91b721766aa8bb2e2097b2b3c81d9": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf130_snr_snr_t4_v23_sonic-3.6"
+ },
+ "4e8f723f2fcc774b8240f3befee0c666041d656a": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "tf131_bandswap_bandswap_t1_v15_sonic-3.6"
+ },
+ "bf2eba94f070ff1447af8efeba483f58f5fc553b": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf132_bandshift_shift61ms_t3_v17_sonic-3"
+ },
+ "63abf53e4eddf1518b4e425b47b42587fb41c051": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf133_highpass_hp2235_t5_v00_sonic-preview"
+ },
+ "448f9c60ffbe467ad5e5fc07ccf015fab262e538": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf134_snr_snr_t4_v11_sonic-preview"
+ },
+ "4087bb8298c57a38f13fd8855087f6543a5f024d": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf135_highpass_hp2674_t0_v12_sonic-3.5"
+ },
+ "3559ac966c952061de43b5b6fe5f53403e2302c0": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf136_lowpass_lp3182_t3_v11_sonic-3.5"
+ },
+ "df1bacba0d87fa4779d358bf2d74c582ecca01af": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf137_lowpass_lp1974_t1_v02_sonic-3"
+ },
+ "738271f61f7a3a1a5b2d14609406b6c528c4cb11": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf138_mix_mix0.32_t2_v09_sonic-preview"
+ },
+ "b953946be1b9101fbb474916a5f0b60df77e7d1d": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf139_mix_mix0.20_t0_v02_sonic-3.5"
+ },
+ "b674de3a44e40f33d75cddb23e185da46308df67": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf140_lowpass_lp3652_t3_v06_sonic-3"
+ },
+ "461ac7a0f8618db125244e7ee1476fb8b624355f": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf141_bandswap_bandswap_t5_v23_sonic-3.6"
+ },
+ "d0a2b93d2d03e0366a9a19df296bc934e1eb1cc0": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "tf142_splice_splice1.8s_t0_v15_sonic-3.5"
+ },
+ "e9f6bf0787ecb61a6c5a85e483d10d1f50d33cf4": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf143_highpass_hp3266_t3_v14_sonic-3"
+ },
+ "6e72eb39762a1dc884fae2555599198e554c02af": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "tf144_snr_snr_t1_v17_sonic-3.6"
+ },
+ "0c7f1159ba26f179fe3f5b891bbf748643446c41": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "tf145_snr_snr_t4_v21_sonic-3.6"
+ },
+ "f4ec5cd529276a315b8bc6e9ad08eba3b9d3ff4a": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "tf146_splice_splice1.0s_t5_v04_sonic-3.5"
+ },
+ "cd8fe027bfd5b8ee407d991f29fe8fc5348578b8": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf147_highpass_hp2513_t3_v08_sonic-3.5"
+ },
+ "5d875be09e7229c69853a27f5b2ab3d618a9321a": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf148_bandswap_bandswap_t0_v04_sonic-3"
+ },
+ "16babb7a47d45a43a4914be7c0710a7cbf35c4bb": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "tf149_highpass_hp1178_t5_v21_sonic-3"
+ },
+ "8b9a10af355e31947ab4d32ec547e648281eac8a": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "nat_t1_v24_sonic-3"
+ },
+ "a0a1c458eba02c999c87f1addc8d3fc2a40705de": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "nat_t2_v24_sonic-3.6"
+ },
+ "3d4eeb0165c6a6f6ced46b71124237abd117f138": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "nat_t2_v24_sonic-preview"
+ },
+ "853dfbf5a6df6dbca64f3c9b3a4e5d20ed24c77c": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "nat_t2_v24_sonic-3.5"
+ },
+ "021152e4053f5c636042171cd1ff4fbc6cdc01e5": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "nat_t2_v24_sonic-3"
+ },
+ "4162caeded41dacf9f6e2468aca6172dfde4398b": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "nat_t3_v24_sonic-3.6"
+ },
+ "7b9caa5ee1b0c5a2c3e54b8047d9b798572c84eb": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "nat_t3_v24_sonic-preview"
+ },
+ "781c8929a71f445cc9cf9e9fb7b7ad5b88df2277": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "nat_t3_v24_sonic-3.5"
+ },
+ "6393d7455d8ef8f926827c9956ea5adf46a77ec5": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "nat_t3_v24_sonic-3"
+ },
+ "78346548118bb5f8537c4cc05d02ebced6150072": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "nat_t4_v24_sonic-3.6"
+ },
+ "8c876d9bb7a0714e17be7e956763a3343075c23d": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "nat_t4_v24_sonic-preview"
+ },
+ "bd3a3fcd64b46373ec1bbbf557a57172985a2892": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "nat_t4_v24_sonic-3.5"
+ },
+ "b32dc02320d31eac86da013dbe0f109d17b5e676": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "nat_t4_v24_sonic-3"
+ },
+ "c351d2cf72fe54ed8869f89a19a437937ff179c2": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "nat_t5_v24_sonic-3.6"
+ },
+ "ec028bb2d495f21c4c646dd85cc3676db526688b": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "nat_t5_v24_sonic-preview"
+ },
+ "0b1d7be7a6ea678640e3607be5b8f8a3321be1a5": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "nat_t5_v24_sonic-3.5"
+ },
+ "28c568cfab0c15e3f9fdb19475c3fc653326ae10": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "nat_t5_v24_sonic-3"
+ },
+ "ab884b154b9212d22814acf3a963276d9fd0fd45": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "nat_t0_v27_sonic-3.6"
+ },
+ "578459ee27913d8ca104904532067bb1adbb0260": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "nat_t0_v27_sonic-preview"
+ },
+ "79592a56ec683c976fd87261016f4c442ce7405e": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "nat_t0_v27_sonic-3.5"
+ },
+ "5cd96d116653825ffa1639f8c97946b24a1dd680": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "nat_t0_v27_sonic-3"
+ },
+ "5534a9e6b29681b686469cda6ae2c215723b9726": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "nat_t1_v27_sonic-3.6"
+ },
+ "6b79ba4d7123e91444eda4599c12cce0b93686b0": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "nat_t1_v27_sonic-preview"
+ },
+ "58df4c953979511abe40ea41c5e0e3449249380a": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "nat_t1_v27_sonic-3.5"
+ },
+ "3db39fb59dd7d5dceb1b1db8195a1ad24454b734": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "nat_t1_v27_sonic-3"
+ },
+ "c603fccb1b98919be41d4e528f4fa88810585983": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "nat_t2_v27_sonic-3.6"
+ },
+ "3db9ab56819e643f59ea66dd9c9699623d093767": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "nat_t2_v27_sonic-preview"
+ },
+ "584ed114815d5647444dffad49838faf72b76cb2": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "nat_t2_v27_sonic-3.5"
+ },
+ "598f9f08dc67db2b4c12990cd7a97156449ec073": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "nat_t2_v27_sonic-3"
+ },
+ "b551e154f2bd4be5893d59736d47bf4cffb7f5b3": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "nat_t3_v27_sonic-3.6"
+ },
+ "ebeb120d506bf846de7e61155570678411769d7d": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "nat_t3_v27_sonic-preview"
+ },
+ "9376d2e0d18160368e71f8c19d84033ad871924b": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "nat_t3_v27_sonic-3.5"
+ },
+ "6d739c8d8452e1d8dfe05a2244048b6447e3a22a": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "nat_t3_v27_sonic-3"
+ },
+ "1b2e5ec633d5489f590f7bc028e5dae8da25dbe8": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "nat_t4_v27_sonic-3.6"
+ },
+ "1327a3b13c2d67155ec0302f72576d6da415eae0": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "nat_t4_v27_sonic-preview"
+ },
+ "415f8943d090b89cc530899b2b78c21b2bfc0053": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "nat_t4_v27_sonic-3.5"
+ },
+ "2255efcddf72373741764c2ce6480ccb8a8cc1ad": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "nat_t4_v27_sonic-3"
+ },
+ "2bd8cd22143bfa932aaa1082615dddd32f11c2e6": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "nat_t5_v27_sonic-3.6"
+ },
+ "19b2eaf7d1b62522ba56eb72a852b4150f4de61f": {
+  "code": 200,
+  "res": {
+   "detected": true
+  },
+  "tag": "nat_t5_v27_sonic-preview"
+ },
+ "9097326f443e39690186ed3ed13550c730fa0e8f": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "nat_t5_v27_sonic-3.5"
+ },
+ "6d050dfa8d94acd67d4add6bd492fbc07580dd3d": {
+  "code": 200,
+  "res": {
+   "detected": false
+  },
+  "tag": "nat_t5_v27_sonic-3"
+ }
+}

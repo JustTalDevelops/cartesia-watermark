@@ -1,0 +1,21 @@
+== 1. Cartesia probe set (121 items), checkpoint results/detector_v5_ep8.pt
+  agreement with Cartesia on marked    items (59): 0.20
+  agreement with Cartesia on unmarked  items (57): 0.95
+  agreement with Cartesia on fp        items ( 5): 0.00
+  OVERALL agreement (excluding Cartesia's false positives): 0.569
+== 2. Cartesia distillation labels (held out from training)
+  agreement 0.736 on 144 labels
+    bandshift  n= 21 agree=0.95
+    bandswap   n= 25 agree=0.76
+    highpass   n= 19 agree=0.74
+    lowpass    n= 16 agree=0.69
+    mix        n= 17 agree=0.65
+    natural    n=  7 agree=0.57
+    snr        n= 21 agree=0.86
+    splice     n= 18 agree=0.50
+== 3. natural clips, held-out voices 24-29
+  sonic-3.5      mean=0.57  flagged=0.72
+  sonic-3.6      mean=0.62  flagged=0.89
+  sonic-3        mean=0.50  flagged=0.50
+  sonic-preview  mean=0.62  flagged=0.89
+  AUC 0.709   accuracy@0.5 0.639

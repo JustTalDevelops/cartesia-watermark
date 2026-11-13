@@ -1,0 +1,323 @@
+{
+  "status": "Experimental quality-first editor with input-dependent detector suppression",
+  "released_at_utc": "2026-11-13T01:56:30.933841+00:00",
+  "checkpoint": "results/remover_quality_v3.pt",
+  "checkpoint_sha256": "c5ddec58926c24e0f92c83475d589286ea98f2a8bc95124097ef567cc1910f8b",
+  "manifest_sha256": "74c36ea9fc727ef156513c82fe076fe97f2c0cfc62f5008ba101561c3e31a6d0",
+  "parameters": 50210,
+  "bytes": 213507,
+  "frozen_before_test": true,
+  "freeze": "results/remover_quality_v3.freeze.json",
+  "quality_policy": {
+    "max_pesq_loss_vsV2": 0.015,
+    "max_estoi_loss_vsV2": 0.001,
+    "pesq_floor_or_baseline": 4.5,
+    "fractions": [
+      0.25,
+      0.125,
+      0
+    ],
+    "global_edit_snr_db": 30
+  },
+  "default_promoted": true,
+  "promotion_policy": "Onlyifnewmodelkeepsstrictvoicequality,retainsbaselineverifiedtestsuccesses,andshowsadditionaltestremoval;otherwisekeepV2defaultandreportcandidatefailures.",
+  "fresh_quality": {
+    "marked_voices": 16,
+    "v2": {
+      "marked_clips": 16,
+      "control_clips": 4,
+      "marked_scored_clips": 16,
+      "marked_detected_before": 13,
+      "marked_detected_after": 7,
+      "previously_detected_now_negative": 6,
+      "marked_median_snr_db": 34.81153326530274,
+      "marked_min_snr_db": 33.06083931486491,
+      "marked_median_stoi": 0.999033754538879,
+      "marked_min_stoi": 0.997656336435109,
+      "marked_median_estoi": 0.9975689725633173,
+      "marked_pesq_clips": 16,
+      "marked_median_pesq_wb": 4.5797953605651855,
+      "marked_min_pesq_wb": 4.426679611206055,
+      "marked_median_native_spectral_change_db": 0.839700276996781,
+      "marked_max_native_band_gain_change_db": 0.47824012509853214,
+      "control_median_snr_db": 35.40639778015034,
+      "control_detected_before": 0,
+      "control_detected_after": 0,
+      "control_median_stoi": 0.9989565835284907,
+      "control_median_pesq_wb": 4.5688111782073975
+    },
+    "v3": {
+      "marked_clips": 16,
+      "control_clips": 4,
+      "marked_scored_clips": 16,
+      "marked_detected_before": 13,
+      "marked_detected_after": 7,
+      "previously_detected_now_negative": 6,
+      "marked_median_snr_db": 34.467229049742514,
+      "marked_min_snr_db": 32.820537161990195,
+      "marked_median_stoi": 0.9989760577501232,
+      "marked_min_stoi": 0.9974806043070088,
+      "marked_median_estoi": 0.9973919381136387,
+      "marked_pesq_clips": 16,
+      "marked_median_pesq_wb": 4.568609237670898,
+      "marked_min_pesq_wb": 4.426679611206055,
+      "marked_median_native_spectral_change_db": 0.9276151730865545,
+      "marked_max_native_band_gain_change_db": 0.506083559715754,
+      "control_median_snr_db": 35.12441929161592,
+      "control_detected_before": 0,
+      "control_detected_after": 0,
+      "control_median_stoi": 0.998903823330539,
+      "control_median_pesq_wb": 4.560950040817261
+    },
+    "minimum_paired_pesq_delta": -0.013982772827148438,
+    "minimum_paired_estoi_delta": -0.000628460831530675,
+    "max_output_peak": 0.9934414029121399,
+    "quality_pass": true,
+    "absolute_floor_met_by_both_models": false,
+    "baseline_below_4_5": [
+      {
+        "source": "audio/h2h4/en_009_marked.wav",
+        "v2_pesq": 4.426679611206055,
+        "v3_pesq": 4.426679611206055,
+        "same_PCM": true
+      },
+      {
+        "source": "audio/h2h4/en_014_marked.wav",
+        "v2_pesq": 4.477237701416016,
+        "v3_pesq": 4.477237701416016,
+        "same_PCM": true
+      },
+      {
+        "source": "audio/h2h4/en_019_marked.wav",
+        "v2_pesq": 4.490952014923096,
+        "v3_pesq": 4.490952014923096,
+        "same_PCM": true
+      }
+    ]
+  },
+  "cartesia": {
+    "summary": {
+      "marked_original_positive": 6,
+      "v2_positive_to_negative": 5,
+      "v3_positive_to_negative": 6,
+      "additional_v3_negatives": [
+        "audio/h2h4/ta_042_marked.wav"
+      ],
+      "lost_v2_negatives": [],
+      "baseline_negative_controls": 2,
+      "v2_control_outputs_positive": 0,
+      "v3_control_outputs_positive": 0
+    },
+    "clips": [
+      {
+        "source": "audio/h2h4/en_008_marked.wav",
+        "marked": true,
+        "original_detected": true,
+        "v2_edited_detected": false,
+        "v3_edited_detected": false,
+        "v2_output": "audio/remover_quality_v2_testbatch3/h2h4/en_008_marked.wav",
+        "v3_output": "audio/remover_quality_v3_testbatch3/h2h4/en_008_marked.wav",
+        "v2_output_sha256": "d93115ee0d4a9b2bd162fb2aa222f8958a06d70001b466c442cbf63db007af7a",
+        "v3_output_sha256": "2fea69a4ea9793f9926f3cbd89f51ea0c56870e810fe6d37a54c9f8bd3354c1b"
+      },
+      {
+        "source": "audio/h2h4/hi_031_marked.wav",
+        "marked": true,
+        "original_detected": true,
+        "v2_edited_detected": false,
+        "v3_edited_detected": false,
+        "v2_output": "audio/remover_quality_v2_testbatch3/h2h4/hi_031_marked.wav",
+        "v3_output": "audio/remover_quality_v3_testbatch3/h2h4/hi_031_marked.wav",
+        "v2_output_sha256": "c389271a188287dcd03548e036278567e5afcfcd164a23e53eceb06637e3f842",
+        "v3_output_sha256": "68d84287669f421efac9b1ff4e019ba7f2fcd235a67c6325338bb9005da9e753"
+      },
+      {
+        "source": "audio/h2h4/ta_042_marked.wav",
+        "marked": true,
+        "original_detected": true,
+        "v2_edited_detected": true,
+        "v3_edited_detected": false,
+        "v2_output": "audio/remover_quality_v2_testbatch3/h2h4/ta_042_marked.wav",
+        "v3_output": "audio/remover_quality_v3_testbatch3/h2h4/ta_042_marked.wav",
+        "v2_output_sha256": "578675374b00b93a404948290bf7b9603bad2f0855963f2d90b123e6dd7a317c",
+        "v3_output_sha256": "ddcb884ed9aa17a279e6f35f438234aade3574461dc0f067f40a4ed5eea99e27"
+      },
+      {
+        "source": "audio/h2h4/tl_045_marked.wav",
+        "marked": true,
+        "original_detected": true,
+        "v2_edited_detected": false,
+        "v3_edited_detected": false,
+        "v2_output": "audio/remover_quality_v2_testbatch3/h2h4/tl_045_marked.wav",
+        "v3_output": "audio/remover_quality_v3_testbatch3/h2h4/tl_045_marked.wav",
+        "v2_output_sha256": "a6ad2f01298e8c3b8b15568aad5e836fdee248890b856758bc5b6dd5738f2edd",
+        "v3_output_sha256": "ddb21f585590ab176810bf60ffbd7d4b69695e5795972e0f4e35429d6c458dac"
+      },
+      {
+        "source": "audio/h2h4/en_009_marked.wav",
+        "marked": true,
+        "original_detected": true,
+        "v2_edited_detected": false,
+        "v3_edited_detected": false,
+        "v2_output": "audio/remover_quality_v3_testbatch3/h2h4/en_009_marked.wav",
+        "v3_output": "audio/remover_quality_v3_testbatch3/h2h4/en_009_marked.wav",
+        "v2_output_sha256": "49671c3bb7cd3e49c1782eef8e42acde2a46b4bbf5f1fc235e2b6c0b9a87dfe8",
+        "v3_output_sha256": "49671c3bb7cd3e49c1782eef8e42acde2a46b4bbf5f1fc235e2b6c0b9a87dfe8"
+      },
+      {
+        "source": "audio/h2h4/en_010_marked.wav",
+        "marked": true,
+        "original_detected": true,
+        "v2_edited_detected": false,
+        "v3_edited_detected": false,
+        "v2_output": "audio/remover_quality_v2_testbatch3/h2h4/en_010_marked.wav",
+        "v3_output": "audio/remover_quality_v3_testbatch3/h2h4/en_010_marked.wav",
+        "v2_output_sha256": "f27ae878a589354a5b3648126466ef3531f42b0213181209808f87ff4544ceef",
+        "v3_output_sha256": "5d73db65afe4cf67f1d41e797047738173e84fd22fec4131086d3c5bd65b44d3"
+      },
+      {
+        "source": "audio/h2h4/en_004_clean.wav",
+        "marked": false,
+        "original_detected": false,
+        "v2_edited_detected": false,
+        "v3_edited_detected": false,
+        "v2_output": "audio/remover_quality_v2_testbatch3/h2h4/en_004_clean.wav",
+        "v3_output": "audio/remover_quality_v3_testbatch3/h2h4/en_004_clean.wav",
+        "v2_output_sha256": "b22dec7ad3caa188815d0ef070406b0527c4f7c7d918c94e6da8cd5e1a4a080d",
+        "v3_output_sha256": "383ae9e1c17589b84d379422143f9732116c28163b2566291301e45ccd845584"
+      },
+      {
+        "source": "audio/h2h4/en_008_clean.wav",
+        "marked": false,
+        "original_detected": false,
+        "v2_edited_detected": false,
+        "v3_edited_detected": false,
+        "v2_output": "audio/remover_quality_v2_testbatch3/h2h4/en_008_clean.wav",
+        "v3_output": "audio/remover_quality_v3_testbatch3/h2h4/en_008_clean.wav",
+        "v2_output_sha256": "e44c92c9135e5e7754beacb2cb73c3b5a61ec78bcf0c8e543efbcecbef788844",
+        "v3_output_sha256": "d0349c04b4ea2f59708264245c15b44f2706f6cb2e1fc04ec44d2fb7c17ad011"
+      }
+    ],
+    "method": "Fixed six originally API-positive marked files and two originally negative controls. Interleaved frozen model outputs. Exact hash cache; one identical PCM/file pair shared. Direct requests serialized and paced 120 seconds. Original English baseline freshly reconfirmed positive; other baseline labels are prior actual responses on unchanged files.",
+    "limitations": "Small secondary API subset, not a universal removal rate. Test voices are excluded from component training, development and blend selection."
+  },
+  "dnsmos": [
+    {
+      "report": "results/remover_quality_v2_testbatch3_h2h4.json",
+      "report_sha256": "304fb7d5b438d9868a31dc6c35952866d9ee762af45c30f70871f2d28a5371b0",
+      "marked_clips": 16,
+      "summary": {
+        "signal": {
+          "median_before": 3.6404312133285774,
+          "median_after": 3.6404466984833106,
+          "median_paired_delta": 0.0005503744659569598,
+          "minimum_paired_delta": -0.020478894799853098
+        },
+        "background": {
+          "median_before": 4.12652252841241,
+          "median_after": 4.1245254464516545,
+          "median_paired_delta": -7.090234160989084e-05,
+          "minimum_paired_delta": -0.013034814376989168
+        },
+        "overall": {
+          "median_before": 3.380438385448791,
+          "median_after": 3.3867683813742744,
+          "median_paired_delta": 0.00036422076772235634,
+          "minimum_paired_delta": -0.022241281819830316
+        }
+      }
+    },
+    {
+      "report": "results/remover_quality_v3_testbatch3_h2h4.json",
+      "report_sha256": "821e13f4f080783e2b7037a8dadbab0c4d8415156880ca8a5cf8e12b2471c240",
+      "marked_clips": 16,
+      "summary": {
+        "signal": {
+          "median_before": 3.6404312133285774,
+          "median_after": 3.639943680780503,
+          "median_paired_delta": 9.062611732302273e-05,
+          "minimum_paired_delta": -0.021553740241244235
+        },
+        "background": {
+          "median_before": 4.12652252841241,
+          "median_after": 4.123846127322123,
+          "median_paired_delta": -0.0011509959587296947,
+          "minimum_paired_delta": -0.014324601087079003
+        },
+        "overall": {
+          "median_before": 3.380438385448791,
+          "median_after": 3.387771636874109,
+          "median_paired_delta": -0.00014174633527086478,
+          "minimum_paired_delta": -0.0231063145664554
+        }
+      }
+    }
+  ],
+  "speaker_similarity": [
+    {
+      "report": "results/remover_quality_v2_testbatch3_h2h4.json",
+      "report_sha256": "304fb7d5b438d9868a31dc6c35952866d9ee762af45c30f70871f2d28a5371b0",
+      "checkpoint_sha256": "803862a9f4f77a64c9ada05bfb8078b6eedbba15541337c36c751ce0312a95f1",
+      "marked_clips": 16,
+      "median_cosine_similarity": 0.9992146071387171,
+      "minimum_cosine_similarity": 0.9950017800670845
+    },
+    {
+      "report": "results/remover_quality_v3_testbatch3_h2h4.json",
+      "report_sha256": "821e13f4f080783e2b7037a8dadbab0c4d8415156880ca8a5cf8e12b2471c240",
+      "checkpoint_sha256": "c5ddec58926c24e0f92c83475d589286ea98f2a8bc95124097ef567cc1910f8b",
+      "marked_clips": 16,
+      "median_cosine_similarity": 0.9991649382072747,
+      "minimum_cosine_similarity": 0.9940350829842967
+    }
+  ],
+  "verification": {
+    "implementation_tests_passed": 34,
+    "portable_English_PCM_exact": {
+      "checkpoint_sha256": "c5ddec58926c24e0f92c83475d589286ea98f2a8bc95124097ef567cc1910f8b",
+      "standalone_without_source_checkpoints_or_corpus": true,
+      "sample_rate": 44100,
+      "shape": [
+        341334
+      ],
+      "decoded_PCM_matches_verified_example_exactly": true
+    },
+    "native_integration": "results/remover_quality_v3_native_integration.json"
+  },
+  "known_development_failures": "Frozen V3 cleared Arabic but not English or Spanish in the three-file native development pilot (1/3). Selected English calibration success and retained four V2 calibration successes are reported separately from the fresh B3 subset.",
+  "selected_calibration_evidence": {
+    "four_preserved_v2_successes": "results/remover_guarded_retention_cartesia.json",
+    "extra_English_success": "results/remover_english_blend25_cartesia.json",
+    "V3_English_PCM_equivalence": "results/remover_quality_v3_english_cli_audit.json",
+    "role": "Selected development examples, excluded from fresh test counts"
+  },
+  "limitations": [
+    "PESQ and ESTOI compare with the marked input; matched pre-watermark targets are unavailable.",
+    "Quality and speaker embeddings are estimates, not human listening tests.",
+    "API negatives do not certify physical erasure or reliable removal from arbitrary audio."
+  ],
+  "evidence_sha256": {
+    "results/remover_quality_v3.freeze.json": "3dd56004b58afd7c8c716a1d664f9bda63191653628d2042adaf56212c2daf02",
+    "results/remover_quality_v3_testbatch3_paired_quality.json": "a03fb50bc4aeb2dfc7693727b03ff543f2748071ab22229c4265c6ca64e5bc11",
+    "results/remover_quality_v3_testbatch3_dnsmos.json": "d4f1afc9f8429d02efbe8b90c1e752944218f7f71e6ba85e3e689ee92af26c05",
+    "results/remover_quality_v3_testbatch3_speaker.json": "ded26284640cb178d0cf1048b8203710c6025757fbbda4ba559d5fed2c1f8dcb",
+    "results/remover_quality_v3_testbatch3_cartesia.json": "62ac58c8defc444b3c018ad136a8c6d526f7e9821763529809affa998f3874dc",
+    "results/remover_quality_v2_testbatch3_cartesia.json": "b0cae9e98058e78ec1a7c4e4d02fadc4376e94388654d39aae405f8c8cfa2c0e",
+    "results/remover_quality_v3_testbatch3_api_execution.plan.json": "68d5df8e0b941d4e241ff2575472dfa220a394744dc03c9344ef501de206ef6b",
+    "results/remover_testbatch3_fresh_baseline_cartesia.json": "52b19f55e6cea695262b06c1454892eb48846e1a3fbe285e3003f78f087c2690",
+    "results/remover_quality_v3_native_integration.json": "9c056aea9765d0f40f426cb0a47413e5b4cebf3d4eb2d8221a89f5ec2d048338",
+    "results/remover_quality_v3_portable_audit.json": "88b5e4782839de134a482fc74b3f5e8db90eb72ddb4c1280e36b03cff3ca7dc6",
+    "results/remover_guarded_retention_cartesia.json": "a07b9cc51093bbb05a23ddbcdaea21080675d838ba499fbe32d1dff05e7bd4b9",
+    "results/remover_guarded_retention_quality.json": "06238038c6d55cf516fad6766b73439871724df9d1b119c03752859144eed5c7",
+    "results/remover_quality_v3_english_cli_audit.json": "cb34355989e391b603e76142f25adf8a74ebd43dd8ba1d5e92d693a6ae42207c",
+    "results/remover_english_blend25_cartesia.json": "4aa6ccdeaea2a12ff7362c6133422ec4c797c9c9cc4dc25be5f3dd66753e5117"
+  },
+  "default_alias_sha256": "c5ddec58926c24e0f92c83475d589286ea98f2a8bc95124097ef567cc1910f8b",
+  "recording_followup": {
+    "report": "results/remover_quality_v3_recording_followup.json",
+    "validated_for_general_user_recordings": false,
+    "current_V3_not_detected": 0,
+    "user_recordings": 2,
+    "replacement_promoted": false
+  }
+}

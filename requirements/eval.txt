@@ -1,0 +1,6 @@
+# Optional perceptual-quality metric for tools/eval_remover.py (requires a C compiler to build).
+pesq==0.0.4
+# Optional independent DNSMOS P.835 quality estimates (tools/eval_voice_quality.py).
+onnxruntime==1.31.1
+librosa==1.0.0
+# tools/eval_speaker_quality.py also uses transformers from requirements.txt.

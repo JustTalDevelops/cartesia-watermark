@@ -1,0 +1,125 @@
+A36 orig                         marked    cartesia=1 local=0.37 XX
+A35 orig                         unmarked  cartesia=0 local=0.22 OK
+A36 gain-20dB                    marked    cartesia=1 local=0.37 XX
+A35 gain-20dB                    unmarked  cartesia=0 local=0.22 OK
+A36 invert                       marked    cartesia=1 local=0.46 XX
+A35 invert                       unmarked  cartesia=0 local=0.25 OK
+A36 reverse                      unmarked  cartesia=0 local=0.00 OK
+A35 reverse                      unmarked  cartesia=0 local=0.00 OK
+A36 first5s                      marked    cartesia=1 local=0.52 OK
+A35 first5s                      unmarked  cartesia=0 local=0.22 OK
+A36 last6s                       marked    cartesia=1 local=0.34 XX
+A35 last6s                       fp        cartesia=1 local=0.28 XX
+A36 shift1                       marked    cartesia=1 local=0.37 XX
+A35 shift1                       unmarked  cartesia=0 local=0.24 OK
+A36 shift257                     marked    cartesia=1 local=0.48 XX
+A35 shift257                     unmarked  cartesia=0 local=0.25 OK
+A36 lp8k                         marked    cartesia=1 local=0.37 XX
+A35 lp8k                         fp        cartesia=1 local=0.22 XX
+A36 lp4k                         marked    cartesia=1 local=0.37 XX
+A35 lp4k                         unmarked  cartesia=0 local=0.23 OK
+A36 lp2k                         unmarked  cartesia=0 local=0.17 OK
+A35 lp2k                         unmarked  cartesia=0 local=0.02 OK
+A36 lp1k                         unmarked  cartesia=0 local=0.85 XX
+A35 lp1k                         unmarked  cartesia=0 local=0.84 XX
+A36 hp1k                         marked    cartesia=1 local=0.13 XX
+A35 hp1k                         unmarked  cartesia=0 local=0.03 OK
+A36 hp4k                         unmarked  cartesia=0 local=0.01 OK
+A35 hp4k                         unmarked  cartesia=0 local=0.00 OK
+A36 hp8k                         unmarked  cartesia=0 local=0.00 OK
+A35 hp8k                         unmarked  cartesia=0 local=0.00 OK
+A36 rs16k                        marked    cartesia=1 local=0.37 XX
+A35 rs16k                        unmarked  cartesia=0 local=0.22 OK
+A36 rs8k                         marked    cartesia=1 local=0.36 XX
+A35 rs8k                         fp        cartesia=1 local=0.23 XX
+A36 mp3_64k                      marked    cartesia=1 local=0.37 XX
+A35 mp3_64k                      unmarked  cartesia=0 local=0.18 OK
+A36 mp3_32k                      marked    cartesia=1 local=0.29 XX
+A35 mp3_32k                      unmarked  cartesia=0 local=0.10 OK
+A36 opus_16k                     marked    cartesia=1 local=0.19 XX
+A35 opus_16k                     unmarked  cartesia=0 local=0.07 OK
+A36 snr20                        marked    cartesia=1 local=0.28 XX
+A35 snr20                        unmarked  cartesia=0 local=0.14 OK
+A36 snr10                        unmarked  cartesia=0 local=0.04 OK
+A35 snr10                        unmarked  cartesia=0 local=0.02 OK
+A36 snr0                         unmarked  cartesia=0 local=0.00 OK
+A35 snr0                         unmarked  cartesia=0 local=0.00 OK
+A36 speed1.05                    marked    cartesia=1 local=0.40 XX
+A35 speed1.05                    unmarked  cartesia=0 local=0.18 OK
+fmt model_sonic-3-latest.wav     marked    cartesia=1 local=0.84 OK
+fmt model_sonic-3.6-2026-08-27.wav marked    cartesia=1 local=0.60 OK
+fmt mp3_128.mp3                  marked    cartesia=1 local=0.77 OK
+fmt mp3_32.mp3                   marked    cartesia=1 local=0.54 OK
+fmt mulaw8k.wav                  marked    cartesia=1 local=0.78 OK
+fmt ref_3.5.wav                  fp        cartesia=1 local=0.28 XX
+fmt ref_3.6.wav                  marked    cartesia=1 local=0.68 OK
+fmt s16.wav                      marked    cartesia=1 local=0.77 OK
+fmt sr16000.wav                  marked    cartesia=1 local=0.81 OK
+fmt sr22050.wav                  marked    cartesia=1 local=0.74 OK
+fmt sr24000.wav                  marked    cartesia=1 local=0.69 OK
+fmt sr48000.wav                  marked    cartesia=1 local=0.75 OK
+fmt sr8000.wav                   marked    cartesia=1 local=0.72 OK
+neg t0_daniel_sonic-3.5          unmarked  cartesia=0 local=0.22 OK
+neg t0_jacqueline_sonic-3.5      unmarked  cartesia=0 local=0.19 OK
+neg t1_daniel_sonic-3.5          unmarked  cartesia=0 local=0.36 OK
+neg t1_jacqueline_sonic-3.5      unmarked  cartesia=0 local=0.29 OK
+neg t2_daniel_sonic-3.5          unmarked  cartesia=0 local=0.22 OK
+neg t2_jacqueline_sonic-3.5      unmarked  cartesia=0 local=0.38 OK
+neg t3_daniel_sonic-3.5          unmarked  cartesia=0 local=0.34 OK
+neg t3_jacqueline_sonic-3.5      unmarked  cartesia=0 local=0.20 OK
+zeros6s                          unmarked  cartesia=0 local=0.00 OK
+white                            unmarked  cartesia=0 local=0.00 OK
+sine1k                           fp        cartesia=1 local=0.00 XX
+lpnoise                          unmarked  cartesia=0 local=0.00 OK
+A only 3.6 2000-4000             unmarked  cartesia=0 local=0.65 XX
+A 3.5+3.6[2000-4000]             unmarked  cartesia=0 local=0.04 OK
+A 3.6 w/ 3.5[2000-4000]          unmarked  cartesia=0 local=0.18 OK
+A only 3.6 1000-4000             marked    cartesia=1 local=0.12 XX
+A 3.5+3.6[1000-4000]             unmarked  cartesia=0 local=0.20 OK
+A 3.6 w/ 3.5[1000-4000]          unmarked  cartesia=0 local=0.12 OK
+A only 3.6 1500-3500             marked    cartesia=1 local=0.30 XX
+A 3.5+3.6[1500-3500]             unmarked  cartesia=0 local=0.08 OK
+A 3.6 w/ 3.5[1500-3500]          unmarked  cartesia=0 local=0.14 OK
+A splice 0.75                    marked    cartesia=1 local=0.42 XX
+A splice 0.5                     marked    cartesia=1 local=0.32 XX
+A splice 0.25                    marked    cartesia=1 local=0.23 XX
+A win 0.0                        marked    cartesia=1 local=0.52 OK
+A win 2.5                        marked    cartesia=1 local=0.26 XX
+A win 5.0                        marked    cartesia=1 local=0.41 XX
+A randphase 1500-3500            marked    cartesia=1 local=0.07 XX
+A smoothmag 1500-3500            marked    cartesia=1 local=0.39 XX
+A randphase 0-22050              unmarked  cartesia=0 local=0.01 OK
+B randphase 1500-3500            unmarked  cartesia=0 local=0.02 OK
+B smoothmag 1500-3500            marked    cartesia=1 local=0.33 XX
+B randphase 0-22050              unmarked  cartesia=0 local=0.00 OK
+A notch 1000                     marked    cartesia=1 local=0.17 XX
+A notch 1250                     marked    cartesia=1 local=0.31 XX
+A notch 1500                     marked    cartesia=1 local=0.37 XX
+A notch 1750                     marked    cartesia=1 local=0.31 XX
+A notch 2000                     marked    cartesia=1 local=0.08 XX
+A notch 2250                     marked    cartesia=1 local=0.10 XX
+A notch 2500                     marked    cartesia=1 local=0.21 XX
+A notch 2750                     marked    cartesia=1 local=0.27 XX
+A notch 3000                     marked    cartesia=1 local=0.31 XX
+A notch 3250                     marked    cartesia=1 local=0.31 XX
+A notch 3500                     marked    cartesia=1 local=0.33 XX
+A notch 3750                     marked    cartesia=1 local=0.35 XX
+A notch 4000                     marked    cartesia=1 local=0.36 XX
+A notch 4250                     marked    cartesia=1 local=0.37 XX
+A first 0.5s                     unmarked  cartesia=0 local=0.22 OK
+A first 1s                       unmarked  cartesia=0 local=0.24 OK
+A first 2s                       marked    cartesia=1 local=0.23 XX
+A snr 12                         unmarked  cartesia=0 local=0.08 OK
+A snr 14                         unmarked  cartesia=0 local=0.13 OK
+A snr 16                         marked    cartesia=1 local=0.19 XX
+A snr 18                         marked    cartesia=1 local=0.25 XX
+B reversed                       unmarked  cartesia=0 local=0.00 OK
+B 3.6 w/ 3.5[1500-3500]          unmarked  cartesia=0 local=0.08 OK
+B only 3.6 1500-3500             marked    cartesia=1 local=0.23 XX
+C reversed                       unmarked  cartesia=0 local=0.00 OK
+C 3.6 w/ 3.5[1500-3500]          unmarked  cartesia=0 local=0.07 OK
+C only 3.6 1500-3500             marked    cartesia=1 local=0.23 XX
+  agreement with Cartesia on marked    items (59): 0.24
+  agreement with Cartesia on unmarked  items (57): 0.95
+  agreement with Cartesia on fp        items ( 5): 0.00
+  OVERALL agreement (excluding Cartesia's false positives): 0.586

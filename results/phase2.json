@@ -1,0 +1,57 @@
+{
+ "A neg_orig": [
+  false,
+  false
+ ],
+ "A neg_lp8k": [
+  true,
+  true
+ ],
+ "A neg_last6s": [
+  true,
+  true
+ ],
+ "A pos_snr10": [
+  false,
+  false
+ ],
+ "B audio/fmt/model_sonic-3-latest.wav": true,
+ "B audio/fmt/model_sonic-3.6-2026-08-27.wav": true,
+ "B audio/fmt/mp3_128.mp3": true,
+ "B audio/fmt/mp3_32.mp3": true,
+ "B audio/fmt/mulaw8k.wav": true,
+ "B audio/fmt/ref_3.5.wav": true,
+ "B audio/fmt/ref_3.6.wav": true,
+ "B audio/fmt/s16.wav": true,
+ "B audio/fmt/sr16000.wav": true,
+ "B audio/fmt/sr22050.wav": true,
+ "B audio/fmt/sr24000.wav": true,
+ "B audio/fmt/sr48000.wav": true,
+ "B audio/fmt/sr8000.wav": true,
+ "audio/corpus/t0_jacqueline_sonic-3.5.wav": false,
+ "audio/corpus/t1_daniel_sonic-3.5.wav": false,
+ "audio/corpus/t1_jacqueline_sonic-3.5.wav": false,
+ "audio/corpus/t2_daniel_sonic-3.5.wav": false,
+ "audio/corpus/t2_jacqueline_sonic-3.5.wav": false,
+ "audio/corpus/t3_daniel_sonic-3.5.wav": false,
+ "audio/corpus/t3_jacqueline_sonic-3.5.wav": false,
+ "zeros6s": false,
+ "white": false,
+ "sine1k": true,
+ "lpnoise": false,
+ "3.6 only 2000-4000": false,
+ "3.5 + 3.6[2000-4000] swapped in": false,
+ "3.6 with 3.5[2000-4000] swapped in": false,
+ "3.6 only 1000-4000": true,
+ "3.5 + 3.6[1000-4000] swapped in": false,
+ "3.6 with 3.5[1000-4000] swapped in": false,
+ "3.6 only 1500-3500": true,
+ "3.5 + 3.6[1500-3500] swapped in": false,
+ "3.6 with 3.5[1500-3500] swapped in": false,
+ "3.6 first 75% then 3.5": true,
+ "3.6 first 50% then 3.5": true,
+ "3.6 first 25% then 3.5": true,
+ "3.6 window 0.0-5.0s": true,
+ "3.6 window 2.5-7.5s": true,
+ "3.6 window 5.0-10.0s": true
+}

@@ -1,0 +1,116 @@
+{
+  "checkpoint_sha256": "c5ddec58926c24e0f92c83475d589286ea98f2a8bc95124097ef567cc1910f8b",
+  "api_version": "2026-08-14",
+  "clips": [
+    {
+      "source": "audio/h2h4/en_008_marked.wav",
+      "output": "audio/remover_quality_v3_testbatch3/h2h4/en_008_marked.wav",
+      "source_sha256": "31b0a8cab39b12e535937d0091903c313eb83e7446bbaa779669ee89a0a369cf",
+      "output_sha256": "2fea69a4ea9793f9926f3cbd89f51ea0c56870e810fe6d37a54c9f8bd3354c1b",
+      "seconds": 9.26,
+      "snr_db": 34.35803771008709,
+      "peak_change": 0.013225048780441284,
+      "output_peak": 0.9024862051010132,
+      "original": true,
+      "original_cached_from": "remover_testbatch3_fresh_baseline_cartesia.json",
+      "edited": false
+    },
+    {
+      "source": "audio/h2h4/hi_031_marked.wav",
+      "output": "audio/remover_quality_v3_testbatch3/h2h4/hi_031_marked.wav",
+      "source_sha256": "acfd1fa2ae5e4c2ec0f1c0875fa16218ddd616c7fef4464b01617a8c040f4c5f",
+      "output_sha256": "68d84287669f421efac9b1ff4e019ba7f2fcd235a67c6325338bb9005da9e753",
+      "seconds": 8.54,
+      "snr_db": 35.2386666256993,
+      "peak_change": 0.0034130550920963287,
+      "output_peak": 0.1922571063041687,
+      "original": true,
+      "original_cached_from": "remover_test_batch3_baselines_cartesia.json",
+      "edited": false
+    },
+    {
+      "source": "audio/h2h4/ta_042_marked.wav",
+      "output": "audio/remover_quality_v3_testbatch3/h2h4/ta_042_marked.wav",
+      "source_sha256": "60cc8bcbb9140bf04a8b3933e187d2f09864def7e8cd288c75ffd8e52368d981",
+      "output_sha256": "ddcb884ed9aa17a279e6f35f438234aade3574461dc0f067f40a4ed5eea99e27",
+      "seconds": 6.7,
+      "snr_db": 37.46123750974043,
+      "peak_change": 0.020943209528923035,
+      "output_peak": 0.9024907350540161,
+      "original": true,
+      "original_cached_from": "remover_test_batch3_baselines_cartesia.json",
+      "edited": false
+    },
+    {
+      "source": "audio/h2h4/tl_045_marked.wav",
+      "output": "audio/remover_quality_v3_testbatch3/h2h4/tl_045_marked.wav",
+      "source_sha256": "b18ce7bfa52ae8e930a6570bd0da2101c77261a9bb91cc2546aa004772854592",
+      "output_sha256": "ddb21f585590ab176810bf60ffbd7d4b69695e5795972e0f4e35429d6c458dac",
+      "seconds": 8.62,
+      "snr_db": 34.721948984675834,
+      "peak_change": 0.017428703606128693,
+      "output_peak": 0.9363113641738892,
+      "original": true,
+      "original_cached_from": "remover_test_batch3_baselines_cartesia.json",
+      "edited": false
+    },
+    {
+      "source": "audio/h2h4/en_009_marked.wav",
+      "output": "audio/remover_quality_v3_testbatch3/h2h4/en_009_marked.wav",
+      "source_sha256": "79625d7d0ad1456dedad48ad696c363831db5cffa4207409f9a8c2a7a6bb7c7b",
+      "output_sha256": "49671c3bb7cd3e49c1782eef8e42acde2a46b4bbf5f1fc235e2b6c0b9a87dfe8",
+      "seconds": 8.94,
+      "snr_db": 36.34622198070493,
+      "peak_change": 0.005810443311929703,
+      "output_peak": 0.48336756229400635,
+      "original": true,
+      "original_cached_from": "remover_test_batch3_baselines_cartesia.json",
+      "edited": false
+    },
+    {
+      "source": "audio/h2h4/en_010_marked.wav",
+      "output": "audio/remover_quality_v3_testbatch3/h2h4/en_010_marked.wav",
+      "source_sha256": "2a641f0faf0609df17359f32e86250e004a293e81c0717335570a3cae47b9e32",
+      "output_sha256": "5d73db65afe4cf67f1d41e797047738173e84fd22fec4131086d3c5bd65b44d3",
+      "seconds": 7.66,
+      "snr_db": 35.74696646125816,
+      "peak_change": 0.00944291241466999,
+      "output_peak": 0.552413821220398,
+      "original": true,
+      "original_cached_from": "remover_test_batch3_baselines_cartesia.json",
+      "edited": false
+    },
+    {
+      "source": "audio/h2h4/en_004_clean.wav",
+      "output": "audio/remover_quality_v3_testbatch3/h2h4/en_004_clean.wav",
+      "source_sha256": "d939cc8c7d43f1d0bfc82d9b788b23421a90a269ddc39c40de1844ea5ec936f0",
+      "output_sha256": "383ae9e1c17589b84d379422143f9732116c28163b2566291301e45ccd845584",
+      "seconds": 8.972471655328798,
+      "snr_db": 34.52248210824915,
+      "peak_change": 0.013674437999725342,
+      "output_peak": 0.9757721424102783,
+      "original": false,
+      "original_cached_from": "remover_test_batch3_baselines_cartesia.json",
+      "edited": false
+    },
+    {
+      "source": "audio/h2h4/en_008_clean.wav",
+      "output": "audio/remover_quality_v3_testbatch3/h2h4/en_008_clean.wav",
+      "source_sha256": "ee999e3fdbe88f0235bab9b149219ab9ff6243f9e58c545cf926834a87320f03",
+      "output_sha256": "d0349c04b4ea2f59708264245c15b44f2706f6cb2e1fc04ec44d2fb7c17ad011",
+      "seconds": 8.693832199546485,
+      "snr_db": 34.58714556314555,
+      "peak_change": 0.0141877681016922,
+      "output_peak": 0.9934414029121399,
+      "original": false,
+      "original_cached_from": "remover_test_batch3_baselines_cartesia.json",
+      "edited": false
+    }
+  ],
+  "summary": {
+    "pairs": 8,
+    "original_detected": 6,
+    "edited_detected": 0,
+    "original_positive_edited_negative": 6
+  }
+}

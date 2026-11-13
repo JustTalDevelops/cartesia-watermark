@@ -1,0 +1,20 @@
+# Separate Python 3.12 environment. Install with --torch-backend cpu.
+# Versions from the working local Resemble Enhance runtime.
+torch==2.5.1
+torchaudio==2.5.1
+torchvision==0.20.1
+numpy==1.26.4
+scipy==1.17.1
+soundfile==0.14.0
+deepspeed==0.16.9
+omegaconf==2.3.1
+librosa==0.11.0
+matplotlib==3.11.2
+pandas==3.0.6
+ptflops==0.7.5
+rich==15.0.0
+tqdm==4.70.1
+resampy==0.4.3
+tabulate==0.10.0
+celluloid==0.2.0
+setuptools==78.1.0

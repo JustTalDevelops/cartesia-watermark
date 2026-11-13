@@ -1,0 +1,135 @@
+{
+  "checkpoint": "results/remover_quality_v2.pt",
+  "checkpoint_sha256": "803862a9f4f77a64c9ada05bfb8078b6eedbba15541337c36c751ce0312a95f1",
+  "source_checkpoint_sha256": "ac5169e45de18cd9674ef0cc15a51efe0838b30597d42da7c0c65a8fd0f682cb",
+  "source_step": 500,
+  "manifest_sha256": "ce37b6bfed152ef9e8eb9421d37ca33478f224d2ea1c717b7ebd7a5bb896e484",
+  "frozen_at_unix": 1794521512.157235,
+  "frozen_before_test": true,
+  "selection": "Quality-first validation key with minimum proxyPESQ4.4 and proxyESTOI.99; best source13 step500 objective4.2296 beats source12best4.6916. Full-file development confirms fidelity. API checks on superseded100-step snapshot were secondary diagnostics only, not checkpoint selection.",
+  "native_quality": {
+    "marked_clips": 17,
+    "control_clips": 0,
+    "marked_scored_clips": 17,
+    "marked_detected_before": 17,
+    "marked_detected_after": 11,
+    "previously_detected_now_negative": 6,
+    "marked_median_snr_db": 34.46400625619585,
+    "marked_min_snr_db": 32.463425379555574,
+    "marked_median_stoi": 0.998719826121998,
+    "marked_min_stoi": 0.9958980417826645,
+    "marked_median_estoi": 0.9972389060308933,
+    "marked_pesq_clips": 17,
+    "marked_median_pesq_wb": 4.580606460571289,
+    "marked_min_pesq_wb": 4.511379718780518,
+    "marked_median_native_spectral_change_db": 0.9074132144342458,
+    "marked_max_native_band_gain_change_db": 0.6406804970656652,
+    "control_median_snr_db": null,
+    "control_detected_before": 0,
+    "control_detected_after": 0,
+    "control_median_stoi": null,
+    "control_median_pesq_wb": null
+  },
+  "native_quality_gates": {
+    "median_pesq_min": 4.55,
+    "minimum_pesq_min": 4.4,
+    "minimum_stoi_min": 0.99,
+    "median_estoi_min": 0.995,
+    "minimum_snr_db_min": 29.99,
+    "maximum_native_active_band_gain_change_db_max": 0.75
+  },
+  "native_quality_report": "results/remover_wave13quality_best_validation.json",
+  "native_quality_report_sha256": "43f09a26854db4b12f7b36caf2ee0be48ebee558551482616a692fd48cb3a836",
+  "export_equivalence": [
+    {
+      "source": "audio/remover_validation/ar_00_marked.wav",
+      "compared_output": "audio/remover_wave13quality_best/validation/ar_00_marked.wav",
+      "exact_decoded_pcm_equal": true
+    },
+    {
+      "source": "audio/remover_validation/de_01_marked.wav",
+      "compared_output": "audio/remover_wave13quality_best/validation/de_01_marked.wav",
+      "exact_decoded_pcm_equal": true
+    },
+    {
+      "source": "audio/remover_validation/en_02_marked.wav",
+      "compared_output": "audio/remover_wave13quality_best/validation/en_02_marked.wav",
+      "exact_decoded_pcm_equal": true
+    },
+    {
+      "source": "audio/remover_validation/es_03_marked.wav",
+      "compared_output": "audio/remover_wave13quality_best/validation/es_03_marked.wav",
+      "exact_decoded_pcm_equal": true
+    },
+    {
+      "source": "audio/remover_validation/fr_04_marked.wav",
+      "compared_output": "audio/remover_wave13quality_best/validation/fr_04_marked.wav",
+      "exact_decoded_pcm_equal": true
+    },
+    {
+      "source": "audio/remover_validation/he_05_marked.wav",
+      "compared_output": "audio/remover_wave13quality_best/validation/he_05_marked.wav",
+      "exact_decoded_pcm_equal": true
+    },
+    {
+      "source": "audio/remover_validation/hi_06_marked.wav",
+      "compared_output": "audio/remover_wave13quality_best/validation/hi_06_marked.wav",
+      "exact_decoded_pcm_equal": true
+    },
+    {
+      "source": "audio/remover_validation/it_07_marked.wav",
+      "compared_output": "audio/remover_wave13quality_best/validation/it_07_marked.wav",
+      "exact_decoded_pcm_equal": true
+    },
+    {
+      "source": "audio/remover_validation/ja_08_marked.wav",
+      "compared_output": "audio/remover_wave13quality_best/validation/ja_08_marked.wav",
+      "exact_decoded_pcm_equal": true
+    },
+    {
+      "source": "audio/remover_validation/ko_09_marked.wav",
+      "compared_output": "audio/remover_wave13quality_best/validation/ko_09_marked.wav",
+      "exact_decoded_pcm_equal": true
+    },
+    {
+      "source": "audio/remover_validation/nl_10_marked.wav",
+      "compared_output": "audio/remover_wave13quality_best/validation/nl_10_marked.wav",
+      "exact_decoded_pcm_equal": true
+    },
+    {
+      "source": "audio/remover_validation/pl_11_marked.wav",
+      "compared_output": "audio/remover_wave13quality_best/validation/pl_11_marked.wav",
+      "exact_decoded_pcm_equal": true
+    },
+    {
+      "source": "audio/remover_validation/pt_12_marked.wav",
+      "compared_output": "audio/remover_wave13quality_best/validation/pt_12_marked.wav",
+      "exact_decoded_pcm_equal": true
+    },
+    {
+      "source": "audio/remover_validation/ru_13_marked.wav",
+      "compared_output": "audio/remover_wave13quality_best/validation/ru_13_marked.wav",
+      "exact_decoded_pcm_equal": true
+    },
+    {
+      "source": "audio/remover_validation/sv_14_marked.wav",
+      "compared_output": "audio/remover_wave13quality_best/validation/sv_14_marked.wav",
+      "exact_decoded_pcm_equal": true
+    },
+    {
+      "source": "audio/remover_validation/tr_15_marked.wav",
+      "compared_output": "audio/remover_wave13quality_best/validation/tr_15_marked.wav",
+      "exact_decoded_pcm_equal": true
+    },
+    {
+      "source": "audio/remover_validation/zh_16_marked.wav",
+      "compared_output": "audio/remover_wave13quality_best/validation/zh_16_marked.wav",
+      "exact_decoded_pcm_equal": true
+    }
+  ],
+  "test_plan": "results/remover_test_batch2.plan.json",
+  "test_plan_sha256": "bc53205deca605f8bd06c0d88b02f55a0eabc4b8f0e2eb980917180cd09a79b6",
+  "secondary_api_plan": "results/remover_test_batch2.api_plan.json",
+  "secondary_api_plan_sha256": "75389668b46f7ce3cc65d290695cf277e19dc59963273640aafcafc92c15088d",
+  "priority": "Full-band voice fidelity before detector passing; no broad lowpass or EQ; preserve exact native sample count/rate/channels"
+}

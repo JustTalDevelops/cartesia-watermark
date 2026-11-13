@@ -1,0 +1,11 @@
+# Python 3.13; versions are the ones the results were produced with. ffmpeg must be on PATH (mp3/m4a input, mp3 augmentation).
+numpy==2.5.4
+scipy==1.18.1
+soundfile==0.14.0
+requests==2.34.2
+scikit-learn==1.9.1
+torch==2.15.0
+transformers==5.22.2
+websockets==17.4            # experiments/paths.py only
+# Optional, experiments/known_wm.py only (is it a published scheme?):
+# audioseal==0.2.1 omegaconf==2.4.0 einops==0.8.2

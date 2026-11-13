@@ -1,0 +1,229 @@
+{
+  "status": "Quality-first inference release; experimental removal with known failures",
+  "checkpoint": "results/remover_quality_v2.pt",
+  "checkpoint_sha256": "803862a9f4f77a64c9ada05bfb8078b6eedbba15541337c36c751ce0312a95f1",
+  "default_alias": "results/remover_quality.pt",
+  "default_alias_sha256": "803862a9f4f77a64c9ada05bfb8078b6eedbba15541337c36c751ce0312a95f1",
+  "parameters": 25105,
+  "bytes": 108275,
+  "source_step": 500,
+  "model_config": {
+    "width": 24,
+    "max_phase": 0.5,
+    "max_gain": 0.15,
+    "min_snr_db": 30.0,
+    "architecture": "waveform",
+    "local_snr_db": 27.0,
+    "context_layers": 3,
+    "waveform_gain": 0.1,
+    "post_lowpass_hz": null,
+    "edit_low_hz": 1000,
+    "edit_high_hz": 4000,
+    "masking_margin_db": null
+  },
+  "manifest_sha256": "ce37b6bfed152ef9e8eb9421d37ca33478f224d2ea1c717b7ebd7a5bb896e484",
+  "frozen_before_test": true,
+  "freeze_report": "results/remover_quality_v2.freeze.json",
+  "fresh_quality": {
+    "marked_clips": 16,
+    "control_clips": 4,
+    "marked_scored_clips": 16,
+    "marked_detected_before": 15,
+    "marked_detected_after": 6,
+    "previously_detected_now_negative": 9,
+    "marked_median_snr_db": 35.078705852494124,
+    "marked_min_snr_db": 32.45785188430895,
+    "marked_median_stoi": 0.9985418133959743,
+    "marked_min_stoi": 0.9956380605999101,
+    "marked_median_estoi": 0.9964610717804512,
+    "marked_pesq_clips": 16,
+    "marked_median_pesq_wb": 4.590879678726196,
+    "marked_min_pesq_wb": 4.552839279174805,
+    "marked_median_native_spectral_change_db": 0.828487292740054,
+    "marked_max_native_band_gain_change_db": 0.7553729990706124,
+    "control_median_snr_db": 35.65708074367117,
+    "control_detected_before": 0,
+    "control_detected_after": 0,
+    "control_median_stoi": 0.9987638432914794,
+    "control_median_pesq_wb": 4.594979524612427
+  },
+  "paired_quality": {
+    "marked_count": 16,
+    "marked_pesq_improved": 16,
+    "minimum_pesq_gain": 0.04512500762939453,
+    "median_paired_pesq_gain": 0.0925140380859375,
+    "marked_estoi_improved": 16,
+    "maximum_active_above8khz_band_change_db": 3.262697497593349e-05,
+    "output_peak_max": 0.9976262450218201,
+    "clips": [
+      {
+        "source": "audio/h2h4/ar_001_marked.wav",
+        "marked": true,
+        "pesq_gain": 0.16769742965698242,
+        "estoi_gain": 0.003817113780324566,
+        "snr_gain_db": 2.492438007975572
+      },
+      {
+        "source": "audio/h2h4/de_003_marked.wav",
+        "marked": true,
+        "pesq_gain": 0.07574224472045898,
+        "estoi_gain": 0.0028976431973617434,
+        "snr_gain_db": 1.860031041796816
+      },
+      {
+        "source": "audio/h2h4/en_006_marked.wav",
+        "marked": true,
+        "pesq_gain": 0.08877992630004883,
+        "estoi_gain": 0.0034905238550945183,
+        "snr_gain_db": 1.8441199409429885
+      },
+      {
+        "source": "audio/h2h4/es_022_marked.wav",
+        "marked": true,
+        "pesq_gain": 0.09474372863769531,
+        "estoi_gain": 0.0016704721028749647,
+        "snr_gain_db": 1.7149892568719878
+      },
+      {
+        "source": "audio/h2h4/fr_025_marked.wav",
+        "marked": true,
+        "pesq_gain": 0.18894100189208984,
+        "estoi_gain": 0.0060203423606168815,
+        "snr_gain_db": 2.2330018692463582
+      },
+      {
+        "source": "audio/h2h4/he_028_marked.wav",
+        "marked": true,
+        "pesq_gain": 0.061574459075927734,
+        "estoi_gain": 0.0014961766077621341,
+        "snr_gain_db": 1.5480001906636822
+      },
+      {
+        "source": "audio/h2h4/hi_030_marked.wav",
+        "marked": true,
+        "pesq_gain": 0.1474924087524414,
+        "estoi_gain": 0.0057926734999734775,
+        "snr_gain_db": 2.043101912076118
+      },
+      {
+        "source": "audio/h2h4/ko_035_marked.wav",
+        "marked": true,
+        "pesq_gain": 0.09028434753417969,
+        "estoi_gain": 0.0007519227193982791,
+        "snr_gain_db": 1.3152688276842461
+      },
+      {
+        "source": "audio/h2h4/pt_037_marked.wav",
+        "marked": true,
+        "pesq_gain": 0.1000981330871582,
+        "estoi_gain": 0.0036718607395765934,
+        "snr_gain_db": 2.105662513684706
+      },
+      {
+        "source": "audio/h2h4/ru_039_marked.wav",
+        "marked": true,
+        "pesq_gain": 0.06980657577514648,
+        "estoi_gain": 0.002680328306680302,
+        "snr_gain_db": 1.8294613044379346
+      },
+      {
+        "source": "audio/h2h4/ta_041_marked.wav",
+        "marked": true,
+        "pesq_gain": 0.08872652053833008,
+        "estoi_gain": 0.004669620223065829,
+        "snr_gain_db": 1.9375447495673868
+      },
+      {
+        "source": "audio/h2h4/tl_044_marked.wav",
+        "marked": true,
+        "pesq_gain": 0.10689878463745117,
+        "estoi_gain": 0.0011746757638256833,
+        "snr_gain_db": 1.7181912803783561
+      },
+      {
+        "source": "audio/h2h4/zh_047_marked.wav",
+        "marked": true,
+        "pesq_gain": 0.04512500762939453,
+        "estoi_gain": 0.0004585548279725238,
+        "snr_gain_db": 1.1722760157167507
+      },
+      {
+        "source": "audio/h2h4/es_023_marked.wav",
+        "marked": true,
+        "pesq_gain": 0.11570167541503906,
+        "estoi_gain": 0.00667963244880021,
+        "snr_gain_db": 2.4575784149741366
+      },
+      {
+        "source": "audio/h2h4/en_007_marked.wav",
+        "marked": true,
+        "pesq_gain": 0.07110595703125,
+        "estoi_gain": 0.002503769992147742,
+        "snr_gain_db": 1.6934594394461158
+      },
+      {
+        "source": "audio/h2h4/fr_026_marked.wav",
+        "marked": true,
+        "pesq_gain": 0.11643838882446289,
+        "estoi_gain": 0.003947260802390384,
+        "snr_gain_db": 1.8682192458700015
+      },
+      {
+        "source": "audio/h2h4/en_006_clean.wav",
+        "marked": false,
+        "pesq_gain": 0.10499095916748047,
+        "estoi_gain": 0.003832413245861588,
+        "snr_gain_db": 1.9807271043076753
+      },
+      {
+        "source": "audio/h2h4/es_022_clean.wav",
+        "marked": false,
+        "pesq_gain": 0.08753108978271484,
+        "estoi_gain": 0.0019328404580385428,
+        "snr_gain_db": 1.7305471234713963
+      },
+      {
+        "source": "audio/h2h4/ar_001_clean.wav",
+        "marked": false,
+        "pesq_gain": 0.1504993438720703,
+        "estoi_gain": 0.0037045903008425807,
+        "snr_gain_db": 2.5297864810720867
+      },
+      {
+        "source": "audio/h2h4/fr_026_clean.wav",
+        "marked": false,
+        "pesq_gain": 0.11336851119995117,
+        "estoi_gain": 0.0032222821658997036,
+        "snr_gain_db": 1.990714066824836
+      }
+    ]
+  },
+  "cartesia": {
+    "marked_original_positive": 6,
+    "marked_output_negative": 2,
+    "marked_output_positive": 4,
+    "control_original_negative": 2,
+    "control_output_positive": 0,
+    "api_version": "2026-08-14",
+    "baseline": "Saved actual API responses on unchanged original files, imported with matching hashes",
+    "independent_voice_test": true,
+    "role": "Secondary measurement, not selection criterion",
+    "report": "results/remover_quality_v2_testbatch2_cartesia.json",
+    "report_sha256": "c004d40cc5ab6e077cf5d2c328a9f0a5ff8499e503b336cb72220b32512ff9b4"
+  },
+  "verification": {
+    "unit_tests": 22,
+    "unit_test_log": "results/remover_quality_v2_tests.log",
+    "export_matches_all17_development_outputs_exactly": true,
+    "all20_native_test_files_retain_rate_channels_sample_count": true,
+    "default_cli_pcm_max_difference_vs_evaluation": 1.4901161193847656e-08,
+    "default_cli_difference_reason": "Float32 arithmetic with4threads vs2; CLI audio and exact tested sample are both retained"
+  },
+  "verified_endpoint_negative_demo": "results/remover_quality_v2_verified_spanish.json",
+  "limitations": [
+    "Unpaired detector-guided editing; no matched original clean waveform target",
+    "Local negatives and API negatives do not certify physical erasure",
+    "Four of six independent marked test outputs still trigger the actual endpoint"
+  ],
+  "ongoing_research": "A new zero-initialized high-frequency branch is being trained under unchanged quality criteria; it has not replaced this frozen default."
+}

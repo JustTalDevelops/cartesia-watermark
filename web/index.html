@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Audio watermark remover</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="app-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 10v4m4-8v12m4-15v18m4-15v12m4-8v4"/></svg></div>
+      <h1>Audio watermark remover</h1>
+      <p>Try your own recording. Voice quality comes first.</p>
+    </header>
+
+    <section class="workspace" aria-label="Upload and process a recording">
+      <div id="dropzone" class="dropzone">
+        <svg class="upload-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21V5m-6 6 6-6 6 6M6 21v5a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5"/></svg>
+        <p id="file-title" class="file-title">Drop a recording here</p>
+        <p id="file-description" class="muted">or choose one from your device</p>
+        <button id="choose-file" class="button secondary" type="button">Choose audio file</button>
+        <input id="file-input" type="file" accept="audio/*,.wav,.mp3,.m4a,.flac,.ogg,.opus,.aac,.webm,.aiff" hidden>
+        <p class="formats">WAV, MP3, M4A, FLAC, OGG &amp; WEBM<br>Up to 100 MB · 15 minutes · mono or stereo</p>
+      </div>
+
+      <div class="settings">
+        <div class="setting-label"><label for="method">Processing method</label></div>
+        <select id="method" aria-describedby="method-help">
+          <option value="reconstruct" selected>Reconstruction (recommended)</option>
+          <option value="reconstruct_strong">Stronger reconstruction</option>
+          <option value="editor">Small edits (V3)</option>
+        </select>
+        <p id="method-help" class="help">Rebuilds speech using the approved reconstruction method. Allow about 2–3 minutes per minute of audio.</p>
+      </div>
+      <div id="editor-settings" class="settings" hidden>
+        <div class="setting-label"><label for="strength">Edit amount</label><output id="strength-value" for="strength">100%</output></div>
+        <input id="strength" type="range" min="25" max="100" step="25" value="100" aria-describedby="strength-help">
+        <p id="strength-help" class="help">Lower amounts make gentler changes, but may leave more of the watermark.</p>
+      </div>
+
+      <button id="process" class="button primary process" type="button" disabled>Process recording</button>
+      <div id="activity" class="activity" hidden>
+        <div class="activity-line"><p id="status" role="status"></p><span id="elapsed" aria-hidden="true"></span></div>
+        <progress id="upload-progress" max="100" value="0" aria-label="Upload progress" hidden></progress>
+      </div>
+      <p id="error" class="error" role="alert" hidden></p>
+    </section>
+
+    <section id="result" class="result" aria-labelledby="result-heading" hidden>
+      <div class="result-heading"><h2 id="result-heading" tabindex="-1">Your audio is ready</h2><span class="ready-mark" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m4 10 4 4 8-8"/></svg></span></div>
+      <p id="result-name" class="result-name"></p>
+      <p id="metadata" class="muted"></p>
+      <p id="verification" class="help">Watermark detection has not been checked.</p>
+      <div class="compare">
+        <div class="switcher" role="group" aria-label="Compare audio">
+          <button id="play-original" type="button" aria-pressed="true">Original</button>
+          <button id="play-processed" type="button" aria-pressed="false">Processed</button>
+        </div>
+        <audio id="player" controls preload="metadata" aria-label="Original recording"></audio>
+        <p class="help">Switch between versions at the same playback position.</p>
+      </div>
+      <a id="download" class="button primary download" href="#" download>Download processed WAV<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3v10m-4-4 4 4 4-4M4 14v3h12v-3"/></svg></a>
+      <p class="help download-help">Uncompressed WAV at your recording’s original sample rate.</p>
+      <div id="trial" class="trial" hidden>
+        <h3>Reconstruction trial</h3>
+        <p class="help">Cartesia did not detect a watermark in this trial WAV. Compare it with Original above. Reconstruction is now available for new uploads.</p>
+        <p id="trial-quality" class="help"></p>
+        <audio id="trial-player" controls preload="metadata" aria-label="Experimental reconstruction trial"></audio>
+        <a id="trial-download" class="button secondary" href="#" download>Download reconstruction trial</a>
+      </div>
+      <div class="result-actions"><button id="another" class="text-button" type="button">Choose another recording</button><button id="delete" class="text-button" type="button">Delete these files</button></div>
+    </section>
+
+    <footer>
+      <p>Processed on this machine. Recordings are retained for up to 24 hours.</p>
+      <p>Experimental: some recordings may remain detectable.</p>
+    </footer>
+  </main>
+</body>
+</html>

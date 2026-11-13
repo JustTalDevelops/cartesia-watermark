@@ -1,0 +1,5 @@
+# Main Python 3.13 environment: editor, detector/training, and upload app.
+# For a smaller installation, select files under requirements/ directly.
+-r requirements/inference.txt
+-r requirements/detector.txt
+-r requirements/web.txt
