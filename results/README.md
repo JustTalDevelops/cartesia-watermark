@@ -13,9 +13,10 @@ This directory mixes curated files included in Git with ignored local experiment
 | `sealed*.json`, `h2h4_*.json`, `val_scores_*.json` | Historical detector evaluation |
 | `align.json`, `mechanism.json`, `phase2.json`, `detect_cache.json` | Evidence for the watermark investigation |
 | `reconstruction_runtime.json` | Reconstruction worker timings and output-equivalence checks |
+| `model_catalog.json` | Published checkpoint inventory, loaders, aliases, and source/export checksums |
 
 **V3 is not a reliable remover.** Its original small API test did not generalize to subsequent real recordings. See [editor limitations](../docs/editor.md).
 
 Historical reports reference generated audio and intermediate run files that are not included in Git. These records describe those exact original runs; copying them is not equivalent to reproducing the experiment. Regeneration is described in [detector reproduction](../docs/detector.md).
 
-Large training checkpoints, logs, feature arrays, private recording results, and other run outputs remain local. Add new public evidence deliberately rather than unignoring this entire directory.
+Selected larger and historical model weights are available in [release downloads](../docs/models.md). Logs, feature arrays, private recording results, optimizer snapshots, and other run outputs remain local. Add new public evidence deliberately rather than unignoring this entire directory.

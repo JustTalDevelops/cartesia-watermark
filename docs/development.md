@@ -40,6 +40,8 @@ The reconstruction runtime is [installed separately](reconstruction.md). FFmpeg/
 
 Git includes source, documentation, corpus plans, curated result JSON/text files, three trained detector heads, and small editor release checkpoints with manifests. It excludes generated audio, uploads, feature arrays, environments, caches, logs, intermediate checkpoints, and ZIP exports. See [results/README.md](../results/README.md).
 
+Additional selected trained checkpoints are published as [model release assets](models.md), with an explicit catalog and checksums. Their large binaries stay outside Git history.
+
 Private upload work is stored below `.cache/`; local follow-up research in `experiments/continuous_followup/` stays ignored. No recordings are required for the unit tests. Historical integration/browser checks use generated local fixtures and are separate from the fixture-free test suite.
 
 V3's freeze record contains hashes for its checkpoint and original inference sources. Preserve those files when evaluating runtime changes elsewhere; do not rewrite historical evidence to match a new implementation. The previously built `artifacts/` package is a local snapshot, not the current source tree.

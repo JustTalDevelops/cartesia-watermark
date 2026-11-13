@@ -52,6 +52,7 @@ results/*
 !results/head_conv_heldout_x4c[012].pt
 !results/README.md
 !results/reconstruction_runtime.json
+!results/model_catalog.json
 
 # Local exports, tool state, and private follow-up recordings.
 /artifacts/

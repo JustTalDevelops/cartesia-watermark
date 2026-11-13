@@ -4,6 +4,8 @@ Tools for studying Cartesia's audio watermark, running a local detector, and exp
 
 **Removal is unresolved.** The V3 editor still flags Cartesia's detector on real recordings. Reconstruction has cleared some tested recordings and failed others; neither method reliably removes the watermark. A detector-negative result is not proof of erasure.
 
+**[Download the trained models](https://github.com/JustTalDevelops/cartesia-watermark/releases/tag/models-2026-11-13)** — detector heads, frozen V1–V3 editors, and separate research checkpoints. See the [model guide and catalog](docs/models.md) for contents, loading instructions, and upstream attribution.
+
 ## Process a recording
 
 | Method | What it does | Status |
