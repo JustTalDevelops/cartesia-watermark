@@ -121,6 +121,17 @@ calibration, with eight explicitly mocked detector callbacks and no HTTP calls.
 This verifies packaging and exact-file parity; it adds no removal observations.
 The earlier failed call-counter instrumentation attempt remains in the report.
 
+The separate [precision comparison](../results/codec_precision_development.json)
+uses eight files from three spent originals. INT8 reduced Large V3 generation
+time but changed one primary guard decision. Packed FP16 matched every token and
+all five primary decisions; generation totaled 236.7 versus 491.3 seconds for the
+bound float32 reference. A real full-wrapper integration reproduced the same
+checked file in 191.4 versus 269.3 seconds, about 29% less local time. Both wrapper
+runs used mocked detector callbacks; actual API pacing adds time. The
+[experimental flag](https://github.com/JustTalDevelops/cartesia-watermark/blob/codec-band-prior-20261114/docs/codec-profiles-study.md#experimental-single-file-command)
+has its own cache identity and remains outside the active float32 frozen study.
+These individual CPU observations add no fresh sources or removal evidence.
+
 The [separate frozen language-profile study](https://github.com/JustTalDevelops/cartesia-watermark/blob/codec-band-prior-20261114/docs/codec-profiles-study.md)
 declares 44 new marked requests and four matched nominal controls before
 generation. Its code, inputs, method order, evaluation roles and thresholds are
