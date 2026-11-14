@@ -241,6 +241,404 @@
     "detector_checked": false,
     "runtime_integration": false
   },
+  "posthoc_unsmoothed_donor_probes": [
+    {
+      "id": "unsmoothed_ar_turbo",
+      "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+      "output_sha256": "faa1021bfb3df0d6df4a3e9caa57039a5fdc477f6c5da1ce20e4a2142672b137",
+      "quality_estimates": {
+        "asr": {
+          "asr_disagreement": 0.13114754098360656,
+          "original_reference_error": 0.16129032258064516,
+          "processed_reference_error": 0.24193548387096775,
+          "reference_error_delta": 0.08064516129032259
+        },
+        "asr_turbo": {
+          "asr_disagreement": 0.0,
+          "original_reference_error": 0.03225806451612903,
+          "processed_reference_error": 0.03225806451612903,
+          "reference_error_delta": 0.0
+        },
+        "voice_quality": {
+          "speaker_minimum": 0.9874733777161715,
+          "dnsmos_delta": {
+            "signal": -0.03043838098304308,
+            "background": 0.04710059075818229,
+            "overall": 0.0028495090628366526
+          }
+        },
+        "mms": {
+          "original_reference_error": 0.0967741935483871,
+          "processed_reference_error": 0.14516129032258066,
+          "reference_error_delta": 0.04838709677419355,
+          "paired_disagreement": 0.08064516129032258
+        }
+      },
+      "detector_checked": false
+    },
+    {
+      "id": "unsmoothed_ar_union",
+      "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+      "output_sha256": "328b2342be8e51e73ac48951afb1a1db58690e5e13b537506d27566ee5841801",
+      "quality_estimates": {
+        "asr": {
+          "asr_disagreement": 0.11475409836065574,
+          "original_reference_error": 0.16129032258064516,
+          "processed_reference_error": 0.22580645161290322,
+          "reference_error_delta": 0.06451612903225806
+        },
+        "asr_turbo": {
+          "asr_disagreement": 0.0,
+          "original_reference_error": 0.03225806451612903,
+          "processed_reference_error": 0.03225806451612903,
+          "reference_error_delta": 0.0
+        },
+        "voice_quality": {
+          "speaker_minimum": 0.9896444592239506,
+          "dnsmos_delta": {
+            "signal": -0.03846509805988596,
+            "background": 0.03800871936382766,
+            "overall": -0.009793119162969877
+          }
+        },
+        "mms": {
+          "original_reference_error": 0.0967741935483871,
+          "processed_reference_error": 0.11290322580645161,
+          "reference_error_delta": 0.016129032258064516,
+          "paired_disagreement": 0.03225806451612903
+        }
+      },
+      "detector_checked": false
+    }
+  ],
+  "posthoc_small_turbo_union_probe": {
+    "scope": "Same spent Arabic source; not added to runtime",
+    "content_rejected": true,
+    "rejection_reason": "Repair would replace too much of the recording",
+    "maximum_patch_coverage": 0.3,
+    "audio_published": false,
+    "detector_checked": false
+  },
+  "posthoc_full_flow_repair_probe": {
+    "scope": "Same two spent Arabic/Tamil sources; existing speech-repair-flow profile",
+    "decisions": [
+      {
+        "id": "followup_06_ar_sonic-3.6",
+        "content_guard_passed": true,
+        "asr_initial_disagreement": 0.06451612903225806,
+        "asr_final_disagreement": 0.0,
+        "repair_applied": true,
+        "elapsed_seconds": 110.45122659858316,
+        "rejection_reason": null
+      },
+      {
+        "id": "followup_10_ta_sonic-3.6",
+        "content_guard_passed": false,
+        "asr_initial_disagreement": 0.060240963855421686,
+        "asr_final_disagreement": 0.030120481927710843,
+        "repair_applied": true,
+        "elapsed_seconds": 134.92504548933357,
+        "rejection_reason": "recognizer_disagreement"
+      }
+    ],
+    "accepted_output_quality": [
+      {
+        "id": "followup_06_ar_sonic-3.6__flow_repair",
+        "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+        "output_sha256": "f855d07f39599bfbaf20dbfb2af36e88d0b5c5a64c9bac789930c50fbb3eab60",
+        "quality_estimates": {
+          "asr": {
+            "asr_disagreement": 0.11475409836065574,
+            "original_reference_error": 0.16129032258064516,
+            "processed_reference_error": 0.1935483870967742,
+            "reference_error_delta": 0.03225806451612903
+          },
+          "asr_turbo": {
+            "asr_disagreement": 0.0,
+            "original_reference_error": 0.03225806451612903,
+            "processed_reference_error": 0.03225806451612903,
+            "reference_error_delta": 0.0
+          },
+          "voice_quality": {
+            "speaker_minimum": 0.9852606016050932,
+            "dnsmos_delta": {
+              "signal": -0.0029389808592323874,
+              "background": -0.003503878307870245,
+              "overall": 0.0055597044015942565
+            }
+          },
+          "mms": {
+            "original_reference_error": 0.0967741935483871,
+            "processed_reference_error": 0.1935483870967742,
+            "reference_error_delta": 0.0967741935483871,
+            "paired_disagreement": 0.0967741935483871
+          }
+        },
+        "detector_checked": false
+      }
+    ],
+    "detector_checked": false
+  },
+  "posthoc_stronger_repair_probe": {
+    "scope": "Same two spent Arabic/Tamil sources; existing speech-repair-strong profile",
+    "decisions": [
+      {
+        "id": "followup_06_ar_sonic-3.6",
+        "content_guard_passed": true,
+        "asr_initial_disagreement": 0.04838709677419355,
+        "asr_final_disagreement": 0.0,
+        "repair_applied": true,
+        "elapsed_seconds": 105.81200085859746,
+        "rejection_reason": null
+      },
+      {
+        "id": "followup_10_ta_sonic-3.6",
+        "content_guard_passed": false,
+        "asr_initial_disagreement": 0.04216867469879518,
+        "asr_final_disagreement": 0.03614457831325301,
+        "repair_applied": true,
+        "elapsed_seconds": 127.39603393804282,
+        "rejection_reason": "recognizer_disagreement"
+      }
+    ],
+    "accepted_output_quality": [
+      {
+        "id": "followup_06_ar_sonic-3.6__strong_repair",
+        "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+        "output_sha256": "61f1e583f034cedb7a7a627b73e9ec567e861f0f0bbb95d61f556592b92b4512",
+        "quality_estimates": {
+          "asr": {
+            "asr_disagreement": 0.13114754098360656,
+            "original_reference_error": 0.16129032258064516,
+            "processed_reference_error": 0.20967741935483872,
+            "reference_error_delta": 0.04838709677419356
+          },
+          "asr_turbo": {
+            "asr_disagreement": 0.0,
+            "original_reference_error": 0.03225806451612903,
+            "processed_reference_error": 0.03225806451612903,
+            "reference_error_delta": 0.0
+          },
+          "voice_quality": {
+            "speaker_minimum": 0.9875884174252099,
+            "dnsmos_delta": {
+              "signal": -0.019124721349188523,
+              "background": -0.02222644873775259,
+              "overall": -0.017222277307525236
+            }
+          },
+          "mms": {
+            "original_reference_error": 0.0967741935483871,
+            "processed_reference_error": 0.1774193548387097,
+            "reference_error_delta": 0.08064516129032258,
+            "paired_disagreement": 0.11290322580645161
+          }
+        },
+        "detector_checked": false
+      }
+    ],
+    "detector_checked": false
+  },
+  "posthoc_complete_unsmoothed_vocoder_quality": [
+    {
+      "id": "full_unsmoothed_ar",
+      "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+      "output_sha256": "65bf61a4fca1b3866fa3a65328eabebf9a70cc5efcab5aba6573da983b77aa34",
+      "quality_estimates": {
+        "asr": {
+          "asr_disagreement": 0.03278688524590164,
+          "original_reference_error": 0.16129032258064516,
+          "processed_reference_error": 0.16129032258064516,
+          "reference_error_delta": 0.0
+        },
+        "asr_turbo": {
+          "asr_disagreement": 0.0,
+          "original_reference_error": 0.03225806451612903,
+          "processed_reference_error": 0.03225806451612903,
+          "reference_error_delta": 0.0
+        },
+        "voice_quality": {
+          "speaker_minimum": 0.9978799408802372,
+          "dnsmos_delta": {
+            "signal": -0.004670544744389993,
+            "background": 0.04745360086812589,
+            "overall": 0.02873933732743783
+          }
+        },
+        "mms": {
+          "original_reference_error": 0.0967741935483871,
+          "processed_reference_error": 0.0967741935483871,
+          "reference_error_delta": 0.0,
+          "paired_disagreement": 0.0
+        }
+      },
+      "detector_checked": true
+    }
+  ],
+  "source_encoding_controls": {
+    "scope": "Same two spent authored development sources; encoding-only controls, no model processing",
+    "protocol_sha256": "e205bba9ebb3a987b0b9087fd2b44c77253bc311500e13d6b256696efd8f6d95",
+    "http_attempts": 6,
+    "positive_service_controls": 2,
+    "cases": [
+      {
+        "id": "followup_06_ar_sonic-3.6",
+        "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+        "output_sha256": "8ba1e689f6b9fb759b73782edfafd14d1b10ae4743d7efc379f7730dfcf74c29",
+        "sample_rate": 44100,
+        "samples": 1255968,
+        "channels": 1,
+        "maximum_quantization_error": 5.960464477539063e-08,
+        "detected": [
+          true,
+          true
+        ]
+      },
+      {
+        "id": "followup_10_ta_sonic-3.6",
+        "source_sha256": "91dbad3a2063dd29eae00148fbb21602e381fc88cc7eb52b99b203555c1ea963",
+        "output_sha256": "2701d726f2a614b5b681807076c209aa9e2a42463cab8cb3085ff814ca228d12",
+        "sample_rate": 44100,
+        "samples": 1220688,
+        "channels": 1,
+        "maximum_quantization_error": 5.960464477539063e-08,
+        "detected": [
+          true,
+          true
+        ]
+      }
+    ],
+    "conclusion": "Whole-source PCM24 FLAC encoding alone did not clear either spent source."
+  },
+  "posthoc_complete_unsmoothed_vocoder_endpoint_check": {
+    "scope": "One spent Arabic case; no fresh sample claim",
+    "qualification_before_labels": {
+      "turbo_paired_disagreement": true,
+      "turbo_reference_delta": true,
+      "small_reference_delta": true,
+      "mms_reference_delta": true,
+      "mms_paired_disagreement": true,
+      "voice_minimum": true,
+      "mos_delta": true
+    },
+    "protocol_sha256": "5af1eb6d17a4079b0ab6d46716b2c4b4dd0a0ef397f5c87d9eb1e03363cea8d3",
+    "http_attempts": 4,
+    "positive_service_controls": 2,
+    "canonical_original_sha256": "8ba1e689f6b9fb759b73782edfafd14d1b10ae4743d7efc379f7730dfcf74c29",
+    "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+    "output_sha256": "65bf61a4fca1b3866fa3a65328eabebf9a70cc5efcab5aba6573da983b77aa34",
+    "processed_detected": [
+      true,
+      true
+    ],
+    "processed_double_negative": false
+  },
+  "posthoc_midpoint_vocoder_probe": {
+    "scope": "Two spent generated regression sources; zero fresh samples",
+    "sigma_frequency": 0.5,
+    "sigma_time": 0.5,
+    "qualification_before_detector_labels": {
+      "followup_06_ar_sonic-3.6__sigma05": {
+        "turbo_paired_disagreement": true,
+        "turbo_reference_delta": true,
+        "small_reference_delta": true,
+        "mms_reference_delta": true,
+        "mms_paired_disagreement": true,
+        "voice_minimum": true,
+        "mos_delta": true
+      },
+      "followup_10_ta_sonic-3.6__sigma05": {
+        "turbo_paired_disagreement": true,
+        "turbo_reference_delta": true,
+        "small_reference_delta": true,
+        "mms_reference_delta": true,
+        "mms_paired_disagreement": true,
+        "voice_minimum": true,
+        "mos_delta": true
+      }
+    },
+    "http_attempts": 6,
+    "positive_service_controls": 2,
+    "cases": [
+      {
+        "id": "followup_06_ar_sonic-3.6__sigma05",
+        "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+        "output_sha256": "7a0f3d1f6e7b2c41406be75f1697295b6086c56ea09547d847add7f3611b5419",
+        "quality_estimates": {
+          "asr": {
+            "asr_disagreement": 0.06557377049180328,
+            "original_reference_error": 0.16129032258064516,
+            "processed_reference_error": 0.16129032258064516,
+            "reference_error_delta": 0.0
+          },
+          "asr_turbo": {
+            "asr_disagreement": 0.0,
+            "original_reference_error": 0.03225806451612903,
+            "processed_reference_error": 0.03225806451612903,
+            "reference_error_delta": 0.0
+          },
+          "voice_quality": {
+            "speaker_minimum": 0.9958255212679343,
+            "dnsmos_delta": {
+              "signal": -0.07231152337252,
+              "background": 0.010533973698559684,
+              "overall": -0.047262366700998815
+            }
+          },
+          "mms": {
+            "original_reference_error": 0.0967741935483871,
+            "processed_reference_error": 0.0967741935483871,
+            "reference_error_delta": 0.0,
+            "paired_disagreement": 0.0
+          }
+        },
+        "detector_checked": true,
+        "processed_detected": [
+          true,
+          true
+        ]
+      },
+      {
+        "id": "followup_10_ta_sonic-3.6__sigma05",
+        "source_sha256": "91dbad3a2063dd29eae00148fbb21602e381fc88cc7eb52b99b203555c1ea963",
+        "output_sha256": "77d9ed340949d125e1578bced5ad1008d23895534e7e27e5265f28b13b8ba465",
+        "quality_estimates": {
+          "asr": {
+            "asr_disagreement": 0.01818181818181818,
+            "original_reference_error": 0.1242603550295858,
+            "processed_reference_error": 0.11834319526627218,
+            "reference_error_delta": -0.005917159763313612
+          },
+          "asr_turbo": {
+            "asr_disagreement": 0.006060606060606061,
+            "original_reference_error": 0.10650887573964497,
+            "processed_reference_error": 0.11242603550295859,
+            "reference_error_delta": 0.005917159763313612
+          },
+          "voice_quality": {
+            "speaker_minimum": 0.9959722310708685,
+            "dnsmos_delta": {
+              "signal": 0.01691273738209098,
+              "background": 0.0631228770050356,
+              "overall": 0.03508564743510112
+            }
+          },
+          "mms": {
+            "original_reference_error": 0.0650887573964497,
+            "processed_reference_error": 0.0650887573964497,
+            "reference_error_delta": 0.0,
+            "paired_disagreement": 0.017964071856287425
+          }
+        },
+        "detector_checked": true,
+        "processed_detected": [
+          true,
+          true
+        ]
+      }
+    ],
+    "all_outputs_double_negative": false
+  },
   "limits": [
     "Recognizer estimates and detector-negative responses cannot prove physical erasure or unchanged words.",
     "Turbo is both the runtime guard and one evaluator; MMS is a separate architecture.",

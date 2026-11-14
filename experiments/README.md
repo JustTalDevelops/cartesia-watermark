@@ -60,6 +60,7 @@ Their results do not establish reliable removal on real recordings.
 | `reconstruction_reliability_report.py` | Export paired endpoint and quality measurements from the frozen boundary-correction study; rejects incomplete or mismatched evidence |
 | `filtered_prior_report.py` | Export frozen filtered-prior measurements, exact-file fallback checks, and aggregate private regression evidence |
 | `speech_repair_development_report.py` | Export two spent repair examples, component timings and exact-output integration; retains the independent Arabic content failure |
+| `speech_repair_runtime_report.py` | Validate and export encoder-memory measurements, exact recognition/timestamp comparisons and packaged audio equivalence |
 
 Private follow-up experiments using personal uploads remain ignored in `continuous_followup/`.
 The current runtime and its setup are documented in [reconstruction](../docs/reconstruction.md).

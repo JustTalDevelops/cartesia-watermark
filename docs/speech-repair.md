@@ -48,8 +48,32 @@ The content guard uses Whisper Turbo, which is also one of the evaluation models
 
 ## Runtime
 
-The extra recognition work makes this path slower than base reconstruction. On the two roughly 28-second development recordings, the packaged worker took about 128 and 145 seconds on the tested CPU setup. These timings describe those recordings, not general throughput.
+The extra recognition work makes this path slower than base reconstruction. Before the encoder-memory optimization below, the packaged worker took about 128 and 145 seconds on the two roughly 28-second development recordings. These timings describe those recordings, not general throughput.
+
+The recognizer now discards unused encoder-attention diagnostics after computing each layer's output. Decoder cross attention remains available for word alignment. Complete text, language and word timestamps matched exactly in the 28-second and 60-second comparisons; peak memory fell from 9.3 to 4.9 GiB and from 14.7 to 5.0 GiB. Recognition time on those short fixtures was approximately unchanged.
+
+The optimized recognizer completed a whole 252-second recording in about 92 seconds at 4.9 GiB peak memory in the known-English timing probe. The earlier baseline was stopped after about 324 seconds at 32.1 GiB, without a completed recognition result. These are observations on one machine; the long case has no completed baseline transcript to compare. The [runtime report](../results/speech_repair_runtime.json) separates recognition parity, the incomplete baseline, and packaged-output parity.
+
+The automatic-language preflight also exposed missing language tags in long-form word chunks. The runtime now uses the pinned model's initial-feature language detector when those tags are absent. Conflicting or unknown tags still reject the recording. The same complete long source then returned English with valid word timings in about 103 seconds at 4.9 GiB. The two packaged output comparisons were measured before this separate language fix; its missing-tag/conflict cases and the actual complete long source were checked afterward.
 
 The donor renderer skips unused global 256-frame synthesis blocks while retaining each selected block's original 32-frame context. A controlled probe measured about 40.2 to 19.5 seconds for Arabic and 38.7 to 24.9 seconds for Tamil, with identical final FLAC bytes. These are two observations on one machine, not an overall pipeline speed guarantee. Tests also compare used samples with full rendering across sample rates and channel counts.
 
 `reconstruct_vocoder_regions.py` is an internal donor renderer. Its intermediate waveform has omitted blocks and is not a final recording or detector test input. Only the complete repaired recording is checked.
+
+## Additional development checks
+
+These follow-ups reused the same spent recordings and add no fresh samples:
+
+| Probe | Result |
+| --- | --- |
+| Union of Turbo/MMS disputed regions, smoothed donor | Arabic MMS reference-error increase fell to 3.23 points, still above the 3-point threshold |
+| Same union with an unsmoothed donor | MMS increase fell to 1.61 points; Whisper-small still increased by 6.45 points |
+| Union of Small/Turbo disputed regions | Rejected because replacement exceeded the fixed 30% limit; no output or detector query |
+| Existing full-flow repair profile | Arabic passed its own guard but MMS increased by 9.68 points; Tamil was rejected at 3.012% guard disagreement |
+| Existing stronger repair profile | Arabic passed its own guard but MMS increased by 8.06 points; Tamil was rejected at 3.61% disagreement |
+| Complete unsmoothed vocoder | Arabic met the estimated quality criteria, but remained detected on both endpoint checks |
+| Complete vocoder with fixed sigma0.5 smoothing | Both Arabic and Tamil met the estimated quality criteria; both remained detected on both checks |
+
+Both complete original recordings also remained detected on two checks each after encoding to PCM24 FLAC without reconstruction. Opening and closing service controls stayed positive. The complete unsmoothed vocoder used the same FLAC encoding; its result therefore preserves a counterexample with matched file formats.
+
+These failures remain in the [development report](../results/speech_repair_development.json). They prevent a claim of reliable general removal, even though some reconstructed outputs check negative.

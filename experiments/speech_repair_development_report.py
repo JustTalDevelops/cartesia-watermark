@@ -36,6 +36,123 @@ def indexed(rows):
     return result
 
 
+def followup_quality(directory, stem):
+    """Keep every produced follow-up, including recognizer disagreements."""
+    plan_path = directory/(stem+'.plan.json')
+    plan = load(plan_path)
+    groups = {}
+    for suffix in ('asr', 'asr_turbo', 'voice_quality'):
+        document = load(directory/(stem+'.'+suffix+'.json'))
+        require(document['complete'] is True and document['plan_sha256'] == digest(plan_path),
+                'Incomplete follow-up quality evidence')
+        groups[suffix] = indexed(document['clips'])
+    independent = indexed(load(directory/(stem+'.mms.json'))['clips'])
+    require(load(directory/(stem+'.mms.json'))['complete'] is True, 'Incomplete follow-up MMS review')
+    rows = []
+    for item in plan['items']:
+        source_sha, output_sha = digest(ROOT/item['source']), digest(ROOT/item['output'])
+        require(source_sha == item['sha256'], 'Follow-up source changed')
+        estimates = {}
+        for suffix, group in groups.items():
+            metric = group[item['id']]
+            require(metric['source_sha256'] == source_sha and metric['output_sha256'] == output_sha,
+                    'Follow-up estimates measured other bytes')
+            fields = (('speaker_minimum', 'dnsmos_delta') if suffix == 'voice_quality' else
+                      ('asr_disagreement', 'original_reference_error', 'processed_reference_error', 'reference_error_delta'))
+            estimates[suffix] = {k: metric[k] for k in fields}
+        mms = independent[item['id']]
+        require(mms['source_sha256'] == source_sha and mms['output_sha256'] == output_sha,
+                'Follow-up MMS measured other bytes')
+        estimates['mms'] = {k: mms[k] for k in ('original_reference_error', 'processed_reference_error',
+                                              'reference_error_delta', 'paired_disagreement')}
+        rows.append({'id': item['id'], 'source_sha256': source_sha, 'output_sha256': output_sha,
+                     'quality_estimates': estimates, 'detector_checked': False})
+    return rows
+
+
+def encoding_controls(directory, cases):
+    protocol_path = directory/'source_encoding_dev/protocol.json'
+    protocol, api = load(protocol_path), load(directory/'source_encoding_dev/api.json')
+    require(api['complete'] is True and api['protocol_sha256'] == digest(protocol_path) and
+            len(api['http_attempts']) == len(api['clips']) == 6, 'Incomplete encoding-only controls')
+    originals = {r['source_sha256'] for r in cases}
+    exported = []
+    for item in protocol['items']:
+        require(item['source_sha256'] in originals and digest(ROOT/item['output']) == item['output_sha256'],
+                'Encoding control changed source or file')
+        checks = [r for r in api['clips'] if r['id'] == item['id']]
+        require(sorted(r['role'] for r in checks) == ['canonical_original_1', 'canonical_original_2'] and
+                all(r['sha256'] == item['output_sha256'] and r['http_status'] == 200 and
+                    r['detected'] is True for r in checks), 'Canonical original did not remain positive twice')
+        exported.append({k: item[k] for k in ('id', 'source_sha256', 'output_sha256', 'sample_rate',
+                                             'samples', 'channels', 'maximum_quantization_error')} |
+                        {'detected': [r['detected'] for r in checks]})
+    service = [r for r in api['clips'] if r['role'].endswith('positive_control')]
+    require(len(service) == 2 and all(r['http_status'] == 200 and r['detected'] is True for r in service),
+            'Encoding service controls failed')
+    return {'scope': protocol['scope'], 'protocol_sha256': digest(protocol_path),
+            'http_attempts': 6, 'positive_service_controls': 2, 'cases': exported,
+            'conclusion': 'Whole-source PCM24 FLAC encoding alone did not clear either spent source.'}
+
+
+def complete_vocoder_check(directory, quality):
+    folder = directory/'full_unsmoothed_dev'
+    api, protocol = load(folder/'api.json'), load(folder/'api.protocol.json')
+    qualification = load(folder/'qualification.json')
+    require(api['complete'] is True and api['protocol_sha256'] == digest(folder/'api.protocol.json') and
+            len(api['http_attempts']) == len(api['clips']) == 4, 'Incomplete complete-vocoder endpoint checks')
+    require(protocol['qualification_sha256'] == digest(folder/'qualification.json') and
+            qualification['all_estimated_criteria_passed'] is True and
+            qualification['detector_candidate_not_yet_queried'] is True and
+            all(qualification['criteria'].values()), 'Candidate was not qualified before its detector labels')
+    for name, expected in qualification['quality_report_sha256'].items():
+        require(digest(directory/('remaining_profiles_dev.'+name+'.json')) == expected,
+                'Vocoder qualification used other quality evidence')
+    candidate = next(r for r in quality if r['id'] == 'full_unsmoothed_ar')
+    checks = [r for r in api['clips'] if r['role'].startswith('processed_')]
+    require(len(checks) == 2 and all(r['sha256'] == candidate['output_sha256'] and r['http_status'] == 200 and
+                                   type(r['detected']) is bool for r in checks), 'Wrong vocoder output was checked')
+    controls = [r for r in api['clips'] if r['role'].endswith('positive_control')]
+    require(len(controls) == 2 and all(r['detected'] is True and r['http_status'] == 200 and
+            r['sha256'] == protocol['canonical_original_sha256'] for r in controls), 'Vocoder controls failed')
+    return {'scope': protocol['scope'], 'qualification_before_labels': qualification['criteria'],
+            'protocol_sha256': digest(folder/'api.protocol.json'), 'http_attempts': 4,
+            'positive_service_controls': 2, 'canonical_original_sha256': protocol['canonical_original_sha256'],
+            'source_sha256': candidate['source_sha256'], 'output_sha256': candidate['output_sha256'],
+            'processed_detected': [r['detected'] for r in checks],
+            'processed_double_negative': all(r['detected'] is False for r in checks)}
+
+
+def midpoint_check(directory):
+    folder = directory/'vocoder_midpoint_dev'
+    protocol, api = load(folder/'api.protocol.json'), load(folder/'api.json')
+    render_protocol = load(folder/'protocol.json')
+    require(api['complete'] is True and api['protocol_sha256'] == digest(folder/'api.protocol.json') and
+            len(api['http_attempts']) == len(api['clips']) == 6 and
+            render_protocol['sigma_frequency'] == render_protocol['sigma_time'] == .5,
+            'Incomplete or changed midpoint probe')
+    require(all(all(c.values()) for c in protocol['quality_qualification_before_detector_labels'].values()),
+            'Midpoint labels were queried without passing estimated quality')
+    for name, expected in protocol['quality_reports_sha256'].items():
+        require(digest(directory/('vocoder_midpoint_dev.'+name+'.json')) == expected,
+                'Midpoint quality evidence changed')
+    rows = followup_quality(directory, 'vocoder_midpoint_dev')
+    for row in rows:
+        checks = [r for r in api['clips'] if r['id'] == row['id']]
+        require(sorted(r['role'] for r in checks) == ['processed_1', 'processed_2'] and
+                all(r['sha256'] == row['output_sha256'] and r['http_status'] == 200 and
+                    type(r['detected']) is bool for r in checks), 'Wrong midpoint output was checked')
+        row['detector_checked'] = True
+        row['processed_detected'] = [r['detected'] for r in checks]
+    controls = [r for r in api['clips'] if r['role'].endswith('positive_control')]
+    require(len(controls) == 2 and all(r['detected'] is True and r['http_status'] == 200 for r in controls),
+            'Midpoint service controls failed')
+    return {'scope': protocol['scope'], 'sigma_frequency': .5, 'sigma_time': .5,
+            'qualification_before_detector_labels': protocol['quality_qualification_before_detector_labels'],
+            'http_attempts': 6, 'positive_service_controls': 2, 'cases': rows,
+            'all_outputs_double_negative': all(not any(r['processed_detected']) for r in rows)}
+
+
 def build(directory):
     plan_path = directory/'word_repair_vocoder_dev.plan.json'
     plan = load(plan_path)
@@ -123,6 +240,24 @@ def build(directory):
     require(union['source_sha256'] == cases[0]['source_sha256'] and
             union['output_sha256'] == digest(directory/'ensemble_region_dev/arabic_union.flac'),
             'Union-region development probe changed')
+    small = load(directory/'small_union_dev/result.json')
+    require(small['source_sha256'] == cases[0]['source_sha256'] and small['rejected'] is True and
+            not (directory/'small_union_dev/arabic.flac').exists(), 'Small union was not rejected')
+    flow_decisions = load(directory/'speech_repair_flow_dev/decisions.json')
+    require(len(flow_decisions) == 2 and [r['report']['content_guard_passed'] for r in flow_decisions] ==
+            [True, False], 'Unexpected full-flow development decisions')
+    flow_quality = followup_quality(directory, 'speech_repair_flow_dev')
+    require(len(flow_quality) == 1, 'Missing accepted full-flow quality evidence')
+    strong_decisions = load(directory/'speech_repair_strong_dev/decisions.json')
+    require(len(strong_decisions) == 2 and [r['report']['content_guard_passed'] for r in strong_decisions] ==
+            [True, False], 'Unexpected stronger-profile development decisions')
+    remaining_quality = followup_quality(directory, 'remaining_profiles_dev')
+    require(len(remaining_quality) == 2, 'Missing stronger/full-unsmoothed quality evidence')
+    encoding = encoding_controls(directory, cases)
+    unsmoothed_check = complete_vocoder_check(directory, remaining_quality)
+    for row in remaining_quality:
+        if row['id'] == 'full_unsmoothed_ar':
+            row['detector_checked'] = True
     return {'schema': 1, 'implementation_commit': implementation,
             'scope': 'Two already-spent authored development sources; zero new held-out recordings',
             'fresh_recordings': 0, 'development_recordings': len(cases),
@@ -141,6 +276,28 @@ def build(directory):
                                         'mms_paired_disagreement', 'mms_reference_error_delta')},
                 'mms_reference_delta_threshold': .03, 'mms_reference_delta_passed': False,
                 'detector_checked': False, 'runtime_integration': False},
+            'posthoc_unsmoothed_donor_probes': followup_quality(directory, 'unsmoothed_donor_dev'),
+            'posthoc_small_turbo_union_probe': {
+                'scope': 'Same spent Arabic source; not added to runtime',
+                'content_rejected': True, 'rejection_reason': small['reason'],
+                'maximum_patch_coverage': .30, 'audio_published': False, 'detector_checked': False},
+            'posthoc_full_flow_repair_probe': {
+                'scope': 'Same two spent Arabic/Tamil sources; existing speech-repair-flow profile',
+                'decisions': [{'id': r['id'], **{k: r['report'].get(k) for k in
+                              ('content_guard_passed', 'asr_initial_disagreement', 'asr_final_disagreement',
+                               'repair_applied', 'elapsed_seconds', 'rejection_reason')}} for r in flow_decisions],
+                'accepted_output_quality': flow_quality, 'detector_checked': False},
+            'posthoc_stronger_repair_probe': {
+                'scope': 'Same two spent Arabic/Tamil sources; existing speech-repair-strong profile',
+                'decisions': [{'id': r['id'], **{k: r['report'].get(k) for k in
+                              ('content_guard_passed', 'asr_initial_disagreement', 'asr_final_disagreement',
+                               'repair_applied', 'elapsed_seconds', 'rejection_reason')}} for r in strong_decisions],
+                'accepted_output_quality': [r for r in remaining_quality if r['id'].endswith('__strong_repair')],
+                'detector_checked': False},
+            'posthoc_complete_unsmoothed_vocoder_quality': [r for r in remaining_quality if r['id']=='full_unsmoothed_ar'],
+            'source_encoding_controls': encoding,
+            'posthoc_complete_unsmoothed_vocoder_endpoint_check': unsmoothed_check,
+            'posthoc_midpoint_vocoder_probe': midpoint_check(directory),
             'limits': ['Recognizer estimates and detector-negative responses cannot prove physical erasure or unchanged words.',
                        'Turbo is both the runtime guard and one evaluator; MMS is a separate architecture.',
                        'Arabic MMS reference error increased by 6.45 percentage points after repair.',

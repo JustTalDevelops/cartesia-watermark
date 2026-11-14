@@ -1,0 +1,163 @@
+{
+  "schema": 1,
+  "implementation_commit": "9d0d4adbd02dc08d22a86c9730bf4d11a417fd13",
+  "scope": "Memory optimization and output-equivalence probes; zero fresh efficacy recordings",
+  "change": "Discard unused encoder self-attention diagnostics after each layer computes its output; decoder cross attention for word alignment is retained.",
+  "recognition_parity": [
+    {
+      "case": "arabic",
+      "seconds": 28.48,
+      "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+      "all_text_word_timestamps_and_language_exact": true,
+      "baseline_peak_rss_kib": 9756276,
+      "optimized_peak_rss_kib": 5182640,
+      "baseline_recognition_seconds": 12.694547019898891,
+      "optimized_recognition_seconds": 12.768989128060639
+    },
+    {
+      "case": "english60",
+      "seconds": 60.0,
+      "source_sha256": "bb28a63d9474e07ae2712f304f6c13c5deb8252770617ce6ad5e0ac470b51d33",
+      "all_text_word_timestamps_and_language_exact": true,
+      "baseline_peak_rss_kib": 15367772,
+      "optimized_peak_rss_kib": 5206612,
+      "baseline_recognition_seconds": 20.722933693788946,
+      "optimized_recognition_seconds": 21.13658838905394
+    }
+  ],
+  "optimized_whole_long_recording": {
+    "source_sha256": "0e7da429ce36a226c3ba1be7fca35bc23c018b967835b66dab2e61439aa255a4",
+    "seconds": 252.08,
+    "peak_rss_kib": 5182100,
+    "recognition_seconds": 92.15870702918619,
+    "encoder_hooks": 32
+  },
+  "recognition_probe_source_sha256": {
+    "recognizer": "5bfd73ab507b67c50c7006a7833928471bf886fb80318ea8fb4b7c34a15ddf09",
+    "memory_helper": "614bfe934ce33087a0596bf4951a293b212a24c9ccdf522f6fce96d46e00ba3d"
+  },
+  "recognition_probe_setup": "Baseline recognizer from 05c244c; attach the same encoder-memory helper for optimized comparisons. The packaged probe exercises the integrated constructor.",
+  "optimized_whole_long_language_policy": "English forced for this timing probe; automatic original-language inference is checked separately below.",
+  "automatic_language_whole_long_preflight": {
+    "scope": "One reused whole long generated source; no new efficacy case",
+    "source_sha256": "0e7da429ce36a226c3ba1be7fca35bc23c018b967835b66dab2e61439aa255a4",
+    "seconds": 252.08,
+    "language": "en",
+    "recognizer": {
+      "model": "openai/whisper-large-v3-turbo",
+      "revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "checkpoint_sha256": "542566a422ae4f3fd23f1ba11add198fca01bbf82e66e6a2857b3f608b1eb9d1",
+      "precision": "float32",
+      "attention": "eager",
+      "transformers": "4.46.3",
+      "encoder_attention_diagnostics_retained": false,
+      "decoder_cross_attention_for_word_alignment": "unchanged",
+      "language_policy": "Use unambiguous chunk tags; when absent, detect from initial features. Force original language for candidates.",
+      "normalization": "BasicTextNormalizer(remove_diacritics=False), NFKC; Chinese/Japanese/Cantonese characters, otherwise whitespace units"
+    },
+    "elapsed_seconds": 103.27614118345082,
+    "recognized_units": 799,
+    "word_chunks": 796,
+    "chunks_cover_recognized_text": true,
+    "invalid_timestamp_chunks": 0,
+    "last_valid_timestamp_seconds": 252.06,
+    "longform_completed": true,
+    "transcript_exported": false,
+    "peak_rss_kib": 5182816,
+    "recognizer_code_sha256": "2b221bbaba6479274eb1176f9b4a936d4ac96215c26384af7ec96c34755e0777",
+    "original_language_automatically_inferred": true
+  },
+  "longform_language_fix": {
+    "implementation_commit": "d3285bec528781b1450b87d53c9ff74351d6cede",
+    "source_sha256": {
+      "reconstruct_speech_repair.py": "2b221bbaba6479274eb1176f9b4a936d4ac96215c26384af7ec96c34755e0777",
+      "speech_repair.py": "4e3b883c3a2e0bf00546a5c4d5e4026aa1e875bca36881c4fe871e39675eb414"
+    },
+    "before": {
+      "scope": "One reused whole long generated source; no new efficacy case",
+      "source_sha256": "0e7da429ce36a226c3ba1be7fca35bc23c018b967835b66dab2e61439aa255a4",
+      "seconds": 252.08,
+      "language": null,
+      "recognizer": {
+        "model": "openai/whisper-large-v3-turbo",
+        "revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+        "checkpoint_sha256": "542566a422ae4f3fd23f1ba11add198fca01bbf82e66e6a2857b3f608b1eb9d1",
+        "precision": "float32",
+        "attention": "eager",
+        "transformers": "4.46.3",
+        "encoder_attention_diagnostics_retained": false,
+        "decoder_cross_attention_for_word_alignment": "unchanged",
+        "language_policy": "Infer original language, then force that language for candidates",
+        "normalization": "BasicTextNormalizer(remove_diacritics=False), NFKC; Chinese/Japanese/Cantonese characters, otherwise whitespace units"
+      },
+      "elapsed_seconds": 96.83029630314559,
+      "recognized_units": 799,
+      "word_chunks": 796,
+      "chunks_cover_recognized_text": true,
+      "invalid_timestamp_chunks": 0,
+      "last_valid_timestamp_seconds": 252.06,
+      "longform_completed": true,
+      "transcript_exported": false,
+      "peak_rss_kib": 5181900,
+      "recognizer_code_sha256": "514452f583bb3f05524b546fa7b44df6606da38e5b47e224b8c7e8e2b627d5e1",
+      "original_language_automatically_inferred": true
+    },
+    "result": "Missing long-form chunk tags now invoke the pinned model initial-feature language detector. Conflicting or unknown tags remain rejected."
+  },
+  "optimized_long_word_chunks": 796,
+  "incomplete_long_baseline": {
+    "scope": "One reused complete long generated source; recognition performance probe only",
+    "source_sha256": "0e7da429ce36a226c3ba1be7fca35bc23c018b967835b66dab2e61439aa255a4",
+    "seconds": 252.08,
+    "implementation_commit": "05c244c",
+    "elapsed_seconds_at_stop": 324.27999999932945,
+    "observed_peak_rss_kib": 33661256,
+    "observed_rss_kib": 33660768,
+    "cpu_seconds": 278.94,
+    "recognition_completed": false,
+    "stop_reason": "Stop owned baseline probe after excessive memory retention; no transcript/quality result inferred",
+    "script_sha256": "d3975340b37c8e294927d0134ad06cf3266586ca18ee7edeea6c184662d7a4a6"
+  },
+  "packaged_whole_recording_parity": [
+    {
+      "id": "followup_06_ar_sonic-3.6",
+      "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+      "output_sha256": "877b165ccfb145036ef4b94e561965d618481ba5059c267f9eacbb8b69486fbb",
+      "decoded_pcm_exact_to_baseline": true,
+      "canonical_flac_bytes_exact_to_baseline": true,
+      "encoder_diagnostics_retained": false,
+      "elapsed_seconds": 119.87843005824834,
+      "quality_verified": false
+    },
+    {
+      "id": "followup_10_ta_sonic-3.6",
+      "source_sha256": "91dbad3a2063dd29eae00148fbb21602e381fc88cc7eb52b99b203555c1ea963",
+      "output_sha256": "345ec33b5dfb9b502d4b15a6c2d9906843650302c125af401d5fccb80f1e0a21",
+      "decoded_pcm_exact_to_baseline": true,
+      "canonical_flac_bytes_exact_to_baseline": true,
+      "encoder_diagnostics_retained": false,
+      "elapsed_seconds": 132.5801934665069,
+      "quality_verified": false
+    }
+  ],
+  "verification_parent_without_torch": true,
+  "source_sha256": {
+    "reconstruct_speech_repair.py": "514452f583bb3f05524b546fa7b44df6606da38e5b47e224b8c7e8e2b627d5e1",
+    "speech_repair.py": "5ea96fa9aa82e510c5db4f344bb60ebe9fca103906efd802c7f8bb4593ba78e9",
+    "whisper_memory.py": "614bfe934ce33087a0596bf4951a293b212a24c9ccdf522f6fce96d46e00ba3d",
+    "reconstruction_worker.py": "49b8816bd54a78957d45ed3596a63ba18a11bfa5eac0416070a85c692eef22f0",
+    "reconstruct_vocoder_regions.py": "dbbf7b4be3ee1c125da8314bd8868abf5f4edcab848c8ca3b8ecc8ef1f5e98f5",
+    "vocoder_regions.py": "1c8437bf303950d78b1ba23875b690a5cdf823e4fc487cd446bbe96f692ebba1"
+  },
+  "limits": [
+    "One process observation per mode/case, balanced order; no general latency guarantee",
+    "English60 is an analysis-only performance fixture derived from a longer generated source; it is never a detector input.",
+    "The 252-second baseline was stopped after excessive memory retention; no complete baseline transcript or runtime was inferred.",
+    "Only the 28-second and 60-second fixtures have complete baseline/optimized transcript and timestamp comparisons.",
+    "Short-case recognition latency was approximately unchanged.",
+    "Packaging repeats spent Arabic/Tamil fixtures and adds no efficacy samples or new detector observations.",
+    "Removal and Arabic content-fidelity failures remain unresolved by this memory optimization."
+  ],
+  "transcripts_exported": false,
+  "private_recordings_included": 0
+}
