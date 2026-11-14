@@ -20,6 +20,7 @@ audio/**
 !audio/corpus7_plan.json
 !audio/reconstruction_reliability_plan.json
 !audio/vocoder_reliability_plan.json
+!audio/filtered_prior_reliability_plan.json
 
 # Extracted SSL features (tools/frames.py, tools/frames_contrast.py), ~20 GB
 features/

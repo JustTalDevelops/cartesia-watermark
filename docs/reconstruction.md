@@ -109,6 +109,8 @@ The verification CLI checks each new recording's actual final bytes. A finite st
 
 Both spent development recordings cleared Cartesia. In the authored Arabic example, Turbo reference error fell from ten words with full-flow to two; the English regression had no paired transcript differences. The minimum sampled speaker cosine across the two recordings was 0.957, and both overall DNSMOS estimates improved. These development results are not held-out evidence or listening approval. The packaged implementation reproduces both complete development outputs exactly at the sample level.
 
+The frozen [fresh input plan](../audio/filtered_prior_reliability_plan.json) covers twelve marked requests from new project voices, two nominal Sonic 3.5 controls, and two reused long recordings. Every processed file is scheduled for an exact-byte repeat check. The separately recorded private regressions are excluded from its fresh denominator.
+
 It reuses the existing Python 3.12 reconstruction installation and checkpoint. It verifies the reference helpers, model configuration, and relevant upstream source hashes before loading. It does not alter the reference reconstruction implementation or download assets during processing.
 
 ```bash
