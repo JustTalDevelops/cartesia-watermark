@@ -132,6 +132,11 @@ runs used mocked detector callbacks; actual API pacing adds time. The
 has its own cache identity and remains outside the active float32 frozen study.
 These individual CPU observations add no fresh sources or removal evidence.
 
+An additional source-only control reused all nine Hindi/Tamil originals from the
+active cohort, across eight voice IDs. Both recognizers' normalized units matched
+their frozen float32 caches for all nine. It read no candidate outputs and adds
+no detector observations or paired float32 timing comparison.
+
 The [separate frozen language-profile study](https://github.com/JustTalDevelops/cartesia-watermark/blob/codec-band-prior-20261114/docs/codec-profiles-study.md)
 declares 44 new marked requests and four matched nominal controls before
 generation. Its code, inputs, method order, evaluation roles and thresholds are
