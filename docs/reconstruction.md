@@ -105,11 +105,25 @@ The verification CLI checks each new recording's actual final bytes. A finite st
 
 ## Filtered-prior candidate
 
-`tools/reconstruct_filtered_prior.py` is a new experimental candidate awaiting fresh validation. It keeps the original full-band speech condition and low-passes only the waveform used to encode the starting prior. The fixed recipe uses an eighth-order, zero-phase Butterworth filter at 2.3 kHz, prior temperature 0.8, denoising blend 0.1, 32 midpoint evaluations, seed 2035, and corrected chunk scheduling.
+`tools/reconstruct_filtered_prior.py` keeps the original full-band speech condition and low-passes only the waveform used to encode the starting prior. The fixed recipe uses an eighth-order, zero-phase Butterworth filter at 2.3 kHz, prior temperature 0.8, denoising blend 0.1, 32 midpoint evaluations, seed 2035, and corrected chunk scheduling. The [completed study](../results/reconstruction_filtered_prior.json) found four fresh counterexamples to this preset alone; a fixed, exact-file-checked fallback workflow produced negative outputs for all planned sources.
 
 Both spent development recordings cleared Cartesia. In the authored Arabic example, Turbo reference error fell from ten words with full-flow to two; the English regression had no paired transcript differences. The minimum sampled speaker cosine across the two recordings was 0.957, and both overall DNSMOS estimates improved. These development results are not held-out evidence or listening approval. The packaged implementation reproduces both complete development outputs exactly at the sample level.
 
-The frozen [fresh input plan](../audio/filtered_prior_reliability_plan.json) covers twelve marked requests from new project voices, two nominal Sonic 3.5 controls, and two reused long recordings. Every processed file is scheduled for an exact-byte repeat check. The separately recorded private regressions are excluded from its fresh denominator.
+The frozen [input plan](../audio/filtered_prior_reliability_plan.json) covers twelve marked requests from public voice IDs unused in earlier project plans, two nominal Sonic 3.5 controls, and two reused long recordings. The fourteen fresh requests span twelve voice IDs and eleven requested languages; the English request used a Dutch-primary multilingual voice. The long sources are Spanish (142.88 seconds) and English (252.08 seconds), reused from the earlier supplement rather than counted as fresh voices or generations.
+
+| Sources | Recordings | Original endpoint response | Primary output, first and repeat checks |
+| --- | ---: | --- | --- |
+| Fresh marked Sonic speech | 12 | 12 positive | 8 negative on both; 4 positive on both |
+| Nominal Sonic 3.5 controls | 2 | 1 positive, 1 negative | 2 negative on both |
+| Reused long marked sources | 2 | 2 positive | 2 negative on both |
+
+French, Korean, Chinese, and Russian remained detected. Every primary output received an exact-byte repeat, and no responses changed. The nominal French control's original positive response is not proof of a watermark or its subsequent erasure.
+
+The `filtered-prior → full-flow → strong` workflow was sealed before the fresh processed labels. It kept twelve primary outputs and used full-flow for the four remaining detections. Each selected file received two negative responses for its exact PCM24 FLAC bytes; all sixteen sources received a checked output. All planned positive service controls passed. Fallbacks and repeated queries are treatments or checks of the same recordings, not additional samples.
+
+Quality estimates describe the selected files, including the replacements. Fourteen of sixteen met every predeclared estimated threshold: Turbo reference-error increase at most three percentage points, minimum sampled speaker cosine at least 0.95, and overall DNSMOS change at least −0.2. Arabic and Tamil failed the reference-error threshold with increases of 6.45 and 3.55 percentage points. Across all selected files, minimum speaker cosine was 0.961 and median overall DNSMOS change was −0.020. All four replacements met these estimated thresholds; the second recognizer's measurements are also retained. No human listening approval is claimed.
+
+Three spent regression recordings, including two private uploads, were checked separately. All three originals were positive and their filtered-prior outputs were negative on both checks. Their private audio, transcripts, and individual fingerprints are excluded from the public report, and these recordings add nothing to the fresh denominator. An additional integration smoke test ran the actual CLI in a parent environment without Torch: a complete spent generated recording was encoded to PCM24 FLAC, checked negative twice, and published with identical bytes, between positive original-file controls.
 
 It reuses the existing Python 3.12 reconstruction installation and checkpoint. It verifies the reference helpers, model configuration, and relevant upstream source hashes before loading. It does not alter the reference reconstruction implementation or download assets during processing.
 
@@ -120,7 +134,7 @@ It reuses the existing Python 3.12 reconstruction installation and checkpoint. I
   --presets filtered-prior full-flow strong --boundary-safe
 ```
 
-The last command uploads candidates to Cartesia and retains the CLI's two-confirmation policy. This preset order is opt-in; app and CLI defaults are unchanged while evaluation proceeds.
+The last command uploads candidates to Cartesia and retains the CLI's two-confirmation policy. This preset order is opt-in. The app exposes the candidate as **Balanced reconstruction (experimental)** and keeps reference reconstruction as its default; app uploads remain local and unchecked. These measurements support checking each actual output, not a universal-removal or unchanged-speech guarantee.
 
 ## Smoothed-vocoder candidate
 

@@ -1,0 +1,2135 @@
+{
+  "schema_version": 1,
+  "candidate": {
+    "method": "filtered-prior",
+    "model": "ResembleAI/resemble-enhance/enhancer_stage2",
+    "model_revision": "4e3510ce4a8391159f665903544c5150bee7b2cb",
+    "model_sha256": "f9d035f318de3e6d919bc70cf7ad7d32b4fe92ec5cbe0b30029a27f5db07d9d6",
+    "source_commit": "8e978149bfe8abab3eb77d965d579a111afdb0ff",
+    "project_source_commit": "9391e742f726c1b5e98a4b9656c75c5d0e0d8dbb"
+  },
+  "settings": {
+    "nfe": 32,
+    "solver": "midpoint",
+    "denoising_blend": 0.1,
+    "prior_temperature": 0.8,
+    "prior_lowpass_hz": 2300.0,
+    "filter_order": 8,
+    "filter": "Butterworth SOS forward/backward, float64; normalized native chunk prior only",
+    "conditioning": "original full-band speech",
+    "boundary_safe": true,
+    "threads": 4
+  },
+  "inference_source_commit": "9391e742f726c1b5e98a4b9656c75c5d0e0d8dbb",
+  "inference_code_sha256": {
+    "tools/reconstruct_filtered_prior.py": "39e9709e619090b87a52bf017f86e454b7653d1931059361f7b465cbce25195b",
+    "tools/reconstruct_audio.py": "25f3e120598995e398fe76a68a3fda943b53e4f294cad5887207888fb9229c96",
+    "tools/reconstruction_inference.py": "1a3c6b8ae05019f04b9650a11b81a331b4ef6b11e9dc43c34e95a0371cbf8a8f",
+    "tools/reconstruction_worker.py": "566866c61e45c1364ca2f42adeec5876386c0a0cbf91836fe972769529ea9469",
+    "tools/verify_reconstruction.py": "64e251e9708dea15de445425ff502ea517f52122cf3a6ea3cc01a8c34b5e1fed"
+  },
+  "upstream_model_trained_by_this_project": false,
+  "selection": {
+    "fresh_recordings": 14,
+    "fresh_voice_ids": 12,
+    "fresh_languages": [
+      "ar",
+      "de",
+      "en",
+      "es",
+      "fr",
+      "hi",
+      "ja",
+      "ko",
+      "ru",
+      "ta",
+      "zh"
+    ],
+    "english_note": "Previously unused Dutch-primary public multilingual voice, English requested; no English-primary novelty claim.",
+    "long_supplement": {
+      "reused_long_sources": 2,
+      "new_generation_requests": 0,
+      "note": "Spanish142.88s and English252.08s reused; no new corpus/voice claim; English extends an earlier source and shares its voice."
+    },
+    "no_independent_population_or_universal_claim": true
+  },
+  "summary": {
+    "recordings": 16,
+    "original_positive": 15,
+    "positive_to_negative": 11,
+    "remaining_positive": 4,
+    "original_negative": 1,
+    "negative_to_positive": 0,
+    "negative_to_negative": 1
+  },
+  "by_provenance": {
+    "generated_marked": {
+      "recordings": 14,
+      "original_positive": 14,
+      "positive_to_negative": 10,
+      "remaining_positive": 4,
+      "original_negative": 0,
+      "negative_to_positive": 0,
+      "negative_to_negative": 0
+    },
+    "generated_unmarked": {
+      "recordings": 2,
+      "original_positive": 1,
+      "positive_to_negative": 1,
+      "remaining_positive": 0,
+      "original_negative": 1,
+      "negative_to_positive": 0,
+      "negative_to_negative": 1
+    }
+  },
+  "fresh_study": {
+    "plan_sha256": "1eece305f07140a5d2425283a6382e473983be20ab24a30d2084984a16e6f580",
+    "evidence_sha256": {
+      "plan": "1eece305f07140a5d2425283a6382e473983be20ab24a30d2084984a16e6f580",
+      "api": "af1edfedc1b5b707df6c0dffef93e5f6fde9f75b8160a3c0b86d431a90935a2c",
+      "render": "14f75691502c411518dac2556bff8ad25997350ff8dd2430b5197b51625542da",
+      "asr": "5a25aefbd4b2e53fff0a0fb867d4912409f8a8a31543a85767fdb40e26c3af69",
+      "secondary_asr": "e488704488d4671c5d8d60755667e5f54ec1a564245deb20c6187e94a05ce644",
+      "voice": "8a421c5dd98aa7f0b73f1308aed8cd4a747045112f1c3790586c68d79b762796"
+    },
+    "candidate": {
+      "method": "filtered-prior",
+      "model": "ResembleAI/resemble-enhance/enhancer_stage2",
+      "model_revision": "4e3510ce4a8391159f665903544c5150bee7b2cb",
+      "model_sha256": "f9d035f318de3e6d919bc70cf7ad7d32b4fe92ec5cbe0b30029a27f5db07d9d6",
+      "source_commit": "8e978149bfe8abab3eb77d965d579a111afdb0ff",
+      "project_source_commit": "9391e742f726c1b5e98a4b9656c75c5d0e0d8dbb"
+    },
+    "settings": {
+      "nfe": 32,
+      "solver": "midpoint",
+      "denoising_blend": 0.1,
+      "prior_temperature": 0.8,
+      "prior_lowpass_hz": 2300.0,
+      "filter_order": 8,
+      "filter": "Butterworth SOS forward/backward, float64; normalized native chunk prior only",
+      "conditioning": "original full-band speech",
+      "boundary_safe": true,
+      "threads": 4
+    },
+    "code_sha256": {
+      "tools/reconstruct_filtered_prior.py": "39e9709e619090b87a52bf017f86e454b7653d1931059361f7b465cbce25195b",
+      "tools/reconstruct_audio.py": "25f3e120598995e398fe76a68a3fda943b53e4f294cad5887207888fb9229c96",
+      "tools/reconstruction_inference.py": "1a3c6b8ae05019f04b9650a11b81a331b4ef6b11e9dc43c34e95a0371cbf8a8f",
+      "tools/reconstruction_worker.py": "566866c61e45c1364ca2f42adeec5876386c0a0cbf91836fe972769529ea9469",
+      "tools/verify_reconstruction.py": "64e251e9708dea15de445425ff502ea517f52122cf3a6ea3cc01a8c34b5e1fed"
+    },
+    "summary": {
+      "recordings": 14,
+      "original_positive": 13,
+      "positive_to_negative": 9,
+      "remaining_positive": 4,
+      "original_negative": 1,
+      "negative_to_positive": 0,
+      "negative_to_negative": 1
+    },
+    "http_attempts": 45,
+    "http_status_counts": {
+      "200": 45
+    },
+    "repeated_outputs": 14,
+    "repeated_outputs_negative": 10,
+    "positive_service_controls": 3,
+    "service_controls": 3,
+    "completed_at": "2026-11-14T05:29:48.750704+00:00"
+  },
+  "long_study": {
+    "plan_sha256": "8b4b92ae0148239ae89a094d591e253d4e1af1ad85ad935eb293b85de73d9267",
+    "evidence_sha256": {
+      "plan": "8b4b92ae0148239ae89a094d591e253d4e1af1ad85ad935eb293b85de73d9267",
+      "api": "6153bbd77fc1c9e4a77ea8185a0ba5d4513a80d1c49752a218aece16766fcfa8",
+      "render": "e4ef144107e58cf5408229828c971e1fac0cc793bd5e522010e1d0b7314cd95d",
+      "asr": "4ca03ef6c5080d43064e9abe4d154bd8732a1f92e1693b58dadd12656661208d",
+      "secondary_asr": "ca84f9d290f3a45635554e5a6a733f94f6c23949f99513c69fe91926445a0cd7",
+      "voice": "62642ec5eb59b970549c5af13a461c705d38de760fafd76cd177e908fc8ba42f"
+    },
+    "candidate": {
+      "method": "filtered-prior",
+      "model": "ResembleAI/resemble-enhance/enhancer_stage2",
+      "model_revision": "4e3510ce4a8391159f665903544c5150bee7b2cb",
+      "model_sha256": "f9d035f318de3e6d919bc70cf7ad7d32b4fe92ec5cbe0b30029a27f5db07d9d6",
+      "source_commit": "8e978149bfe8abab3eb77d965d579a111afdb0ff",
+      "project_source_commit": "9391e742f726c1b5e98a4b9656c75c5d0e0d8dbb"
+    },
+    "settings": {
+      "nfe": 32,
+      "solver": "midpoint",
+      "denoising_blend": 0.1,
+      "prior_temperature": 0.8,
+      "prior_lowpass_hz": 2300.0,
+      "filter_order": 8,
+      "filter": "Butterworth SOS forward/backward, float64; normalized native chunk prior only",
+      "conditioning": "original full-band speech",
+      "boundary_safe": true,
+      "threads": 4
+    },
+    "code_sha256": {
+      "tools/reconstruct_filtered_prior.py": "39e9709e619090b87a52bf017f86e454b7653d1931059361f7b465cbce25195b",
+      "tools/reconstruct_audio.py": "25f3e120598995e398fe76a68a3fda943b53e4f294cad5887207888fb9229c96",
+      "tools/reconstruction_inference.py": "1a3c6b8ae05019f04b9650a11b81a331b4ef6b11e9dc43c34e95a0371cbf8a8f",
+      "tools/reconstruction_worker.py": "566866c61e45c1364ca2f42adeec5876386c0a0cbf91836fe972769529ea9469",
+      "tools/verify_reconstruction.py": "64e251e9708dea15de445425ff502ea517f52122cf3a6ea3cc01a8c34b5e1fed"
+    },
+    "summary": {
+      "recordings": 2,
+      "original_positive": 2,
+      "positive_to_negative": 2,
+      "remaining_positive": 0,
+      "original_negative": 0,
+      "negative_to_positive": 0,
+      "negative_to_negative": 0
+    },
+    "http_attempts": 9,
+    "http_status_counts": {
+      "200": 9
+    },
+    "repeated_outputs": 2,
+    "repeated_outputs_negative": 2,
+    "positive_service_controls": 3,
+    "service_controls": 3,
+    "completed_at": "2026-11-14T04:53:50.381410+00:00"
+  },
+  "quality_metrics": {
+    "asr": {
+      "model": "openai/whisper-small",
+      "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "method": "Native long-form timestamp decoding; no artificial segment word cuts",
+      "do_sample": false,
+      "condition_on_prev_tokens": false,
+      "max_new_tokens_per_segment": 440,
+      "known_language": "Fresh requests and explicit public language metadata; otherwise original automatic detection, reused for output",
+      "normalization": "Whisper BasicTextNormalizer(remove_diacritics=False), NFKC; Chinese/Japanese CER, otherwise whitespace WER",
+      "limitation": "Recognizer output is an estimate; paired disagreements do not prove changed speech or unchanged speech.",
+      "padding_policy": "Waveform padded to at least 30 seconds at 16kHz; complete longer audio untruncated; attention mask supplied"
+    },
+    "secondary_asr": {
+      "model": "openai/whisper-large-v3-turbo",
+      "revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "method": "Native long-form timestamp decoding; no artificial segment word cuts",
+      "do_sample": false,
+      "condition_on_prev_tokens": false,
+      "max_new_tokens_per_segment": 440,
+      "known_language": "Fresh requests and explicit public language metadata; otherwise original automatic detection, reused for output",
+      "normalization": "Whisper BasicTextNormalizer(remove_diacritics=False), NFKC; Chinese/Japanese CER, otherwise whitespace WER",
+      "limitation": "Recognizer output is an estimate; paired disagreements do not prove changed speech or unchanged speech.",
+      "padding_policy": "Waveform padded to at least 30 seconds at 16kHz; complete longer audio untruncated; attention mask supplied"
+    },
+    "speaker": {
+      "model": "microsoft/wavlm-base-plus-sv",
+      "revision": "feb593a6c23c1cc3d9510425c29b0a14d2b07b1e",
+      "window_seconds": 10,
+      "window_centers_fraction": [
+        0.2,
+        0.5,
+        0.8
+      ],
+      "limitation": "Descriptive embedding cosine; no calibrated speaker identity or listening guarantee"
+    },
+    "dnsmos": {
+      "implementation": "dnsmos-p835-regular-v1",
+      "revision": "785ab12275d5cf9341c5e946b0eee9f8825ece3b",
+      "model_sha256": "269fbebdb513aa23cddfbb593542ecc540284a91849ac50516870e1ac78f6edd",
+      "librosa": "1.0.0",
+      "onnxruntime": "1.31.1",
+      "resampler": "librosa-soxr_hq",
+      "sample_rate": 16000,
+      "window_samples": 144160,
+      "hop_samples": 16000,
+      "short_clip_policy": "repeat inside quality estimator only"
+    },
+    "recordings": 16,
+    "content_by_unit": {
+      "character": {
+        "recordings": 2,
+        "with_reference_text": 2,
+        "median_asr_disagreement": 0.01616688396349413,
+        "median_reference_error_delta": 0.007692307692307693,
+        "maximum_reference_error_delta": 0.015384615384615385
+      },
+      "word": {
+        "recordings": 14,
+        "with_reference_text": 14,
+        "median_asr_disagreement": 0.008254897703762356,
+        "median_reference_error_delta": 0.0,
+        "maximum_reference_error_delta": 0.08823529411764705
+      }
+    },
+    "secondary_content_by_unit": {
+      "character": {
+        "recordings": 2,
+        "with_reference_text": 2,
+        "median_asr_disagreement": 0.0,
+        "median_reference_error_delta": 0.0,
+        "maximum_reference_error_delta": 0.0
+      },
+      "word": {
+        "recordings": 14,
+        "with_reference_text": 14,
+        "median_asr_disagreement": 0.0,
+        "median_reference_error_delta": 0.0,
+        "maximum_reference_error_delta": 0.06451612903225806
+      }
+    },
+    "minimum_speaker_window_cosine": 0.9635790333421492,
+    "median_dnsmos_overall_delta": -0.020435502045684784,
+    "estimated_criteria": {
+      "reference_error_delta_maximum": 0.03,
+      "minimum_speaker_cosine": 0.95,
+      "minimum_dnsmos_overall_delta": -0.2
+    },
+    "recordings_meeting_all_estimated_criteria": 14,
+    "human_listening_verified": false
+  },
+  "primary_quality_failures": [
+    {
+      "id": "followup_06_ar_sonic-3.6",
+      "criteria": {
+        "reference_error_delta_at_most_003": false,
+        "speaker_cosine_at_least_095": true,
+        "dnsmos_delta_at_least_minus_02": true
+      }
+    },
+    {
+      "id": "followup_10_ta_sonic-3.6",
+      "criteria": {
+        "reference_error_delta_at_most_003": false,
+        "speaker_cosine_at_least_095": true,
+        "dnsmos_delta_at_least_minus_02": true
+      }
+    }
+  ],
+  "fixed_fallback_workflow": {
+    "plan_sha256": "18443eddce7ba8690832e7fce8ed90501a3f93d5bd17f1e976c6e214c52a52c8",
+    "report_sha256": "fcc1da68a9322f72ae8220468c9665074f135c39940f0f79269ef400135fe962",
+    "decision_rule": "Keep exact filtered-prior FLAC only when both primary and exact-repeat responses are negative; otherwise try full-flow then strong with two negative confirmations for the same PCM24 FLAC. Errors or all-positive candidates publish no checked output.",
+    "source_recordings": 16,
+    "fallback_sources": 4,
+    "verified_negative_sources": 16,
+    "all_sources_received_checked_negative": true,
+    "required_negative_checks": 2,
+    "http_attempts": 10,
+    "service_controls": 2,
+    "positive_service_controls": 2,
+    "selected_output_quality": {
+      "recordings": 16,
+      "content_by_unit": {
+        "character": {
+          "recordings": 2,
+          "with_reference_text": 2,
+          "median_asr_disagreement": 0.1941329856584094,
+          "median_reference_error_delta": -0.1617992177314211,
+          "maximum_reference_error_delta": 0.015384615384615385
+        },
+        "word": {
+          "recordings": 14,
+          "with_reference_text": 14,
+          "median_asr_disagreement": 0.008254897703762356,
+          "median_reference_error_delta": 0.002958579881656806,
+          "maximum_reference_error_delta": 0.08823529411764705
+        }
+      },
+      "secondary_content_by_unit": {
+        "character": {
+          "recordings": 2,
+          "with_reference_text": 2,
+          "median_asr_disagreement": 0.012711864406779662,
+          "median_reference_error_delta": 0.012711864406779662,
+          "maximum_reference_error_delta": 0.025423728813559324
+        },
+        "word": {
+          "recordings": 14,
+          "with_reference_text": 14,
+          "median_asr_disagreement": 0.0,
+          "median_reference_error_delta": 0.0,
+          "maximum_reference_error_delta": 0.06451612903225806
+        }
+      },
+      "minimum_speaker_window_cosine": 0.9607307377718128,
+      "median_dnsmos_overall_delta": -0.020435502045684784,
+      "estimated_criteria": {
+        "reference_error_delta_maximum": 0.03,
+        "minimum_speaker_cosine": 0.95,
+        "minimum_dnsmos_overall_delta": -0.2
+      },
+      "recordings_meeting_all_estimated_criteria": 14,
+      "human_listening_verified": false
+    },
+    "selected_quality_failures": [
+      {
+        "id": "followup_06_ar_sonic-3.6",
+        "criteria": {
+          "reference_error_delta_at_most_003": false,
+          "speaker_cosine_at_least_095": true,
+          "dnsmos_delta_at_least_minus_02": true
+        }
+      },
+      {
+        "id": "followup_10_ta_sonic-3.6",
+        "criteria": {
+          "reference_error_delta_at_most_003": false,
+          "speaker_cosine_at_least_095": true,
+          "dnsmos_delta_at_least_minus_02": true
+        }
+      }
+    ],
+    "fallback_quality_evidence_sha256": {
+      "content": "330bb0477f654fa9ff38bf755831aabd5dedf2508771d676b3ff00c2f07b007e",
+      "secondary_content": "d25baa358757d70ce376b2b7298b723439fffe553d127fb9e7db569985f6ddac",
+      "voice": "0007e021433e02ad7fb1196996cdf278e805edf3512ec2e5cac52975a2003f17"
+    },
+    "fallback_measurements": [
+      {
+        "id": "followup_02_fr_sonic-3.6",
+        "source_sha256": "3a373a7aca2c248d2f4ef4a0350b8557b88caaa4e12daa0ef3f55f04fc98b0b4",
+        "output_sha256": "6ca7624f89495b015ccb9d93af3135240ef489ea097c5a7f78df647191748809",
+        "content": {
+          "language": "fr",
+          "unit": "word",
+          "original_units": 63,
+          "processed_units": 63,
+          "asr_disagreement": 0.015873015873015872,
+          "reference_units": 62,
+          "original_reference_error": 0.016129032258064516,
+          "processed_reference_error": 0.03225806451612903,
+          "reference_error_delta": 0.016129032258064516
+        },
+        "secondary_content": {
+          "language": "fr",
+          "unit": "word",
+          "original_units": 62,
+          "processed_units": 62,
+          "asr_disagreement": 0.0,
+          "reference_units": 62,
+          "original_reference_error": 0.0,
+          "processed_reference_error": 0.0,
+          "reference_error_delta": 0.0
+        },
+        "voice": {
+          "speaker_window_cosines": [
+            0.9871581443324153,
+            0.9829226602514943,
+            0.9889871181135079
+          ],
+          "speaker_minimum": 0.9829226602514943,
+          "speaker_mean": 0.9863559742324725,
+          "original_dnsmos": {
+            "signal": 3.6987390753205167,
+            "background": 4.126390189432495,
+            "overall": 3.4446340977368566,
+            "windows": 9,
+            "natural_seconds": 18.32
+          },
+          "processed_dnsmos": {
+            "signal": 3.7022803568074147,
+            "background": 3.8829168315710416,
+            "overall": 3.3413336132258737,
+            "windows": 9,
+            "natural_seconds": 18.32
+          },
+          "dnsmos_delta": {
+            "signal": 0.003541281486898029,
+            "background": -0.24347335786145363,
+            "overall": -0.10330048451098284
+          }
+        }
+      },
+      {
+        "id": "followup_07_ko_sonic-preview",
+        "source_sha256": "da5ba2fc5a79c30e7b4bc85e40a20ed56441b370a130bf9f82573a4b21e0b6e9",
+        "output_sha256": "d8b684237bd8479fc6a1f444373ab6f721929a2012379cfb09621c1aaaef8b62",
+        "content": {
+          "language": "ko",
+          "unit": "word",
+          "original_units": 42,
+          "processed_units": 44,
+          "asr_disagreement": 0.11904761904761904,
+          "reference_units": 44,
+          "original_reference_error": 0.11363636363636363,
+          "processed_reference_error": 0.13636363636363635,
+          "reference_error_delta": 0.02272727272727272
+        },
+        "secondary_content": {
+          "language": "ko",
+          "unit": "word",
+          "original_units": 42,
+          "processed_units": 42,
+          "asr_disagreement": 0.0,
+          "reference_units": 44,
+          "original_reference_error": 0.09090909090909091,
+          "processed_reference_error": 0.09090909090909091,
+          "reference_error_delta": 0.0
+        },
+        "voice": {
+          "speaker_window_cosines": [
+            0.9762172837595487,
+            0.9607307377718128,
+            0.9867665328125959
+          ],
+          "speaker_minimum": 0.9607307377718128,
+          "speaker_mean": 0.9745715181146526,
+          "original_dnsmos": {
+            "signal": 3.8257314749446274,
+            "background": 4.200969602473998,
+            "overall": 3.612787506846863,
+            "windows": 13,
+            "natural_seconds": 22.0
+          },
+          "processed_dnsmos": {
+            "signal": 3.7370901916839183,
+            "background": 4.08829652288633,
+            "overall": 3.4595493914329456,
+            "windows": 13,
+            "natural_seconds": 22.0
+          },
+          "dnsmos_delta": {
+            "signal": -0.08864128326070908,
+            "background": -0.11267307958766803,
+            "overall": -0.15323811541391752
+          }
+        }
+      },
+      {
+        "id": "followup_08_zh_sonic-3.6",
+        "source_sha256": "6cd620ccfe59539e3ac38e635f06602d76bb6a9bcc346f95bc766e01dca369fe",
+        "output_sha256": "12b282d73bb562718edd4250177825765d31c299b236260658d915539d389595",
+        "content": {
+          "language": "zh",
+          "unit": "character",
+          "original_units": 118,
+          "processed_units": 118,
+          "asr_disagreement": 0.3728813559322034,
+          "reference_units": 118,
+          "original_reference_error": 0.3813559322033898,
+          "processed_reference_error": 0.0423728813559322,
+          "reference_error_delta": -0.3389830508474576
+        },
+        "secondary_content": {
+          "language": "zh",
+          "unit": "character",
+          "original_units": 118,
+          "processed_units": 118,
+          "asr_disagreement": 0.025423728813559324,
+          "reference_units": 118,
+          "original_reference_error": 0.0,
+          "processed_reference_error": 0.025423728813559324,
+          "reference_error_delta": 0.025423728813559324
+        },
+        "voice": {
+          "speaker_window_cosines": [
+            0.9729565317607135,
+            0.9711408792926975,
+            0.9776369473830602
+          ],
+          "speaker_minimum": 0.9711408792926975,
+          "speaker_mean": 0.9739114528121572,
+          "original_dnsmos": {
+            "signal": 3.6545432716151787,
+            "background": 4.215274570033857,
+            "overall": 3.461093929566576,
+            "windows": 16,
+            "natural_seconds": 25.36
+          },
+          "processed_dnsmos": {
+            "signal": 3.707399459992608,
+            "background": 4.179959312782555,
+            "overall": 3.496123833740702,
+            "windows": 16,
+            "natural_seconds": 25.36
+          },
+          "dnsmos_delta": {
+            "signal": 0.05285618837742945,
+            "background": -0.03531525725130269,
+            "overall": 0.03502990417412599
+          }
+        }
+      },
+      {
+        "id": "followup_09_ru_sonic-preview",
+        "source_sha256": "9e12aed278b0acd53db81e3a5e772037c62ffbcf35b262480fe05511aceb203f",
+        "output_sha256": "344d5168e48c5fe589de59c8d11c23c36db4d5fa3fc17395599210d00b5264ff",
+        "content": {
+          "language": "ru",
+          "unit": "word",
+          "original_units": 52,
+          "processed_units": 52,
+          "asr_disagreement": 0.0,
+          "reference_units": 52,
+          "original_reference_error": 0.038461538461538464,
+          "processed_reference_error": 0.038461538461538464,
+          "reference_error_delta": 0.0
+        },
+        "secondary_content": {
+          "language": "ru",
+          "unit": "word",
+          "original_units": 52,
+          "processed_units": 52,
+          "asr_disagreement": 0.0,
+          "reference_units": 52,
+          "original_reference_error": 0.038461538461538464,
+          "processed_reference_error": 0.038461538461538464,
+          "reference_error_delta": 0.0
+        },
+        "voice": {
+          "speaker_window_cosines": [
+            0.9832537664048004,
+            0.9768311824205476,
+            0.9868744940458969
+          ],
+          "speaker_minimum": 0.9768311824205476,
+          "speaker_mean": 0.982319814290415,
+          "original_dnsmos": {
+            "signal": 3.6013036541220873,
+            "background": 4.102185363201204,
+            "overall": 3.3458198982556637,
+            "windows": 17,
+            "natural_seconds": 26.08
+          },
+          "processed_dnsmos": {
+            "signal": 3.7639454913746797,
+            "background": 4.180710328187949,
+            "overall": 3.542233381235855,
+            "windows": 17,
+            "natural_seconds": 26.08
+          },
+          "dnsmos_delta": {
+            "signal": 0.1626418372525924,
+            "background": 0.07852496498674544,
+            "overall": 0.19641348298019112
+          }
+        }
+      }
+    ],
+    "outcomes": [
+      {
+        "id": "followup_00_en_sonic-3.6",
+        "source_sha256": "3d734df04089d084fd5cb4f9c6ecf192a06310810da76dbc651ed21e6f3ff55b",
+        "primary_detected": false,
+        "primary_repeat_detected": false,
+        "fallback_needed": false,
+        "status": "verified_negative",
+        "negative_checks": 2,
+        "quality_verified": false,
+        "selected_preset": "filtered-prior",
+        "output_sha256": "919df36fdd9b5f8a7bac2aebfc930cd4127cfe5851fdc8fdd16b2d98b0f1ad76",
+        "checked_at": "2026-11-14T05:11:08.378489+00:00"
+      },
+      {
+        "id": "followup_01_es_sonic-preview",
+        "source_sha256": "ca9457bb3fe642b7269cfbd45a7760146a7dbdb2e5ed41510b23b735394949ba",
+        "primary_detected": false,
+        "primary_repeat_detected": false,
+        "fallback_needed": false,
+        "status": "verified_negative",
+        "negative_checks": 2,
+        "quality_verified": false,
+        "selected_preset": "filtered-prior",
+        "output_sha256": "7add3a9cd010c88a1e2b49434fcee853414dfed6371f5df6fe6a6f66052b3cea",
+        "checked_at": "2026-11-14T05:12:28.158085+00:00"
+      },
+      {
+        "id": "followup_02_fr_sonic-3.6",
+        "source_sha256": "3a373a7aca2c248d2f4ef4a0350b8557b88caaa4e12daa0ef3f55f04fc98b0b4",
+        "primary_detected": true,
+        "primary_repeat_detected": true,
+        "fallback_needed": true,
+        "status": "verified_negative",
+        "negative_checks": 2,
+        "quality_verified": false,
+        "selected_preset": "full-flow",
+        "output_sha256": "6ca7624f89495b015ccb9d93af3135240ef489ea097c5a7f78df647191748809",
+        "checked_at": "2026-11-14T05:33:48.211531+00:00"
+      },
+      {
+        "id": "followup_03_de_sonic-preview",
+        "source_sha256": "4687c6720e2676c1292ae47c092c9e40d5a8fcb11891359fc04bd55a5cf5cda6",
+        "primary_detected": false,
+        "primary_repeat_detected": false,
+        "fallback_needed": false,
+        "status": "verified_negative",
+        "negative_checks": 2,
+        "quality_verified": false,
+        "selected_preset": "filtered-prior",
+        "output_sha256": "a1dae6de0c0c895c9682a45ada1f8ce710401ce3aa32dcd99dbc5f116f1bfb40",
+        "checked_at": "2026-11-14T05:15:08.311791+00:00"
+      },
+      {
+        "id": "followup_04_hi_sonic-3.6",
+        "source_sha256": "df4c78b245b749e1cf901cf456721a335d4721b75ee0670d9f9a54e89f2cddcd",
+        "primary_detected": false,
+        "primary_repeat_detected": false,
+        "fallback_needed": false,
+        "status": "verified_negative",
+        "negative_checks": 2,
+        "quality_verified": false,
+        "selected_preset": "filtered-prior",
+        "output_sha256": "3c75149c2d1e23bb421f12fa1db293ff1d07ed15c7430d86da1aa104d416b7c4",
+        "checked_at": "2026-11-14T05:16:28.461676+00:00"
+      },
+      {
+        "id": "followup_05_ja_sonic-preview",
+        "source_sha256": "68557902fc0e77b8e66c8134631de5655e5ac3e5cb26209098df7e83503a3b44",
+        "primary_detected": false,
+        "primary_repeat_detected": false,
+        "fallback_needed": false,
+        "status": "verified_negative",
+        "negative_checks": 2,
+        "quality_verified": false,
+        "selected_preset": "filtered-prior",
+        "output_sha256": "a1f5f3a46fe3aa54d72002b8746684d53d9fa5b53e33e291e31b1af6c02fb712",
+        "checked_at": "2026-11-14T05:17:48.075672+00:00"
+      },
+      {
+        "id": "followup_06_ar_sonic-3.6",
+        "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+        "primary_detected": false,
+        "primary_repeat_detected": false,
+        "fallback_needed": false,
+        "status": "verified_negative",
+        "negative_checks": 2,
+        "quality_verified": false,
+        "selected_preset": "filtered-prior",
+        "output_sha256": "e7c4dbf616f6659cadee6578fd4f76d1549a0fdaf3a4feaa201c54e3a87019ad",
+        "checked_at": "2026-11-14T05:19:08.267238+00:00"
+      },
+      {
+        "id": "followup_07_ko_sonic-preview",
+        "source_sha256": "da5ba2fc5a79c30e7b4bc85e40a20ed56441b370a130bf9f82573a4b21e0b6e9",
+        "primary_detected": true,
+        "primary_repeat_detected": true,
+        "fallback_needed": true,
+        "status": "verified_negative",
+        "negative_checks": 2,
+        "quality_verified": false,
+        "selected_preset": "full-flow",
+        "output_sha256": "d8b684237bd8479fc6a1f444373ab6f721929a2012379cfb09621c1aaaef8b62",
+        "checked_at": "2026-11-14T05:36:28.561211+00:00"
+      },
+      {
+        "id": "followup_08_zh_sonic-3.6",
+        "source_sha256": "6cd620ccfe59539e3ac38e635f06602d76bb6a9bcc346f95bc766e01dca369fe",
+        "primary_detected": true,
+        "primary_repeat_detected": true,
+        "fallback_needed": true,
+        "status": "verified_negative",
+        "negative_checks": 2,
+        "quality_verified": false,
+        "selected_preset": "full-flow",
+        "output_sha256": "12b282d73bb562718edd4250177825765d31c299b236260658d915539d389595",
+        "checked_at": "2026-11-14T05:39:08.570402+00:00"
+      },
+      {
+        "id": "followup_09_ru_sonic-preview",
+        "source_sha256": "9e12aed278b0acd53db81e3a5e772037c62ffbcf35b262480fe05511aceb203f",
+        "primary_detected": true,
+        "primary_repeat_detected": true,
+        "fallback_needed": true,
+        "status": "verified_negative",
+        "negative_checks": 2,
+        "quality_verified": false,
+        "selected_preset": "full-flow",
+        "output_sha256": "344d5168e48c5fe589de59c8d11c23c36db4d5fa3fc17395599210d00b5264ff",
+        "checked_at": "2026-11-14T05:41:48.233243+00:00"
+      },
+      {
+        "id": "followup_10_ta_sonic-3.6",
+        "source_sha256": "91dbad3a2063dd29eae00148fbb21602e381fc88cc7eb52b99b203555c1ea963",
+        "primary_detected": false,
+        "primary_repeat_detected": false,
+        "fallback_needed": false,
+        "status": "verified_negative",
+        "negative_checks": 2,
+        "quality_verified": false,
+        "selected_preset": "filtered-prior",
+        "output_sha256": "fcb730648075528927633d4244628cce8f17674e6dcf8eb9e3b1f3017e755f53",
+        "checked_at": "2026-11-14T05:24:28.615299+00:00"
+      },
+      {
+        "id": "followup_11_ar_sonic-preview",
+        "source_sha256": "3b60bfa9dcd51698050d495b03c28e314b4b9ace775c60a092d8886fdc16ba3f",
+        "primary_detected": false,
+        "primary_repeat_detected": false,
+        "fallback_needed": false,
+        "status": "verified_negative",
+        "negative_checks": 2,
+        "quality_verified": false,
+        "selected_preset": "filtered-prior",
+        "output_sha256": "c66ff7a061f400b016c844d8664c8549ca55382d619653bc9d889cd3d45c2ba6",
+        "checked_at": "2026-11-14T05:25:48.408711+00:00"
+      },
+      {
+        "id": "followup_00_en_sonic-3.5",
+        "source_sha256": "d1a714af6ab86ac7d8bea232daf711a85b1a218e5730cf3900dc839742695dc4",
+        "primary_detected": false,
+        "primary_repeat_detected": false,
+        "fallback_needed": false,
+        "status": "verified_negative",
+        "negative_checks": 2,
+        "quality_verified": false,
+        "selected_preset": "filtered-prior",
+        "output_sha256": "a252a6f260286032509dd7f1d754ba08d1f63ead1c964af7c659d07ff862397e",
+        "checked_at": "2026-11-14T05:27:08.090519+00:00"
+      },
+      {
+        "id": "followup_02_fr_sonic-3.5",
+        "source_sha256": "08c99d220364e9828795d0f03cfc6059866321412e545069223b6ed28fedb12b",
+        "primary_detected": false,
+        "primary_repeat_detected": false,
+        "fallback_needed": false,
+        "status": "verified_negative",
+        "negative_checks": 2,
+        "quality_verified": false,
+        "selected_preset": "filtered-prior",
+        "output_sha256": "f0426064c7e768bd6d2b0744cde913d080d0a17383cdaaa2d615e9788acbf584",
+        "checked_at": "2026-11-14T05:28:28.435166+00:00"
+      },
+      {
+        "id": "long_02_es_sonic-3.6",
+        "source_sha256": "77837a25ef548f9869880641c41bdb724dfb7ded2163caa1ad4f6cb93fd9a370",
+        "primary_detected": false,
+        "primary_repeat_detected": false,
+        "fallback_needed": false,
+        "status": "verified_negative",
+        "negative_checks": 2,
+        "quality_verified": false,
+        "selected_preset": "filtered-prior",
+        "output_sha256": "6b7439d3bea2139ab568062c9c4638e531c67b0d67d81de3087c3f8cdc5a535c",
+        "checked_at": "2026-11-14T04:45:49.989731+00:00"
+      },
+      {
+        "id": "long_04_en_sonic-3.6",
+        "source_sha256": "0e7da429ce36a226c3ba1be7fca35bc23c018b967835b66dab2e61439aa255a4",
+        "primary_detected": false,
+        "primary_repeat_detected": false,
+        "fallback_needed": false,
+        "status": "verified_negative",
+        "negative_checks": 2,
+        "quality_verified": false,
+        "selected_preset": "filtered-prior",
+        "output_sha256": "425e2dd8df4f6cbe5af45c72d2018618c0546776bb7267f2ba13cbdf33502016",
+        "checked_at": "2026-11-14T04:49:51.966445+00:00"
+      }
+    ],
+    "completed_at": "2026-11-14T05:43:08.215307+00:00",
+    "interpretation": "Same sixteen sources; fallback attempts and repeat queries add no recordings."
+  },
+  "spent_regressions": {
+    "recordings": 3,
+    "private_recordings": 2,
+    "original_positive": 3,
+    "primary_double_negative": 3,
+    "selected_verified_negative": 3,
+    "selected_presets": {
+      "filtered-prior": 3
+    },
+    "primary_quality": {
+      "recordings": 3,
+      "content_by_unit": {
+        "word": {
+          "recordings": 3,
+          "with_reference_text": 0,
+          "median_asr_disagreement": 0.01639344262295082,
+          "median_reference_error_delta": null,
+          "maximum_reference_error_delta": null
+        }
+      },
+      "secondary_content_by_unit": {
+        "word": {
+          "recordings": 3,
+          "with_reference_text": 0,
+          "median_asr_disagreement": 0.0,
+          "median_reference_error_delta": null,
+          "maximum_reference_error_delta": null
+        }
+      },
+      "minimum_speaker_window_cosine": 0.9568633995392014,
+      "median_dnsmos_overall_delta": -0.00022341748805310147,
+      "human_listening_verified": false,
+      "known_text_criteria_applicable": false
+    },
+    "selected_quality": {
+      "recordings": 3,
+      "content_by_unit": {
+        "word": {
+          "recordings": 3,
+          "with_reference_text": 0,
+          "median_asr_disagreement": 0.01639344262295082,
+          "median_reference_error_delta": null,
+          "maximum_reference_error_delta": null
+        }
+      },
+      "secondary_content_by_unit": {
+        "word": {
+          "recordings": 3,
+          "with_reference_text": 0,
+          "median_asr_disagreement": 0.0,
+          "median_reference_error_delta": null,
+          "maximum_reference_error_delta": null
+        }
+      },
+      "minimum_speaker_window_cosine": 0.9568633995392014,
+      "median_dnsmos_overall_delta": -0.00022341748805310147,
+      "human_listening_verified": false,
+      "known_text_criteria_applicable": false
+    },
+    "excluded_from_fresh_denominator": true,
+    "individual_private_fingerprints_excluded": true,
+    "private_audio_or_transcripts_exported": false,
+    "http_attempts": 12,
+    "service_controls": 3,
+    "positive_service_controls": 3
+  },
+  "verification_cli_smoke": {
+    "status": "verified_negative",
+    "source_sha256": "2ab7b204cddd665b22cdc877ae713f5f1c8b516d2b9e1175370e90cc7eb4c5ac",
+    "output_sha256": "29d90b176dcce25a61f2b63d7f3acde66a96ba2a447a9bcce278ab73b29a58a4",
+    "selected_preset": "filtered-prior",
+    "checked_at": "2026-11-14T03:58:07.894603+00:00",
+    "quality_verified": false,
+    "required_negative_checks": 2,
+    "observed_negative_checks": 2,
+    "verification_cli_code_sha256": "64e251e9708dea15de445425ff502ea517f52122cf3a6ea3cc01a8c34b5e1fed",
+    "format": "PCM24 FLAC",
+    "exact_bytes_rechecked_after_publication": true,
+    "parent_environment": {
+      "python": "3.13.16",
+      "packages": {
+        "numpy": "2.5.4",
+        "soundfile": "0.14.0",
+        "requests": "2.34.2"
+      },
+      "torch_installed": false
+    },
+    "interpretation": "Integration smoke test on a spent generated fixture; excluded from held-out and removal denominators."
+  },
+  "packaged_development_parity": {
+    "purpose": "Packaged implementation versus fixed development recipe; no new endpoint observations or held-out samples",
+    "code_sha256": "39e9709e619090b87a52bf017f86e454b7653d1931059361f7b465cbce25195b",
+    "cases": [
+      {
+        "cohort": "authored_generated",
+        "decoded_pcm_exact": true,
+        "maximum_difference": 0.0
+      },
+      {
+        "cohort": "private_development",
+        "decoded_pcm_exact": true,
+        "maximum_difference": 0.0
+      }
+    ],
+    "all_decoded_pcm_exact": true,
+    "complete": true
+  },
+  "native_generation": {
+    "requests": 14,
+    "characters": 4717,
+    "reused_long_sources": 2
+  },
+  "environment": {
+    "asr": {
+      "python": "3.12.3",
+      "packages": {
+        "torch": "2.5.1+cpu",
+        "torchaudio": "2.5.1+cpu",
+        "transformers": "4.46.3",
+        "numpy": "1.26.4",
+        "scipy": "1.17.1",
+        "soundfile": "0.14.0",
+        "librosa": "0.11.0",
+        "onnxruntime": null
+      }
+    },
+    "voice": {
+      "python": "3.13.16",
+      "packages": {
+        "torch": "2.15.0+cpu",
+        "torchaudio": null,
+        "transformers": "5.22.2",
+        "numpy": "2.5.4",
+        "scipy": "1.18.1",
+        "soundfile": "0.14.0",
+        "librosa": "1.0.0",
+        "onnxruntime": "1.31.1"
+      }
+    }
+  },
+  "all_primary_responses_negative": false,
+  "service_controls_all_positive": true,
+  "interpretation": "Whole-file measurements of a frozen recipe. Repeats, fallbacks, controls, reused sources, and spent regressions do not inflate fresh removal counts. Quality scores are estimates; no physical-erasure, listening-approval, or future-detector guarantee.",
+  "clips": [
+    {
+      "id": "followup_00_en_sonic-3.6",
+      "cohort": "filtered_fresh_native",
+      "model": "sonic-3.6",
+      "language": "en",
+      "voice_primary_language": "nl",
+      "seconds": 24.64,
+      "sample_rate": 16000,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "source_sha256": "3d734df04089d084fd5cb4f9c6ecf192a06310810da76dbc651ed21e6f3ff55b",
+      "output_sha256": "919df36fdd9b5f8a7bac2aebfc930cd4127cfe5851fdc8fdd16b2d98b0f1ad76",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-14T04:03:08.408464+00:00",
+      "processed_checked_at": "2026-11-14T04:27:08.196004+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 73,
+        "processed_units": 73,
+        "asr_disagreement": 0.0,
+        "reference_units": 73,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": 0.0
+      },
+      "secondary_content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 73,
+        "processed_units": 73,
+        "asr_disagreement": 0.0,
+        "reference_units": 73,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.978661067500693,
+          0.9791521755262089,
+          0.9659992554199057
+        ],
+        "speaker_minimum": 0.9659992554199057,
+        "speaker_mean": 0.9746041661489359,
+        "original_dnsmos": {
+          "signal": 3.769086106218358,
+          "background": 4.1805004966346395,
+          "overall": 3.532470234242514,
+          "windows": 15,
+          "natural_seconds": 24.64
+        },
+        "processed_dnsmos": {
+          "signal": 3.693704538090777,
+          "background": 4.1869097833741336,
+          "overall": 3.474829040873705,
+          "windows": 15,
+          "natural_seconds": 24.64
+        },
+        "dnsmos_delta": {
+          "signal": -0.07538156812758068,
+          "background": 0.006409286739494036,
+          "overall": -0.057641193368808796
+        }
+      },
+      "processed_repeat_detected": false,
+      "repeat_checked_at": "2026-11-14T05:11:08.378489+00:00"
+    },
+    {
+      "id": "followup_01_es_sonic-preview",
+      "cohort": "filtered_fresh_native",
+      "model": "sonic-preview",
+      "language": "es",
+      "voice_primary_language": "es",
+      "seconds": 21.44,
+      "sample_rate": 24000,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "source_sha256": "ca9457bb3fe642b7269cfbd45a7760146a7dbdb2e5ed41510b23b735394949ba",
+      "output_sha256": "7add3a9cd010c88a1e2b49434fcee853414dfed6371f5df6fe6a6f66052b3cea",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-14T04:04:28.384154+00:00",
+      "processed_checked_at": "2026-11-14T04:31:08.056142+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "es",
+        "unit": "word",
+        "original_units": 62,
+        "processed_units": 62,
+        "asr_disagreement": 0.0,
+        "reference_units": 62,
+        "original_reference_error": 0.016129032258064516,
+        "processed_reference_error": 0.016129032258064516,
+        "reference_error_delta": 0.0
+      },
+      "secondary_content": {
+        "language": "es",
+        "unit": "word",
+        "original_units": 62,
+        "processed_units": 62,
+        "asr_disagreement": 0.0,
+        "reference_units": 62,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9793180647380986,
+          0.9782452335402614,
+          0.9807229253865127
+        ],
+        "speaker_minimum": 0.9782452335402614,
+        "speaker_mean": 0.9794287412216242,
+        "original_dnsmos": {
+          "signal": 3.764944367993879,
+          "background": 4.1826846086020035,
+          "overall": 3.541188010433899,
+          "windows": 12,
+          "natural_seconds": 21.44
+        },
+        "processed_dnsmos": {
+          "signal": 3.725852926022203,
+          "background": 4.2108216578776965,
+          "overall": 3.5243033963144863,
+          "windows": 12,
+          "natural_seconds": 21.44
+        },
+        "dnsmos_delta": {
+          "signal": -0.03909144197167613,
+          "background": 0.028137049275692938,
+          "overall": -0.016884614119412777
+        }
+      },
+      "processed_repeat_detected": false,
+      "repeat_checked_at": "2026-11-14T05:12:28.158085+00:00"
+    },
+    {
+      "id": "followup_02_fr_sonic-3.6",
+      "cohort": "filtered_fresh_native",
+      "model": "sonic-3.6",
+      "language": "fr",
+      "voice_primary_language": "fr",
+      "seconds": 18.32,
+      "sample_rate": 44100,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "source_sha256": "3a373a7aca2c248d2f4ef4a0350b8557b88caaa4e12daa0ef3f55f04fc98b0b4",
+      "output_sha256": "3eddbde9d63349589cb10e1eed41f966f350078f1f8687bdb35a93acec1ba795",
+      "original_detected": true,
+      "processed_detected": true,
+      "original_checked_at": "2026-11-14T04:05:48.158730+00:00",
+      "processed_checked_at": "2026-11-14T04:35:08.028125+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "fr",
+        "unit": "word",
+        "original_units": 63,
+        "processed_units": 63,
+        "asr_disagreement": 0.031746031746031744,
+        "reference_units": 62,
+        "original_reference_error": 0.016129032258064516,
+        "processed_reference_error": 0.04838709677419355,
+        "reference_error_delta": 0.03225806451612903
+      },
+      "secondary_content": {
+        "language": "fr",
+        "unit": "word",
+        "original_units": 62,
+        "processed_units": 62,
+        "asr_disagreement": 0.0,
+        "reference_units": 62,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9890268006131798,
+          0.989710511324652,
+          0.9934088729842132
+        ],
+        "speaker_minimum": 0.9890268006131798,
+        "speaker_mean": 0.9907153949740151,
+        "original_dnsmos": {
+          "signal": 3.6987390753205167,
+          "background": 4.126390189432495,
+          "overall": 3.4446340977368566,
+          "windows": 9,
+          "natural_seconds": 18.32
+        },
+        "processed_dnsmos": {
+          "signal": 3.703249036132931,
+          "background": 4.03883594646721,
+          "overall": 3.40625697835042,
+          "windows": 9,
+          "natural_seconds": 18.32
+        },
+        "dnsmos_delta": {
+          "signal": 0.004509960812414171,
+          "background": -0.08755424296528513,
+          "overall": -0.0383771193864364
+        }
+      },
+      "processed_repeat_detected": true,
+      "repeat_checked_at": "2026-11-14T05:13:48.198124+00:00"
+    },
+    {
+      "id": "followup_03_de_sonic-preview",
+      "cohort": "filtered_fresh_native",
+      "model": "sonic-preview",
+      "language": "de",
+      "voice_primary_language": "de",
+      "seconds": 23.84,
+      "sample_rate": 48000,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "source_sha256": "4687c6720e2676c1292ae47c092c9e40d5a8fcb11891359fc04bd55a5cf5cda6",
+      "output_sha256": "a1dae6de0c0c895c9682a45ada1f8ce710401ce3aa32dcd99dbc5f116f1bfb40",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-14T04:07:08.330442+00:00",
+      "processed_checked_at": "2026-11-14T04:39:08.337567+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "de",
+        "unit": "word",
+        "original_units": 59,
+        "processed_units": 59,
+        "asr_disagreement": 0.0,
+        "reference_units": 59,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": 0.0
+      },
+      "secondary_content": {
+        "language": "de",
+        "unit": "word",
+        "original_units": 59,
+        "processed_units": 59,
+        "asr_disagreement": 0.0,
+        "reference_units": 59,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9735929929957725,
+          0.9742358529196788,
+          0.9635790333421492
+        ],
+        "speaker_minimum": 0.9635790333421492,
+        "speaker_mean": 0.9704692930858668,
+        "original_dnsmos": {
+          "signal": 3.819085675957136,
+          "background": 4.2108260953388505,
+          "overall": 3.6064386375150392,
+          "windows": 14,
+          "natural_seconds": 23.84
+        },
+        "processed_dnsmos": {
+          "signal": 3.766716946647443,
+          "background": 4.2236853491173365,
+          "overall": 3.5610992350006456,
+          "windows": 14,
+          "natural_seconds": 23.84
+        },
+        "dnsmos_delta": {
+          "signal": -0.05236872930969305,
+          "background": 0.012859253778485957,
+          "overall": -0.04533940251439361
+        }
+      },
+      "processed_repeat_detected": false,
+      "repeat_checked_at": "2026-11-14T05:15:08.311791+00:00"
+    },
+    {
+      "id": "followup_04_hi_sonic-3.6",
+      "cohort": "filtered_fresh_native",
+      "model": "sonic-3.6",
+      "language": "hi",
+      "voice_primary_language": "hi",
+      "seconds": 20.48,
+      "sample_rate": 16000,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "source_sha256": "df4c78b245b749e1cf901cf456721a335d4721b75ee0670d9f9a54e89f2cddcd",
+      "output_sha256": "3c75149c2d1e23bb421f12fa1db293ff1d07ed15c7430d86da1aa104d416b7c4",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-14T04:08:28.431538+00:00",
+      "processed_checked_at": "2026-11-14T04:43:08.398658+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "hi",
+        "unit": "word",
+        "original_units": 105,
+        "processed_units": 106,
+        "asr_disagreement": 0.22857142857142856,
+        "reference_units": 102,
+        "original_reference_error": 0.19607843137254902,
+        "processed_reference_error": 0.28431372549019607,
+        "reference_error_delta": 0.08823529411764705
+      },
+      "secondary_content": {
+        "language": "hi",
+        "unit": "word",
+        "original_units": 102,
+        "processed_units": 102,
+        "asr_disagreement": 0.0196078431372549,
+        "reference_units": 102,
+        "original_reference_error": 0.0784313725490196,
+        "processed_reference_error": 0.09803921568627451,
+        "reference_error_delta": 0.0196078431372549
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9814032944196359,
+          0.9884637982675891,
+          0.9856361978398919
+        ],
+        "speaker_minimum": 0.9814032944196359,
+        "speaker_mean": 0.9851677635090389,
+        "original_dnsmos": {
+          "signal": 3.7435530020464345,
+          "background": 4.09126579444633,
+          "overall": 3.465111641160537,
+          "windows": 11,
+          "natural_seconds": 20.48
+        },
+        "processed_dnsmos": {
+          "signal": 3.7120919235521,
+          "background": 4.2095896768216425,
+          "overall": 3.4924320939282922,
+          "windows": 11,
+          "natural_seconds": 20.48
+        },
+        "dnsmos_delta": {
+          "signal": -0.03146107849433433,
+          "background": 0.11832388237531255,
+          "overall": 0.0273204527677553
+        }
+      },
+      "processed_repeat_detected": false,
+      "repeat_checked_at": "2026-11-14T05:16:28.461676+00:00"
+    },
+    {
+      "id": "followup_05_ja_sonic-preview",
+      "cohort": "filtered_fresh_native",
+      "model": "sonic-preview",
+      "language": "ja",
+      "voice_primary_language": "ja",
+      "seconds": 22.0,
+      "sample_rate": 24000,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "source_sha256": "68557902fc0e77b8e66c8134631de5655e5ac3e5cb26209098df7e83503a3b44",
+      "output_sha256": "a1f5f3a46fe3aa54d72002b8746684d53d9fa5b53e33e291e31b1af6c02fb712",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-14T04:09:48.077149+00:00",
+      "processed_checked_at": "2026-11-14T04:47:08.090631+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "ja",
+        "unit": "character",
+        "original_units": 130,
+        "processed_units": 130,
+        "asr_disagreement": 0.015384615384615385,
+        "reference_units": 130,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.015384615384615385,
+        "reference_error_delta": 0.015384615384615385
+      },
+      "secondary_content": {
+        "language": "ja",
+        "unit": "character",
+        "original_units": 130,
+        "processed_units": 130,
+        "asr_disagreement": 0.0,
+        "reference_units": 130,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9761618266062542,
+          0.969506589387751,
+          0.9729945889106548
+        ],
+        "speaker_minimum": 0.969506589387751,
+        "speaker_mean": 0.9728876683015534,
+        "original_dnsmos": {
+          "signal": 3.838906977540195,
+          "background": 4.26864320231203,
+          "overall": 3.6836332191027576,
+          "windows": 13,
+          "natural_seconds": 22.0
+        },
+        "processed_dnsmos": {
+          "signal": 3.756819212022172,
+          "background": 4.225642900700951,
+          "overall": 3.578774481660142,
+          "windows": 13,
+          "natural_seconds": 22.0
+        },
+        "dnsmos_delta": {
+          "signal": -0.08208776551802321,
+          "background": -0.04300030161107937,
+          "overall": -0.10485873744261553
+        }
+      },
+      "processed_repeat_detected": false,
+      "repeat_checked_at": "2026-11-14T05:17:48.075672+00:00"
+    },
+    {
+      "id": "followup_06_ar_sonic-3.6",
+      "cohort": "filtered_fresh_native",
+      "model": "sonic-3.6",
+      "language": "ar",
+      "voice_primary_language": "ar",
+      "seconds": 28.48,
+      "sample_rate": 44100,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+      "output_sha256": "e7c4dbf616f6659cadee6578fd4f76d1549a0fdaf3a4feaa201c54e3a87019ad",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-14T04:11:08.688674+00:00",
+      "processed_checked_at": "2026-11-14T04:51:08.914124+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "ar",
+        "unit": "word",
+        "original_units": 61,
+        "processed_units": 62,
+        "asr_disagreement": 0.19672131147540983,
+        "reference_units": 62,
+        "original_reference_error": 0.16129032258064516,
+        "processed_reference_error": 0.22580645161290322,
+        "reference_error_delta": 0.06451612903225806
+      },
+      "secondary_content": {
+        "language": "ar",
+        "unit": "word",
+        "original_units": 62,
+        "processed_units": 62,
+        "asr_disagreement": 0.06451612903225806,
+        "reference_units": 62,
+        "original_reference_error": 0.03225806451612903,
+        "processed_reference_error": 0.0967741935483871,
+        "reference_error_delta": 0.06451612903225806
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9874733777161715,
+          0.9901705849338891,
+          0.9911472149293976
+        ],
+        "speaker_minimum": 0.9874733777161715,
+        "speaker_mean": 0.9895970591931528,
+        "original_dnsmos": {
+          "signal": 3.6769138832615997,
+          "background": 4.03539970561671,
+          "overall": 3.386961955073838,
+          "windows": 19,
+          "natural_seconds": 28.48
+        },
+        "processed_dnsmos": {
+          "signal": 3.653130437832272,
+          "background": 4.078566377566281,
+          "overall": 3.3931554334865037,
+          "windows": 19,
+          "natural_seconds": 28.48
+        },
+        "dnsmos_delta": {
+          "signal": -0.023783445429327532,
+          "background": 0.04316667194957091,
+          "overall": 0.006193478412665598
+        }
+      },
+      "processed_repeat_detected": false,
+      "repeat_checked_at": "2026-11-14T05:19:08.267238+00:00"
+    },
+    {
+      "id": "followup_07_ko_sonic-preview",
+      "cohort": "filtered_fresh_native",
+      "model": "sonic-preview",
+      "language": "ko",
+      "voice_primary_language": "ko",
+      "seconds": 22.0,
+      "sample_rate": 48000,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "source_sha256": "da5ba2fc5a79c30e7b4bc85e40a20ed56441b370a130bf9f82573a4b21e0b6e9",
+      "output_sha256": "dd2bbdb6ae0e9c65356db86545262a4e9094af12b137fa64cab6a4f6c826cb0c",
+      "original_detected": true,
+      "processed_detected": true,
+      "original_checked_at": "2026-11-14T04:12:28.471886+00:00",
+      "processed_checked_at": "2026-11-14T04:55:08.146729+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "ko",
+        "unit": "word",
+        "original_units": 42,
+        "processed_units": 43,
+        "asr_disagreement": 0.07142857142857142,
+        "reference_units": 44,
+        "original_reference_error": 0.11363636363636363,
+        "processed_reference_error": 0.09090909090909091,
+        "reference_error_delta": -0.02272727272727272
+      },
+      "secondary_content": {
+        "language": "ko",
+        "unit": "word",
+        "original_units": 42,
+        "processed_units": 42,
+        "asr_disagreement": 0.0,
+        "reference_units": 44,
+        "original_reference_error": 0.09090909090909091,
+        "processed_reference_error": 0.09090909090909091,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9721197156593968,
+          0.969589256365591,
+          0.9880960640766263
+        ],
+        "speaker_minimum": 0.969589256365591,
+        "speaker_mean": 0.976601678700538,
+        "original_dnsmos": {
+          "signal": 3.8257314749446274,
+          "background": 4.200969602473998,
+          "overall": 3.612787506846863,
+          "windows": 13,
+          "natural_seconds": 22.0
+        },
+        "processed_dnsmos": {
+          "signal": 3.7449495900226086,
+          "background": 4.173444436442045,
+          "overall": 3.5195194486044086,
+          "windows": 13,
+          "natural_seconds": 22.0
+        },
+        "dnsmos_delta": {
+          "signal": -0.08078188492201877,
+          "background": -0.02752516603195332,
+          "overall": -0.09326805824245454
+        }
+      },
+      "processed_repeat_detected": true,
+      "repeat_checked_at": "2026-11-14T05:20:28.260141+00:00"
+    },
+    {
+      "id": "followup_08_zh_sonic-3.6",
+      "cohort": "filtered_fresh_native",
+      "model": "sonic-3.6",
+      "language": "zh",
+      "voice_primary_language": "zh",
+      "seconds": 25.36,
+      "sample_rate": 16000,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "source_sha256": "6cd620ccfe59539e3ac38e635f06602d76bb6a9bcc346f95bc766e01dca369fe",
+      "output_sha256": "fcfc1948e9a83717b1a0bb73a507ba2cd11b6de67cf674c6c131603ba74942bc",
+      "original_detected": true,
+      "processed_detected": true,
+      "original_checked_at": "2026-11-14T04:13:48.229340+00:00",
+      "processed_checked_at": "2026-11-14T04:57:48.478891+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "zh",
+        "unit": "character",
+        "original_units": 118,
+        "processed_units": 118,
+        "asr_disagreement": 0.01694915254237288,
+        "reference_units": 118,
+        "original_reference_error": 0.3813559322033898,
+        "processed_reference_error": 0.3813559322033898,
+        "reference_error_delta": 0.0
+      },
+      "secondary_content": {
+        "language": "zh",
+        "unit": "character",
+        "original_units": 118,
+        "processed_units": 118,
+        "asr_disagreement": 0.0,
+        "reference_units": 118,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9858812890472648,
+          0.9714367646573316,
+          0.9843715588338281
+        ],
+        "speaker_minimum": 0.9714367646573316,
+        "speaker_mean": 0.9805632041794748,
+        "original_dnsmos": {
+          "signal": 3.6545432716151787,
+          "background": 4.215274570033857,
+          "overall": 3.461093929566576,
+          "windows": 16,
+          "natural_seconds": 25.36
+        },
+        "processed_dnsmos": {
+          "signal": 3.698065776515108,
+          "background": 4.215736315338156,
+          "overall": 3.510461784145277,
+          "windows": 16,
+          "natural_seconds": 25.36
+        },
+        "dnsmos_delta": {
+          "signal": 0.04352250489992926,
+          "background": 0.00046174530429876626,
+          "overall": 0.049367854578700854
+        }
+      },
+      "processed_repeat_detected": true,
+      "repeat_checked_at": "2026-11-14T05:21:48.489501+00:00"
+    },
+    {
+      "id": "followup_09_ru_sonic-preview",
+      "cohort": "filtered_fresh_native",
+      "model": "sonic-preview",
+      "language": "ru",
+      "voice_primary_language": "ru",
+      "seconds": 26.08,
+      "sample_rate": 24000,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "source_sha256": "9e12aed278b0acd53db81e3a5e772037c62ffbcf35b262480fe05511aceb203f",
+      "output_sha256": "353f4b1b1fe1af17a4700e2277aed76d074c27957ddebda81577d78aab6ad031",
+      "original_detected": true,
+      "processed_detected": true,
+      "original_checked_at": "2026-11-14T04:15:08.295971+00:00",
+      "processed_checked_at": "2026-11-14T05:00:28.551804+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "ru",
+        "unit": "word",
+        "original_units": 52,
+        "processed_units": 52,
+        "asr_disagreement": 0.0,
+        "reference_units": 52,
+        "original_reference_error": 0.038461538461538464,
+        "processed_reference_error": 0.038461538461538464,
+        "reference_error_delta": 0.0
+      },
+      "secondary_content": {
+        "language": "ru",
+        "unit": "word",
+        "original_units": 52,
+        "processed_units": 52,
+        "asr_disagreement": 0.0,
+        "reference_units": 52,
+        "original_reference_error": 0.038461538461538464,
+        "processed_reference_error": 0.038461538461538464,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9867715925290382,
+          0.9858382787877779,
+          0.9922175198993103
+        ],
+        "speaker_minimum": 0.9858382787877779,
+        "speaker_mean": 0.988275797072042,
+        "original_dnsmos": {
+          "signal": 3.6013036541220873,
+          "background": 4.102185363201204,
+          "overall": 3.3458198982556637,
+          "windows": 17,
+          "natural_seconds": 26.08
+        },
+        "processed_dnsmos": {
+          "signal": 3.6796387477623775,
+          "background": 4.12293991548448,
+          "overall": 3.4317385224070036,
+          "windows": 17,
+          "natural_seconds": 26.08
+        },
+        "dnsmos_delta": {
+          "signal": 0.07833509364029023,
+          "background": 0.020754552283276162,
+          "overall": 0.08591862415133988
+        }
+      },
+      "processed_repeat_detected": true,
+      "repeat_checked_at": "2026-11-14T05:23:08.236409+00:00"
+    },
+    {
+      "id": "followup_10_ta_sonic-3.6",
+      "cohort": "filtered_fresh_native",
+      "model": "sonic-3.6",
+      "language": "ta",
+      "voice_primary_language": "ta",
+      "seconds": 27.68,
+      "sample_rate": 44100,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "source_sha256": "91dbad3a2063dd29eae00148fbb21602e381fc88cc7eb52b99b203555c1ea963",
+      "output_sha256": "fcb730648075528927633d4244628cce8f17674e6dcf8eb9e3b1f3017e755f53",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-14T04:16:28.374891+00:00",
+      "processed_checked_at": "2026-11-14T05:03:08.624674+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "ta",
+        "unit": "word",
+        "original_units": 165,
+        "processed_units": 165,
+        "asr_disagreement": 0.048484848484848485,
+        "reference_units": 169,
+        "original_reference_error": 0.1242603550295858,
+        "processed_reference_error": 0.1301775147928994,
+        "reference_error_delta": 0.005917159763313612
+      },
+      "secondary_content": {
+        "language": "ta",
+        "unit": "word",
+        "original_units": 165,
+        "processed_units": 167,
+        "asr_disagreement": 0.03636363636363636,
+        "reference_units": 169,
+        "original_reference_error": 0.10650887573964497,
+        "processed_reference_error": 0.14201183431952663,
+        "reference_error_delta": 0.03550295857988166
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9856561057442788,
+          0.9735436157908987,
+          0.9723961793793799
+        ],
+        "speaker_minimum": 0.9723961793793799,
+        "speaker_mean": 0.9771986336381858,
+        "original_dnsmos": {
+          "signal": 3.3666590735289814,
+          "background": 4.103791798883702,
+          "overall": 3.134062447527027,
+          "windows": 18,
+          "natural_seconds": 27.68
+        },
+        "processed_dnsmos": {
+          "signal": 3.4204504012494983,
+          "background": 4.125938799429517,
+          "overall": 3.1741210477741353,
+          "windows": 18,
+          "natural_seconds": 27.68
+        },
+        "dnsmos_delta": {
+          "signal": 0.05379132772051687,
+          "background": 0.02214700054581531,
+          "overall": 0.04005860024710817
+        }
+      },
+      "processed_repeat_detected": false,
+      "repeat_checked_at": "2026-11-14T05:24:28.615299+00:00"
+    },
+    {
+      "id": "followup_11_ar_sonic-preview",
+      "cohort": "filtered_fresh_native",
+      "model": "sonic-preview",
+      "language": "ar",
+      "voice_primary_language": "ar",
+      "seconds": 29.12,
+      "sample_rate": 48000,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "source_sha256": "3b60bfa9dcd51698050d495b03c28e314b4b9ace775c60a092d8886fdc16ba3f",
+      "output_sha256": "c66ff7a061f400b016c844d8664c8549ca55382d619653bc9d889cd3d45c2ba6",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-14T04:17:48.439953+00:00",
+      "processed_checked_at": "2026-11-14T05:05:48.665342+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "ar",
+        "unit": "word",
+        "original_units": 64,
+        "processed_units": 64,
+        "asr_disagreement": 0.0625,
+        "reference_units": 64,
+        "original_reference_error": 0.078125,
+        "processed_reference_error": 0.140625,
+        "reference_error_delta": 0.0625
+      },
+      "secondary_content": {
+        "language": "ar",
+        "unit": "word",
+        "original_units": 64,
+        "processed_units": 64,
+        "asr_disagreement": 0.0,
+        "reference_units": 64,
+        "original_reference_error": 0.015625,
+        "processed_reference_error": 0.015625,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9800435875221208,
+          0.9831244273468138,
+          0.9708345073470475
+        ],
+        "speaker_minimum": 0.9708345073470475,
+        "speaker_mean": 0.9780008407386607,
+        "original_dnsmos": {
+          "signal": 3.7375478604541774,
+          "background": 4.188381749790437,
+          "overall": 3.536880674151805,
+          "windows": 20,
+          "natural_seconds": 29.12
+        },
+        "processed_dnsmos": {
+          "signal": 3.668458986588617,
+          "background": 4.186359212203505,
+          "overall": 3.4659247019259483,
+          "windows": 20,
+          "natural_seconds": 29.12
+        },
+        "dnsmos_delta": {
+          "signal": -0.06908887386556062,
+          "background": -0.0020225375869324935,
+          "overall": -0.07095597222585681
+        }
+      },
+      "processed_repeat_detected": false,
+      "repeat_checked_at": "2026-11-14T05:25:48.408711+00:00"
+    },
+    {
+      "id": "followup_00_en_sonic-3.5",
+      "cohort": "filtered_fresh_native",
+      "model": "sonic-3.5",
+      "language": "en",
+      "voice_primary_language": "nl",
+      "seconds": 24.32,
+      "sample_rate": 16000,
+      "channels": 1,
+      "declared_watermarked": false,
+      "provenance_group": "generated_unmarked",
+      "source_sha256": "d1a714af6ab86ac7d8bea232daf711a85b1a218e5730cf3900dc839742695dc4",
+      "output_sha256": "a252a6f260286032509dd7f1d754ba08d1f63ead1c964af7c659d07ff862397e",
+      "original_detected": false,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-14T04:19:08.252087+00:00",
+      "processed_checked_at": "2026-11-14T05:07:08.775434+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 73,
+        "processed_units": 73,
+        "asr_disagreement": 0.0,
+        "reference_units": 73,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": 0.0
+      },
+      "secondary_content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 73,
+        "processed_units": 73,
+        "asr_disagreement": 0.0,
+        "reference_units": 73,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9739563106953568,
+          0.9706812000845472,
+          0.9727326538006077
+        ],
+        "speaker_minimum": 0.9706812000845472,
+        "speaker_mean": 0.9724567215268372,
+        "original_dnsmos": {
+          "signal": 3.7654715138776726,
+          "background": 4.215812783684483,
+          "overall": 3.550830034135688,
+          "windows": 15,
+          "natural_seconds": 24.32
+        },
+        "processed_dnsmos": {
+          "signal": 3.765129010114794,
+          "background": 4.215328956036825,
+          "overall": 3.5522581132296662,
+          "windows": 15,
+          "natural_seconds": 24.32
+        },
+        "dnsmos_delta": {
+          "signal": -0.0003425037628788097,
+          "background": -0.00048382764765797504,
+          "overall": 0.0014280790939782406
+        }
+      },
+      "processed_repeat_detected": false,
+      "repeat_checked_at": "2026-11-14T05:27:08.090519+00:00"
+    },
+    {
+      "id": "followup_02_fr_sonic-3.5",
+      "cohort": "filtered_fresh_native",
+      "model": "sonic-3.5",
+      "language": "fr",
+      "voice_primary_language": "fr",
+      "seconds": 19.6,
+      "sample_rate": 44100,
+      "channels": 1,
+      "declared_watermarked": false,
+      "provenance_group": "generated_unmarked",
+      "source_sha256": "08c99d220364e9828795d0f03cfc6059866321412e545069223b6ed28fedb12b",
+      "output_sha256": "f0426064c7e768bd6d2b0744cde913d080d0a17383cdaaa2d615e9788acbf584",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-14T04:20:28.165440+00:00",
+      "processed_checked_at": "2026-11-14T05:08:28.291947+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "fr",
+        "unit": "word",
+        "original_units": 62,
+        "processed_units": 62,
+        "asr_disagreement": 0.0,
+        "reference_units": 62,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": 0.0
+      },
+      "secondary_content": {
+        "language": "fr",
+        "unit": "word",
+        "original_units": 62,
+        "processed_units": 62,
+        "asr_disagreement": 0.0,
+        "reference_units": 62,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9896048131511084,
+          0.9885087141417876,
+          0.988961280756325
+        ],
+        "speaker_minimum": 0.9885087141417876,
+        "speaker_mean": 0.9890249360164071,
+        "original_dnsmos": {
+          "signal": 3.657794865175262,
+          "background": 4.204747295486237,
+          "overall": 3.4549617085677404,
+          "windows": 10,
+          "natural_seconds": 19.6
+        },
+        "processed_dnsmos": {
+          "signal": 3.6400696816624603,
+          "background": 4.199876802575004,
+          "overall": 3.4309753185957836,
+          "windows": 10,
+          "natural_seconds": 19.6
+        },
+        "dnsmos_delta": {
+          "signal": -0.017725183512801834,
+          "background": -0.004870492911232205,
+          "overall": -0.02398638997195679
+        }
+      },
+      "processed_repeat_detected": false,
+      "repeat_checked_at": "2026-11-14T05:28:28.435166+00:00"
+    },
+    {
+      "id": "long_02_es_sonic-3.6",
+      "cohort": "filtered_long_supplement",
+      "model": "sonic-3.6",
+      "language": "es",
+      "voice_primary_language": "es",
+      "seconds": 142.88,
+      "sample_rate": 24000,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "source_sha256": "77837a25ef548f9869880641c41bdb724dfb7ded2163caa1ad4f6cb93fd9a370",
+      "output_sha256": "6b7439d3bea2139ab568062c9c4638e531c67b0d67d81de3087c3f8cdc5a535c",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-14T04:21:50.079816+00:00",
+      "processed_checked_at": "2026-11-14T04:33:50.358290+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "es",
+        "unit": "word",
+        "original_units": 392,
+        "processed_units": 394,
+        "asr_disagreement": 0.012755102040816327,
+        "reference_units": 393,
+        "original_reference_error": 0.002544529262086514,
+        "processed_reference_error": 0.010178117048346057,
+        "reference_error_delta": 0.0076335877862595426
+      },
+      "secondary_content": {
+        "language": "es",
+        "unit": "word",
+        "original_units": 394,
+        "processed_units": 394,
+        "asr_disagreement": 0.0,
+        "reference_units": 393,
+        "original_reference_error": 0.002544529262086514,
+        "processed_reference_error": 0.002544529262086514,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9856266034998893,
+          0.9819553176872393,
+          0.9879416077288496
+        ],
+        "speaker_minimum": 0.9819553176872393,
+        "speaker_mean": 0.9851745096386594,
+        "original_dnsmos": {
+          "signal": 3.7616651945792587,
+          "background": 4.177776902940991,
+          "overall": 3.5486889022237595,
+          "windows": 133,
+          "natural_seconds": 142.88
+        },
+        "processed_dnsmos": {
+          "signal": 3.6893544794585598,
+          "background": 4.171412141783845,
+          "overall": 3.4716354117724886,
+          "windows": 133,
+          "natural_seconds": 142.88
+        },
+        "dnsmos_delta": {
+          "signal": -0.07231071512069898,
+          "background": -0.006364761157145793,
+          "overall": -0.07705349045127097
+        }
+      },
+      "processed_repeat_detected": false,
+      "repeat_checked_at": "2026-11-14T04:45:49.989731+00:00"
+    },
+    {
+      "id": "long_04_en_sonic-3.6",
+      "cohort": "filtered_long_supplement",
+      "model": "sonic-3.6",
+      "language": "en",
+      "voice_primary_language": "en",
+      "seconds": 252.08,
+      "sample_rate": 24000,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "source_sha256": "0e7da429ce36a226c3ba1be7fca35bc23c018b967835b66dab2e61439aa255a4",
+      "output_sha256": "425e2dd8df4f6cbe5af45c72d2018618c0546776bb7267f2ba13cbdf33502016",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-14T04:25:52.458423+00:00",
+      "processed_checked_at": "2026-11-14T04:37:51.998230+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 799,
+        "processed_units": 799,
+        "asr_disagreement": 0.0037546933667083854,
+        "reference_units": 799,
+        "original_reference_error": 0.0037546933667083854,
+        "processed_reference_error": 0.0025031289111389237,
+        "reference_error_delta": -0.0012515644555694616
+      },
+      "secondary_content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 799,
+        "processed_units": 799,
+        "asr_disagreement": 0.0012515644555694619,
+        "reference_units": 799,
+        "original_reference_error": 0.0012515644555694619,
+        "processed_reference_error": 0.0025031289111389237,
+        "reference_error_delta": 0.0012515644555694619
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9758134658229916,
+          0.98624745834011,
+          0.9894723115158068
+        ],
+        "speaker_minimum": 0.9758134658229916,
+        "speaker_mean": 0.9838444118929695,
+        "original_dnsmos": {
+          "signal": 3.792507884578847,
+          "background": 4.199644946120417,
+          "overall": 3.5853973232324425,
+          "windows": 243,
+          "natural_seconds": 252.08
+        },
+        "processed_dnsmos": {
+          "signal": 3.7690777977888743,
+          "background": 4.209888191185898,
+          "overall": 3.570318986700567,
+          "windows": 243,
+          "natural_seconds": 252.08
+        },
+        "dnsmos_delta": {
+          "signal": -0.023430086789972826,
+          "background": 0.0102432450654808,
+          "overall": -0.015078336531875625
+        }
+      },
+      "processed_repeat_detected": false,
+      "repeat_checked_at": "2026-11-14T04:49:51.966445+00:00"
+    }
+  ],
+  "study_completed_at": "2026-11-14T05:43:08.215307+00:00",
+  "exported_at": "2026-11-14T05:45:36.223928+00:00"
+}

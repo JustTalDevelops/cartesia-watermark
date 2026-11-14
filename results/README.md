@@ -29,4 +29,6 @@ The reconstruction study's [input plan](../audio/reconstruction_reliability_plan
 
 The separate [vocoder input plan](../audio/vocoder_reliability_plan.json) distinguishes freshly generated sources from its reused long-recording supplement. A fallback is another treatment of the same recording, not a new test sample. Quality estimates for a discarded primary output must not stand in for the selected fallback's quality.
 
+The [filtered-prior input plan](../audio/filtered_prior_reliability_plan.json) adds a separate fresh cohort and reuses two long sources. Its report retains all four primary counterexamples, every-output repeats, the fixed two-check fallback workflow, and the two selected-file reference-error threshold failures. Private regression evidence is aggregate only.
+
 Selected larger and historical model weights are available in [release downloads](../docs/models.md). Logs, feature arrays, private recording results, optimizer snapshots, and other run outputs remain local. Add new public evidence deliberately rather than unignoring this entire directory.
