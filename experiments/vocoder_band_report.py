@@ -74,6 +74,23 @@ def export(directory):
                      'quality_gate_results': gates, 'all_seven_estimated_quality_gates_passed': all(gates.values()),
                      'detector': endpoint, 'qualified_detector_negative': cleared,
                      'status': 'qualified_detector_negative' if cleared else queued['status']})
+    integration = None
+    integration_path = directory / 'band_prior_integration/result.json'
+    if integration_path.exists():
+        integration = load(integration_path)
+        selected = next(c for c in rows if c['qualified_detector_negative'])
+        if (integration['source_sha256'] != source_sha or
+                integration['canonical_output_sha256'] != selected['candidate_sha256'] or
+                not integration['actual_asr_used'] or not integration['exact_prototype_file_reproduction'] or
+                integration['fresh_independent_sources'] != 0 or integration['new_http_requests'] != 0 or
+                digest(directory / 'band_prior_integration/candidate.flac') != selected['candidate_sha256'] or
+                digest(directory / 'band_prior_integration/metadata.json') != integration['metadata_sha256'] or
+                digest(folder / 'f1_t1/endpoint/result.json') != integration['original_research_endpoint_receipt_sha256']):
+            raise ValueError('The packaged integration does not bind the tested file and actual guards')
+        for name, checksum in integration['source_files_sha256'].items():
+            content = subprocess.check_output(['git', 'show', integration['implementation_commit'] + ':' + name], cwd=ROOT)
+            if hashlib.sha256(content).hexdigest() != checksum:
+                raise ValueError('The actual integration implementation differs from its frozen Git blobs')
     return {'kind': 'Spent band-focused vocoder development', 'independent_source_recordings': 1,
             'fresh_independent_sources': 0, 'new_tts_requests': 0,
             'frozen_primary_study_result_changed': False, 'source_sha256': source_sha,
@@ -81,6 +98,7 @@ def export(directory):
             'prototype_sha256': generation['probe_sha256'], 'settings': generation['settings'],
             'upstream_assets': generation['upstream_assets'],
             'recognizer_implementation_commit': guards['recognizer_implementation_commit'],
+            'packaged_integration': integration,
             'candidates': rows, 'qualified_detector_negative_sources': int(any(c['qualified_detector_negative'] for c in rows)),
             'human_listening_approval': False, 'physical_erasure_proven': False,
             'limits': ['One already-used source; different settings and repeated queries add no independent sources.',

@@ -25,6 +25,13 @@ estimates. Checkpoint roles, calibration, hashes, voice
 estimates, every planned rejection, and complete detector controls are retained
 in the reports. Whisper checkpoints share ancestry.
 
+The [experimental band-prior branch](https://github.com/JustTalDevelops/cartesia-watermark/tree/codec-band-prior-20261114)
+packages the first Tamil result as `codec-band-prior`. An actual run with both
+recognizers reproduced the tested FLAC bytes exactly; the report binds its source
+commit. Processing and worker shutdown took 205.2 seconds for 30.08 seconds of
+audio on the four-core CPU machine, excluding initial outer-runtime construction.
+It adds no fresh validation and does not change the app's methods.
+
 These are automated estimates, without human listening approval. A negative
 detector response does not establish physical erasure. Quality failures remain
 failures even when the detector returns negative twice.

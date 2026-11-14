@@ -47,6 +47,42 @@
     }
   },
   "recognizer_implementation_commit": "a984fb6d6d17965b7b2dcba5c2909f3f6431db9d",
+  "packaged_integration": {
+    "implementation_commit": "f9fd051b0a7894c367a7bf8985baa53a2e593695",
+    "source_files_sha256": {
+      "tools/codec_audio.py": "2a0dac863e1d7c7577cf9f029f86b3973f90a6e77b935dc6bbce9169ff018f94",
+      "tools/codec_text.py": "2b3f9503c9e39c330d60ae727415995822fec4daa4de7560572de905eab25f96",
+      "tools/codec_teacher.py": "abebef4244f452e3d962ec6d88c9917806a98ad48512281875f41dc4d2cf3fb4",
+      "tools/codec_repair.py": "e6839578ce6d319e9463196521860b050d96f0f81f1ed8cafc14d3fe3918561a",
+      "tools/codec_content.py": "79b44e6d5f5938bc44c59beb8f70ea95ffe2c809ba780466ca23865bfe78820a",
+      "tools/codec_settings.py": "828eb19efc5d6ebba85148c2daf51db59d0bc40c46bfeb33973b2235909c3b76",
+      "tools/codec_inference.py": "1f86876e3ab07e960dd9ac9c4ad9f1a773393ac31bdef969f9d25b52370d2a9e",
+      "tools/reconstruct_codec.py": "1022baa6d774a779126563e48f6261c731d2743bf0963e7893c699551397ce4a",
+      "tools/reconstruct_codec_band.py": "e5f16742fb265b357da5c7eb9cb07db9a08b7af71eb530161f6b376e3dbc50e4",
+      "tools/vocoder_band_prior.py": "8b153b0e25421d560c3f9a41e5e36ea44f1ed0a7ad417b0c49af76f6e69b033f"
+    },
+    "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+    "expected_canonical_sha256": "3ec8f6aefcc32eadba72faf63c9110253e371c846735dd09d789ac3bd0063463",
+    "fresh_independent_sources": 0,
+    "new_http_requests": 0,
+    "reference_text_used": false,
+    "started_at": "2026-11-14T16:15:15.525827+00:00",
+    "complete": true,
+    "content_guard_passed": true,
+    "paired_disagreement": {
+      "large": 0.0047169811320754715,
+      "mms": 0.007042253521126761
+    },
+    "actual_asr_used": true,
+    "output_wav_sha256": "6a8ce624b33e87c9d969526ac926d2fe459ad389b4e662c2ca0a383c601ec648",
+    "canonical_output_sha256": "3ec8f6aefcc32eadba72faf63c9110253e371c846735dd09d789ac3bd0063463",
+    "metadata_sha256": "d0c61436560effbdb22cb216144d7c3a2fab92991842a59b7120914b49440db6",
+    "elapsed_seconds": 205.21779863443226,
+    "exact_prototype_file_reproduction": true,
+    "original_research_endpoint_receipt_sha256": "12b6a3c011f64a14af40acbf8f19b759879ac3bf8b6863a84c6001738131cc60",
+    "meaning": "Actual packaged synthesis and both real guards; identical previously checked FLAC, no new detector observations or independent sources",
+    "completed_at": "2026-11-14T16:18:43.361224+00:00"
+  },
   "candidates": [
     {
       "id": "f1_t1",
