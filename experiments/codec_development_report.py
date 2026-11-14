@@ -43,7 +43,8 @@ def criteria(row):
 def checked_component(directory, stem, expected_outputs, expected_http):
     folder = directory/stem
     rows = followup_quality(directory, stem)
-    require(len(rows) == expected_outputs, 'Unexpected development output count')
+    require(len(rows) == expected_outputs and len({r['source_sha256'] for r in rows}) == 2,
+            'Unexpected development output/source count')
     protocol, api = load(folder/'api.protocol.json'), load(folder/'api.json')
     require(api['complete'] is True and api['protocol_sha256'] == digest(folder/'api.protocol.json') and
             len(api['http_attempts']) == len(api['clips']) == expected_http and
@@ -80,8 +81,9 @@ def checked_component(directory, stem, expected_outputs, expected_http):
             'quality_qualified_sources': len({r['source_sha256'] for r in rows if r['id'] in selected}),
             'protocol_sha256': digest(folder/'api.protocol.json'), 'http_attempts': expected_http,
             'positive_service_controls': 2, 'cases': rows,
-            'render_timings': [{k: r[k] for k in ('id', 'elapsed_seconds', 'model_load_seconds')} for r in renders],
-            'timing_limits': 'One observation per variant, same two spent recordings, model load listed separately; no general latency claim.'}
+            'render_timings': [{k: r[k] for k in ('id', 'elapsed_seconds', 'model_load_seconds') if k in r}
+                               for r in renders if 'elapsed_seconds' in r],
+            'timing_limits': 'Where recorded, one observation per variant on the same two spent recordings, with model load separate; no general latency claim.'}
 
 
 def seed_component(directory):
@@ -127,6 +129,110 @@ def repair_components(directory):
                     'cases': document['clips'], 'detector_requests': 0,
                     'decisions': load(directory/stem/'decisions.json')}
     return result
+
+
+def quality_rejected_component(directory, stem, expected_outputs, expected_sources):
+    rows = followup_quality(directory, stem)
+    qualification_path = directory/(stem+'.qualification.json')
+    qualification = load(qualification_path)
+    require(len(rows) == expected_outputs and len({r['source_sha256'] for r in rows}) == expected_sources and
+            qualification['complete'] is True and qualification['selected'] == [] and
+            qualification['qualified_sources'] == 0 and qualification['detector_requests'] == 0 and
+            not (directory/stem/'api.json').exists(), 'Quality-rejected study has unexpected endpoint evidence')
+    for row in rows:
+        q = criteria(row)
+        require(not all(q.values()) and q == qualification['criteria'][row['id']],
+                'Quality rejection does not match actual estimates')
+        row['estimated_quality_criteria'] = q
+        row['status'] = 'estimated_quality_rejected_before_detector'
+    return {'source_recordings': expected_sources, 'rendered_variants': expected_outputs,
+            'qualified_sources': 0, 'detector_requests': 0, 'cases': rows,
+            'qualification_sha256': digest(qualification_path),
+            'render_protocol': load(directory/stem/'protocol.json')}
+
+
+def arabic_diagnostic(directory):
+    folder = directory/'arabic_codec_diagnostic'
+    path = folder/'protocol.json'
+    protocol, api = load(path), load(folder/'api.json')
+    require(api['complete'] is True and api['protocol_sha256'] == digest(path) and
+            protocol['quality_qualified'] is False and protocol['usable_removal_success'] is False and
+            api['quality_qualified'] is False and api['usable_removal_success'] is False and
+            len(api['http_attempts']) == len(api['clips']) == 4, 'Incomplete diagnostic or inflated success claim')
+    original = next(i for i in load(directory/'vocos_encodec_development.plan.json')['items']
+                    if i['id'] == 'followup_06_ar_sonic-3.6__vocos_encodec_12kbps')
+    require(protocol['source_sha256'] == digest(ROOT/original['source']) == original['sha256'] and
+            protocol['output_sha256'] == digest(ROOT/original['output']) and
+            not all(protocol['quality_criteria'].values()), 'Diagnostic source or quality rejection changed')
+    checks = [c for c in api['clips'] if c['role'].startswith('diagnostic_quality_rejected_')]
+    require(sorted(c['role'] for c in checks) == ['diagnostic_quality_rejected_1', 'diagnostic_quality_rejected_2'] and
+            all(c['sha256'] == protocol['output_sha256'] and c['http_status'] == 200 and
+                type(c['detected']) is bool for c in checks), 'Diagnostic used another file')
+    controls = [c for c in api['clips'] if c['role'].endswith('positive_control')]
+    require(len(controls) == 2 and all(c['http_status'] == 200 and c['detected'] is True and
+            c['sha256'] == protocol['canonical_original_sha256'] for c in controls), 'Diagnostic service controls failed')
+    return {'scope': protocol['scope'], 'purpose': protocol['purpose'],
+            'source_recordings': 1, 'fresh_efficacy_recordings': 0, 'quality_qualified': False,
+            'usable_removal_success': False, 'protocol_sha256': digest(path), 'http_attempts': 4,
+            'source_sha256': protocol['source_sha256'], 'output_sha256': protocol['output_sha256'],
+            'quality_criteria': protocol['quality_criteria'],
+            'detected': [c['detected'] for c in checks], 'positive_service_controls': 2,
+            'interpretation': 'Separate diagnosis of an unusable quality-rejected output; never an eligible removal success.'}
+
+
+def band_mix_parity(directory):
+    report = load(directory/'codec_band_mix.package_parity.json')
+    require(report['complete'] is True and len(report['cases']) == 4 and
+            report['source_sha256']['experiments/codec_band_mix.py'] == digest(ROOT/'experiments/codec_band_mix.py'),
+            'Band probe parity uses another implementation')
+    renders = {r['id']: r for r in load(directory/'codec_vocoder_band_dev.render.json')}
+    for row in report['cases']:
+        require(row['exact_encoded_flac_parity'] is True and
+                row['output_sha256'] == renders[row['id']]['output_sha256'], 'Band probe parity mismatch')
+    return report
+
+
+def additional_arabic_followups(directory):
+    report = load(directory/'fastconformer_ar_review/followup_result.json')
+    calibration_path = directory/'fastconformer_ar_review/original_calibration.json'
+    require(report['complete'] is True and report['source_original_calibration_sha256'] == digest(calibration_path) and
+            report['criteria_thresholds_changed'] is False and report['transcripts_exported'] is False and
+            len(report['clips']) == len({r['id'] for r in report['clips']}) == 17,
+            'Incomplete additional Arabic follow-up review')
+    items = {i['id']: i for stem in ['codec_half_donor_dev', 'codec_decoder_cycle_dev', 'dac_fullband_dev',
+                                    'codec_partial_repair_dev', 'codec_vocoder_band_dev', 'flow_vocoder_band_dev']
+             for i in load(directory/(stem+'.plan.json'))['items']}
+    for row in report['clips']:
+        item = items[row['id']]
+        require(row['calibration_eligible'] is True and row['source_sha256'] == report['source_sha256'] ==
+                item['sha256'] == digest(ROOT/item['source']) and row['output_sha256'] == digest(ROOT/item['output']),
+                'Additional Arabic follow-up used another file')
+    return report
+
+
+def development_selector(codec, bands):
+    """Describe the next candidate, formed after these spent development labels."""
+    native = [r for r in codec['cases'] if r['id'].endswith('__vocos_encodec_12kbps')]
+    fallback = {r['source_sha256']: r for r in bands['cases'] if r['id'].endswith('_1000_4000')}
+    require(len(native) == len(fallback) == 2, 'Missing selector development source')
+    decisions = []
+    for first in native:
+        q = first['quality_estimates']
+        content_ok = q['asr_turbo']['asr_disagreement'] <= .03+1e-12 and q['mms']['paired_disagreement'] <= .03+1e-12
+        first_negative = first.get('processed_detected') == [False, False]
+        selected = first if content_ok and first_negative else fallback[first['source_sha256']]
+        require(all(criteria(selected).values()) and selected['processed_detected'] == [False, False],
+                'Proposed selector lacks quality-qualified twice-negative evidence')
+        decisions.append({'source_sha256': first['source_sha256'], 'native_id': first['id'],
+                          'native_content_guard_passed': content_ok, 'fallback_used': selected is not first,
+                          'selected_id': selected['id'], 'selected_output_sha256': selected['output_sha256'],
+                          'all_seven_estimated_quality_criteria_passed': True, 'selected_detected': [False, False]})
+    return {'scope': 'Next candidate assembled from spent development results; no fresh evaluation',
+            'rule': 'Try native Vocos/EnCodec 12 kbps first, then the complete 1000–4000 Hz codec/vocoder mixture after content rejection or positive detection. Require paired Turbo and MMS disagreement <=0.03 and two negative checks for the selected file.',
+            'source_recordings': 2, 'fresh_efficacy_recordings': 0, 'decisions': decisions,
+            'selector_formed_after_development_detector_labels': True,
+            'end_to_end_runtime_implemented_and_validated': False, 'human_listening_approval': False,
+            'all_selected_files_quality_qualified_and_double_negative': True}
 
 
 def guarded_workflow(directory):
@@ -201,27 +307,39 @@ def build(directory):
     calibration = load(directory/'fastconformer_ar_review/original_calibration.json')
     require(additional['complete'] is True and calibration['candidate_outputs_not_read'] is True and
             additional['source_originals'] == calibration['source_originals'], 'Additional review was not original-first')
-    return {'schema': 1, 'scope': 'Development on two already-spent generated removal sources; independent original-only calibration supplements',
+    codec = checked_component(directory, 'vocos_encodec_development', 4, 6)
+    bands = checked_component(directory, 'codec_vocoder_band_dev', 4, 8)
+    return {'schema': 2, 'scope': 'Development on two already-spent generated removal sources; independent original-only calibration supplements',
             'removal_development_sources': 2, 'fresh_efficacy_recordings': 0, 'new_tts_requests': 0,
-            'status': 'One Tamil source cleared by two codec bandwidths; quality-qualified Arabic word repair remained detected twice.',
+            'status': 'A development selector has quality-qualified twice-negative outputs for both spent sources; runtime and fresh validation are pending.',
             'strict_estimated_quality_thresholds_unchanged': True,
             'seed_resampling': seed_component(directory),
             'vocos_mel': checked_component(directory, 'vocos_development', 2, 4),
-            'vocos_encodec': checked_component(directory, 'vocos_encodec_development', 4, 6),
+            'vocos_encodec': codec,
             'codec_word_repairs': repair_components(directory),
             'fixed_guarded_workflow': guarded_workflow(directory),
+            'native_decoder_and_cycles': checked_component(directory, 'codec_decoder_cycle_dev', 10, 6),
+            'fullband_dac': quality_rejected_component(directory, 'dac_fullband_dev', 4, 2),
+            'partial_strength_repair': quality_rejected_component(directory, 'codec_partial_repair_dev', 2, 1),
+            'native_arabic_diagnostic': arabic_diagnostic(directory),
+            'codec_vocoder_band_mixtures': bands,
+            'standalone_band_probe_parity': band_mix_parity(directory),
+            'next_development_selector': development_selector(codec, bands),
             'vocos_mel_assets': load(directory/'vocos_assets.json'),
             'vocos_encodec_assets': load(directory/'vocos_encodec_assets.json'),
-            'model_bandwidth_limit_hz': 12000, 'original_format_and_length_restored': True,
+            'vocos_model_bandwidth_limit_hz': 12000, 'dac_model_sample_rate': 44100,
+            'original_format_and_length_restored': True,
             'sample_rate_roundtrip_controls': rate_controls(directory),
             'encoding_only_asr_controls': encoding, 'whole_long_original_calibration': long,
             'additional_arabic_review': additional,
+            'additional_arabic_followup_review': additional_arabic_followups(directory),
             'additional_arabic_original_calibration_sha256': digest(directory/'fastconformer_ar_review/original_calibration.json'),
             'limits': ['Two bandwidths or four seeds applied to one recording are treatments of the same recording.',
                        'The codec uses a 24 kHz model; restoring the original sample rate does not restore frequencies above 12 kHz.',
                        'ASR estimates disagree on Arabic. The additional source-calibrated architecture is reported alongside every earlier failure.',
                        'Models are upstream pretrained assets, not project-trained or republished checkpoints.',
                        'Negative detector responses do not prove physical erasure or unchanged speech; no human listening approval was obtained.',
+                       'The next selector was formed after observing these spent development results; its runtime has not been implemented or validated.',
                        'No fresh held-out efficacy batch has been generated for these candidates.'],
             'private_recordings_included': 0, 'transcripts_exported': False, 'speaker_embeddings_exported': False}
 
