@@ -1,0 +1,132 @@
+{
+  "status": "Prospective freeze; no efficacy result",
+  "sealed_at": "2026-11-14T11:28:51.517516+00:00",
+  "generation_plan_sha256": "98a2f81415ba58dca96b349a4cca98b64b12321538d5c85f5fd0ed302e0bfde3",
+  "candidate_implementation_commit": "c2ae4fc50f8b8732e68931104e7367dfe7966b8b",
+  "evaluation_implementation_commit": "25feb763d7853d69aa4ac468b81b42dd6efce5aa",
+  "source_files_sha256": {
+    "tools/verify_reconstruction.py": "c82e2371dc40a7ca4d96b5fd58a6dd9dba08eb32f78023f9b3580779763ce7e5",
+    "tools/reconstruction_worker.py": "49b8816bd54a78957d45ed3596a63ba18a11bfa5eac0416070a85c692eef22f0",
+    "tools/codec_settings.py": "ca8ac87a192ce6ca3c4f12d371de830883a82f8d9d5d051d3df4b4641ca496b1",
+    "tools/codec_assets.json": "a9baa8613045748014db76a4eb0f480c4c3fa0e783cd9006c8f8232f6c3f4275",
+    "tools/codec_audio.py": "2a0dac863e1d7c7577cf9f029f86b3973f90a6e77b935dc6bbce9169ff018f94",
+    "tools/codec_inference.py": "0fa88b480a8ada3dc0911f5638c8b1c138a99ae6ea293f40db8e54ca06e8f9f7",
+    "tools/codec_content.py": "1eb6264f3fdce7bde26fff6ddea687db6c2b78b01c1f3cb44341f1289da4796c",
+    "tools/reconstruct_codec.py": "85ef22acee11520c9066a9d414d2c3e266abebb0f5a6f7f0d5afcdbb6212a30a",
+    "tools/reconstruct_codec_band.py": "f9452f51b8d58e310e6a122c024eadeafdfd5a38738a04585a89e1b39c401546",
+    "tools/speech_repair.py": "4e3b883c3a2e0bf00546a5c4d5e4026aa1e875bca36881c4fe871e39675eb414",
+    "tools/speech_repair_assets.json": "2d1d68d1a00a006c0dc66b401ed21df291ff76fb4ab88b0f31f96960766226e2",
+    "tools/reconstruct_vocoder.py": "3378845287c3f1bf874147392184c5b15b43ca954adacd6eac484715e4564db0",
+    "tools/vocoder_inference.py": "38d02df4aa5d488aab7b37320dcbf6cc6e980178e23721783145adef138c37f2",
+    "tools/vocoder_assets.json": "ea7870e32da6336a800a3ddbe555d527267124470b44f8e7e0c72603aae4e7f6",
+    "tools/cartesia.py": "599d2b8b551af9f193bcc4c280f3b732a41c48c356c178ad747f17067eff5771",
+    "requirements/codec.txt": "2f0dc944803cbf12ad9a2b55c202eeb05dbc516871d159ba26d595fe0a5a8c5f",
+    "requirements/speech_repair.txt": "9a20eb7a29bbf29cdb23239aecd0c81b011c537e497903c331ecc83379647b44",
+    "requirements/verification.txt": "d9332dade574c76d8794e0e5d7cccc1b8c654f008be8ea14ae68411ceb3f6dd7",
+    "requirements/vocoder.txt": "36aaf5ee7d8f582d03f0614f50305f9de3ade062de4e65e761ae4b5601929551",
+    "experiments/generate_codec_study.py": "0c1a09383d2b4f3c355d2d62b9a08d923225e48df5802ce1a3c71d117cbf77ef",
+    "experiments/run_codec_study.py": "9aaceb24c6c2786c0ac155a78832e0dd90f29578875f95453b05ba1c46305b65",
+    "experiments/score_codec_study.py": "8fa758272b28150ba655243977e8ed82418231259ae158676daa27441dd8094c",
+    "experiments/codec_evaluation_text.py": "9d05a9350507e45912e47f0200f64732ed5cf03bc3d6581e8c6ad992ff4e2876",
+    "experiments/codec_evaluation_assets.json": "df1d047b380f6d218727bd451988a7823c9f82fb652aa62d7542b81b129e3dfc",
+    "requirements/codec_evaluation.txt": "c82b1fd37c9d379c98fc251ac4c5f8544daa2fbea890d04f325a1240050b37b9",
+    "requirements/eval.txt": "c429198bfcf1459b979c377136e235a953360f86c952c4c1e202d77943e03af5",
+    "tools/eval_voice_quality.py": "f45829ffa8658c1158f44f7516bde482f391c71267ae6ba8b18c3853b3d747b2",
+    "tools/remover.py": "aad94e48280117f052aa8b0ce5ff8ae254154fb2611526852038912865666e6c"
+  },
+  "fresh_generation_started": false,
+  "fresh_candidate_detector_labels_observed": false,
+  "planned_requests": 16,
+  "marked_provenance_requests": 14,
+  "matched_nominal_controls": 2,
+  "negative_confirmations": 2,
+  "positive_counterexample_confirmations": 2,
+  "original_confirmations": 2,
+  "maximum_http_attempts_per_phase": {
+    "baseline": 32,
+    "candidates": 68
+  },
+  "minimum_detector_start_interval_seconds": 80,
+  "endpoint_policy": "Direct route; shared pacing/cooldowns; stop on conflicting repeated results or API errors; no rotation. Whole canonical originals and complete exact candidate FLAC files only.",
+  "selection_policy": "Fixed codec-native then codec-band; runtime Turbo/MMS content guards and detector responses only. No reference text or evaluation-only metrics enter selection. No quality-triggered alternate selection.",
+  "quality_criteria": {
+    "turbo_paired_disagreement_maximum": 0.03,
+    "turbo_reference_error_delta_maximum": 0.03,
+    "small_reference_error_delta_maximum": 0.03,
+    "mms_reference_error_delta_maximum": 0.03,
+    "mms_paired_disagreement_maximum": 0.03,
+    "three_window_speaker_minimum": 0.95,
+    "dnsmos_overall_delta_minimum": -0.2
+  },
+  "quality_rules": [
+    "Score all original-source calibration before any candidate quality grading.",
+    "All sixteen planned sources stay in the denominator, including unsupported/rejected/error cases.",
+    "Report calibration for each recognizer separately; require at least two original-calibrated checkpoints (reference error <=0.15) for source confidence. Keep every source and every seven-gate failure in the denominator; insufficient calibration remains unproven.",
+    "Both guard recognizers participate in selection; do not label their evaluations independent.",
+    "Reference text is withheld from processing; it is used only by the frozen evaluation.",
+    "Repeated positive/negative responses and variants of one recording never create independent samples.",
+    "Declared marked provenance and measured original detector response are reported separately.",
+    "Every output and quality result is bound to exact final file bytes, sample count/rate/channels.",
+    "Chinese reference scoring uses pinned OpenCC1.1.9 t2s.json on original, processed and reference text; raw-script errors also retained. Paired runtime disagreement remains unchanged. Japanese is not Chinese-converted.",
+    "Small is an evaluation-only checkpoint. Turbo and MMS participate in selection; count them honestly as guard models. Human listening approval has not been obtained."
+  ],
+  "budget": {
+    "shared_cap_usd": 50,
+    "previous_reserved_credits": 93644,
+    "additional_conservative_credits": 24866,
+    "reservation_rate_usd_per_million_credits": 65,
+    "additional_reserve_usd": 1.61629,
+    "combined_reserve_usd": 7.70315,
+    "billing_units": "Official pricing: one credit per TTS character; reserve twice UTF8 byte count at maximum listed paid overage rate.",
+    "pricing_source": "https://www.cartesia.ai/pricing",
+    "pricing_verified_at": "2026-11-14",
+    "ledger": "budget.json",
+    "reset_ledger": false,
+    "automatic_retry_after_attempted_tts": false
+  },
+  "original_only_preflight": {
+    "small_scorer_complete": true,
+    "originals_only": true,
+    "candidate_outputs_read": false,
+    "zh_raw_script_error": 0.3813559322033898,
+    "zh_t2s_error": 0.025423728813559324,
+    "counts_as_fresh_efficacy": false
+  },
+  "offline_test_suite": {
+    "passed": 139,
+    "actual_service_calls": 0
+  },
+  "format_preflight": {
+    "complete": true,
+    "cases": 5,
+    "independent_spent_sources": 2,
+    "fresh_samples": 0,
+    "cartesia_checks": 0,
+    "all_content_guards_passed": true,
+    "treatments": [
+      "252-second native",
+      "252-second band",
+      "16kHz stereo native",
+      "16kHz stereo band",
+      "8kHz mono band"
+    ]
+  },
+  "environments": {
+    "codec_asr": {
+      "python": "3.12.3",
+      "torch": "2.5.1+cpu",
+      "transformers": "4.46.3",
+      "numpy": "1.26.4",
+      "scipy": "1.17.1",
+      "soundfile": "0.14.0"
+    },
+    "bigvgan_voice": {
+      "python": "3.13.16",
+      "torch": "2.15.0+cpu",
+      "transformers": "5.22.2",
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "soundfile": "0.14.0"
+    }
+  }
+}
