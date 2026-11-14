@@ -31,9 +31,8 @@ def probe(source, audit_path, directory):
         raise ValueError('Use the exact spent source and its completed unsuccessful audit')
     native_attempt = next(a for a in audit['attempts'] if a['preset'] == 'codec-native')
     band_attempt = next(a for a in audit['attempts'] if a['preset'] == 'codec-band')
-    if (native_attempt['model']['content_guard_passed'] is not True or
-            band_attempt['state'] != 'content_rejected'):
-        raise ValueError('This prototype needs a content-qualified native and content-rejected band file')
+    if band_attempt['state'] != 'content_rejected':
+        raise ValueError('This prototype needs a content-rejected band file; donor regions and final output require assessment')
     language = native_attempt['model']['language']
     directory.mkdir(parents=True, exist_ok=False)
     report_path = directory/'result.json'

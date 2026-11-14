@@ -68,7 +68,8 @@ Their results do not establish reliable removal on real recordings.
 | `codec_study_report.py` | Export every planned source and all seven frozen criteria, rejecting mismatched bytes or receipts and retaining quality/calibration failures after negative detector responses |
 | `benchmark_codec_asr.py`, `benchmark_mms_bf16_originals.py`, `codec_asr_runtime_report.py` | Measure CPU precision alternatives and preserve transcript differences and the failed preprocessing attempt; alternatives remain outside the frozen runtime |
 | `whisper_encoder_reuse.py`, `benchmark_whisper_encoder_reuse.py` | Prototype FP32 reuse of short-source language/transcription encoder output and compare exact generated tokens, language results and encoder-call counts |
-| `codec_ctc_repair.py`, `probe_codec_ctc_repair.py` | Develop one bounded repair of a spent content-rejected band reconstruction from a native donor with matching original MMS text; reproduces exact failed-file hashes and requires reassessment, without API requests or changes to the frozen study |
+| `codec_ctc_repair.py`, `probe_codec_ctc_repair.py` | Develop one bounded repair of a spent rejected band file using locally matching native-donor units; reject donor errors, timing drift and excessive coverage, reproduce exact failed-file hashes and reassess without changing the frozen study |
+| `korean_spacing_diagnostic.py` | Inspect Korean spacing effects using the KsponSpeech character/boundary alignment; preserves every lexical character and never changes frozen study metrics |
 
 The fresh codec study uses [pinned evaluation assets](codec_evaluation_assets.json) and
 [text normalization](codec_evaluation_text.py). Chinese reference-error scoring uses

@@ -36,10 +36,47 @@ class CodecCTCRepairTests(unittest.TestCase):
         self.assertFalse(metadata['content_guard_passed'])
         self.assertFalse(metadata['api_checked'])
 
-    def test_donor_recognition_must_match_original_before_copying_audio(self):
-        wrong = dict(self.before, text='one changed three')
+    def test_donor_errors_inside_the_requested_region_cannot_be_copied(self):
+        wrong = dict(self.before, text='one changed three', chunks=[
+            {'text': word, 'timestamp': span} for word, span in
+            [('one', (.5, .7)), ('changed', (2., 2.2)), ('three', (4., 4.2))]])
         with self.assertRaisesRegex(AlignmentUnavailable, 'Native donor'):
             repair_from_native(self.before, wrong, self.after, self.native, self.band,
+                               self.rate, self.normalize, 'en')
+
+    def test_donor_error_elsewhere_does_not_prevent_copying_a_correct_region(self):
+        partial = dict(self.before, text='different two three', chunks=[
+            {'text': word, 'timestamp': span} for word, span in
+            [('different', (.5, .7)), ('two', (2., 2.2)), ('three', (4., 4.2))]])
+        output, metadata = repair_from_native(self.before, partial, self.after, self.native, self.band,
+                                               self.rate, self.normalize, 'en')
+        self.assertFalse(metadata['native_original_unit_parity'])
+        self.assertTrue(metadata['donor_matching_regions_only'])
+        np.testing.assert_array_equal(output[0], self.band[0])
+        np.testing.assert_array_equal(output[2*self.rate], self.native[2*self.rate])
+
+    def test_large_donor_timing_drift_is_rejected(self):
+        shifted = dict(self.before, chunks=[
+            {'text': word, 'timestamp': span} for word, span in
+            [('one', (.5, .7)), ('two', (3., 3.2)), ('three', (4., 4.2))]])
+        with self.assertRaises(AlignmentUnavailable):
+            repair_from_native(self.before, shifted, self.after, self.native, self.band,
+                               self.rate, self.normalize, 'en')
+
+    def test_inserted_candidate_word_uses_its_own_time_interval(self):
+        inserted = dict(self.before, text='one extra two three', chunks=[
+            {'text': word, 'timestamp': span} for word, span in
+            [('one', (.5, .7)), ('extra', (1.2, 1.3)), ('two', (2., 2.2)), ('three', (4., 4.2))]])
+        output, metadata = repair_from_native(self.before, self.before, inserted, self.native, self.band,
+                                               self.rate, self.normalize, 'en')
+        self.assertLess(metadata['repaired_fraction'], .2)
+        np.testing.assert_array_equal(output[int(1.25*self.rate)], self.native[int(1.25*self.rate)])
+        np.testing.assert_array_equal(output[2*self.rate], self.band[2*self.rate])
+
+    def test_unavailable_timestamp_does_not_produce_a_repair(self):
+        missing = dict(self.after, chunks=[{'text': 'one wrong three', 'timestamp': (None, None)}])
+        with self.assertRaises(AlignmentUnavailable):
+            repair_from_native(self.before, self.before, missing, self.native, self.band,
                                self.rate, self.normalize, 'en')
 
     def test_widespread_repair_is_rejected_instead_of_copying_the_whole_native_file(self):
