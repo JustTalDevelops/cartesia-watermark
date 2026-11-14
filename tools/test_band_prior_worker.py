@@ -57,6 +57,14 @@ class BandPriorWorkerTests(unittest.TestCase):
                 self.runtime.process_file(self.manifest, self.output, 'codec-band-prior')
         self.assertFalse(self.output.exists())
 
+    def test_prior_accepts_a_source_only_manifest_but_legacy_band_requires_a_donor(self):
+        self.manifest.write_text(json.dumps({'source': str(self.source), 'source_sha256': digest(self.source)}))
+        with patch('vocoder_band_prior.reconstruct', side_effect=self.render):
+            report = self.runtime.process_file(self.manifest, self.output, 'codec-band-prior')
+        self.assertIsNone(report['native_sha256'])
+        with self.assertRaisesRegex(ValueError, 'requires its native donor'):
+            self.runtime.process_file(self.manifest, self.root/'other.wav', 'codec-band')
+
 
 if __name__ == '__main__':
     unittest.main()

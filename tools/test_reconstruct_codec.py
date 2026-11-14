@@ -57,7 +57,7 @@ class FakeBand:
         samples = quantize(flac, original*.97, rate)
         sf.write(output, samples, rate, subtype='FLOAT')
         return {'output_sha256': digest(output), 'source_sha256': request['source_sha256'],
-                'native_sha256': request['native_sha256'], 'encoded_flac_sha256': digest(flac)}
+                'native_sha256': request.get('native_sha256'), 'encoded_flac_sha256': digest(flac)}
 
 
 class CodecRuntimeTests(unittest.TestCase):
@@ -97,6 +97,8 @@ class CodecRuntimeTests(unittest.TestCase):
         first = self.runtime.process_file(self.source, self.output, 'codec-band-prior', retain_job=True)
         self.assertTrue(first['content_guard_passed'])
         self.assertFalse(first['quality_verified'])
+        self.assertEqual(self.codec.calls, 0)
+        self.assertNotIn('native_codec_sha256', first)
         second = self.runtime.process_file(self.source, self.root/'second.wav', 'codec-band')
         self.assertTrue(second['source_job_reused'])
         self.assertEqual(self.band.presets, ['codec-band-prior', 'codec-band'])
@@ -113,9 +115,9 @@ class CodecRuntimeTests(unittest.TestCase):
         report = self.runtime.process_file(self.source, self.output, 'codec-band-inverse6')
         self.assertTrue(report['content_guard_passed'])
         self.assertEqual(self.band.presets, ['codec-band-prior'])
-        self.assertEqual([b for _, b in calls], [12., 6.])
-        np.testing.assert_array_equal(calls[0][0], calls[1][0])
+        self.assertEqual([b for _, b in calls], [6.])
         original, rate = sf.read(self.source, dtype='float32')
+        np.testing.assert_array_equal(calls[0][0], original)
         native = quantize(self.root/'expected_native.flac', original*.91, rate)
         prior = quantize(self.root/'expected_prior.flac', original*.97, rate)
         expected, _ = mix_reconstructions(native, prior, rate)
@@ -174,8 +176,9 @@ class CodecRuntimeTests(unittest.TestCase):
         self.codec.reconstruct = reconstruct
         report = self.runtime.process_file(self.source, self.output, 'codec-6k')
         self.assertTrue(report['content_guard_passed'])
-        self.assertEqual([bandwidth for _, bandwidth in calls], [12., 6.])
-        np.testing.assert_array_equal(calls[0][0], calls[1][0])
+        self.assertEqual([bandwidth for _, bandwidth in calls], [6.])
+        original, _ = sf.read(self.source, dtype='float32')
+        np.testing.assert_array_equal(calls[0][0], original)
         self.assertEqual(report['candidate_codec_bandwidth_kbps'], 6.)
         self.assertFalse(report['quality_verified'])
 
@@ -292,6 +295,13 @@ class CodecRuntimeTests(unittest.TestCase):
         self.assertFalse(report['initial_content_assessment']['content_guard_passed'])
         self.assertEqual(report['repair_status'], 'assessed')
         self.assertLess(report['repair']['repaired_fraction'], .2)
+        self.assertEqual(self.codec.calls, 1)
+
+    def test_accepted_prior_repair_does_not_run_a_donor_codec(self):
+        report = self.runtime.process_file(self.source, self.output, 'codec-band-prior-repair')
+        self.assertTrue(report['content_guard_passed'])
+        self.assertEqual(self.codec.calls, 0)
+        self.assertNotIn('native_codec_sha256', report)
 
     def test_rejected_band_prior_repair_publishes_no_output(self):
         report = self.run_repair_fixture(reject_final=True, preset='codec-band-prior-repair')

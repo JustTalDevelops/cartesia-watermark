@@ -46,22 +46,29 @@ class CodecRuntime:
 
     def job(self, source, original_sha, audio, rate, parent):
         key = (str(source.resolve()), original_sha, str(parent.resolve()))
-        if self.cache is not None and self.cache['key'] == key and self.cache['native'].is_file():
+        if self.cache is not None and self.cache['key'] == key and self.cache['directory'].is_dir():
             return self.cache, True
         self.clear_job()
         self.temporary = tempfile.TemporaryDirectory(prefix='.codec-source-', dir=parent)
         directory = Path(self.temporary.name)
         before = self.recognizer.transcribe(source)
         job = {'key': key, 'directory': directory, 'before': before, 'native': directory/'native.flac'}
-        secondary = before.get('secondary', 'mms')
-        if before['supported'] and before.get(before.get('primary', 'turbo')) and before.get(secondary):
+        self.cache = job
+        return job, False
+
+    def ensure_native(self, job, audio, rate, report):
+        if 'native_sha256' in job:
+            if not job['native'].is_file() or digest(job['native']) != job['native_sha256']:
+                raise RuntimeError('Cached native codec recording changed')
+        else:
             started = time.monotonic()
             rebuilt, gain = self.codec.reconstruct(audio, rate)
             quantize(job['native'], rebuilt, rate)
             job.update(native_gain=gain, native_elapsed_seconds=time.monotonic()-started,
                        native_sha256=digest(job['native']))
-        self.cache = job
-        return job, False
+        report.update(native_codec_sha256=job['native_sha256'], native_gain=job['native_gain'],
+                      native_elapsed_seconds=job['native_elapsed_seconds'])
+        return job['native']
 
     def process_file(self, source, output, preset='codec-native', metadata=None, retain_job=False):
         validate_paths(source, output, metadata)
@@ -90,16 +97,16 @@ class CodecRuntime:
                 report['rejection_reason'] = 'original_speech_not_recognized'
             else:
                 candidate = job['native']
-                if digest(candidate) != job['native_sha256']:
-                    raise RuntimeError('Cached native codec recording changed')
-                report.update(native_codec_sha256=job['native_sha256'], native_gain=job['native_gain'],
-                              native_elapsed_seconds=job['native_elapsed_seconds'])
+                if preset in ('codec-native', 'codec-band', 'codec-repair', 'codec-cycle'):
+                    candidate = self.ensure_native(job, audio, rate, report)
                 with tempfile.TemporaryDirectory(prefix='.codec-assessment-', dir=output.parent) as temporary:
                     directory = Path(temporary)
                     if preset in ('codec-band', 'codec-repair', 'codec-band-prior', 'codec-band-prior-repair', 'codec-band-inverse6', 'codec-band-inverse6-consensus'):
                         manifest = directory/'band.input.json'
-                        manifest.write_text(json.dumps({'source': str(source.resolve()), 'source_sha256': original_sha,
-                                                        'native': str(candidate), 'native_sha256': job['native_sha256']}))
+                        request = {'source': str(source.resolve()), 'source_sha256': original_sha}
+                        if preset in ('codec-band', 'codec-repair'):
+                            request.update(native=str(candidate), native_sha256=job['native_sha256'])
+                        manifest.write_text(json.dumps(request))
                         if self.band_worker is None:
                             self.band_worker = self.worker_factory(ROOT/'.venv/bin/python', ROOT/'tools/reconstruct_codec_band.py',
                                                                    isolated=False)
@@ -110,7 +117,7 @@ class CodecRuntime:
                         mixed, band_rate = sf.read(band_path, dtype='float32')
                         if (band_info.get('output_sha256') != digest(band_path) or band_rate != rate or mixed.shape != audio.shape or
                                 not np.isfinite(mixed).all() or
-                                band_info.get('source_sha256') != original_sha or band_info.get('native_sha256') != job['native_sha256']):
+                                band_info.get('source_sha256') != original_sha or band_info.get('native_sha256') != request.get('native_sha256')):
                             raise RuntimeError('Band worker returned a mismatched recording')
                         candidate = directory/'band.flac'
                         quantize(candidate, mixed, rate)
@@ -174,6 +181,7 @@ class CodecRuntime:
                             report['repair_status'] = 'secondary_alignment_unavailable'
                         else:
                             try:
+                                self.ensure_native(job, audio, rate, report)
                                 name, _, donor_alignment = self.recognizer.secondary_transcribe(
                                     job['native'], job['before']['language'])
                                 if name != 'mms' or digest(job['native']) != job['native_sha256']:

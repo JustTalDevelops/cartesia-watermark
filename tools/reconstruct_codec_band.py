@@ -66,14 +66,18 @@ class BandRuntime:
             raise ValueError('Unknown band reconstruction preset')
         manifest_sha = digest(manifest_path)
         manifest = json.loads(manifest_path.read_text())
-        source, native_path = Path(manifest['source']), Path(manifest['native'])
-        if digest(source) != manifest['source_sha256'] or digest(native_path) != manifest['native_sha256']:
+        source = Path(manifest['source'])
+        native_path = Path(manifest['native']) if 'native' in manifest else None
+        if preset == 'codec-band' and native_path is None:
+            raise ValueError('Codec-band reconstruction requires its native donor')
+        if digest(source) != manifest['source_sha256'] or (native_path is not None and digest(native_path) != manifest['native_sha256']):
             raise RuntimeError('The original or codec input changed')
         original, rate = sf.read(source, dtype='float32')
-        native, native_rate = sf.read(native_path, dtype='float32')
         validate_audio(original, rate)
-        if native_rate != rate or native.shape != original.shape or not np.isfinite(native).all():
-            raise RuntimeError('Codec input does not have the original complete sample grid')
+        if native_path is not None:
+            native, native_rate = sf.read(native_path, dtype='float32')
+            if native_rate != rate or native.shape != original.shape or not np.isfinite(native).all():
+                raise RuntimeError('Codec input does not have the original complete sample grid')
         started = time.monotonic()
         output.parent.mkdir(parents=True, exist_ok=True)
         with tempfile.TemporaryDirectory(prefix='.codec-band-', dir=output.parent) as temporary:
@@ -88,11 +92,11 @@ class BandRuntime:
             result = quantize(Path(temporary)/'mixed.flac', mixed, rate)
             assessed_flac_sha = digest(Path(temporary)/'mixed.flac')
         if (digest(manifest_path) != manifest_sha or digest(source) != manifest['source_sha256'] or
-                digest(native_path) != manifest['native_sha256']):
+                (native_path is not None and digest(native_path) != manifest['native_sha256'])):
             raise RuntimeError('A reconstruction input changed during synthesis')
         with output.open('xb') as handle:
             sf.write(handle, result, rate, format='WAV', subtype='FLOAT')
-        report = {'preset': preset, 'source_sha256': manifest['source_sha256'], 'native_sha256': manifest['native_sha256'],
+        report = {'preset': preset, 'source_sha256': manifest['source_sha256'], 'native_sha256': manifest.get('native_sha256'),
                   'output_sha256': digest(output), 'encoded_flac_sha256': assessed_flac_sha,
                   'settings': SETTINGS, 'model_id': self.assets['model_id'], 'model_revision': self.assets['model_revision'],
                   'checkpoint_sha256': self.assets['model_sha256']['bigvgan_generator.pt'],
