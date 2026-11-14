@@ -79,6 +79,7 @@ Their results do not establish reliable removal on real recordings.
 | `probe_vocoder_smoothing.py`, `probe_band_group_delay.py` | Controlled log-mel smoothing and band-delay probes, with whole-file PCM24 outputs and explicit zero-delay parity checks |
 | `vocoder_codec_tradeoff_report.py`, `vocoder_band_report.py`, `codec_followup_report.py` | Curate spent codec/vocoder treatments and exact-file integration, preserving quality failures and repeated detector controls |
 | `codec_profile_replay_report.py` | Reassess saved selected files with the prospective language profiles, without new synthesis or detector requests; retains both nominal controls and the frozen primary outcome |
+| `codec_ta2_followup_report.py`, `codec_inference_followup_report.py` | Retain the failed second-Tamil probes and verify exact-file inference optimizations, including skipped-primary null scores and individual CPU timing limits |
 
 The fresh codec study uses [pinned evaluation assets](codec_evaluation_assets.json) and
 [text normalization](codec_evaluation_text.py). Chinese reference-error scoring uses

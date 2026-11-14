@@ -80,6 +80,16 @@ These are automated estimates, without human listening approval. A negative
 detector response does not establish physical erasure. Quality failures remain
 failures even when the detector returns negative twice.
 
+The experimental branch's [inference follow-up](../results/codec_inference_followup.json)
+reproduced all four checked files after deferring unused codec passes. Those
+passes cost less than a second each, so their removal did not establish a total
+speedup. A second change runs the secondary recognizer first and skips the primary
+only after a rejection; accepted outputs still need both. One warmed rejection
+took 26.6 seconds before and 10.2 seconds after. Complete Russian repair took
+141.7 versus 131.4 seconds, while the accepted Korean path took 61.6 versus 66.0
+seconds. These individual CPU runs exclude outer-runtime construction and do not
+establish an app-wide speedup. Both final files reproduced the checked bytes.
+
 The alternative [Mimi weights](https://huggingface.co/kyutai/mimi) are upstream
 CC-BY-4.0 assets, separate from the models trained by this project. The smoothing
 and codec probes are experiments; they do not change the app's processing methods

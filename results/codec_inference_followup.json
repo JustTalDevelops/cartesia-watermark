@@ -1,0 +1,310 @@
+{
+  "kind": "Existing-file codec inference optimizations",
+  "fresh_independent_sources": 0,
+  "new_http_requests": 0,
+  "new_tts_requests": 0,
+  "frozen_primary_study_result_changed": false,
+  "deferred_native_integration": {
+    "implementation_commit": "af328bd1138a9f655a5b8c1667652160128f5ade",
+    "source_files_sha256": {
+      "tools/codec_word_consensus.py": "b8afdddddc1d8fab2b93036786a88ccb63473063dbc4e4572ed5d2619807a3f2",
+      "tools/codec_audio.py": "2a0dac863e1d7c7577cf9f029f86b3973f90a6e77b935dc6bbce9169ff018f94",
+      "tools/codec_text.py": "2b3f9503c9e39c330d60ae727415995822fec4daa4de7560572de905eab25f96",
+      "tools/codec_teacher.py": "abebef4244f452e3d962ec6d88c9917806a98ad48512281875f41dc4d2cf3fb4",
+      "tools/codec_repair.py": "e6839578ce6d319e9463196521860b050d96f0f81f1ed8cafc14d3fe3918561a",
+      "tools/codec_content.py": "79b44e6d5f5938bc44c59beb8f70ea95ffe2c809ba780466ca23865bfe78820a",
+      "tools/codec_settings.py": "a4c7b4993f7521b2b8b0ee9268c19e48ec06852af43b5299bb974d662ea887e6",
+      "tools/codec_inference.py": "1f86876e3ab07e960dd9ac9c4ad9f1a773393ac31bdef969f9d25b52370d2a9e",
+      "tools/reconstruct_codec.py": "6fa7e9b891af3c71b1af25fbd49f3317aff160a963dda8fb9fb6e69f376d466b",
+      "tools/reconstruct_codec_band.py": "b5102f096a9a070b5496ced2f93ff3c29521d2326e78a2e8694a70bb7868e195",
+      "tools/vocoder_band_prior.py": "8b153b0e25421d560c3f9a41e5e36ea44f1ed0a7ad417b0c49af76f6e69b033f"
+    },
+    "fresh_independent_sources": 0,
+    "new_http_requests": 0,
+    "reference_text_used": false,
+    "candidates": [
+      {
+        "id": "ta1",
+        "source_case": "codec_fresh_10_ta1_sonic-3.6",
+        "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+        "preset": "codec-band-prior",
+        "canonical_output_sha256": "3ec8f6aefcc32eadba72faf63c9110253e371c846735dd09d789ac3bd0063463",
+        "metadata_sha256": "3c9f46e1fe1928d9c9f5f16349f3b312f8eac8683ffb310dbf94eefb2b37e9a3",
+        "actual_asr_used": true,
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "large": 0.0047169811320754715,
+          "mms": 0.007042253521126761
+        },
+        "native_codec_calls": [],
+        "elapsed_seconds": 208.67359472066164,
+        "exact_previously_checked_file_reproduction": true,
+        "previous_integration_sha256": "b4a9bda50a03a129f87004ff637a62967b8ab907dad4a75c4295e6f757f8c3c1",
+        "previous_implementation_commit": "f9fd051b0a7894c367a7bf8985baa53a2e593695",
+        "previous_elapsed_seconds": 205.21779863443226,
+        "raw_content_assessment": null,
+        "repair_status": null,
+        "complete": true,
+        "previous_native12_seconds": 0.6215906143188477,
+        "previous_native12_unused": true
+      },
+      {
+        "id": "ko",
+        "source_case": "codec_fresh_07_ko_sonic-preview",
+        "source_sha256": "e5c73a9136873b737f8815a0d6cd2777776cd9cc5d2d3646c1cd3db88abee8c9",
+        "preset": "codec-band-inverse6",
+        "canonical_output_sha256": "16827fb4d5a2bda54b7d4b28a86bae384194c833623f5102df2b4107119994f1",
+        "metadata_sha256": "240e28a56a1b2c9940709a145856f085f91453b8ae72a8445046c0e68fa906b4",
+        "actual_asr_used": true,
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "turbo": 0.0,
+          "sensevoice": 0.02
+        },
+        "native_codec_calls": [
+          {
+            "bandwidth_kbps": 6.0,
+            "elapsed_seconds": 0.6274180607870221,
+            "samples": 1319472,
+            "sample_rate": 44100
+          }
+        ],
+        "elapsed_seconds": 61.61345814820379,
+        "exact_previously_checked_file_reproduction": true,
+        "previous_integration_sha256": "fa1a34dd4cf64ce04de3c8e6c09c03fe0384624f08714cd312a6cd3f9b0ea247",
+        "previous_implementation_commit": "dd16e8a79140be02fcc3cbb16c12a32895283165",
+        "previous_elapsed_seconds": 60.753478810191154,
+        "raw_content_assessment": null,
+        "repair_status": null,
+        "complete": true,
+        "previous_native12_seconds": 0.7691780393943191,
+        "previous_native12_unused": true
+      },
+      {
+        "id": "ru",
+        "source_case": "codec_fresh_09_ru_sonic-preview",
+        "source_sha256": "b6cd92130bdd2e9565a52d27df76bf946b95d6da30a133f5629b5fd5efd5e58d",
+        "preset": "codec-band-prior-repair",
+        "canonical_output_sha256": "51cffb441a91a1d4d64ad45d8aa59f2c4c3150134da8ab7fd742e763fba7a1b3",
+        "metadata_sha256": "1762101b622b373550b4a6232156d88eca7776908e89dd969e108184b4dfc451",
+        "actual_asr_used": true,
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "turbo": 0.0,
+          "mms": 0.028985507246376812
+        },
+        "native_codec_calls": [
+          {
+            "bandwidth_kbps": 12.0,
+            "elapsed_seconds": 0.821422184817493,
+            "samples": 1450008,
+            "sample_rate": 44100
+          }
+        ],
+        "elapsed_seconds": 141.71692219562829,
+        "exact_previously_checked_file_reproduction": true,
+        "previous_integration_sha256": "d56f55c1cd7b163d8618a66a6e7d71689b02e00cf0976eeef7f695863632c752",
+        "previous_implementation_commit": "6f6b7c56bcc4c2196d4fc8f2c8e323aba364e0e3",
+        "previous_elapsed_seconds": 148.07573270983994,
+        "raw_content_assessment": null,
+        "repair_status": "assessed",
+        "complete": true,
+        "previous_native12_seconds": 0.8189610140398145,
+        "previous_native12_unused": false
+      },
+      {
+        "id": "ar",
+        "source_case": "codec_fresh_06_ar1_sonic-3.6",
+        "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+        "preset": "codec-band-inverse6-consensus",
+        "canonical_output_sha256": "fa299293eb6b2758d030eb86d82e88daf0244fb7ade03962880950c758e0e8e3",
+        "metadata_sha256": "01f07cae0d4696f0b14b785c16f2cb44886f033388ca7087ce62d612fb9d434d",
+        "actual_asr_used": true,
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "turbo": 0.028169014084507043,
+          "fastconformer": 0.0
+        },
+        "native_codec_calls": [
+          {
+            "bandwidth_kbps": 6.0,
+            "elapsed_seconds": 0.6307155713438988,
+            "samples": 1397088,
+            "sample_rate": 44100
+          }
+        ],
+        "elapsed_seconds": 89.01242138259113,
+        "exact_previously_checked_file_reproduction": true,
+        "previous_integration_sha256": "497c6bcf58bb47ac9727461c05a844702519e8db5b190f1c3b0e7ab6a26c304d",
+        "previous_implementation_commit": "81e77d79e91fbd3abdcc39d0d43b9743ae64cd03",
+        "previous_elapsed_seconds": 91.57956993300468,
+        "raw_content_assessment": {
+          "content_guard_passed": false,
+          "paired_disagreement": {
+            "turbo": 0.04225352112676056,
+            "fastconformer": 0.0
+          },
+          "primary_guard": "turbo",
+          "secondary_guard": "fastconformer",
+          "maximum_paired_disagreement": 0.03,
+          "original_units": {
+            "turbo": 71,
+            "fastconformer": 71
+          },
+          "processed_units": {
+            "turbo": 71,
+            "fastconformer": 71
+          }
+        },
+        "repair_status": null,
+        "complete": true,
+        "previous_native12_seconds": 0.8245237227529287,
+        "previous_native12_unused": true
+      }
+    ],
+    "complete": true,
+    "timing_scope": "Processing and worker shutdown; excludes outer runtime construction; sequential different-language cases, not a controlled end-to-end speed comparison",
+    "completed_at": "2026-11-14T17:51:23.233124+00:00"
+  },
+  "secondary_first_guard_integration": {
+    "implementation_commit": "4c9fae4374684bb63293d0d7f0c2f84a3ee82ec4",
+    "source_files_sha256": {
+      "tools/codec_word_consensus.py": "b8afdddddc1d8fab2b93036786a88ccb63473063dbc4e4572ed5d2619807a3f2",
+      "tools/codec_audio.py": "2a0dac863e1d7c7577cf9f029f86b3973f90a6e77b935dc6bbce9169ff018f94",
+      "tools/codec_text.py": "2b3f9503c9e39c330d60ae727415995822fec4daa4de7560572de905eab25f96",
+      "tools/codec_teacher.py": "abebef4244f452e3d962ec6d88c9917806a98ad48512281875f41dc4d2cf3fb4",
+      "tools/codec_repair.py": "e6839578ce6d319e9463196521860b050d96f0f81f1ed8cafc14d3fe3918561a",
+      "tools/codec_content.py": "1f7af6d64a8f79b80da9bbfb77f0d7497552b126fd189c8085e388e0604d97fe",
+      "tools/codec_settings.py": "a4c7b4993f7521b2b8b0ee9268c19e48ec06852af43b5299bb974d662ea887e6",
+      "tools/codec_inference.py": "1f86876e3ab07e960dd9ac9c4ad9f1a773393ac31bdef969f9d25b52370d2a9e",
+      "tools/reconstruct_codec.py": "9d434ff6ea9bc50a1cd581650d293609b45cd97cb03e07682c28bfd6c5bd2265",
+      "tools/reconstruct_codec_band.py": "b5102f096a9a070b5496ced2f93ff3c29521d2326e78a2e8694a70bb7868e195",
+      "tools/vocoder_band_prior.py": "8b153b0e25421d560c3f9a41e5e36ea44f1ed0a7ad417b0c49af76f6e69b033f"
+    },
+    "fresh_independent_sources": 0,
+    "new_http_requests": 0,
+    "reference_text_used": false,
+    "candidates": [
+      {
+        "id": "ru",
+        "source_case": "codec_fresh_09_ru_sonic-preview",
+        "source_sha256": "b6cd92130bdd2e9565a52d27df76bf946b95d6da30a133f5629b5fd5efd5e58d",
+        "preset": "codec-band-prior-repair",
+        "canonical_output_sha256": "51cffb441a91a1d4d64ad45d8aa59f2c4c3150134da8ab7fd742e763fba7a1b3",
+        "metadata_sha256": "90b544d892b785319894218f053752cdb9d1b3f590db9d655986a0eed78d2f38",
+        "paired_disagreement": {
+          "turbo": 0.0,
+          "mms": 0.028985507246376812
+        },
+        "both_final_recognizers_ran": true,
+        "content_guard_passed": true,
+        "initial_primary_skip_reason": "secondary_recognizer_rejected_candidate",
+        "initial_content_assessment": {
+          "content_guard_passed": false,
+          "paired_disagreement": {
+            "turbo": null,
+            "mms": 0.043478260869565216
+          },
+          "primary_guard": "turbo",
+          "secondary_guard": "mms",
+          "maximum_paired_disagreement": 0.03,
+          "original_units": {
+            "turbo": 69,
+            "mms": 69
+          },
+          "processed_units": {
+            "turbo": 0,
+            "mms": 70
+          }
+        },
+        "native_codec_bandwidth_calls": [
+          12.0
+        ],
+        "elapsed_seconds": 131.38934152480215,
+        "previous_same_output_elapsed_seconds": 141.71692219562829,
+        "exact_previously_checked_file_reproduction": true,
+        "complete": true
+      },
+      {
+        "id": "ko",
+        "source_case": "codec_fresh_07_ko_sonic-preview",
+        "source_sha256": "e5c73a9136873b737f8815a0d6cd2777776cd9cc5d2d3646c1cd3db88abee8c9",
+        "preset": "codec-band-inverse6",
+        "canonical_output_sha256": "16827fb4d5a2bda54b7d4b28a86bae384194c833623f5102df2b4107119994f1",
+        "metadata_sha256": "f4337b68e082799c15aa5f9d44c9e738a0e3983c03ee643dd1940e6ef1d0b28c",
+        "paired_disagreement": {
+          "turbo": 0.0,
+          "sensevoice": 0.02
+        },
+        "both_final_recognizers_ran": true,
+        "content_guard_passed": true,
+        "initial_primary_skip_reason": null,
+        "initial_content_assessment": null,
+        "native_codec_bandwidth_calls": [
+          6.0
+        ],
+        "elapsed_seconds": 65.99059404619038,
+        "previous_same_output_elapsed_seconds": 61.61345814820379,
+        "exact_previously_checked_file_reproduction": true,
+        "complete": true
+      }
+    ],
+    "complete": true,
+    "warm_rejected_candidate_comparison": {
+      "source_sha256": "b6cd92130bdd2e9565a52d27df76bf946b95d6da30a133f5629b5fd5efd5e58d",
+      "candidate_sha256": "a4a28aed7150a46ec2d707f37b7aaef2f99d462afaf419202130e8e35f0cdb04",
+      "full_seconds": 26.574865127913654,
+      "early_seconds": 10.244125518016517,
+      "full_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "turbo": 0.0,
+          "mms": 0.043478260869565216
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 69,
+          "mms": 69
+        },
+        "processed_units": {
+          "turbo": 69,
+          "mms": 70
+        }
+      },
+      "early_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "turbo": null,
+          "mms": 0.043478260869565216
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 69,
+          "mms": 69
+        },
+        "processed_units": {
+          "turbo": 0,
+          "mms": 70
+        }
+      },
+      "same_secondary_units_and_alignment": true,
+      "primary_inference_skipped": true,
+      "timing_scope": "One full then one early recognition on the same file with real source recognition and warmed models, four CPU threads; no synthesis or startup"
+    },
+    "completed_at": "2026-11-14T17:59:15.753835+00:00"
+  },
+  "human_listening_approval": false,
+  "physical_erasure_proven": false,
+  "limits": [
+    "Four codec-deferral files and two secondary-first files reuse previously detector-checked outputs exactly.",
+    "The unused native12 passes took under one second each in these earlier runs; removing them did not establish an end-to-end speedup.",
+    "Secondary-first rejection skips an expensive primary only after the other recognizer fails; both final recognizers remain mandatory for accepted output.",
+    "A skipped primary has a null disagreement, never a passing score or an imputed measurement.",
+    "Timings exclude outer runtime construction and come from individual sequential CPU runs, without statistical speed guarantees.",
+    "No new removal efficacy or fresh independent recordings are established by inference parity."
+  ]
+}

@@ -75,6 +75,7 @@ results/*
 !results/codec_followup_development.json
 !results/codec_profile_replay.json
 !results/codec_ta2_followup.json
+!results/codec_inference_followup.json
 !results/speech_repair_development.json
 !results/speech_repair_runtime.json
 !results/model_catalog.json

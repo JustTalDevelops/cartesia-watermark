@@ -34,6 +34,7 @@ This directory mixes curated files included in Git with ignored local experiment
 | `codec_followup_development.json` | Four spent sources and nineteen treatments: Russian, Korean, and explicitly adjudicated Arabic negatives, exact real-model packaged reproduction, and every remaining speech, naturalness, and detector failure; raw Arabic rejection retained |
 | `codec_profile_replay.json` | Nine saved selected files reassessed with the prospective language profiles: seven marked files and two nominal controls passed the current quality estimates; zero new sources or detector requests, with the original Hindi failure and frozen 6/14 result preserved |
 | `codec_ta2_followup.json` | One spent Tamil source: seven rendered split-band/Mimi/repair variants and one unrendered coverage rejection; both eligible split-band files stayed detectable twice, all Mimi variants failed speech criteria, and unsupported transcription consensus changed no decision |
+| `codec_inference_followup.json` | Exact real-model parity after deferring unused codec work and short-circuiting rejected candidates: one warmed rejection took 26.6 → 10.2 seconds; full-pipeline Russian/Korean timings and both final recognizer requirements retained; no fresh efficacy evidence |
 | `model_catalog.json` | Published checkpoint inventory, loaders, aliases, and source/export checksums |
 
 **V3 is not a reliable remover.** Its original small API test did not generalize to subsequent real recordings. See [editor limitations](../docs/editor.md).
