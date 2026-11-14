@@ -56,7 +56,10 @@ def transform(audio, rate, delay_ms, edges=DEFAULT_EDGES):
     rebuilt = np.fft.irfft(spectrum*response[:, None], n=fft_size, axis=0)[padding:padding+len(audio)]
     if rebuilt.shape != channels.shape or not np.isfinite(rebuilt).all():
         raise RuntimeError('Phase transform changed the whole recording grid')
-    gain = min(1., .999/max(float(np.abs(rebuilt).max()), 1e-20))
+    peak = float(np.abs(rebuilt).max())
+    # An already-quantized .999 peak can round upward by one PCM24 step.
+    # Do not change the whole recording merely to undo that harmless rounding.
+    gain = 1. if peak <= .999+2**-23 else .999/max(peak, 1e-20)
     result = (rebuilt*gain).astype(np.float32)
     return (result[:, 0] if mono else result), gain
 
@@ -79,6 +82,8 @@ def main():
               'reference_text_used': False, 'detector_requests': 0, 'quality_verified': False,
               'band_hz': DEFAULT_EDGES, 'padding': 'One-second reflection on both sides, then power-of-two FFT',
               'nyquist_policy': 'Real unit response at the Nyquist bin',
+              'peak_gain_policy': 'No gain below .999 plus one PCM24 step; otherwise limit to .999',
+              'pcm24_rounding': 'Nearest-even rounding before the soundfile writer',
               'numpy': np.__version__, 'soundfile': sf.__version__,
               'candidates': [], 'complete': False}
     out = args.directory/'generation.json'
@@ -97,8 +102,9 @@ def main():
         folder = args.directory/f'{delay:g}ms'
         folder.mkdir()
         candidate = folder/'candidate.flac'
+        canonical = np.rint(rebuilt*np.float32(2**23))/np.float32(2**23)
         with candidate.open('xb') as handle:
-            sf.write(handle, rebuilt, rate, format='FLAC', subtype='PCM_24')
+            sf.write(handle, canonical, rate, format='FLAC', subtype='PCM_24')
         row = {'processing_input_sha256': source_sha, 'output_sha256': digest(candidate),
                'delay_ms': delay, 'band_hz': DEFAULT_EDGES, 'gain': gain, 'samples': len(audio),
                'sample_rate': rate, 'channels': 1 if audio.ndim == 1 else audio.shape[1],

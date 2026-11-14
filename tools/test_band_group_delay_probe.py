@@ -1,5 +1,6 @@
 import importlib.util
 from pathlib import Path
+import tempfile
 import unittest
 
 import numpy as np
@@ -38,6 +39,19 @@ class BandGroupDelayTests(unittest.TestCase):
         self.assertEqual(gain, 1.)
         interior = result[rate:-rate]
         self.assertAlmostEqual(float(np.sqrt(np.mean(interior**2))), .1/np.sqrt(2), places=4)
+
+    def test_zero_delay_canonical_roundtrip_keeps_bytes_at_a_quantized_peak(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            source, output = Path(temporary)/'source.flac', Path(temporary)/'output.flac'
+            audio = np.random.default_rng(8).uniform(-.5, .5, 32000).astype(np.float32)
+            audio[0], audio[1:20] = np.float32(.9990001), 0.
+            probe.sf.write(source, audio, 16000, subtype='PCM_24')
+            original, rate = probe.sf.read(source, dtype='float32')
+            rebuilt, gain = probe.transform(original, rate, 0.)
+            self.assertEqual(gain, 1.)
+            canonical = np.rint(rebuilt*np.float32(2**23))/np.float32(2**23)
+            probe.sf.write(output, canonical, rate, subtype='PCM_24')
+            self.assertEqual(source.read_bytes(), output.read_bytes())
 
     def test_malformed_delay_grid_and_band_are_rejected(self):
         for value in (-1, 101, np.nan):
