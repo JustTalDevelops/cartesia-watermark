@@ -6,7 +6,7 @@ quantization is not supported by this experiment. Timings exclude model loading
 and conversion; report all repetitions and transcript differences honestly.
 """
 import argparse
-from contextlib import nullcontext
+from functools import wraps
 import gc
 import json
 from pathlib import Path
@@ -58,6 +58,17 @@ def benchmark(plan_path, directory, repetitions=2, methods=('fp32', 'dynamic-int
             original_units = {}
             for method in methods:
                 conversion = 0
+                original_call = None
+                if method == 'bf16-autocast':
+                    call_name = 'generate' if metric == 'turbo' else 'forward'
+                    original_call = getattr(scorer.model, call_name)
+
+                    @wraps(original_call)
+                    def mixed_precision(*args, **kwargs):
+                        with torch.autocast('cpu', dtype=torch.bfloat16):
+                            return original_call(*args, **kwargs)
+
+                    setattr(scorer.model, call_name, mixed_precision)
                 if method.startswith('dynamic-int8'):
                     names = {name for name, module in scorer.model.named_modules()
                              if isinstance(module, torch.nn.Linear) and name != 'proj_out'}
@@ -82,9 +93,7 @@ def benchmark(plan_path, directory, repetitions=2, methods=('fp32', 'dynamic-int
                         scorer.cache = directory/'cache'/metric/language/method/str(repetition)
                         scorer.cache.mkdir(parents=True, exist_ok=True)
                         started = time.perf_counter()
-                        context = torch.autocast('cpu', dtype=torch.bfloat16) if method == 'bf16-autocast' else nullcontext()
-                        with context:
-                            text = scorer.transcribe(path, language)
+                        text = scorer.transcribe(path, language)
                         row['times_seconds'].append(time.perf_counter()-started)
                         sequence = units(text, scorer.normalize, language)
                         sequences.append(sequence)
@@ -100,6 +109,8 @@ def benchmark(plan_path, directory, repetitions=2, methods=('fp32', 'dynamic-int
                     save()
                     print(metric, language, method, item['id'], row['times_seconds'],
                           row['normalized_units_identical_to_fp32'], flush=True)
+                if original_call is not None:
+                    setattr(scorer.model, call_name, original_call)
             del scorer
             gc.collect()
     report['complete'] = True
