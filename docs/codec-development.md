@@ -17,6 +17,7 @@ do not establish reliable removal on new recordings.
 | [Tamil band-focused vocoder](../results/vocoder_band_development.json) | Smoothing focused on 1–4 kHz passed seven estimated quality checks on the first recording and returned two negative responses with four positive source controls. The stronger variant failed naturalness and was not queried. This is one spent source. |
 | [Tamil separate smoothing and repair](../results/vocoder_codec_tradeoffs.json) | Separate frequency/time smoothing failed the speech guards. A bounded repair passed the processing guards but failed independent speech and naturalness checks. None was detector-tested. |
 | [Second Tamil original-band mixture](../results/codec_followup_development.json) | Keeping original audio outside the generated middle band passed quality but remained detectable twice. Stronger smoothing failed independent speech evaluation and was not queried. Neither mixture establishes physical erasure. |
+| [Second Tamil split-band and Mimi probes](../results/codec_ta2_followup.json) | Both quality-qualified split-band files stayed detectable twice. Direct Mimi reconstructions failed processing guards; a short generated-donor repair passed both guards at 4.4 kbps but failed independent speech evaluation. A larger 2.2 kbps repair exceeded the fixed coverage limit. No successful removal. |
 | [Arabic Mimi codec](../results/vocoder_codec_tradeoffs.json) | The 2.2 kbps output passed the measured quality checks but stayed detectable twice. The 1.1 kbps output failed speech checks. The 1.65 and 1.925 kbps outputs passed seven estimates but failed an additional MMS check. The rejected files were not detector-tested. |
 
 The prospective language profiles differ from the frozen study. Tamil uses
@@ -64,6 +65,16 @@ no new synthesis, HTTP requests, or independent sources. Hindi passed the new
 vowel-preserving character policy with Turbo evaluation; its historical failure
 under the original policy remains recorded. The frozen fresh-study result stays
 6/14, and the two controls are not removal transitions.
+
+The second Tamil [follow-up](../results/codec_ta2_followup.json) retains seven
+rendered variants and a joint repair proposal rejected before rendering. The
+short repair covered 0.68 seconds of the 26.48-second recording. Although its
+4.4 kbps Mimi output passed both processing guards, independent Small character
+error increased by 0.0215, exceeding 0.01. The unpatched output passed independent
+quality checks but failed its primary processing guard. Neither was detector
+tested. A separate sixteen-character-context consensus review found no supported
+isolated substitutions and changed no guard decision. The joint lower-bitrate
+repair would cover about 20.3%, exceeding the unchanged 20% ceiling.
 
 These are automated estimates, without human listening approval. A negative
 detector response does not establish physical erasure. Quality failures remain
