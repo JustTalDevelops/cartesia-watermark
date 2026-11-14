@@ -40,6 +40,18 @@ def protocol(report, minimum=80):
     starts = [datetime.fromisoformat(c['started_at']) for c in attempts]
     if any((b-a).total_seconds() < minimum-.1 for a,b in zip(starts,starts[1:])):
         raise ValueError('The frozen detector pacing changed')
+    consistent_replies(checks)
+
+
+def consistent_replies(checks):
+    seen = {}
+    for check in checks:
+        if type(check.get('detected')) is not bool:
+            continue
+        identity = (check['id'], check['role'].removesuffix('_positive_confirmation'), check['sha256'])
+        if identity in seen and seen[identity] != check['detected']:
+            raise ValueError('Repeated whole-file detector responses conflict')
+        seen[identity] = check['detected']
 
 
 def index_rows(report, expected, key):

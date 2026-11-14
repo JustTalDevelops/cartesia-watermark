@@ -104,3 +104,36 @@ scoring uses the separate Python 3.13 environment. After candidate selection,
 score the final files with the same evaluation policies. Raw transcripts and
 embeddings remain in ignored local caches; curated reports retain metrics,
 hashes, all failures and the actual detector observations.
+
+## Experimental single-file command
+
+The optional wrapper uses the same language/duration profiles and processing
+gates, without an authored reference transcript. It uploads the complete original
+and qualifying candidates to Cartesia. It requires the pinned codec and voice
+environments and assets described in [codec reconstruction](codec-reconstruction.md).
+
+```bash
+.cache/resemble-venv/bin/python tools/verify_codec_profiles.py \
+  input.wav checked.flac --audit checked.audit.json
+```
+
+Set `CARTESIA_API_KEY` in the environment or `.env`. New output and audit paths
+are required. The wrapper checks the source positive twice, tries the fixed
+profiles, requires the selected encoded file negative twice, and checks the
+source positive twice again before publishing the exact checked bytes. Errors,
+inconsistent repeats and exhausted profiles produce no output. Its audit retains
+the checks and rejection states. Temporary recognition and voice caches are
+deleted when the command exits. The web app does not invoke this command.
+
+This wrapper is outside the study's frozen source registry and is not the study
+entry point. Its offline tests cover publication boundaries; the active fresh
+study evaluates the frozen processing functions. Runtime estimates guide
+selection. Without an authored transcript, this command does not perform the
+study's independent reference-error evaluation or establish reliable removal.
+
+An additional observation-only monitor enforces the protocol's existing stop
+rule during the study. The frozen generic verifier can continue after a negative
+answer followed by a positive answer and its positive confirmation. The monitor
+stops the phase on the first contradiction; the report formatter also rejects
+such a sequence. This does not change candidate code, selection order, thresholds
+or the planned denominator, and does not authorize replaying requests.

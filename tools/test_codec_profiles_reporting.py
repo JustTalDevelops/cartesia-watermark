@@ -30,5 +30,10 @@ class ProfileEvidenceValidation(unittest.TestCase):
         for rows in ([{'id':'one'}],[{'id':'one'},{'id':'one'}]):
             with self.assertRaises(ValueError):index_rows({'clips':rows},{'one','two'},lambda r:r['id'])
 
+    def test_negative_then_positive_is_inconsistent_even_if_positive_repeats(self):
+        report=deepcopy(self.report)
+        report['checks'][0]['detected']=False
+        with self.assertRaisesRegex(ValueError,'conflict'):protocol(report)
+
 
 if __name__=='__main__':unittest.main()
