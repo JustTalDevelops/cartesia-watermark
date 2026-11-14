@@ -33,9 +33,11 @@ from experiments.run_codec_profiles import RuntimeAdapter,runtime_voice_decision
 cartesia.MIN_INTERVAL=max(80.,_requested_interval)
 
 
-def verify(source,output,audit_path,detector=None):
+def verify(source,output,audit_path,detector=None,recognizer_factory=None):
     import soundfile as sf
     source,output,audit_path=map(Path,(source,output,audit_path))
+    if recognizer_factory is not None and not callable(recognizer_factory):
+        raise ValueError('A recognizer factory must be callable')
     if (source.resolve() in (output.resolve(),audit_path.resolve()) or output.resolve()==audit_path.resolve() or
             output.exists() or audit_path.exists() or output.suffix.lower()!='.flac'):
         raise ValueError('Choose new FLAC and audit paths separate from the source')
@@ -77,7 +79,10 @@ def verify(source,output,audit_path,detector=None):
         if not repeated(source,'opening_original'):
             report['status']='original_not_detected';save();return report
         with tempfile.TemporaryDirectory(prefix='.codec-profile-',dir=output.parent) as temporary:
-            directory=Path(temporary);real=ContentRecognizer();before=real.transcribe(source)
+            directory=Path(temporary)
+            real=(ContentRecognizer if recognizer_factory is None else recognizer_factory)()
+            before=real.transcribe(source)
+            report['processing_recognizers']=real.metadata
             if digest(source)!=report['source_sha256']:raise RuntimeError('Original changed during recognition')
             if not before['supported']:
                 report.update(status='unsupported_language',detected_language=before['language']);save();return report
@@ -133,7 +138,14 @@ if __name__=='__main__':
     parser.add_argument('input',type=Path)
     parser.add_argument('output',type=Path,help='New FLAC, published only after complete source controls and output checks')
     parser.add_argument('--audit',type=Path)
+    parser.add_argument('--experimental-packed-large',action='store_true',
+                        help='Experimental Hindi/Tamil recognizer weight packing; outside the frozen study')
     args=parser.parse_args();protocol=sys.stdout
-    with redirect_stdout(sys.stderr):report=verify(args.input,args.output,args.audit or args.output.with_suffix('.audit.json'))
+    factory=None
+    if args.experimental_packed_large:
+        from codec_packed_fp16 import PackedLargeRecognizer
+        factory=PackedLargeRecognizer
+    with redirect_stdout(sys.stderr):
+        report=verify(args.input,args.output,args.audit or args.output.with_suffix('.audit.json'),recognizer_factory=factory)
     print(json.dumps(report),file=protocol)
     raise SystemExit(0 if report['status']=='verified_negative' else 2)
