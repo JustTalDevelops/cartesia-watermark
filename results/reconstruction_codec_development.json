@@ -1,0 +1,1661 @@
+{
+  "schema": 1,
+  "scope": "Development on two already-spent generated removal sources; independent original-only calibration supplements",
+  "removal_development_sources": 2,
+  "fresh_efficacy_recordings": 0,
+  "new_tts_requests": 0,
+  "status": "One Tamil source cleared by two codec bandwidths; quality-qualified Arabic word repair remained detected twice.",
+  "strict_estimated_quality_thresholds_unchanged": true,
+  "seed_resampling": {
+    "scope": "Two already-spent generated regression sources; four stochastic reconstructions per source, not eight independent recordings",
+    "source_recordings": 2,
+    "rendered_variants": 8,
+    "fixed_seed_order": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "qualified_sources": 0,
+    "detector_requests": 0,
+    "cases": [
+      {
+        "id": "followup_06_ar_sonic-3.6__seed0",
+        "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+        "output_sha256": "4a55da0e8a24d4011a414c643eb6d8b28652c369c57095e7dd9397be6b86b1b7",
+        "quality_estimates": {
+          "asr": {
+            "asr_disagreement": 0.16393442622950818,
+            "original_reference_error": 0.16129032258064516,
+            "processed_reference_error": 0.22580645161290322,
+            "reference_error_delta": 0.06451612903225806
+          },
+          "asr_turbo": {
+            "asr_disagreement": 0.03225806451612903,
+            "original_reference_error": 0.03225806451612903,
+            "processed_reference_error": 0.06451612903225806,
+            "reference_error_delta": 0.03225806451612903
+          },
+          "voice_quality": {
+            "speaker_minimum": 0.9860164088663881,
+            "dnsmos_delta": {
+              "signal": 0.011093364721255217,
+              "background": -0.07405019850915684,
+              "overall": -0.019792385649492594
+            }
+          },
+          "mms": {
+            "original_reference_error": 0.0967741935483871,
+            "processed_reference_error": 0.12903225806451613,
+            "reference_error_delta": 0.03225806451612903,
+            "paired_disagreement": 0.08064516129032258
+          }
+        },
+        "detector_checked": false,
+        "estimated_quality_criteria": {
+          "turbo_paired_disagreement": false,
+          "turbo_reference_delta": false,
+          "small_reference_delta": false,
+          "mms_reference_delta": false,
+          "mms_paired_disagreement": false,
+          "voice_minimum": true,
+          "mos_delta": true
+        }
+      },
+      {
+        "id": "followup_10_ta_sonic-3.6__seed0",
+        "source_sha256": "91dbad3a2063dd29eae00148fbb21602e381fc88cc7eb52b99b203555c1ea963",
+        "output_sha256": "4464d5ecd698a1316bd37493c71915d727fa52cc24d2f9d101923eab594d2942",
+        "quality_estimates": {
+          "asr": {
+            "asr_disagreement": 0.06666666666666667,
+            "original_reference_error": 0.1242603550295858,
+            "processed_reference_error": 0.11834319526627218,
+            "reference_error_delta": -0.005917159763313612
+          },
+          "asr_turbo": {
+            "asr_disagreement": 0.03636363636363636,
+            "original_reference_error": 0.10650887573964497,
+            "processed_reference_error": 0.14201183431952663,
+            "reference_error_delta": 0.03550295857988166
+          },
+          "voice_quality": {
+            "speaker_minimum": 0.9668200650268871,
+            "dnsmos_delta": {
+              "signal": 0.20576982393788956,
+              "background": 0.053851653919782194,
+              "overall": 0.20411312963524608
+            }
+          },
+          "mms": {
+            "original_reference_error": 0.0650887573964497,
+            "processed_reference_error": 0.07100591715976332,
+            "reference_error_delta": 0.005917159763313609,
+            "paired_disagreement": 0.05389221556886228
+          }
+        },
+        "detector_checked": false,
+        "estimated_quality_criteria": {
+          "turbo_paired_disagreement": false,
+          "turbo_reference_delta": false,
+          "small_reference_delta": true,
+          "mms_reference_delta": true,
+          "mms_paired_disagreement": false,
+          "voice_minimum": true,
+          "mos_delta": true
+        }
+      },
+      {
+        "id": "followup_06_ar_sonic-3.6__seed1",
+        "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+        "output_sha256": "89ee1cb0def136d233e47d33206d8134636743142331b48414dce18ca52f8638",
+        "quality_estimates": {
+          "asr": {
+            "asr_disagreement": 0.16393442622950818,
+            "original_reference_error": 0.16129032258064516,
+            "processed_reference_error": 0.22580645161290322,
+            "reference_error_delta": 0.06451612903225806
+          },
+          "asr_turbo": {
+            "asr_disagreement": 0.04838709677419355,
+            "original_reference_error": 0.03225806451612903,
+            "processed_reference_error": 0.08064516129032258,
+            "reference_error_delta": 0.04838709677419355
+          },
+          "voice_quality": {
+            "speaker_minimum": 0.9903395044967275,
+            "dnsmos_delta": {
+              "signal": 0.02208993331673481,
+              "background": -0.04326014151890023,
+              "overall": 0.008659986593706481
+            }
+          },
+          "mms": {
+            "original_reference_error": 0.0967741935483871,
+            "processed_reference_error": 0.1935483870967742,
+            "reference_error_delta": 0.0967741935483871,
+            "paired_disagreement": 0.12903225806451613
+          }
+        },
+        "detector_checked": false,
+        "estimated_quality_criteria": {
+          "turbo_paired_disagreement": false,
+          "turbo_reference_delta": false,
+          "small_reference_delta": false,
+          "mms_reference_delta": false,
+          "mms_paired_disagreement": false,
+          "voice_minimum": true,
+          "mos_delta": true
+        }
+      },
+      {
+        "id": "followup_10_ta_sonic-3.6__seed1",
+        "source_sha256": "91dbad3a2063dd29eae00148fbb21602e381fc88cc7eb52b99b203555c1ea963",
+        "output_sha256": "94d5442dad0012b0d4972442daf4192f58cb4ba5cb2ecb04d6d776cca7f896a5",
+        "quality_estimates": {
+          "asr": {
+            "asr_disagreement": 0.10909090909090909,
+            "original_reference_error": 0.1242603550295858,
+            "processed_reference_error": 0.14792899408284024,
+            "reference_error_delta": 0.023668639053254448
+          },
+          "asr_turbo": {
+            "asr_disagreement": 0.06060606060606061,
+            "original_reference_error": 0.10650887573964497,
+            "processed_reference_error": 0.16568047337278108,
+            "reference_error_delta": 0.059171597633136105
+          },
+          "voice_quality": {
+            "speaker_minimum": 0.9670588812095692,
+            "dnsmos_delta": {
+              "signal": 0.1657155651717228,
+              "background": 0.027401759109179302,
+              "overall": 0.15707746235959874
+            }
+          },
+          "mms": {
+            "original_reference_error": 0.0650887573964497,
+            "processed_reference_error": 0.08875739644970414,
+            "reference_error_delta": 0.023668639053254437,
+            "paired_disagreement": 0.059880239520958084
+          }
+        },
+        "detector_checked": false,
+        "estimated_quality_criteria": {
+          "turbo_paired_disagreement": false,
+          "turbo_reference_delta": false,
+          "small_reference_delta": true,
+          "mms_reference_delta": true,
+          "mms_paired_disagreement": false,
+          "voice_minimum": true,
+          "mos_delta": true
+        }
+      },
+      {
+        "id": "followup_06_ar_sonic-3.6__seed2",
+        "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+        "output_sha256": "46a3d426f8cb6cdfdd82e8f6bdc88ea23b20760614fcd47f302e750a7eaa03a7",
+        "quality_estimates": {
+          "asr": {
+            "asr_disagreement": 0.21311475409836064,
+            "original_reference_error": 0.16129032258064516,
+            "processed_reference_error": 0.27419354838709675,
+            "reference_error_delta": 0.1129032258064516
+          },
+          "asr_turbo": {
+            "asr_disagreement": 0.016129032258064516,
+            "original_reference_error": 0.03225806451612903,
+            "processed_reference_error": 0.04838709677419355,
+            "reference_error_delta": 0.016129032258064516
+          },
+          "voice_quality": {
+            "speaker_minimum": 0.9849544743617886,
+            "dnsmos_delta": {
+              "signal": 0.019725503320142668,
+              "background": -0.008513675800801757,
+              "overall": 0.022078665644291284
+            }
+          },
+          "mms": {
+            "original_reference_error": 0.0967741935483871,
+            "processed_reference_error": 0.12903225806451613,
+            "reference_error_delta": 0.03225806451612903,
+            "paired_disagreement": 0.11290322580645161
+          }
+        },
+        "detector_checked": false,
+        "estimated_quality_criteria": {
+          "turbo_paired_disagreement": true,
+          "turbo_reference_delta": true,
+          "small_reference_delta": false,
+          "mms_reference_delta": false,
+          "mms_paired_disagreement": false,
+          "voice_minimum": true,
+          "mos_delta": true
+        }
+      },
+      {
+        "id": "followup_10_ta_sonic-3.6__seed2",
+        "source_sha256": "91dbad3a2063dd29eae00148fbb21602e381fc88cc7eb52b99b203555c1ea963",
+        "output_sha256": "9014b83de96dbf1699053eb5628082fea059ee41be7e7aa141d5ae368528692c",
+        "quality_estimates": {
+          "asr": {
+            "asr_disagreement": 0.06666666666666667,
+            "original_reference_error": 0.1242603550295858,
+            "processed_reference_error": 0.15384615384615385,
+            "reference_error_delta": 0.02958579881656806
+          },
+          "asr_turbo": {
+            "asr_disagreement": 0.048484848484848485,
+            "original_reference_error": 0.10650887573964497,
+            "processed_reference_error": 0.15384615384615385,
+            "reference_error_delta": 0.04733727810650888
+          },
+          "voice_quality": {
+            "speaker_minimum": 0.9827600733850782,
+            "dnsmos_delta": {
+              "signal": 0.1789083465754766,
+              "background": 0.03424248410184649,
+              "overall": 0.17161461845666093
+            }
+          },
+          "mms": {
+            "original_reference_error": 0.0650887573964497,
+            "processed_reference_error": 0.07692307692307693,
+            "reference_error_delta": 0.011834319526627219,
+            "paired_disagreement": 0.017964071856287425
+          }
+        },
+        "detector_checked": false,
+        "estimated_quality_criteria": {
+          "turbo_paired_disagreement": false,
+          "turbo_reference_delta": false,
+          "small_reference_delta": true,
+          "mms_reference_delta": true,
+          "mms_paired_disagreement": true,
+          "voice_minimum": true,
+          "mos_delta": true
+        }
+      },
+      {
+        "id": "followup_06_ar_sonic-3.6__seed3",
+        "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+        "output_sha256": "0f6834a8a7f39f8afd2ea30cab2a61439d93267a88ea260d280d4484a09412ba",
+        "quality_estimates": {
+          "asr": {
+            "asr_disagreement": 0.13114754098360656,
+            "original_reference_error": 0.16129032258064516,
+            "processed_reference_error": 0.24193548387096775,
+            "reference_error_delta": 0.08064516129032259
+          },
+          "asr_turbo": {
+            "asr_disagreement": 0.03225806451612903,
+            "original_reference_error": 0.03225806451612903,
+            "processed_reference_error": 0.06451612903225806,
+            "reference_error_delta": 0.03225806451612903
+          },
+          "voice_quality": {
+            "speaker_minimum": 0.9898799755676169,
+            "dnsmos_delta": {
+              "signal": -0.05662099612177851,
+              "background": -0.27261355955149646,
+              "overall": -0.18796428060752923
+            }
+          },
+          "mms": {
+            "original_reference_error": 0.0967741935483871,
+            "processed_reference_error": 0.11290322580645161,
+            "reference_error_delta": 0.016129032258064516,
+            "paired_disagreement": 0.03225806451612903
+          }
+        },
+        "detector_checked": false,
+        "estimated_quality_criteria": {
+          "turbo_paired_disagreement": false,
+          "turbo_reference_delta": false,
+          "small_reference_delta": false,
+          "mms_reference_delta": true,
+          "mms_paired_disagreement": false,
+          "voice_minimum": true,
+          "mos_delta": true
+        }
+      },
+      {
+        "id": "followup_10_ta_sonic-3.6__seed3",
+        "source_sha256": "91dbad3a2063dd29eae00148fbb21602e381fc88cc7eb52b99b203555c1ea963",
+        "output_sha256": "b60bbbb9ea111855b4d16ac26fe565804499200aff5ec582249780bbba053d45",
+        "quality_estimates": {
+          "asr": {
+            "asr_disagreement": 0.09090909090909091,
+            "original_reference_error": 0.1242603550295858,
+            "processed_reference_error": 0.14792899408284024,
+            "reference_error_delta": 0.023668639053254448
+          },
+          "asr_turbo": {
+            "asr_disagreement": 0.06060606060606061,
+            "original_reference_error": 0.10650887573964497,
+            "processed_reference_error": 0.15384615384615385,
+            "reference_error_delta": 0.04733727810650888
+          },
+          "voice_quality": {
+            "speaker_minimum": 0.9692899700578964,
+            "dnsmos_delta": {
+              "signal": 0.07084952377767495,
+              "background": 0.04356382580332774,
+              "overall": 0.08107981016448296
+            }
+          },
+          "mms": {
+            "original_reference_error": 0.0650887573964497,
+            "processed_reference_error": 0.07100591715976332,
+            "reference_error_delta": 0.005917159763313609,
+            "paired_disagreement": 0.017964071856287425
+          }
+        },
+        "detector_checked": false,
+        "estimated_quality_criteria": {
+          "turbo_paired_disagreement": false,
+          "turbo_reference_delta": false,
+          "small_reference_delta": true,
+          "mms_reference_delta": true,
+          "mms_paired_disagreement": true,
+          "voice_minimum": true,
+          "mos_delta": true
+        }
+      }
+    ],
+    "qualification_sha256": "8c0a78970040f9dff24b30c788261f9649d3647d5b4c62c70e049e449278b76d"
+  },
+  "vocos_mel": {
+    "scope": "Two spent generated regression sources; zero fresh samples",
+    "source_recordings": 2,
+    "rendered_variants": 2,
+    "quality_qualified_variants": 1,
+    "quality_qualified_sources": 1,
+    "protocol_sha256": "e4e96d8f0e4c43591ad0a175949b82d4e7fd96de3f5bfecc52b5947c7961f1cf",
+    "http_attempts": 4,
+    "positive_service_controls": 2,
+    "cases": [
+      {
+        "id": "followup_06_ar_sonic-3.6__vocos_mel",
+        "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+        "output_sha256": "e583916ce103919fd0d64f7a29fa35cf4f2b4c46ebc169354f8f116cde8845a7",
+        "quality_estimates": {
+          "asr": {
+            "asr_disagreement": 0.04918032786885246,
+            "original_reference_error": 0.16129032258064516,
+            "processed_reference_error": 0.14516129032258066,
+            "reference_error_delta": -0.016129032258064502
+          },
+          "asr_turbo": {
+            "asr_disagreement": 0.0,
+            "original_reference_error": 0.03225806451612903,
+            "processed_reference_error": 0.03225806451612903,
+            "reference_error_delta": 0.0
+          },
+          "voice_quality": {
+            "speaker_minimum": 0.9939517140425401,
+            "dnsmos_delta": {
+              "signal": -0.038190901471686356,
+              "background": -0.02784350415034975,
+              "overall": -0.0373384038870479
+            }
+          },
+          "mms": {
+            "original_reference_error": 0.0967741935483871,
+            "processed_reference_error": 0.0967741935483871,
+            "reference_error_delta": 0.0,
+            "paired_disagreement": 0.03225806451612903
+          }
+        },
+        "detector_checked": false,
+        "estimated_quality_criteria": {
+          "turbo_paired_disagreement": true,
+          "turbo_reference_delta": true,
+          "small_reference_delta": true,
+          "mms_reference_delta": true,
+          "mms_paired_disagreement": false,
+          "voice_minimum": true,
+          "mos_delta": true
+        },
+        "status": "estimated_quality_rejected_before_detector"
+      },
+      {
+        "id": "followup_10_ta_sonic-3.6__vocos_mel",
+        "source_sha256": "91dbad3a2063dd29eae00148fbb21602e381fc88cc7eb52b99b203555c1ea963",
+        "output_sha256": "dd4b1f59053c29ee928d8dd10313b5efdba3c05321663d4e5ea7381aab896169",
+        "quality_estimates": {
+          "asr": {
+            "asr_disagreement": 0.06060606060606061,
+            "original_reference_error": 0.1242603550295858,
+            "processed_reference_error": 0.14792899408284024,
+            "reference_error_delta": 0.023668639053254448
+          },
+          "asr_turbo": {
+            "asr_disagreement": 0.0,
+            "original_reference_error": 0.10650887573964497,
+            "processed_reference_error": 0.10650887573964497,
+            "reference_error_delta": 0.0
+          },
+          "voice_quality": {
+            "speaker_minimum": 0.9966748534516545,
+            "dnsmos_delta": {
+              "signal": 0.027981658463846593,
+              "background": 0.017871923603161477,
+              "overall": 0.031059906831939266
+            }
+          },
+          "mms": {
+            "original_reference_error": 0.0650887573964497,
+            "processed_reference_error": 0.07692307692307693,
+            "reference_error_delta": 0.011834319526627219,
+            "paired_disagreement": 0.017964071856287425
+          }
+        },
+        "detector_checked": true,
+        "estimated_quality_criteria": {
+          "turbo_paired_disagreement": true,
+          "turbo_reference_delta": true,
+          "small_reference_delta": true,
+          "mms_reference_delta": true,
+          "mms_paired_disagreement": true,
+          "voice_minimum": true,
+          "mos_delta": true
+        },
+        "processed_detected": [
+          true,
+          true
+        ],
+        "status": "still_detected"
+      }
+    ],
+    "render_timings": [
+      {
+        "id": "followup_06_ar_sonic-3.6__vocos_mel",
+        "elapsed_seconds": 0.273886333219707,
+        "model_load_seconds": 0.09460235852748156
+      },
+      {
+        "id": "followup_10_ta_sonic-3.6__vocos_mel",
+        "elapsed_seconds": 0.248526724986732,
+        "model_load_seconds": 0.09460235852748156
+      }
+    ],
+    "timing_limits": "One observation per variant, same two spent recordings, model load listed separately; no general latency claim."
+  },
+  "vocos_encodec": {
+    "scope": "Two spent generated regression sources; zero fresh samples",
+    "source_recordings": 2,
+    "rendered_variants": 4,
+    "quality_qualified_variants": 2,
+    "quality_qualified_sources": 1,
+    "protocol_sha256": "4f76a095e7bd89b03f57217b62200a9182179cea264fab9bd500a6dfee84a871",
+    "http_attempts": 6,
+    "positive_service_controls": 2,
+    "cases": [
+      {
+        "id": "followup_06_ar_sonic-3.6__vocos_encodec_12kbps",
+        "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+        "output_sha256": "7344ec4b72e6997a22bd892411999af35b483f819d87c158502ed5da3a78f578",
+        "quality_estimates": {
+          "asr": {
+            "asr_disagreement": 0.08196721311475409,
+            "original_reference_error": 0.16129032258064516,
+            "processed_reference_error": 0.1935483870967742,
+            "reference_error_delta": 0.03225806451612903
+          },
+          "asr_turbo": {
+            "asr_disagreement": 0.016129032258064516,
+            "original_reference_error": 0.03225806451612903,
+            "processed_reference_error": 0.04838709677419355,
+            "reference_error_delta": 0.016129032258064516
+          },
+          "voice_quality": {
+            "speaker_minimum": 0.9953681407056579,
+            "dnsmos_delta": {
+              "signal": 0.0027502491589541656,
+              "background": -0.007711438923309721,
+              "overall": 0.006001323554549298
+            }
+          },
+          "mms": {
+            "original_reference_error": 0.0967741935483871,
+            "processed_reference_error": 0.0967741935483871,
+            "reference_error_delta": 0.0,
+            "paired_disagreement": 0.03225806451612903
+          }
+        },
+        "detector_checked": false,
+        "estimated_quality_criteria": {
+          "turbo_paired_disagreement": true,
+          "turbo_reference_delta": true,
+          "small_reference_delta": false,
+          "mms_reference_delta": true,
+          "mms_paired_disagreement": false,
+          "voice_minimum": true,
+          "mos_delta": true
+        },
+        "status": "estimated_quality_rejected_before_detector"
+      },
+      {
+        "id": "followup_10_ta_sonic-3.6__vocos_encodec_12kbps",
+        "source_sha256": "91dbad3a2063dd29eae00148fbb21602e381fc88cc7eb52b99b203555c1ea963",
+        "output_sha256": "fe3111ac8ee1a7010ad70f26cc358d4d3d260a13964fa3e329a2531a03e25c8d",
+        "quality_estimates": {
+          "asr": {
+            "asr_disagreement": 0.06060606060606061,
+            "original_reference_error": 0.1242603550295858,
+            "processed_reference_error": 0.1242603550295858,
+            "reference_error_delta": 0.0
+          },
+          "asr_turbo": {
+            "asr_disagreement": 0.01818181818181818,
+            "original_reference_error": 0.10650887573964497,
+            "processed_reference_error": 0.1242603550295858,
+            "reference_error_delta": 0.017751479289940822
+          },
+          "voice_quality": {
+            "speaker_minimum": 0.9884675518413779,
+            "dnsmos_delta": {
+              "signal": 0.02545474093870892,
+              "background": 0.007097372949100844,
+              "overall": 0.024331515732133102
+            }
+          },
+          "mms": {
+            "original_reference_error": 0.0650887573964497,
+            "processed_reference_error": 0.07100591715976332,
+            "reference_error_delta": 0.005917159763313609,
+            "paired_disagreement": 0.005988023952095809
+          }
+        },
+        "detector_checked": true,
+        "estimated_quality_criteria": {
+          "turbo_paired_disagreement": true,
+          "turbo_reference_delta": true,
+          "small_reference_delta": true,
+          "mms_reference_delta": true,
+          "mms_paired_disagreement": true,
+          "voice_minimum": true,
+          "mos_delta": true
+        },
+        "processed_detected": [
+          false,
+          false
+        ],
+        "status": "checked_negative_twice"
+      },
+      {
+        "id": "followup_06_ar_sonic-3.6__vocos_encodec_6kbps",
+        "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+        "output_sha256": "d70a7f43d42f4a2bd6c498fcb04d582474b3d39896e975b5a77e60426446afa2",
+        "quality_estimates": {
+          "asr": {
+            "asr_disagreement": 0.08196721311475409,
+            "original_reference_error": 0.16129032258064516,
+            "processed_reference_error": 0.1935483870967742,
+            "reference_error_delta": 0.03225806451612903
+          },
+          "asr_turbo": {
+            "asr_disagreement": 0.016129032258064516,
+            "original_reference_error": 0.03225806451612903,
+            "processed_reference_error": 0.04838709677419355,
+            "reference_error_delta": 0.016129032258064516
+          },
+          "voice_quality": {
+            "speaker_minimum": 0.9929479383393748,
+            "dnsmos_delta": {
+              "signal": -0.014601426050039557,
+              "background": 0.0353044862431906,
+              "overall": 0.011267545886882946
+            }
+          },
+          "mms": {
+            "original_reference_error": 0.0967741935483871,
+            "processed_reference_error": 0.11290322580645161,
+            "reference_error_delta": 0.016129032258064516,
+            "paired_disagreement": 0.04838709677419355
+          }
+        },
+        "detector_checked": false,
+        "estimated_quality_criteria": {
+          "turbo_paired_disagreement": true,
+          "turbo_reference_delta": true,
+          "small_reference_delta": false,
+          "mms_reference_delta": true,
+          "mms_paired_disagreement": false,
+          "voice_minimum": true,
+          "mos_delta": true
+        },
+        "status": "estimated_quality_rejected_before_detector"
+      },
+      {
+        "id": "followup_10_ta_sonic-3.6__vocos_encodec_6kbps",
+        "source_sha256": "91dbad3a2063dd29eae00148fbb21602e381fc88cc7eb52b99b203555c1ea963",
+        "output_sha256": "3b882cc65c0174ff74229209395a496b54cc1d01614a8511a4419f76e3081a11",
+        "quality_estimates": {
+          "asr": {
+            "asr_disagreement": 0.048484848484848485,
+            "original_reference_error": 0.1242603550295858,
+            "processed_reference_error": 0.13609467455621302,
+            "reference_error_delta": 0.011834319526627224
+          },
+          "asr_turbo": {
+            "asr_disagreement": 0.012121212121212121,
+            "original_reference_error": 0.10650887573964497,
+            "processed_reference_error": 0.11834319526627218,
+            "reference_error_delta": 0.01183431952662721
+          },
+          "voice_quality": {
+            "speaker_minimum": 0.9910229614421359,
+            "dnsmos_delta": {
+              "signal": -0.0754427844498311,
+              "background": -0.011795769193247985,
+              "overall": -0.07635615014716457
+            }
+          },
+          "mms": {
+            "original_reference_error": 0.0650887573964497,
+            "processed_reference_error": 0.08875739644970414,
+            "reference_error_delta": 0.023668639053254437,
+            "paired_disagreement": 0.023952095808383235
+          }
+        },
+        "detector_checked": true,
+        "estimated_quality_criteria": {
+          "turbo_paired_disagreement": true,
+          "turbo_reference_delta": true,
+          "small_reference_delta": true,
+          "mms_reference_delta": true,
+          "mms_paired_disagreement": true,
+          "voice_minimum": true,
+          "mos_delta": true
+        },
+        "processed_detected": [
+          false,
+          false
+        ],
+        "status": "checked_negative_twice"
+      }
+    ],
+    "render_timings": [
+      {
+        "id": "followup_06_ar_sonic-3.6__vocos_encodec_12kbps",
+        "elapsed_seconds": 1.1382303927093744,
+        "model_load_seconds": 0.20452010352164507
+      },
+      {
+        "id": "followup_10_ta_sonic-3.6__vocos_encodec_12kbps",
+        "elapsed_seconds": 0.7641087798401713,
+        "model_load_seconds": 0.20452010352164507
+      },
+      {
+        "id": "followup_06_ar_sonic-3.6__vocos_encodec_6kbps",
+        "elapsed_seconds": 0.770238833501935,
+        "model_load_seconds": 0.20452010352164507
+      },
+      {
+        "id": "followup_10_ta_sonic-3.6__vocos_encodec_6kbps",
+        "elapsed_seconds": 0.7230367604643106,
+        "model_load_seconds": 0.20452010352164507
+      }
+    ],
+    "timing_limits": "One observation per variant, same two spent recordings, model load listed separately; no general latency claim."
+  },
+  "codec_word_repairs": {
+    "codec_dual_repair_dev": {
+      "source_recordings": 2,
+      "rendered_variants": 4,
+      "cases": [
+        {
+          "id": "followup_06_ar_sonic-3.6__vocos_encodec_12kbps__dual_repair",
+          "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+          "output_sha256": "165b5e72753f3adc004c819c4859413666560bdecbd38361cf8f4dd8c58acbbc",
+          "quality_estimates": {
+            "asr": {
+              "asr_disagreement": 0.01639344262295082,
+              "original_reference_error": 0.16129032258064516,
+              "processed_reference_error": 0.16129032258064516,
+              "reference_error_delta": 0.0
+            },
+            "asr_turbo": {
+              "asr_disagreement": 0.0,
+              "original_reference_error": 0.03225806451612903,
+              "processed_reference_error": 0.03225806451612903,
+              "reference_error_delta": 0.0
+            },
+            "voice_quality": {
+              "speaker_minimum": 0.9958940898350936,
+              "dnsmos_delta": {
+                "signal": 0.010474924861817225,
+                "background": 0.010347177901332216,
+                "overall": 0.023686682944957127
+              }
+            },
+            "mms": {
+              "original_reference_error": 0.0967741935483871,
+              "processed_reference_error": 0.11290322580645161,
+              "reference_error_delta": 0.016129032258064516,
+              "paired_disagreement": 0.04838709677419355
+            }
+          },
+          "detector_checked": false,
+          "estimated_quality_criteria": {
+            "turbo_paired_disagreement": true,
+            "turbo_reference_delta": true,
+            "small_reference_delta": true,
+            "mms_reference_delta": true,
+            "mms_paired_disagreement": false,
+            "voice_minimum": true,
+            "mos_delta": true
+          },
+          "status": "estimated_quality_rejected"
+        },
+        {
+          "id": "followup_10_ta_sonic-3.6__vocos_encodec_12kbps__dual_repair",
+          "source_sha256": "91dbad3a2063dd29eae00148fbb21602e381fc88cc7eb52b99b203555c1ea963",
+          "output_sha256": "8f3150a8824e6e463daa8619cbeca3b1f014854b8e20565bf3b3da9c3f308a57",
+          "quality_estimates": {
+            "asr": {
+              "asr_disagreement": 0.04242424242424243,
+              "original_reference_error": 0.1242603550295858,
+              "processed_reference_error": 0.15384615384615385,
+              "reference_error_delta": 0.02958579881656806
+            },
+            "asr_turbo": {
+              "asr_disagreement": 0.024242424242424242,
+              "original_reference_error": 0.10650887573964497,
+              "processed_reference_error": 0.1301775147928994,
+              "reference_error_delta": 0.023668639053254434
+            },
+            "voice_quality": {
+              "speaker_minimum": 0.9903891555866223,
+              "dnsmos_delta": {
+                "signal": 0.026831482819931196,
+                "background": 0.01070525393150401,
+                "overall": 0.026752960230955747
+              }
+            },
+            "mms": {
+              "original_reference_error": 0.0650887573964497,
+              "processed_reference_error": 0.07100591715976332,
+              "reference_error_delta": 0.005917159763313609,
+              "paired_disagreement": 0.005988023952095809
+            }
+          },
+          "detector_checked": false,
+          "estimated_quality_criteria": {
+            "turbo_paired_disagreement": true,
+            "turbo_reference_delta": true,
+            "small_reference_delta": true,
+            "mms_reference_delta": true,
+            "mms_paired_disagreement": true,
+            "voice_minimum": true,
+            "mos_delta": true
+          },
+          "status": "estimated_quality_passed_detector_not_queried_in_this_component"
+        },
+        {
+          "id": "followup_06_ar_sonic-3.6__vocos_encodec_6kbps__dual_repair",
+          "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+          "output_sha256": "92b183714094dd8f5c2dfa70f69cec81d4876d7e6fdf8b6ab74e2e08fdcc81ea",
+          "quality_estimates": {
+            "asr": {
+              "asr_disagreement": 0.04918032786885246,
+              "original_reference_error": 0.16129032258064516,
+              "processed_reference_error": 0.14516129032258066,
+              "reference_error_delta": -0.016129032258064502
+            },
+            "asr_turbo": {
+              "asr_disagreement": 0.0,
+              "original_reference_error": 0.03225806451612903,
+              "processed_reference_error": 0.03225806451612903,
+              "reference_error_delta": 0.0
+            },
+            "voice_quality": {
+              "speaker_minimum": 0.9931172912856859,
+              "dnsmos_delta": {
+                "signal": -0.0009640649465332274,
+                "background": 0.04640505620326074,
+                "overall": 0.030393784374682653
+              }
+            },
+            "mms": {
+              "original_reference_error": 0.0967741935483871,
+              "processed_reference_error": 0.0967741935483871,
+              "reference_error_delta": 0.0,
+              "paired_disagreement": 0.03225806451612903
+            }
+          },
+          "detector_checked": false,
+          "estimated_quality_criteria": {
+            "turbo_paired_disagreement": true,
+            "turbo_reference_delta": true,
+            "small_reference_delta": true,
+            "mms_reference_delta": true,
+            "mms_paired_disagreement": false,
+            "voice_minimum": true,
+            "mos_delta": true
+          },
+          "status": "estimated_quality_rejected"
+        },
+        {
+          "id": "followup_10_ta_sonic-3.6__vocos_encodec_6kbps__dual_repair",
+          "source_sha256": "91dbad3a2063dd29eae00148fbb21602e381fc88cc7eb52b99b203555c1ea963",
+          "output_sha256": "b9932f690c05af913f21d0a0cf3ea19153f1ebf6e7478ba7d1e8f286301c0a72",
+          "quality_estimates": {
+            "asr": {
+              "asr_disagreement": 0.024242424242424242,
+              "original_reference_error": 0.1242603550295858,
+              "processed_reference_error": 0.14792899408284024,
+              "reference_error_delta": 0.023668639053254448
+            },
+            "asr_turbo": {
+              "asr_disagreement": 0.01818181818181818,
+              "original_reference_error": 0.10650887573964497,
+              "processed_reference_error": 0.1242603550295858,
+              "reference_error_delta": 0.017751479289940822
+            },
+            "voice_quality": {
+              "speaker_minimum": 0.9913359701204241,
+              "dnsmos_delta": {
+                "signal": -0.049076685852798896,
+                "background": -0.00022434896842771224,
+                "overall": -0.04847777622854288
+              }
+            },
+            "mms": {
+              "original_reference_error": 0.0650887573964497,
+              "processed_reference_error": 0.07692307692307693,
+              "reference_error_delta": 0.011834319526627219,
+              "paired_disagreement": 0.011976047904191617
+            }
+          },
+          "detector_checked": false,
+          "estimated_quality_criteria": {
+            "turbo_paired_disagreement": true,
+            "turbo_reference_delta": true,
+            "small_reference_delta": true,
+            "mms_reference_delta": true,
+            "mms_paired_disagreement": true,
+            "voice_minimum": true,
+            "mos_delta": true
+          },
+          "status": "estimated_quality_passed_detector_not_queried_in_this_component"
+        }
+      ],
+      "render_protocol_sha256": "01ac370efd72b6d6a212bdd622102cf56266451d1ae0e6bf011808b4a4092e5d"
+    },
+    "codec_half_donor_dev": {
+      "source_recordings": 2,
+      "rendered_variants": 6,
+      "cases": [
+        {
+          "id": "followup_06_ar_sonic-3.6__vocos_encodec_12kbps__dual_repair__donor05",
+          "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+          "output_sha256": "cc366044ea522c33ba346b89136edeee631f83bdd44079e042a796711af3952b",
+          "quality_estimates": {
+            "asr": {
+              "asr_disagreement": 0.01639344262295082,
+              "original_reference_error": 0.16129032258064516,
+              "processed_reference_error": 0.16129032258064516,
+              "reference_error_delta": 0.0
+            },
+            "asr_turbo": {
+              "asr_disagreement": 0.0,
+              "original_reference_error": 0.03225806451612903,
+              "processed_reference_error": 0.03225806451612903,
+              "reference_error_delta": 0.0
+            },
+            "voice_quality": {
+              "speaker_minimum": 0.9959496149103259,
+              "dnsmos_delta": {
+                "signal": 0.011991343298040746,
+                "background": 0.029888326625469475,
+                "overall": 0.03428210163405465
+              }
+            },
+            "mms": {
+              "original_reference_error": 0.0967741935483871,
+              "processed_reference_error": 0.0967741935483871,
+              "reference_error_delta": 0.0,
+              "paired_disagreement": 0.0
+            }
+          },
+          "detector_checked": false,
+          "estimated_quality_criteria": {
+            "turbo_paired_disagreement": true,
+            "turbo_reference_delta": true,
+            "small_reference_delta": true,
+            "mms_reference_delta": true,
+            "mms_paired_disagreement": true,
+            "voice_minimum": true,
+            "mos_delta": true
+          },
+          "status": "estimated_quality_passed_detector_not_queried_in_this_component"
+        },
+        {
+          "id": "followup_10_ta_sonic-3.6__vocos_encodec_12kbps__dual_repair__donor05",
+          "source_sha256": "91dbad3a2063dd29eae00148fbb21602e381fc88cc7eb52b99b203555c1ea963",
+          "output_sha256": "db888792afc3805a85984cb3accd267824ae414f4e9de69991fe2efcf43d2657",
+          "quality_estimates": {
+            "asr": {
+              "asr_disagreement": 0.07878787878787878,
+              "original_reference_error": 0.1242603550295858,
+              "processed_reference_error": 0.17159763313609466,
+              "reference_error_delta": 0.04733727810650887
+            },
+            "asr_turbo": {
+              "asr_disagreement": 0.012121212121212121,
+              "original_reference_error": 0.10650887573964497,
+              "processed_reference_error": 0.11834319526627218,
+              "reference_error_delta": 0.01183431952662721
+            },
+            "voice_quality": {
+              "speaker_minimum": 0.9928809387153591,
+              "dnsmos_delta": {
+                "signal": 0.010362296279426975,
+                "background": 0.004647140751890433,
+                "overall": 0.007870837672776076
+              }
+            },
+            "mms": {
+              "original_reference_error": 0.0650887573964497,
+              "processed_reference_error": 0.07692307692307693,
+              "reference_error_delta": 0.011834319526627219,
+              "paired_disagreement": 0.011976047904191617
+            }
+          },
+          "detector_checked": false,
+          "estimated_quality_criteria": {
+            "turbo_paired_disagreement": true,
+            "turbo_reference_delta": true,
+            "small_reference_delta": false,
+            "mms_reference_delta": true,
+            "mms_paired_disagreement": true,
+            "voice_minimum": true,
+            "mos_delta": true
+          },
+          "status": "estimated_quality_rejected"
+        },
+        {
+          "id": "followup_06_ar_sonic-3.6__vocos_encodec_6kbps__dual_repair__donor05",
+          "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+          "output_sha256": "37b9c0bd1c6e8d49a9389f5d6100125f7daa1501ab9fca4d3a5049e6ea55dfa4",
+          "quality_estimates": {
+            "asr": {
+              "asr_disagreement": 0.04918032786885246,
+              "original_reference_error": 0.16129032258064516,
+              "processed_reference_error": 0.14516129032258066,
+              "reference_error_delta": -0.016129032258064502
+            },
+            "asr_turbo": {
+              "asr_disagreement": 0.0,
+              "original_reference_error": 0.03225806451612903,
+              "processed_reference_error": 0.03225806451612903,
+              "reference_error_delta": 0.0
+            },
+            "voice_quality": {
+              "speaker_minimum": 0.9928226652974141,
+              "dnsmos_delta": {
+                "signal": 0.00751531765058111,
+                "background": 0.05749969278675238,
+                "overall": 0.04341052403289991
+              }
+            },
+            "mms": {
+              "original_reference_error": 0.0967741935483871,
+              "processed_reference_error": 0.0967741935483871,
+              "reference_error_delta": 0.0,
+              "paired_disagreement": 0.0
+            }
+          },
+          "detector_checked": false,
+          "estimated_quality_criteria": {
+            "turbo_paired_disagreement": true,
+            "turbo_reference_delta": true,
+            "small_reference_delta": true,
+            "mms_reference_delta": true,
+            "mms_paired_disagreement": true,
+            "voice_minimum": true,
+            "mos_delta": true
+          },
+          "status": "estimated_quality_passed_detector_not_queried_in_this_component"
+        },
+        {
+          "id": "followup_10_ta_sonic-3.6__vocos_encodec_6kbps__dual_repair__donor05",
+          "source_sha256": "91dbad3a2063dd29eae00148fbb21602e381fc88cc7eb52b99b203555c1ea963",
+          "output_sha256": "05cdcec6e42b39b46dc825fbbcd4d5542df9e3c41c24a0a5674f1683de10c3d8",
+          "quality_estimates": {
+            "asr": {
+              "asr_disagreement": 0.05454545454545454,
+              "original_reference_error": 0.1242603550295858,
+              "processed_reference_error": 0.15976331360946747,
+              "reference_error_delta": 0.03550295857988167
+            },
+            "asr_turbo": {
+              "asr_disagreement": 0.01818181818181818,
+              "original_reference_error": 0.10650887573964497,
+              "processed_reference_error": 0.1242603550295858,
+              "reference_error_delta": 0.017751479289940822
+            },
+            "voice_quality": {
+              "speaker_minimum": 0.9919091371525653,
+              "dnsmos_delta": {
+                "signal": -0.08906591980910816,
+                "background": -0.014712483596151849,
+                "overall": -0.09087094400739204
+              }
+            },
+            "mms": {
+              "original_reference_error": 0.0650887573964497,
+              "processed_reference_error": 0.07100591715976332,
+              "reference_error_delta": 0.005917159763313609,
+              "paired_disagreement": 0.005988023952095809
+            }
+          },
+          "detector_checked": false,
+          "estimated_quality_criteria": {
+            "turbo_paired_disagreement": true,
+            "turbo_reference_delta": true,
+            "small_reference_delta": false,
+            "mms_reference_delta": true,
+            "mms_paired_disagreement": true,
+            "voice_minimum": true,
+            "mos_delta": true
+          },
+          "status": "estimated_quality_rejected"
+        },
+        {
+          "id": "followup_06_ar_sonic-3.6__vocos_encodec_12kbps__word_boundary__donor05",
+          "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+          "output_sha256": "f1acc7380b27a487cec5bbeef7f456c8120fc562026e3fbe115f5cef733ed4f5",
+          "quality_estimates": {
+            "asr": {
+              "asr_disagreement": 0.01639344262295082,
+              "original_reference_error": 0.16129032258064516,
+              "processed_reference_error": 0.16129032258064516,
+              "reference_error_delta": 0.0
+            },
+            "asr_turbo": {
+              "asr_disagreement": 0.0,
+              "original_reference_error": 0.03225806451612903,
+              "processed_reference_error": 0.03225806451612903,
+              "reference_error_delta": 0.0
+            },
+            "voice_quality": {
+              "speaker_minimum": 0.9957753763793179,
+              "dnsmos_delta": {
+                "signal": 0.012739969639646187,
+                "background": 0.04179115840972969,
+                "overall": 0.04254638464683014
+              }
+            },
+            "mms": {
+              "original_reference_error": 0.0967741935483871,
+              "processed_reference_error": 0.0967741935483871,
+              "reference_error_delta": 0.0,
+              "paired_disagreement": 0.0
+            }
+          },
+          "detector_checked": false,
+          "estimated_quality_criteria": {
+            "turbo_paired_disagreement": true,
+            "turbo_reference_delta": true,
+            "small_reference_delta": true,
+            "mms_reference_delta": true,
+            "mms_paired_disagreement": true,
+            "voice_minimum": true,
+            "mos_delta": true
+          },
+          "status": "estimated_quality_passed_detector_not_queried_in_this_component"
+        },
+        {
+          "id": "followup_06_ar_sonic-3.6__vocos_encodec_6kbps__word_boundary__donor05",
+          "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+          "output_sha256": "1442f72b4c326f1a390b19b1afe201dc27fa0b5ba2067983a501d7e91b2c3597",
+          "quality_estimates": {
+            "asr": {
+              "asr_disagreement": 0.03278688524590164,
+              "original_reference_error": 0.16129032258064516,
+              "processed_reference_error": 0.16129032258064516,
+              "reference_error_delta": 0.0
+            },
+            "asr_turbo": {
+              "asr_disagreement": 0.0,
+              "original_reference_error": 0.03225806451612903,
+              "processed_reference_error": 0.03225806451612903,
+              "reference_error_delta": 0.0
+            },
+            "voice_quality": {
+              "speaker_minimum": 0.9941842481741735,
+              "dnsmos_delta": {
+                "signal": 0.010778923612635438,
+                "background": 0.0652466194966772,
+                "overall": 0.05401355467557778
+              }
+            },
+            "mms": {
+              "original_reference_error": 0.0967741935483871,
+              "processed_reference_error": 0.08064516129032258,
+              "reference_error_delta": -0.016129032258064516,
+              "paired_disagreement": 0.016129032258064516
+            }
+          },
+          "detector_checked": false,
+          "estimated_quality_criteria": {
+            "turbo_paired_disagreement": true,
+            "turbo_reference_delta": true,
+            "small_reference_delta": true,
+            "mms_reference_delta": true,
+            "mms_paired_disagreement": true,
+            "voice_minimum": true,
+            "mos_delta": true
+          },
+          "status": "estimated_quality_passed_detector_not_queried_in_this_component"
+        }
+      ],
+      "render_protocol_sha256": "0e5e7c518b6f30dbe4b23c9678dc40e814f54e130413a8de7f626c57c5cd9e16"
+    },
+    "codec_word_boundary_dev": {
+      "review": "MMS only; both Arabic outputs failed paired agreement before further evaluation",
+      "cases": [
+        {
+          "id": "followup_06_ar_sonic-3.6__vocos_encodec_12kbps__word_boundary",
+          "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+          "output_sha256": "98d00a7916fe9dbce16359a4226afb72a31dd3dcdd9403afdad8ba595fc55d17",
+          "original_reference_error": 0.0967741935483871,
+          "processed_reference_error": 0.11290322580645161,
+          "reference_error_delta": 0.016129032258064516,
+          "paired_disagreement": 0.04838709677419355
+        },
+        {
+          "id": "followup_06_ar_sonic-3.6__vocos_encodec_6kbps__word_boundary",
+          "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+          "output_sha256": "0aa528a29f68fdc71bef3f0da738caaa8ec1a9ff88471b1b3c523373a7177a86",
+          "original_reference_error": 0.0967741935483871,
+          "processed_reference_error": 0.0967741935483871,
+          "reference_error_delta": 0.0,
+          "paired_disagreement": 0.03225806451612903
+        }
+      ],
+      "detector_requests": 0,
+      "decisions": [
+        {
+          "id": "followup_06_ar_sonic-3.6__vocos_encodec_12kbps",
+          "status": "repaired",
+          "coverage": 0.2900201279013478
+        },
+        {
+          "id": "followup_10_ta_sonic-3.6__vocos_encodec_12kbps",
+          "status": "rejected",
+          "reason": "Repair would replace too much of the recording"
+        },
+        {
+          "id": "followup_06_ar_sonic-3.6__vocos_encodec_6kbps",
+          "status": "repaired",
+          "coverage": 0.2900201279013478
+        },
+        {
+          "id": "followup_10_ta_sonic-3.6__vocos_encodec_6kbps",
+          "status": "rejected",
+          "reason": "Repair would replace too much of the recording"
+        }
+      ]
+    }
+  },
+  "fixed_guarded_workflow": {
+    "scope": "Two spent generated regression sources; zero fresh samples",
+    "source_recordings": 2,
+    "fresh_recordings": 0,
+    "decision_rule": "Try 12 then 6 kbps. Keep native when paired Turbo and MMS <=0.03; otherwise dual-Whisper mask repair with fixed sigma0.5 donor. Reject a candidate if either post-repair disagreement exceeds 0.03.",
+    "decisions": [
+      {
+        "base_id": "followup_06_ar_sonic-3.6",
+        "bitrate": 12,
+        "repair": true,
+        "selected_id": "followup_06_ar_sonic-3.6__vocos_encodec_12kbps__dual_repair__donor05",
+        "content_guard_passed": true
+      },
+      {
+        "base_id": "followup_10_ta_sonic-3.6",
+        "bitrate": 12,
+        "repair": false,
+        "selected_id": "followup_10_ta_sonic-3.6__vocos_encodec_12kbps",
+        "content_guard_passed": true
+      }
+    ],
+    "protocol_sha256": "e4f0c9007cf87ad2392855b3080ac677d5b23e088a7ffbde3d7508489cf19e89",
+    "http_attempts": 6,
+    "positive_service_controls": 2,
+    "cases": [
+      {
+        "id": "followup_06_ar_sonic-3.6__vocos_encodec_12kbps__dual_repair__donor05",
+        "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+        "output_sha256": "cc366044ea522c33ba346b89136edeee631f83bdd44079e042a796711af3952b",
+        "quality_estimates": {
+          "asr": {
+            "asr_disagreement": 0.01639344262295082,
+            "original_reference_error": 0.16129032258064516,
+            "processed_reference_error": 0.16129032258064516,
+            "reference_error_delta": 0.0
+          },
+          "asr_turbo": {
+            "asr_disagreement": 0.0,
+            "original_reference_error": 0.03225806451612903,
+            "processed_reference_error": 0.03225806451612903,
+            "reference_error_delta": 0.0
+          },
+          "voice_quality": {
+            "speaker_minimum": 0.9959496149103259,
+            "dnsmos_delta": {
+              "signal": 0.011991343298040746,
+              "background": 0.029888326625469475,
+              "overall": 0.03428210163405465
+            }
+          },
+          "mms": {
+            "original_reference_error": 0.0967741935483871,
+            "processed_reference_error": 0.0967741935483871,
+            "reference_error_delta": 0.0,
+            "paired_disagreement": 0.0
+          }
+        },
+        "detector_checked": true,
+        "estimated_quality_criteria": {
+          "turbo_paired_disagreement": true,
+          "turbo_reference_delta": true,
+          "small_reference_delta": true,
+          "mms_reference_delta": true,
+          "mms_paired_disagreement": true,
+          "voice_minimum": true,
+          "mos_delta": true
+        },
+        "processed_detected": [
+          true,
+          true
+        ],
+        "status": "still_detected"
+      },
+      {
+        "id": "followup_10_ta_sonic-3.6__vocos_encodec_12kbps",
+        "source_sha256": "91dbad3a2063dd29eae00148fbb21602e381fc88cc7eb52b99b203555c1ea963",
+        "output_sha256": "fe3111ac8ee1a7010ad70f26cc358d4d3d260a13964fa3e329a2531a03e25c8d",
+        "quality_estimates": {
+          "asr": {
+            "asr_disagreement": 0.06060606060606061,
+            "original_reference_error": 0.1242603550295858,
+            "processed_reference_error": 0.1242603550295858,
+            "reference_error_delta": 0.0
+          },
+          "asr_turbo": {
+            "asr_disagreement": 0.01818181818181818,
+            "original_reference_error": 0.10650887573964497,
+            "processed_reference_error": 0.1242603550295858,
+            "reference_error_delta": 0.017751479289940822
+          },
+          "voice_quality": {
+            "speaker_minimum": 0.9884675518413779,
+            "dnsmos_delta": {
+              "signal": 0.02545474093870892,
+              "background": 0.007097372949100844,
+              "overall": 0.024331515732133102
+            }
+          },
+          "mms": {
+            "original_reference_error": 0.0650887573964497,
+            "processed_reference_error": 0.07100591715976332,
+            "reference_error_delta": 0.005917159763313609,
+            "paired_disagreement": 0.005988023952095809
+          }
+        },
+        "detector_checked": true,
+        "estimated_quality_criteria": {
+          "turbo_paired_disagreement": true,
+          "turbo_reference_delta": true,
+          "small_reference_delta": true,
+          "mms_reference_delta": true,
+          "mms_paired_disagreement": true,
+          "voice_minimum": true,
+          "mos_delta": true
+        },
+        "processed_detected": [
+          false,
+          false
+        ],
+        "status": "checked_negative_twice"
+      }
+    ],
+    "all_outputs_double_negative": false,
+    "promoted_to_runtime": false
+  },
+  "vocos_mel_assets": {
+    "model": "charactr/vocos-mel-24khz",
+    "revision": "0feb3fdd929bcd6649e0e7c5a688cf7dd012ef21",
+    "source_commit": "eb39abfc42c1dee4854d9b10d44dd7d4fd3b0e53",
+    "files": [
+      "config.yaml",
+      "pytorch_model.bin"
+    ],
+    "scope": "Local upstream vocoder development; not a project-trained or released model",
+    "license": "MIT",
+    "model_sample_rate": 24000,
+    "assets": {
+      "config.yaml": {
+        "sha256": "da9033922f969a47f0c160010226919e59f27761fd5066f3828d46de6650b0fc",
+        "bytes": 461
+      },
+      "pytorch_model.bin": {
+        "sha256": "97ec976ad1fd67a33ab2682d29c0ac7df85234fae875aefcc5fb215681a91b2a",
+        "bytes": 54365991
+      }
+    },
+    "complete": true
+  },
+  "vocos_encodec_assets": {
+    "model": "charactr/vocos-encodec-24khz",
+    "revision": "4e61d082c08045a4c11e5b148ad93b1d0c591a14",
+    "source_commit": "eb39abfc42c1dee4854d9b10d44dd7d4fd3b0e53",
+    "bandwidths_kbps": [
+      12.0,
+      6.0
+    ],
+    "scope": "Two spent development recordings; fixed codec bottlenecks, no project training or model release",
+    "assets": {
+      "config.yaml": {
+        "sha256": "43b8b45282e8eeb424e29937badf7b92743dfb68b78299fcbbf64c880f971cb2",
+        "bytes": 503
+      },
+      "pytorch_model.bin": {
+        "sha256": "7e95bb260b74a1bfc43c52d355831c951acb81c8960e9c62b79bd2b3ab1e3a90",
+        "bytes": 40356708
+      },
+      "encodec_24khz-d7cc33bc.th": {
+        "sha256": "d7cc33bcf1aad7f2dad9836f36431530744abeace3ca033005e3290ed4fa47bf",
+        "bytes": 93171529,
+        "source_url": "https://dl.fbaipublicfiles.com/encodec/v0/encodec_24khz-d7cc33bc.th"
+      }
+    },
+    "complete": true
+  },
+  "model_bandwidth_limit_hz": 12000,
+  "original_format_and_length_restored": true,
+  "sample_rate_roundtrip_controls": {
+    "scope": "Same two spent authored sources; 24 kHz roundtrip plus PCM24 FLAC, no neural model",
+    "http_attempts": 6,
+    "positive_service_controls": 2,
+    "cases": [
+      {
+        "id": "followup_06_ar_sonic-3.6",
+        "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+        "output_sha256": "a923e3713c3b34d4c7cdd80473bcf4793cd292d9b8dd31cfd2e273c5e1304967",
+        "sample_rate": 44100,
+        "samples": 1255968,
+        "channels": 1,
+        "detected": [
+          true,
+          true
+        ]
+      },
+      {
+        "id": "followup_10_ta_sonic-3.6",
+        "source_sha256": "91dbad3a2063dd29eae00148fbb21602e381fc88cc7eb52b99b203555c1ea963",
+        "output_sha256": "259f750dc1d7c25c45629128ea1077f9d46b3a025ebfa815dbf4bafbd76f1575",
+        "sample_rate": 44100,
+        "samples": 1220688,
+        "channels": 1,
+        "detected": [
+          true,
+          true
+        ]
+      }
+    ]
+  },
+  "encoding_only_asr_controls": {
+    "scope": "Same two spent original recordings; ASR format/quantization control only",
+    "model": "facebook/mms-1b-all",
+    "revision": "3d33597edbdaaba14a8e858e2c8caa76e3cec0cd",
+    "clips": [
+      {
+        "id": "followup_06_ar_sonic-3.6",
+        "raw_source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+        "canonical_source_sha256": "8ba1e689f6b9fb759b73782edfafd14d1b10ae4743d7efc379f7730dfcf74c29",
+        "raw_reference_error": 0.0967741935483871,
+        "canonical_reference_error": 0.0967741935483871,
+        "raw_canonical_paired_disagreement": 0.0
+      },
+      {
+        "id": "followup_10_ta_sonic-3.6",
+        "raw_source_sha256": "91dbad3a2063dd29eae00148fbb21602e381fc88cc7eb52b99b203555c1ea963",
+        "canonical_source_sha256": "2701d726f2a614b5b681807076c209aa9e2a42463cab8cb3085ff814ca228d12",
+        "raw_reference_error": 0.0650887573964497,
+        "canonical_reference_error": 0.0650887573964497,
+        "raw_canonical_paired_disagreement": 0.0
+      }
+    ],
+    "complete": true,
+    "transcripts_exported": false
+  },
+  "whole_long_original_calibration": {
+    "scope": "One reused whole long generated source; original-only independent ASR calibration",
+    "source_sha256": "0e7da429ce36a226c3ba1be7fca35bc23c018b967835b66dab2e61439aa255a4",
+    "seconds": 252.08,
+    "model": "facebook/mms-1b-all",
+    "revision": "3d33597edbdaaba14a8e858e2c8caa76e3cec0cd",
+    "language": "eng",
+    "attention_implementation": "sdpa",
+    "attention_class": "Wav2Vec2SdpaAttention",
+    "elapsed_seconds": 159.73501242976636,
+    "peak_rss_kib": 6161692,
+    "original_reference_error": 0.025031289111389236,
+    "maximum_original_calibration_error": 0.15,
+    "calibration_eligible": true,
+    "reference_units": 799,
+    "recognized_units": 806,
+    "whole_source_unsegmented": true,
+    "candidate_outputs_not_scored": true,
+    "transcript_exported": false,
+    "complete": true
+  },
+  "additional_arabic_review": {
+    "scope": "Additional independent Arabic architecture review on already-spent generated sources",
+    "model": "krut42/voice-fastconformer-ar-ctc-int8",
+    "revision": "69e9fd30fc9dc81f9c632f82bdd993984e2e3084",
+    "upstream": "nvidia/stt_ar_fastconformer_hybrid_large_pcd_v1.0",
+    "artifact": "Community ONNX int8 conversion, not official upstream numerical equivalence",
+    "license": "CC-BY-4.0",
+    "sherpa_onnx": "1.13.8",
+    "model_assets": {
+      "model.int8.onnx": {
+        "sha256": "714fc79628cff1916194337117579167b32385dcaf70d4b525805f4fdf07913f",
+        "bytes": 173888072
+      },
+      "tokens.txt": {
+        "sha256": "9b938381a19a69bb279cdcfc299419f25a049ea1de192e0d10317274a0f20074",
+        "bytes": 12858
+      }
+    },
+    "normalization": "NFKC; remove Arabic vowel marks and tatweel for comparison with unvocalized reference; retain letter variants; then BasicTextNormalizer(remove_diacritics=False)",
+    "original_calibration_maximum_reference_error": 0.15,
+    "originals_scored_before_any_candidate": true,
+    "source_originals": [
+      {
+        "id": "followup_06_ar_sonic-3.6",
+        "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+        "reference_error": 0.016129032258064516,
+        "reference_units": 62,
+        "recognized_units": 62,
+        "calibration_eligible": true
+      },
+      {
+        "id": "followup_11_ar_sonic-preview",
+        "source_sha256": "3b60bfa9dcd51698050d495b03c28e314b4b9ace775c60a092d8886fdc16ba3f",
+        "reference_error": 0.0,
+        "reference_units": 64,
+        "recognized_units": 64,
+        "calibration_eligible": true
+      },
+      {
+        "id": "vocoder_06_ar_sonic-3.6",
+        "source_sha256": "c516904d3b12fa8afe0ee159e2af481bfdf0a3d3a56f5f00aaf939db749f7289",
+        "reference_error": 0.017241379310344827,
+        "reference_units": 58,
+        "recognized_units": 58,
+        "calibration_eligible": true
+      },
+      {
+        "id": "vocoder_11_ar_sonic-preview",
+        "source_sha256": "669c3fd73b39c62f12fe6670e76eb6dadef8491a69c5df388da7955e53c8cb26",
+        "reference_error": 0.05263157894736842,
+        "reference_units": 57,
+        "recognized_units": 56,
+        "calibration_eligible": true
+      },
+      {
+        "id": "fresh_11_ar_sonic-preview",
+        "source_sha256": "2ab7b204cddd665b22cdc877ae713f5f1c8b516d2b9e1175370e90cc7eb4c5ac",
+        "reference_error": 0.02631578947368421,
+        "reference_units": 76,
+        "recognized_units": 76,
+        "calibration_eligible": true
+      }
+    ],
+    "candidates": [
+      {
+        "id": "followup_06_ar_sonic-3.6__vocos_mel",
+        "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+        "output_sha256": "e583916ce103919fd0d64f7a29fa35cf4f2b4c46ebc169354f8f116cde8845a7",
+        "calibration_eligible": true,
+        "original_reference_error": 0.016129032258064516,
+        "processed_reference_error": 0.016129032258064516,
+        "reference_error_delta": 0.0,
+        "paired_disagreement": 0.0,
+        "elapsed_seconds": 0.1729137497022748
+      },
+      {
+        "id": "followup_06_ar_sonic-3.6__vocos_encodec_12kbps",
+        "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+        "output_sha256": "7344ec4b72e6997a22bd892411999af35b483f819d87c158502ed5da3a78f578",
+        "calibration_eligible": true,
+        "original_reference_error": 0.016129032258064516,
+        "processed_reference_error": 0.016129032258064516,
+        "reference_error_delta": 0.0,
+        "paired_disagreement": 0.0,
+        "elapsed_seconds": 0.18736607301980257
+      },
+      {
+        "id": "followup_06_ar_sonic-3.6__vocos_encodec_6kbps",
+        "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+        "output_sha256": "d70a7f43d42f4a2bd6c498fcb04d582474b3d39896e975b5a77e60426446afa2",
+        "calibration_eligible": true,
+        "original_reference_error": 0.016129032258064516,
+        "processed_reference_error": 0.03225806451612903,
+        "reference_error_delta": 0.016129032258064516,
+        "paired_disagreement": 0.016129032258064516,
+        "elapsed_seconds": 0.1739362645894289
+      },
+      {
+        "id": "followup_06_ar_sonic-3.6__vocos_encodec_12kbps__dual_repair",
+        "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+        "output_sha256": "165b5e72753f3adc004c819c4859413666560bdecbd38361cf8f4dd8c58acbbc",
+        "calibration_eligible": true,
+        "original_reference_error": 0.016129032258064516,
+        "processed_reference_error": 0.016129032258064516,
+        "reference_error_delta": 0.0,
+        "paired_disagreement": 0.0,
+        "elapsed_seconds": 0.1730480706319213
+      },
+      {
+        "id": "followup_06_ar_sonic-3.6__vocos_encodec_6kbps__dual_repair",
+        "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+        "output_sha256": "92b183714094dd8f5c2dfa70f69cec81d4876d7e6fdf8b6ab74e2e08fdcc81ea",
+        "calibration_eligible": true,
+        "original_reference_error": 0.016129032258064516,
+        "processed_reference_error": 0.016129032258064516,
+        "reference_error_delta": 0.0,
+        "paired_disagreement": 0.0,
+        "elapsed_seconds": 0.17194694746285677
+      },
+      {
+        "id": "followup_06_ar_sonic-3.6__vocos_encodec_12kbps__word_boundary",
+        "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+        "output_sha256": "98d00a7916fe9dbce16359a4226afb72a31dd3dcdd9403afdad8ba595fc55d17",
+        "calibration_eligible": true,
+        "original_reference_error": 0.016129032258064516,
+        "processed_reference_error": 0.016129032258064516,
+        "reference_error_delta": 0.0,
+        "paired_disagreement": 0.0,
+        "elapsed_seconds": 0.17214440740644932
+      },
+      {
+        "id": "followup_06_ar_sonic-3.6__vocos_encodec_6kbps__word_boundary",
+        "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+        "output_sha256": "0aa528a29f68fdc71bef3f0da738caaa8ec1a9ff88471b1b3c523373a7177a86",
+        "calibration_eligible": true,
+        "original_reference_error": 0.016129032258064516,
+        "processed_reference_error": 0.016129032258064516,
+        "reference_error_delta": 0.0,
+        "paired_disagreement": 0.0,
+        "elapsed_seconds": 0.1712897466495633
+      },
+      {
+        "id": "followup_06_ar_sonic-3.6__seed0",
+        "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+        "output_sha256": "4a55da0e8a24d4011a414c643eb6d8b28652c369c57095e7dd9397be6b86b1b7",
+        "calibration_eligible": true,
+        "original_reference_error": 0.016129032258064516,
+        "processed_reference_error": 0.016129032258064516,
+        "reference_error_delta": 0.0,
+        "paired_disagreement": 0.016129032258064516,
+        "elapsed_seconds": 0.18948506191372871
+      },
+      {
+        "id": "followup_06_ar_sonic-3.6__seed1",
+        "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+        "output_sha256": "89ee1cb0def136d233e47d33206d8134636743142331b48414dce18ca52f8638",
+        "calibration_eligible": true,
+        "original_reference_error": 0.016129032258064516,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": -0.016129032258064516,
+        "paired_disagreement": 0.016129032258064516,
+        "elapsed_seconds": 0.1729879379272461
+      },
+      {
+        "id": "followup_06_ar_sonic-3.6__seed2",
+        "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+        "output_sha256": "46a3d426f8cb6cdfdd82e8f6bdc88ea23b20760614fcd47f302e750a7eaa03a7",
+        "calibration_eligible": true,
+        "original_reference_error": 0.016129032258064516,
+        "processed_reference_error": 0.04838709677419355,
+        "reference_error_delta": 0.03225806451612903,
+        "paired_disagreement": 0.04838709677419355,
+        "elapsed_seconds": 0.17205342557281256
+      },
+      {
+        "id": "followup_06_ar_sonic-3.6__seed3",
+        "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+        "output_sha256": "0f6834a8a7f39f8afd2ea30cab2a61439d93267a88ea260d280d4484a09412ba",
+        "calibration_eligible": true,
+        "original_reference_error": 0.016129032258064516,
+        "processed_reference_error": 0.03225806451612903,
+        "reference_error_delta": 0.016129032258064516,
+        "paired_disagreement": 0.016129032258064516,
+        "elapsed_seconds": 0.17246412578970194
+      }
+    ],
+    "complete": true,
+    "transcripts_exported": false
+  },
+  "additional_arabic_original_calibration_sha256": "7247eec7b1c66709e57647a2afc8c3d0288418867b00528d8a6d95685c78df93",
+  "limits": [
+    "Two bandwidths or four seeds applied to one recording are treatments of the same recording.",
+    "The codec uses a 24 kHz model; restoring the original sample rate does not restore frequencies above 12 kHz.",
+    "ASR estimates disagree on Arabic. The additional source-calibrated architecture is reported alongside every earlier failure.",
+    "Models are upstream pretrained assets, not project-trained or republished checkpoints.",
+    "Negative detector responses do not prove physical erasure or unchanged speech; no human listening approval was obtained.",
+    "No fresh held-out efficacy batch has been generated for these candidates."
+  ],
+  "private_recordings_included": 0,
+  "transcripts_exported": false,
+  "speaker_embeddings_exported": false
+}

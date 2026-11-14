@@ -61,6 +61,7 @@ Their results do not establish reliable removal on real recordings.
 | `filtered_prior_report.py` | Export frozen filtered-prior measurements, exact-file fallback checks, and aggregate private regression evidence |
 | `speech_repair_development_report.py` | Export two spent repair examples, component timings and exact-output integration; retains the independent Arabic content failure |
 | `speech_repair_runtime_report.py` | Validate and export encoder-memory measurements, exact recognition/timestamp comparisons and packaged audio equivalence |
+| `codec_development_report.py` | Validate and export spent seed/codec/repair measurements, exact-file endpoint failures and source-calibrated independent recognition checks |
 
 Private follow-up experiments using personal uploads remain ignored in `continuous_followup/`.
 The current runtime and its setup are documented in [reconstruction](../docs/reconstruction.md).
