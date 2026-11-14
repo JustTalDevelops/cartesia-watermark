@@ -85,6 +85,23 @@ class VerifiedReconstructionTests(unittest.TestCase):
                 self.assertTrue(all(w.closed for w in workers))
                 self.assertEqual(result['selected_preset'], 'strong' if rejected else 'smoothed-vocoder')
 
+    def test_filtered_prior_loads_its_own_runtime_then_flow_only_if_needed(self):
+        scripts, workers = [], []
+
+        def factory(python, script, **kwargs):
+            scripts.append(Path(script).name)
+            workers.append(FakeWorker())
+            return workers[-1]
+
+        answers = iter((True, False))
+        with patch('verify_reconstruction.ReconstructionWorker', side_effect=factory):
+            result = reconstruct_verified(self.source, self.output, self.report,
+                                          presets=('filtered-prior', 'full-flow'),
+                                          detector=lambda _: (200, {'detected': next(answers)}))
+        self.assertEqual(scripts, ['reconstruct_filtered_prior.py', 'reconstruct_audio.py'])
+        self.assertTrue(all(worker.closed for worker in workers))
+        self.assertEqual(result['selected_preset'], 'full-flow')
+
     def test_missing_api_key_fails_before_reconstruction(self):
         with patch.dict('os.environ', {}), patch('cartesia._env', return_value=None):
             with self.assertRaisesRegex(ValueError, 'CARTESIA_API_KEY'):

@@ -17,7 +17,7 @@ git -C .cache/resemble-enhance checkout 8e978149bfe8abab3eb77d965d579a111afdb0ff
 
 The wrapper imports directly from this pinned checkout. It does not need the upstream demo application installed.
 
-Download the following files from the [Resemble Enhance model repository](https://huggingface.co/ResembleAI/resemble-enhance/tree/main/enhancer_stage2), preserving their relative paths beneath `.cache/resemble-model/enhancer_stage2/`:
+Download the following files from the [Resemble Enhance model repository](https://huggingface.co/ResembleAI/resemble-enhance/tree/4e3510ce4a8391159f665903544c5150bee7b2cb/enhancer_stage2), preserving their relative paths beneath `.cache/resemble-model/enhancer_stage2/`:
 
 ```text
 hparams.yaml
@@ -102,6 +102,23 @@ The long supplement includes five 116–252-second recordings from three voices.
 Speech quality remains a limitation. The minimum sampled speaker-embedding cosine was 0.961, and the median overall DNSMOS change was −0.052. These descriptive estimates do not guarantee unchanged speech. Whisper Turbo's Arabic reference word error rose from 0% to 13.16%; Tamil also had a substantial increase. A second recognizer and per-recording metrics are retained in the report. No human listening approval is claimed for this candidate, and it does not replace the app's reference default.
 
 The verification CLI checks each new recording's actual final bytes. A finite study cannot prove physical watermark erasure, unchanged words, every future recording, or later detector behavior.
+
+## Filtered-prior candidate
+
+`tools/reconstruct_filtered_prior.py` is a new experimental candidate awaiting fresh validation. It keeps the original full-band speech condition and low-passes only the waveform used to encode the starting prior. The fixed recipe uses an eighth-order, zero-phase Butterworth filter at 2.3 kHz, prior temperature 0.8, denoising blend 0.1, 32 midpoint evaluations, seed 2035, and corrected chunk scheduling.
+
+Both spent development recordings cleared Cartesia. In the authored Arabic example, Turbo reference error fell from ten words with full-flow to two; the English regression had no paired transcript differences. The minimum sampled speaker cosine across the two recordings was 0.957, and both overall DNSMOS estimates improved. These development results are not held-out evidence or listening approval. The packaged implementation reproduces both complete development outputs exactly at the sample level.
+
+It reuses the existing Python 3.12 reconstruction installation and checkpoint. It verifies the reference helpers, model configuration, and relevant upstream source hashes before loading. It does not alter the reference reconstruction implementation or download assets during processing.
+
+```bash
+.cache/resemble-venv/bin/python tools/reconstruct_filtered_prior.py --check
+.cache/resemble-venv/bin/python tools/reconstruct_filtered_prior.py input.wav output.wav
+.venv/bin/python tools/verify_reconstruction.py input.wav checked.flac \
+  --presets filtered-prior full-flow strong --boundary-safe
+```
+
+The last command uploads candidates to Cartesia and retains the CLI's two-confirmation policy. This preset order is opt-in; app and CLI defaults are unchanged while evaluation proceeds.
 
 ## Smoothed-vocoder candidate
 

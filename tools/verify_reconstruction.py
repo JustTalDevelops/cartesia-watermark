@@ -21,7 +21,7 @@ import soundfile as sf
 from reconstruction_worker import ReconstructionWorker
 
 ROOT = Path(__file__).resolve().parent.parent
-PRESETS = ('standard', 'full-flow', 'strong', 'smoothed-vocoder')
+PRESETS = ('standard', 'full-flow', 'strong', 'smoothed-vocoder', 'filtered-prior')
 MAX_BYTES = 32_000_000
 
 
@@ -124,11 +124,14 @@ def reconstruct_verified(source, output, report_path, presets=('full-flow', 'str
     source_files = ['reconstruct_audio.py', 'reconstruction_worker.py', 'reconstruction_inference.py']
     if 'smoothed-vocoder' in presets:
         source_files.extend(('reconstruct_vocoder.py', 'vocoder_inference.py', 'vocoder_assets.json'))
+    if 'filtered-prior' in presets:
+        source_files.append('reconstruct_filtered_prior.py')
     report = {'status': 'processing', 'source': str(source.resolve()), 'source_sha256': digest(source),
               'output': str(output.resolve()), 'presets': list(presets), 'seconds': seconds,
               'sample_rate': sample_rate, 'samples': len(audio), 'channels': channels,
               'reconstructor_code_sha256': digest(ROOT/'tools'/(
-                  'reconstruct_vocoder.py' if presets[0] == 'smoothed-vocoder' else 'reconstruct_audio.py')),
+                  'reconstruct_vocoder.py' if presets[0] == 'smoothed-vocoder' else
+                  'reconstruct_filtered_prior.py' if presets[0] == 'filtered-prior' else 'reconstruct_audio.py')),
               'verification_cli_code_sha256': digest(Path(__file__)),
               'source_files_sha256_at_start': {name: digest(ROOT/'tools'/name) for name in source_files},
               'boundary_safe_requested': boundary_safe,
@@ -145,12 +148,14 @@ def reconstruct_verified(source, output, report_path, presets=('full-flow', 'str
                 active_worker = worker
                 if active_worker is None:
                     vocoder = preset == 'smoothed-vocoder'
-                    key = 'vocoder' if vocoder else 'flow'
+                    filtered = preset == 'filtered-prior'
+                    key = 'vocoder' if vocoder else 'filtered' if filtered else 'flow'
                     if key not in owned_workers:
                         owned_workers[key] = ReconstructionWorker(
                             ROOT/('.venv/bin/python' if vocoder else '.cache/resemble-venv/bin/python'),
-                            ROOT/'tools'/('reconstruct_vocoder.py' if vocoder else 'reconstruct_audio.py'),
-                            boundary_safe=False if vocoder else boundary_safe)
+                            ROOT/'tools'/('reconstruct_vocoder.py' if vocoder else
+                                         'reconstruct_filtered_prior.py' if filtered else 'reconstruct_audio.py'),
+                            boundary_safe=False if vocoder or filtered else boundary_safe)
                     active_worker = owned_workers[key]
                 raw = directory/f'{index}.wav'
                 metadata = active_worker.run(source, raw, preset, directory/f'{index}.json',
