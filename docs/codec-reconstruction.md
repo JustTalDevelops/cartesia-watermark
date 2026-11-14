@@ -6,6 +6,10 @@ This opt-in CLI reconstructs complete speech with Vocos decoding EnCodec feature
 
 These are integration checks on two existing recordings. They add no new independent samples. Both recognizers participate in selection, so their agreement is not an independent quality guarantee. The separate reference-error estimates, speaker embeddings and DNSMOS estimates also cannot replace listening or establish physical erasure.
 
+The separate [prospective study protocol](codec-study.md) specifies fresh inputs,
+original-first calibration, seven output criteria and shared-budget enforcement.
+Its frozen plan is an experiment specification, not a successful result.
+
 ## Install
 
 Reuse the project's Python 3.12 audio environment, or create it for a fresh installation:

@@ -1,0 +1,3 @@
+# Text scoring only; the processing runtime does not import OpenCC.
+-r codec.txt
+OpenCC==1.1.9

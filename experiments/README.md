@@ -64,6 +64,13 @@ Their results do not establish reliable removal on real recordings.
 | `codec_development_report.py` | Validate and export spent seed/codec/repair measurements, exact-file endpoint failures and source-calibrated independent recognition checks |
 | `codec_band_mix.py` | Reproduce fixed band mixtures from two complete matching reconstructions; writes PCM24 FLAC without quality or detector certification |
 | `codec_runtime_report.py` | Verify the implementation commit, exact encoded output, dual content guards and two actual CLI confirmations for each spent integration source |
+| `generate_codec_study.py`, `run_codec_study.py`, `score_codec_study.py` | Execute a prospectively frozen fresh codec study with a shared spending ledger, original-first calibration, whole-file repeated detector checks and separately scored final files |
+
+The fresh codec study uses [pinned evaluation assets](codec_evaluation_assets.json) and
+[text normalization](codec_evaluation_text.py). Chinese reference-error scoring uses
+OpenCC 1.1.9 to compare a common writing system, while retaining raw-script errors.
+Paired content guards and historical published scores keep their original normalization.
+See the [protocol](../docs/codec-study.md) before running these service-calling tools.
 
 Private follow-up experiments using personal uploads remain ignored in `continuous_followup/`.
 The current runtime and its setup are documented in [reconstruction](../docs/reconstruction.md).
