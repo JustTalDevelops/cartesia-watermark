@@ -72,8 +72,7 @@ def export(directory):
     if not encoder['complete'] or len(encoder['cases']) != 8:
         raise ValueError('Complete four-treatment encoder comparison required')
     original_precision = load(directory/'mms_bf16_originals/result.json')
-    precision_commit = subprocess.check_output(['git', 'log', '-1', '--format=%H', '--',
-                                               'experiments/benchmark_mms_bf16_originals.py'], cwd=ROOT, text=True).strip()
+    precision_commit = revision('2a9a36f')
     check_source(precision_commit, 'experiments/benchmark_mms_bf16_originals.py', original_precision['source_sha256'])
     if not original_precision['complete'] or len(original_precision['clips']) != 16 or original_precision['candidate_outputs_read']:
         raise ValueError('Expected all sixteen original-only precision observations')

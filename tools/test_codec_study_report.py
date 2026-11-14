@@ -77,7 +77,8 @@ class CodecStudyReportTests(unittest.TestCase):
         data['clips'][0]['reference_error_delta'] = .04
         self.write(path, data)
         result = self.export()
-        self.assertEqual(result['independent_requests'], 1)
+        self.assertEqual(result['planned_requests'], 1)
+        self.assertEqual(result['distinct_generated_recordings'], 1)
         self.assertEqual(result['selected_twice_negative'], 1)
         self.assertEqual(result['qualified_checked_outputs'], 0)
         self.assertFalse(result['clips'][0]['quality_gates']['small_reference_error_delta']['passed'])
