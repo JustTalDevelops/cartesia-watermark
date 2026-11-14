@@ -83,6 +83,17 @@ class VerifiedReconstructionTests(unittest.TestCase):
         self.assertEqual(result['status'], 'verified_negative')
         self.assertFalse(result['quality_verified'])
 
+    def test_opt_in_duplicate_candidate_handling_never_requeries_the_same_blob(self):
+        checked = []
+        with self.assertRaises(NotCleared):
+            self.run_verified(lambda p: (checked.append(digest(p)) or (200, {'detected': True})),
+                              presets=('smoothed-vocoder', 'strong'), skip_duplicate_candidates=True)
+        report = json.loads(self.report.read_text())
+        self.assertEqual(len(checked), 1)
+        self.assertEqual(report['attempts'][1]['state'], 'duplicate_candidate_skipped')
+        self.assertEqual(report['attempts'][1]['previously_checked_preset'], 'smoothed-vocoder')
+        self.assertFalse(self.output.exists())
+
     def test_owned_runtimes_are_loaded_lazily_reused_and_closed(self):
         for rejected in (0, 2):
             with self.subTest(rejected=rejected):

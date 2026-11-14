@@ -112,27 +112,40 @@ class CodecRuntime:
                 with tempfile.TemporaryDirectory(prefix='.codec-assessment-', dir=output.parent) as temporary:
                     directory = Path(temporary)
                     if preset in BAND_PRESETS:
-                        manifest = directory/'band.input.json'
-                        request = {'source': str(source.resolve()), 'source_sha256': original_sha}
-                        if preset in ('codec-band', 'codec-repair'):
-                            request.update(native=str(candidate), native_sha256=job['native_sha256'])
-                        manifest.write_text(json.dumps(request))
-                        if self.band_worker is None:
-                            self.band_worker = self.worker_factory(ROOT/'.venv/bin/python', ROOT/'tools/reconstruct_codec_band.py',
-                                                                   isolated=False)
-                        band_path = directory/'band.wav'
-                        worker_preset = 'codec-band-prior' if preset in PRIOR_PRESETS else 'codec-band'
-                        band_info = self.band_worker.run(manifest, band_path, worker_preset, directory/'band.json',
-                                                         timeout=max(300, len(audio)/rate*8+120))
-                        mixed, band_rate = sf.read(band_path, dtype='float32')
-                        if (band_info.get('output_sha256') != digest(band_path) or band_rate != rate or mixed.shape != audio.shape or
-                                not np.isfinite(mixed).all() or
-                                band_info.get('source_sha256') != original_sha or band_info.get('native_sha256') != request.get('native_sha256')):
-                            raise RuntimeError('Band worker returned a mismatched recording')
-                        candidate = directory/'band.flac'
-                        quantize(candidate, mixed, rate)
-                        if digest(candidate) != band_info.get('encoded_flac_sha256'):
-                            raise RuntimeError('Band worker publication changed its encoded recording')
+                        reused_prior = preset in PRIOR_PRESETS and 'prior_sha256' in job
+                        if reused_prior:
+                            candidate = job['prior']
+                            if not candidate.is_file() or digest(candidate) != job['prior_sha256']:
+                                raise RuntimeError('Cached band prior changed')
+                            band_info = job['prior_metadata']
+                        else:
+                            manifest = directory/'band.input.json'
+                            request = {'source': str(source.resolve()), 'source_sha256': original_sha}
+                            if preset in ('codec-band', 'codec-repair'):
+                                request.update(native=str(candidate), native_sha256=job['native_sha256'])
+                            manifest.write_text(json.dumps(request))
+                            if self.band_worker is None:
+                                self.band_worker = self.worker_factory(ROOT/'.venv/bin/python', ROOT/'tools/reconstruct_codec_band.py',
+                                                                       isolated=False)
+                            band_path = directory/'band.wav'
+                            worker_preset = 'codec-band-prior' if preset in PRIOR_PRESETS else 'codec-band'
+                            band_info = self.band_worker.run(manifest, band_path, worker_preset, directory/'band.json',
+                                                             timeout=max(300, len(audio)/rate*8+120))
+                            mixed, band_rate = sf.read(band_path, dtype='float32')
+                            if (band_info.get('output_sha256') != digest(band_path) or band_rate != rate or mixed.shape != audio.shape or
+                                    not np.isfinite(mixed).all() or
+                                    band_info.get('source_sha256') != original_sha or band_info.get('native_sha256') != request.get('native_sha256')):
+                                raise RuntimeError('Band worker returned a mismatched recording')
+                            candidate = directory/'band.flac'
+                            quantize(candidate, mixed, rate)
+                            if digest(candidate) != band_info.get('encoded_flac_sha256'):
+                                raise RuntimeError('Band worker publication changed its encoded recording')
+                            if preset in PRIOR_PRESETS:
+                                cached_prior = job['directory']/'prior.flac'
+                                with cached_prior.open('xb') as handle:
+                                    handle.write(candidate.read_bytes())
+                                job.update(prior=cached_prior, prior_sha256=digest(candidate), prior_metadata=band_info)
+                        report['band_prior_reused'] = reused_prior
                         report['band_model'] = band_info
                         if preset in INVERSE_PRESETS:
                             prior, _ = sf.read(candidate, dtype='float32')

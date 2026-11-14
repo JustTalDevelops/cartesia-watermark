@@ -44,16 +44,20 @@ def read_recognition(directory, checksum, identity):
 
 class StudyRecognizer:
     """Reuse required original-only preflight; compute and retain real candidates."""
-    def __init__(self, source_directory, candidate_directory, recognizer=None):
+    def __init__(self, source_directory, candidate_directory, recognizer=None, source_digests=None):
         self.recognizer = recognizer if recognizer is not None else ContentRecognizer()
         self.metadata = self.recognizer.metadata
         self.normalizer = self.recognizer.normalizer
         self.identity = configuration(self.metadata)
         self.source_directory, self.candidate_directory = Path(source_directory), Path(candidate_directory)
+        self.source_digests = source_digests
 
     def transcribe(self, path, language=None):
         if language is None:
-            return read_recognition(self.source_directory, digest(path), self.identity)
+            checksum = digest(path)
+            if self.source_digests is not None and digest(self.source_directory/(checksum+'.json')) != self.source_digests.get(checksum):
+                raise ValueError('Original recognition changed after calibration')
+            return read_recognition(self.source_directory, checksum, self.identity)
         result = self.recognizer.transcribe(path, language)
         store_recognition(self.candidate_directory, digest(path), self.identity, result)
         return result

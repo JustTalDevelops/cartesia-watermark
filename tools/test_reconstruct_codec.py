@@ -169,6 +169,27 @@ class CodecRuntimeTests(unittest.TestCase):
         self.assertFalse(report['content_guard_passed'])
         self.assertFalse(self.output.exists())
 
+    def test_prior_to_inverse_fallback_reuses_the_exact_prior_without_synthesis(self):
+        first = self.runtime.process_file(self.source, self.output, 'codec-band-prior', retain_job=True)
+        second = self.runtime.process_file(self.source, self.root/'second.wav', 'codec-band-inverse6-narrow')
+        self.assertFalse(first['band_prior_reused'])
+        self.assertTrue(second['band_prior_reused'])
+        self.assertTrue(second['source_job_reused'])
+        self.assertEqual(second['inverse_prior_sha256'], first['candidate_flac_sha256'])
+        self.assertEqual(self.band.calls, 1)
+        self.assertEqual(self.codec.calls, 1)
+        self.assertEqual(self.recognizer.source_calls, 1)
+        self.assertIsNone(self.runtime.cache)
+
+    def test_prior_cache_tampering_prevents_fallback_publication(self):
+        self.runtime.process_file(self.source, self.output, 'codec-band-prior', retain_job=True)
+        self.runtime.cache['prior'].write_bytes(b'changed')
+        with self.assertRaisesRegex(RuntimeError, 'Cached band prior'):
+            self.runtime.process_file(self.source, self.root/'second.wav', 'codec-band-inverse6-narrow')
+        self.assertFalse((self.root/'second.wav').exists())
+        self.assertIsNone(self.runtime.cache)
+        self.assertEqual(self.band.calls, 1)
+
     def run_consensus_fixture(self, additional_errors=0, language='ar'):
         anchor = [f'w{i}' for i in range(71)]
         before = anchor.copy()

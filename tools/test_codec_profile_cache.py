@@ -42,6 +42,17 @@ class ProfileRecognitionCache(unittest.TestCase):
         with self.assertRaises(ValueError):
             store_recognition(self.rec.candidate_directory, digest(self.audio), self.rec.identity, {'changed': True})
 
+    def test_processing_cannot_use_recognized_units_changed_after_calibration(self):
+        cached = store_recognition(self.rec.source_directory, digest(self.audio), self.rec.identity,
+                                   {'language': 'en', 'turbo': ['original']})
+        self.rec.source_digests = {digest(self.audio): digest(cached)}
+        import json
+        value = json.loads(cached.read_text())
+        value['recognition']['turbo'] = ['changed']
+        cached.write_text(json.dumps(value))
+        with self.assertRaisesRegex(ValueError, 'changed after calibration'):
+            self.rec.transcribe(self.audio)
+
 
 if __name__ == '__main__':
     unittest.main()

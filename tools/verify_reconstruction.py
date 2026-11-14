@@ -91,7 +91,8 @@ def publish_exact(source, output, expected):
 
 
 def reconstruct_verified(source, output, report_path, presets=('full-flow', 'strong'),
-                         worker=None, detector=None, boundary_safe=False, confirmations=1):
+                         worker=None, detector=None, boundary_safe=False, confirmations=1,
+                         skip_duplicate_candidates=False):
     """Return an audit record only after publishing the exact checked bytes.
 
     On a positive result, try the next fixed preset. API errors, unavailable
@@ -109,6 +110,8 @@ def reconstruct_verified(source, output, report_path, presets=('full-flow', 'str
         raise ValueError('Choose at least one supported reconstruction preset')
     if type(confirmations) is not int or not 1 <= confirmations <= 3:
         raise ValueError('Choose between one and three negative confirmations')
+    if type(skip_duplicate_candidates) is not bool:
+        raise ValueError('Duplicate-candidate handling must be an explicit boolean')
     audio, sample_rate = sf.read(source)
     channels = 1 if audio.ndim == 1 else audio.shape[1]
     if channels not in (1, 2) or not np.isfinite(audio).all() or not 8000 <= sample_rate <= 96000:
@@ -152,6 +155,7 @@ def reconstruct_verified(source, output, report_path, presets=('full-flow', 'str
               'source_files_sha256_at_start': {name: digest(ROOT/'tools'/name) for name in source_files},
               'boundary_safe_requested': boundary_safe,
               'required_negative_checks': confirmations,
+              'skip_duplicate_candidates': skip_duplicate_candidates,
               'quality_verified': False,
               'meaning': 'Exact output file checked negative by the current Cartesia detector; not proof of erasure or unchanged speech.',
               'attempts': []}
@@ -160,6 +164,7 @@ def reconstruct_verified(source, output, report_path, presets=('full-flow', 'str
     try:
         with tempfile.TemporaryDirectory(prefix='.reconstruction-', dir=output.parent) as directory:
             directory = Path(directory)
+            previously_checked = {}
             for index, preset in enumerate(presets):
                 active_worker = worker
                 if active_worker is None:
@@ -220,6 +225,13 @@ def reconstruct_verified(source, output, report_path, presets=('full-flow', 'str
                 if digest(source) != report['source_sha256']:
                     raise RuntimeError('Source changed while processing')
                 sha = digest(candidate)
+                if skip_duplicate_candidates and sha in previously_checked:
+                    report['attempts'].append({'preset': preset, 'sha256': sha, 'model': metadata,
+                                               'state': 'duplicate_candidate_skipped',
+                                               'previously_checked_preset': previously_checked[sha]})
+                    save_report(report_path, report)
+                    continue
+                previously_checked[sha] = preset
                 attempt = {'preset': preset, 'sha256': sha, 'model': metadata, 'state': 'checking'}
                 report['attempts'].append(attempt)
                 save_report(report_path, report)
