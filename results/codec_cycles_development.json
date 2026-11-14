@@ -285,19 +285,81 @@
     "mms_paired": true
   },
   "all_five_asr_gates_passed": true,
-  "voice": null,
+  "voice": {
+    "metric": {
+      "speaker_model": "microsoft/wavlm-base-plus-sv",
+      "speaker_revision": "feb593a6c23c1cc3d9510425c29b0a14d2b07b1e",
+      "dnsmos": {
+        "implementation": "dnsmos-p835-regular-v1",
+        "revision": "785ab12275d5cf9341c5e946b0eee9f8825ece3b",
+        "model_sha256": "269fbebdb513aa23cddfbb593542ecc540284a91849ac50516870e1ac78f6edd",
+        "librosa": "1.0.0",
+        "onnxruntime": "1.31.1",
+        "resampler": "librosa-soxr_hq",
+        "sample_rate": 16000,
+        "window_samples": 144160,
+        "hop_samples": 16000,
+        "short_clip_policy": "repeat inside quality estimator only"
+      },
+      "window_seconds": 10,
+      "window_centers_fraction": [
+        0.2,
+        0.5,
+        0.8
+      ],
+      "threads": 2,
+      "meaning": "Uncalibrated embedding/MOS estimates, not human listening approval"
+    },
+    "clip": {
+      "id": "codec_v2_development__long_cycle",
+      "source_sha256": "e380f7c28e2548dbf58e555854e4a619466a4cbcce5e75502479fccee5e282ff",
+      "language": "en",
+      "original_dnsmos": {
+        "signal": 3.7051335304260435,
+        "background": 4.107447188488475,
+        "overall": 3.4536861888747823,
+        "windows": 92,
+        "natural_seconds": 101.12
+      },
+      "window_starts_seconds": [
+        15.224,
+        45.56,
+        75.896
+      ],
+      "speaker_window_cosines": [
+        0.9919010269937548,
+        0.9931064106486945,
+        0.9864344764198559
+      ],
+      "speaker_minimum": 0.9864344764198559,
+      "processed_dnsmos": {
+        "signal": 3.671902106794857,
+        "background": 4.066198742968001,
+        "overall": 3.3974218263406963,
+        "windows": 92,
+        "natural_seconds": 101.12
+      },
+      "dnsmos_delta": {
+        "signal": -0.03323142363118636,
+        "background": -0.04124844552047424,
+        "overall": -0.056264362534085954
+      },
+      "output_sha256": "d4aeef6836ba7762d32e3b580442bc24b8bc5d05d2f6d048d6ccf6bb2d58808e",
+      "status": "scored"
+    }
+  },
   "seven_quality_gate_results": {
     "small_reference_delta": true,
     "turbo_reference_delta": true,
     "mms_reference_delta": true,
     "turbo_paired": true,
     "mms_paired": true,
-    "speaker_minimum": null,
-    "dnsmos_overall": null
+    "speaker_minimum": true,
+    "dnsmos_overall": true
   },
-  "voice_quality_scoring_complete": false,
-  "all_seven_quality_gates_verified": false,
-  "quality_status": "Selected-file WavLM/DNSMOS scoring is queued; full qualification remains unproven.",
+  "voice_quality_scoring_complete": true,
+  "all_seven_quality_gates_verified": true,
+  "quality_status": "All selected-file estimates are complete; inspect every gate.",
   "limitations": [
     "One already-spent long source; cycles and requests are not new independent samples.",
     "The third generated cycle was not detector-tested.",
