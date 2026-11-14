@@ -137,7 +137,8 @@ def reconstruct_verified(source, output, report_path, presets=('full-flow', 'str
         source_files.extend(('reconstruct_codec.py', 'codec_inference.py', 'codec_content.py', 'codec_audio.py',
                              'codec_settings.py', 'codec_assets.json', 'codec_text.py', 'codec_repair.py', 'korean_spacing.py',
                              'whisper_encoder_reuse.py', 'speech_repair.py', 'speech_repair_assets.json',
-                             'reconstruct_codec_band.py', 'reconstruct_vocoder.py', 'vocoder_inference.py', 'vocoder_assets.json'))
+                             'reconstruct_codec_band.py', 'vocoder_band_prior.py', 'codec_word_consensus.py',
+                             'reconstruct_vocoder.py', 'vocoder_inference.py', 'vocoder_assets.json'))
     source_files = list(dict.fromkeys(source_files))
     report = {'status': 'processing', 'source': str(source.resolve()), 'source_sha256': digest(source),
               'output': str(output.resolve()), 'presets': list(presets), 'seconds': seconds,

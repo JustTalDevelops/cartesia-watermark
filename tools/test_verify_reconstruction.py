@@ -162,6 +162,8 @@ class VerifiedReconstructionTests(unittest.TestCase):
         self.assertEqual(self.output.read_bytes(), checked[0])
         self.assertEqual(result['selected_preset'], 'codec-band')
         self.assertIn('codec_content.py', result['source_files_sha256_at_start'])
+        self.assertIn('vocoder_band_prior.py', result['source_files_sha256_at_start'])
+        self.assertIn('codec_word_consensus.py', result['source_files_sha256_at_start'])
 
     def test_codec_guard_cannot_be_omitted_or_return_other_assessed_samples(self):
         for name, worker, expected in [('absent', FakeWorker(), 'required content assessment'),

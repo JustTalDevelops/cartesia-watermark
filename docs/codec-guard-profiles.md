@@ -17,7 +17,8 @@ their recorded results. Previously used sources remain development inputs.
 
 Whisper Turbo identifies the original language. Hindi/Tamil then use the larger
 checkpoint for transcription. Candidates force the same language and recognizer
-profile. The larger checkpoint adds CPU work; this branch makes no latency claim.
+profile. The larger checkpoint adds CPU work; measured runtime differences are
+case-specific.
 Both India-language comparisons retain combining marks. Arabic comparison removes
 vowel marks and tatweel without merging distinct letters. Chinese writing systems
 use pinned OpenCC conversion; Korean spacing follows the existing diagnostic.
@@ -52,7 +53,9 @@ The `codec-6k` preset reconstructs the original at the pinned checkpoint's
 PCM24 file still needs both speech guards and separate detector verification.
 The three-percent default and one-percent Hindi/Tamil limits also apply here.
 
-The profile implementation passes 173 tests. Actual whole-file processing,
-source-only calibration of the Arabic export on the new development sources,
-and independent selected-file quality checks are still required. A local speech
-check or detector-negative response does not establish reliable erasure.
+The original profile implementation passed 173 tests. Later method and inference
+changes passed 97 targeted checks. Actual whole-file integrations and source-only
+calibration are recorded in the [development reports](codec-development.md),
+including a [saved-file compatibility replay](../results/codec_profile_replay.json).
+These reuse spent recordings and add no held-out source. A local speech check
+or detector-negative response does not establish reliable erasure.

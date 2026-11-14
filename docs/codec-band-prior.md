@@ -44,7 +44,16 @@ packaged preset reproduced that checked file using actual recognizers at
 `81e77d7`, in 91.6 seconds for 31.68 seconds of audio, excluding initial outer
 runtime construction. See the [complete report](https://github.com/JustTalDevelops/cartesia-watermark/blob/94508ca/results/codec_followup_development.json).
 This is a different explicit profile; the raw failure is not changed into a pass
-under the old profile. The second Tamil counterexample remains unresolved.
+under the old profile.
+
+The additional `codec-band-inverse6-narrow` preset uses the generated prior only
+inside 1.5–3.5 kHz and generated native 6 kbps speech outside. On the second spent
+Tamil source, it passed all seven automated quality estimates and returned two
+whole-file negatives between four positive original controls. Actual packaged
+processing with both real guards reproduced those exact FLAC bytes at `bdc9a23`,
+in 178.6 seconds for 26.48 seconds of audio, excluding outer-runtime construction.
+The [complete report](../results/codec_ta2_followup.json) retains every earlier
+failure. This adds no fresh independent source or change to the frozen 6/14 study.
 
 Complete the [codec setup](codec-reconstruction.md), the [prospective guard
 profile setup](codec-guard-profiles.md), and the separate Python 3.13 BigVGAN setup
