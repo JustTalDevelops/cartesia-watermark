@@ -88,6 +88,39 @@ def summarize_attempt(attempt):
     return summary
 
 
+def attempt_speech_evidence(before, attempt, directory, identity):
+    """Check failed and selected attempts against their actual recognition caches."""
+    model = attempt['model']
+    checksum = model['candidate_flac_sha256']
+    cached = directory/'recognition/processed'/(checksum+'.json')
+    after = read_recognition(directory/'recognition/processed', checksum, identity)
+    raw = assess(before, after)
+    assessment = raw
+    if attempt['preset']=='codec-band-inverse6-consensus' and not raw['content_guard_passed']:
+        if (before['language']=='ar' and before.get('primary')=='turbo' and
+                before.get('secondary')=='fastconformer'):
+            corrected, proof = comparison_reference(before['turbo'], after['turbo'],
+                                                     before['fastconformer'], after['fastconformer'])
+            assessment = assess(dict(before, turbo=corrected), after)
+            if (model.get('raw_content_assessment')!=raw or
+                    model.get('consensus_supported_corrections')!=proof or
+                    model.get('consensus_profile')!='bounded-arabic-word-consensus-v1' or
+                    model.get('consensus_reference_text_used') is not False):
+                raise ValueError('Attempt consensus differs from its actual raw recognition cache')
+    if any(model.get(name)!=value for name,value in assessment.items()):
+        raise ValueError('Attempt speech assessment differs from its actual recognition cache')
+    if attempt['state']=='content_rejected':
+        if assessment['content_guard_passed'] or attempt.get('sha256') is not None or model.get('output_sha256') is not None:
+            raise ValueError('A speech-rejected attempt has inconsistent publication evidence')
+    elif attempt['state'] in ('checked','runtime_quality_rejected','duplicate_candidate_skipped'):
+        if not assessment['content_guard_passed'] or attempt.get('sha256')!=checksum:
+            raise ValueError('A publishable attempt lacks its exact-file passing speech assessment')
+    else:
+        raise ValueError('A completed case contains an unfinished or unknown attempt state')
+    return {'candidate_flac_sha256':checksum, 'recognition_cache_sha256':digest(cached),
+            'configuration_sha256':identity, 'assessment_recomputed':True}
+
+
 def export(freeze_path, directory):
     import numpy as np
     import soundfile as sf
@@ -167,9 +200,13 @@ def export(freeze_path, directory):
                'selection_status':record['status'],'method_order':list(orders),
                'original_guard_calibration':control,
                'original_independent_calibration':[original_eval[(case,m)] for m in evaluation_metrics(item['language'])],
-               'attempts':[summarize_attempt(a) for a in record['attempts']],
+               'attempts':[],
                'quality_qualified':False,'qualified_marked_transition':False}
         for attempt in record['attempts']:
+            summary = summarize_attempt(attempt)
+            summary['speech_cache_evidence'] = attempt_speech_evidence(
+                before, attempt, directory, og['configuration_sha256'])
+            row['attempts'].append(summary)
             if attempt.get('detected') is True:
                 evidence = [c for c in candidates['checks'] if c['id']==case and c['role'] in
                             ('processed_'+attempt['preset'],'processed_'+attempt['preset']+'_positive_confirmation')]

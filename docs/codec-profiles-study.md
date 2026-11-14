@@ -105,6 +105,13 @@ score the final files with the same evaluation policies. Raw transcripts and
 embeddings remain in ignored local caches; curated reports retain metrics,
 hashes, all failures and the actual detector observations.
 
+The final exporter recomputes every attempt's speech assessment from its
+file-bound recognition cache, including rejected and detector-positive attempts.
+It retains cache digests without exporting recognized text. Skipped recognizers
+remain unmeasured; the Arabic consensus path must retain its raw assessment and
+the corrections supported by both cached recognizers. This validates the stored
+observations without changing the frozen qualification rules.
+
 ## Experimental single-file command
 
 The optional wrapper uses the same language/duration profiles and processing
