@@ -3,6 +3,7 @@ import argparse
 from datetime import datetime
 import hashlib
 import json
+import math
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -47,11 +48,25 @@ def verify_endpoint(folder, assessment_path, source_sha, candidate_sha):
     return endpoint
 
 
+def additional_review_passes(review, measured):
+    baseline, delta = review['original_reference_error'], measured['reference_error_delta']
+    expected_delta = measured['processed_reference_error'] - baseline
+    if (not math.isclose(delta, expected_delta, abs_tol=1e-12) or
+            measured['reference_delta_passed'] != (delta <= .03 + 1e-12) or
+            review['original_calibrated'] != (baseline <= .15)):
+        raise ValueError('The additional recognizer flags contradict its measured errors')
+    return baseline <= .15 and delta <= .03 + 1e-12
+
+
 def export(directory):
     quality_main = load(directory / 'vocoder_mimi_quality/result.json')
     quality_ta2 = load(directory / 'ta2_vocoder_quality/result.json')
     quality_mid = load(directory / 'ta1_mid_vocoder_quality/result.json')
     mimi_review = load(directory / 'mimi8_arabic_strong_review/result.json')
+    quality_anisotropic = load(directory / 'ta1_anisotropic_quality/result.json')
+    quality_repair = load(directory / 'ta1_time_repair_quality/result.json')
+    quality_mimi12 = load(directory / 'mimi12_arabic_quality/result.json')
+    additional_mms = load(directory / 'mimi_independent_mms/result.json')
     specifications = [
         ('ta_gentle', 'codec_tamil_full_vocoder', '0.5', quality_main),
         ('ta_smoothed', 'codec_tamil_full_vocoder', '1.0', quality_main),
@@ -59,11 +74,15 @@ def export(directory):
         ('ta2_gentle', 'codec_ta2_full_vocoder', '0.5', quality_ta2),
         ('ta2_smoothed', 'codec_ta2_full_vocoder', '1.0', quality_ta2),
         ('ar_mimi16', 'mimi_arabic_development', '16', quality_main),
+        ('ta_frequency', 'codec_ta1_anisotropic', 'f1_t0.5', quality_anisotropic),
+        ('ta_time', 'codec_ta1_anisotropic', 'f0.5_t1', quality_anisotropic),
+        ('ta_time_repaired', 'codec_ta1_time_repair', '', quality_repair),
+        ('ar_mimi12', 'mimi12_arabic_development', '12', quality_mimi12),
     ]
     rows = []
     for label, study, variant, quality in specifications:
         folder = directory / study / variant
-        study_report = load(directory / study / 'result.json')
+        study_report = load(directory / study / ('reference_evaluation.json' if study == 'codec_ta1_anisotropic' else 'result.json'))
         candidate = folder / 'candidate.flac'
         assessment_path = folder / 'assessment.json'
         assessed = load(assessment_path)
@@ -92,12 +111,19 @@ def export(directory):
         calibrated_checkpoints = sum(e <= calibration_ceiling for e in study_report['original_reference_error'].values())
         calibrated_checkpoints += original['original_reference_error'] <= calibration_ceiling
         calibrated = calibrated_checkpoints >= 2
+        extra = None
+        extra_passed = True
+        if label in ('ar_mimi12', 'ar_mimi16'):
+            extra = next(c for c in additional_mms['candidates'] if c['output_sha256'] == candidate_sha)
+            if extra['source_sha256'] != source_sha or additional_mms['source_sha256'] != source_sha:
+                raise ValueError('The additional recognizer evaluated a different source')
+            extra_passed = additional_review_passes(additional_mms, extra)
+        qualified = calibrated and assessed['content_guard_passed'] and all(gates.values()) and extra_passed
         endpoint = None
         if (folder / 'endpoint').exists():
             endpoint = verify_endpoint(folder / 'endpoint', assessment_path, source_sha, candidate_sha)
-        elif assessed['content_guard_passed']:
-            raise ValueError('A planned speech-accepted candidate has no detector result')
-        qualified = calibrated and assessed['content_guard_passed'] and all(gates.values())
+        elif qualified:
+            raise ValueError('A planned quality-accepted candidate has no detector result')
         cleared = qualified and endpoint is not None and endpoint['candidate_detected'] is False
         rows.append({'id': label, 'source_sha256': source_sha, 'candidate_sha256': candidate_sha,
                      'settings': {k: scored[k] for k in ('sigma_frequency', 'sigma_time', 'num_quantizers',
@@ -111,12 +137,15 @@ def export(directory):
                      'calibrated_original_checkpoints': calibrated_checkpoints,
                      'original_calibration_ceiling': calibration_ceiling,
                      'all_seven_estimated_quality_gates_passed': all(gates.values()),
+                     'additional_mms_evaluation': extra,
+                     'additional_mms_reference_delta_passed': extra_passed if extra else None,
                      'quality_qualified': qualified, 'detector': endpoint,
                      'qualified_detector_negative': cleared,
                      'status': ('qualified_detector_negative' if cleared else
                                 'still_detected_twice' if endpoint and endpoint['candidate_detected'] else
                                 'detector_negative_but_quality_rejected' if endpoint else
-                                'speech_rejected_not_detector_tested')})
+                                'speech_rejected_not_detector_tested' if not assessed['content_guard_passed'] else
+                                'quality_rejected_not_detector_tested')})
     # Keep the unqueried, lower-bitrate speech failure and the later stronger
     # checkpoint reassessment. Neither substitutes for the original rejection.
     mimi = load(directory / 'mimi_arabic_development/result.json')
@@ -140,12 +169,14 @@ def export(directory):
             'new_tts_requests': 0, 'frozen_primary_study_result_changed': False,
             'candidates': rows, 'qualified_detector_negatives': sum(r['qualified_detector_negative'] for r in rows),
             'upstream_mimi_assets': mimi['codec'], 'human_listening_approval': False,
+            'additional_mms_evaluation': additional_mms,
             'physical_erasure_proven': False,
             'limits': ['All three sources were used previously; no new held-out evidence.',
                        'Tamil uses the prospective one-percent character policy preserving vowel marks; Arabic uses three-percent words.',
                        'These checkpoint and normalization profiles differ from the frozen primary study.',
                        'A detector-negative file that damages speech remains a failed removal.',
                        'Whisper checkpoints share ancestry and do not constitute independent recognizer architectures.',
+                       'The 12-quantizer Mimi file passed seven estimates but failed the additional calibrated MMS reference-delta check; it was not detector-tested.',
                        'Original calibration and voice scores are estimates, not human approval.',
                        'The frozen primary result remains six qualified marked sources out of fourteen.']}
 

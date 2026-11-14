@@ -29,7 +29,7 @@ This directory mixes curated files included in Git with ignored local experiment
 | `codec_repair_development.json` | One spent French counterexample repaired locally: seven estimated quality gates passed, two whole-file negatives and four positive source controls; no change to the fresh-study count |
 | `codec_cycles_development.json` | One spent long-file counterexample after two codec passes: all seven estimated quality gates passed, two whole-file negatives and four positive source controls; no fresh independent source |
 | `codec_bitrate_development.json` | One spent Korean counterexample: native 3 kbps failed its speech guard; native 6 kbps and both 3/6 kbps band files remained detected twice, including two band files passing all seven estimated quality gates |
-| `vocoder_codec_tradeoffs.json` | Three spent sources: Tamil detector-negative quality failures, gentle outputs that remained detected, and Arabic Mimi speech/detection failures; every planned variant retained |
+| `vocoder_codec_tradeoffs.json` | Three spent sources: Tamil detector-negative quality failures, separate smoothing/repair rejections, and Arabic Mimi speech/detection failures including the additional MMS rejection; every planned variant retained |
 | `model_catalog.json` | Published checkpoint inventory, loaders, aliases, and source/export checksums |
 
 **V3 is not a reliable remover.** Its original small API test did not generalize to subsequent real recordings. See [editor limitations](../docs/editor.md).

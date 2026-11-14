@@ -83,5 +83,24 @@ class EndpointEvidence(unittest.TestCase):
             self.verify(changed)
 
 
+class AdditionalQualityEvidence(unittest.TestCase):
+    def test_original_calibration_and_measured_delta_are_both_required(self):
+        review = {'original_reference_error': .1, 'original_calibrated': True}
+        for delta, passes in ((.02, True), (.04, False)):
+            measured = {'processed_reference_error': .1 + delta,
+                        'reference_error_delta': delta, 'reference_delta_passed': passes}
+            self.assertEqual(report.additional_review_passes(review, measured), passes)
+        review = {'original_reference_error': .2, 'original_calibrated': False}
+        self.assertFalse(report.additional_review_passes(review, {
+            'processed_reference_error': .2, 'reference_error_delta': 0,
+            'reference_delta_passed': True}))
+
+    def test_claimed_pass_cannot_override_observed_regression(self):
+        with self.assertRaises(ValueError):
+            report.additional_review_passes({'original_reference_error': .1, 'original_calibrated': True}, {
+                'processed_reference_error': .14, 'reference_error_delta': .04,
+                'reference_delta_passed': True})
+
+
 if __name__ == '__main__':
     unittest.main()

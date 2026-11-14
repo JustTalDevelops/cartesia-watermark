@@ -126,6 +126,8 @@
       "calibrated_original_checkpoints": 3,
       "original_calibration_ceiling": 0.1,
       "all_seven_estimated_quality_gates_passed": true,
+      "additional_mms_evaluation": null,
+      "additional_mms_reference_delta_passed": null,
       "quality_qualified": true,
       "detector": {
         "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
@@ -360,6 +362,8 @@
       "calibrated_original_checkpoints": 3,
       "original_calibration_ceiling": 0.1,
       "all_seven_estimated_quality_gates_passed": false,
+      "additional_mms_evaluation": null,
+      "additional_mms_reference_delta_passed": null,
       "quality_qualified": false,
       "detector": {
         "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
@@ -594,6 +598,8 @@
       "calibrated_original_checkpoints": 3,
       "original_calibration_ceiling": 0.1,
       "all_seven_estimated_quality_gates_passed": false,
+      "additional_mms_evaluation": null,
+      "additional_mms_reference_delta_passed": null,
       "quality_qualified": false,
       "detector": {
         "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
@@ -828,6 +834,8 @@
       "calibrated_original_checkpoints": 3,
       "original_calibration_ceiling": 0.1,
       "all_seven_estimated_quality_gates_passed": true,
+      "additional_mms_evaluation": null,
+      "additional_mms_reference_delta_passed": null,
       "quality_qualified": true,
       "detector": {
         "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
@@ -1062,6 +1070,8 @@
       "calibrated_original_checkpoints": 3,
       "original_calibration_ceiling": 0.1,
       "all_seven_estimated_quality_gates_passed": false,
+      "additional_mms_evaluation": null,
+      "additional_mms_reference_delta_passed": null,
       "quality_qualified": false,
       "detector": null,
       "qualified_detector_negative": false,
@@ -1187,6 +1197,17 @@
       "calibrated_original_checkpoints": 3,
       "original_calibration_ceiling": 0.15,
       "all_seven_estimated_quality_gates_passed": true,
+      "additional_mms_evaluation": {
+        "num_quantizers": 16,
+        "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+        "output_sha256": "70a8778e2d8ed2c2d86ab48a2bec04164bf3c13ce3c8f574a36e6d5b5d3abda0",
+        "processed_reference_error": 0.11267605633802817,
+        "reference_error_delta": 0.01408450704225353,
+        "paired_disagreement": 0.056338028169014086,
+        "maximum_reference_delta": 0.03,
+        "reference_delta_passed": true
+      },
+      "additional_mms_reference_delta_passed": true,
       "quality_qualified": true,
       "detector": {
         "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
@@ -1299,6 +1320,531 @@
       },
       "qualified_detector_negative": false,
       "status": "still_detected_twice"
+    },
+    {
+      "id": "ta_frequency",
+      "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+      "candidate_sha256": "3befc713bede20bdc259dad461b4e0b74048ab53a269d3ab955dc4194abd161a",
+      "settings": {
+        "sigma_frequency": 1.0,
+        "sigma_time": 0.5
+      },
+      "assessment": {
+        "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+        "output_sha256": "3befc713bede20bdc259dad461b4e0b74048ab53a269d3ab955dc4194abd161a",
+        "sigma_frequency": 1.0,
+        "sigma_time": 0.5,
+        "gain": 1.0,
+        "samples": 1326528,
+        "sample_rate": 44100,
+        "channels": 1,
+        "render_seconds": 39.525292029604316,
+        "complete": true,
+        "quality_verified": false,
+        "recognizer_implementation_commit": "a984fb6d6d17965b7b2dcba5c2909f3f6431db9d",
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "large": 0.02122641509433962,
+          "mms": 0.004694835680751174
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 424,
+          "mms": 426
+        },
+        "processed_units": {
+          "large": 431,
+          "mms": 426
+        }
+      },
+      "reference_errors": {
+        "original_guards": {
+          "large": 0.027972027972027972,
+          "mms": 0.030303030303030304
+        },
+        "processed_guards": {
+          "large": 0.04895104895104895,
+          "mms": 0.03263403263403263
+        },
+        "guard_deltas": {
+          "large": 0.02097902097902098,
+          "mms": 0.0023310023310023284
+        },
+        "evaluation_only": {
+          "id": "ta_frequency",
+          "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+          "output_sha256": "3befc713bede20bdc259dad461b4e0b74048ab53a269d3ab955dc4194abd161a",
+          "evaluation_checkpoint": "small",
+          "processed_reference_error": 0.06993006993006994,
+          "reference_error_delta": 0.018648018648018655,
+          "maximum_reference_delta": 0.01,
+          "reference_delta_passed": false
+        },
+        "evaluation_checkpoint": {
+          "historical_raw_cache_metadata": {
+            "model": "openai/whisper-small",
+            "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+            "attention": "sdpa",
+            "precision": "float32",
+            "decode": "Native timestamps, minimum30s features, complete longer input, max_new_tokens440, no sampling/previous-text conditioning",
+            "role": "Evaluation-only checkpoint",
+            "reference_normalization": "NFKC, BasicTextNormalizer(False); Chinese OpenCC1.1.9 t2s.json before reference CER; Japanese CER; whitespace WER otherwise",
+            "paired_normalization": "Original runtime normalization: NFKC BasicTextNormalizer(False), zh/ja characters, whitespace otherwise"
+          },
+          "role_in_these_candidates": "Evaluation only; never used for processing selection",
+          "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+          "original_reference_error": 0.05128205128205128
+        }
+      },
+      "voice": {
+        "id": "ta_frequency",
+        "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+        "language": "ta",
+        "original_dnsmos": {
+          "signal": 3.65679874251206,
+          "background": 4.199410242332689,
+          "overall": 3.44685987083851,
+          "windows": 21,
+          "natural_seconds": 30.08
+        },
+        "window_starts_seconds": [
+          1.016,
+          10.04,
+          19.064
+        ],
+        "speaker_window_cosines": [
+          0.9831900309812376,
+          0.9883831893357964,
+          0.9805487187444176
+        ],
+        "speaker_minimum": 0.9805487187444176,
+        "processed_dnsmos": {
+          "signal": 3.3010517765364593,
+          "background": 3.9026635870655646,
+          "overall": 2.9854632088469866,
+          "windows": 21,
+          "natural_seconds": 30.08
+        },
+        "dnsmos_delta": {
+          "signal": -0.35574696597560074,
+          "background": -0.29674665526712474,
+          "overall": -0.4613966619915235
+        },
+        "output_sha256": "3befc713bede20bdc259dad461b4e0b74048ab53a269d3ab955dc4194abd161a",
+        "status": "scored"
+      },
+      "quality_gate_results": {
+        "evaluation_checkpoint_reference_delta": false,
+        "primary_reference_delta": false,
+        "secondary_reference_delta": true,
+        "primary_paired": false,
+        "secondary_paired": true,
+        "speaker_minimum": true,
+        "dnsmos_overall": false
+      },
+      "calibrated_original_checkpoints": 3,
+      "original_calibration_ceiling": 0.1,
+      "all_seven_estimated_quality_gates_passed": false,
+      "additional_mms_evaluation": null,
+      "additional_mms_reference_delta_passed": null,
+      "quality_qualified": false,
+      "detector": null,
+      "qualified_detector_negative": false,
+      "status": "speech_rejected_not_detector_tested"
+    },
+    {
+      "id": "ta_time",
+      "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+      "candidate_sha256": "2d1b294ac72508a0a8b320869a46845dcd793b068524e449a1928f91c7a68c17",
+      "settings": {
+        "sigma_frequency": 0.5,
+        "sigma_time": 1.0
+      },
+      "assessment": {
+        "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+        "output_sha256": "2d1b294ac72508a0a8b320869a46845dcd793b068524e449a1928f91c7a68c17",
+        "sigma_frequency": 0.5,
+        "sigma_time": 1.0,
+        "gain": 1.0,
+        "samples": 1326528,
+        "sample_rate": 44100,
+        "channels": 1,
+        "render_seconds": 39.83548113517463,
+        "complete": true,
+        "quality_verified": false,
+        "recognizer_implementation_commit": "a984fb6d6d17965b7b2dcba5c2909f3f6431db9d",
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "large": 0.007075471698113208,
+          "mms": 0.014084507042253521
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 424,
+          "mms": 426
+        },
+        "processed_units": {
+          "large": 424,
+          "mms": 426
+        }
+      },
+      "reference_errors": {
+        "original_guards": {
+          "large": 0.027972027972027972,
+          "mms": 0.030303030303030304
+        },
+        "processed_guards": {
+          "large": 0.03496503496503497,
+          "mms": 0.03263403263403263
+        },
+        "guard_deltas": {
+          "large": 0.006993006993006996,
+          "mms": 0.0023310023310023284
+        },
+        "evaluation_only": {
+          "id": "ta_time",
+          "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+          "output_sha256": "2d1b294ac72508a0a8b320869a46845dcd793b068524e449a1928f91c7a68c17",
+          "evaluation_checkpoint": "small",
+          "processed_reference_error": 0.06293706293706294,
+          "reference_error_delta": 0.011655011655011663,
+          "maximum_reference_delta": 0.01,
+          "reference_delta_passed": false
+        },
+        "evaluation_checkpoint": {
+          "historical_raw_cache_metadata": {
+            "model": "openai/whisper-small",
+            "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+            "attention": "sdpa",
+            "precision": "float32",
+            "decode": "Native timestamps, minimum30s features, complete longer input, max_new_tokens440, no sampling/previous-text conditioning",
+            "role": "Evaluation-only checkpoint",
+            "reference_normalization": "NFKC, BasicTextNormalizer(False); Chinese OpenCC1.1.9 t2s.json before reference CER; Japanese CER; whitespace WER otherwise",
+            "paired_normalization": "Original runtime normalization: NFKC BasicTextNormalizer(False), zh/ja characters, whitespace otherwise"
+          },
+          "role_in_these_candidates": "Evaluation only; never used for processing selection",
+          "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+          "original_reference_error": 0.05128205128205128
+        }
+      },
+      "voice": {
+        "id": "ta_time",
+        "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+        "language": "ta",
+        "original_dnsmos": {
+          "signal": 3.65679874251206,
+          "background": 4.199410242332689,
+          "overall": 3.44685987083851,
+          "windows": 21,
+          "natural_seconds": 30.08
+        },
+        "window_starts_seconds": [
+          1.016,
+          10.04,
+          19.064
+        ],
+        "speaker_window_cosines": [
+          0.9885440062368892,
+          0.9919828752440195,
+          0.9907926614402187
+        ],
+        "speaker_minimum": 0.9885440062368892,
+        "processed_dnsmos": {
+          "signal": 3.372488005324163,
+          "background": 4.08989764425797,
+          "overall": 3.1211075554703367,
+          "windows": 21,
+          "natural_seconds": 30.08
+        },
+        "dnsmos_delta": {
+          "signal": -0.284310737187897,
+          "background": -0.10951259807471914,
+          "overall": -0.3257523153681734
+        },
+        "output_sha256": "2d1b294ac72508a0a8b320869a46845dcd793b068524e449a1928f91c7a68c17",
+        "status": "scored"
+      },
+      "quality_gate_results": {
+        "evaluation_checkpoint_reference_delta": false,
+        "primary_reference_delta": true,
+        "secondary_reference_delta": true,
+        "primary_paired": true,
+        "secondary_paired": false,
+        "speaker_minimum": true,
+        "dnsmos_overall": false
+      },
+      "calibrated_original_checkpoints": 3,
+      "original_calibration_ceiling": 0.1,
+      "all_seven_estimated_quality_gates_passed": false,
+      "additional_mms_evaluation": null,
+      "additional_mms_reference_delta_passed": null,
+      "quality_qualified": false,
+      "detector": null,
+      "qualified_detector_negative": false,
+      "status": "speech_rejected_not_detector_tested"
+    },
+    {
+      "id": "ta_time_repaired",
+      "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+      "candidate_sha256": "45782fdf5a9c7e6b929407153f0ff1e8671bd1fb984fb2bd873c147e3eea96b1",
+      "settings": {},
+      "assessment": {
+        "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+        "output_sha256": "45782fdf5a9c7e6b929407153f0ff1e8671bd1fb984fb2bd873c147e3eea96b1",
+        "recognizer_implementation_commit": "a984fb6d6d17965b7b2dcba5c2909f3f6431db9d",
+        "complete": true,
+        "quality_verified": false,
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "large": 0.007075471698113208,
+          "mms": 0.009389671361502348
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 424,
+          "mms": 426
+        },
+        "processed_units": {
+          "large": 424,
+          "mms": 426
+        }
+      },
+      "reference_errors": {
+        "original_guards": {
+          "large": 0.027972027972027972,
+          "mms": 0.030303030303030304
+        },
+        "processed_guards": {
+          "large": 0.03496503496503497,
+          "mms": 0.030303030303030304
+        },
+        "guard_deltas": {
+          "large": 0.006993006993006996,
+          "mms": 0.0
+        },
+        "evaluation_only": {
+          "id": "ta_time_repaired",
+          "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+          "output_sha256": "45782fdf5a9c7e6b929407153f0ff1e8671bd1fb984fb2bd873c147e3eea96b1",
+          "evaluation_checkpoint": "small",
+          "processed_reference_error": 0.07226107226107226,
+          "reference_error_delta": 0.020979020979020976,
+          "maximum_reference_delta": 0.01,
+          "reference_delta_passed": false
+        },
+        "evaluation_checkpoint": {
+          "historical_raw_cache_metadata": {
+            "model": "openai/whisper-small",
+            "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+            "attention": "sdpa",
+            "precision": "float32",
+            "decode": "Native timestamps, minimum30s features, complete longer input, max_new_tokens440, no sampling/previous-text conditioning",
+            "role": "Evaluation-only checkpoint",
+            "reference_normalization": "NFKC, BasicTextNormalizer(False); Chinese OpenCC1.1.9 t2s.json before reference CER; Japanese CER; whitespace WER otherwise",
+            "paired_normalization": "Original runtime normalization: NFKC BasicTextNormalizer(False), zh/ja characters, whitespace otherwise"
+          },
+          "role_in_these_candidates": "Evaluation only; never used for processing selection",
+          "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+          "original_reference_error": 0.05128205128205128
+        }
+      },
+      "voice": {
+        "id": "ta_time_repaired",
+        "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+        "language": "ta",
+        "original_dnsmos": {
+          "signal": 3.65679874251206,
+          "background": 4.199410242332689,
+          "overall": 3.44685987083851,
+          "windows": 21,
+          "natural_seconds": 30.08
+        },
+        "window_starts_seconds": [
+          1.016,
+          10.04,
+          19.064
+        ],
+        "speaker_window_cosines": [
+          0.9879929748073466,
+          0.9933040022004396,
+          0.993036695700759
+        ],
+        "speaker_minimum": 0.9879929748073466,
+        "processed_dnsmos": {
+          "signal": 3.377256812148757,
+          "background": 4.077501923090032,
+          "overall": 3.1219028645105853,
+          "windows": 21,
+          "natural_seconds": 30.08
+        },
+        "dnsmos_delta": {
+          "signal": -0.2795419303633029,
+          "background": -0.12190831924265755,
+          "overall": -0.3249570063279248
+        },
+        "output_sha256": "45782fdf5a9c7e6b929407153f0ff1e8671bd1fb984fb2bd873c147e3eea96b1",
+        "status": "scored"
+      },
+      "quality_gate_results": {
+        "evaluation_checkpoint_reference_delta": false,
+        "primary_reference_delta": true,
+        "secondary_reference_delta": true,
+        "primary_paired": true,
+        "secondary_paired": true,
+        "speaker_minimum": true,
+        "dnsmos_overall": false
+      },
+      "calibrated_original_checkpoints": 3,
+      "original_calibration_ceiling": 0.1,
+      "all_seven_estimated_quality_gates_passed": false,
+      "additional_mms_evaluation": null,
+      "additional_mms_reference_delta_passed": null,
+      "quality_qualified": false,
+      "detector": null,
+      "qualified_detector_negative": false,
+      "status": "quality_rejected_not_detector_tested"
+    },
+    {
+      "id": "ar_mimi12",
+      "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+      "candidate_sha256": "89420da2a6ad2815ffb7a447f41453269fcbbc10e22130bd7663879dca58a6a8",
+      "settings": {
+        "num_quantizers": 12,
+        "nominal_bitrate_kbps": 1.65
+      },
+      "assessment": {
+        "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+        "output_sha256": "89420da2a6ad2815ffb7a447f41453269fcbbc10e22130bd7663879dca58a6a8",
+        "num_quantizers": 12,
+        "nominal_bitrate_kbps": 1.65,
+        "gain": 1.0,
+        "decode_and_guard_elapsed_seconds": 25.865958944894373,
+        "encoder_prefix_reused": false,
+        "complete": true,
+        "quality_verified": false,
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "turbo": 0.028169014084507043,
+          "fastconformer": 0.0
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "fastconformer",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 71,
+          "fastconformer": 71
+        },
+        "processed_units": {
+          "turbo": 71,
+          "fastconformer": 71
+        }
+      },
+      "reference_errors": {
+        "original_guards": {
+          "turbo": 0.04225352112676056,
+          "fastconformer": 0.0
+        },
+        "processed_guards": {
+          "turbo": 0.07042253521126761,
+          "fastconformer": 0.0
+        },
+        "guard_deltas": {
+          "turbo": 0.028169014084507046,
+          "fastconformer": 0.0
+        },
+        "evaluation_only": {
+          "id": "ar_mimi12",
+          "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+          "output_sha256": "89420da2a6ad2815ffb7a447f41453269fcbbc10e22130bd7663879dca58a6a8",
+          "evaluation_checkpoint": "large",
+          "processed_reference_error": 0.028169014084507043,
+          "reference_error_delta": 0.014084507042253521,
+          "maximum_reference_delta": 0.03,
+          "reference_delta_passed": true
+        },
+        "evaluation_checkpoint": {
+          "historical_raw_cache_metadata": {
+            "model": "openai/whisper-large-v3",
+            "revision": "06f233fe06e710322aca913c1bc4249a0d71fce1",
+            "precision": "float32",
+            "attention": "sdpa",
+            "role": "Additional evaluation checkpoint; shares Whisper ancestry, not an independent architecture; no change to frozen primary results"
+          },
+          "role_in_these_candidates": "Evaluation only; never used for processing selection",
+          "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+          "original_reference_error": 0.014084507042253521
+        }
+      },
+      "voice": {
+        "id": "ar_mimi12",
+        "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+        "language": "ar",
+        "original_dnsmos": {
+          "signal": 3.669378029186744,
+          "background": 4.207749741145473,
+          "overall": 3.4701676199644593,
+          "windows": 22,
+          "natural_seconds": 31.68
+        },
+        "window_starts_seconds": [
+          1.336,
+          10.84,
+          20.344
+        ],
+        "speaker_window_cosines": [
+          0.9918766746573627,
+          0.9874512469237302,
+          0.9869339770703919
+        ],
+        "speaker_minimum": 0.9869339770703919,
+        "processed_dnsmos": {
+          "signal": 3.6608310500779138,
+          "background": 4.218506843138972,
+          "overall": 3.4581192177073614,
+          "windows": 22,
+          "natural_seconds": 31.68
+        },
+        "dnsmos_delta": {
+          "signal": -0.0085469791088304,
+          "background": 0.010757101993498885,
+          "overall": -0.012048402257097912
+        },
+        "output_sha256": "89420da2a6ad2815ffb7a447f41453269fcbbc10e22130bd7663879dca58a6a8",
+        "status": "scored"
+      },
+      "quality_gate_results": {
+        "evaluation_checkpoint_reference_delta": true,
+        "primary_reference_delta": true,
+        "secondary_reference_delta": true,
+        "primary_paired": true,
+        "secondary_paired": true,
+        "speaker_minimum": true,
+        "dnsmos_overall": true
+      },
+      "calibrated_original_checkpoints": 3,
+      "original_calibration_ceiling": 0.15,
+      "all_seven_estimated_quality_gates_passed": true,
+      "additional_mms_evaluation": {
+        "num_quantizers": 12,
+        "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+        "output_sha256": "89420da2a6ad2815ffb7a447f41453269fcbbc10e22130bd7663879dca58a6a8",
+        "processed_reference_error": 0.14084507042253522,
+        "reference_error_delta": 0.042253521126760576,
+        "paired_disagreement": 0.09859154929577464,
+        "maximum_reference_delta": 0.03,
+        "reference_delta_passed": false
+      },
+      "additional_mms_reference_delta_passed": false,
+      "quality_qualified": false,
+      "detector": null,
+      "qualified_detector_negative": false,
+      "status": "quality_rejected_not_detector_tested"
     },
     {
       "id": "ar_mimi8",
@@ -1518,6 +2064,47 @@
     "complete": true
   },
   "human_listening_approval": false,
+  "additional_mms_evaluation": {
+    "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+    "fresh_independent_sources": 0,
+    "frozen_primary_result_changed": false,
+    "original_reference_error": 0.09859154929577464,
+    "original_calibrated": true,
+    "original_completed_at": "2026-11-14T15:51:30.407382+00:00",
+    "historical_cache_metadata": {
+      "model": "facebook/mms-1b-all",
+      "revision": "3d33597edbdaaba14a8e858e2c8caa76e3cec0cd",
+      "attention": "sdpa",
+      "precision": "float32",
+      "role": "Also participates in the processing guard",
+      "reference_normalization": "NFKC, BasicTextNormalizer(False); Chinese OpenCC1.1.9 t2s.json before reference CER; Japanese CER; whitespace WER otherwise",
+      "paired_normalization": "Original runtime normalization: NFKC BasicTextNormalizer(False), zh/ja characters, whitespace otherwise"
+    },
+    "role_in_this_review": "Additional evaluation-only recognizer with an architecture distinct from Whisper; not a processing guard",
+    "candidates": [
+      {
+        "num_quantizers": 16,
+        "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+        "output_sha256": "70a8778e2d8ed2c2d86ab48a2bec04164bf3c13ce3c8f574a36e6d5b5d3abda0",
+        "processed_reference_error": 0.11267605633802817,
+        "reference_error_delta": 0.01408450704225353,
+        "paired_disagreement": 0.056338028169014086,
+        "maximum_reference_delta": 0.03,
+        "reference_delta_passed": true
+      },
+      {
+        "num_quantizers": 12,
+        "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+        "output_sha256": "89420da2a6ad2815ffb7a447f41453269fcbbc10e22130bd7663879dca58a6a8",
+        "processed_reference_error": 0.14084507042253522,
+        "reference_error_delta": 0.042253521126760576,
+        "paired_disagreement": 0.09859154929577464,
+        "maximum_reference_delta": 0.03,
+        "reference_delta_passed": false
+      }
+    ],
+    "complete": true
+  },
   "physical_erasure_proven": false,
   "limits": [
     "All three sources were used previously; no new held-out evidence.",
@@ -1525,6 +2112,7 @@
     "These checkpoint and normalization profiles differ from the frozen primary study.",
     "A detector-negative file that damages speech remains a failed removal.",
     "Whisper checkpoints share ancestry and do not constitute independent recognizer architectures.",
+    "The 12-quantizer Mimi file passed seven estimates but failed the additional calibrated MMS reference-delta check; it was not detector-tested.",
     "Original calibration and voice scores are estimates, not human approval.",
     "The frozen primary result remains six qualified marked sources out of fourteen."
   ]
