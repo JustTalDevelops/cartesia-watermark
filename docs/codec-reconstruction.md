@@ -2,13 +2,26 @@
 
 This opt-in CLI reconstructs complete speech with Vocos decoding EnCodec features at 12 kbps. A second preset keeps that reconstruction in the 1000–4000 Hz band and uses a sigma0.5 BigVGAN reconstruction elsewhere. Both presets compare the original and final recording with Whisper Turbo and MMS, rejecting output when either recognizer's disagreement exceeds 3%.
 
-**Fresh validation is pending.** On the two spent Arabic/Tamil development recordings, the packaged verifier reproduced the exact previously measured FLAC bytes and received two negative Cartesia responses per selected file. Arabic's native output failed the MMS guard and was skipped without a detector request; its wider-band fallback passed. Tamil passed natively. Both original-source controls remained positive. See the [runtime evidence](../results/codec_runtime.json) and [earlier development results](../results/reconstruction_codec_development.json).
+**The candidate failed fresh validation.** Of fourteen new marked sources,
+seven produced twice-negative outputs and six passed all seven quality criteria.
+Hindi's selected output failed the Small reference-error increase limit. French,
+the first Arabic source, Korean, Russian and both Tamil sources exhausted their
+presets because of detection or content-guard rejections. The 101-second source
+stayed detected with both presets despite passing the content guards. Both
+nominal controls remained negative. See the [complete results](../results/codec_reliability.json)
+and [protocol](codec-study.md).
+
+The earlier two spent Arabic/Tamil development recordings still reproduce the
+previously measured FLAC bytes with two negative responses per selected file.
+Arabic's native output failed the MMS guard; its wider-band fallback passed.
+Tamil passed natively. These observations are retained in the
+[runtime evidence](../results/codec_runtime.json) and [development results](../results/reconstruction_codec_development.json).
 
 These are integration checks on two existing recordings. They add no new independent samples. Both recognizers participate in selection, so their agreement is not an independent quality guarantee. The separate reference-error estimates, speaker embeddings and DNSMOS estimates also cannot replace listening or establish physical erasure.
 
 The separate [prospective study protocol](codec-study.md) specifies fresh inputs,
 original-first calibration, seven output criteria and shared-budget enforcement.
-Its frozen plan is an experiment specification, not a successful result.
+Its freeze records the procedure used by the completed study.
 
 ## Install
 

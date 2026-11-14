@@ -1,0 +1,2399 @@
+{
+  "status": "Complete observations; limited generated cohort, not universal removal",
+  "generation_plan_sha256": "98a2f81415ba58dca96b349a4cca98b64b12321538d5c85f5fd0ed302e0bfde3",
+  "freeze_sha256": "f2e199fe8816f1931cb3547f9b30fb942790a5a085f227192482dc85852c9bee",
+  "candidate_implementation_commit": "c2ae4fc50f8b8732e68931104e7367dfe7966b8b",
+  "evaluation_implementation_commit": "25feb763d7853d69aa4ac468b81b42dd6efce5aa",
+  "planned_requests": 16,
+  "distinct_generated_recordings": 16,
+  "matched_nominal_controls": 2,
+  "marked_provenance_requests": 14,
+  "original_measured_positive": 14,
+  "selected_twice_negative": 9,
+  "all_seven_quality_gates_passed": 8,
+  "qualified_checked_outputs": 8,
+  "qualified_marked_positive_to_negative": 6,
+  "human_listening_approval": false,
+  "physical_erasure_proven": false,
+  "clips": [
+    {
+      "id": "codec_fresh_00_en_sonic-preview",
+      "language": "en",
+      "model": "sonic-preview",
+      "source_sha256": "2cd30ac93e972d962b5df9efd07386e513436e4caba078f25f5925336f4861b0",
+      "raw_provider_sha256": "573ae6a3bf6b2d3488633a277e3ad54628e9dc0f0db6c2612f3d5b8f87872e6b",
+      "marked_provenance": true,
+      "original_detected": true,
+      "source_format": {
+        "sample_rate": 44100,
+        "samples": 1220688,
+        "seconds": 27.68,
+        "channels": 2
+      },
+      "status": "verified_negative",
+      "original_calibration": {
+        "small": {
+          "original_reference_error": 0.03896103896103896,
+          "original_reference_error_raw_script": 0.03896103896103896,
+          "original_calibration_eligible": true
+        },
+        "turbo": {
+          "original_reference_error": 0.025974025974025976,
+          "original_reference_error_raw_script": 0.025974025974025976,
+          "original_calibration_eligible": true
+        },
+        "mms": {
+          "original_reference_error": 0.05194805194805195,
+          "original_reference_error_raw_script": 0.05194805194805195,
+          "original_calibration_eligible": true
+        }
+      },
+      "attempts": [
+        {
+          "preset": "codec-native",
+          "state": "checked",
+          "sha256": "5e87af743ed1976a8b34802c848031738dd361d78829fe69e962254fa66515cf",
+          "detected": false,
+          "content_guard_passed": true,
+          "paired_disagreement": {
+            "turbo": 0.0,
+            "mms": 0.025974025974025976
+          },
+          "source_job_reused": false,
+          "detector_checks": [
+            {
+              "ordinal": 1,
+              "http_status": 200,
+              "detected": false,
+              "checked_at": "2026-11-14T12:15:40.557257+00:00"
+            },
+            {
+              "ordinal": 2,
+              "http_status": 200,
+              "detected": false,
+              "checked_at": "2026-11-14T12:17:00.834111+00:00"
+            }
+          ]
+        }
+      ],
+      "calibrated_checkpoint_count": 3,
+      "source_calibration_sufficient": true,
+      "quality_gates": {
+        "turbo_paired_disagreement": {
+          "value": 0.0,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "turbo_reference_error_delta": {
+          "value": 0.0,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "small_reference_error_delta": {
+          "value": 0.0,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "mms_reference_error_delta": {
+          "value": 0.0,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "mms_paired_disagreement": {
+          "value": 0.025974025974025976,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "three_window_speaker_minimum": {
+          "value": 0.9943094455617604,
+          "threshold": 0.95,
+          "direction": "minimum",
+          "passed": true
+        },
+        "dnsmos_overall_delta": {
+          "value": 0.04635742390743891,
+          "threshold": -0.2,
+          "direction": "minimum",
+          "passed": true
+        }
+      },
+      "all_seven_quality_gates_passed": true,
+      "qualified_checked_output": true,
+      "positive_to_negative_transition": true,
+      "output_sha256": "5e87af743ed1976a8b34802c848031738dd361d78829fe69e962254fa66515cf",
+      "selected_preset": "codec-native",
+      "negative_checks": 2,
+      "quality_estimates": {
+        "small": {
+          "original_reference_error": 0.03896103896103896,
+          "original_reference_error_raw_script": 0.03896103896103896,
+          "original_reference_units": 77,
+          "original_recognized_units": 77,
+          "original_calibration_eligible": true,
+          "processed_reference_error": 0.03896103896103896,
+          "reference_error_delta": 0.0,
+          "processed_reference_error_raw_script": 0.03896103896103896,
+          "asr_disagreement": 0.0,
+          "paired_disagreement": 0.0,
+          "processed_recognized_units": 77,
+          "status": "scored"
+        },
+        "turbo": {
+          "original_reference_error": 0.025974025974025976,
+          "original_reference_error_raw_script": 0.025974025974025976,
+          "original_reference_units": 77,
+          "original_recognized_units": 77,
+          "original_calibration_eligible": true,
+          "processed_reference_error": 0.025974025974025976,
+          "reference_error_delta": 0.0,
+          "processed_reference_error_raw_script": 0.025974025974025976,
+          "asr_disagreement": 0.0,
+          "paired_disagreement": 0.0,
+          "processed_recognized_units": 77,
+          "status": "scored"
+        },
+        "mms": {
+          "original_reference_error": 0.05194805194805195,
+          "original_reference_error_raw_script": 0.05194805194805195,
+          "original_reference_units": 77,
+          "original_recognized_units": 77,
+          "original_calibration_eligible": true,
+          "processed_reference_error": 0.05194805194805195,
+          "reference_error_delta": 0.0,
+          "processed_reference_error_raw_script": 0.05194805194805195,
+          "asr_disagreement": 0.025974025974025976,
+          "paired_disagreement": 0.025974025974025976,
+          "processed_recognized_units": 77,
+          "status": "scored"
+        },
+        "voice": {
+          "original_dnsmos": {
+            "signal": 3.754149959309844,
+            "background": 4.179910094390191,
+            "overall": 3.5355511667249804,
+            "windows": 18,
+            "natural_seconds": 27.68
+          },
+          "window_starts_seconds": [
+            0.536,
+            8.84,
+            17.144
+          ],
+          "speaker_window_cosines": [
+            0.9951296435923043,
+            0.9943094455617604,
+            0.9946415680820322
+          ],
+          "speaker_minimum": 0.9943094455617604,
+          "processed_dnsmos": {
+            "signal": 3.7828085127256736,
+            "background": 4.222051711211393,
+            "overall": 3.5819085906324193,
+            "windows": 18,
+            "natural_seconds": 27.68
+          },
+          "dnsmos_delta": {
+            "signal": 0.02865855341582968,
+            "background": 0.0421416168212021,
+            "overall": 0.04635742390743891
+          },
+          "status": "scored"
+        }
+      }
+    },
+    {
+      "id": "codec_fresh_01_es_sonic-3.6",
+      "language": "es",
+      "model": "sonic-3.6",
+      "source_sha256": "9cc2597c477e578866fbd0d313b59be09076071a4bbece8a8571d5f59672b450",
+      "raw_provider_sha256": "21ae08dbf70d9099f3cf84ee3a832f0448fa6416f7745543e32d7d3adb293151",
+      "marked_provenance": true,
+      "original_detected": true,
+      "source_format": {
+        "sample_rate": 44100,
+        "samples": 1192464,
+        "seconds": 27.04,
+        "channels": 1
+      },
+      "status": "verified_negative",
+      "original_calibration": {
+        "small": {
+          "original_reference_error": 0.01282051282051282,
+          "original_reference_error_raw_script": 0.01282051282051282,
+          "original_calibration_eligible": true
+        },
+        "turbo": {
+          "original_reference_error": 0.0,
+          "original_reference_error_raw_script": 0.0,
+          "original_calibration_eligible": true
+        },
+        "mms": {
+          "original_reference_error": 0.038461538461538464,
+          "original_reference_error_raw_script": 0.038461538461538464,
+          "original_calibration_eligible": true
+        }
+      },
+      "attempts": [
+        {
+          "preset": "codec-native",
+          "state": "checked",
+          "sha256": "b541a7fd07b9291735b82432b2d23021e1a9675239e29966d7b263a83149d7a6",
+          "detected": true,
+          "content_guard_passed": true,
+          "paired_disagreement": {
+            "turbo": 0.0,
+            "mms": 0.0
+          },
+          "source_job_reused": false,
+          "detector_checks": [
+            {
+              "ordinal": 1,
+              "http_status": 200,
+              "detected": true,
+              "checked_at": "2026-11-14T12:18:20.512035+00:00"
+            },
+            {
+              "ordinal": 2,
+              "http_status": 200,
+              "detected": true,
+              "checked_at": "2026-11-14T12:19:40.509225+00:00"
+            }
+          ]
+        },
+        {
+          "preset": "codec-band",
+          "state": "checked",
+          "sha256": "52c4a046a5eb40b894649a8cacdb54e1f59f73fcbafbe08b961a47265a60967c",
+          "detected": false,
+          "content_guard_passed": true,
+          "paired_disagreement": {
+            "turbo": 0.0,
+            "mms": 0.012987012987012988
+          },
+          "source_job_reused": false,
+          "detector_checks": [
+            {
+              "ordinal": 1,
+              "http_status": 200,
+              "detected": false,
+              "checked_at": "2026-11-14T12:21:01.484489+00:00"
+            },
+            {
+              "ordinal": 2,
+              "http_status": 200,
+              "detected": false,
+              "checked_at": "2026-11-14T12:22:21.402431+00:00"
+            }
+          ]
+        }
+      ],
+      "calibrated_checkpoint_count": 3,
+      "source_calibration_sufficient": true,
+      "quality_gates": {
+        "turbo_paired_disagreement": {
+          "value": 0.0,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "turbo_reference_error_delta": {
+          "value": 0.0,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "small_reference_error_delta": {
+          "value": 0.0,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "mms_reference_error_delta": {
+          "value": 0.0,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "mms_paired_disagreement": {
+          "value": 0.012987012987012988,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "three_window_speaker_minimum": {
+          "value": 0.9939610379532403,
+          "threshold": 0.95,
+          "direction": "minimum",
+          "passed": true
+        },
+        "dnsmos_overall_delta": {
+          "value": -0.011872904431263542,
+          "threshold": -0.2,
+          "direction": "minimum",
+          "passed": true
+        }
+      },
+      "all_seven_quality_gates_passed": true,
+      "qualified_checked_output": true,
+      "positive_to_negative_transition": true,
+      "output_sha256": "52c4a046a5eb40b894649a8cacdb54e1f59f73fcbafbe08b961a47265a60967c",
+      "selected_preset": "codec-band",
+      "negative_checks": 2,
+      "quality_estimates": {
+        "small": {
+          "original_reference_error": 0.01282051282051282,
+          "original_reference_error_raw_script": 0.01282051282051282,
+          "original_reference_units": 78,
+          "original_recognized_units": 78,
+          "original_calibration_eligible": true,
+          "processed_reference_error": 0.01282051282051282,
+          "reference_error_delta": 0.0,
+          "processed_reference_error_raw_script": 0.01282051282051282,
+          "asr_disagreement": 0.0,
+          "paired_disagreement": 0.0,
+          "processed_recognized_units": 78,
+          "status": "scored"
+        },
+        "turbo": {
+          "original_reference_error": 0.0,
+          "original_reference_error_raw_script": 0.0,
+          "original_reference_units": 78,
+          "original_recognized_units": 78,
+          "original_calibration_eligible": true,
+          "processed_reference_error": 0.0,
+          "reference_error_delta": 0.0,
+          "processed_reference_error_raw_script": 0.0,
+          "asr_disagreement": 0.0,
+          "paired_disagreement": 0.0,
+          "processed_recognized_units": 78,
+          "status": "scored"
+        },
+        "mms": {
+          "original_reference_error": 0.038461538461538464,
+          "original_reference_error_raw_script": 0.038461538461538464,
+          "original_reference_units": 78,
+          "original_recognized_units": 77,
+          "original_calibration_eligible": true,
+          "processed_reference_error": 0.038461538461538464,
+          "reference_error_delta": 0.0,
+          "processed_reference_error_raw_script": 0.038461538461538464,
+          "asr_disagreement": 0.012987012987012988,
+          "paired_disagreement": 0.012987012987012988,
+          "processed_recognized_units": 77,
+          "status": "scored"
+        },
+        "voice": {
+          "original_dnsmos": {
+            "signal": 3.6724215648987144,
+            "background": 4.183239520411756,
+            "overall": 3.458837226747852,
+            "windows": 18,
+            "natural_seconds": 27.04
+          },
+          "window_starts_seconds": [
+            0.408,
+            8.52,
+            16.632
+          ],
+          "speaker_window_cosines": [
+            0.9971736862188799,
+            0.9939610379532403,
+            0.9947990880992941
+          ],
+          "speaker_minimum": 0.9939610379532403,
+          "processed_dnsmos": {
+            "signal": 3.6633828921099987,
+            "background": 4.1919587242155245,
+            "overall": 3.4469643223165884,
+            "windows": 18,
+            "natural_seconds": 27.04
+          },
+          "dnsmos_delta": {
+            "signal": -0.00903867278871573,
+            "background": 0.008719203803768671,
+            "overall": -0.011872904431263542
+          },
+          "status": "scored"
+        }
+      }
+    },
+    {
+      "id": "codec_fresh_02_fr_sonic-preview",
+      "language": "fr",
+      "model": "sonic-preview",
+      "source_sha256": "72e3b625acf0f5b3fe78f0e06d7eea523c0e39708546973a17fec3e400f66480",
+      "raw_provider_sha256": "48df677f351aef5b095da0637a1303adc7f6ae36d06397ceabd3819fe1cd0e1b",
+      "marked_provenance": true,
+      "original_detected": true,
+      "source_format": {
+        "sample_rate": 44100,
+        "samples": 1072512,
+        "seconds": 24.32,
+        "channels": 1
+      },
+      "status": "not_cleared",
+      "original_calibration": {
+        "small": {
+          "original_reference_error": 0.0125,
+          "original_reference_error_raw_script": 0.0125,
+          "original_calibration_eligible": true
+        },
+        "turbo": {
+          "original_reference_error": 0.0125,
+          "original_reference_error_raw_script": 0.0125,
+          "original_calibration_eligible": true
+        },
+        "mms": {
+          "original_reference_error": 0.075,
+          "original_reference_error_raw_script": 0.075,
+          "original_calibration_eligible": true
+        }
+      },
+      "attempts": [
+        {
+          "preset": "codec-native",
+          "state": "checked",
+          "sha256": "79d21f00951184719eb5063751c07e091c12d8cc20e74a67609c7123481b0dc1",
+          "detected": true,
+          "content_guard_passed": true,
+          "paired_disagreement": {
+            "turbo": 0.0,
+            "mms": 0.0
+          },
+          "source_job_reused": false,
+          "detector_checks": [
+            {
+              "ordinal": 1,
+              "http_status": 200,
+              "detected": true,
+              "checked_at": "2026-11-14T12:23:41.339542+00:00"
+            },
+            {
+              "ordinal": 2,
+              "http_status": 200,
+              "detected": true,
+              "checked_at": "2026-11-14T12:25:01.352918+00:00"
+            }
+          ]
+        },
+        {
+          "preset": "codec-band",
+          "state": "content_rejected",
+          "content_guard_passed": false,
+          "paired_disagreement": {
+            "turbo": 0.0,
+            "mms": 0.06329113924050633
+          },
+          "rejection_reason": "recognizer_disagreement",
+          "source_job_reused": false
+        }
+      ],
+      "calibrated_checkpoint_count": 3,
+      "source_calibration_sufficient": true,
+      "quality_gates": null,
+      "all_seven_quality_gates_passed": false,
+      "qualified_checked_output": false,
+      "positive_to_negative_transition": false
+    },
+    {
+      "id": "codec_fresh_03_de_sonic-3.6",
+      "language": "de",
+      "model": "sonic-3.6",
+      "source_sha256": "5dbfe8a3fcf9bbda3a7ff03d76526f847cb322b4115318f0bd4272bac2e36552",
+      "raw_provider_sha256": "57b7885c72edad979a2b53bd55d8a4e233269600b9dd6462a639884a076df969",
+      "marked_provenance": true,
+      "original_detected": true,
+      "source_format": {
+        "sample_rate": 44100,
+        "samples": 1132488,
+        "seconds": 25.68,
+        "channels": 1
+      },
+      "status": "verified_negative",
+      "original_calibration": {
+        "small": {
+          "original_reference_error": 0.0945945945945946,
+          "original_reference_error_raw_script": 0.0945945945945946,
+          "original_calibration_eligible": true
+        },
+        "turbo": {
+          "original_reference_error": 0.02702702702702703,
+          "original_reference_error_raw_script": 0.02702702702702703,
+          "original_calibration_eligible": true
+        },
+        "mms": {
+          "original_reference_error": 0.05405405405405406,
+          "original_reference_error_raw_script": 0.05405405405405406,
+          "original_calibration_eligible": true
+        }
+      },
+      "attempts": [
+        {
+          "preset": "codec-native",
+          "state": "checked",
+          "sha256": "75fc4bb737ad445221bd1ee984c481ce1d8ce8c8bdb45f8aaa8aa9899ee4a7b4",
+          "detected": false,
+          "content_guard_passed": true,
+          "paired_disagreement": {
+            "turbo": 0.0,
+            "mms": 0.0
+          },
+          "source_job_reused": false,
+          "detector_checks": [
+            {
+              "ordinal": 1,
+              "http_status": 200,
+              "detected": false,
+              "checked_at": "2026-11-14T12:26:56.048064+00:00"
+            },
+            {
+              "ordinal": 2,
+              "http_status": 200,
+              "detected": false,
+              "checked_at": "2026-11-14T12:28:16.085793+00:00"
+            }
+          ]
+        }
+      ],
+      "calibrated_checkpoint_count": 3,
+      "source_calibration_sufficient": true,
+      "quality_gates": {
+        "turbo_paired_disagreement": {
+          "value": 0.0,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "turbo_reference_error_delta": {
+          "value": 0.0,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "small_reference_error_delta": {
+          "value": 0.0,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "mms_reference_error_delta": {
+          "value": 0.0,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "mms_paired_disagreement": {
+          "value": 0.0,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "three_window_speaker_minimum": {
+          "value": 0.9902052326636925,
+          "threshold": 0.95,
+          "direction": "minimum",
+          "passed": true
+        },
+        "dnsmos_overall_delta": {
+          "value": 0.030454471396586413,
+          "threshold": -0.2,
+          "direction": "minimum",
+          "passed": true
+        }
+      },
+      "all_seven_quality_gates_passed": true,
+      "qualified_checked_output": true,
+      "positive_to_negative_transition": true,
+      "output_sha256": "75fc4bb737ad445221bd1ee984c481ce1d8ce8c8bdb45f8aaa8aa9899ee4a7b4",
+      "selected_preset": "codec-native",
+      "negative_checks": 2,
+      "quality_estimates": {
+        "small": {
+          "original_reference_error": 0.0945945945945946,
+          "original_reference_error_raw_script": 0.0945945945945946,
+          "original_reference_units": 74,
+          "original_recognized_units": 75,
+          "original_calibration_eligible": true,
+          "processed_reference_error": 0.0945945945945946,
+          "reference_error_delta": 0.0,
+          "processed_reference_error_raw_script": 0.0945945945945946,
+          "asr_disagreement": 0.0,
+          "paired_disagreement": 0.0,
+          "processed_recognized_units": 75,
+          "status": "scored"
+        },
+        "turbo": {
+          "original_reference_error": 0.02702702702702703,
+          "original_reference_error_raw_script": 0.02702702702702703,
+          "original_reference_units": 74,
+          "original_recognized_units": 75,
+          "original_calibration_eligible": true,
+          "processed_reference_error": 0.02702702702702703,
+          "reference_error_delta": 0.0,
+          "processed_reference_error_raw_script": 0.02702702702702703,
+          "asr_disagreement": 0.0,
+          "paired_disagreement": 0.0,
+          "processed_recognized_units": 75,
+          "status": "scored"
+        },
+        "mms": {
+          "original_reference_error": 0.05405405405405406,
+          "original_reference_error_raw_script": 0.05405405405405406,
+          "original_reference_units": 74,
+          "original_recognized_units": 75,
+          "original_calibration_eligible": true,
+          "processed_reference_error": 0.05405405405405406,
+          "reference_error_delta": 0.0,
+          "processed_reference_error_raw_script": 0.05405405405405406,
+          "asr_disagreement": 0.0,
+          "paired_disagreement": 0.0,
+          "processed_recognized_units": 75,
+          "status": "scored"
+        },
+        "voice": {
+          "original_dnsmos": {
+            "signal": 3.728429916269628,
+            "background": 4.207266385612418,
+            "overall": 3.5181462135827837,
+            "windows": 16,
+            "natural_seconds": 25.68
+          },
+          "window_starts_seconds": [
+            0.136,
+            7.84,
+            15.544
+          ],
+          "speaker_window_cosines": [
+            0.9966985009249167,
+            0.9902052326636925,
+            0.9953840882857447
+          ],
+          "speaker_minimum": 0.9902052326636925,
+          "processed_dnsmos": {
+            "signal": 3.74914186604512,
+            "background": 4.227645131518599,
+            "overall": 3.54860068497937,
+            "windows": 16,
+            "natural_seconds": 25.68
+          },
+          "dnsmos_delta": {
+            "signal": 0.020711949775491956,
+            "background": 0.020378745906181273,
+            "overall": 0.030454471396586413
+          },
+          "status": "scored"
+        }
+      }
+    },
+    {
+      "id": "codec_fresh_04_hi_sonic-preview",
+      "language": "hi",
+      "model": "sonic-preview",
+      "source_sha256": "fe122124087013272f63a1715a3d95beb2aa3944d4d95e73134844861faac2ba",
+      "raw_provider_sha256": "d23d93d484b20fafc13a20ef365b05f66c0f2b6d4123b42eabede6f1894be738",
+      "marked_provenance": true,
+      "original_detected": true,
+      "source_format": {
+        "sample_rate": 44100,
+        "samples": 1263024,
+        "seconds": 28.64,
+        "channels": 1
+      },
+      "status": "verified_negative",
+      "original_calibration": {
+        "small": {
+          "original_reference_error": 0.26973684210526316,
+          "original_reference_error_raw_script": 0.26973684210526316,
+          "original_calibration_eligible": false
+        },
+        "turbo": {
+          "original_reference_error": 0.09868421052631579,
+          "original_reference_error_raw_script": 0.09868421052631579,
+          "original_calibration_eligible": true
+        },
+        "mms": {
+          "original_reference_error": 0.02631578947368421,
+          "original_reference_error_raw_script": 0.02631578947368421,
+          "original_calibration_eligible": true
+        }
+      },
+      "attempts": [
+        {
+          "preset": "codec-native",
+          "state": "checked",
+          "sha256": "5c9807cfadf6309ec2d4fb329c66fa47aa7eb0b853ca96721856e7ae9365c4ae",
+          "detected": false,
+          "content_guard_passed": true,
+          "paired_disagreement": {
+            "turbo": 0.0,
+            "mms": 0.013245033112582781
+          },
+          "source_job_reused": false,
+          "detector_checks": [
+            {
+              "ordinal": 1,
+              "http_status": 200,
+              "detected": false,
+              "checked_at": "2026-11-14T12:29:36.093738+00:00"
+            },
+            {
+              "ordinal": 2,
+              "http_status": 200,
+              "detected": false,
+              "checked_at": "2026-11-14T12:30:56.118112+00:00"
+            }
+          ]
+        }
+      ],
+      "calibrated_checkpoint_count": 2,
+      "source_calibration_sufficient": true,
+      "quality_gates": {
+        "turbo_paired_disagreement": {
+          "value": 0.0,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "turbo_reference_error_delta": {
+          "value": 0.0,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "small_reference_error_delta": {
+          "value": 0.11842105263157893,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": false
+        },
+        "mms_reference_error_delta": {
+          "value": 0.0,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "mms_paired_disagreement": {
+          "value": 0.013245033112582781,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "three_window_speaker_minimum": {
+          "value": 0.9952774107534044,
+          "threshold": 0.95,
+          "direction": "minimum",
+          "passed": true
+        },
+        "dnsmos_overall_delta": {
+          "value": -0.01822938940044505,
+          "threshold": -0.2,
+          "direction": "minimum",
+          "passed": true
+        }
+      },
+      "all_seven_quality_gates_passed": false,
+      "qualified_checked_output": false,
+      "positive_to_negative_transition": true,
+      "output_sha256": "5c9807cfadf6309ec2d4fb329c66fa47aa7eb0b853ca96721856e7ae9365c4ae",
+      "selected_preset": "codec-native",
+      "negative_checks": 2,
+      "quality_estimates": {
+        "small": {
+          "original_reference_error": 0.26973684210526316,
+          "original_reference_error_raw_script": 0.26973684210526316,
+          "original_reference_units": 152,
+          "original_recognized_units": 153,
+          "original_calibration_eligible": false,
+          "processed_reference_error": 0.3881578947368421,
+          "reference_error_delta": 0.11842105263157893,
+          "processed_reference_error_raw_script": 0.3881578947368421,
+          "asr_disagreement": 0.1830065359477124,
+          "paired_disagreement": 0.1830065359477124,
+          "processed_recognized_units": 137,
+          "status": "scored"
+        },
+        "turbo": {
+          "original_reference_error": 0.09868421052631579,
+          "original_reference_error_raw_script": 0.09868421052631579,
+          "original_reference_units": 152,
+          "original_recognized_units": 152,
+          "original_calibration_eligible": true,
+          "processed_reference_error": 0.09868421052631579,
+          "reference_error_delta": 0.0,
+          "processed_reference_error_raw_script": 0.09868421052631579,
+          "asr_disagreement": 0.0,
+          "paired_disagreement": 0.0,
+          "processed_recognized_units": 152,
+          "status": "scored"
+        },
+        "mms": {
+          "original_reference_error": 0.02631578947368421,
+          "original_reference_error_raw_script": 0.02631578947368421,
+          "original_reference_units": 152,
+          "original_recognized_units": 151,
+          "original_calibration_eligible": true,
+          "processed_reference_error": 0.02631578947368421,
+          "reference_error_delta": 0.0,
+          "processed_reference_error_raw_script": 0.02631578947368421,
+          "asr_disagreement": 0.013245033112582781,
+          "paired_disagreement": 0.013245033112582781,
+          "processed_recognized_units": 152,
+          "status": "scored"
+        },
+        "voice": {
+          "original_dnsmos": {
+            "signal": 3.7323581703034385,
+            "background": 4.253787889028041,
+            "overall": 3.561578179125189,
+            "windows": 19,
+            "natural_seconds": 28.64
+          },
+          "window_starts_seconds": [
+            0.728,
+            9.32,
+            17.912
+          ],
+          "speaker_window_cosines": [
+            0.9952774107534044,
+            0.998149049533059,
+            0.996238046062354
+          ],
+          "speaker_minimum": 0.9952774107534044,
+          "processed_dnsmos": {
+            "signal": 3.719029340666554,
+            "background": 4.2441009120967905,
+            "overall": 3.5433487897247438,
+            "windows": 19,
+            "natural_seconds": 28.64
+          },
+          "dnsmos_delta": {
+            "signal": -0.013328829636884532,
+            "background": -0.009686976931250868,
+            "overall": -0.01822938940044505
+          },
+          "status": "scored"
+        }
+      }
+    },
+    {
+      "id": "codec_fresh_05_ja_sonic-3.6",
+      "language": "ja",
+      "model": "sonic-3.6",
+      "source_sha256": "25f3e14b7d15a0806bcbea995e4a4ec087320186c26dda73f2ff67e6786dacb5",
+      "raw_provider_sha256": "edd93559d25da95c2fff107df995098967cf04c5bd0083f14d4818fae2523f1b",
+      "marked_provenance": true,
+      "original_detected": true,
+      "source_format": {
+        "sample_rate": 44100,
+        "samples": 1421784,
+        "seconds": 32.24,
+        "channels": 1
+      },
+      "status": "verified_negative",
+      "original_calibration": {
+        "small": {
+          "original_reference_error": 0.011904761904761904,
+          "original_reference_error_raw_script": 0.011904761904761904,
+          "original_calibration_eligible": true
+        },
+        "turbo": {
+          "original_reference_error": 0.005952380952380952,
+          "original_reference_error_raw_script": 0.005952380952380952,
+          "original_calibration_eligible": true
+        },
+        "mms": {
+          "original_reference_error": 0.18452380952380953,
+          "original_reference_error_raw_script": 0.18452380952380953,
+          "original_calibration_eligible": false
+        }
+      },
+      "attempts": [
+        {
+          "preset": "codec-native",
+          "state": "checked",
+          "sha256": "4dda888e535d2ace9c3879024aa64dfde71868aead2dffe0f1cf28fcfaebd139",
+          "detected": false,
+          "content_guard_passed": true,
+          "paired_disagreement": {
+            "turbo": 0.0,
+            "mms": 0.029239766081871343
+          },
+          "source_job_reused": false,
+          "detector_checks": [
+            {
+              "ordinal": 1,
+              "http_status": 200,
+              "detected": false,
+              "checked_at": "2026-11-14T12:32:16.163448+00:00"
+            },
+            {
+              "ordinal": 2,
+              "http_status": 200,
+              "detected": false,
+              "checked_at": "2026-11-14T12:33:36.458669+00:00"
+            }
+          ]
+        }
+      ],
+      "calibrated_checkpoint_count": 2,
+      "source_calibration_sufficient": true,
+      "quality_gates": {
+        "turbo_paired_disagreement": {
+          "value": 0.0,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "turbo_reference_error_delta": {
+          "value": 0.0,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "small_reference_error_delta": {
+          "value": 0.0,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "mms_reference_error_delta": {
+          "value": 0.01190476190476189,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "mms_paired_disagreement": {
+          "value": 0.029239766081871343,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "three_window_speaker_minimum": {
+          "value": 0.9923784536672797,
+          "threshold": 0.95,
+          "direction": "minimum",
+          "passed": true
+        },
+        "dnsmos_overall_delta": {
+          "value": -0.045736483751808166,
+          "threshold": -0.2,
+          "direction": "minimum",
+          "passed": true
+        }
+      },
+      "all_seven_quality_gates_passed": true,
+      "qualified_checked_output": true,
+      "positive_to_negative_transition": true,
+      "output_sha256": "4dda888e535d2ace9c3879024aa64dfde71868aead2dffe0f1cf28fcfaebd139",
+      "selected_preset": "codec-native",
+      "negative_checks": 2,
+      "quality_estimates": {
+        "small": {
+          "original_reference_error": 0.011904761904761904,
+          "original_reference_error_raw_script": 0.011904761904761904,
+          "original_reference_units": 168,
+          "original_recognized_units": 168,
+          "original_calibration_eligible": true,
+          "processed_reference_error": 0.011904761904761904,
+          "reference_error_delta": 0.0,
+          "processed_reference_error_raw_script": 0.011904761904761904,
+          "asr_disagreement": 0.0,
+          "paired_disagreement": 0.0,
+          "processed_recognized_units": 168,
+          "status": "scored"
+        },
+        "turbo": {
+          "original_reference_error": 0.005952380952380952,
+          "original_reference_error_raw_script": 0.005952380952380952,
+          "original_reference_units": 168,
+          "original_recognized_units": 168,
+          "original_calibration_eligible": true,
+          "processed_reference_error": 0.005952380952380952,
+          "reference_error_delta": 0.0,
+          "processed_reference_error_raw_script": 0.005952380952380952,
+          "asr_disagreement": 0.0,
+          "paired_disagreement": 0.0,
+          "processed_recognized_units": 168,
+          "status": "scored"
+        },
+        "mms": {
+          "original_reference_error": 0.18452380952380953,
+          "original_reference_error_raw_script": 0.18452380952380953,
+          "original_reference_units": 168,
+          "original_recognized_units": 171,
+          "original_calibration_eligible": false,
+          "processed_reference_error": 0.19642857142857142,
+          "reference_error_delta": 0.01190476190476189,
+          "processed_reference_error_raw_script": 0.19642857142857142,
+          "asr_disagreement": 0.029239766081871343,
+          "paired_disagreement": 0.029239766081871343,
+          "processed_recognized_units": 170,
+          "status": "scored"
+        },
+        "voice": {
+          "original_dnsmos": {
+            "signal": 3.6762161905253143,
+            "background": 4.166312655142736,
+            "overall": 3.449903105142787,
+            "windows": 23,
+            "natural_seconds": 32.24
+          },
+          "window_starts_seconds": [
+            1.448,
+            11.12,
+            20.792
+          ],
+          "speaker_window_cosines": [
+            0.9954762476719234,
+            0.9978679203011004,
+            0.9923784536672797
+          ],
+          "speaker_minimum": 0.9923784536672797,
+          "processed_dnsmos": {
+            "signal": 3.6415440026639363,
+            "background": 4.14586775794029,
+            "overall": 3.4041666213909787,
+            "windows": 23,
+            "natural_seconds": 32.24
+          },
+          "dnsmos_delta": {
+            "signal": -0.034672187861378045,
+            "background": -0.020444897202446022,
+            "overall": -0.045736483751808166
+          },
+          "status": "scored"
+        }
+      }
+    },
+    {
+      "id": "codec_fresh_06_ar1_sonic-3.6",
+      "language": "ar",
+      "model": "sonic-3.6",
+      "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+      "raw_provider_sha256": "4af09020dfba4d8212f888375f7f7ca6def5bdb3195af0ce7eeb7046fd5dee7d",
+      "marked_provenance": true,
+      "original_detected": true,
+      "source_format": {
+        "sample_rate": 44100,
+        "samples": 1397088,
+        "seconds": 31.68,
+        "channels": 1
+      },
+      "status": "not_cleared",
+      "original_calibration": {
+        "small": {
+          "original_reference_error": 0.2112676056338028,
+          "original_reference_error_raw_script": 0.2112676056338028,
+          "original_calibration_eligible": false
+        },
+        "turbo": {
+          "original_reference_error": 0.04225352112676056,
+          "original_reference_error_raw_script": 0.04225352112676056,
+          "original_calibration_eligible": true
+        },
+        "mms": {
+          "original_reference_error": 0.09859154929577464,
+          "original_reference_error_raw_script": 0.09859154929577464,
+          "original_calibration_eligible": true
+        }
+      },
+      "attempts": [
+        {
+          "preset": "codec-native",
+          "state": "content_rejected",
+          "content_guard_passed": false,
+          "paired_disagreement": {
+            "turbo": 0.014084507042253521,
+            "mms": 0.07042253521126761
+          },
+          "rejection_reason": "recognizer_disagreement",
+          "source_job_reused": false
+        },
+        {
+          "preset": "codec-band",
+          "state": "content_rejected",
+          "content_guard_passed": false,
+          "paired_disagreement": {
+            "turbo": 0.014084507042253521,
+            "mms": 0.04225352112676056
+          },
+          "rejection_reason": "recognizer_disagreement",
+          "source_job_reused": true
+        }
+      ],
+      "calibrated_checkpoint_count": 2,
+      "source_calibration_sufficient": true,
+      "quality_gates": null,
+      "all_seven_quality_gates_passed": false,
+      "qualified_checked_output": false,
+      "positive_to_negative_transition": false
+    },
+    {
+      "id": "codec_fresh_07_ko_sonic-preview",
+      "language": "ko",
+      "model": "sonic-preview",
+      "source_sha256": "e5c73a9136873b737f8815a0d6cd2777776cd9cc5d2d3646c1cd3db88abee8c9",
+      "raw_provider_sha256": "e1efc041a15b4380197e258ca82294e33f27f6c83c300f023e665221d952445c",
+      "marked_provenance": true,
+      "original_detected": true,
+      "source_format": {
+        "sample_rate": 44100,
+        "samples": 1319472,
+        "seconds": 29.92,
+        "channels": 1
+      },
+      "status": "not_cleared",
+      "original_calibration": {
+        "small": {
+          "original_reference_error": 0.18867924528301888,
+          "original_reference_error_raw_script": 0.18867924528301888,
+          "original_calibration_eligible": false
+        },
+        "turbo": {
+          "original_reference_error": 0.07547169811320754,
+          "original_reference_error_raw_script": 0.07547169811320754,
+          "original_calibration_eligible": true
+        },
+        "mms": {
+          "original_reference_error": 0.39622641509433965,
+          "original_reference_error_raw_script": 0.39622641509433965,
+          "original_calibration_eligible": false
+        }
+      },
+      "attempts": [
+        {
+          "preset": "codec-native",
+          "state": "content_rejected",
+          "content_guard_passed": false,
+          "paired_disagreement": {
+            "turbo": 0.0,
+            "mms": 0.20833333333333334
+          },
+          "rejection_reason": "recognizer_disagreement",
+          "source_job_reused": false
+        },
+        {
+          "preset": "codec-band",
+          "state": "content_rejected",
+          "content_guard_passed": false,
+          "paired_disagreement": {
+            "turbo": 0.0,
+            "mms": 0.25
+          },
+          "rejection_reason": "recognizer_disagreement",
+          "source_job_reused": true
+        }
+      ],
+      "calibrated_checkpoint_count": 1,
+      "source_calibration_sufficient": false,
+      "quality_gates": null,
+      "all_seven_quality_gates_passed": false,
+      "qualified_checked_output": false,
+      "positive_to_negative_transition": false
+    },
+    {
+      "id": "codec_fresh_08_zh_sonic-3.6",
+      "language": "zh",
+      "model": "sonic-3.6",
+      "source_sha256": "d034d25a91ff4b7ed7f6cb48be7568557a9d012c08933212c3df53dbcea88604",
+      "raw_provider_sha256": "f2cffe9509fce04bb1b992e213641afcd93deba0da256ab60eed5c7227a4359f",
+      "marked_provenance": true,
+      "original_detected": true,
+      "source_format": {
+        "sample_rate": 44100,
+        "samples": 1393560,
+        "seconds": 31.6,
+        "channels": 1
+      },
+      "status": "verified_negative",
+      "original_calibration": {
+        "small": {
+          "original_reference_error": 0.03355704697986577,
+          "original_reference_error_raw_script": 0.06040268456375839,
+          "original_calibration_eligible": true
+        },
+        "turbo": {
+          "original_reference_error": 0.006711409395973154,
+          "original_reference_error_raw_script": 0.006711409395973154,
+          "original_calibration_eligible": true
+        },
+        "mms": {
+          "original_reference_error": 0.21476510067114093,
+          "original_reference_error_raw_script": 0.21476510067114093,
+          "original_calibration_eligible": false
+        }
+      },
+      "attempts": [
+        {
+          "preset": "codec-native",
+          "state": "content_rejected",
+          "content_guard_passed": false,
+          "paired_disagreement": {
+            "turbo": 0.0,
+            "mms": 0.040268456375838924
+          },
+          "rejection_reason": "recognizer_disagreement",
+          "source_job_reused": false
+        },
+        {
+          "preset": "codec-band",
+          "state": "checked",
+          "sha256": "f90e5f8314ddc7297450a8d5d72e77d8a2ece255c45d6967a597ea11d0c1eca5",
+          "detected": false,
+          "content_guard_passed": true,
+          "paired_disagreement": {
+            "turbo": 0.0,
+            "mms": 0.026845637583892617
+          },
+          "source_job_reused": true,
+          "detector_checks": [
+            {
+              "ordinal": 1,
+              "http_status": 200,
+              "detected": false,
+              "checked_at": "2026-11-14T12:39:47.858412+00:00"
+            },
+            {
+              "ordinal": 2,
+              "http_status": 200,
+              "detected": false,
+              "checked_at": "2026-11-14T12:41:07.847130+00:00"
+            }
+          ]
+        }
+      ],
+      "calibrated_checkpoint_count": 2,
+      "source_calibration_sufficient": true,
+      "quality_gates": {
+        "turbo_paired_disagreement": {
+          "value": 0.0,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "turbo_reference_error_delta": {
+          "value": 0.0,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "small_reference_error_delta": {
+          "value": 0.0,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "mms_reference_error_delta": {
+          "value": 0.0,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "mms_paired_disagreement": {
+          "value": 0.026845637583892617,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "three_window_speaker_minimum": {
+          "value": 0.9891655304814586,
+          "threshold": 0.95,
+          "direction": "minimum",
+          "passed": true
+        },
+        "dnsmos_overall_delta": {
+          "value": 0.025426412012936606,
+          "threshold": -0.2,
+          "direction": "minimum",
+          "passed": true
+        }
+      },
+      "all_seven_quality_gates_passed": true,
+      "qualified_checked_output": true,
+      "positive_to_negative_transition": true,
+      "output_sha256": "f90e5f8314ddc7297450a8d5d72e77d8a2ece255c45d6967a597ea11d0c1eca5",
+      "selected_preset": "codec-band",
+      "negative_checks": 2,
+      "quality_estimates": {
+        "small": {
+          "original_reference_error": 0.03355704697986577,
+          "original_reference_error_raw_script": 0.06040268456375839,
+          "original_reference_units": 149,
+          "original_recognized_units": 149,
+          "original_calibration_eligible": true,
+          "processed_reference_error": 0.03355704697986577,
+          "reference_error_delta": 0.0,
+          "processed_reference_error_raw_script": 0.06040268456375839,
+          "asr_disagreement": 0.0,
+          "paired_disagreement": 0.0,
+          "processed_recognized_units": 149,
+          "status": "scored"
+        },
+        "turbo": {
+          "original_reference_error": 0.006711409395973154,
+          "original_reference_error_raw_script": 0.006711409395973154,
+          "original_reference_units": 149,
+          "original_recognized_units": 149,
+          "original_calibration_eligible": true,
+          "processed_reference_error": 0.006711409395973154,
+          "reference_error_delta": 0.0,
+          "processed_reference_error_raw_script": 0.006711409395973154,
+          "asr_disagreement": 0.0,
+          "paired_disagreement": 0.0,
+          "processed_recognized_units": 149,
+          "status": "scored"
+        },
+        "mms": {
+          "original_reference_error": 0.21476510067114093,
+          "original_reference_error_raw_script": 0.21476510067114093,
+          "original_reference_units": 149,
+          "original_recognized_units": 149,
+          "original_calibration_eligible": false,
+          "processed_reference_error": 0.21476510067114093,
+          "reference_error_delta": 0.0,
+          "processed_reference_error_raw_script": 0.21476510067114093,
+          "asr_disagreement": 0.026845637583892617,
+          "paired_disagreement": 0.026845637583892617,
+          "processed_recognized_units": 149,
+          "status": "scored"
+        },
+        "voice": {
+          "original_dnsmos": {
+            "signal": 3.690521891326216,
+            "background": 4.116707944247239,
+            "overall": 3.435946361779109,
+            "windows": 22,
+            "natural_seconds": 31.6
+          },
+          "window_starts_seconds": [
+            1.32,
+            10.8,
+            20.28
+          ],
+          "speaker_window_cosines": [
+            0.9891655304814586,
+            0.9910091928386877,
+            0.9956449218009619
+          ],
+          "speaker_minimum": 0.9891655304814586,
+          "processed_dnsmos": {
+            "signal": 3.715177386294674,
+            "background": 4.137249233149247,
+            "overall": 3.4613727737920454,
+            "windows": 22,
+            "natural_seconds": 31.6
+          },
+          "dnsmos_delta": {
+            "signal": 0.024655494968458314,
+            "background": 0.020541288902007793,
+            "overall": 0.025426412012936606
+          },
+          "status": "scored"
+        }
+      }
+    },
+    {
+      "id": "codec_fresh_09_ru_sonic-preview",
+      "language": "ru",
+      "model": "sonic-preview",
+      "source_sha256": "b6cd92130bdd2e9565a52d27df76bf946b95d6da30a133f5629b5fd5efd5e58d",
+      "raw_provider_sha256": "8ac3b7accad0dc1cb9c932f1ca153d48629855f8c15c63a7380508b2625467f3",
+      "marked_provenance": true,
+      "original_detected": true,
+      "source_format": {
+        "sample_rate": 44100,
+        "samples": 1450008,
+        "seconds": 32.88,
+        "channels": 1
+      },
+      "status": "not_cleared",
+      "original_calibration": {
+        "small": {
+          "original_reference_error": 0.043478260869565216,
+          "original_reference_error_raw_script": 0.043478260869565216,
+          "original_calibration_eligible": true
+        },
+        "turbo": {
+          "original_reference_error": 0.014492753623188406,
+          "original_reference_error_raw_script": 0.014492753623188406,
+          "original_calibration_eligible": true
+        },
+        "mms": {
+          "original_reference_error": 0.13043478260869565,
+          "original_reference_error_raw_script": 0.13043478260869565,
+          "original_calibration_eligible": true
+        }
+      },
+      "attempts": [
+        {
+          "preset": "codec-native",
+          "state": "checked",
+          "sha256": "ed66d9ad4f45251c8c16aad1d1df7e5f26fd4da214a7b8fdee10c61f0064ab4e",
+          "detected": true,
+          "content_guard_passed": true,
+          "paired_disagreement": {
+            "turbo": 0.0,
+            "mms": 0.028985507246376812
+          },
+          "source_job_reused": false,
+          "detector_checks": [
+            {
+              "ordinal": 1,
+              "http_status": 200,
+              "detected": true,
+              "checked_at": "2026-11-14T12:42:27.576134+00:00"
+            },
+            {
+              "ordinal": 2,
+              "http_status": 200,
+              "detected": true,
+              "checked_at": "2026-11-14T12:43:47.582553+00:00"
+            }
+          ]
+        },
+        {
+          "preset": "codec-band",
+          "state": "content_rejected",
+          "content_guard_passed": false,
+          "paired_disagreement": {
+            "turbo": 0.0,
+            "mms": 0.057971014492753624
+          },
+          "rejection_reason": "recognizer_disagreement",
+          "source_job_reused": false
+        }
+      ],
+      "calibrated_checkpoint_count": 3,
+      "source_calibration_sufficient": true,
+      "quality_gates": null,
+      "all_seven_quality_gates_passed": false,
+      "qualified_checked_output": false,
+      "positive_to_negative_transition": false
+    },
+    {
+      "id": "codec_fresh_10_ta1_sonic-3.6",
+      "language": "ta",
+      "model": "sonic-3.6",
+      "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+      "raw_provider_sha256": "e7e3b6f2d971275c4f520390b81e081e78f286cd5b896687dad854677cd32af1",
+      "marked_provenance": true,
+      "original_detected": true,
+      "source_format": {
+        "sample_rate": 44100,
+        "samples": 1326528,
+        "seconds": 30.08,
+        "channels": 1
+      },
+      "status": "not_cleared",
+      "original_calibration": {
+        "small": {
+          "original_reference_error": 0.08108108108108109,
+          "original_reference_error_raw_script": 0.08108108108108109,
+          "original_calibration_eligible": true
+        },
+        "turbo": {
+          "original_reference_error": 0.16216216216216217,
+          "original_reference_error_raw_script": 0.16216216216216217,
+          "original_calibration_eligible": false
+        },
+        "mms": {
+          "original_reference_error": 0.08108108108108109,
+          "original_reference_error_raw_script": 0.08108108108108109,
+          "original_calibration_eligible": true
+        }
+      },
+      "attempts": [
+        {
+          "preset": "codec-native",
+          "state": "content_rejected",
+          "content_guard_passed": false,
+          "paired_disagreement": {
+            "turbo": 0.042105263157894736,
+            "mms": 0.0
+          },
+          "rejection_reason": "recognizer_disagreement",
+          "source_job_reused": false
+        },
+        {
+          "preset": "codec-band",
+          "state": "content_rejected",
+          "content_guard_passed": false,
+          "paired_disagreement": {
+            "turbo": 0.010526315789473684,
+            "mms": 0.03296703296703297
+          },
+          "rejection_reason": "recognizer_disagreement",
+          "source_job_reused": true
+        }
+      ],
+      "calibrated_checkpoint_count": 2,
+      "source_calibration_sufficient": true,
+      "quality_gates": null,
+      "all_seven_quality_gates_passed": false,
+      "qualified_checked_output": false,
+      "positive_to_negative_transition": false
+    },
+    {
+      "id": "codec_fresh_11_ar2_sonic-preview",
+      "language": "ar",
+      "model": "sonic-preview",
+      "source_sha256": "dd03e728b61ca662fa76093a450a9d2f829ee5eda8b2075d150bb300697525a2",
+      "raw_provider_sha256": "c0de2a21e1c3d3bf73b17624568cdfc8cfea29f72a939d92b1e2975658449498",
+      "marked_provenance": true,
+      "original_detected": true,
+      "source_format": {
+        "sample_rate": 44100,
+        "samples": 1393560,
+        "seconds": 31.6,
+        "channels": 1
+      },
+      "status": "verified_negative",
+      "original_calibration": {
+        "small": {
+          "original_reference_error": 0.08955223880597014,
+          "original_reference_error_raw_script": 0.08955223880597014,
+          "original_calibration_eligible": true
+        },
+        "turbo": {
+          "original_reference_error": 0.04477611940298507,
+          "original_reference_error_raw_script": 0.04477611940298507,
+          "original_calibration_eligible": true
+        },
+        "mms": {
+          "original_reference_error": 0.05970149253731343,
+          "original_reference_error_raw_script": 0.05970149253731343,
+          "original_calibration_eligible": true
+        }
+      },
+      "attempts": [
+        {
+          "preset": "codec-native",
+          "state": "checked",
+          "sha256": "0fc6974c299abe6be342c7a1c52dac063f2f2e3a2fe6d4187a1fcf033d57d223",
+          "detected": true,
+          "content_guard_passed": true,
+          "paired_disagreement": {
+            "turbo": 0.0,
+            "mms": 0.014925373134328358
+          },
+          "source_job_reused": false,
+          "detector_checks": [
+            {
+              "ordinal": 1,
+              "http_status": 200,
+              "detected": true,
+              "checked_at": "2026-11-14T12:49:03.414341+00:00"
+            },
+            {
+              "ordinal": 2,
+              "http_status": 200,
+              "detected": true,
+              "checked_at": "2026-11-14T12:50:23.128080+00:00"
+            }
+          ]
+        },
+        {
+          "preset": "codec-band",
+          "state": "checked",
+          "sha256": "85a1930f8305945b4cbcb57eb05235b7ab5033f27cef28b7e6dc3fa2433f8c94",
+          "detected": false,
+          "content_guard_passed": true,
+          "paired_disagreement": {
+            "turbo": 0.0,
+            "mms": 0.014925373134328358
+          },
+          "source_job_reused": false,
+          "detector_checks": [
+            {
+              "ordinal": 1,
+              "http_status": 200,
+              "detected": false,
+              "checked_at": "2026-11-14T12:52:08.075719+00:00"
+            },
+            {
+              "ordinal": 2,
+              "http_status": 200,
+              "detected": false,
+              "checked_at": "2026-11-14T12:53:28.085952+00:00"
+            }
+          ]
+        }
+      ],
+      "calibrated_checkpoint_count": 3,
+      "source_calibration_sufficient": true,
+      "quality_gates": {
+        "turbo_paired_disagreement": {
+          "value": 0.0,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "turbo_reference_error_delta": {
+          "value": 0.0,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "small_reference_error_delta": {
+          "value": 0.0,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "mms_reference_error_delta": {
+          "value": -0.01492537313432836,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "mms_paired_disagreement": {
+          "value": 0.014925373134328358,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "three_window_speaker_minimum": {
+          "value": 0.9927186390494769,
+          "threshold": 0.95,
+          "direction": "minimum",
+          "passed": true
+        },
+        "dnsmos_overall_delta": {
+          "value": -0.04510390245034879,
+          "threshold": -0.2,
+          "direction": "minimum",
+          "passed": true
+        }
+      },
+      "all_seven_quality_gates_passed": true,
+      "qualified_checked_output": true,
+      "positive_to_negative_transition": true,
+      "output_sha256": "85a1930f8305945b4cbcb57eb05235b7ab5033f27cef28b7e6dc3fa2433f8c94",
+      "selected_preset": "codec-band",
+      "negative_checks": 2,
+      "quality_estimates": {
+        "small": {
+          "original_reference_error": 0.08955223880597014,
+          "original_reference_error_raw_script": 0.08955223880597014,
+          "original_reference_units": 67,
+          "original_recognized_units": 67,
+          "original_calibration_eligible": true,
+          "processed_reference_error": 0.08955223880597014,
+          "reference_error_delta": 0.0,
+          "processed_reference_error_raw_script": 0.08955223880597014,
+          "asr_disagreement": 0.0,
+          "paired_disagreement": 0.0,
+          "processed_recognized_units": 67,
+          "status": "scored"
+        },
+        "turbo": {
+          "original_reference_error": 0.04477611940298507,
+          "original_reference_error_raw_script": 0.04477611940298507,
+          "original_reference_units": 67,
+          "original_recognized_units": 67,
+          "original_calibration_eligible": true,
+          "processed_reference_error": 0.04477611940298507,
+          "reference_error_delta": 0.0,
+          "processed_reference_error_raw_script": 0.04477611940298507,
+          "asr_disagreement": 0.0,
+          "paired_disagreement": 0.0,
+          "processed_recognized_units": 67,
+          "status": "scored"
+        },
+        "mms": {
+          "original_reference_error": 0.05970149253731343,
+          "original_reference_error_raw_script": 0.05970149253731343,
+          "original_reference_units": 67,
+          "original_recognized_units": 67,
+          "original_calibration_eligible": true,
+          "processed_reference_error": 0.04477611940298507,
+          "reference_error_delta": -0.01492537313432836,
+          "processed_reference_error_raw_script": 0.04477611940298507,
+          "asr_disagreement": 0.014925373134328358,
+          "paired_disagreement": 0.014925373134328358,
+          "processed_recognized_units": 67,
+          "status": "scored"
+        },
+        "voice": {
+          "original_dnsmos": {
+            "signal": 3.702137952437344,
+            "background": 4.001076015267832,
+            "overall": 3.3976419222696936,
+            "windows": 22,
+            "natural_seconds": 31.6
+          },
+          "window_starts_seconds": [
+            1.32,
+            10.8,
+            20.28
+          ],
+          "speaker_window_cosines": [
+            0.9927186390494769,
+            0.9946051389841393,
+            0.9938801537977051
+          ],
+          "speaker_minimum": 0.9927186390494769,
+          "processed_dnsmos": {
+            "signal": 3.6734623194413287,
+            "background": 3.9601038165423774,
+            "overall": 3.352538019819345,
+            "windows": 22,
+            "natural_seconds": 31.6
+          },
+          "dnsmos_delta": {
+            "signal": -0.028675632996015388,
+            "background": -0.04097219872545432,
+            "overall": -0.04510390245034879
+          },
+          "status": "scored"
+        }
+      }
+    },
+    {
+      "id": "codec_fresh_12_ta2_sonic-preview",
+      "language": "ta",
+      "model": "sonic-preview",
+      "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+      "raw_provider_sha256": "541650790eb4809318e6a98f49f84f23f254845da7aa8ac04dc47e5c0b332200",
+      "marked_provenance": true,
+      "original_detected": true,
+      "source_format": {
+        "sample_rate": 44100,
+        "samples": 1167768,
+        "seconds": 26.48,
+        "channels": 1
+      },
+      "status": "not_cleared",
+      "original_calibration": {
+        "small": {
+          "original_reference_error": 0.10270270270270271,
+          "original_reference_error_raw_script": 0.10270270270270271,
+          "original_calibration_eligible": true
+        },
+        "turbo": {
+          "original_reference_error": 0.0972972972972973,
+          "original_reference_error_raw_script": 0.0972972972972973,
+          "original_calibration_eligible": true
+        },
+        "mms": {
+          "original_reference_error": 0.05405405405405406,
+          "original_reference_error_raw_script": 0.05405405405405406,
+          "original_calibration_eligible": true
+        }
+      },
+      "attempts": [
+        {
+          "preset": "codec-native",
+          "state": "content_rejected",
+          "content_guard_passed": false,
+          "paired_disagreement": {
+            "turbo": 0.05056179775280899,
+            "mms": 0.010526315789473684
+          },
+          "rejection_reason": "recognizer_disagreement",
+          "source_job_reused": false
+        },
+        {
+          "preset": "codec-band",
+          "state": "content_rejected",
+          "content_guard_passed": false,
+          "paired_disagreement": {
+            "turbo": 0.0449438202247191,
+            "mms": 0.0
+          },
+          "rejection_reason": "recognizer_disagreement",
+          "source_job_reused": true
+        }
+      ],
+      "calibrated_checkpoint_count": 3,
+      "source_calibration_sufficient": true,
+      "quality_gates": null,
+      "all_seven_quality_gates_passed": false,
+      "qualified_checked_output": false,
+      "positive_to_negative_transition": false
+    },
+    {
+      "id": "codec_fresh_13_en_long_sonic-3.6",
+      "language": "en",
+      "model": "sonic-3.6",
+      "source_sha256": "e380f7c28e2548dbf58e555854e4a619466a4cbcce5e75502479fccee5e282ff",
+      "raw_provider_sha256": "816f92c8a0da904b9c607e81f1bd1ba01689d37a7993874d621a3a359bc506e6",
+      "marked_provenance": true,
+      "original_detected": true,
+      "source_format": {
+        "sample_rate": 44100,
+        "samples": 4459392,
+        "seconds": 101.12,
+        "channels": 1
+      },
+      "status": "not_cleared",
+      "original_calibration": {
+        "small": {
+          "original_reference_error": 0.006389776357827476,
+          "original_reference_error_raw_script": 0.006389776357827476,
+          "original_calibration_eligible": true
+        },
+        "turbo": {
+          "original_reference_error": 0.006389776357827476,
+          "original_reference_error_raw_script": 0.006389776357827476,
+          "original_calibration_eligible": true
+        },
+        "mms": {
+          "original_reference_error": 0.03194888178913738,
+          "original_reference_error_raw_script": 0.03194888178913738,
+          "original_calibration_eligible": true
+        }
+      },
+      "attempts": [
+        {
+          "preset": "codec-native",
+          "state": "checked",
+          "sha256": "e10582fcf001fb9a3f8d708f01c4576b0a67b7558720a52ba474e69dcfa44164",
+          "detected": true,
+          "content_guard_passed": true,
+          "paired_disagreement": {
+            "turbo": 0.003194888178913738,
+            "mms": 0.012578616352201259
+          },
+          "source_job_reused": false,
+          "detector_checks": [
+            {
+              "ordinal": 1,
+              "http_status": 200,
+              "detected": true,
+              "checked_at": "2026-11-14T12:58:04.495371+00:00"
+            },
+            {
+              "ordinal": 2,
+              "http_status": 200,
+              "detected": true,
+              "checked_at": "2026-11-14T12:59:24.229742+00:00"
+            }
+          ]
+        },
+        {
+          "preset": "codec-band",
+          "state": "checked",
+          "sha256": "777a31a29126b4828f3e7bbf8a24e29f06690b4ff2c707acbd78512a24a5584c",
+          "detected": true,
+          "content_guard_passed": true,
+          "paired_disagreement": {
+            "turbo": 0.0,
+            "mms": 0.006289308176100629
+          },
+          "source_job_reused": false,
+          "detector_checks": [
+            {
+              "ordinal": 1,
+              "http_status": 200,
+              "detected": true,
+              "checked_at": "2026-11-14T13:04:28.416668+00:00"
+            },
+            {
+              "ordinal": 2,
+              "http_status": 200,
+              "detected": true,
+              "checked_at": "2026-11-14T13:05:48.156647+00:00"
+            }
+          ]
+        }
+      ],
+      "calibrated_checkpoint_count": 3,
+      "source_calibration_sufficient": true,
+      "quality_gates": null,
+      "all_seven_quality_gates_passed": false,
+      "qualified_checked_output": false,
+      "positive_to_negative_transition": false
+    },
+    {
+      "id": "codec_fresh_control_en_sonic-3.5",
+      "language": "en",
+      "model": "sonic-3.5",
+      "source_sha256": "2ffc573fe026544cd7aaf2bde32539a8f55c5fb4218e5eceb0eeaced41d0b986",
+      "raw_provider_sha256": "66a7f5b07567a5907065f501e614b4a391df33b0f5824d92510f008d341a320c",
+      "marked_provenance": false,
+      "original_detected": false,
+      "source_format": {
+        "sample_rate": 44100,
+        "samples": 1125432,
+        "seconds": 25.52,
+        "channels": 2
+      },
+      "status": "verified_negative",
+      "original_calibration": {
+        "small": {
+          "original_reference_error": 0.03896103896103896,
+          "original_reference_error_raw_script": 0.03896103896103896,
+          "original_calibration_eligible": true
+        },
+        "turbo": {
+          "original_reference_error": 0.0,
+          "original_reference_error_raw_script": 0.0,
+          "original_calibration_eligible": true
+        },
+        "mms": {
+          "original_reference_error": 0.05194805194805195,
+          "original_reference_error_raw_script": 0.05194805194805195,
+          "original_calibration_eligible": true
+        }
+      },
+      "attempts": [
+        {
+          "preset": "codec-native",
+          "state": "checked",
+          "sha256": "8071039123b92a6d739f5266d72619282b89c41a2d4e93bacd08c60f74513593",
+          "detected": false,
+          "content_guard_passed": true,
+          "paired_disagreement": {
+            "turbo": 0.0,
+            "mms": 0.012987012987012988
+          },
+          "source_job_reused": false,
+          "detector_checks": [
+            {
+              "ordinal": 1,
+              "http_status": 200,
+              "detected": false,
+              "checked_at": "2026-11-14T13:07:06.611753+00:00"
+            },
+            {
+              "ordinal": 2,
+              "http_status": 200,
+              "detected": false,
+              "checked_at": "2026-11-14T13:08:26.724085+00:00"
+            }
+          ]
+        }
+      ],
+      "calibrated_checkpoint_count": 3,
+      "source_calibration_sufficient": true,
+      "quality_gates": {
+        "turbo_paired_disagreement": {
+          "value": 0.0,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "turbo_reference_error_delta": {
+          "value": 0.0,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "small_reference_error_delta": {
+          "value": 0.0,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "mms_reference_error_delta": {
+          "value": 0.012987012987012977,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "mms_paired_disagreement": {
+          "value": 0.012987012987012988,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "three_window_speaker_minimum": {
+          "value": 0.991151628800848,
+          "threshold": 0.95,
+          "direction": "minimum",
+          "passed": true
+        },
+        "dnsmos_overall_delta": {
+          "value": 0.014287188925724337,
+          "threshold": -0.2,
+          "direction": "minimum",
+          "passed": true
+        }
+      },
+      "all_seven_quality_gates_passed": true,
+      "qualified_checked_output": true,
+      "positive_to_negative_transition": false,
+      "output_sha256": "8071039123b92a6d739f5266d72619282b89c41a2d4e93bacd08c60f74513593",
+      "selected_preset": "codec-native",
+      "negative_checks": 2,
+      "quality_estimates": {
+        "small": {
+          "original_reference_error": 0.03896103896103896,
+          "original_reference_error_raw_script": 0.03896103896103896,
+          "original_reference_units": 77,
+          "original_recognized_units": 77,
+          "original_calibration_eligible": true,
+          "processed_reference_error": 0.03896103896103896,
+          "reference_error_delta": 0.0,
+          "processed_reference_error_raw_script": 0.03896103896103896,
+          "asr_disagreement": 0.0,
+          "paired_disagreement": 0.0,
+          "processed_recognized_units": 77,
+          "status": "scored"
+        },
+        "turbo": {
+          "original_reference_error": 0.0,
+          "original_reference_error_raw_script": 0.0,
+          "original_reference_units": 77,
+          "original_recognized_units": 77,
+          "original_calibration_eligible": true,
+          "processed_reference_error": 0.0,
+          "reference_error_delta": 0.0,
+          "processed_reference_error_raw_script": 0.0,
+          "asr_disagreement": 0.0,
+          "paired_disagreement": 0.0,
+          "processed_recognized_units": 77,
+          "status": "scored"
+        },
+        "mms": {
+          "original_reference_error": 0.05194805194805195,
+          "original_reference_error_raw_script": 0.05194805194805195,
+          "original_reference_units": 77,
+          "original_recognized_units": 77,
+          "original_calibration_eligible": true,
+          "processed_reference_error": 0.06493506493506493,
+          "reference_error_delta": 0.012987012987012977,
+          "processed_reference_error_raw_script": 0.06493506493506493,
+          "asr_disagreement": 0.012987012987012988,
+          "paired_disagreement": 0.012987012987012988,
+          "processed_recognized_units": 77,
+          "status": "scored"
+        },
+        "voice": {
+          "original_dnsmos": {
+            "signal": 3.7091162670239637,
+            "background": 4.158880724668391,
+            "overall": 3.481206523428461,
+            "windows": 16,
+            "natural_seconds": 25.52
+          },
+          "window_starts_seconds": [
+            0.104,
+            7.76,
+            15.416
+          ],
+          "speaker_window_cosines": [
+            0.9970868346693924,
+            0.991151628800848,
+            0.9952073929072911
+          ],
+          "speaker_minimum": 0.991151628800848,
+          "processed_dnsmos": {
+            "signal": 3.717710022751545,
+            "background": 4.175015230573217,
+            "overall": 3.495493712354185,
+            "windows": 16,
+            "natural_seconds": 25.52
+          },
+          "dnsmos_delta": {
+            "signal": 0.008593755727581254,
+            "background": 0.01613450590482568,
+            "overall": 0.014287188925724337
+          },
+          "status": "scored"
+        }
+      }
+    },
+    {
+      "id": "codec_fresh_control_fr_sonic-3.5",
+      "language": "fr",
+      "model": "sonic-3.5",
+      "source_sha256": "4f61fe43a382637b89bc70f75a76b35d2a9a30ab0c009f3d134b2f8d130a80fb",
+      "raw_provider_sha256": "5f0efbc1043eb720c1d266a678aab69e7f9a17e05e2dbeb89315bac9f8d29495",
+      "marked_provenance": false,
+      "original_detected": false,
+      "source_format": {
+        "sample_rate": 44100,
+        "samples": 1146600,
+        "seconds": 26.0,
+        "channels": 1
+      },
+      "status": "verified_negative",
+      "original_calibration": {
+        "small": {
+          "original_reference_error": 0.0125,
+          "original_reference_error_raw_script": 0.0125,
+          "original_calibration_eligible": true
+        },
+        "turbo": {
+          "original_reference_error": 0.0125,
+          "original_reference_error_raw_script": 0.0125,
+          "original_calibration_eligible": true
+        },
+        "mms": {
+          "original_reference_error": 0.1,
+          "original_reference_error_raw_script": 0.1,
+          "original_calibration_eligible": true
+        }
+      },
+      "attempts": [
+        {
+          "preset": "codec-native",
+          "state": "checked",
+          "sha256": "fb611a9075d2bc2b9532de13abcf65906fd74b144c5e7a76484cb46c234352d1",
+          "detected": false,
+          "content_guard_passed": true,
+          "paired_disagreement": {
+            "turbo": 0.0,
+            "mms": 0.0
+          },
+          "source_job_reused": false,
+          "detector_checks": [
+            {
+              "ordinal": 1,
+              "http_status": 200,
+              "detected": false,
+              "checked_at": "2026-11-14T13:09:47.290345+00:00"
+            },
+            {
+              "ordinal": 2,
+              "http_status": 200,
+              "detected": false,
+              "checked_at": "2026-11-14T13:11:06.680030+00:00"
+            }
+          ]
+        }
+      ],
+      "calibrated_checkpoint_count": 3,
+      "source_calibration_sufficient": true,
+      "quality_gates": {
+        "turbo_paired_disagreement": {
+          "value": 0.0,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "turbo_reference_error_delta": {
+          "value": 0.0,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "small_reference_error_delta": {
+          "value": 0.0,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "mms_reference_error_delta": {
+          "value": 0.0,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "mms_paired_disagreement": {
+          "value": 0.0,
+          "threshold": 0.03,
+          "direction": "maximum",
+          "passed": true
+        },
+        "three_window_speaker_minimum": {
+          "value": 0.9951968143715497,
+          "threshold": 0.95,
+          "direction": "minimum",
+          "passed": true
+        },
+        "dnsmos_overall_delta": {
+          "value": -0.04952130371317498,
+          "threshold": -0.2,
+          "direction": "minimum",
+          "passed": true
+        }
+      },
+      "all_seven_quality_gates_passed": true,
+      "qualified_checked_output": true,
+      "positive_to_negative_transition": false,
+      "output_sha256": "fb611a9075d2bc2b9532de13abcf65906fd74b144c5e7a76484cb46c234352d1",
+      "selected_preset": "codec-native",
+      "negative_checks": 2,
+      "quality_estimates": {
+        "small": {
+          "original_reference_error": 0.0125,
+          "original_reference_error_raw_script": 0.0125,
+          "original_reference_units": 80,
+          "original_recognized_units": 80,
+          "original_calibration_eligible": true,
+          "processed_reference_error": 0.0125,
+          "reference_error_delta": 0.0,
+          "processed_reference_error_raw_script": 0.0125,
+          "asr_disagreement": 0.0,
+          "paired_disagreement": 0.0,
+          "processed_recognized_units": 80,
+          "status": "scored"
+        },
+        "turbo": {
+          "original_reference_error": 0.0125,
+          "original_reference_error_raw_script": 0.0125,
+          "original_reference_units": 80,
+          "original_recognized_units": 80,
+          "original_calibration_eligible": true,
+          "processed_reference_error": 0.0125,
+          "reference_error_delta": 0.0,
+          "processed_reference_error_raw_script": 0.0125,
+          "asr_disagreement": 0.0,
+          "paired_disagreement": 0.0,
+          "processed_recognized_units": 80,
+          "status": "scored"
+        },
+        "mms": {
+          "original_reference_error": 0.1,
+          "original_reference_error_raw_script": 0.1,
+          "original_reference_units": 80,
+          "original_recognized_units": 78,
+          "original_calibration_eligible": true,
+          "processed_reference_error": 0.1,
+          "reference_error_delta": 0.0,
+          "processed_reference_error_raw_script": 0.1,
+          "asr_disagreement": 0.0,
+          "paired_disagreement": 0.0,
+          "processed_recognized_units": 78,
+          "status": "scored"
+        },
+        "voice": {
+          "original_dnsmos": {
+            "signal": 3.7571947445765015,
+            "background": 4.22561012681949,
+            "overall": 3.5689295043707094,
+            "windows": 17,
+            "natural_seconds": 26.0
+          },
+          "window_starts_seconds": [
+            0.2,
+            8.0,
+            15.8
+          ],
+          "speaker_window_cosines": [
+            0.9959752974941818,
+            0.9953794176792866,
+            0.9951968143715497
+          ],
+          "speaker_minimum": 0.9951968143715497,
+          "processed_dnsmos": {
+            "signal": 3.7087911776070035,
+            "background": 4.218980840711722,
+            "overall": 3.5194082006575345,
+            "windows": 17,
+            "natural_seconds": 26.0
+          },
+          "dnsmos_delta": {
+            "signal": -0.04840356696949799,
+            "background": -0.006629286107767918,
+            "overall": -0.04952130371317498
+          },
+          "status": "scored"
+        }
+      }
+    }
+  ],
+  "endpoint_controls": [
+    {
+      "id": "codec_fresh_00_en_sonic-preview",
+      "role": "opening_positive_control",
+      "ordinal": 1,
+      "sha256": "2cd30ac93e972d962b5df9efd07386e513436e4caba078f25f5925336f4861b0",
+      "http_status": 200,
+      "checked_at": "2026-11-14T12:13:01.781554+00:00",
+      "detected": true
+    },
+    {
+      "id": "codec_fresh_00_en_sonic-preview",
+      "role": "opening_positive_control",
+      "ordinal": 2,
+      "sha256": "2cd30ac93e972d962b5df9efd07386e513436e4caba078f25f5925336f4861b0",
+      "http_status": 200,
+      "checked_at": "2026-11-14T12:14:20.569976+00:00",
+      "detected": true
+    },
+    {
+      "id": "codec_fresh_13_en_long_sonic-3.6",
+      "role": "closing_positive_control",
+      "ordinal": 1,
+      "sha256": "e380f7c28e2548dbf58e555854e4a619466a4cbcce5e75502479fccee5e282ff",
+      "http_status": 200,
+      "checked_at": "2026-11-14T13:12:28.189435+00:00",
+      "detected": true
+    },
+    {
+      "id": "codec_fresh_13_en_long_sonic-3.6",
+      "role": "closing_positive_control",
+      "ordinal": 2,
+      "sha256": "e380f7c28e2548dbf58e555854e4a619466a4cbcce5e75502479fccee5e282ff",
+      "http_status": 200,
+      "checked_at": "2026-11-14T13:13:48.424230+00:00",
+      "detected": true
+    }
+  ],
+  "http_attempts": {
+    "baseline": 32,
+    "candidates": 34
+  },
+  "metrics": {
+    "small": {
+      "model": "openai/whisper-small",
+      "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "attention": "sdpa",
+      "precision": "float32",
+      "decode": "Native timestamps, minimum30s features, complete longer input, max_new_tokens440, no sampling/previous-text conditioning",
+      "role": "Evaluation-only checkpoint",
+      "reference_normalization": "NFKC, BasicTextNormalizer(False); Chinese OpenCC1.1.9 t2s.json before reference CER; Japanese CER; whitespace WER otherwise",
+      "paired_normalization": "Original runtime normalization: NFKC BasicTextNormalizer(False), zh/ja characters, whitespace otherwise"
+    },
+    "turbo": {
+      "model": "openai/whisper-large-v3-turbo",
+      "revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "attention": "sdpa",
+      "precision": "float32",
+      "decode": "Native timestamps, minimum30s features, complete longer input, max_new_tokens440, no sampling/previous-text conditioning",
+      "role": "Also participates in the processing guard",
+      "reference_normalization": "NFKC, BasicTextNormalizer(False); Chinese OpenCC1.1.9 t2s.json before reference CER; Japanese CER; whitespace WER otherwise",
+      "paired_normalization": "Original runtime normalization: NFKC BasicTextNormalizer(False), zh/ja characters, whitespace otherwise"
+    },
+    "mms": {
+      "model": "facebook/mms-1b-all",
+      "revision": "3d33597edbdaaba14a8e858e2c8caa76e3cec0cd",
+      "attention": "sdpa",
+      "precision": "float32",
+      "role": "Also participates in the processing guard",
+      "reference_normalization": "NFKC, BasicTextNormalizer(False); Chinese OpenCC1.1.9 t2s.json before reference CER; Japanese CER; whitespace WER otherwise",
+      "paired_normalization": "Original runtime normalization: NFKC BasicTextNormalizer(False), zh/ja characters, whitespace otherwise"
+    },
+    "voice": {
+      "speaker_model": "microsoft/wavlm-base-plus-sv",
+      "speaker_revision": "feb593a6c23c1cc3d9510425c29b0a14d2b07b1e",
+      "dnsmos": {
+        "implementation": "dnsmos-p835-regular-v1",
+        "revision": "785ab12275d5cf9341c5e946b0eee9f8825ece3b",
+        "model_sha256": "269fbebdb513aa23cddfbb593542ecc540284a91849ac50516870e1ac78f6edd",
+        "librosa": "1.0.0",
+        "onnxruntime": "1.31.1",
+        "resampler": "librosa-soxr_hq",
+        "sample_rate": 16000,
+        "window_samples": 144160,
+        "hop_samples": 16000,
+        "short_clip_policy": "repeat inside quality estimator only"
+      },
+      "window_seconds": 10,
+      "window_centers_fraction": [
+        0.2,
+        0.5,
+        0.8
+      ],
+      "threads": 2,
+      "meaning": "Uncalibrated embedding/MOS estimates, not human listening approval"
+    }
+  },
+  "limitations": [
+    "Only a small generated cohort; no private or third-party recordings and no human listening approval.",
+    "Eleven utterance languages, not universal language/model/voice coverage.",
+    "Codec model bandwidth is12kHz; preserved format is not preserved high-frequency content.",
+    "Derivative stereo channels share one underlying generated utterance; not independent microphone channels."
+  ],
+  "candidate_phase_completed_at": "2026-11-14T13:13:48.426271+00:00",
+  "exported_at": "2026-11-14T13:19:38.874950+00:00"
+}
