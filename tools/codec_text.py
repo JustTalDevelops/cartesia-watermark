@@ -25,10 +25,12 @@ def text_units(text, normalize, language, converter=None):
         value = re.sub(r'\(([^)]+?)\)', '', value)
         value = ''.join(' ' if unicodedata.category(c)[0] in 'SP' else c for c in value)
     else:
+        if language == 'ar':
+            value = re.sub('[\u0640\u064b-\u065f\u0670\u06d6-\u06ed]', '', value)
         value = normalize(value)
     if language == 'zh':
         value = (converter or chinese_converter())(value)
-    return list(''.join(value.split())) if language in ('zh', 'ja') else value.split()
+    return list(''.join(value.split())) if language in ('zh', 'ja', 'hi', 'ta') else value.split()
 
 
 def paired_error(before, after, language):

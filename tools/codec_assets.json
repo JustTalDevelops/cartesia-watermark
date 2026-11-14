@@ -77,5 +77,42 @@
       "yue"
     ],
     "sherpa_onnx_version": "1.13.8"
+  },
+  "large": {
+    "model_id": "openai/whisper-large-v3",
+    "revision": "06f233fe06e710322aca913c1bc4249a0d71fce1",
+    "local_directory": ".cache/whisper-large-v3-review",
+    "files_sha256": {
+      "normalizer.json": "bf1c507dc8724ca9cf9903640dacfb69dae2f00edee4f21ceba106a7392f26dd",
+      "special_tokens_map.json": "1c70773c078cb2ca96e0fcff113102f1d3e2b1504272c3bb63b035d4a6700d87",
+      "README.md": "b05416eb578e9fc65ce137f3401bafdf3bc2feac7448e7dd180dcd367b8cfb52",
+      "config.json": "ad0e8d1e46f4d01f7861a21509e5d0f977d6cc1f367a370603c92541d819807b",
+      "vocab.json": "e2aa043ef015641d363d8288e7c241c85e36a5c761fb303598e0710233344387",
+      "model.safetensors": "a8e94b85976e5864ba3e9525c7e6c83b2a1eca42d4b797a0c7c24d778e40fd95",
+      "tokenizer_config.json": "844b642c73a91359722f47b35705f7174686df33d252695d8572cf9ac03a6389",
+      "preprocessor_config.json": "7ccc62c6f2765af1f3b46c00c9b5894426835a05021c8b9c01eecb6dfb542711",
+      "merges.txt": "2df2990a395e35e8dfbc7511e08c12d56018d8d04691e0133e5d63b21e154dc6",
+      "tokenizer.json": "6d8cbd7cd0d8d5815e478dac67b85a26bbe77c1f5e0c6d76d1ce2abc0e5f21ca",
+      "added_tokens.json": "3c51f66c4c21f9e126970078f11ae77a78c74aee8df606ee9daba86e467108e0",
+      "model.safetensors.index.fp32.json": "bccecde4044933c7f3cbea731a5a4eb1e2dcbef1b9bc5f603d510b8361c45835",
+      "generation_config.json": "fbdfa70135de9b1d31553393f14e80aaeb1936ea36576b2ba864055943c09d23",
+      "pytorch_model.bin.index.fp32.json": "321c26ca640af6ad1f00a0cb3a53cb47265a41e66399ae713d7dbbf0cd923b69"
+    },
+    "trained_by_this_project": false,
+    "license": "Apache-2.0"
+  },
+  "fastconformer": {
+    "revision": "69e9fd30fc9dc81f9c632f82bdd993984e2e3084",
+    "upstream": "nvidia/stt_ar_fastconformer_hybrid_large_pcd_v1.0",
+    "license": "CC-BY-4.0",
+    "artifact": "Community ONNX int8 conversion, not official upstream numerical equivalence",
+    "files_sha256": {
+      "model.int8.onnx": "714fc79628cff1916194337117579167b32385dcaf70d4b525805f4fdf07913f",
+      "tokens.txt": "9b938381a19a69bb279cdcfc299419f25a049ea1de192e0d10317274a0f20074"
+    },
+    "model_id": "krut42/voice-fastconformer-ar-ctc-int8",
+    "local_directory": ".cache/fastconformer-ar-review",
+    "sherpa_onnx_version": "1.13.8",
+    "trained_by_this_project": false
   }
 }

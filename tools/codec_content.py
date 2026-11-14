@@ -8,22 +8,31 @@ import soundfile as sf
 
 from codec_audio import validate_audio
 from codec_inference import ROOT, assets, check_environment, verify_files
-from codec_settings import MAX_DISAGREEMENT, MMS_CODES
+from codec_settings import LANGUAGE_MAX_DISAGREEMENT, MAX_DISAGREEMENT, MMS_CODES
 from codec_text import paired_error, text_units
 from whisper_encoder_reuse import prepare_original
 
 SENSE_LANGUAGES = frozenset(('en', 'ja', 'ko', 'zh'))
+LARGE_LANGUAGES = frozenset(('hi', 'ta'))
+
+
+def secondary_for(language):
+    return 'fastconformer' if language == 'ar' else 'sensevoice' if language in SENSE_LANGUAGES else 'mms'
 
 
 def assess(before, after):
     secondary = before.get('secondary', 'mms')
-    if secondary not in ('mms', 'sensevoice'):
+    primary = before.get('primary', 'turbo')
+    if secondary not in ('mms', 'sensevoice', 'fastconformer') or primary not in ('turbo', 'large'):
         raise ValueError('Unknown secondary content guard')
-    names = ('turbo', secondary)
+    names = (primary, secondary)
     scores = {name: paired_error(before.get(name, []), after.get(name, []), before.get('language')) for name in names}
-    same_profile = after.get('secondary', secondary) == secondary and after.get('language') == before.get('language')
-    passed = same_profile and all(score is not None and score <= MAX_DISAGREEMENT+1e-12 for score in scores.values())
-    return {'content_guard_passed': passed, 'paired_disagreement': scores, 'secondary_guard': secondary,
+    same_profile = (after.get('primary', primary) == primary and after.get('secondary', secondary) == secondary and
+                    after.get('language') == before.get('language'))
+    maximum = LANGUAGE_MAX_DISAGREEMENT.get(before.get('language'), MAX_DISAGREEMENT)
+    passed = same_profile and all(score is not None and score <= maximum+1e-12 for score in scores.values())
+    return {'content_guard_passed': passed, 'paired_disagreement': scores, 'primary_guard': primary,
+            'secondary_guard': secondary, 'maximum_paired_disagreement': maximum,
             'original_units': {name: len(before.get(name, [])) for name in names},
             'processed_units': {name: len(after.get(name, [])) for name in names}}
 
@@ -45,17 +54,21 @@ class ContentRecognizer:
             directory, local_files_only=True, torch_dtype=torch.float32, attn_implementation='sdpa').eval()
         self.whisper_model.generation_config.forced_decoder_ids = None
         self.mms_processor = self.mms_model = self.mms_language = None
+        self.large_processor = self.large_model = self.fast = None
         self.sense = self.sense_language = None
         self.normalizer = BasicTextNormalizer(remove_diacritics=False)
-        self.metadata = {'guard_version': 'prospective-v2',
+        self.metadata = {'guard_version': 'prospective-v3',
             'turbo': {'model': whisper['model_id'], 'revision': whisper['revision']},
-            'secondary_profiles': {language: 'sensevoice' if language in SENSE_LANGUAGES else 'mms' for language in MMS_CODES},
+            'primary_profiles': {language: 'large' if language in LARGE_LANGUAGES else 'turbo' for language in MMS_CODES},
+            'secondary_profiles': {language: secondary_for(language) for language in MMS_CODES},
+            'large': {k: self.entries['large'][k] for k in ('model_id', 'revision', 'license')},
+            'fastconformer': {k: self.entries['fastconformer'][k] for k in ('model_id', 'revision', 'upstream', 'license', 'artifact')},
             'mms': {k: self.entries['mms'][k] for k in ('model_id', 'revision', 'license')},
             'sensevoice': {k: self.entries['sensevoice'][k] for k in ('model_id', 'export', 'license', 'license_url')},
-            'attention': 'Whisper/MMS SDPA', 'precision': 'float32', 'threads': 4,
+            'attention': 'Whisper/MMS SDPA', 'precision': 'Whisper/MMS/SenseVoice float32; explicitly pinned FastConformer INT8 export', 'threads': 4,
             'language_policy': 'Detect original language, force it for candidates; eleven supported utterance languages',
             'supported_languages': sorted(MMS_CODES),
-            'normalization': 'NFKC; Hindi/Tamil preserve combining vowel signs and viramas, removing punctuation/symbols; BasicTextNormalizer(False) elsewhere; Chinese OpenCC1.1.9 t2s characters; Japanese characters; Korean KsponSpeech spacing-normalized word comparisons; whitespace words otherwise',
+            'normalization': 'NFKC; Hindi/Tamil characters preserving combining vowel signs and viramas, punctuation/symbols removed, one-percent paired limit; Arabic vowel marks/tatweel removed; BasicTextNormalizer(False) elsewhere; Chinese OpenCC1.1.9 t2s characters; Japanese characters; Korean KsponSpeech spacing-normalized words; whitespace words otherwise',
             'short_source_encoder_reuse': True, 'transcripts_written_to_disk': False,
             'model_downloads_during_processing': False}
 
@@ -63,6 +76,9 @@ class ContentRecognizer:
         verify_files(self.mms_directory, self.entries['mms']['files_sha256'])
         entry = self.entries['sensevoice']
         verify_files(ROOT/entry['local_directory'], entry['files_sha256'])
+        for name in ('large', 'fastconformer'):
+            entry = self.entries[name]
+            verify_files(ROOT/entry['local_directory'], entry['files_sha256'])
         if version('sherpa-onnx') != entry['sherpa_onnx_version'] or version('OpenCC') != '1.1.9':
             raise RuntimeError('Install the pinned secondary recognizer and text normalization dependencies')
 
@@ -126,10 +142,40 @@ class ContentRecognizer:
         self.sense.decode_stream(stream)
         return stream.result.text, None
 
+    def _fast(self, audio):
+        if self.fast is None:
+            import sherpa_onnx
+            entry = self.entries['fastconformer']
+            if version('sherpa-onnx') != entry['sherpa_onnx_version']:
+                raise RuntimeError('Install the pinned sherpa-onnx version')
+            folder = ROOT/entry['local_directory']
+            verify_files(folder, entry['files_sha256'])
+            self.fast = sherpa_onnx.OfflineRecognizer.from_nemo_ctc(
+                model=str(folder/'model.int8.onnx'), tokens=str(folder/'tokens.txt'), num_threads=4,
+                sample_rate=16000, feature_dim=80, decoding_method='greedy_search', provider='cpu')
+        stream = self.fast.create_stream()
+        stream.accept_waveform(16000, audio)
+        self.fast.decode_stream(stream)
+        return stream.result.text, None
+
+    def _large(self):
+        if self.large_model is None:
+            import torch
+            from transformers import WhisperProcessor, WhisperForConditionalGeneration
+            entry = self.entries['large']
+            folder = ROOT/entry['local_directory']
+            verify_files(folder, entry['files_sha256'])
+            self.large_processor = WhisperProcessor.from_pretrained(folder, local_files_only=True)
+            self.large_model = WhisperForConditionalGeneration.from_pretrained(
+                folder, local_files_only=True, torch_dtype=torch.float32, attn_implementation='sdpa').eval()
+            self.large_model.generation_config.forced_decoder_ids = None
+        return self.large_processor, self.large_model
+
     def secondary_transcribe(self, path, language, audio=None):
         audio = self.audio(path) if audio is None else audio
-        name = 'sensevoice' if language in SENSE_LANGUAGES else 'mms'
-        text, alignment = self._sense(audio, language) if name == 'sensevoice' else self._mms(audio, language)
+        name = secondary_for(language)
+        text, alignment = (self._sense(audio, language) if name == 'sensevoice' else
+                           self._fast(audio) if name == 'fastconformer' else self._mms(audio, language))
         if alignment is not None:
             info = sf.info(path)
             alignment['duration'] = info.frames/info.samplerate
@@ -144,11 +190,17 @@ class ContentRecognizer:
                 language, generation, reused = prepare_original(self.whisper_model, batch)
             if language not in MMS_CODES:
                 return {'language': language, 'supported': False, 'turbo': [], 'mms': [], 'secondary': 'mms'}
-            prediction = self.whisper_model.generate(
+            primary, processor, model = 'turbo', self.whisper_processor, self.whisper_model
+            if language in LARGE_LANGUAGES:
+                primary, reused = 'large', False
+                processor, model = self._large()
+                generation = processor(audio, sampling_rate=16000, return_tensors='pt', return_attention_mask=True,
+                                       truncation=False, padding='max_length', max_length=max(len(audio), 30*16000))
+            prediction = model.generate(
                 **generation, language=language, task='transcribe', return_timestamps=True,
                 max_new_tokens=440, do_sample=False, condition_on_prev_tokens=False)
-            text = self.whisper_processor.batch_decode(prediction, skip_special_tokens=True)[0]
+            text = processor.batch_decode(prediction, skip_special_tokens=True)[0]
             secondary, secondary_units, alignment = self.secondary_transcribe(path, language, audio)
-        return {'language': language, 'supported': True, 'secondary': secondary,
-                'turbo': text_units(text, self.normalizer, language), secondary: secondary_units,
+        return {'language': language, 'supported': True, 'primary': primary, 'secondary': secondary,
+                primary: text_units(text, self.normalizer, language), secondary: secondary_units,
                 'alignment': alignment, 'source_encoder_reused': reused}

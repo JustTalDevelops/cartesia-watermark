@@ -54,7 +54,7 @@ class CodecRuntime:
         before = self.recognizer.transcribe(source)
         job = {'key': key, 'directory': directory, 'before': before, 'native': directory/'native.flac'}
         secondary = before.get('secondary', 'mms')
-        if before['supported'] and before['turbo'] and before.get(secondary):
+        if before['supported'] and before.get(before.get('primary', 'turbo')) and before.get(secondary):
             started = time.monotonic()
             rebuilt, gain = self.codec.reconstruct(audio, rate)
             quantize(job['native'], rebuilt, rate)
@@ -82,10 +82,11 @@ class CodecRuntime:
             job, reused = self.job(source, original_sha, audio, rate, output.parent)
             report.update(source_job_reused=reused, language=job['before']['language'],
                           source_encoder_reused=job['before'].get('source_encoder_reused', False),
+                          primary_guard=job['before'].get('primary', 'turbo'),
                           secondary_guard=job['before'].get('secondary', 'mms'))
             if not job['before']['supported']:
                 report['rejection_reason'] = 'unsupported_language_for_content_guard'
-            elif not job['before']['turbo'] or not job['before'].get(job['before'].get('secondary', 'mms')):
+            elif not job['before'].get(job['before'].get('primary', 'turbo')) or not job['before'].get(job['before'].get('secondary', 'mms')):
                 report['rejection_reason'] = 'original_speech_not_recognized'
             else:
                 candidate = job['native']
