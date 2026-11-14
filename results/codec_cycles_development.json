@@ -285,6 +285,16 @@
     "mms_paired": true
   },
   "all_five_asr_gates_passed": true,
+  "voice": null,
+  "seven_quality_gate_results": {
+    "small_reference_delta": true,
+    "turbo_reference_delta": true,
+    "mms_reference_delta": true,
+    "turbo_paired": true,
+    "mms_paired": true,
+    "speaker_minimum": null,
+    "dnsmos_overall": null
+  },
   "voice_quality_scoring_complete": false,
   "all_seven_quality_gates_verified": false,
   "quality_status": "Selected-file WavLM/DNSMOS scoring is queued; full qualification remains unproven.",

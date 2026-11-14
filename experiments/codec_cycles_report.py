@@ -5,6 +5,7 @@ import hashlib
 import json
 from pathlib import Path
 import subprocess
+import soundfile as sf
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -25,6 +26,13 @@ def export(directory):
     if not all(v['complete'] for v in (generation, assessment, endpoint, summary)):
         raise ValueError('Incomplete long-file development evidence')
     source, candidate = assessment['source_sha256'], assessment['output_sha256']
+    source_path = directory/'codec_fresh/originals'/(assessment['id']+'.flac')
+    candidate_path = folder/'candidate.flac'
+    if digest(source_path) != source or digest(candidate_path) != candidate:
+        raise ValueError('A source or final whole file changed after its checks')
+    first, second = sf.info(source_path), sf.info(candidate_path)
+    if (first.frames, first.samplerate, first.channels) != (second.frames, second.samplerate, second.channels):
+        raise ValueError('The complete sample grid changed')
     if (generation['source_sha256'] != source or endpoint['source_sha256'] != source or
             generation['cycles'][1]['sha256'] != candidate or endpoint['candidate_sha256'] != candidate or
             metadata['candidate_flac_sha256'] != candidate or not metadata['content_guard_passed'] or
@@ -57,6 +65,17 @@ def export(directory):
     gates = {name+'_reference_delta': asr[name]['processed']['reference_error_delta'] <= .03+1e-12 for name in ('small', 'turbo', 'mms')}
     gates.update(turbo_paired=asr['turbo']['processed']['paired_disagreement'] <= .03+1e-12,
                  mms_paired=asr['mms']['processed']['paired_disagreement'] <= .03+1e-12)
+    voice = None
+    voice_path = directory/'codec_profile_voice.json'
+    if voice_path.exists():
+        voice_report = load(voice_path)
+        if voice_report['complete']:
+            row = next(v for v in voice_report['clips'] if v['id'] == 'codec_v2_development__long_cycle')
+            if row['source_sha256'] != source or row['output_sha256'] != candidate or row['status'] != 'scored':
+                raise ValueError('Voice measurements refer to different complete files')
+            voice = {'metric': voice_report['metric'], 'clip': row}
+    seven = dict(gates, speaker_minimum=None if voice is None else voice['clip']['speaker_minimum'] >= .95-1e-12,
+                 dnsmos_overall=None if voice is None else voice['clip']['dnsmos_delta']['overall'] >= -.2-1e-12)
     return {'kind': 'Spent development example: repeated native codec reconstruction',
         'fresh_independent_sources': 0, 'independent_source_recordings': 1,
         'frozen_primary_study_result_changed': False, 'human_listening_approval': False,
@@ -65,8 +84,11 @@ def export(directory):
         'generated_cycles': generation['cycles'], 'selected_cycle': 2,
         'processing': assessment, 'detector': endpoint, 'asr': asr,
         'five_asr_gate_results': gates, 'all_five_asr_gates_passed': all(gates.values()),
-        'voice_quality_scoring_complete': False, 'all_seven_quality_gates_verified': False,
-        'quality_status': 'Selected-file WavLM/DNSMOS scoring is queued; full qualification remains unproven.',
+        'voice': voice, 'seven_quality_gate_results': seven,
+        'voice_quality_scoring_complete': voice is not None,
+        'all_seven_quality_gates_verified': voice is not None and all(seven.values()),
+        'quality_status': ('All selected-file estimates are complete; inspect every gate.' if voice else
+                           'Selected-file WavLM/DNSMOS scoring is queued; full qualification remains unproven.'),
         'limitations': ['One already-spent long source; cycles and requests are not new independent samples.',
             'The third generated cycle was not detector-tested.',
             'The frozen fresh-study result remains six fully qualified marked sources out of fourteen.',

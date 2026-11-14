@@ -71,6 +71,9 @@ Their results do not establish reliable removal on real recordings.
 | `codec_ctc_repair.py`, `probe_codec_ctc_repair.py` | Develop one bounded repair of a spent rejected band file using locally matching native-donor units; reject donor errors, timing drift and excessive coverage, reproduce exact failed-file hashes and reassess without changing the frozen study |
 | `korean_spacing_diagnostic.py` | Inspect Korean spacing effects using the KsponSpeech character/boundary alignment; preserves every lexical character and never changes frozen study metrics |
 | `probe_codec_cycles.py` | Reproduce a spent positive native file exactly, then generate unassessed additional codec passes without detector requests or changes to historical results |
+| `codec_cycles_report.py` | Bind second-pass long-file observations to exact bytes and historical source code; voice qualification stays pending until its matching report is complete |
+| `probe_codec_bitrate.py`, `probe_codec_bitrate_band.py` | Assess fixed lower codec bitrates and matching wide-band reconstructions on spent sources; no reference text, API requests or fresh efficacy samples |
+| `codec_consensus_guard.py` | Diagnose isolated substitutions supported by unchanged context in both other-recognizer transcripts; never changes a processing decision or threshold |
 
 The fresh codec study uses [pinned evaluation assets](codec_evaluation_assets.json) and
 [text normalization](codec_evaluation_text.py). Chinese reference-error scoring uses
