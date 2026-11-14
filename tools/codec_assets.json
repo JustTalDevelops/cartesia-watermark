@@ -54,5 +54,28 @@
     }
   },
   "whisper_manifest": "speech_repair_assets.json",
-  "bigvgan_manifest": "vocoder_assets.json"
+  "bigvgan_manifest": "vocoder_assets.json",
+  "sensevoice": {
+    "model_id": "FunAudioLLM/SenseVoiceSmall",
+    "export": "sherpa-onnx FP32, 2024-07-17",
+    "source_url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17.tar.bz2",
+    "archive_sha256": "f6b2a72ebcb1ac7a764d4cfccd886e6bcb2a95c4657c2199d0ba95ed4b9ea71a",
+    "local_directory": ".cache/sensevoice-review-f32/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17",
+    "license": "FunASR Model Open Source License Agreement",
+    "license_url": "https://github.com/modelscope/FunASR/blob/main/MODEL_LICENSE",
+    "trained_by_this_project": false,
+    "files_sha256": {
+      "model.onnx": "977016bd9c79f9eb343430b5cc305e07ab64d5212dff41b0dcfa1694bee9a8cb",
+      "tokens.txt": "f449eb28dc567533d7fa59be34e2abca8784f771850c78a47fb731a31429a1dc",
+      "LICENSE": "221c6df10b0931a5629adad671ea48fb7747e034c414b6d2bfa275bc3dd4ea17"
+    },
+    "supported_languages": [
+      "en",
+      "ja",
+      "ko",
+      "zh",
+      "yue"
+    ],
+    "sherpa_onnx_version": "1.13.8"
+  }
 }

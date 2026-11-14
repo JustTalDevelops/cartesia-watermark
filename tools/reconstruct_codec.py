@@ -52,7 +52,8 @@ class CodecRuntime:
         directory = Path(self.temporary.name)
         before = self.recognizer.transcribe(source)
         job = {'key': key, 'directory': directory, 'before': before, 'native': directory/'native.flac'}
-        if before['supported'] and before['turbo'] and before['mms']:
+        secondary = before.get('secondary', 'mms')
+        if before['supported'] and before['turbo'] and before.get(secondary):
             started = time.monotonic()
             rebuilt, gain = self.codec.reconstruct(audio, rate)
             quantize(job['native'], rebuilt, rate)
@@ -78,10 +79,12 @@ class CodecRuntime:
         output_identity = None
         try:
             job, reused = self.job(source, original_sha, audio, rate, output.parent)
-            report.update(source_job_reused=reused, language=job['before']['language'])
+            report.update(source_job_reused=reused, language=job['before']['language'],
+                          source_encoder_reused=job['before'].get('source_encoder_reused', False),
+                          secondary_guard=job['before'].get('secondary', 'mms'))
             if not job['before']['supported']:
                 report['rejection_reason'] = 'unsupported_language_for_content_guard'
-            elif not job['before']['turbo'] or not job['before']['mms']:
+            elif not job['before']['turbo'] or not job['before'].get(job['before'].get('secondary', 'mms')):
                 report['rejection_reason'] = 'original_speech_not_recognized'
             else:
                 candidate = job['native']
@@ -191,6 +194,8 @@ def main():
                         reply = {'error': f'{type(error).__name__}: {error}'}
                     print(json.dumps(reply), file=protocol, flush=True)
                 return 0
+            if args.check:
+                runtime.recognizer.check_profiles()
             report = {'ready': True, 'presets': list(PRESETS), 'recognizers': runtime.recognizer.metadata} if args.check else runtime.process_file(
                 args.input, args.output, args.preset, args.metadata)
         finally:
