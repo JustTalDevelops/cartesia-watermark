@@ -35,12 +35,34 @@ def verify_files(directory, study, rows):
 def export(directory):
     deferred = load(directory/'lazy_codec_integrations/result.json')
     fast = load(directory/'fast_guard_runtime/result.json')
-    for report in (deferred, fast):
+    profiles = load(directory/'profile_preflight_integrations/result.json')
+    reuse = load(directory/'profile_prior_reuse/result.json')
+    voice = load(directory/'runtime_voice_preflight/result.json')
+    for report in (deferred, fast, profiles, reuse, voice):
         verify_source(report)
         if report['fresh_independent_sources'] != 0 or report['new_http_requests'] != 0 or report['reference_text_used']:
             raise ValueError('These are existing-file runtime comparisons only')
     verify_files(directory, 'lazy_codec_integrations', deferred['candidates'])
     verify_files(directory, 'fast_guard_runtime', fast['candidates'])
+    verify_files(directory, 'profile_preflight_integrations', profiles['candidates'])
+    if {r['id'] for r in profiles['candidates']} != {'fr','en_long'} or not all(r['exact_previously_checked_file_reproduction'] for r in profiles['candidates']):
+        raise ValueError('Retain both real profile preflight integrations')
+    if (reuse['original_recognition_inferences'] != 1 or reuse['vocoder_synthesis_calls'] != ['codec-band-prior'] or
+            len(reuse['candidates']) != 2 or [r['band_prior_reused'] for r in reuse['candidates']] != [False,True] or
+            [r['source_job_reused'] for r in reuse['candidates']] != [False,True]):
+        raise ValueError('The fallback must preserve its one original recognition and one shared synthesis')
+    for index,row in enumerate(reuse['candidates']):
+        folder=directory/'profile_prior_reuse'
+        if (digest(folder/(str(index)+'.flac')) != row['canonical_output_sha256'] or
+                digest(folder/(str(index)+'.json')) != row['metadata_sha256'] or
+                not row['content_guard_passed'] or not row['exact_previously_checked_file_reproduction']):
+            raise ValueError('Prior reuse changed its bound whole-file output or guard')
+    if [r['decision']['passed'] for r in voice['cases']] != [True,False]:
+        raise ValueError('The actual voice gate must retain both its acceptance and known rejection')
+    for row in voice['cases']:
+        receipt=directory/'runtime_voice_preflight/runtime_voice'/row['id']/(row['decision']['candidate_sha256']+'.json')
+        if digest(receipt) != row['decision']['receipt_sha256'] or row['decision']['independent_evaluation']:
+            raise ValueError('Voice gates are bound operational estimates, not independent validation')
     calls = {r['id']: [c['bandwidth_kbps'] for c in r['native_codec_calls']] for r in deferred['candidates']}
     if calls != {'ta1': [], 'ko': [6.], 'ru': [12.], 'ar': [6.]}:
         raise ValueError('A required donor disappeared or an unused pass was recomputed')
@@ -67,12 +89,16 @@ def export(directory):
     return {'kind': 'Existing-file codec inference optimizations', 'fresh_independent_sources': 0,
             'new_http_requests': 0, 'new_tts_requests': 0, 'frozen_primary_study_result_changed': False,
             'deferred_native_integration': deferred, 'secondary_first_guard_integration': fast,
+            'current_profile_preflight_integrations': profiles,
+            'original_and_prior_reuse_integration': reuse, 'runtime_voice_gate_preflight': voice,
             'human_listening_approval': False, 'physical_erasure_proven': False,
             'limits': ['Four codec-deferral files and two secondary-first files reuse previously detector-checked outputs exactly.',
                        'The unused native12 passes took under one second each in these earlier runs; removing them did not establish an end-to-end speedup.',
                        'Secondary-first rejection skips an expensive primary only after the other recognizer fails; both final recognizers remain mandatory for accepted output.',
                        'A skipped primary has a null disagreement, never a passing score or an imputed measurement.',
                        'Timings exclude outer runtime construction and come from individual sequential CPU runs, without statistical speed guarantees.',
+                       'Original/prior reuse times original recognition separately; the first and fallback methods share warm models and one vocoder synthesis, not free original calibration.',
+                       'The voice-gate preflight accepts a previously qualified file and rejects a known naturalness failure using the same fixed thresholds; it adds no fresh source.',
                        'No new removal efficacy or fresh independent recordings are established by inference parity.']}
 
 

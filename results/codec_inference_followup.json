@@ -297,6 +297,183 @@
     },
     "completed_at": "2026-11-14T17:59:15.753835+00:00"
   },
+  "current_profile_preflight_integrations": {
+    "implementation_commit": "5e3e1933c7439f8a3b1856cecca1845d8dc6baf7",
+    "source_files_sha256": {
+      "tools/codec_word_consensus.py": "b8afdddddc1d8fab2b93036786a88ccb63473063dbc4e4572ed5d2619807a3f2",
+      "tools/codec_audio.py": "2a0dac863e1d7c7577cf9f029f86b3973f90a6e77b935dc6bbce9169ff018f94",
+      "tools/codec_text.py": "2b3f9503c9e39c330d60ae727415995822fec4daa4de7560572de905eab25f96",
+      "tools/codec_teacher.py": "abebef4244f452e3d962ec6d88c9917806a98ad48512281875f41dc4d2cf3fb4",
+      "tools/codec_repair.py": "e6839578ce6d319e9463196521860b050d96f0f81f1ed8cafc14d3fe3918561a",
+      "tools/codec_profiles.py": "7421dc49d291bd86251f8b7a8ad9706187bc5066b89cb1a990f97c38316947c6",
+      "tools/codec_content.py": "1f7af6d64a8f79b80da9bbfb77f0d7497552b126fd189c8085e388e0604d97fe",
+      "tools/codec_settings.py": "4ac4ab3d31ab5e037ae2c22d6f0070a5f947cf728d214a472417ec55d439b841",
+      "tools/codec_inference.py": "1f86876e3ab07e960dd9ac9c4ad9f1a773393ac31bdef969f9d25b52370d2a9e",
+      "tools/reconstruct_codec.py": "e5def4d0f7455a36cfe5c89f60084ce776f1c8824bdedcb5dc40dc5e3b833205",
+      "tools/reconstruct_codec_band.py": "b5102f096a9a070b5496ced2f93ff3c29521d2326e78a2e8694a70bb7868e195",
+      "tools/vocoder_band_prior.py": "8b153b0e25421d560c3f9a41e5e36ea44f1ed0a7ad417b0c49af76f6e69b033f"
+    },
+    "fresh_independent_sources": 0,
+    "new_http_requests": 0,
+    "reference_text_used": false,
+    "candidates": [
+      {
+        "id": "fr",
+        "source_case": "codec_fresh_02_fr_sonic-preview",
+        "source_sha256": "72e3b625acf0f5b3fe78f0e06d7eea523c0e39708546973a17fec3e400f66480",
+        "preset": "codec-repair",
+        "expected_canonical_sha256": "57f9bf93369bacadbac80768285fc69d8ca93571c5c5cc99e82edda052544937",
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "turbo": 0.0,
+          "mms": 0.012658227848101266
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "mms",
+        "elapsed_seconds": 88.33595469314605,
+        "metadata_sha256": "16e73b0f61a313b69762bc4518e318e95effed2e8c1588bb52c72dc7db1c3218",
+        "previous_public_report_sha256": "540bdbdacbcaa30e87c2dfdada85c761fe45fbb7270cf5b6fcdda2ea2488779b",
+        "complete": true,
+        "canonical_output_sha256": "57f9bf93369bacadbac80768285fc69d8ca93571c5c5cc99e82edda052544937",
+        "exact_previously_checked_file_reproduction": true
+      },
+      {
+        "id": "en_long",
+        "source_case": "codec_fresh_13_en_long_sonic-3.6",
+        "source_sha256": "e380f7c28e2548dbf58e555854e4a619466a4cbcce5e75502479fccee5e282ff",
+        "preset": "codec-cycle",
+        "expected_canonical_sha256": "d4aeef6836ba7762d32e3b580442bc24b8bc5d05d2f6d048d6ccf6bb2d58808e",
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "turbo": 0.003194888178913738,
+          "sensevoice": 0.009554140127388535
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "sensevoice",
+        "elapsed_seconds": 84.5055983075872,
+        "metadata_sha256": "d4fd7d25cad477dce1b2d4a128e54146aab0dfefda1b0b06ab5f19c3aa80169f",
+        "previous_public_report_sha256": "560690f7384d9f30a8ab69fa310cf1adaa563b3b8f0947eb4b098ecb9588a84a",
+        "complete": true,
+        "canonical_output_sha256": "d4aeef6836ba7762d32e3b580442bc24b8bc5d05d2f6d048d6ccf6bb2d58808e",
+        "exact_previously_checked_file_reproduction": true
+      }
+    ],
+    "complete": true,
+    "completed_at": "2026-11-14T18:27:37.231107+00:00"
+  },
+  "original_and_prior_reuse_integration": {
+    "implementation_commit": "8b8e290478c359f434d4aae66f4ed16810ababde",
+    "source_files_sha256": {
+      "tools/codec_word_consensus.py": "b8afdddddc1d8fab2b93036786a88ccb63473063dbc4e4572ed5d2619807a3f2",
+      "tools/codec_audio.py": "2a0dac863e1d7c7577cf9f029f86b3973f90a6e77b935dc6bbce9169ff018f94",
+      "tools/codec_text.py": "2b3f9503c9e39c330d60ae727415995822fec4daa4de7560572de905eab25f96",
+      "tools/codec_teacher.py": "abebef4244f452e3d962ec6d88c9917806a98ad48512281875f41dc4d2cf3fb4",
+      "tools/codec_repair.py": "e6839578ce6d319e9463196521860b050d96f0f81f1ed8cafc14d3fe3918561a",
+      "tools/codec_profiles.py": "7421dc49d291bd86251f8b7a8ad9706187bc5066b89cb1a990f97c38316947c6",
+      "tools/codec_content.py": "1f7af6d64a8f79b80da9bbfb77f0d7497552b126fd189c8085e388e0604d97fe",
+      "tools/codec_settings.py": "4ac4ab3d31ab5e037ae2c22d6f0070a5f947cf728d214a472417ec55d439b841",
+      "tools/codec_inference.py": "1f86876e3ab07e960dd9ac9c4ad9f1a773393ac31bdef969f9d25b52370d2a9e",
+      "tools/reconstruct_codec.py": "ae8a607b333237bd4c01d3d4f7e8baa900a08ac39b8d70b60aafbe0add02d7de",
+      "tools/reconstruct_codec_band.py": "b5102f096a9a070b5496ced2f93ff3c29521d2326e78a2e8694a70bb7868e195",
+      "tools/vocoder_band_prior.py": "8b153b0e25421d560c3f9a41e5e36ea44f1ed0a7ad417b0c49af76f6e69b033f",
+      "experiments/codec_profile_cache.py": "0a4b713275e89899414001494222ec486a781347babd12da6a83f6edf618a3ca"
+    },
+    "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+    "fresh_independent_sources": 0,
+    "new_http_requests": 0,
+    "reference_text_used": false,
+    "candidates": [
+      {
+        "preset": "codec-band-prior",
+        "canonical_output_sha256": "0e7bf3c44379521412cb56eb6a7b2d4fe9ac8974a4c6725413584812b1c6bf45",
+        "metadata_sha256": "8ad41887f5c5996f4769bd3754a4e5365ba580d818f0c28e052687880b552278",
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "large": 0.0,
+          "mms": 0.0069767441860465115
+        },
+        "band_prior_reused": false,
+        "source_job_reused": false,
+        "processing_seconds": 104.70967402681708,
+        "exact_previously_checked_file_reproduction": true
+      },
+      {
+        "preset": "codec-band-inverse6-narrow",
+        "canonical_output_sha256": "87b9a212665236a272043cb6b0fd41a53c14905abeb5f35b43df1fb48227da0f",
+        "metadata_sha256": "fdb555a31658456690951b323f755f14bafb3c00ed87b3949672d8e9dec544d9",
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "large": 0.0024096385542168677,
+          "mms": 0.002325581395348837
+        },
+        "band_prior_reused": true,
+        "source_job_reused": true,
+        "processing_seconds": 66.76415322255343,
+        "exact_previously_checked_file_reproduction": true
+      }
+    ],
+    "complete": true,
+    "original_recognition_seconds": 76.22861195541918,
+    "worker_shutdown_seconds": 0.031731789000332355,
+    "original_recognition_inferences": 1,
+    "vocoder_synthesis_calls": [
+      "codec-band-prior"
+    ],
+    "original_recognition_cache_sha256": "fd6b955fd23f8d1f189318f8689f69b56a68f42875d98454ef527e1c32c83711",
+    "timing_scope": "Original-only recognition timed separately; each method excludes initial outer-runtime construction and retains its warm worker; shutdown separate; no end-to-end speed guarantee",
+    "completed_at": "2026-11-14T18:41:45.707529+00:00"
+  },
+  "runtime_voice_gate_preflight": {
+    "implementation_commit": "5b71e53bfe41e0e9a7476a406183a6b198d435a6",
+    "source_files_sha256": {
+      "experiments/run_codec_profiles.py": "a323bd4ddd08fdee42c65df353b42b64be3130ac687e5d8218fcb6cc5c5585ac",
+      "experiments/score_codec_study.py": "8fa758272b28150ba655243977e8ed82418231259ae158676daa27441dd8094c",
+      "tools/eval_voice_quality.py": "f45829ffa8658c1158f44f7516bde482f391c71267ae6ba8b18c3853b3d747b2",
+      "tools/remover.py": "aad94e48280117f052aa8b0ce5ff8ae254154fb2611526852038912865666e6c"
+    },
+    "fresh_independent_sources": 0,
+    "new_tts_requests": 0,
+    "new_http_requests": 0,
+    "reference_text_used": false,
+    "cases": [
+      {
+        "id": "ta2_inverse_narrow",
+        "expected_passed": true,
+        "decision": {
+          "passed": true,
+          "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+          "candidate_sha256": "87b9a212665236a272043cb6b0fd41a53c14905abeb5f35b43df1fb48227da0f",
+          "speaker_minimum": 0.9866908274961868,
+          "speaker_minimum_required": 0.95,
+          "dnsmos_overall_delta": -0.07372043920972171,
+          "dnsmos_overall_delta_required": -0.2,
+          "receipt_sha256": "2a02c75bb36cb83e6e6de041298824f483d5a1c8dd3afbcf7e20a361ea44b753",
+          "same_file_estimates_reused": false,
+          "independent_evaluation": false,
+          "reference_text_used": false
+        }
+      },
+      {
+        "id": "ta_smoothed",
+        "expected_passed": false,
+        "decision": {
+          "passed": false,
+          "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+          "candidate_sha256": "178edb3780f83924116264dd97d0ea3caba3a5464bd00ba35ba4734fa789c898",
+          "speaker_minimum": 0.9650324288181862,
+          "speaker_minimum_required": 0.95,
+          "dnsmos_overall_delta": -0.4674841137484669,
+          "dnsmos_overall_delta_required": -0.2,
+          "receipt_sha256": "0e15a8a72026b9012256c139b4a9b932a3aeca67ca663e7a5bbe5f39e5316d83",
+          "same_file_estimates_reused": false,
+          "independent_evaluation": false,
+          "reference_text_used": false
+        }
+      }
+    ],
+    "complete": true,
+    "completed_at": "2026-11-14T18:54:53.385665+00:00"
+  },
   "human_listening_approval": false,
   "physical_erasure_proven": false,
   "limits": [
@@ -305,6 +482,8 @@
     "Secondary-first rejection skips an expensive primary only after the other recognizer fails; both final recognizers remain mandatory for accepted output.",
     "A skipped primary has a null disagreement, never a passing score or an imputed measurement.",
     "Timings exclude outer runtime construction and come from individual sequential CPU runs, without statistical speed guarantees.",
+    "Original/prior reuse times original recognition separately; the first and fallback methods share warm models and one vocoder synthesis, not free original calibration.",
+    "The voice-gate preflight accepts a previously qualified file and rejects a known naturalness failure using the same fixed thresholds; it adds no fresh source.",
     "No new removal efficacy or fresh independent recordings are established by inference parity."
   ]
 }
