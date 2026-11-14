@@ -50,6 +50,8 @@ uv pip install --python .venv/bin/python -r requirements/verification.txt
 
 Four of the sixteen sources needed full-flow fallback. The workflow checks detector responses; speech quality still needs listening. The web app processes locally without these API checks.
 
+A separate [speech repair candidate](docs/speech-repair.md) adds recognizer checks and targeted synthesis. It remains under development: an independent recognizer found an Arabic content regression even when its own guard passed.
+
 The separate experimental V3 CLI needs only the inference dependencies and the bundled checkpoint:
 
 ```bash

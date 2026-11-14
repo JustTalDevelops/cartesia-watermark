@@ -6,6 +6,8 @@ This candidate compares recognized content before and after reconstruction. When
 
 A separate architecture review with [Meta MMS](https://huggingface.co/facebook/mms-1b-all) also found an Arabic reference-error increase of 6.45 percentage points. Its original-source errors were about 9.7% for Arabic and 6.5% for Tamil, measured before scoring candidate outputs. The Tamil repaired output increased its MMS error by only 0.59 points. The Arabic failure remains unresolved; matching the guard's own recognizer is insufficient evidence of content fidelity. MMS is currently an evaluation-only dependency and is not part of this runtime.
 
+The [development report](../results/speech_repair_development.json) records the two spent examples, exact-output integration, component timings, and independent-review failure. These examples add no fresh recordings to the removal studies.
+
 ## Install
 
 Complete the [Resemble reconstruction](reconstruction.md#install-the-separate-runtime) and [BigVGAN](reconstruction.md#smoothed-vocoder-candidate) installations first. Speech repair adds the pinned recognizer to the existing Python 3.12 environment:

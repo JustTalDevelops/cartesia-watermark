@@ -1,0 +1,253 @@
+{
+  "schema": 1,
+  "implementation_commit": "05c244ca7821f5f686a718c091f0cc38c35c5bee",
+  "scope": "Two already-spent authored development sources; zero new held-out recordings",
+  "fresh_recordings": 0,
+  "development_recordings": 2,
+  "status": "Independent Arabic content regression unresolved; not a generally validated remover",
+  "frozen_studies_unchanged": true,
+  "private_recordings_included": 0,
+  "primary_selection_before_repair_detector_labels": "In full-donor then 0.65 order, select first passing paired Turbo <=0.03, known-text delta <=0.03, voice cosine >=0.95 and MOS delta >=-0.2, before any repair detector label",
+  "independent_review": {
+    "model": "facebook/mms-1b-all",
+    "revision": "3d33597edbdaaba14a8e858e2c8caa76e3cec0cd",
+    "license": "cc-by-nc-4.0",
+    "original_calibration_maximum_reference_error": 0.15,
+    "normalization": "Whisper BasicTextNormalizer(remove_diacritics=False), NFKC, whitespace units",
+    "originals_scored_before_any_candidate": true
+  },
+  "cases": [
+    {
+      "source_id": "followup_06_ar_sonic-3.6",
+      "language": "ar",
+      "seconds": 28.48,
+      "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+      "output_sha256": "877b165ccfb145036ef4b94e561965d618481ba5059c267f9eacbb8b69486fbb",
+      "original_detected": true,
+      "processed_detected": [
+        false,
+        false
+      ],
+      "quality_estimates": {
+        "asr": {
+          "asr_disagreement": 0.13114754098360656,
+          "original_reference_error": 0.16129032258064516,
+          "processed_reference_error": 0.22580645161290322,
+          "reference_error_delta": 0.06451612903225806,
+          "reference_units": 62
+        },
+        "asr_turbo": {
+          "asr_disagreement": 0.0,
+          "original_reference_error": 0.03225806451612903,
+          "processed_reference_error": 0.03225806451612903,
+          "reference_error_delta": 0.0,
+          "reference_units": 62
+        },
+        "voice": {
+          "speaker_minimum": 0.9874733777161715,
+          "speaker_mean": 0.9892506598582748,
+          "dnsmos_delta": {
+            "signal": -0.029942722995063953,
+            "background": 0.03523444017234656,
+            "overall": -0.0024913177572276624
+          }
+        },
+        "mms": {
+          "original_reference_error": 0.0967741935483871,
+          "reference_error": 0.16129032258064516,
+          "reference_error_delta": 0.06451612903225806,
+          "paired_disagreement": 0.08064516129032258
+        }
+      },
+      "packaging": {
+        "id": "followup_06_ar_sonic-3.6",
+        "content_guard_passed": true,
+        "language": "ar",
+        "repair_applied": true,
+        "disagreement": 0.0,
+        "elapsed_seconds": 127.90133543126285,
+        "decoded_pcm_exact": true,
+        "maximum_difference": 0.0
+      }
+    },
+    {
+      "source_id": "followup_10_ta_sonic-3.6",
+      "language": "ta",
+      "seconds": 27.68,
+      "source_sha256": "91dbad3a2063dd29eae00148fbb21602e381fc88cc7eb52b99b203555c1ea963",
+      "output_sha256": "345ec33b5dfb9b502d4b15a6c2d9906843650302c125af401d5fccb80f1e0a21",
+      "original_detected": true,
+      "processed_detected": [
+        false,
+        false
+      ],
+      "quality_estimates": {
+        "asr": {
+          "asr_disagreement": 0.048484848484848485,
+          "original_reference_error": 0.1242603550295858,
+          "processed_reference_error": 0.11834319526627218,
+          "reference_error_delta": -0.005917159763313612,
+          "reference_units": 169
+        },
+        "asr_turbo": {
+          "asr_disagreement": 0.01818181818181818,
+          "original_reference_error": 0.10650887573964497,
+          "processed_reference_error": 0.1242603550295858,
+          "reference_error_delta": 0.017751479289940822,
+          "reference_units": 169
+        },
+        "voice": {
+          "speaker_minimum": 0.971687840692092,
+          "speaker_mean": 0.9762768944458485,
+          "dnsmos_delta": {
+            "signal": 0.010297861921342744,
+            "background": 0.014097397238284515,
+            "overall": -0.0005572691765998172
+          }
+        },
+        "mms": {
+          "original_reference_error": 0.0650887573964497,
+          "reference_error": 0.07100591715976332,
+          "reference_error_delta": 0.005917159763313612,
+          "paired_disagreement": 0.023952095808383235
+        }
+      },
+      "packaging": {
+        "id": "followup_10_ta_sonic-3.6",
+        "content_guard_passed": true,
+        "language": "ta",
+        "repair_applied": true,
+        "disagreement": 0.012048192771084338,
+        "elapsed_seconds": 144.78854888305068,
+        "decoded_pcm_exact": true,
+        "maximum_difference": 0.0
+      }
+    }
+  ],
+  "detector_requests": 8,
+  "positive_service_controls": 2,
+  "actual_cli_integration": {
+    "status": "passed",
+    "positive_controls": 2,
+    "negative_checks": 2,
+    "exact_encoded_bytes_equal_development_candidate": true,
+    "output_sha256": "877b165ccfb145036ef4b94e561965d618481ba5059c267f9eacbb8b69486fbb",
+    "parent_without_torch": true,
+    "protocol_sha256": "f3fc0a7ca8bef9a277600a7d146d36a6a7732ff9e08b7acdb1fcf71ee2ac7059",
+    "audit_sha256": "8e71e00d16c1ea41ab37ce49698321e6948c4d178e47a5e19b0359fd86a47b30"
+  },
+  "regional_donor_runtime": {
+    "scope": "Two spent authored development recordings, one machine; model warm; no detector calls",
+    "threads": 4,
+    "limits": "One observation per mode per recording, balanced order; timing estimate, not a general speed guarantee",
+    "cases": [
+      {
+        "id": "followup_06_ar_sonic-3.6",
+        "seconds": 28.48,
+        "sample_rate": 44100,
+        "warm_seconds": {
+          "full": 40.22531799506396,
+          "regional": 19.47865902353078
+        },
+        "regional_used_pcm_exact_to_full": true,
+        "patched_flac_exact_to_development_candidate": true,
+        "output_sha256": "877b165ccfb145036ef4b94e561965d618481ba5059c267f9eacbb8b69486fbb",
+        "rendered_blocks_per_channel": [
+          [
+            3,
+            4,
+            7,
+            8,
+            9
+          ]
+        ],
+        "full_blocks_per_channel": 10,
+        "resampling_guard_seconds": 0.01,
+        "donor_gain": 1.0,
+        "donor_is_unscaled": true,
+        "waveform_is_partial": true,
+        "valid_regions_seconds": [
+          [
+            11.24,
+            11.88
+          ],
+          [
+            21.46,
+            22.04
+          ],
+          [
+            26.380000000000003,
+            27.24
+          ]
+        ]
+      },
+      {
+        "id": "followup_10_ta_sonic-3.6",
+        "seconds": 27.68,
+        "sample_rate": 44100,
+        "warm_seconds": {
+          "regional": 24.87928170710802,
+          "full": 38.733311771415174
+        },
+        "regional_used_pcm_exact_to_full": true,
+        "patched_flac_exact_to_development_candidate": true,
+        "output_sha256": "345ec33b5dfb9b502d4b15a6c2d9906843650302c125af401d5fccb80f1e0a21",
+        "rendered_blocks_per_channel": [
+          [
+            0,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        ],
+        "full_blocks_per_channel": 10,
+        "resampling_guard_seconds": 0.01,
+        "donor_gain": 1.0,
+        "donor_is_unscaled": true,
+        "waveform_is_partial": true,
+        "valid_regions_seconds": [
+          [
+            1.24,
+            1.9000000000000001
+          ],
+          [
+            8.459999999999999,
+            9.24
+          ],
+          [
+            11.84,
+            12.32
+          ],
+          [
+            17.66,
+            18.599999999999998
+          ]
+        ]
+      }
+    ],
+    "complete": true
+  },
+  "posthoc_union_region_probe": {
+    "scope": "Same spent Arabic source; union of Turbo and MMS disputed regions",
+    "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+    "output_sha256": "11d0f12a08cdf559db2f2ecd39d00d8d8afc35cee264b7089873ac7321dc5350",
+    "coverage": 0.1769591263471681,
+    "mms_paired_disagreement": 0.06451612903225806,
+    "mms_reference_error_delta": 0.03225806451612903,
+    "mms_reference_delta_threshold": 0.03,
+    "mms_reference_delta_passed": false,
+    "detector_checked": false,
+    "runtime_integration": false
+  },
+  "limits": [
+    "Recognizer estimates and detector-negative responses cannot prove physical erasure or unchanged words.",
+    "Turbo is both the runtime guard and one evaluator; MMS is a separate architecture.",
+    "Arabic MMS reference error increased by 6.45 percentage points after repair.",
+    "No human listening approval was obtained.",
+    "Timing observations cover two recordings on one machine; the complete guarded path is slower than base reconstruction."
+  ],
+  "recognized_transcripts_exported": false,
+  "speaker_embeddings_exported": false
+}

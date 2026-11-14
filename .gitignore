@@ -61,6 +61,7 @@ results/*
 !results/reconstruction_vocoder_runtime.json
 !results/reconstruction_verification.json
 !results/reconstruction_filtered_prior.json
+!results/speech_repair_development.json
 !results/model_catalog.json
 
 # Local exports, tool state, and private follow-up recordings.
