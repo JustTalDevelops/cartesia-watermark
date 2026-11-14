@@ -178,6 +178,17 @@ def export(directory):
                               {'type': 'one MMS-based generated-donor refinement, including sub-threshold mismatches',
                                'initial_candidate_sha256': refined['initial_candidate_sha256'],
                                'native_donor_sha256': refined['native_donor_sha256'], 'repair': refined['repair']}))
+    partial = load(directory/'original_band_ta2/result.json')
+    partial_quality = load(directory/'original_band_ta2_quality/result.json')
+    load(directory/'original_band_ta2_endpoint_queue.json')
+    for scored in partial['candidates']:
+        label = scored['label']
+        rows.append(candidate(directory, 'codec_fresh_12_ta2_sonic-preview', 'ta2_original_'+label,
+                              directory/'original_band_ta2'/label, scored, partial['original_reference_error'],
+                              partial_quality, 'ta2_original_'+label, 'ta',
+                              {'type': 'partial band reconstruction with original audio outside 1–4 kHz',
+                               'original_waveform_retained_outside_band': True, 'full_regeneration': False,
+                               'inside_generated_prior_sha256': scored['inside_generated_prior_sha256']}))
     repair_row = next(c for c in rows if c['id'] == 'ru_band_prior_repair')
     inverse_row = next(c for c in rows if c['id'] == 'ko_inverse_wide')
     arabic_row = next(c for c in rows if c['id'] == 'inverse_transfer_ar')
@@ -199,6 +210,7 @@ def export(directory):
                        'The inverse Arabic transfer uses an explicit new word-consensus profile; its raw 3/71 rejection remains recorded. One supported correction leaves 2/71 disagreement, within the unchanged 0.03 limit.',
                        'Every speech/naturalness failure remains a failure without a detector query.',
                        'The initial zero-delay gain/rounding mismatch was retained; only the corrected byte-identical control was used.',
+                       'The original-band Tamil variants retain original audio outside the reconstruction band; neither is a full-regeneration or erasure claim.',
                        'A detector-negative result does not prove physical erasure or reliability on new recordings.']}
 
 

@@ -16,6 +16,7 @@ do not establish reliable removal on new recordings.
 | [Tamil stronger vocoder](../results/vocoder_codec_tradeoffs.json) | Midpoint and stronger smoothing cleared detection on the first recording but increased independent recognizer errors. Stronger smoothing also reduced estimated naturalness. These are failed removals. |
 | [Tamil band-focused vocoder](../results/vocoder_band_development.json) | Smoothing focused on 1–4 kHz passed seven estimated quality checks on the first recording and returned two negative responses with four positive source controls. The stronger variant failed naturalness and was not queried. This is one spent source. |
 | [Tamil separate smoothing and repair](../results/vocoder_codec_tradeoffs.json) | Separate frequency/time smoothing failed the speech guards. A bounded repair passed the processing guards but failed independent speech and naturalness checks. None was detector-tested. |
+| [Second Tamil original-band mixture](../results/codec_followup_development.json) | Keeping original audio outside the generated middle band passed quality but remained detectable twice. Stronger smoothing failed independent speech evaluation and was not queried. Neither mixture establishes physical erasure. |
 | [Arabic Mimi codec](../results/vocoder_codec_tradeoffs.json) | The 2.2 kbps output passed the measured quality checks but stayed detectable twice. The 1.1 kbps output failed speech checks. The 1.65 and 1.925 kbps outputs passed seven estimates but failed an additional MMS check. The rejected files were not detector-tested. |
 
 The prospective language profiles differ from the frozen study. Tamil uses
@@ -54,6 +55,15 @@ packaged path reproduced the checked file using real models in 91.6 seconds for
 31.68 seconds of audio, excluding initial outer-runtime construction. The raw
 failure is not reclassified as a pass under the original profile. The second
 Tamil recording remains unresolved.
+
+A [compatibility replay](../results/codec_profile_replay.json) reassessed nine
+previously selected whole files with the prospective language profiles. All nine
+passed the current automated quality estimates: seven marked files and two
+nominal controls. This reused the exact previously detector-checked bytes, with
+no new synthesis, HTTP requests, or independent sources. Hindi passed the new
+vowel-preserving character policy with Turbo evaluation; its historical failure
+under the original policy remains recorded. The frozen fresh-study result stays
+6/14, and the two controls are not removal transitions.
 
 These are automated estimates, without human listening approval. A negative
 detector response does not establish physical erasure. Quality failures remain

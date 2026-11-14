@@ -31,7 +31,8 @@ This directory mixes curated files included in Git with ignored local experiment
 | `codec_bitrate_development.json` | One spent Korean counterexample: native 3 kbps failed its speech guard; native 6 kbps and both 3/6 kbps band files remained detected twice, including two band files passing all seven estimated quality gates |
 | `vocoder_codec_tradeoffs.json` | Three spent sources: Tamil detector-negative quality failures, separate smoothing/repair rejections, and Arabic Mimi speech/detection failures including the additional MMS rejection; every planned variant retained |
 | `vocoder_band_development.json` | One spent Tamil source: fixed band-focused smoothing passed seven estimated quality checks and cleared twice with positive source brackets; the stronger variant failed naturalness and was not queried |
-| `codec_followup_development.json` | Four spent sources and seventeen treatments: Russian, Korean, and explicitly adjudicated Arabic negatives, exact real-model packaged reproduction, and every remaining speech, naturalness, and detector failure; raw Arabic rejection retained |
+| `codec_followup_development.json` | Four spent sources and nineteen treatments: Russian, Korean, and explicitly adjudicated Arabic negatives, exact real-model packaged reproduction, and every remaining speech, naturalness, and detector failure; raw Arabic rejection retained |
+| `codec_profile_replay.json` | Nine saved selected files reassessed with the prospective language profiles: seven marked files and two nominal controls passed the current quality estimates; zero new sources or detector requests, with the original Hindi failure and frozen 6/14 result preserved |
 | `model_catalog.json` | Published checkpoint inventory, loaders, aliases, and source/export checksums |
 
 **V3 is not a reliable remover.** Its original small API test did not generalize to subsequent real recordings. See [editor limitations](../docs/editor.md).
