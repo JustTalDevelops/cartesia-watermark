@@ -18,10 +18,11 @@ import soundfile as sf
 
 from codec_audio import digest, quantize, validate_audio, validate_paths
 from codec_content import ContentRecognizer, assess
+from codec_repair import repair_from_native
 from codec_inference import NativeCodec, ROOT
 from codec_settings import PRESETS, SETTINGS
 from reconstruction_worker import ReconstructionWorker
-from speech_repair import pcm_digest
+from speech_repair import AlignmentUnavailable, RepairTooLarge, pcm_digest
 
 
 class CodecRuntime:
@@ -94,7 +95,7 @@ class CodecRuntime:
                               native_elapsed_seconds=job['native_elapsed_seconds'])
                 with tempfile.TemporaryDirectory(prefix='.codec-assessment-', dir=output.parent) as temporary:
                     directory = Path(temporary)
-                    if preset == 'codec-band':
+                    if preset in ('codec-band', 'codec-repair'):
                         manifest = directory/'band.input.json'
                         manifest.write_text(json.dumps({'source': str(source.resolve()), 'source_sha256': original_sha,
                                                         'native': str(candidate), 'native_sha256': job['native_sha256']}))
@@ -102,7 +103,7 @@ class CodecRuntime:
                             self.band_worker = self.worker_factory(ROOT/'.venv/bin/python', ROOT/'tools/reconstruct_codec_band.py',
                                                                    isolated=False)
                         band_path = directory/'band.wav'
-                        band_info = self.band_worker.run(manifest, band_path, preset, directory/'band.json',
+                        band_info = self.band_worker.run(manifest, band_path, 'codec-band', directory/'band.json',
                                                          timeout=max(300, len(audio)/rate*8+120))
                         mixed, band_rate = sf.read(band_path, dtype='float32')
                         if (band_info.get('output_sha256') != digest(band_path) or band_rate != rate or mixed.shape != audio.shape or
@@ -114,6 +115,12 @@ class CodecRuntime:
                         if digest(candidate) != band_info.get('encoded_flac_sha256'):
                             raise RuntimeError('Band worker publication changed its encoded recording')
                         report['band_model'] = band_info
+                    elif preset == 'codec-cycle':
+                        first, first_rate = sf.read(candidate, dtype='float32')
+                        repeated, gain = self.codec.reconstruct(first, first_rate)
+                        candidate = directory/'cycle.flac'
+                        quantize(candidate, repeated, first_rate)
+                        report.update(codec_cycle_passes=2, cycle_gain=gain)
                     candidate_sha = digest(candidate)
                     result, candidate_rate = sf.read(candidate, dtype='float32')
                     if candidate_rate != rate or result.shape != audio.shape or not np.isfinite(result).all() or np.max(np.abs(result)) >= 1:
@@ -121,7 +128,38 @@ class CodecRuntime:
                     after = self.recognizer.transcribe(candidate, job['before']['language'])
                     if digest(candidate) != candidate_sha or digest(source) != original_sha:
                         raise RuntimeError('A source or candidate changed during content assessment')
-                    report.update(assess(job['before'], after), candidate_flac_sha256=candidate_sha)
+                    assessment = assess(job['before'], after)
+                    if preset in ('codec-repair', 'codec-cycle') and not assessment['content_guard_passed']:
+                        report['initial_content_assessment'] = assessment
+                        if (job['before'].get('secondary', 'mms') != 'mms' or
+                                not job['before'].get('alignment') or not after.get('alignment')):
+                            report['repair_status'] = 'secondary_alignment_unavailable'
+                        else:
+                            try:
+                                name, _, donor_alignment = self.recognizer.secondary_transcribe(
+                                    job['native'], job['before']['language'])
+                                if name != 'mms' or digest(job['native']) != job['native_sha256']:
+                                    raise RuntimeError('Native donor changed before local repair')
+                                donor, donor_rate = sf.read(job['native'], dtype='float32')
+                                if donor_rate != rate or donor.shape != result.shape:
+                                    raise RuntimeError('Native donor changed the complete sample grid')
+                                repaired, proposal = repair_from_native(
+                                    job['before']['alignment'], donor_alignment, after['alignment'],
+                                    donor, result, rate, self.recognizer.normalizer, job['before']['language'],
+                                    padding=SETTINGS['repair_padding_seconds'],
+                                    maximum_coverage=SETTINGS['maximum_repair_coverage'],
+                                    maximum_regions=SETTINGS['maximum_repair_regions'])
+                                candidate = directory/'repair.flac'
+                                result = quantize(candidate, repaired, rate)
+                                candidate_sha = digest(candidate)
+                                repaired_after = self.recognizer.transcribe(candidate, job['before']['language'])
+                                if digest(candidate) != candidate_sha or digest(source) != original_sha:
+                                    raise RuntimeError('A source or repair changed during final content assessment')
+                                assessment = assess(job['before'], repaired_after)
+                                report.update(repair_status='assessed', repair=proposal)
+                            except (AlignmentUnavailable, RepairTooLarge) as error:
+                                report.update(repair_status='unavailable', repair_reason=str(error))
+                    report.update(assessment, candidate_flac_sha256=candidate_sha)
                     if report['content_guard_passed']:
                         report.update(content_guard_pcm_sha256=pcm_digest(result), content_guard_sample_grid='PCM_24')
                         with output.open('xb') as handle:

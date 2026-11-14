@@ -5,6 +5,14 @@ from codec_text import paired_error, text_units
 
 
 class CodecProfileTests(unittest.TestCase):
+    def test_hindi_vowel_signs_and_virama_remain_in_words(self):
+        self.assertEqual(text_units('किताब, कृपया।', str.lower, 'hi'), ['किताब', 'कृपया'])
+        self.assertNotEqual(text_units('दिन', str.lower, 'hi'), text_units('दीन', str.lower, 'hi'))
+
+    def test_tamil_vowel_signs_remain_in_words(self):
+        self.assertEqual(text_units('தமிழ் மொழி!', str.lower, 'ta'), ['தமிழ்', 'மொழி'])
+        self.assertNotEqual(text_units('கல்', str.lower, 'ta'), text_units('கால்', str.lower, 'ta'))
+
     def test_korean_spacing_does_not_create_a_lexical_disagreement(self):
         before = {'language': 'ko', 'secondary': 'sensevoice',
                   'turbo': ['준비해', '주세요'], 'sensevoice': ['준비해', '주세요']}

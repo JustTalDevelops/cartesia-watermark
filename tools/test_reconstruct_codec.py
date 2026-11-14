@@ -154,6 +154,63 @@ class CodecRuntimeTests(unittest.TestCase):
         self.assertFalse(path.exists())
         self.assertTrue(self.band.closed)
 
+    def test_cycle_preset_reconstructs_the_first_quantized_pass(self):
+        seen = []
+        original = self.codec.reconstruct
+
+        def recorded(audio, rate):
+            seen.append(audio.copy())
+            return original(audio, rate)
+
+        self.codec.reconstruct = recorded
+        report = self.runtime.process_file(self.source, self.output, 'codec-cycle')
+        self.assertTrue(report['content_guard_passed'])
+        self.assertEqual(report['codec_cycle_passes'], 2)
+        self.assertEqual(len(seen), 2)
+        self.assertEqual(seen[0].shape, seen[1].shape)
+        self.assertLess(np.max(np.abs(seen[1])), np.max(np.abs(seen[0])))
+        samples, _ = sf.read(self.output, dtype='float32')
+        np.testing.assert_array_equal(samples*2**23, np.rint(samples*2**23))
+
+    def test_repair_preset_keeps_a_content_qualified_band_file(self):
+        report = self.runtime.process_file(self.source, self.output, 'codec-repair')
+        self.assertTrue(report['content_guard_passed'])
+        self.assertNotIn('repair', report)
+        self.assertEqual(self.band.calls, 1)
+
+    def run_repair_fixture(self, reject_final=False):
+        recognizer = self.recognizer
+        recognizer.normalizer = str.lower
+
+        def aligned(text):
+            return {'text': text, 'duration': 5., 'chunks': [
+                {'text': word, 'timestamp': span} for word, span in
+                zip(text.split(), ((.5, .7), (2., 2.2)))]}
+
+        def transcribe(path, language=None):
+            wrong = path.name == 'band.flac' or (reject_final and path.name == 'repair.flac')
+            text = 'first changed' if wrong else 'first second'
+            return {'language': 'fr', 'supported': True, 'secondary': 'mms',
+                    'turbo': ['first', 'second'], 'mms': text.split(), 'alignment': aligned(text)}
+
+        recognizer.transcribe = transcribe
+        recognizer.secondary_transcribe = lambda path, language: ('mms', ['first', 'second'], aligned('first second'))
+        return self.runtime.process_file(self.source, self.output, 'codec-repair')
+
+    def test_repaired_audio_is_reassessed_before_publication(self):
+        report = self.run_repair_fixture()
+        self.assertTrue(report['content_guard_passed'])
+        self.assertFalse(report['initial_content_assessment']['content_guard_passed'])
+        self.assertEqual(report['repair_status'], 'assessed')
+        self.assertTrue(self.output.exists())
+        self.assertLess(report['repair']['repaired_fraction'], .2)
+
+    def test_failed_final_repair_assessment_has_no_published_output(self):
+        report = self.run_repair_fixture(reject_final=True)
+        self.assertFalse(report['content_guard_passed'])
+        self.assertEqual(report['repair_status'], 'assessed')
+        self.assertFalse(self.output.exists())
+
 
 class CodecGuardAndBandTests(unittest.TestCase):
     def test_both_recognizers_must_pass_and_missing_speech_rejects(self):

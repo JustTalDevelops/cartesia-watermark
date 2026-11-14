@@ -1,5 +1,5 @@
 """Lightweight settings for opt-in codec reconstruction; safe for the API parent."""
-PRESETS = ('codec-native', 'codec-band')
+PRESETS = ('codec-native', 'codec-band', 'codec-repair', 'codec-cycle')
 MAX_DISAGREEMENT = .03
 MMS_CODES = {'en': 'eng', 'es': 'spa', 'fr': 'fra', 'de': 'deu', 'hi': 'hin',
              'ja': 'jpn', 'ar': 'ara', 'ko': 'kor', 'zh': 'cmn-script_simplified',
@@ -10,4 +10,7 @@ SETTINGS = {'codec_bandwidth_kbps': 12., 'codec_sample_rate': 24000,
             'fallback_upper_edge_at_nyquist': 'High-pass at the lower edge',
             'fallback_mel_sigma_frequency': .5, 'fallback_mel_sigma_time': .5,
             'maximum_paired_disagreement_each_recognizer': MAX_DISAGREEMENT,
-            'sample_grid_before_guard': 'PCM_24', 'threads': 4}
+            'sample_grid_before_guard': 'PCM_24', 'threads': 4,
+            'repair_padding_seconds': .12, 'maximum_repair_coverage': .20,
+            'maximum_repair_regions': 8, 'codec_cycle_passes': 2,
+            'guard_profile_version': 'prospective-v2'}

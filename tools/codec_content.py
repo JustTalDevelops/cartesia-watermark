@@ -55,7 +55,7 @@ class ContentRecognizer:
             'attention': 'Whisper/MMS SDPA', 'precision': 'float32', 'threads': 4,
             'language_policy': 'Detect original language, force it for candidates; eleven supported utterance languages',
             'supported_languages': sorted(MMS_CODES),
-            'normalization': 'NFKC BasicTextNormalizer(False); Chinese OpenCC1.1.9 t2s characters; Japanese characters; Korean KsponSpeech spacing-normalized word comparisons; whitespace words otherwise',
+            'normalization': 'NFKC; Hindi/Tamil preserve combining vowel signs and viramas, removing punctuation/symbols; BasicTextNormalizer(False) elsewhere; Chinese OpenCC1.1.9 t2s characters; Japanese characters; Korean KsponSpeech spacing-normalized word comparisons; whitespace words otherwise',
             'short_source_encoder_reuse': True, 'transcripts_written_to_disk': False,
             'model_downloads_during_processing': False}
 
