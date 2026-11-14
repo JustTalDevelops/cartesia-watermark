@@ -16,6 +16,19 @@ and worker shutdown took 205.2 seconds for the 30.08-second clip on the four-cor
 CPU reference machine, excluding initial outer-runtime construction. This one
 integration run adds no independent source or new detector observation.
 
+Two additional opt-in paths have [published follow-up evidence](https://github.com/JustTalDevelops/cartesia-watermark/blob/d5ce5df/results/codec_followup_development.json):
+
+| Preset | Additional operation | Spent example |
+| --- | --- | --- |
+| `codec-band-prior-repair` | One bounded native-donor repair when the MMS-backed guard rejects the prior; both guards reassess the complete result | Russian: seven quality estimates passed and two negatives with four positive source controls |
+| `codec-band-inverse6` | Generated native 6 kbps outside 1–4 kHz, generated band prior inside; no original waveform mix | Korean: seven quality estimates passed and two negatives with four positive source controls |
+
+Actual packaged runs reproduced both checked FLAC files exactly. Processing and
+worker shutdown took 148.1 seconds for the 32.88-second Russian example and 60.8
+seconds for the 29.92-second Korean example, excluding initial outer-runtime
+construction. These timings use different recognizers and are not an app-wide
+speed comparison. Arabic and the second Tamil counterexamples remain unresolved.
+
 Complete the [codec setup](codec-reconstruction.md), the [prospective guard
 profile setup](codec-guard-profiles.md), and the separate Python 3.13 BigVGAN setup
 linked there. Run locally in the Python 3.12 codec environment:
@@ -30,6 +43,13 @@ pair before publishing FLOAT WAV. A failed guard produces no output. These two
 live comparisons are separate from the study's reference-error, speaker, and
 naturalness estimates. They cannot establish unchanged speech.
 
+Select either additional preset with the same `--preset` option. The repair uses
+only generated native regions matching the original MMS sequence, with at most
+20% coverage, eight regions, and one proposal. It requires MMS timestamps; other
+secondary profiles do not receive this repair. The inverse preset encodes the
+original at 6 kbps rather than encoding an earlier 12 kbps output, quantizes both
+generated components, and mixes them in the parent before final recognition.
+
 The preset also works with the separate, opt-in verification CLI:
 
 ```bash
@@ -41,7 +61,7 @@ That CLI uploads audio to Cartesia and checks the final encoded bytes. The local
 processing command performs no requests. Neither recognizer agreement nor a
 negative detector response proves physical erasure.
 
-The prior shares the warm BigVGAN worker and source-recognition cache with
-`codec-band`. The current outer runtime still constructs its native codec cache;
-the prior does not mix that cached waveform into synthesis. This experimental
+These presets share the warm BigVGAN worker and source-recognition cache with
+`codec-band`. The current outer runtime still constructs its native 12 kbps cache;
+the plain prior does not mix that cached waveform into synthesis. This experimental
 branch does not change the upload app or the frozen V3 editor.
