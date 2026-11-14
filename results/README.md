@@ -25,6 +25,7 @@ This directory mixes curated files included in Git with ignored local experiment
 | `codec_runtime.json` | Actual lightweight CLI integration for native codec / wide-band fallback: exact development-file reproduction, dual guards, repeated negatives and whole-source positive controls |
 | `codec_asr_runtime.json` | Exploratory precision timings, word differences, failed BF16 preprocessing, exact-token short-source encoder reuse and sixteen-original MMS comparison; no processing runtime change or fresh removal evidence |
 | `codec_reliability.freeze.json` | Prospective source/evaluation freeze for sixteen new codec-study requests; a protocol, not efficacy evidence |
+| `codec_profiles_reliability.freeze.json` | Separate prospective protocol for 44 new marked requests and four matched nominal controls with language-specific method orders; not efficacy evidence |
 | `codec_reliability.json` | All sixteen fresh requests: six fully qualified marked transitions, one selected Hindi quality failure, seven uncleared marked cases, and two nominal controls |
 | `codec_repair_development.json` | One spent French counterexample repaired locally: seven estimated quality gates passed, two whole-file negatives and four positive source controls; no change to the fresh-study count |
 | `codec_cycles_development.json` | One spent long-file counterexample after two codec passes: all seven estimated quality gates passed, two whole-file negatives and four positive source controls; no fresh independent source |

@@ -28,7 +28,9 @@ one-percent character limit cannot be substituted into the historical study or
 claimed equivalent to its three-percent word limit. A future validation protocol
 must specify reference scoring, source calibration and evaluation-only checkpoints
 before generating new test recordings. Raw word-error diagnostics should also be
-retained. No new protocol has been frozen yet.
+retained. The separate [language-profile protocol](codec-profiles-study.md)
+specifies these roles and limits before its new generation phase. Its freeze is
+not efficacy evidence.
 
 ## Assets and licenses
 
