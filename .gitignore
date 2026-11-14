@@ -71,6 +71,7 @@ results/*
 !results/codec_cycles_development.json
 !results/codec_bitrate_development.json
 !results/vocoder_codec_tradeoffs.json
+!results/vocoder_band_development.json
 !results/speech_repair_development.json
 !results/speech_repair_runtime.json
 !results/model_catalog.json

@@ -66,6 +66,7 @@ def export(directory):
     quality_anisotropic = load(directory / 'ta1_anisotropic_quality/result.json')
     quality_repair = load(directory / 'ta1_time_repair_quality/result.json')
     quality_mimi12 = load(directory / 'mimi12_arabic_quality/result.json')
+    quality_mimi14 = load(directory / 'mimi14_arabic_quality/result.json')
     additional_mms = load(directory / 'mimi_independent_mms/result.json')
     specifications = [
         ('ta_gentle', 'codec_tamil_full_vocoder', '0.5', quality_main),
@@ -78,6 +79,7 @@ def export(directory):
         ('ta_time', 'codec_ta1_anisotropic', 'f0.5_t1', quality_anisotropic),
         ('ta_time_repaired', 'codec_ta1_time_repair', '', quality_repair),
         ('ar_mimi12', 'mimi12_arabic_development', '12', quality_mimi12),
+        ('ar_mimi14', 'mimi14_arabic_development', '14', quality_mimi14),
     ]
     rows = []
     for label, study, variant, quality in specifications:
@@ -118,6 +120,15 @@ def export(directory):
             if extra['source_sha256'] != source_sha or additional_mms['source_sha256'] != source_sha:
                 raise ValueError('The additional recognizer evaluated a different source')
             extra_passed = additional_review_passes(additional_mms, extra)
+        elif label == 'ar_mimi14':
+            extra = next(c for c in quality_mimi14['candidates'] if c['evaluation_checkpoint'] == 'mms')
+            original_extra = quality_mimi14['evaluation_checkpoints']['mms']
+            if (extra['source_sha256'] != source_sha or extra['output_sha256'] != candidate_sha or
+                    original_extra['source_sha256'] != source_sha):
+                raise ValueError('The additional 14-quantizer review refers to different audio')
+            extra_passed = additional_review_passes({
+                'original_reference_error': original_extra['original_reference_error'],
+                'original_calibrated': original_extra['original_reference_error'] <= .15}, extra)
         qualified = calibrated and assessed['content_guard_passed'] and all(gates.values()) and extra_passed
         endpoint = None
         if (folder / 'endpoint').exists():
@@ -176,7 +187,7 @@ def export(directory):
                        'These checkpoint and normalization profiles differ from the frozen primary study.',
                        'A detector-negative file that damages speech remains a failed removal.',
                        'Whisper checkpoints share ancestry and do not constitute independent recognizer architectures.',
-                       'The 12-quantizer Mimi file passed seven estimates but failed the additional calibrated MMS reference-delta check; it was not detector-tested.',
+                       'The 12- and 14-quantizer Mimi files passed seven estimates but failed the additional calibrated MMS reference-delta check; neither was detector-tested.',
                        'Original calibration and voice scores are estimates, not human approval.',
                        'The frozen primary result remains six qualified marked sources out of fourteen.']}
 

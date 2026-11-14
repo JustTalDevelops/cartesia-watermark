@@ -1847,6 +1847,142 @@
       "status": "quality_rejected_not_detector_tested"
     },
     {
+      "id": "ar_mimi14",
+      "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+      "candidate_sha256": "21cd0e6e1f71434d90d8351ae3a08534b854cf39d72441372027a9683cc45557",
+      "settings": {
+        "num_quantizers": 14,
+        "nominal_bitrate_kbps": 1.925
+      },
+      "assessment": {
+        "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+        "output_sha256": "21cd0e6e1f71434d90d8351ae3a08534b854cf39d72441372027a9683cc45557",
+        "num_quantizers": 14,
+        "nominal_bitrate_kbps": 1.925,
+        "gain": 1.0,
+        "decode_and_guard_elapsed_seconds": 25.663110250607133,
+        "encoder_prefix_reused": false,
+        "complete": true,
+        "quality_verified": false,
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "turbo": 0.028169014084507043,
+          "fastconformer": 0.0
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "fastconformer",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 71,
+          "fastconformer": 71
+        },
+        "processed_units": {
+          "turbo": 71,
+          "fastconformer": 71
+        }
+      },
+      "reference_errors": {
+        "original_guards": {
+          "turbo": 0.04225352112676056,
+          "fastconformer": 0.0
+        },
+        "processed_guards": {
+          "turbo": 0.07042253521126761,
+          "fastconformer": 0.0
+        },
+        "guard_deltas": {
+          "turbo": 0.028169014084507046,
+          "fastconformer": 0.0
+        },
+        "evaluation_only": {
+          "id": "ar_mimi14",
+          "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+          "output_sha256": "21cd0e6e1f71434d90d8351ae3a08534b854cf39d72441372027a9683cc45557",
+          "evaluation_checkpoint": "large",
+          "processed_reference_error": 0.028169014084507043,
+          "reference_error_delta": 0.014084507042253521,
+          "maximum_reference_delta": 0.03,
+          "reference_delta_passed": true
+        },
+        "evaluation_checkpoint": {
+          "historical_raw_cache_metadata": {
+            "model": "openai/whisper-large-v3",
+            "revision": "06f233fe06e710322aca913c1bc4249a0d71fce1",
+            "precision": "float32",
+            "attention": "sdpa",
+            "role": "Additional evaluation checkpoint; shares Whisper ancestry, not an independent architecture; no change to frozen primary results"
+          },
+          "role_in_these_candidates": "Evaluation only; never used for processing selection",
+          "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+          "original_reference_error": 0.014084507042253521
+        }
+      },
+      "voice": {
+        "id": "ar_mimi14",
+        "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+        "language": "ar",
+        "original_dnsmos": {
+          "signal": 3.669378029186744,
+          "background": 4.207749741145473,
+          "overall": 3.4701676199644593,
+          "windows": 22,
+          "natural_seconds": 31.68
+        },
+        "window_starts_seconds": [
+          1.336,
+          10.84,
+          20.344
+        ],
+        "speaker_window_cosines": [
+          0.9944786524161168,
+          0.9904479175582226,
+          0.9893312550922259
+        ],
+        "speaker_minimum": 0.9893312550922259,
+        "processed_dnsmos": {
+          "signal": 3.6627258182101228,
+          "background": 4.219985501692036,
+          "overall": 3.4620589409024216,
+          "windows": 22,
+          "natural_seconds": 31.68
+        },
+        "dnsmos_delta": {
+          "signal": -0.006652210976621387,
+          "background": 0.012235760546563057,
+          "overall": -0.008108679062037716
+        },
+        "output_sha256": "21cd0e6e1f71434d90d8351ae3a08534b854cf39d72441372027a9683cc45557",
+        "status": "scored"
+      },
+      "quality_gate_results": {
+        "evaluation_checkpoint_reference_delta": true,
+        "primary_reference_delta": true,
+        "secondary_reference_delta": true,
+        "primary_paired": true,
+        "secondary_paired": true,
+        "speaker_minimum": true,
+        "dnsmos_overall": true
+      },
+      "calibrated_original_checkpoints": 3,
+      "original_calibration_ceiling": 0.15,
+      "all_seven_estimated_quality_gates_passed": true,
+      "additional_mms_evaluation": {
+        "id": "ar_mimi14_mms",
+        "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+        "output_sha256": "21cd0e6e1f71434d90d8351ae3a08534b854cf39d72441372027a9683cc45557",
+        "evaluation_checkpoint": "mms",
+        "processed_reference_error": 0.14084507042253522,
+        "reference_error_delta": 0.042253521126760576,
+        "maximum_reference_delta": 0.03,
+        "reference_delta_passed": false
+      },
+      "additional_mms_reference_delta_passed": false,
+      "quality_qualified": false,
+      "detector": null,
+      "qualified_detector_negative": false,
+      "status": "quality_rejected_not_detector_tested"
+    },
+    {
       "id": "ar_mimi8",
       "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
       "candidate_sha256": "cfd7eefd4296f3ed5045571a08c697248ffc920e4aa72f03b97a61d0b57390fe",
@@ -2112,7 +2248,7 @@
     "These checkpoint and normalization profiles differ from the frozen primary study.",
     "A detector-negative file that damages speech remains a failed removal.",
     "Whisper checkpoints share ancestry and do not constitute independent recognizer architectures.",
-    "The 12-quantizer Mimi file passed seven estimates but failed the additional calibrated MMS reference-delta check; it was not detector-tested.",
+    "The 12- and 14-quantizer Mimi files passed seven estimates but failed the additional calibrated MMS reference-delta check; neither was detector-tested.",
     "Original calibration and voice scores are estimates, not human approval.",
     "The frozen primary result remains six qualified marked sources out of fourteen."
   ]
