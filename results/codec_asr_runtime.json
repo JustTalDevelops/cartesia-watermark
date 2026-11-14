@@ -1,0 +1,1472 @@
+{
+  "scope": "Exploratory local CPU recognition timings and parity; not a removal efficacy study",
+  "unchanged_processing_freeze_sha256": "f2e199fe8816f1931cb3547f9b30fb942790a5a085f227192482dc85852c9bee",
+  "machine": {
+    "cpu": "AMD Ryzen9 9900X",
+    "cpu_quota_cores": 4,
+    "neural_jobs_concurrent": 1
+  },
+  "independent_spent_sources_in_paired_timings": 2,
+  "audio_treatments_per_model": 4,
+  "new_independent_removal_samples": 0,
+  "processing_runtime_modified": false,
+  "precision_trials": [
+    {
+      "source_commit": "88e90ce169212964ae2119fbc98ab778be1a87a7",
+      "observations": {
+        "plan_sha256": "dea044f5bf8115b9e2803dee300029ce7d1c4903da2daf02741af6399dd98e4a",
+        "source_sha256": "7b0ee36ecd07c333ec14a942fe42dbfcb355abd5666aaa04e8cf61e0ceadf61f",
+        "threads": 4,
+        "engine": "x86",
+        "methods": [
+          "fp32",
+          "dynamic-int8-linear"
+        ],
+        "repetitions": 2,
+        "fresh_sources_read": 0,
+        "api_calls": 0,
+        "runtime_modified": false,
+        "scope": "Two spent generated sources, their selected development outputs, exploratory timings only; MMS quantization is fixed-language, not a deployed multilingual runtime.",
+        "torch": "2.5.1+cpu",
+        "cases": [
+          {
+            "metric": "turbo",
+            "language": "ar",
+            "id": "followup_06_ar_sonic-3.6_original",
+            "input_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+            "method": "fp32",
+            "times_seconds": [
+              11.049062576144934,
+              10.999943209812045
+            ],
+            "weight_tensor_bytes_approximate": 3235512320,
+            "conversion_seconds": 0,
+            "normalized_units_identical_to_fp32": [
+              true,
+              true
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.0,
+              0.0
+            ],
+            "deterministic_across_repetitions": true
+          },
+          {
+            "metric": "turbo",
+            "language": "ar",
+            "id": "followup_06_ar_sonic-3.6_selected",
+            "input_sha256": "ac61ed1a8267fabff87a933c6b2e700165ecbb061dfa33452750921587fb86fa",
+            "method": "fp32",
+            "times_seconds": [
+              11.126808973029256,
+              11.34065464232117
+            ],
+            "weight_tensor_bytes_approximate": 3235512320,
+            "conversion_seconds": 0,
+            "normalized_units_identical_to_fp32": [
+              true,
+              true
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.0,
+              0.0
+            ],
+            "deterministic_across_repetitions": true
+          },
+          {
+            "metric": "turbo",
+            "language": "ar",
+            "id": "followup_06_ar_sonic-3.6_original",
+            "input_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+            "method": "dynamic-int8-linear",
+            "times_seconds": [
+              4.990166145376861,
+              5.018238658085465
+            ],
+            "weight_tensor_bytes_approximate": 1031966720,
+            "conversion_seconds": 1.863869946449995,
+            "normalized_units_identical_to_fp32": [
+              false,
+              false
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.0967741935483871,
+              0.0967741935483871
+            ],
+            "deterministic_across_repetitions": true
+          },
+          {
+            "metric": "turbo",
+            "language": "ar",
+            "id": "followup_06_ar_sonic-3.6_selected",
+            "input_sha256": "ac61ed1a8267fabff87a933c6b2e700165ecbb061dfa33452750921587fb86fa",
+            "method": "dynamic-int8-linear",
+            "times_seconds": [
+              5.042314532212913,
+              5.065186808817089
+            ],
+            "weight_tensor_bytes_approximate": 1031966720,
+            "conversion_seconds": 1.863869946449995,
+            "normalized_units_identical_to_fp32": [
+              false,
+              false
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.06451612903225806,
+              0.06451612903225806
+            ],
+            "deterministic_across_repetitions": true
+          },
+          {
+            "metric": "turbo",
+            "language": "ta",
+            "id": "followup_10_ta_sonic-3.6_original",
+            "input_sha256": "91dbad3a2063dd29eae00148fbb21602e381fc88cc7eb52b99b203555c1ea963",
+            "method": "fp32",
+            "times_seconds": [
+              16.2599777886644,
+              16.313029119744897
+            ],
+            "weight_tensor_bytes_approximate": 3235512320,
+            "conversion_seconds": 0,
+            "normalized_units_identical_to_fp32": [
+              true,
+              true
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.0,
+              0.0
+            ],
+            "deterministic_across_repetitions": true
+          },
+          {
+            "metric": "turbo",
+            "language": "ta",
+            "id": "followup_10_ta_sonic-3.6_selected",
+            "input_sha256": "fe3111ac8ee1a7010ad70f26cc358d4d3d260a13964fa3e329a2531a03e25c8d",
+            "method": "fp32",
+            "times_seconds": [
+              16.33321306668222,
+              16.285711851902306
+            ],
+            "weight_tensor_bytes_approximate": 3235512320,
+            "conversion_seconds": 0,
+            "normalized_units_identical_to_fp32": [
+              true,
+              true
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.0,
+              0.0
+            ],
+            "deterministic_across_repetitions": true
+          },
+          {
+            "metric": "turbo",
+            "language": "ta",
+            "id": "followup_10_ta_sonic-3.6_original",
+            "input_sha256": "91dbad3a2063dd29eae00148fbb21602e381fc88cc7eb52b99b203555c1ea963",
+            "method": "dynamic-int8-linear",
+            "times_seconds": [
+              8.361497642472386,
+              8.400261871516705
+            ],
+            "weight_tensor_bytes_approximate": 1031966720,
+            "conversion_seconds": 1.8791630594059825,
+            "normalized_units_identical_to_fp32": [
+              false,
+              false
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.12727272727272726,
+              0.12727272727272726
+            ],
+            "deterministic_across_repetitions": true
+          },
+          {
+            "metric": "turbo",
+            "language": "ta",
+            "id": "followup_10_ta_sonic-3.6_selected",
+            "input_sha256": "fe3111ac8ee1a7010ad70f26cc358d4d3d260a13964fa3e329a2531a03e25c8d",
+            "method": "dynamic-int8-linear",
+            "times_seconds": [
+              8.680746278725564,
+              8.724163529463112
+            ],
+            "weight_tensor_bytes_approximate": 1031966720,
+            "conversion_seconds": 1.8791630594059825,
+            "normalized_units_identical_to_fp32": [
+              false,
+              false
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.21686746987951808,
+              0.21686746987951808
+            ],
+            "deterministic_across_repetitions": true
+          },
+          {
+            "metric": "mms",
+            "language": "ar",
+            "id": "followup_06_ar_sonic-3.6_original",
+            "input_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+            "method": "fp32",
+            "times_seconds": [
+              8.543372199870646,
+              8.477979579940438
+            ],
+            "weight_tensor_bytes_approximate": 3859214308,
+            "conversion_seconds": 0,
+            "normalized_units_identical_to_fp32": [
+              true,
+              true
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.0,
+              0.0
+            ],
+            "deterministic_across_repetitions": true
+          },
+          {
+            "metric": "mms",
+            "language": "ar",
+            "id": "followup_06_ar_sonic-3.6_selected",
+            "input_sha256": "ac61ed1a8267fabff87a933c6b2e700165ecbb061dfa33452750921587fb86fa",
+            "method": "fp32",
+            "times_seconds": [
+              8.502697890624404,
+              8.496194120496511
+            ],
+            "weight_tensor_bytes_approximate": 3859214308,
+            "conversion_seconds": 0,
+            "normalized_units_identical_to_fp32": [
+              true,
+              true
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.0,
+              0.0
+            ],
+            "deterministic_across_repetitions": true
+          },
+          {
+            "metric": "mms",
+            "language": "ar",
+            "id": "followup_06_ar_sonic-3.6_original",
+            "input_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+            "method": "dynamic-int8-linear",
+            "times_seconds": [
+              2.7040085941553116,
+              2.7099712770432234
+            ],
+            "weight_tensor_bytes_approximate": 1017263872,
+            "conversion_seconds": 2.3699514847248793,
+            "normalized_units_identical_to_fp32": [
+              false,
+              false
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.04838709677419355,
+              0.04838709677419355
+            ],
+            "deterministic_across_repetitions": true
+          },
+          {
+            "metric": "mms",
+            "language": "ar",
+            "id": "followup_06_ar_sonic-3.6_selected",
+            "input_sha256": "ac61ed1a8267fabff87a933c6b2e700165ecbb061dfa33452750921587fb86fa",
+            "method": "dynamic-int8-linear",
+            "times_seconds": [
+              2.739460449665785,
+              2.7129895808175206
+            ],
+            "weight_tensor_bytes_approximate": 1017263872,
+            "conversion_seconds": 2.3699514847248793,
+            "normalized_units_identical_to_fp32": [
+              true,
+              true
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.0,
+              0.0
+            ],
+            "deterministic_across_repetitions": true
+          },
+          {
+            "metric": "mms",
+            "language": "ta",
+            "id": "followup_10_ta_sonic-3.6_original",
+            "input_sha256": "91dbad3a2063dd29eae00148fbb21602e381fc88cc7eb52b99b203555c1ea963",
+            "method": "fp32",
+            "times_seconds": [
+              8.305292475037277,
+              8.627291152253747
+            ],
+            "weight_tensor_bytes_approximate": 3859209184,
+            "conversion_seconds": 0,
+            "normalized_units_identical_to_fp32": [
+              true,
+              true
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.0,
+              0.0
+            ],
+            "deterministic_across_repetitions": true
+          },
+          {
+            "metric": "mms",
+            "language": "ta",
+            "id": "followup_10_ta_sonic-3.6_selected",
+            "input_sha256": "fe3111ac8ee1a7010ad70f26cc358d4d3d260a13964fa3e329a2531a03e25c8d",
+            "method": "fp32",
+            "times_seconds": [
+              8.317626471631229,
+              8.239330674521625
+            ],
+            "weight_tensor_bytes_approximate": 3859209184,
+            "conversion_seconds": 0,
+            "normalized_units_identical_to_fp32": [
+              true,
+              true
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.0,
+              0.0
+            ],
+            "deterministic_across_repetitions": true
+          },
+          {
+            "metric": "mms",
+            "language": "ta",
+            "id": "followup_10_ta_sonic-3.6_original",
+            "input_sha256": "91dbad3a2063dd29eae00148fbb21602e381fc88cc7eb52b99b203555c1ea963",
+            "method": "dynamic-int8-linear",
+            "times_seconds": [
+              2.57357107847929,
+              2.625179134309292
+            ],
+            "weight_tensor_bytes_approximate": 1017262592,
+            "conversion_seconds": 2.385466741397977,
+            "normalized_units_identical_to_fp32": [
+              false,
+              false
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.011976047904191617,
+              0.011976047904191617
+            ],
+            "deterministic_across_repetitions": true
+          },
+          {
+            "metric": "mms",
+            "language": "ta",
+            "id": "followup_10_ta_sonic-3.6_selected",
+            "input_sha256": "fe3111ac8ee1a7010ad70f26cc358d4d3d260a13964fa3e329a2531a03e25c8d",
+            "method": "dynamic-int8-linear",
+            "times_seconds": [
+              2.5957541270181537,
+              2.6670901626348495
+            ],
+            "weight_tensor_bytes_approximate": 1017262592,
+            "conversion_seconds": 2.385466741397977,
+            "normalized_units_identical_to_fp32": [
+              false,
+              false
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.011976047904191617,
+              0.011976047904191617
+            ],
+            "deterministic_across_repetitions": true
+          }
+        ],
+        "complete": true
+      },
+      "summary": [
+        {
+          "metric": "turbo",
+          "method": "fp32",
+          "mean_inference_seconds": 13.713550153537653,
+          "baseline_relative_speed": 1.0,
+          "normalized_text_identical_files": 4,
+          "tested_files": 4
+        },
+        {
+          "metric": "turbo",
+          "method": "dynamic-int8-linear",
+          "mean_inference_seconds": 6.785321933333762,
+          "baseline_relative_speed": 2.021061091614251,
+          "normalized_text_identical_files": 0,
+          "tested_files": 4
+        },
+        {
+          "metric": "mms",
+          "method": "fp32",
+          "mean_inference_seconds": 8.438723070546985,
+          "baseline_relative_speed": 1.0,
+          "normalized_text_identical_files": 4,
+          "tested_files": 4
+        },
+        {
+          "metric": "mms",
+          "method": "dynamic-int8-linear",
+          "mean_inference_seconds": 2.666003050515428,
+          "baseline_relative_speed": 3.1653088577357384,
+          "normalized_text_identical_files": 1,
+          "tested_files": 4
+        }
+      ]
+    },
+    {
+      "source_commit": "4a16c30615dd5312ba937b3c496ac5a57812c205",
+      "observations": {
+        "plan_sha256": "dea044f5bf8115b9e2803dee300029ce7d1c4903da2daf02741af6399dd98e4a",
+        "source_sha256": "ab80b9cd0c8701b6ab0f3c4feafa8210112a467cfcbda8731699a4c1ce6f72db",
+        "threads": 4,
+        "engine": "x86",
+        "methods": [
+          "fp32",
+          "bf16-autocast",
+          "dynamic-int8-channel"
+        ],
+        "repetitions": 2,
+        "fresh_sources_read": 0,
+        "api_calls": 0,
+        "runtime_modified": false,
+        "scope": "Two spent generated sources, their selected development outputs, exploratory timings only; MMS quantization is fixed-language, not a deployed multilingual runtime.",
+        "torch": "2.5.1+cpu",
+        "cases": [
+          {
+            "metric": "turbo",
+            "language": "ar",
+            "id": "followup_06_ar_sonic-3.6_original",
+            "input_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+            "method": "fp32",
+            "times_seconds": [
+              11.10767512395978,
+              11.662209109403193
+            ],
+            "weight_tensor_bytes_approximate": 3235512320,
+            "conversion_seconds": 0,
+            "normalized_units_identical_to_fp32": [
+              true,
+              true
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.0,
+              0.0
+            ],
+            "deterministic_across_repetitions": true
+          },
+          {
+            "metric": "turbo",
+            "language": "ar",
+            "id": "followup_06_ar_sonic-3.6_selected",
+            "input_sha256": "ac61ed1a8267fabff87a933c6b2e700165ecbb061dfa33452750921587fb86fa",
+            "method": "fp32",
+            "times_seconds": [
+              11.383240594528615,
+              11.093030124902725
+            ],
+            "weight_tensor_bytes_approximate": 3235512320,
+            "conversion_seconds": 0,
+            "normalized_units_identical_to_fp32": [
+              true,
+              true
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.0,
+              0.0
+            ],
+            "deterministic_across_repetitions": true
+          },
+          {
+            "metric": "turbo",
+            "language": "ar",
+            "id": "followup_06_ar_sonic-3.6_original",
+            "input_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+            "method": "bf16-autocast",
+            "times_seconds": [
+              4.5975882560014725,
+              4.654217178933322
+            ],
+            "weight_tensor_bytes_approximate": 3235512320,
+            "conversion_seconds": 0,
+            "normalized_units_identical_to_fp32": [
+              true,
+              true
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.0,
+              0.0
+            ],
+            "deterministic_across_repetitions": true
+          },
+          {
+            "metric": "turbo",
+            "language": "ar",
+            "id": "followup_06_ar_sonic-3.6_selected",
+            "input_sha256": "ac61ed1a8267fabff87a933c6b2e700165ecbb061dfa33452750921587fb86fa",
+            "method": "bf16-autocast",
+            "times_seconds": [
+              4.616282222792506,
+              4.554739413782954
+            ],
+            "weight_tensor_bytes_approximate": 3235512320,
+            "conversion_seconds": 0,
+            "normalized_units_identical_to_fp32": [
+              true,
+              true
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.0,
+              0.0
+            ],
+            "deterministic_across_repetitions": true
+          },
+          {
+            "metric": "turbo",
+            "language": "ar",
+            "id": "followup_06_ar_sonic-3.6_original",
+            "input_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+            "method": "dynamic-int8-channel",
+            "times_seconds": [
+              4.7928005727007985,
+              4.807655578479171
+            ],
+            "weight_tensor_bytes_approximate": 1031966720,
+            "conversion_seconds": 3.9678740007802844,
+            "normalized_units_identical_to_fp32": [
+              false,
+              false
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.06451612903225806,
+              0.06451612903225806
+            ],
+            "deterministic_across_repetitions": true
+          },
+          {
+            "metric": "turbo",
+            "language": "ar",
+            "id": "followup_06_ar_sonic-3.6_selected",
+            "input_sha256": "ac61ed1a8267fabff87a933c6b2e700165ecbb061dfa33452750921587fb86fa",
+            "method": "dynamic-int8-channel",
+            "times_seconds": [
+              4.757314874790609,
+              4.816333772614598
+            ],
+            "weight_tensor_bytes_approximate": 1031966720,
+            "conversion_seconds": 3.9678740007802844,
+            "normalized_units_identical_to_fp32": [
+              false,
+              false
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.06451612903225806,
+              0.06451612903225806
+            ],
+            "deterministic_across_repetitions": true
+          },
+          {
+            "metric": "turbo",
+            "language": "ta",
+            "id": "followup_10_ta_sonic-3.6_original",
+            "input_sha256": "91dbad3a2063dd29eae00148fbb21602e381fc88cc7eb52b99b203555c1ea963",
+            "method": "fp32",
+            "times_seconds": [
+              16.288132512010634,
+              16.286029294133186
+            ],
+            "weight_tensor_bytes_approximate": 3235512320,
+            "conversion_seconds": 0,
+            "normalized_units_identical_to_fp32": [
+              true,
+              true
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.0,
+              0.0
+            ],
+            "deterministic_across_repetitions": true
+          },
+          {
+            "metric": "turbo",
+            "language": "ta",
+            "id": "followup_10_ta_sonic-3.6_selected",
+            "input_sha256": "fe3111ac8ee1a7010ad70f26cc358d4d3d260a13964fa3e329a2531a03e25c8d",
+            "method": "fp32",
+            "times_seconds": [
+              16.36450719460845,
+              16.43556407559663
+            ],
+            "weight_tensor_bytes_approximate": 3235512320,
+            "conversion_seconds": 0,
+            "normalized_units_identical_to_fp32": [
+              true,
+              true
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.0,
+              0.0
+            ],
+            "deterministic_across_repetitions": true
+          },
+          {
+            "metric": "turbo",
+            "language": "ta",
+            "id": "followup_10_ta_sonic-3.6_original",
+            "input_sha256": "91dbad3a2063dd29eae00148fbb21602e381fc88cc7eb52b99b203555c1ea963",
+            "method": "bf16-autocast",
+            "times_seconds": [
+              6.961809889413416,
+              6.936939015053213
+            ],
+            "weight_tensor_bytes_approximate": 3235512320,
+            "conversion_seconds": 0,
+            "normalized_units_identical_to_fp32": [
+              false,
+              false
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.01818181818181818,
+              0.01818181818181818
+            ],
+            "deterministic_across_repetitions": true
+          },
+          {
+            "metric": "turbo",
+            "language": "ta",
+            "id": "followup_10_ta_sonic-3.6_selected",
+            "input_sha256": "fe3111ac8ee1a7010ad70f26cc358d4d3d260a13964fa3e329a2531a03e25c8d",
+            "method": "bf16-autocast",
+            "times_seconds": [
+              6.888713198713958,
+              6.923744424246252
+            ],
+            "weight_tensor_bytes_approximate": 3235512320,
+            "conversion_seconds": 0,
+            "normalized_units_identical_to_fp32": [
+              false,
+              false
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.018072289156626505,
+              0.018072289156626505
+            ],
+            "deterministic_across_repetitions": true
+          },
+          {
+            "metric": "turbo",
+            "language": "ta",
+            "id": "followup_10_ta_sonic-3.6_original",
+            "input_sha256": "91dbad3a2063dd29eae00148fbb21602e381fc88cc7eb52b99b203555c1ea963",
+            "method": "dynamic-int8-channel",
+            "times_seconds": [
+              8.443711194209754,
+              8.389864034950733
+            ],
+            "weight_tensor_bytes_approximate": 1031966720,
+            "conversion_seconds": 3.9957084180787206,
+            "normalized_units_identical_to_fp32": [
+              false,
+              false
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.06666666666666667,
+              0.06666666666666667
+            ],
+            "deterministic_across_repetitions": true
+          },
+          {
+            "metric": "turbo",
+            "language": "ta",
+            "id": "followup_10_ta_sonic-3.6_selected",
+            "input_sha256": "fe3111ac8ee1a7010ad70f26cc358d4d3d260a13964fa3e329a2531a03e25c8d",
+            "method": "dynamic-int8-channel",
+            "times_seconds": [
+              8.801174463704228,
+              8.724344374611974
+            ],
+            "weight_tensor_bytes_approximate": 1031966720,
+            "conversion_seconds": 3.9957084180787206,
+            "normalized_units_identical_to_fp32": [
+              false,
+              false
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.0963855421686747,
+              0.0963855421686747
+            ],
+            "deterministic_across_repetitions": true
+          },
+          {
+            "metric": "mms",
+            "language": "ar",
+            "id": "followup_06_ar_sonic-3.6_original",
+            "input_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+            "method": "fp32",
+            "times_seconds": [
+              8.541717363521457,
+              8.473862985149026
+            ],
+            "weight_tensor_bytes_approximate": 3859214308,
+            "conversion_seconds": 0,
+            "normalized_units_identical_to_fp32": [
+              true,
+              true
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.0,
+              0.0
+            ],
+            "deterministic_across_repetitions": true
+          },
+          {
+            "metric": "mms",
+            "language": "ar",
+            "id": "followup_06_ar_sonic-3.6_selected",
+            "input_sha256": "ac61ed1a8267fabff87a933c6b2e700165ecbb061dfa33452750921587fb86fa",
+            "method": "fp32",
+            "times_seconds": [
+              8.460757777094841,
+              8.473486782982945
+            ],
+            "weight_tensor_bytes_approximate": 3859214308,
+            "conversion_seconds": 0,
+            "normalized_units_identical_to_fp32": [
+              true,
+              true
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.0,
+              0.0
+            ],
+            "deterministic_across_repetitions": true
+          },
+          {
+            "metric": "mms",
+            "language": "ar",
+            "id": "followup_06_ar_sonic-3.6_original",
+            "input_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+            "method": "bf16-autocast",
+            "times_seconds": [
+              2.979363135062158,
+              2.9452652959153056
+            ],
+            "weight_tensor_bytes_approximate": 3859214308,
+            "conversion_seconds": 0,
+            "normalized_units_identical_to_fp32": [
+              true,
+              true
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.0,
+              0.0
+            ],
+            "deterministic_across_repetitions": true
+          },
+          {
+            "metric": "mms",
+            "language": "ar",
+            "id": "followup_06_ar_sonic-3.6_selected",
+            "input_sha256": "ac61ed1a8267fabff87a933c6b2e700165ecbb061dfa33452750921587fb86fa",
+            "method": "bf16-autocast",
+            "times_seconds": [
+              2.966131608001888,
+              3.0242799539119005
+            ],
+            "weight_tensor_bytes_approximate": 3859214308,
+            "conversion_seconds": 0,
+            "normalized_units_identical_to_fp32": [
+              true,
+              true
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.0,
+              0.0
+            ],
+            "deterministic_across_repetitions": true
+          },
+          {
+            "metric": "mms",
+            "language": "ar",
+            "id": "followup_06_ar_sonic-3.6_original",
+            "input_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+            "method": "dynamic-int8-channel",
+            "times_seconds": [
+              2.7176245702430606,
+              2.6857511326670647
+            ],
+            "weight_tensor_bytes_approximate": 1017263872,
+            "conversion_seconds": 5.110667495056987,
+            "normalized_units_identical_to_fp32": [
+              false,
+              false
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.04838709677419355,
+              0.04838709677419355
+            ],
+            "deterministic_across_repetitions": true
+          },
+          {
+            "metric": "mms",
+            "language": "ar",
+            "id": "followup_06_ar_sonic-3.6_selected",
+            "input_sha256": "ac61ed1a8267fabff87a933c6b2e700165ecbb061dfa33452750921587fb86fa",
+            "method": "dynamic-int8-channel",
+            "times_seconds": [
+              2.7010426204651594,
+              2.7044126046821475
+            ],
+            "weight_tensor_bytes_approximate": 1017263872,
+            "conversion_seconds": 5.110667495056987,
+            "normalized_units_identical_to_fp32": [
+              true,
+              true
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.0,
+              0.0
+            ],
+            "deterministic_across_repetitions": true
+          },
+          {
+            "metric": "mms",
+            "language": "ta",
+            "id": "followup_10_ta_sonic-3.6_original",
+            "input_sha256": "91dbad3a2063dd29eae00148fbb21602e381fc88cc7eb52b99b203555c1ea963",
+            "method": "fp32",
+            "times_seconds": [
+              8.249795001000166,
+              8.181372635997832
+            ],
+            "weight_tensor_bytes_approximate": 3859209184,
+            "conversion_seconds": 0,
+            "normalized_units_identical_to_fp32": [
+              true,
+              true
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.0,
+              0.0
+            ],
+            "deterministic_across_repetitions": true
+          },
+          {
+            "metric": "mms",
+            "language": "ta",
+            "id": "followup_10_ta_sonic-3.6_selected",
+            "input_sha256": "fe3111ac8ee1a7010ad70f26cc358d4d3d260a13964fa3e329a2531a03e25c8d",
+            "method": "fp32",
+            "times_seconds": [
+              8.193878159858286,
+              8.214604231528938
+            ],
+            "weight_tensor_bytes_approximate": 3859209184,
+            "conversion_seconds": 0,
+            "normalized_units_identical_to_fp32": [
+              true,
+              true
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.0,
+              0.0
+            ],
+            "deterministic_across_repetitions": true
+          },
+          {
+            "metric": "mms",
+            "language": "ta",
+            "id": "followup_10_ta_sonic-3.6_original",
+            "input_sha256": "91dbad3a2063dd29eae00148fbb21602e381fc88cc7eb52b99b203555c1ea963",
+            "method": "bf16-autocast",
+            "times_seconds": [
+              2.8830524925142527,
+              2.8567552575841546
+            ],
+            "weight_tensor_bytes_approximate": 3859209184,
+            "conversion_seconds": 0,
+            "normalized_units_identical_to_fp32": [
+              true,
+              true
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.0,
+              0.0
+            ],
+            "deterministic_across_repetitions": true
+          },
+          {
+            "metric": "mms",
+            "language": "ta",
+            "id": "followup_10_ta_sonic-3.6_selected",
+            "input_sha256": "fe3111ac8ee1a7010ad70f26cc358d4d3d260a13964fa3e329a2531a03e25c8d",
+            "method": "bf16-autocast",
+            "times_seconds": [
+              2.935830596834421,
+              2.85651964135468
+            ],
+            "weight_tensor_bytes_approximate": 3859209184,
+            "conversion_seconds": 0,
+            "normalized_units_identical_to_fp32": [
+              true,
+              true
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.0,
+              0.0
+            ],
+            "deterministic_across_repetitions": true
+          },
+          {
+            "metric": "mms",
+            "language": "ta",
+            "id": "followup_10_ta_sonic-3.6_original",
+            "input_sha256": "91dbad3a2063dd29eae00148fbb21602e381fc88cc7eb52b99b203555c1ea963",
+            "method": "dynamic-int8-channel",
+            "times_seconds": [
+              2.5626378171145916,
+              2.579691325314343
+            ],
+            "weight_tensor_bytes_approximate": 1017262592,
+            "conversion_seconds": 5.107212080620229,
+            "normalized_units_identical_to_fp32": [
+              false,
+              false
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.005988023952095809,
+              0.005988023952095809
+            ],
+            "deterministic_across_repetitions": true
+          },
+          {
+            "metric": "mms",
+            "language": "ta",
+            "id": "followup_10_ta_sonic-3.6_selected",
+            "input_sha256": "fe3111ac8ee1a7010ad70f26cc358d4d3d260a13964fa3e329a2531a03e25c8d",
+            "method": "dynamic-int8-channel",
+            "times_seconds": [
+              2.569737101905048,
+              2.581293669529259
+            ],
+            "weight_tensor_bytes_approximate": 1017262592,
+            "conversion_seconds": 5.107212080620229,
+            "normalized_units_identical_to_fp32": [
+              true,
+              true
+            ],
+            "normalized_disagreement_from_fp32": [
+              0.0,
+              0.0
+            ],
+            "deterministic_across_repetitions": true
+          }
+        ],
+        "complete": true
+      },
+      "summary": [
+        {
+          "metric": "turbo",
+          "method": "fp32",
+          "mean_inference_seconds": 13.827548503642902,
+          "baseline_relative_speed": 1.0,
+          "normalized_text_identical_files": 4,
+          "tested_files": 4
+        },
+        {
+          "metric": "turbo",
+          "method": "bf16-autocast",
+          "mean_inference_seconds": 5.766754199867137,
+          "baseline_relative_speed": 2.397804384303649,
+          "normalized_text_identical_files": 2,
+          "tested_files": 4
+        },
+        {
+          "metric": "turbo",
+          "method": "dynamic-int8-channel",
+          "mean_inference_seconds": 6.691649858257733,
+          "baseline_relative_speed": 2.066388528470182,
+          "normalized_text_identical_files": 0,
+          "tested_files": 4
+        },
+        {
+          "metric": "mms",
+          "method": "fp32",
+          "mean_inference_seconds": 8.348684367141686,
+          "baseline_relative_speed": 1.0,
+          "normalized_text_identical_files": 4,
+          "tested_files": 4
+        },
+        {
+          "metric": "mms",
+          "method": "bf16-autocast",
+          "mean_inference_seconds": 2.930899747647345,
+          "baseline_relative_speed": 2.8485056078234123,
+          "normalized_text_identical_files": 4,
+          "tested_files": 4
+        },
+        {
+          "metric": "mms",
+          "method": "dynamic-int8-channel",
+          "mean_inference_seconds": 2.6377738552400842,
+          "baseline_relative_speed": 3.1650493276959892,
+          "normalized_text_identical_files": 2,
+          "tested_files": 4
+        }
+      ]
+    }
+  ],
+  "failed_attempt": {
+    "source_commit": "f7b5b461f92aeef7ce5625fcaf0720ab438082e2",
+    "observations": {
+      "plan_sha256": "dea044f5bf8115b9e2803dee300029ce7d1c4903da2daf02741af6399dd98e4a",
+      "source_sha256": "0bd1bbdfdaa642bc668075e267b0ba50d975424cd45c6eeccd34abec2f66d042",
+      "threads": 4,
+      "engine": "x86",
+      "methods": [
+        "fp32",
+        "bf16-autocast",
+        "dynamic-int8-channel"
+      ],
+      "repetitions": 2,
+      "fresh_sources_read": 0,
+      "api_calls": 0,
+      "runtime_modified": false,
+      "scope": "Two spent generated sources, their selected development outputs, exploratory timings only; MMS quantization is fixed-language, not a deployed multilingual runtime.",
+      "torch": "2.5.1+cpu",
+      "cases": [
+        {
+          "metric": "turbo",
+          "language": "ar",
+          "id": "followup_06_ar_sonic-3.6_original",
+          "input_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+          "method": "fp32",
+          "times_seconds": [
+            11.109764968976378,
+            11.125941827893257
+          ],
+          "weight_tensor_bytes_approximate": 3235512320,
+          "conversion_seconds": 0,
+          "normalized_units_identical_to_fp32": [
+            true,
+            true
+          ],
+          "normalized_disagreement_from_fp32": [
+            0.0,
+            0.0
+          ],
+          "deterministic_across_repetitions": true
+        },
+        {
+          "metric": "turbo",
+          "language": "ar",
+          "id": "followup_06_ar_sonic-3.6_selected",
+          "input_sha256": "ac61ed1a8267fabff87a933c6b2e700165ecbb061dfa33452750921587fb86fa",
+          "method": "fp32",
+          "times_seconds": [
+            11.115852837450802,
+            11.363762573339045
+          ],
+          "weight_tensor_bytes_approximate": 3235512320,
+          "conversion_seconds": 0,
+          "normalized_units_identical_to_fp32": [
+            true,
+            true
+          ],
+          "normalized_disagreement_from_fp32": [
+            0.0,
+            0.0
+          ],
+          "deterministic_across_repetitions": true
+        }
+      ],
+      "complete": false
+    },
+    "error_type": "TypeError",
+    "error": "Got unsupported ScalarType BFloat16",
+    "cause": "Autocast included Whisper preprocessing, whose NumPy conversion does not accept BF16.",
+    "correction": "Restrict autocast to neural generate/forward; retain FP32 preprocessing."
+  },
+  "encoder_reuse": {
+    "source_commit": "6a993113de9fba0dc88a5d23dc0a3010eb51f008",
+    "observations": {
+      "plan_sha256": "dea044f5bf8115b9e2803dee300029ce7d1c4903da2daf02741af6399dd98e4a",
+      "benchmark_source_sha256": "474c32a9342c2ae9872959e1b1d6796857296a51ab096fc43caccd1ac306a992",
+      "helper_source_sha256": "9f31e6acdcd3b04aa95b4a3dd6ac48680082dee8aac9b427b6f919b22a7b9182",
+      "torch": "2.5.1+cpu",
+      "precision": "float32",
+      "threads": 4,
+      "model": {
+        "model": "openai/whisper-large-v3-turbo",
+        "revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+        "attention": "sdpa",
+        "precision": "float32",
+        "decode": "Native timestamps, minimum30s features, complete longer input, max_new_tokens440, no sampling/previous-text conditioning",
+        "role": "Also participates in the processing guard",
+        "reference_normalization": "NFKC, BasicTextNormalizer(False); Chinese OpenCC1.1.9 t2s.json before reference CER; Japanese CER; whitespace WER otherwise",
+        "paired_normalization": "Original runtime normalization: NFKC BasicTextNormalizer(False), zh/ja characters, whitespace otherwise"
+      },
+      "fresh_sources_read": 0,
+      "api_calls": 0,
+      "frozen_runtime_modified": false,
+      "cases": [
+        {
+          "id": "followup_06_ar_sonic-3.6_original",
+          "input_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+          "method": "original",
+          "times_seconds": [
+            16.950056303292513,
+            16.774634120985866
+          ],
+          "encoder_forward_calls": [
+            2,
+            2
+          ],
+          "exact_token_parity": [
+            true,
+            true
+          ],
+          "language_parity": [
+            true,
+            true
+          ],
+          "encoder_reused": [
+            false,
+            false
+          ]
+        },
+        {
+          "id": "followup_06_ar_sonic-3.6_original",
+          "input_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+          "method": "encoder-reuse",
+          "times_seconds": [
+            11.07658033259213,
+            11.074174414388835
+          ],
+          "encoder_forward_calls": [
+            1,
+            1
+          ],
+          "exact_token_parity": [
+            true,
+            true
+          ],
+          "language_parity": [
+            true,
+            true
+          ],
+          "encoder_reused": [
+            true,
+            true
+          ]
+        },
+        {
+          "id": "followup_06_ar_sonic-3.6_selected",
+          "input_sha256": "ac61ed1a8267fabff87a933c6b2e700165ecbb061dfa33452750921587fb86fa",
+          "method": "original",
+          "times_seconds": [
+            11.01192113943398,
+            11.103126607835293
+          ],
+          "encoder_forward_calls": [
+            1,
+            1
+          ],
+          "exact_token_parity": [
+            true,
+            true
+          ],
+          "language_parity": [
+            true,
+            true
+          ],
+          "encoder_reused": [
+            false,
+            false
+          ]
+        },
+        {
+          "id": "followup_06_ar_sonic-3.6_selected",
+          "input_sha256": "ac61ed1a8267fabff87a933c6b2e700165ecbb061dfa33452750921587fb86fa",
+          "method": "encoder-reuse",
+          "times_seconds": [
+            11.06065681669861,
+            11.094541049562395
+          ],
+          "encoder_forward_calls": [
+            1,
+            1
+          ],
+          "exact_token_parity": [
+            true,
+            true
+          ],
+          "language_parity": [
+            true,
+            true
+          ],
+          "encoder_reused": [
+            false,
+            false
+          ]
+        },
+        {
+          "id": "followup_10_ta_sonic-3.6_original",
+          "input_sha256": "91dbad3a2063dd29eae00148fbb21602e381fc88cc7eb52b99b203555c1ea963",
+          "method": "original",
+          "times_seconds": [
+            21.991168284788728,
+            22.041715597733855
+          ],
+          "encoder_forward_calls": [
+            2,
+            2
+          ],
+          "exact_token_parity": [
+            true,
+            true
+          ],
+          "language_parity": [
+            true,
+            true
+          ],
+          "encoder_reused": [
+            false,
+            false
+          ]
+        },
+        {
+          "id": "followup_10_ta_sonic-3.6_original",
+          "input_sha256": "91dbad3a2063dd29eae00148fbb21602e381fc88cc7eb52b99b203555c1ea963",
+          "method": "encoder-reuse",
+          "times_seconds": [
+            16.206616810522974,
+            16.10781300161034
+          ],
+          "encoder_forward_calls": [
+            1,
+            1
+          ],
+          "exact_token_parity": [
+            true,
+            true
+          ],
+          "language_parity": [
+            true,
+            true
+          ],
+          "encoder_reused": [
+            true,
+            true
+          ]
+        },
+        {
+          "id": "followup_10_ta_sonic-3.6_selected",
+          "input_sha256": "fe3111ac8ee1a7010ad70f26cc358d4d3d260a13964fa3e329a2531a03e25c8d",
+          "method": "original",
+          "times_seconds": [
+            16.19032466597855,
+            16.100028924643993
+          ],
+          "encoder_forward_calls": [
+            1,
+            1
+          ],
+          "exact_token_parity": [
+            true,
+            true
+          ],
+          "language_parity": [
+            true,
+            true
+          ],
+          "encoder_reused": [
+            false,
+            false
+          ]
+        },
+        {
+          "id": "followup_10_ta_sonic-3.6_selected",
+          "input_sha256": "fe3111ac8ee1a7010ad70f26cc358d4d3d260a13964fa3e329a2531a03e25c8d",
+          "method": "encoder-reuse",
+          "times_seconds": [
+            16.089652231894433,
+            16.154642815701663
+          ],
+          "encoder_forward_calls": [
+            1,
+            1
+          ],
+          "exact_token_parity": [
+            true,
+            true
+          ],
+          "language_parity": [
+            true,
+            true
+          ],
+          "encoder_reused": [
+            false,
+            false
+          ]
+        }
+      ],
+      "complete": true
+    },
+    "all_tested_tokens_and_languages_identical": true,
+    "deployed_in_frozen_runtime": false
+  },
+  "multilingual_original_only_mms": {
+    "source_commit": "2a9a36fad5d0346d3fa21d2969d2389b52bd7eed",
+    "observations": {
+      "source_sha256": "a371e7ee94cf126274ec98b19ef853ec1747cd0e9d89152345611f538d22353a",
+      "role": "Original-only precision diagnostic; no candidate outputs or frozen quality scores changed",
+      "fresh_originals_read": 16,
+      "candidate_outputs_read": false,
+      "model": {
+        "model": "facebook/mms-1b-all",
+        "revision": "3d33597edbdaaba14a8e858e2c8caa76e3cec0cd",
+        "attention": "sdpa",
+        "precision": "bf16-autocast-forward",
+        "role": "Also participates in the processing guard",
+        "reference_normalization": "NFKC, BasicTextNormalizer(False); Chinese OpenCC1.1.9 t2s.json before reference CER; Japanese CER; whitespace WER otherwise",
+        "paired_normalization": "Original runtime normalization: NFKC BasicTextNormalizer(False), zh/ja characters, whitespace otherwise"
+      },
+      "clips": [
+        {
+          "id": "codec_fresh_00_en_sonic-preview",
+          "source_sha256": "2cd30ac93e972d962b5df9efd07386e513436e4caba078f25f5925336f4861b0",
+          "exact_normalized_unit_parity": true,
+          "disagreement_from_fp32": 0.0,
+          "inference_seconds_including_preprocessing": 3.5640789913013577
+        },
+        {
+          "id": "codec_fresh_01_es_sonic-3.6",
+          "source_sha256": "9cc2597c477e578866fbd0d313b59be09076071a4bbece8a8571d5f59672b450",
+          "exact_normalized_unit_parity": true,
+          "disagreement_from_fp32": 0.0,
+          "inference_seconds_including_preprocessing": 3.0111897718161345
+        },
+        {
+          "id": "codec_fresh_02_fr_sonic-preview",
+          "source_sha256": "72e3b625acf0f5b3fe78f0e06d7eea523c0e39708546973a17fec3e400f66480",
+          "exact_normalized_unit_parity": true,
+          "disagreement_from_fp32": 0.0,
+          "inference_seconds_including_preprocessing": 2.564110874198377
+        },
+        {
+          "id": "codec_fresh_03_de_sonic-3.6",
+          "source_sha256": "5dbfe8a3fcf9bbda3a7ff03d76526f847cb322b4115318f0bd4272bac2e36552",
+          "exact_normalized_unit_parity": true,
+          "disagreement_from_fp32": 0.0,
+          "inference_seconds_including_preprocessing": 2.5630069924518466
+        },
+        {
+          "id": "codec_fresh_04_hi_sonic-preview",
+          "source_sha256": "fe122124087013272f63a1715a3d95beb2aa3944d4d95e73134844861faac2ba",
+          "exact_normalized_unit_parity": true,
+          "disagreement_from_fp32": 0.0,
+          "inference_seconds_including_preprocessing": 3.0260582137852907
+        },
+        {
+          "id": "codec_fresh_05_ja_sonic-3.6",
+          "source_sha256": "25f3e14b7d15a0806bcbea995e4a4ec087320186c26dda73f2ff67e6786dacb5",
+          "exact_normalized_unit_parity": false,
+          "disagreement_from_fp32": 0.005847953216374269,
+          "inference_seconds_including_preprocessing": 3.5890113031491637
+        },
+        {
+          "id": "codec_fresh_06_ar1_sonic-3.6",
+          "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+          "exact_normalized_unit_parity": true,
+          "disagreement_from_fp32": 0.0,
+          "inference_seconds_including_preprocessing": 3.483447098173201
+        },
+        {
+          "id": "codec_fresh_07_ko_sonic-preview",
+          "source_sha256": "e5c73a9136873b737f8815a0d6cd2777776cd9cc5d2d3646c1cd3db88abee8c9",
+          "exact_normalized_unit_parity": true,
+          "disagreement_from_fp32": 0.0,
+          "inference_seconds_including_preprocessing": 3.2527576657012105
+        },
+        {
+          "id": "codec_fresh_08_zh_sonic-3.6",
+          "source_sha256": "d034d25a91ff4b7ed7f6cb48be7568557a9d012c08933212c3df53dbcea88604",
+          "exact_normalized_unit_parity": false,
+          "disagreement_from_fp32": 0.013422818791946308,
+          "inference_seconds_including_preprocessing": 3.490999674424529
+        },
+        {
+          "id": "codec_fresh_09_ru_sonic-preview",
+          "source_sha256": "b6cd92130bdd2e9565a52d27df76bf946b95d6da30a133f5629b5fd5efd5e58d",
+          "exact_normalized_unit_parity": true,
+          "disagreement_from_fp32": 0.0,
+          "inference_seconds_including_preprocessing": 3.8167856261134148
+        },
+        {
+          "id": "codec_fresh_10_ta1_sonic-3.6",
+          "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+          "exact_normalized_unit_parity": true,
+          "disagreement_from_fp32": 0.0,
+          "inference_seconds_including_preprocessing": 3.327821956947446
+        },
+        {
+          "id": "codec_fresh_11_ar2_sonic-preview",
+          "source_sha256": "dd03e728b61ca662fa76093a450a9d2f829ee5eda8b2075d150bb300697525a2",
+          "exact_normalized_unit_parity": false,
+          "disagreement_from_fp32": 0.029850746268656716,
+          "inference_seconds_including_preprocessing": 3.4715410144999623
+        },
+        {
+          "id": "codec_fresh_12_ta2_sonic-preview",
+          "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+          "exact_normalized_unit_parity": true,
+          "disagreement_from_fp32": 0.0,
+          "inference_seconds_including_preprocessing": 2.7192608155310154
+        },
+        {
+          "id": "codec_fresh_13_en_long_sonic-3.6",
+          "source_sha256": "e380f7c28e2548dbf58e555854e4a619466a4cbcce5e75502479fccee5e282ff",
+          "exact_normalized_unit_parity": true,
+          "disagreement_from_fp32": 0.0,
+          "inference_seconds_including_preprocessing": 21.248687956482172
+        },
+        {
+          "id": "codec_fresh_control_en_sonic-3.5",
+          "source_sha256": "2ffc573fe026544cd7aaf2bde32539a8f55c5fb4218e5eceb0eeaced41d0b986",
+          "exact_normalized_unit_parity": true,
+          "disagreement_from_fp32": 0.0,
+          "inference_seconds_including_preprocessing": 2.6118667852133512
+        },
+        {
+          "id": "codec_fresh_control_fr_sonic-3.5",
+          "source_sha256": "4f61fe43a382637b89bc70f75a76b35d2a9a30ab0c009f3d134b2f8d130a80fb",
+          "exact_normalized_unit_parity": true,
+          "disagreement_from_fp32": 0.0,
+          "inference_seconds_including_preprocessing": 2.65200271923095
+        }
+      ],
+      "complete": true
+    },
+    "exact_normalized_text_parity_count": 13,
+    "frozen_quality_rules_or_results_changed": false
+  },
+  "limitations": [
+    "Timings exclude model loading/conversion; repeated calls are not independent recordings.",
+    "Both paired timing sources were spent development inputs. No human listening approval or erasure claim.",
+    "INT8 MMS tests are fixed-language; they do not implement multilingual adapter switching after quantization.",
+    "Preserved text on these files does not prove global equivalence. Precision alternatives remain prototypes.",
+    "Original-only multilingual comparison reads fresh originals, not fresh candidate files; adds no removal evidence.",
+    "Encoder reuse is restricted to short inputs; the complete long-input path remains unchanged."
+  ],
+  "primary_references": [
+    "https://docs.pytorch.org/docs/main/generated/torch.ao.quantization.quantize_dynamic.html",
+    "https://docs.pytorch.org/docs/stable/amp.html",
+    "https://github.com/huggingface/transformers/blob/v4.46.3/src/transformers/models/whisper/generation_whisper.py"
+  ]
+}

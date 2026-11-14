@@ -64,6 +64,7 @@ results/*
 !results/reconstruction_filtered_prior.json
 !results/reconstruction_codec_development.json
 !results/codec_runtime.json
+!results/codec_asr_runtime.json
 !results/codec_reliability.freeze.json
 !results/codec_reliability.json
 !results/speech_repair_development.json

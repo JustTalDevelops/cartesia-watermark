@@ -92,4 +92,13 @@ The worker reuses the source recognition and native codec file for an immediate 
 
 The recognizers dominate processing time. In this integration run, Tamil's native worker job took about 55 seconds for 28 seconds of speech. Arabic's rejected native job took about 46 seconds, followed by about 61 seconds for its fallback with source data reused. These job timings exclude initial model loading and detector waits, and describe two examples on one CPU machine. They do not establish general throughput or predict fresh-case success.
 
+Separate [recognizer benchmarks](../results/codec_asr_runtime.json) explore faster
+CPU execution without changing this runtime. A short-source FP32 encoder-reuse
+prototype saved about six seconds per original on the two spent development
+sources, with exact generated-token and language parity. This measures the
+original-recognition step, not total processing. BF16 and INT8 were faster in
+exploratory tests but changed some recognized text. MMS BF16 matched thirteen of
+sixteen fresh originals; these source-only comparisons add no removal evidence.
+The precision alternatives remain prototypes. See the [experiment index](../experiments/README.md).
+
 `reconstruct_codec_band.py` is an internal synthesis worker. Its manifest binds the original and native codec inputs; the owning runtime performs the content assessment before publication. The separate [research mixer](../experiments/codec_band_mix.py) remains available for reproducing earlier band experiments.

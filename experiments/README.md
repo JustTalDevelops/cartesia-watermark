@@ -66,6 +66,8 @@ Their results do not establish reliable removal on real recordings.
 | `codec_runtime_report.py` | Verify the implementation commit, exact encoded output, dual content guards and two actual CLI confirmations for each spent integration source |
 | `generate_codec_study.py`, `run_codec_study.py`, `score_codec_study.py` | Execute a prospectively frozen fresh codec study with a shared spending ledger, original-first calibration, whole-file repeated detector checks and separately scored final files |
 | `codec_study_report.py` | Export every planned source and all seven frozen criteria, rejecting mismatched bytes or receipts and retaining quality/calibration failures after negative detector responses |
+| `benchmark_codec_asr.py`, `benchmark_mms_bf16_originals.py`, `codec_asr_runtime_report.py` | Measure CPU precision alternatives and preserve transcript differences and the failed preprocessing attempt; alternatives remain outside the frozen runtime |
+| `whisper_encoder_reuse.py`, `benchmark_whisper_encoder_reuse.py` | Prototype FP32 reuse of short-source language/transcription encoder output and compare exact generated tokens, language results and encoder-call counts |
 
 The fresh codec study uses [pinned evaluation assets](codec_evaluation_assets.json) and
 [text normalization](codec_evaluation_text.py). Chinese reference-error scoring uses

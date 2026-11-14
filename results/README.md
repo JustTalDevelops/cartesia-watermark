@@ -23,6 +23,7 @@ This directory mixes curated files included in Git with ignored local experiment
 | `speech_repair_runtime.json` | Recognition/timestamp parity, reduced encoder-attention memory, long-source completion and exact packaged audio parity |
 | `reconstruction_codec_development.json` | Spent seed/codec/repair probes, Tamil codec negatives, the quality-qualified Arabic detector failure, and independent original-first calibration controls |
 | `codec_runtime.json` | Actual lightweight CLI integration for native codec / wide-band fallback: exact development-file reproduction, dual guards, repeated negatives and whole-source positive controls |
+| `codec_asr_runtime.json` | Exploratory precision timings, word differences, failed BF16 preprocessing, exact-token short-source encoder reuse and sixteen-original MMS comparison; no processing runtime change or fresh removal evidence |
 | `codec_reliability.freeze.json` | Prospective source/evaluation freeze for sixteen new codec-study requests; a protocol, not efficacy evidence |
 | `model_catalog.json` | Published checkpoint inventory, loaders, aliases, and source/export checksums |
 
