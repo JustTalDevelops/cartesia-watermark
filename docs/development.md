@@ -17,6 +17,7 @@ Run commands from the repository root. The project keeps script entry points in 
 | `requirements/vocoder.txt` | Experimental smoothed BigVGAN reconstruction in Python 3.13 |
 | `requirements/speech_repair.txt` | Optional Python 3.12 recognizer for guarded speech repair |
 | `requirements/codec.txt` | Optional Python 3.12 Vocos/EnCodec and dual recognizer guard |
+| `requirements/codec_evaluation.txt` | Codec-study ASR scoring, including pinned Chinese script normalization; voice/MOS scoring uses the separate main environment |
 
 ```bash
 uv venv .venv --python 3.13
