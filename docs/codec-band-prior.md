@@ -88,3 +88,16 @@ Russian, and Arabic files byte for byte with real guards. The removed passes had
 taken only 0.6–0.8 seconds each; these changes do not establish a total processing
 speedup. Recognition dominates these examples. This experimental branch does not
 change the upload app or the frozen V3 editor.
+
+Candidate checks now run the secondary recognizer first. A failed secondary
+skips primary inference and records a null primary disagreement; it cannot
+publish audio. Accepted candidates, including final repairs, still require both
+recognizers. Original recognition and full diagnostic transcription retain their
+ordinary behavior.
+
+In the [recorded CPU comparison](https://github.com/JustTalDevelops/cartesia-watermark/blob/main/results/codec_inference_followup.json),
+one warmed rejected-candidate check took 26.6 seconds with both recognizers and
+10.2 seconds with the early rejection. Complete Russian repair took 141.7 versus
+131.4 seconds; accepted Korean processing took 61.6 versus 66.0 seconds. Both
+final outputs matched their checked FLAC files exactly. These are individual
+runs excluding outer-runtime construction, without an app-wide speed claim.
