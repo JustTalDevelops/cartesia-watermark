@@ -27,6 +27,7 @@ This directory mixes curated files included in Git with ignored local experiment
 | `codec_reliability.freeze.json` | Prospective source/evaluation freeze for sixteen new codec-study requests; a protocol, not efficacy evidence |
 | `codec_reliability.json` | All sixteen fresh requests: six fully qualified marked transitions, one selected Hindi quality failure, seven uncleared marked cases, and two nominal controls |
 | `codec_repair_development.json` | One spent French counterexample repaired locally: seven estimated quality gates passed, two whole-file negatives and four positive source controls; no change to the fresh-study count |
+| `codec_cycles_development.json` | One spent long-file counterexample after two codec passes: five ASR gates passed, two whole-file negatives and four positive source controls; voice scoring is pending |
 | `model_catalog.json` | Published checkpoint inventory, loaders, aliases, and source/export checksums |
 
 **V3 is not a reliable remover.** Its original small API test did not generalize to subsequent real recordings. See [editor limitations](../docs/editor.md).

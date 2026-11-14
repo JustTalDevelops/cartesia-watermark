@@ -68,6 +68,7 @@ results/*
 !results/codec_reliability.freeze.json
 !results/codec_reliability.json
 !results/codec_repair_development.json
+!results/codec_cycles_development.json
 !results/speech_repair_development.json
 !results/speech_repair_runtime.json
 !results/model_catalog.json
