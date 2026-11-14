@@ -33,6 +33,8 @@ remained detected twice with each content-qualified preset. Six other sources
 exhausted their presets because of detection or content-guard rejections.
 The workflow did not meet the reliability target. Subsequent development probes
 use these spent sources; they cannot change this study or add fresh evidence.
+See the [development results](codec-development.md) for the complete follow-ups,
+including detector-negative outputs that failed speech quality.
 
 ## Frozen procedure
 
