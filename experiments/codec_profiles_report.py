@@ -5,8 +5,10 @@ normalization, thresholds, input plan or qualification function.
 """
 import argparse
 from datetime import datetime
+import hashlib
 import json
 from pathlib import Path
+import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -61,6 +63,16 @@ def index_rows(report, expected, key):
     return rows
 
 
+def original_primary_sha256(freeze):
+    path = 'results/codec_reliability.json'
+    committed = subprocess.run(['git','show',freeze['candidate_implementation_commit']+':'+path],
+                               cwd=ROOT,check=True,capture_output=True).stdout
+    checksum = hashlib.sha256(committed).hexdigest()
+    if digest(ROOT/path) != checksum:
+        raise ValueError('The original primary study differs from its frozen historical bytes')
+    return checksum
+
+
 def export(freeze_path, directory):
     import numpy as np
     import soundfile as sf
@@ -106,6 +118,8 @@ def export(freeze_path, directory):
             raise ValueError('Original-only preflight changed after selection began')
     if not all(r['originals_only'] and not r['candidate_outputs_read'] for r in (og,oe,ov)):
         raise ValueError('Original calibration must precede candidate grading')
+    if oe['checkpoints'] != pe['checkpoints']:
+        raise ValueError('Independent evaluator metadata changed between original and processed scoring')
     original_guards = index_rows(og, ids, lambda r:r['id'])
     metrics = {(i['id'],m) for i in plan['items'] for m in evaluation_metrics(i['language'])}
     original_eval, processed_eval = index_rows(oe,metrics,lambda r:(r['id'],r['metric'])), index_rows(pe,metrics,lambda r:(r['id'],r['metric']))
@@ -216,7 +230,7 @@ def export(freeze_path, directory):
         results.append(row)
     marked = [r for r in results if r['marked_provenance']]
     controls = [r for r in results if not r['marked_provenance']]
-    primary = ROOT/'results/codec_reliability.json'
+    primary_sha = original_primary_sha256(freeze)
     return {'kind':'Frozen prospective language-profile study','freeze_sha256':digest(freeze_path),
             'generation_plan_sha256':freeze['generation_plan_sha256'],'candidate_implementation_commit':freeze['candidate_implementation_commit'],
             'planned_requests':len(results),'marked_provenance_requests':len(marked),'distinct_marked_voice_ids':len({r['voice'] for r in marked}),
@@ -225,7 +239,7 @@ def export(freeze_path, directory):
             'quality_qualified_control_outputs':sum(r['quality_qualified'] for r in controls),'cases':results,
             'http_attempt_counts':{r['phase']:len(r['http_attempts']) for r in (baseline,candidates)},
             'endpoint_receipts':{'baseline':baseline,'candidates':{'checks':candidates['checks'],'http_attempts':candidates['http_attempts']}},
-            'budget_at_freeze':freeze['budget'],'original_primary_study_sha256':digest(primary),'original_primary_study_result_changed':False,
+            'budget_at_freeze':freeze['budget'],'original_primary_study_sha256':primary_sha,'original_primary_study_result_changed':False,
             'human_listening_approval':False,'physical_erasure_proven':False,
             'limits':['All planned requests remain; nominal controls, repeated calls and fallback treatments are not extra removal successes.',
                       'Processing guards and operational voice estimates guide selection; only the declared evaluation-ASR reference scores remain withheld.',
