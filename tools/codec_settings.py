@@ -1,5 +1,6 @@
 """Lightweight settings for opt-in codec reconstruction; safe for the API parent."""
-PRESETS = ('codec-native', 'codec-band', 'codec-repair', 'codec-cycle', 'codec-6k', 'codec-band-prior')
+PRESETS = ('codec-native', 'codec-band', 'codec-repair', 'codec-cycle', 'codec-6k',
+           'codec-band-prior', 'codec-band-prior-repair')
 MAX_DISAGREEMENT = .03
 LANGUAGE_MAX_DISAGREEMENT = {'hi': .01, 'ta': .01}
 MMS_CODES = {'en': 'eng', 'es': 'spa', 'fr': 'fra', 'de': 'deu', 'hi': 'hin',

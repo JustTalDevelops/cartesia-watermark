@@ -204,7 +204,7 @@ class CodecRuntimeTests(unittest.TestCase):
         self.assertNotIn('repair', report)
         self.assertEqual(self.band.calls, 1)
 
-    def run_repair_fixture(self, reject_final=False):
+    def run_repair_fixture(self, reject_final=False, preset='codec-repair'):
         recognizer = self.recognizer
         recognizer.normalizer = str.lower
 
@@ -221,7 +221,21 @@ class CodecRuntimeTests(unittest.TestCase):
 
         recognizer.transcribe = transcribe
         recognizer.secondary_transcribe = lambda path, language: ('mms', ['first', 'second'], aligned('first second'))
-        return self.runtime.process_file(self.source, self.output, 'codec-repair')
+        return self.runtime.process_file(self.source, self.output, preset)
+
+    def test_band_prior_repair_uses_prior_worker_and_reassesses_generated_patch(self):
+        report = self.run_repair_fixture(preset='codec-band-prior-repair')
+        self.assertEqual(self.band.presets, ['codec-band-prior'])
+        self.assertTrue(report['content_guard_passed'])
+        self.assertFalse(report['initial_content_assessment']['content_guard_passed'])
+        self.assertEqual(report['repair_status'], 'assessed')
+        self.assertLess(report['repair']['repaired_fraction'], .2)
+
+    def test_rejected_band_prior_repair_publishes_no_output(self):
+        report = self.run_repair_fixture(reject_final=True, preset='codec-band-prior-repair')
+        self.assertFalse(report['content_guard_passed'])
+        self.assertEqual(report['repair_status'], 'assessed')
+        self.assertFalse(self.output.exists())
 
     def test_repaired_audio_is_reassessed_before_publication(self):
         report = self.run_repair_fixture()
