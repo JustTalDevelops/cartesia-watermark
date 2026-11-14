@@ -8,6 +8,7 @@ import argparse
 import gc
 import hashlib
 import json
+from math import isfinite
 from pathlib import Path
 import sys
 import unicodedata
@@ -17,6 +18,8 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT/'tools'))
 from codec_inference import check_environment, verify_files
 from codec_text import paired_error, text_units
+from codec_content import secondary_for
+from codec_settings import MMS_CODES
 from experiments.score_codec_study import TextScorer, digest, save
 
 
@@ -26,6 +29,32 @@ def evaluation_metrics(language):
 
 def limits(language):
     return (.01, .10) if language in ('hi', 'ta') else (.03, .15)
+
+
+def quality_criteria(language, paired, guard_deltas, evaluation_deltas, original_errors,
+                     speaker_minimum, dnsmos_delta, content_guard_passed, language_matches_request):
+    """Frozen qualification arithmetic; missing or failed evidence never passes."""
+    if language not in MMS_CODES:
+        raise ValueError('Qualification requires a supported language profile')
+    primary, secondary = ('large' if language in ('hi', 'ta') else 'turbo'), secondary_for(language)
+    guards, evaluations = (primary, secondary), evaluation_metrics(language)
+    if (set(paired) != set(guards) or set(guard_deltas) != set(guards) or
+            set(evaluation_deltas) != set(evaluations) or set(original_errors) != set(guards) | set(evaluations)):
+        raise ValueError('Every declared guard/evaluation checkpoint must remain in qualification')
+    maximum, ceiling = limits(language)
+    finite = lambda value: type(value) in (int, float) and isfinite(value)
+    passed = lambda value: finite(value) and value <= maximum+1e-12
+    gates = {name+'_paired': finite(paired[name]) and 0 <= paired[name] <= maximum+1e-12 for name in guards}
+    gates.update({name+'_reference_delta': passed(guard_deltas[name]) for name in guards})
+    gates.update({'evaluation_'+name+'_reference_delta': passed(evaluation_deltas[name]) for name in evaluations})
+    gates.update(speaker_minimum=finite(speaker_minimum) and .95 <= speaker_minimum <= 1.,
+                 dnsmos_overall=finite(dnsmos_delta) and dnsmos_delta >= -.2)
+    calibrated = sum(finite(error) and 0 <= error <= ceiling+1e-12 for error in original_errors.values())
+    source_confident = language_matches_request is True and calibrated >= 2
+    return {'quality_gate_results': gates, 'calibrated_original_checkpoints': calibrated,
+            'source_calibration_sufficient': source_confident,
+            'all_estimated_quality_gates_passed': content_guard_passed is True and all(gates.values()),
+            'quality_qualified': source_confident and content_guard_passed is True and all(gates.values())}
 
 
 def reference_score(reference, recognized, language, normalize):

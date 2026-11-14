@@ -94,6 +94,26 @@ class VerifiedReconstructionTests(unittest.TestCase):
         self.assertEqual(report['attempts'][1]['previously_checked_preset'], 'smoothed-vocoder')
         self.assertFalse(self.output.exists())
 
+    def test_runtime_quality_failure_falls_through_without_detector_upload(self):
+        checked, guarded = [], []
+        def guard(path):
+            guarded.append(digest(path))
+            return {'passed': len(guarded) == 2, 'independent_evaluation': False}
+        result = self.run_verified(lambda p: (checked.append(digest(p)) or (200, {'detected': False})),
+                                  presets=('full-flow', 'strong'), confirmations=2, runtime_quality_guard=guard)
+        self.assertEqual(len(guarded), 2)
+        self.assertEqual(checked, [guarded[1], guarded[1]])
+        self.assertEqual(result['attempts'][0]['state'], 'runtime_quality_rejected')
+        self.assertEqual(result['selected_preset'], 'strong')
+        self.assertFalse(result['quality_verified'])
+
+    def test_invalid_runtime_quality_result_cannot_query_or_publish(self):
+        for index, response in enumerate(({}, {'passed': 1})):
+            with self.subTest(response=response), self.assertRaisesRegex(RuntimeError, 'Runtime quality guard'):
+                reconstruct_verified(self.source, self.root/f'q{index}.wav', self.root/f'q{index}.json',
+                                     worker=self.worker, runtime_quality_guard=lambda _: response,
+                                     detector=lambda _: self.fail('Invalid guard reached external detector'))
+
     def test_owned_runtimes_are_loaded_lazily_reused_and_closed(self):
         for rejected in (0, 2):
             with self.subTest(rejected=rejected):

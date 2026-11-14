@@ -16,18 +16,24 @@ class FrozenProfileServicePhases(unittest.TestCase):
         self.addCleanup(self.temporary.cleanup)
         self.root = Path(self.temporary.name)
         self.audio = self.root/'original.flac'; self.audio.write_bytes(b'whole-file fixture')
+        authored_item = {'id': 'one', 'model': 'sonic-preview', 'voice': 'fixture voice',
+                         'language': 'en', 'text': 'authored reference', 'marked_provenance': True,
+                         'verified_output': str(self.root/'out.flac'), 'audit_output': str(self.root/'audit.json')}
+        authored = self.root/'authored.json'
+        authored.write_text(json.dumps({'items': [authored_item]}))
         self.freeze = self.root/'freeze.json'
-        self.freeze.write_text(json.dumps({'source_files_sha256': {}, 'generation_plan_sha256': 'authored-plan',
+        self.freeze.write_text(json.dumps({'source_files_sha256': {}, 'generation_plan_path': str(authored),
+                                           'generation_plan_sha256': study.digest(authored),
                                            'maximum_http_attempts_per_phase': {'baseline': 2, 'candidates': 10}}))
-        generation = {'complete': True, 'generation_plan_sha256': 'authored-plan',
+        generation = {'complete': True, 'generation_plan_sha256': study.digest(authored),
                       'freeze_sha256': study.digest(self.freeze), 'requests': [
-                          {'id': 'one', 'source': str(self.audio), 'sha256': study.digest(self.audio)}]}
+                          dict(authored_item, source=str(self.audio), sha256=study.digest(self.audio))]}
         (self.root/'generation.json').write_text(json.dumps(generation))
         self.plan = self.root/'evaluation.plan.json'
-        self.value = {'freeze_sha256': study.digest(self.freeze), 'generation_plan_sha256': 'authored-plan',
+        self.value = {'freeze_sha256': study.digest(self.freeze), 'generation_plan_sha256': study.digest(authored),
                       'generation_receipt_sha256': study.digest(self.root/'generation.json'),
-                      'items': [{'id': 'one', 'source': str(self.audio), 'sha256': study.digest(self.audio),
-                                 'marked_provenance': True, 'language': 'en'}]}
+                      'items': [dict(authored_item, source=str(self.audio), sha256=study.digest(self.audio),
+                                     output=authored_item['verified_output'])]}
         self.plan.write_text(json.dumps(self.value))
 
     def run_baseline(self, responses):
@@ -71,6 +77,14 @@ class FrozenProfileServicePhases(unittest.TestCase):
             with self.assertRaises(FileNotFoundError):
                 study.endpoint_phase(self.plan, self.freeze, self.root, 'candidates')
             runtime.assert_not_called()
+            detector.assert_not_called()
+
+    def test_materialized_reference_text_cannot_be_changed_after_authoring(self):
+        self.value['items'][0]['text'] = 'a different reference'
+        self.plan.write_text(json.dumps(self.value))
+        with patch.object(study.cartesia, 'detect') as detector:
+            with self.assertRaisesRegex(ValueError, 'authored request'):
+                study.endpoint_phase(self.plan, self.freeze, self.root, 'baseline')
             detector.assert_not_called()
 
 

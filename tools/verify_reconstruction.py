@@ -92,7 +92,7 @@ def publish_exact(source, output, expected):
 
 def reconstruct_verified(source, output, report_path, presets=('full-flow', 'strong'),
                          worker=None, detector=None, boundary_safe=False, confirmations=1,
-                         skip_duplicate_candidates=False):
+                         skip_duplicate_candidates=False, runtime_quality_guard=None):
     """Return an audit record only after publishing the exact checked bytes.
 
     On a positive result, try the next fixed preset. API errors, unavailable
@@ -231,8 +231,21 @@ def reconstruct_verified(source, output, report_path, presets=('full-flow', 'str
                                                'previously_checked_preset': previously_checked[sha]})
                     save_report(report_path, report)
                     continue
+                quality = None
+                if runtime_quality_guard is not None:
+                    quality = runtime_quality_guard(candidate)
+                    if (not isinstance(quality, dict) or type(quality.get('passed')) is not bool or
+                            digest(candidate) != sha or digest(source) != report['source_sha256']):
+                        raise RuntimeError('Runtime quality guard returned invalid evidence or changed audio')
+                    if not quality['passed']:
+                        report['attempts'].append({'preset': preset, 'sha256': sha, 'model': metadata,
+                                                   'state': 'runtime_quality_rejected', 'runtime_quality_guard': quality})
+                        save_report(report_path, report)
+                        continue
                 previously_checked[sha] = preset
                 attempt = {'preset': preset, 'sha256': sha, 'model': metadata, 'state': 'checking'}
+                if quality is not None:
+                    attempt['runtime_quality_guard'] = quality
                 report['attempts'].append(attempt)
                 save_report(report_path, report)
                 attempt['checks'] = []

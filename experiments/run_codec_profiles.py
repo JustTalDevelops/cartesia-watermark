@@ -2,13 +2,14 @@
 
 Reference text is used by the separate original/quality scoring phases. Candidate
 selection uses detected language, duration, processing guards and actual detector
-responses. A supplied in-process model adapter retains only the active source
+responses and the fixed speaker/naturalness estimates. A supplied in-process model adapter retains only the active source
 between fallbacks, then clears it; the warmed models last for this phase.
 """
 import argparse
 from datetime import datetime, timezone
 import json
 import os
+import subprocess
 from pathlib import Path
 import sys
 import soundfile as sf
@@ -49,6 +50,10 @@ def materialized(plan_path, freeze_path, directory):
 
 
 def validate_materialized(plan, freeze, freeze_path, directory):
+    authored_path = ROOT/freeze['generation_plan_path']
+    if digest(authored_path) != freeze['generation_plan_sha256']:
+        raise ValueError('Authored inputs differ from their prospective freeze')
+    authored = load(authored_path)
     generation = load(directory/'generation.json')
     if (plan['freeze_sha256'] != digest(freeze_path) or
             plan['generation_plan_sha256'] != freeze['generation_plan_sha256'] or
@@ -61,6 +66,15 @@ def validate_materialized(plan, freeze, freeze_path, directory):
         raise ValueError('Every planned generated source must remain exactly once')
     if any(requested[i['id']]['sha256'] != i['sha256'] or requested[i['id']]['source'] != i['source'] for i in plan['items']):
         raise ValueError('Materialized sources differ from their generation receipts')
+    originals = {i['id']: i for i in authored['items']}
+    if len(originals) != len(authored['items']) or set(originals) != set(requested):
+        raise ValueError('Authored and generated request inventories differ')
+    for item in plan['items']:
+        original, receipt = originals[item['id']], requested[item['id']]
+        if (any(item.get(k) != value for k, value in original.items()) or
+                item['output'] != original['verified_output'] or
+                any(receipt.get(k) != original[k] for k in ('model', 'voice', 'language', 'marked_provenance'))):
+            raise ValueError('Materialized text, paths or provenance changed from the authored request')
 
 
 def original_guards(plan_path, freeze_path, directory):
@@ -108,6 +122,37 @@ class RuntimeAdapter:
         return self.runtime.process_file(source, output, preset, metadata, retain_job=True)
 
 
+def runtime_voice_decision(directory, case_id, source_sha, language, original_voice, source, candidate):
+    """Run fixed voice estimates without accepting a reference-text argument."""
+    checksum = digest(candidate)
+    folder = directory/'runtime_voice'/case_id
+    folder.mkdir(parents=True, exist_ok=True)
+    receipt = folder/(checksum+'.json')
+    reused = receipt.exists()
+    if not reused:
+        voice_plan = folder/(checksum+'.plan.json')
+        voice_plan.write_text(json.dumps({'items': [{'id': case_id, 'source': str(source),
+            'sha256': source_sha, 'output': str(candidate), 'language': language, 'text': ''}]}, indent=2)+'\n')
+        with (folder/(checksum+'.log')).open('x') as log:
+            subprocess.run([str(ROOT/'.venv/bin/python'), str(ROOT/'experiments/score_codec_study.py'),
+                '--plan', str(voice_plan), '--metric', 'voice', '--cache', str(directory/'scores/cache'),
+                '--output', str(receipt)], stdout=log, stderr=subprocess.STDOUT, check=True)
+    result = load(receipt)
+    if not result['complete'] or result['metric'] != original_voice['metric'] or len(result['clips']) != 1:
+        raise ValueError('Runtime voice estimates differ from original preflight')
+    clip = result['clips'][0]
+    original = next(c for c in original_voice['clips'] if c['id'] == case_id)
+    if (clip['source_sha256'] != source_sha or clip['output_sha256'] != checksum or
+            clip['original_dnsmos'] != original['original_dnsmos'] or clip['status'] != 'scored'):
+        raise ValueError('Runtime voice guard refers to different whole files')
+    return {'passed': clip['speaker_minimum'] >= .95 and clip['dnsmos_delta']['overall'] >= -.2,
+            'source_sha256': source_sha, 'candidate_sha256': checksum,
+            'speaker_minimum': clip['speaker_minimum'], 'speaker_minimum_required': .95,
+            'dnsmos_overall_delta': clip['dnsmos_delta']['overall'], 'dnsmos_overall_delta_required': -.2,
+            'receipt_sha256': digest(receipt), 'same_file_estimates_reused': reused,
+            'independent_evaluation': False, 'reference_text_used': False}
+
+
 def endpoint_phase(plan_path, freeze_path, directory, phase):
     freeze, plan = load(freeze_path), load(plan_path)
     frozen_sources(freeze)
@@ -152,7 +197,8 @@ def endpoint_phase(plan_path, freeze_path, directory, phase):
     report = {'phase': phase, 'freeze_sha256': freeze_sha, 'plan_sha256': plan_sha,
               'profile_version': PROFILE_VERSION, 'required_preflight_sha256': receipts,
               'http_attempts': [], 'checks': [], 'cases': [], 'complete': False, 'started_at': now(),
-              'reference_text_used_for_selection': False, 'evaluation_metrics_used_for_selection': False}
+              'reference_text_used_for_selection': False, 'evaluation_asr_used_for_selection': False,
+              'speaker_naturalness_estimates_used_for_selection': phase == 'candidates'}
     save(path, report)
     current = {}
     original_post = cartesia.requests.post
@@ -235,9 +281,14 @@ def endpoint_phase(plan_path, freeze_path, directory, phase):
                             raise RuntimeError('Candidate positive confirmation conflicts')
                     return status, response
 
+                def voice_guard(candidate):
+                    return runtime_voice_decision(directory, item['id'], item['sha256'], before['language'],
+                                                  voice, source, candidate)
+
                 try:
                     selected = reconstruct_verified(source, output, audit, orders, worker=RuntimeAdapter(runtime),
-                                                    detector=detector, confirmations=2, skip_duplicate_candidates=True)
+                                                    detector=detector, confirmations=2, skip_duplicate_candidates=True,
+                                                    runtime_quality_guard=voice_guard)
                 except NotCleared:
                     selected = load(audit)
                 finally:
