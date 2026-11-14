@@ -81,3 +81,24 @@ The web app retains one reconstruction model in an isolated worker between uploa
 On this machine, a four-second mono fixture took about 11.1 seconds through a fresh CLI process and 6.1–6.4 seconds with a warm worker. Standard → Strong → Standard switching reproduced the original decoded PCM exactly. The first upload still loads the model; longer recordings spend proportionally more time in neural inference, so the relative speedup will be smaller. The worker retains model memory until the server shuts down.
 
 The [runtime report](../results/reconstruction_runtime.json) records these measurements and checks. CPU thread experiments favored the existing four-thread setting, which remains unchanged. These are runtime measurements, not new detector-efficacy results.
+
+## Smoothed-vocoder candidate
+
+`tools/reconstruct_vocoder.py` is a separate experimental candidate under fresh evaluation. It reconstructs a fixed Gaussian-smoothed log-mel spectrogram through upstream NVIDIA BigVGAN. Development checks cleared two difficult recordings; those spent cases do not establish general removal or unchanged speech. The main app continues to use Resemble Enhance.
+
+This candidate uses the main Python 3.13 environment:
+
+```bash
+uv pip install --python .venv/bin/python --torch-backend cpu -r requirements/vocoder.txt
+git clone https://github.com/NVIDIA/BigVGAN.git .cache/bigvgan
+git -C .cache/bigvgan checkout 7d2b454564a6c7d014227f635b7423881f14bdac
+```
+
+Download `config.json` and `bigvgan_generator.pt` from the [pinned upstream model revision](https://huggingface.co/nvidia/bigvgan_v2_44khz_128band_512x/tree/95a9d1dcb12906c03edd938d77b9333d6ded7dfb) into `.cache/bigvgan-model/`. The wrapper checks both assets and its upstream inference sources against [pinned hashes](../tools/vocoder_assets.json). It performs no downloads during processing. Upstream code, included components, and model weights retain their respective licenses; these weights were not trained by this project.
+
+```bash
+.venv/bin/python tools/reconstruct_vocoder.py --check
+.venv/bin/python tools/reconstruct_vocoder.py input.wav output.wav --metadata output.json
+```
+
+The fixed recipe uses the model's 44.1 kHz, 128-band features, Gaussian sigma 1 in both frequency and time with reflected boundaries, 256-frame synthesis blocks with 32 frames of context, and four CPU threads. Context is discarded at block boundaries without dropping or duplicating samples. Input rate, channels, and sample count are restored; a shared peak gain prevents clipping. Choose new output and metadata paths.

@@ -1,0 +1,21 @@
+{
+  "source_url": "https://github.com/NVIDIA/BigVGAN",
+  "source_commit": "7d2b454564a6c7d014227f635b7423881f14bdac",
+  "source_sha256": {
+    "bigvgan.py": "dc0a39917d3a6f720afd888afe585ecbb72211e808d692deb4e5d85608062acb",
+    "meldataset.py": "8b9e35a4f62728fdf55003b93c7ab3d8bb982504e0366333842f0ffa3293e6db",
+    "activations.py": "ff2562e116399bca730929aeb07e029a61321660a4f07c3db0b8f9853c70470f",
+    "utils.py": "04eee590ca04ca33a6b2b79802a6514bbe7d6867164c72d61f9404ea9b0101c4",
+    "env.py": "0c458da3132ebcce272eb277f9af489d09f3cf3dd4378ceeeb915b467aa039a5",
+    "alias_free_activation/torch/__init__.py": "2e3138e1052e377ba2e51ea59c7d5d255a519559001757af21dbec4cb9c22471",
+    "alias_free_activation/torch/act.py": "651448005dd5ae0c193da60d1a50c0aa53550a4a3050e29ed7d35cf86410e212",
+    "alias_free_activation/torch/filter.py": "acf2257276e617dd3161e53abc0a1582e586a3d2d618a43235c7f83818b4e179",
+    "alias_free_activation/torch/resample.py": "4d7e1bf4169d03f59360f34f33d029c04b99364150f6737563ebfbee0ab49d79"
+  },
+  "model_id": "nvidia/bigvgan_v2_44khz_128band_512x",
+  "model_revision": "95a9d1dcb12906c03edd938d77b9333d6ded7dfb",
+  "model_sha256": {
+    "config.json": "65b7f487bfaf15256056a75f6667ef5f640214c981922a111927873705ea4ddb",
+    "bigvgan_generator.pt": "d9fe7ec6bd0b44ed9d66973d5012d8181c1570b01e5c72df51973e241dccd357"
+  }
+}
