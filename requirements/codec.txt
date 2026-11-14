@@ -1,0 +1,11 @@
+# Optional Python 3.12 codec and recognizers, alongside reconstruction.txt.
+# BigVGAN band synthesis uses the separate Python 3.13 vocoder environment.
+torch==2.5.1
+torchaudio==2.5.1
+numpy==1.26.4
+scipy==1.17.1
+soundfile==0.14.0
+-r speech_repair.txt
+encodec==0.1.1
+einops==0.8.0
+PyYAML==6.0.3

@@ -142,6 +142,35 @@ class VerifiedReconstructionTests(unittest.TestCase):
         self.assertEqual(result['attempts'][0]['state'], 'content_rejected')
         self.assertEqual(result['selected_preset'], 'speech-repair-flow')
 
+    def test_codec_presets_reuse_one_worker_and_enforce_guard_before_api(self):
+        workers, scripts = [], []
+
+        def factory(python, script, **kwargs):
+            scripts.append(Path(script).name)
+            workers.append(GuardedWorker(rejected=('codec-native',)))
+            return workers[-1]
+
+        checked = []
+        with patch('verify_reconstruction.ReconstructionWorker', side_effect=factory):
+            result = reconstruct_verified(self.source, self.output, self.report,
+                                          presets=('codec-native', 'codec-band'), confirmations=2,
+                                          detector=lambda p: (checked.append(p.read_bytes()) or (200, {'detected': False})))
+        self.assertEqual(scripts, ['reconstruct_codec.py'])
+        self.assertEqual(workers[0].calls, ['codec-native', 'codec-band'])
+        self.assertTrue(workers[0].closed)
+        self.assertEqual(len(checked), 2)
+        self.assertEqual(self.output.read_bytes(), checked[0])
+        self.assertEqual(result['selected_preset'], 'codec-band')
+        self.assertIn('codec_content.py', result['source_files_sha256_at_start'])
+
+    def test_codec_guard_cannot_be_omitted_or_return_other_assessed_samples(self):
+        for name, worker, expected in [('absent', FakeWorker(), 'required content assessment'),
+                                       ('changed', GuardedWorker(invalid_digest=True), 'assessed by the content guard')]:
+            with self.subTest(name=name), self.assertRaisesRegex(RuntimeError, expected):
+                reconstruct_verified(self.source, self.root/(name+'.flac'), self.root/(name+'.json'),
+                                     presets=('codec-native',), worker=worker,
+                                     detector=lambda _: self.fail('Invalid guard reached external detector'))
+
     def test_all_content_rejected_never_queries_or_publishes(self):
         self.worker = GuardedWorker(rejected=('speech-repair', 'speech-repair-flow'))
         with self.assertRaises(NotCleared):

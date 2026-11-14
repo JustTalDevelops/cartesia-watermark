@@ -22,6 +22,7 @@ This directory mixes curated files included in Git with ignored local experiment
 | `speech_repair_development.json` | Two spent repair examples, exact-output integration, regional synthesis timings, and the unresolved independent Arabic content regression |
 | `speech_repair_runtime.json` | Recognition/timestamp parity, reduced encoder-attention memory, long-source completion and exact packaged audio parity |
 | `reconstruction_codec_development.json` | Spent seed/codec/repair probes, Tamil codec negatives, the quality-qualified Arabic detector failure, and independent original-first calibration controls |
+| `codec_runtime.json` | Actual lightweight CLI integration for native codec / wide-band fallback: exact development-file reproduction, dual guards, repeated negatives and whole-source positive controls |
 | `model_catalog.json` | Published checkpoint inventory, loaders, aliases, and source/export checksums |
 
 **V3 is not a reliable remover.** Its original small API test did not generalize to subsequent real recordings. See [editor limitations](../docs/editor.md).

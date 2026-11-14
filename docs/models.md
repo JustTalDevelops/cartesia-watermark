@@ -60,4 +60,6 @@ The web app's reconstruction model is **upstream Resemble Enhance**, not a model
 
 The experimental [smoothed-vocoder candidate](reconstruction.md#smoothed-vocoder-candidate) uses upstream NVIDIA BigVGAN. Its source and weights are pinned and downloaded separately; they are not part of this project's trained-model release.
 
+The [codec candidate](codec-reconstruction.md) additionally uses upstream Vocos/EnCodec, Whisper Turbo and MMS. These are separately downloaded dependencies, not models trained here. The MMS [model card](https://huggingface.co/facebook/mms-1b-all) lists CC-BY-NC-4.0; the optional content guard retains that upstream dependency's terms.
+
 The [third-party notices](model-licenses/THIRD_PARTY_NOTICES.md) document backbone origins, modifications, and included licenses. In particular, the WavLM fine-tuned weights follow the CC BY-SA 3.0 license linked by the upstream model card; this does not assign that license to the entire repository.

@@ -52,6 +52,8 @@ Four of the sixteen sources needed full-flow fallback. The workflow checks detec
 
 A separate [speech repair candidate](docs/speech-repair.md) adds recognizer checks and targeted synthesis. It remains under development: an independent recognizer found an Arabic content regression even when its own guard passed.
 
+The newer [codec reconstruction candidate](docs/codec-reconstruction.md) combines native codec synthesis, a wide-band fallback, and two recognizer guards. Its two development examples cleared repeated checks; fresh validation is pending. It is an opt-in CLI, with additional upstream model assets and license terms.
+
 The separate experimental V3 CLI needs only the inference dependencies and the bundled checkpoint:
 
 ```bash

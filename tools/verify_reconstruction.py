@@ -20,9 +20,11 @@ import soundfile as sf
 
 from reconstruction_worker import ReconstructionWorker
 from speech_repair import PRESETS as SPEECH_PRESETS, pcm_digest
+from codec_settings import PRESETS as CODEC_PRESETS
 
 ROOT = Path(__file__).resolve().parent.parent
-PRESETS = ('standard', 'full-flow', 'strong', 'smoothed-vocoder', 'filtered-prior')+tuple(SPEECH_PRESETS)
+PRESETS = ('standard', 'full-flow', 'strong', 'smoothed-vocoder', 'filtered-prior')+tuple(SPEECH_PRESETS)+CODEC_PRESETS
+GUARDED_PRESETS = tuple(SPEECH_PRESETS)+CODEC_PRESETS
 MAX_BYTES = 32_000_000
 
 
@@ -131,6 +133,10 @@ def reconstruct_verified(source, output, report_path, presets=('full-flow', 'str
         source_files.extend(('reconstruct_speech_repair.py', 'speech_repair.py', 'speech_repair_assets.json', 'whisper_memory.py',
                              'reconstruct_filtered_prior.py', 'reconstruct_vocoder.py', 'vocoder_inference.py',
                              'vocoder_assets.json', 'reconstruct_vocoder_regions.py', 'vocoder_regions.py'))
+    if any(p in CODEC_PRESETS for p in presets):
+        source_files.extend(('reconstruct_codec.py', 'codec_inference.py', 'codec_content.py', 'codec_audio.py',
+                             'codec_settings.py', 'codec_assets.json', 'speech_repair.py', 'speech_repair_assets.json',
+                             'reconstruct_codec_band.py', 'reconstruct_vocoder.py', 'vocoder_inference.py', 'vocoder_assets.json'))
     source_files = list(dict.fromkeys(source_files))
     report = {'status': 'processing', 'source': str(source.resolve()), 'source_sha256': digest(source),
               'output': str(output.resolve()), 'presets': list(presets), 'seconds': seconds,
@@ -138,6 +144,7 @@ def reconstruct_verified(source, output, report_path, presets=('full-flow', 'str
               'reconstructor_code_sha256': digest(ROOT/'tools'/(
                   'reconstruct_vocoder.py' if presets[0] == 'smoothed-vocoder' else
                   'reconstruct_filtered_prior.py' if presets[0] == 'filtered-prior' else
+                  'reconstruct_codec.py' if presets[0] in CODEC_PRESETS else
                   'reconstruct_speech_repair.py' if presets[0] in SPEECH_PRESETS else 'reconstruct_audio.py')),
               'verification_cli_code_sha256': digest(Path(__file__)),
               'source_files_sha256_at_start': {name: digest(ROOT/'tools'/name) for name in source_files},
@@ -157,22 +164,24 @@ def reconstruct_verified(source, output, report_path, presets=('full-flow', 'str
                     vocoder = preset == 'smoothed-vocoder'
                     filtered = preset == 'filtered-prior'
                     speech = preset in SPEECH_PRESETS
-                    key = 'speech' if speech else 'vocoder' if vocoder else 'filtered' if filtered else 'flow'
+                    codec = preset in CODEC_PRESETS
+                    key = 'codec' if codec else 'speech' if speech else 'vocoder' if vocoder else 'filtered' if filtered else 'flow'
                     if key not in owned_workers:
                         owned_workers[key] = ReconstructionWorker(
                             ROOT/('.venv/bin/python' if vocoder else '.cache/resemble-venv/bin/python'),
                             ROOT/'tools'/('reconstruct_vocoder.py' if vocoder else
                                          'reconstruct_filtered_prior.py' if filtered else
+                                         'reconstruct_codec.py' if codec else
                                          'reconstruct_speech_repair.py' if speech else 'reconstruct_audio.py'),
-                            boundary_safe=False if vocoder or filtered or speech else boundary_safe)
+                            boundary_safe=False if vocoder or filtered or speech or codec else boundary_safe)
                     active_worker = owned_workers[key]
                 raw = directory/f'{index}.wav'
                 metadata = active_worker.run(source, raw, preset, directory/f'{index}.json',
                                              timeout=max(300, seconds*8+120))
                 if metadata.get('preset') != preset:
                     raise RuntimeError('Reconstruction metadata does not match the candidate')
-                if preset in SPEECH_PRESETS and type(metadata.get('content_guard_passed')) is not bool:
-                    raise RuntimeError('Speech repair did not return its required content assessment')
+                if preset in GUARDED_PRESETS and type(metadata.get('content_guard_passed')) is not bool:
+                    raise RuntimeError('Guarded reconstruction did not return its required content assessment')
                 if digest(source) != report['source_sha256']:
                     raise RuntimeError('Source changed while processing')
                 if metadata.get('content_guard_passed') is False:
@@ -198,7 +207,7 @@ def reconstruct_verified(source, output, report_path, presets=('full-flow', 'str
                         raise RuntimeError('FLAC encoding changed recording format or exceeded its quantization limit')
                 if candidate.stat().st_size > MAX_BYTES:
                     raise ValueError('The complete output exceeds the 32 MB detector limit; choose FLAC or a smaller recording')
-                if preset in SPEECH_PRESETS:
+                if preset in GUARDED_PRESETS:
                     evaluated, evaluated_rate = sf.read(candidate, dtype='float32')
                     scaled = evaluated*2**23
                     if (metadata.get('content_guard_sample_grid') != 'PCM_24' or

@@ -1,0 +1,58 @@
+{
+  "trained_by_this_project": false,
+  "codec": {
+    "model_id": "charactr/vocos-encodec-24khz",
+    "revision": "4e61d082c08045a4c11e5b148ad93b1d0c591a14",
+    "source_commit": "eb39abfc42c1dee4854d9b10d44dd7d4fd3b0e53",
+    "source_url": "https://github.com/gemelo-ai/vocos",
+    "source_directory": ".cache/vocos",
+    "local_directory": ".cache/vocos-encodec-model",
+    "files_sha256": {
+      "config.yaml": "43b8b45282e8eeb424e29937badf7b92743dfb68b78299fcbbf64c880f971cb2",
+      "pytorch_model.bin": "7e95bb260b74a1bfc43c52d355831c951acb81c8960e9c62b79bd2b3ab1e3a90",
+      "encodec_24khz-d7cc33bc.th": "d7cc33bcf1aad7f2dad9836f36431530744abeace3ca033005e3290ed4fa47bf"
+    },
+    "source_sha256": {
+      "vocos/__init__.py": "89adaa6f53c75f96f53ee8fc79720e701f109b242d6f7a78fa51fa9a35e07ec6",
+      "vocos/dataset.py": "e718ef9e88c948024296613c32c55a24fffee14a808f18f8a2cfab53d53983f7",
+      "vocos/discriminators.py": "d61bd7fbbb87c6d576c10fd76c9c75c20bfe126bfd1749a3d63e0ed002f2cdf9",
+      "vocos/experiment.py": "4d3ea37f7194ca578b21a139c6ec5defef72130842031a5392167a343e77f607",
+      "vocos/feature_extractors.py": "a2cd1692a1eb608b2efa6708e2eb442194aef4a10c13bad6ff7daf4edf304a7c",
+      "vocos/heads.py": "9fbe0f72b4772ba96b8ad90337242b1b4e179ffa1659d04e6e4759546e9d7c22",
+      "vocos/helpers.py": "8d038968751dfe4c5d77121c7807214fa0db7acd3d399e06b740b5876a4d98b2",
+      "vocos/loss.py": "cef1f840e2e8410466fbce869c0394c0fece9a5a797e7475f305d78a9e2f93b9",
+      "vocos/models.py": "7031a1e223678cfeb522046f7e179e3ff9efd70aa32f969a4234880b59be1b71",
+      "vocos/modules.py": "1132b0081333cc4abe1c36b2bd709185ceaa243519ea8903bec7ab08e67d5d64",
+      "vocos/pretrained.py": "c7581e848c9b5be216f91a8db638db9bcbd4a8a5ab663d5125013d34df656758",
+      "vocos/spectral_ops.py": "d5e22c7f0c90c74f016d463aee58e02f02b8381d746b6a6aee2026446fb3ce11"
+    }
+  },
+  "mms": {
+    "model_id": "facebook/mms-1b-all",
+    "revision": "3d33597edbdaaba14a8e858e2c8caa76e3cec0cd",
+    "license": "cc-by-nc-4.0",
+    "local_directory": ".cache/speech-repair-review-mms",
+    "source_url": "https://huggingface.co/facebook/mms-1b-all/tree/3d33597edbdaaba14a8e858e2c8caa76e3cec0cd",
+    "files_sha256": {
+      "adapter.ara.safetensors": "c27e514cd2c56bc58222cdfa342d33ddafec1fec77a3eaf99511097f4877c69f",
+      "adapter.cmn-script_simplified.safetensors": "30dd43c02f1b563d699e190999cd57f5dab604711af48fbd6d853fcca1475078",
+      "adapter.deu.safetensors": "6c5c69d89bf65a9120ae7d70b9207937a46db4e5b14456471cf9ad7523719c5f",
+      "adapter.eng.safetensors": "4347384ac33c808dc7821bca6e4baaf1408b03b585e7caf81267b9d0ef8cca29",
+      "adapter.fra.safetensors": "4b09a27a25bdff7062004bf5b2ef8d219e89ebcf272d34d275e3ae0dcd8c3f0b",
+      "adapter.hin.safetensors": "12ed5b9c307c1da5ca6e188daf9a0e6b91e1b2da0ae8f8ec4b300287d207f73b",
+      "adapter.jpn.safetensors": "0d67ea38940d2c539d7c60b603d134ae7ce7af5314e103a8a9506c6476bbaca3",
+      "adapter.kor.safetensors": "5740635f45240c45d649f1fe6561b1586809336f6415be8d45a8c1e96070cf59",
+      "adapter.rus.safetensors": "1038d184ded23c784b7f583a62550b064ed2e5f72c23e7eb3aa8972cf1d177a5",
+      "adapter.spa.safetensors": "0fcb7e6dd62c550dc26409954e79671cf9f1e106317932e674050d65862d667f",
+      "adapter.tam.safetensors": "3c621a9f31f7397936ff261c0bc70ed81a802a3d9653016ca8e704bdbcf70004",
+      "config.json": "ee172ef39a0e40c55403fb811fa0f56c6198c7ed21a2bdf5bd0e72e52c07a41c",
+      "model.safetensors": "0f1d95ce43d27e03d5d8dd56c697c805460f967c793dd2cbec2e8e8012deda98",
+      "preprocessor_config.json": "f724fdad65341e79bd9741888fe4e8ce1bb2e7b44fc8216c28c591afb1e202f4",
+      "special_tokens_map.json": "9046da57c270c8e74d0f38832b4adce269c9d914ef21d2a0925e7772152dd793",
+      "tokenizer_config.json": "42a65547cf0654d12263ece7c909c4b0c574b660c78658f806c772cc223bc01b",
+      "vocab.json": "0375a07a977a599040a7ff333b6974996965cd93754020619518c15db7691f01"
+    }
+  },
+  "whisper_manifest": "speech_repair_assets.json",
+  "bigvgan_manifest": "vocoder_assets.json"
+}
