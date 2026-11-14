@@ -1,19 +1,23 @@
 """Keep the isolated reconstruction runtime alive between serialized uploads."""
 import json
+import os
 from pathlib import Path
 import selectors
+import signal
 import subprocess
 import threading
 import time
 
 
 class ReconstructionWorker:
-    def __init__(self, python, script, boundary_safe=False):
+    def __init__(self, python, script, boundary_safe=False, isolated=True):
         self.command = [str(python), str(script), "--worker"]
         if boundary_safe:
             self.command.append('--boundary-safe')
         self.process = None
         self.lock = threading.RLock()
+        # Nested model workers inherit their owning worker's process group.
+        self.isolated = isolated
 
     def _receive(self, deadline):
         remaining = deadline - time.monotonic()
@@ -37,7 +41,7 @@ class ReconstructionWorker:
                     self.close()
                     self.process = subprocess.Popen(
                         self.command, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
-                        text=True, bufsize=1,
+                        text=True, bufsize=1, start_new_session=isolated_session(self.isolated),
                     )
                     if self._receive(deadline) != {"ready": True}:
                         raise RuntimeError("Reconstruction worker could not load the model")
@@ -58,12 +62,31 @@ class ReconstructionWorker:
             process, self.process = self.process, None
             if process is None:
                 return
+            group = isolated_session(self.isolated)
+
+            def stop(force=False):
+                if group:
+                    try:
+                        os.killpg(process.pid, signal.SIGKILL if force else signal.SIGTERM)
+                    except ProcessLookupError:
+                        pass
+                elif process.poll() is None:
+                    process.kill() if force else process.terminate()
+
+            stop()
             if process.poll() is None:
-                process.terminate()
                 try:
                     process.wait(timeout=5)
                 except subprocess.TimeoutExpired:
-                    process.kill()
+                    stop(force=True)
                     process.wait()
+            # The group may outlive its leader. Do not leave an abandoned
+            # model running after a timeout, error, or normal worker close.
+            if group:
+                stop(force=True)
             process.stdin.close()
             process.stdout.close()
+
+
+def isolated_session(requested):
+    return requested and os.name == 'posix'

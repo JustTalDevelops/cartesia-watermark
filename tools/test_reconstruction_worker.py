@@ -1,16 +1,18 @@
 """Exercise worker reuse and failure recovery without reconstruction assets."""
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
 import tempfile
+import time
 import unittest
 
 from reconstruction_worker import ReconstructionWorker
 
 
 FAKE_WORKER = '''\
-import json, os, sys, time
+import json, os, subprocess, sys, time
 print(json.dumps({'ready': True}), flush=True)
 for line in sys.stdin:
     request = json.loads(line)
@@ -21,7 +23,15 @@ for line in sys.stdin:
     if request['preset'] == 'error':
         print(json.dumps({'error': 'invalid audio'}), flush=True)
         continue
-    print(json.dumps({'report': {'pid': os.getpid(), 'request': request}}), flush=True)
+    child = None
+    if request['preset'].startswith('descendant'):
+        child = subprocess.Popen([sys.executable, '-c', 'import time; time.sleep(30)'],
+                                 stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    print(json.dumps({'report': {'pid': os.getpid(), 'request': request,
+                                'group': os.getpgrp() if os.name == 'posix' else None,
+                                'child': child.pid if child else None}}), flush=True)
+    if request['preset'] == 'descendant-crash':
+        sys.exit(0)
 '''
 
 
@@ -81,6 +91,38 @@ class ReconstructionWorkerTests(unittest.TestCase):
         self.worker.command = [sys.executable, '-c', 'import time; time.sleep(30)']
         with self.assertRaises(subprocess.TimeoutExpired):
             self.run_job(timeout=.05)
+        self.assertIsNone(self.worker.process)
+
+    @unittest.skipUnless(sys.platform.startswith('linux'), 'Linux process-group regression')
+    def test_close_stops_descendants_even_after_parent_exit(self):
+        def running(pid):
+            try:
+                return Path(f'/proc/{pid}/stat').read_text().rsplit(')', 1)[1].split()[0] != 'Z'
+            except FileNotFoundError:
+                return False
+
+        for preset in ('descendant', 'descendant-crash'):
+            result = self.run_job(preset)
+            child = result['child']
+            try:
+                self.assertEqual(result['group'], result['pid'])
+                if preset.endswith('crash'):
+                    self.worker.process.wait(timeout=2)
+                self.worker.close()
+                deadline = time.monotonic()+2
+                while running(child) and time.monotonic() < deadline:
+                    time.sleep(.01)
+                self.assertFalse(running(child), 'Descendant survived its owning worker')
+            finally:
+                if running(child):
+                    os.kill(child, 9)
+
+    @unittest.skipUnless(os.name == 'posix', 'POSIX process groups')
+    def test_nested_worker_joins_parent_group_and_closes_only_itself(self):
+        self.worker.isolated = False
+        result = self.run_job()
+        self.assertEqual(result['group'], os.getpgrp())
+        self.worker.close()
         self.assertIsNone(self.worker.process)
 
 

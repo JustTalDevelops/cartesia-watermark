@@ -1,0 +1,6 @@
+# Optional Python 3.12 recognizer, installed alongside reconstruction.txt.
+# Vocoder donation runs in the separate Python 3.13 vocoder environment.
+transformers==4.46.3
+huggingface_hub==0.36.2
+tokenizers==0.20.3
+safetensors==0.8.0

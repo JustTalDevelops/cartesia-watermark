@@ -15,6 +15,7 @@ Run commands from the repository root. The project keeps script entry points in 
 | `requirements/research.txt` | AudioSeal and raw-oracle research |
 | `requirements/reconstruction.txt` | Isolated Python 3.12 reconstruction environment |
 | `requirements/vocoder.txt` | Experimental smoothed BigVGAN reconstruction in Python 3.13 |
+| `requirements/speech_repair.txt` | Optional Python 3.12 recognizer for guarded speech repair |
 
 ```bash
 uv venv .venv --python 3.13
@@ -31,6 +32,7 @@ The reconstruction runtime is [installed separately](reconstruction.md). FFmpeg/
 | Audio processing | `reconstruct_audio.py`, `reconstruction_worker.py`, `reconstruction_inference.py`, `verify_reconstruction.py`, `remove_watermark.py`, `remover.py`, `quality_blend.py` |
 | Experimental vocoder | `reconstruct_vocoder.py`, `vocoder_inference.py`, `vocoder_assets.json` |
 | Experimental filtered prior | `reconstruct_filtered_prior.py`; reuses the isolated reconstruction runtime |
+| Experimental speech repair | `reconstruct_speech_repair.py`, `speech_repair.py`, `speech_repair_assets.json`, `reconstruct_vocoder_regions.py`, `vocoder_regions.py` |
 | Upload app | `serve_remover.py`, `check_remover_web.py`; assets in `web/` |
 | Detector | `detect_local.py`, `final_detector.py`, `frames.py`, `train_head.py` |
 | Training and release | `train_remover.py`, `eval_remover.py`, `export_remover.py`, `verify_remover.py` |

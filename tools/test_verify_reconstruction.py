@@ -31,6 +31,27 @@ class FakeWorker:
         return metadata
 
 
+class GuardedWorker(FakeWorker):
+    def __init__(self, rejected=(), invalid_digest=False):
+        super().__init__()
+        self.rejected = rejected
+        self.invalid_digest = invalid_digest
+
+    def run(self, source, output, preset, metadata_path, timeout):
+        if preset in self.rejected:
+            self.calls.append(preset)
+            return {'preset': preset, 'content_guard_passed': False, 'output_sha256': None,
+                    'rejection_reason': 'recognizer_disagreement'}
+        report = super().run(source, output, preset, metadata_path, timeout)
+        audio, rate = sf.read(output)
+        audio = np.rint(audio*2**23)/2**23
+        sf.write(output, audio, rate, subtype='FLOAT')
+        report.update(output_sha256=digest(output), content_guard_passed=True,
+                      content_guard_sample_grid='PCM_24', sample_rate=rate,
+                      content_guard_pcm_sha256='invalid' if self.invalid_digest else verify_reconstruction.pcm_digest(audio))
+        return report
+
+
 class VerifiedReconstructionTests(unittest.TestCase):
     def setUp(self):
         self.directory = tempfile.TemporaryDirectory()
@@ -109,6 +130,36 @@ class VerifiedReconstructionTests(unittest.TestCase):
         self.assertEqual(self.worker.calls, [])
         self.assertFalse(self.output.exists())
         self.assertFalse(self.report.exists())
+
+    def test_content_rejection_skips_api_and_tries_next_guarded_preset(self):
+        self.worker = GuardedWorker(rejected=('speech-repair',))
+        checked = []
+        result = self.run_verified(lambda path: (checked.append(path.read_bytes()) or
+                                               (200, {'detected': False})),
+                                   presets=('speech-repair', 'speech-repair-flow'), confirmations=2)
+        self.assertEqual(len(checked), 2)
+        self.assertEqual(self.output.read_bytes(), checked[0])
+        self.assertEqual(result['attempts'][0]['state'], 'content_rejected')
+        self.assertEqual(result['selected_preset'], 'speech-repair-flow')
+
+    def test_all_content_rejected_never_queries_or_publishes(self):
+        self.worker = GuardedWorker(rejected=('speech-repair', 'speech-repair-flow'))
+        with self.assertRaises(NotCleared):
+            self.run_verified(lambda _: self.fail('Rejected content reached detector'),
+                              presets=('speech-repair', 'speech-repair-flow'))
+        self.assertFalse(self.output.exists())
+        self.assertEqual(json.loads(self.report.read_text())['status'], 'not_cleared')
+
+    def test_guarded_preset_requires_explicit_assessment(self):
+        with self.assertRaisesRegex(RuntimeError, 'required content assessment'):
+            self.run_verified(lambda _: self.fail('Unassessed content reached detector'), presets=('speech-repair',))
+        self.assertFalse(self.output.exists())
+
+    def test_guarded_pcm_digest_mismatch_stops_before_api(self):
+        self.worker = GuardedWorker(invalid_digest=True)
+        with self.assertRaisesRegex(RuntimeError, 'assessed by the content guard'):
+            self.run_verified(lambda _: self.fail('Different waveform reached detector'), presets=('speech-repair',))
+        self.assertFalse(self.output.exists())
 
     def test_interrupted_copy_leaves_no_partial_output(self):
         def interrupted(source, target):

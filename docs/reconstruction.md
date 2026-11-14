@@ -136,6 +136,8 @@ It reuses the existing Python 3.12 reconstruction installation and checkpoint. I
 
 The last command uploads candidates to Cartesia and retains the CLI's two-confirmation policy. This preset order is opt-in. The app exposes the candidate as **Balanced reconstruction (experimental)** and keeps reference reconstruction as its default; app uploads remain local and unchecked. These measurements support checking each actual output, not a universal-removal or unchanged-speech guarantee.
 
+The separate [speech repair candidate](speech-repair.md) targets recognizer disagreements with localized vocoder reconstruction. Its development checks passed on the spent Arabic and Tamil regressions, but fresh validation is still pending. It requires an additional local recognizer and does not change the app's default method.
+
 ## Smoothed-vocoder candidate
 
 `tools/reconstruct_vocoder.py` is a separate experimental candidate. It reconstructs a fixed Gaussian-smoothed log-mel spectrogram through upstream NVIDIA BigVGAN. Development checks cleared four recordings, but a subsequently generated Japanese recording remained detected. The app offers this as an optional method and keeps the Resemble reference preset as its default.
