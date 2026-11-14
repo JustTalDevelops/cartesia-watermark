@@ -27,7 +27,24 @@ Actual packaged runs reproduced both checked FLAC files exactly. Processing and
 worker shutdown took 148.1 seconds for the 32.88-second Russian example and 60.8
 seconds for the 29.92-second Korean example, excluding initial outer-runtime
 construction. These timings use different recognizers and are not an app-wide
-speed comparison. Arabic and the second Tamil counterexamples remain unresolved.
+speed comparison.
+
+The separate `codec-band-inverse6-consensus` preset enables a bounded Arabic
+word-consensus comparison when the raw guard rejects an inverse mixture. An
+isolated substitution must already match the other recognizer's original and
+processed transcripts, in a unique phrase with two unchanged context words on
+each side. At most two corrections and 3% of source words are allowed. Other
+language profiles retain their raw decisions; the comparison limit stays 0.03.
+No reference text or detector labels enter the rule.
+
+On one spent Arabic source, the raw 3/71 rejection remains recorded alongside the
+adjusted 2/71 comparison. Separate Large V3, MMS, speaker and naturalness estimates
+passed, and the exact file cleared twice with four positive source controls. The
+packaged preset reproduced that checked file using actual recognizers at
+`81e77d7`, in 91.6 seconds for 31.68 seconds of audio, excluding initial outer
+runtime construction. See the [complete report](https://github.com/JustTalDevelops/cartesia-watermark/blob/94508ca/results/codec_followup_development.json).
+This is a different explicit profile; the raw failure is not changed into a pass
+under the old profile. The second Tamil counterexample remains unresolved.
 
 Complete the [codec setup](codec-reconstruction.md), the [prospective guard
 profile setup](codec-guard-profiles.md), and the separate Python 3.13 BigVGAN setup
