@@ -62,6 +62,8 @@ class WordRecognizer:
         model = WhisperForConditionalGeneration.from_pretrained(
             directory, local_files_only=True, torch_dtype=torch.float32, attn_implementation='eager').eval()
         model.generation_config.forced_decoder_ids = None
+        from whisper_memory import install_encoder_attention_reduction
+        self.attention_handles = install_encoder_attention_reduction(model)
         self.pipeline = pipeline('automatic-speech-recognition', model=model, tokenizer=processor.tokenizer,
                                  feature_extractor=processor.feature_extractor, device=-1, torch_dtype=torch.float32)
         self.normalizer = BasicTextNormalizer(remove_diacritics=False)
@@ -69,6 +71,8 @@ class WordRecognizer:
         self.metadata = {'model': ASSETS['model_id'], 'revision': ASSETS['revision'],
                          'checkpoint_sha256': ASSETS['files_sha256']['model.safetensors'],
                          'precision': 'float32', 'attention': 'eager', 'transformers': version('transformers'),
+                         'encoder_attention_diagnostics_retained': False,
+                         'decoder_cross_attention_for_word_alignment': 'unchanged',
                          'language_policy': 'Infer original language, then force that language for candidates',
                          'normalization': 'BasicTextNormalizer(remove_diacritics=False), NFKC; Chinese/Japanese/Cantonese characters, otherwise whitespace units'}
 

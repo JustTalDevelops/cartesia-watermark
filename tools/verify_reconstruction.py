@@ -128,7 +128,7 @@ def reconstruct_verified(source, output, report_path, presets=('full-flow', 'str
     if 'filtered-prior' in presets:
         source_files.append('reconstruct_filtered_prior.py')
     if any(p in SPEECH_PRESETS for p in presets):
-        source_files.extend(('reconstruct_speech_repair.py', 'speech_repair.py', 'speech_repair_assets.json',
+        source_files.extend(('reconstruct_speech_repair.py', 'speech_repair.py', 'speech_repair_assets.json', 'whisper_memory.py',
                              'reconstruct_filtered_prior.py', 'reconstruct_vocoder.py', 'vocoder_inference.py',
                              'vocoder_assets.json', 'reconstruct_vocoder_regions.py', 'vocoder_regions.py'))
     source_files = list(dict.fromkeys(source_files))
