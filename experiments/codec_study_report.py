@@ -8,6 +8,7 @@ from datetime import datetime, timezone
 import hashlib
 import json
 from pathlib import Path
+import subprocess
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -26,8 +27,9 @@ def export(plan_path, freeze_path, directory):
     if digest(plan_path) != freeze['generation_plan_sha256']:
         raise ValueError('Plan does not match prospective freeze')
     for name, checksum in freeze['source_files_sha256'].items():
-        if digest(ROOT/name) != checksum:
-            raise ValueError('Frozen source/evaluation files changed')
+        snapshot = subprocess.check_output(['git', 'show', freeze['evaluation_implementation_commit']+':'+name], cwd=ROOT)
+        if hashlib.sha256(snapshot).hexdigest() != checksum:
+            raise ValueError('Frozen source/evaluation Git snapshot differs from its recorded hashes')
     generation_path = directory/'generation.json'
     generation = load(generation_path)
     baseline, candidates = load(directory/'baseline.json'), load(directory/'candidates.json')
