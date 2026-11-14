@@ -17,7 +17,7 @@ class FakeCodec:
     def __init__(self):
         self.calls = 0
 
-    def reconstruct(self, audio, rate):
+    def reconstruct(self, audio, rate, bandwidth_kbps=12.):
         self.calls += 1
         return audio*.98, 1.
 
@@ -103,6 +103,38 @@ class CodecRuntimeTests(unittest.TestCase):
         self.assertEqual(self.recognizer.source_calls, 1)
         self.assertEqual(self.codec.calls, 1)
         self.assertEqual(self.band.calls, 2)
+
+    def test_inverse_preset_encodes_original_at_six_kbps_and_keeps_prior_in_band(self):
+        calls = []
+        def reconstruct(audio, rate, bandwidth_kbps=12.):
+            calls.append((audio.copy(), bandwidth_kbps))
+            return audio*(.98 if bandwidth_kbps == 12. else .91), 1.
+        self.codec.reconstruct = reconstruct
+        report = self.runtime.process_file(self.source, self.output, 'codec-band-inverse6')
+        self.assertTrue(report['content_guard_passed'])
+        self.assertEqual(self.band.presets, ['codec-band-prior'])
+        self.assertEqual([b for _, b in calls], [12., 6.])
+        np.testing.assert_array_equal(calls[0][0], calls[1][0])
+        original, rate = sf.read(self.source, dtype='float32')
+        native = quantize(self.root/'expected_native.flac', original*.91, rate)
+        prior = quantize(self.root/'expected_prior.flac', original*.97, rate)
+        expected, _ = mix_reconstructions(native, prior, rate)
+        expected = quantize(self.root/'expected.flac', expected, rate)
+        actual, _ = sf.read(self.output, dtype='float32')
+        np.testing.assert_array_equal(actual, expected)
+        self.assertEqual(report['inverse_native_sha256'], digest(self.root/'expected_native.flac'))
+
+    def test_inverse_preset_cannot_publish_a_speech_rejected_output(self):
+        original = self.recognizer.transcribe
+        def reject(path, language=None):
+            result = original(path, language)
+            if path.name == 'inverse.flac':
+                result['mms'] = ['first', 'changed']
+            return result
+        self.recognizer.transcribe = reject
+        report = self.runtime.process_file(self.source, self.output, 'codec-band-inverse6')
+        self.assertFalse(report['content_guard_passed'])
+        self.assertFalse(self.output.exists())
 
     def test_reduced_bandwidth_encodes_the_original_instead_of_the_first_pass(self):
         calls = []

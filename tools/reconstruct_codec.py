@@ -16,7 +16,7 @@ import time
 import numpy as np
 import soundfile as sf
 
-from codec_audio import digest, quantize, validate_audio, validate_paths
+from codec_audio import digest, mix_reconstructions, quantize, validate_audio, validate_paths
 from codec_content import ContentRecognizer, assess
 from codec_repair import repair_from_native
 from codec_inference import NativeCodec, ROOT
@@ -96,7 +96,7 @@ class CodecRuntime:
                               native_elapsed_seconds=job['native_elapsed_seconds'])
                 with tempfile.TemporaryDirectory(prefix='.codec-assessment-', dir=output.parent) as temporary:
                     directory = Path(temporary)
-                    if preset in ('codec-band', 'codec-repair', 'codec-band-prior', 'codec-band-prior-repair'):
+                    if preset in ('codec-band', 'codec-repair', 'codec-band-prior', 'codec-band-prior-repair', 'codec-band-inverse6'):
                         manifest = directory/'band.input.json'
                         manifest.write_text(json.dumps({'source': str(source.resolve()), 'source_sha256': original_sha,
                                                         'native': str(candidate), 'native_sha256': job['native_sha256']}))
@@ -104,7 +104,7 @@ class CodecRuntime:
                             self.band_worker = self.worker_factory(ROOT/'.venv/bin/python', ROOT/'tools/reconstruct_codec_band.py',
                                                                    isolated=False)
                         band_path = directory/'band.wav'
-                        worker_preset = 'codec-band-prior' if preset in ('codec-band-prior', 'codec-band-prior-repair') else 'codec-band'
+                        worker_preset = 'codec-band-prior' if preset in ('codec-band-prior', 'codec-band-prior-repair', 'codec-band-inverse6') else 'codec-band'
                         band_info = self.band_worker.run(manifest, band_path, worker_preset, directory/'band.json',
                                                          timeout=max(300, len(audio)/rate*8+120))
                         mixed, band_rate = sf.read(band_path, dtype='float32')
@@ -117,6 +117,21 @@ class CodecRuntime:
                         if digest(candidate) != band_info.get('encoded_flac_sha256'):
                             raise RuntimeError('Band worker publication changed its encoded recording')
                         report['band_model'] = band_info
+                        if preset == 'codec-band-inverse6':
+                            prior, _ = sf.read(candidate, dtype='float32')
+                            prior_sha = digest(candidate)
+                            reduced, reduced_gain = self.codec.reconstruct(
+                                audio, rate, bandwidth_kbps=SETTINGS['inverse_native_bandwidth_kbps'])
+                            reduced_path = directory/'native6.flac'
+                            reduced = quantize(reduced_path, reduced, rate)
+                            inverse, inverse_gain = mix_reconstructions(
+                                reduced, prior, rate, *SETTINGS['inverse_band_hz'])
+                            candidate = directory/'inverse.flac'
+                            quantize(candidate, inverse, rate)
+                            report.update(inverse_native_bandwidth_kbps=SETTINGS['inverse_native_bandwidth_kbps'],
+                                          inverse_native_sha256=digest(reduced_path), inverse_prior_sha256=prior_sha,
+                                          inverse_native_gain=reduced_gain, inverse_mix_gain=inverse_gain,
+                                          inverse_roles='Generated native 6 kbps outside 1–4 kHz; generated band prior inside')
                     elif preset == 'codec-cycle':
                         first, first_rate = sf.read(candidate, dtype='float32')
                         repeated, gain = self.codec.reconstruct(first, first_rate)
