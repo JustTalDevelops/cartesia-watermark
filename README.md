@@ -2,7 +2,7 @@
 
 Tools for studying Cartesia's audio watermark, running a local detector, and experimenting with speech reconstruction. Includes a local upload app for listening to and downloading processed recordings.
 
-**Removal is experimental.** V3 remains detectable on real recordings. A fixed checked workflow produced files that were negative on two Cartesia checks for all **16 planned sources** in the [latest study](results/reconstruction_filtered_prior.json): fourteen fresh recordings and two reused long recordings. Reconstruction can change words and voice quality; two selected files failed the estimated speech-content threshold. These tests do not establish universal removal.
+**Removal is experimental.** V3 remains detectable on real recordings. A fixed checked workflow produced files that were negative on two Cartesia checks for all **16 planned sources** in the [completed filtered-prior study](results/reconstruction_filtered_prior.json): fourteen fresh recordings and two reused long recordings. Reconstruction can change words and voice quality; two selected files failed the estimated speech-content threshold. These tests do not establish universal removal.
 
 **[Download the trained models](https://github.com/JustTalDevelops/cartesia-watermark/releases/tag/models-2026-11-13)** — detector heads, frozen V1–V3 editors, and separate research checkpoints. See the [model guide and catalog](docs/models.md) for contents, loading instructions, and upstream attribution.
 
@@ -52,7 +52,7 @@ Four of the sixteen sources needed full-flow fallback. The workflow checks detec
 
 A separate [speech repair candidate](docs/speech-repair.md) adds recognizer checks and targeted synthesis. It remains under development: an independent recognizer found an Arabic content regression even when its own guard passed.
 
-The newer [codec reconstruction candidate](docs/codec-reconstruction.md) combines native codec synthesis, a wide-band fallback, and two recognizer guards. Its two development examples cleared repeated checks; fresh validation is pending. It is an opt-in CLI, with additional upstream model assets and license terms.
+The newer [codec reconstruction candidate](docs/codec-reconstruction.md) combines native codec synthesis, a wide-band fallback, and two recognizer guards. Its two development examples cleared repeated checks. A [prospectively frozen fresh study](docs/codec-study.md) is in progress; its plan is not a successful result. It is an opt-in CLI, with additional upstream model assets and license terms.
 
 The separate experimental V3 CLI needs only the inference dependencies and the bundled checkpoint:
 
