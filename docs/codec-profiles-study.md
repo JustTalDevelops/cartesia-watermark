@@ -131,6 +131,22 @@ study evaluates the frozen processing functions. Runtime estimates guide
 selection. Without an authored transcript, this command does not perform the
 study's independent reference-error evaluation or establish reliable removal.
 
+For Hindi/Tamil, the optional `--experimental-packed-large` flag packs the
+Large V3 recognizer's linear weights into FP16 and retains float32 inputs and
+outputs. It requires the pinned Python 3.12 x86 CPU environment and uses a
+separate recognition-cache identity. Packing is lazy and occurs once per model.
+The active frozen study continues to use the original float32 recognizer.
+
+The [spent-file precision report](../results/codec_precision_development.json)
+compares eight files from three originals. Packed FP16 reproduced every token
+and all five primary guard decisions. Component generation totaled 236.7 seconds
+versus 491.3 seconds for the bound float32 reference. A complete local wrapper
+run reproduced the same checked file in 191.4 seconds versus 269.3 seconds, with
+real speech/voice gates and eight explicitly mocked detector callbacks. Actual
+API requests and pacing add time. These individual CPU runs add no fresh sources
+or removal observations and do not establish equivalent behavior on arbitrary
+recordings. INT8 changed one guard decision and is retained only in the report.
+
 An additional observation-only monitor enforces the protocol's existing stop
 rule during the study. The frozen generic verifier can continue after a negative
 answer followed by a positive answer and its positive confirmation. The monitor

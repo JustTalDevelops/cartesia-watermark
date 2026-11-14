@@ -36,6 +36,7 @@ This directory mixes curated files included in Git with ignored local experiment
 | `codec_profile_replay.json` | Nine saved selected files reassessed with the prospective language profiles: seven marked files and two nominal controls passed the current quality estimates; zero new sources or detector requests, with the original Hindi failure and frozen 6/14 result preserved |
 | `codec_ta2_followup.json` | One spent Tamil source: eleven rendered variants and two unrendered rejections; the narrow generated inverse mixture passed seven quality estimates and cleared twice with four positive source controls, with exact packaged reproduction; all previous failures retained |
 | `codec_inference_followup.json` | Exact real-model parity after deferring unused codec work, short-circuiting rejected candidates and reusing original recognition plus the generated prior; includes French/long-English preflights and a real operational voice-gate acceptance/rejection; no fresh efficacy evidence |
+| `codec_precision_development.json` | Eight spent audio variants: INT8 changes one primary decision; packed FP16 matches all tokens and decisions, with a faster exact-file full-wrapper integration using mocked detector replies; outside the active frozen study |
 | `model_catalog.json` | Published checkpoint inventory, loaders, aliases, and source/export checksums |
 
 **V3 is not a reliable remover.** Its original small API test did not generalize to subsequent real recordings. See [editor limitations](../docs/editor.md).
