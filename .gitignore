@@ -18,6 +18,8 @@ audio/**
 !audio/corpus5_plan.json
 !audio/corpus6_plan.json
 !audio/corpus7_plan.json
+!audio/reconstruction_reliability_plan.json
+!audio/vocoder_reliability_plan.json
 
 # Extracted SSL features (tools/frames.py, tools/frames_contrast.py), ~20 GB
 features/
@@ -52,6 +54,10 @@ results/*
 !results/head_conv_heldout_x4c[012].pt
 !results/README.md
 !results/reconstruction_runtime.json
+!results/reconstruction_local_shift.json
+!results/reconstruction_reliability.json
+!results/reconstruction_vocoder.json
+!results/reconstruction_vocoder_runtime.json
 !results/model_catalog.json
 
 # Local exports, tool state, and private follow-up recordings.

@@ -57,6 +57,7 @@ Their results do not establish reliable removal on real recordings.
 | `codec_probe.py`, `denoise_probe.py`, `nmf_band_rebuild.py`, `hybrid_band_probe.py` | Reconstruction alternatives |
 | `train_band_rebuilder.py`, `probe_band_rebuilder.py`, `multipass_probe.py`, `refine_probe.py` | Learned band rebuilding and repeated edits |
 | `train_encoder_oracle.py`, `train_oracle_head.py`, `train_raw_oracle.py`, `oracle_feedback.py` | Research detector/oracle training |
+| `reconstruction_reliability_report.py` | Export paired endpoint and quality measurements from the frozen boundary-correction study; rejects incomplete or mismatched evidence |
 
 Private follow-up experiments using personal uploads remain ignored in `continuous_followup/`.
 The current runtime and its setup are documented in [reconstruction](../docs/reconstruction.md).

@@ -58,4 +58,6 @@ The convolutional detector heads and small audio editors were trained for this i
 
 The web app's reconstruction model is **upstream Resemble Enhance**, not a model trained by this project. Its weights are not republished here; use the [separate reconstruction setup](reconstruction.md). Other unmodified upstream model downloads are likewise excluded.
 
+The experimental [smoothed-vocoder candidate](reconstruction.md#smoothed-vocoder-candidate) uses upstream NVIDIA BigVGAN. Its source and weights are pinned and downloaded separately; they are not part of this project's trained-model release.
+
 The [third-party notices](model-licenses/THIRD_PARTY_NOTICES.md) document backbone origins, modifications, and included licenses. In particular, the WavLM fine-tuned weights follow the CC BY-SA 3.0 license linked by the upstream model card; this does not assign that license to the entire repository.

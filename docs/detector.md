@@ -39,6 +39,12 @@ The local detector's sealed4 false positives were all `sonic-3.5`. At a stricter
 
 Training used 3,841 original TTS clips from 607 voices in 19 languages, plus augmentations and mark-targeted contrastive edits. Voice-ID splits, multilingual features, and contrastive variants improved generalization. Cartesia's endpoint itself has repeatable false positives and short-clip limitations; it is not clean ground truth. Detector negatives on unusual edited audio may reflect distribution shift.
 
+## Reconstructed speech
+
+The historical accuracy above does not establish accuracy after generative reconstruction. In a targeted diagnostic, an unmarked Spanish control made from `sonic-3.5` and `sonic-3` changed from **−2.263** before full-flow reconstruction to **+2.075** afterward, crossing the fixed **+0.653** threshold. Cartesia's historical ledger flags the original unmarked control too. The [counterexample report](../results/reconstruction_local_shift.json) records hashes, settings, and software versions; the reconstructed control was not queried with Cartesia in this diagnostic.
+
+This demonstrates a local false positive on reconstructed speech, rather than estimating its frequency. Treat scores in this domain as diagnostics. Neither a local positive nor a negative establishes whether the watermark physically remains. The optional [verification CLI](reconstruction.md#check-the-exact-output-with-cartesia) checks the current Cartesia response for the exact output file and records that narrower result.
+
 ## Regenerate and train
 
 Copy `.env.example` to `.env` and set a Cartesia key. These commands make paid TTS calls and detector requests; generating the original data used a little over 200,000 TTS characters. Catalogue changes mean a rerun may select different voices than the tracked plans.

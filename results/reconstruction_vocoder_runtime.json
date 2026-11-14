@@ -1,0 +1,57 @@
+{
+  "scope": "Controlled local CPU runtime only; no detector requests or removal claims",
+  "fixture": {
+    "seconds": 4,
+    "sample_rate": 44100,
+    "samples": 176400,
+    "channels": 1,
+    "sha256": "fe4098d2295c41b1580b15cfd440a7c2fe99b198e57cbda4ad4c68b0cdc7dadc",
+    "provenance": "Four-second excerpt of authored synthetic speech; used only for runtime measurement, never submitted as a shortened detector case."
+  },
+  "cpu_quota": "400000/100000 microseconds = four cores",
+  "other_neural_jobs_paused": true,
+  "threads": 4,
+  "measurements": [
+    {
+      "preset": "full-flow",
+      "cold_worker_seconds": 10.413375694304705,
+      "warm_worker_seconds": [
+        5.968339313752949,
+        6.0212102849036455
+      ],
+      "median_warm_seconds": 5.994774799328297,
+      "decoded_pcm_exact_cold_and_warm": true,
+      "inference_settings": {
+        "nfe": 32,
+        "solver": "midpoint",
+        "lambd": 0.1,
+        "tau": 1.0
+      },
+      "checkpoint_sha256": "f9d035f318de3e6d919bc70cf7ad7d32b4fe92ec5cbe0b30029a27f5db07d9d6"
+    },
+    {
+      "preset": "smoothed-vocoder",
+      "cold_worker_seconds": 6.917372044175863,
+      "warm_worker_seconds": [
+        4.839670934714377,
+        4.7072672341018915
+      ],
+      "median_warm_seconds": 4.773469084408134,
+      "decoded_pcm_exact_cold_and_warm": true,
+      "inference_settings": {
+        "mel_sigma_frequency": 1.0,
+        "mel_sigma_time": 1.0,
+        "gaussian_mode": "reflect",
+        "mel_chunk_frames": 256,
+        "context_frames": 32,
+        "torch_threads": 4
+      },
+      "checkpoint_sha256": "d9fe7ec6bd0b44ed9d66973d5012d8181c1570b01e5c72df51973e241dccd357"
+    }
+  ],
+  "limits": "One machine and short mono excerpt; two warm observations per method. Not a throughput or quality guarantee for longer, stereo, or arbitrary audio.",
+  "inference_source_commits": {
+    "full-flow": "42edb1f6105df8e2c452aff086b1f98f0366cc9f",
+    "smoothed-vocoder": "fb72d8bdde3ac8a732f582fdeb68570a77586fe5"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "created_at": "2026-11-13T23:18:10.403396+00:00",
+  "purpose": "Post-reconstruction local-detector calibration counterexample",
+  "selection": "Matched Spanish unmarked control inspected after the marked Spanish full-flow result remained locally positive; a diagnostic counterexample, not a sampled false-positive-rate estimate.",
+  "source": {
+    "path": "audio/h2h4/es_020_clean.wav",
+    "sha256": "b984ac5262b9ed69057ddc1b3546ca0db241e857f8cbb1db21ee873e6e1fad1a",
+    "provenance": "sonic-3.5 + 0.3s gap + sonic-3, same Spanish voice; historical generated-unmarked control",
+    "construction": "tools/h2h.py",
+    "native_continuous": false
+  },
+  "processed_sha256": "93eb7acd8bb6f34c6686707dc1c256f79d9b859eabffac590aaa5701824be7a0",
+  "preset": "full-flow",
+  "settings": {
+    "nfe": 32,
+    "solver": "midpoint",
+    "lambd": 0.1,
+    "tau": 1.0
+  },
+  "seed": 2035,
+  "model_sha256": "f9d035f318de3e6d919bc70cf7ad7d32b4fe92ec5cbe0b30029a27f5db07d9d6",
+  "inference_implementation": "reconstruction_inference.inference",
+  "inference_code_sha256": {
+    "tools/reconstruct_audio.py": "25f3e120598995e398fe76a68a3fda943b53e4f294cad5887207888fb9229c96",
+    "tools/reconstruction_inference.py": "1a3c6b8ae05019f04b9650a11b81a331b4ef6b11e9dc43c34e95a0371cbf8a8f",
+    "tools/reconstruction_worker.py": "566866c61e45c1364ca2f42adeec5876386c0a0cbf91836fe972769529ea9469"
+  },
+  "local_detector": {
+    "config_sha256": "8f5b6cb33aa7f4ff3ae29b033435285ec1bcb20cf22ce275c4df1600b7a83f61",
+    "torch": "2.15.0+cpu",
+    "transformers": "5.22.2",
+    "backbone_revision": null,
+    "limitation": "Project classifier, not a physical watermark assay; post-reconstruction calibration unknown"
+  },
+  "threshold": 0.6525917947292328,
+  "original_score": -2.2633272806803384,
+  "processed_score": 2.0753154357274375,
+  "original_detected": false,
+  "processed_detected": true,
+  "historical_original_cartesia_detected": true,
+  "historical_ledger_sha256": "fa04756b69291096cbdade7e9f04502fb0f9dc48113b4f8f5e1cb45405ba7f52",
+  "processed_cartesia_response": null,
+  "conclusion": "Under the study generated-provenance labels, this is a local false positive after reconstruction. The historical Cartesia ledger also flags the original unmarked control. Local scores are diagnostic; this example does not prove erasure or calibrate either detector on reconstructed speech."
+}
