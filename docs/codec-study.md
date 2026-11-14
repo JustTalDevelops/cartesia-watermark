@@ -78,6 +78,11 @@ and never repeats a request with an existing reservation. A failed or uncertain
 request remains fully reserved. The plan records the official pricing source and
 the date checked. Generation is a paid operation.
 
+A separately frozen future study can use `--generation-subdirectory` to keep its
+receipt under a different child directory of the same `--directory`. It still uses
+the existing shared ledger and rejects repeated reservation IDs. This option does
+not create a new budget or permit replaying the completed study.
+
 From the repository root, the explicit stages are:
 
 ```bash

@@ -92,7 +92,21 @@ def canonicalize(raw, output, item):
             'channels': 1 if audio.ndim == 1 else audio.shape[1]}
 
 
-def generate(plan_path, freeze_path, directory):
+def generation_receipt(directory, subdirectory):
+    """Separate study receipts while retaining the same authorized ledger."""
+    directory, subdirectory = Path(directory), Path(subdirectory)
+    base = directory.resolve()
+    destination = directory/subdirectory
+    resolved = destination.resolve()
+    if subdirectory.is_absolute() or resolved == base or not resolved.is_relative_to(base):
+        raise ValueError('Generation receipts require a separate subdirectory within the shared ledger directory')
+    path = destination/'generation.json'
+    if path.is_symlink() or (path.exists() and not path.is_file()):
+        raise ValueError('The generation receipt must be a regular file, separate from the budget ledger')
+    return path
+
+
+def generate(plan_path, freeze_path, directory, generation_subdirectory=Path('codec_fresh')):
     plan, freeze = json.loads(plan_path.read_text()), json.loads(freeze_path.read_text())
     if freeze['generation_plan_sha256'] != digest(plan_path) or freeze['fresh_generation_started'] is not False:
         raise ValueError('Generation plan does not match the sealed prospective freeze')
@@ -103,7 +117,7 @@ def generate(plan_path, freeze_path, directory):
 
     check_sources()
     ledger = Ledger(directory)
-    path = directory/'codec_fresh/generation.json'
+    path = generation_receipt(directory, generation_subdirectory)
     path.parent.mkdir(parents=True, exist_ok=True)
     receipt = json.loads(path.read_text()) if path.exists() else {
         'generation_plan_sha256': digest(plan_path), 'freeze_sha256': digest(freeze_path), 'requests': [], 'complete': False}
@@ -155,8 +169,10 @@ def main():
     parser.add_argument('--plan', type=Path, required=True)
     parser.add_argument('--freeze', type=Path, required=True)
     parser.add_argument('--directory', type=Path, default=ROOT/'.cache/removal-reliability')
+    parser.add_argument('--generation-subdirectory', type=Path, default=Path('codec_fresh'),
+                        help='Study receipt subdirectory; the existing shared budget ledger is unchanged')
     args = parser.parse_args()
-    return generate(args.plan, args.freeze, args.directory)
+    return generate(args.plan, args.freeze, args.directory, args.generation_subdirectory)
 
 
 if __name__ == '__main__':

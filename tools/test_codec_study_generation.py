@@ -6,7 +6,7 @@ import unittest
 import numpy as np
 import soundfile as sf
 
-from experiments.generate_codec_study import Ledger, canonicalize
+from experiments.generate_codec_study import Ledger, canonicalize, generation_receipt
 
 
 class CodecStudyGenerationTests(unittest.TestCase):
@@ -49,6 +49,30 @@ class CodecStudyGenerationTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'limit would be exceeded'):
             self.ledger.reserve(self.item)
         self.assertEqual(before, self.path.read_bytes())
+
+    def test_separate_study_receipts_keep_one_ledger_and_reject_duplicate_charges(self):
+        first = generation_receipt(self.root, Path('codec_fresh'))
+        second = generation_receipt(self.root, Path('codec_followup'))
+        self.assertNotEqual(first, second)
+        self.assertEqual(first, self.root/'codec_fresh/generation.json')
+        self.ledger.reserve(self.item)
+        with self.assertRaisesRegex(ValueError, 'prior reservation'):
+            Ledger(self.root).reserve(self.item)
+        self.assertEqual(json.loads(self.path.read_text())['reserved_credits'], 104)
+        self.assertFalse((second.parent/'budget.json').exists())
+
+    def test_receipt_paths_cannot_escape_or_alias_the_shared_ledger(self):
+        for value in (Path('.'), Path('..'), Path('/tmp'), Path('nested/../../escape')):
+            with self.subTest(value=value), self.assertRaises(ValueError):
+                generation_receipt(self.root, value)
+        (self.root/'redirect').symlink_to(self.root, target_is_directory=True)
+        with self.assertRaises(ValueError):
+            generation_receipt(self.root, Path('redirect'))
+        receipt = generation_receipt(self.root, Path('followup'))
+        receipt.parent.mkdir()
+        receipt.symlink_to(self.path)
+        with self.assertRaises(ValueError):
+            generation_receipt(self.root, Path('followup'))
 
     def test_canonical_source_keeps_the_whole_grid_and_separates_stereo_gains(self):
         source, output = self.root/'raw.wav', self.root/'canonical.flac'
