@@ -10,8 +10,11 @@ On one previously used Tamil recording, the prototype passed seven estimated
 quality checks and returned two negative detector responses with four positive
 source controls. The stronger smoothing variant failed naturalness. The
 [published evidence](https://github.com/JustTalDevelops/cartesia-watermark/blob/91089d1/results/vocoder_band_development.json)
-is development evidence from one spent source. The packaged path still requires
-an exact-output integration check. This is not a reliable-removal claim.
+is development evidence from one spent source. The packaged path at `f9fd051`
+reproduced the exact tested FLAC bytes using both real recognizers. Processing
+and worker shutdown took 205.2 seconds for the 30.08-second clip on the four-core
+CPU reference machine, excluding initial outer-runtime construction. This one
+integration run adds no independent source or new detector observation.
 
 Complete the [codec setup](codec-reconstruction.md), the [prospective guard
 profile setup](codec-guard-profiles.md), and the separate Python 3.13 BigVGAN setup

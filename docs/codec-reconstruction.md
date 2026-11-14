@@ -4,7 +4,7 @@ The separate [band-focused prior](codec-band-prior.md) is an opt-in experimental
 preset on this branch, with one spent Tamil prototype result and additional
 unresolved counterexamples.
 
-This opt-in CLI reconstructs complete speech with Vocos decoding EnCodec features at 12 kbps. A second preset keeps that reconstruction in the 1000–4000 Hz band and uses a sigma0.5 BigVGAN reconstruction elsewhere. Both presets compare the original and final recording with Whisper Turbo and MMS, rejecting output when either recognizer's disagreement exceeds 3%.
+The native preset reconstructs complete speech with Vocos decoding EnCodec features at 12 kbps. The band fallback keeps that reconstruction in the 1000–4000 Hz band and uses a sigma0.5 BigVGAN reconstruction elsewhere. Two local recognizers compare the original and final recording. The checkpoints, comparison units, and rejection limits follow the [language-specific profiles](codec-guard-profiles.md).
 
 **The candidate failed fresh validation.** Of fourteen new marked sources,
 seven produced twice-negative outputs and six passed all seven quality criteria.
