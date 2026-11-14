@@ -138,6 +138,37 @@ class CodecRuntimeTests(unittest.TestCase):
         self.assertFalse(report['content_guard_passed'])
         self.assertFalse(self.output.exists())
 
+    def test_narrow_inverse_uses_its_fixed_band_without_an_unused_native12_pass(self):
+        calls = []
+        def reconstruct(audio, rate, bandwidth_kbps=12.):
+            calls.append(bandwidth_kbps)
+            return audio*.91, 1.
+        self.codec.reconstruct = reconstruct
+        report = self.runtime.process_file(self.source, self.output, 'codec-band-inverse6-narrow')
+        self.assertTrue(report['content_guard_passed'])
+        self.assertEqual(calls, [6.])
+        self.assertEqual(self.band.presets, ['codec-band-prior'])
+        self.assertEqual(report['inverse_band_hz'], [1500, 3500])
+        original, rate = sf.read(self.source, dtype='float32')
+        native = quantize(self.root/'expected_native.flac', original*.91, rate)
+        prior = quantize(self.root/'expected_prior.flac', original*.97, rate)
+        expected, _ = mix_reconstructions(native, prior, rate, 1500, 3500)
+        expected = quantize(self.root/'expected.flac', expected, rate)
+        actual, _ = sf.read(self.output, dtype='float32')
+        np.testing.assert_array_equal(actual, expected)
+
+    def test_narrow_inverse_still_requires_both_unchanged_speech_guards(self):
+        original = self.recognizer.transcribe
+        def reject(path, language=None):
+            result = original(path, language)
+            if path.name == 'inverse.flac':
+                result['mms'] = ['first', 'changed']
+            return result
+        self.recognizer.transcribe = reject
+        report = self.runtime.process_file(self.source, self.output, 'codec-band-inverse6-narrow')
+        self.assertFalse(report['content_guard_passed'])
+        self.assertFalse(self.output.exists())
+
     def run_consensus_fixture(self, additional_errors=0, language='ar'):
         anchor = [f'w{i}' for i in range(71)]
         before = anchor.copy()
