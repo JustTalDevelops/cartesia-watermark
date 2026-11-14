@@ -136,6 +136,36 @@ class CodecRuntimeTests(unittest.TestCase):
         self.assertFalse(report['content_guard_passed'])
         self.assertFalse(self.output.exists())
 
+    def run_consensus_fixture(self, additional_errors=0, language='ar'):
+        anchor = [f'w{i}' for i in range(71)]
+        before = anchor.copy()
+        before[14] = 'old'
+        after = anchor.copy()
+        for index in [35, 55, 45, 65][:2+additional_errors]:
+            after[index] = 'changed'+str(index)
+        secondary = 'fastconformer' if language == 'ar' else 'mms'
+        self.recognizer.transcribe = lambda path, language_hint=None: {
+            'language': language, 'supported': True, 'primary': 'turbo', 'secondary': secondary,
+            'turbo': before if language_hint is None else after, secondary: anchor}
+        return self.runtime.process_file(self.source, self.output, 'codec-band-inverse6-consensus')
+
+    def test_arabic_consensus_retains_raw_rejection_and_accepts_only_supported_correction(self):
+        report = self.run_consensus_fixture()
+        self.assertFalse(report['raw_content_assessment']['content_guard_passed'])
+        self.assertTrue(report['content_guard_passed'])
+        self.assertEqual(len(report['consensus_supported_corrections']), 1)
+        self.assertAlmostEqual(report['paired_disagreement']['turbo'], 2/71)
+        self.assertFalse(report['consensus_reference_text_used'])
+        self.assertTrue(self.output.exists())
+
+    def test_consensus_does_not_discount_unsupported_changes_or_other_profiles(self):
+        report = self.run_consensus_fixture(additional_errors=1)
+        self.assertFalse(report['content_guard_passed'])
+        self.assertFalse(self.output.exists())
+        report = self.run_consensus_fixture(language='en')
+        self.assertFalse(report['content_guard_passed'])
+        self.assertFalse(self.output.exists())
+
     def test_reduced_bandwidth_encodes_the_original_instead_of_the_first_pass(self):
         calls = []
         def reconstruct(audio, rate, bandwidth_kbps=12.):

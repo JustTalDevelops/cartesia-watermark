@@ -96,7 +96,7 @@ class CodecRuntime:
                               native_elapsed_seconds=job['native_elapsed_seconds'])
                 with tempfile.TemporaryDirectory(prefix='.codec-assessment-', dir=output.parent) as temporary:
                     directory = Path(temporary)
-                    if preset in ('codec-band', 'codec-repair', 'codec-band-prior', 'codec-band-prior-repair', 'codec-band-inverse6'):
+                    if preset in ('codec-band', 'codec-repair', 'codec-band-prior', 'codec-band-prior-repair', 'codec-band-inverse6', 'codec-band-inverse6-consensus'):
                         manifest = directory/'band.input.json'
                         manifest.write_text(json.dumps({'source': str(source.resolve()), 'source_sha256': original_sha,
                                                         'native': str(candidate), 'native_sha256': job['native_sha256']}))
@@ -104,7 +104,7 @@ class CodecRuntime:
                             self.band_worker = self.worker_factory(ROOT/'.venv/bin/python', ROOT/'tools/reconstruct_codec_band.py',
                                                                    isolated=False)
                         band_path = directory/'band.wav'
-                        worker_preset = 'codec-band-prior' if preset in ('codec-band-prior', 'codec-band-prior-repair', 'codec-band-inverse6') else 'codec-band'
+                        worker_preset = 'codec-band-prior' if preset in ('codec-band-prior', 'codec-band-prior-repair', 'codec-band-inverse6', 'codec-band-inverse6-consensus') else 'codec-band'
                         band_info = self.band_worker.run(manifest, band_path, worker_preset, directory/'band.json',
                                                          timeout=max(300, len(audio)/rate*8+120))
                         mixed, band_rate = sf.read(band_path, dtype='float32')
@@ -117,7 +117,7 @@ class CodecRuntime:
                         if digest(candidate) != band_info.get('encoded_flac_sha256'):
                             raise RuntimeError('Band worker publication changed its encoded recording')
                         report['band_model'] = band_info
-                        if preset == 'codec-band-inverse6':
+                        if preset in ('codec-band-inverse6', 'codec-band-inverse6-consensus'):
                             prior, _ = sf.read(candidate, dtype='float32')
                             prior_sha = digest(candidate)
                             reduced, reduced_gain = self.codec.reconstruct(
@@ -152,6 +152,21 @@ class CodecRuntime:
                     if digest(candidate) != candidate_sha or digest(source) != original_sha:
                         raise RuntimeError('A source or candidate changed during content assessment')
                     assessment = assess(job['before'], after)
+                    if preset == 'codec-band-inverse6-consensus' and not assessment['content_guard_passed']:
+                        report['raw_content_assessment'] = assessment
+                        before = job['before']
+                        if (before['language'] == 'ar' and before.get('primary') == 'turbo' and
+                                before.get('secondary') == 'fastconformer'):
+                            from codec_word_consensus import comparison_reference
+                            corrected, proof = comparison_reference(
+                                before['turbo'], after['turbo'], before['fastconformer'], after['fastconformer'])
+                            comparison = dict(before, turbo=corrected)
+                            assessment = assess(comparison, after)
+                            report.update(consensus_profile='bounded-arabic-word-consensus-v1',
+                                          consensus_supported_corrections=proof,
+                                          consensus_reference_text_used=False)
+                        else:
+                            report['consensus_status'] = 'unsupported_profile_raw_rejection_retained'
                     if preset in ('codec-repair', 'codec-cycle', 'codec-band-prior-repair') and not assessment['content_guard_passed']:
                         report['initial_content_assessment'] = assessment
                         if (job['before'].get('secondary', 'mms') != 'mms' or
