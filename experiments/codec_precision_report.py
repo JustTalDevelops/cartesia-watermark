@@ -9,6 +9,7 @@ ROOT=Path(__file__).resolve().parent.parent
 sys.path.insert(0,str(ROOT))
 sys.path.insert(0,str(ROOT/'tools'))
 from codec_text import paired_error
+from experiments.codec_profile_cache import configuration,read_recognition
 from experiments.codec_inference_followup_report import verify_source
 from experiments.codec_profiles_report import original_primary_sha256
 from experiments.run_codec_profiles import frozen_sources
@@ -108,6 +109,57 @@ def workflow(directory):
     return packed
 
 
+def source_control(directory):
+    folder=directory/'packed_fp16_source_control'
+    plan=json.loads((folder/'plan.json').read_text());report=load(folder/'result.json')
+    original_directory=directory/'codec_profiles_fresh'
+    guards=load(original_directory/'original_guards.json')
+    materialized=json.loads((original_directory/'evaluation.plan.json').read_text())
+    originals={c['id']:c for c in guards['clips']}
+    expected=[i for i in materialized['items'] if originals[i['id']]['primary_guard']=='large']
+    verify_source({'implementation_commit':report['source_implementation_commit'],'source_files_sha256':report['source_files_sha256']})
+    if (digest(folder/'plan.json')!=report['plan_sha256'] or digest(directory/'compare_packed_source_control.py')!=plan['harness_sha256'] or
+            digest(original_directory/'original_guards.json')!=plan['original_guards_sha256'] or
+            digest(original_directory/'evaluation.plan.json')!=plan['materialized_plan_sha256'] or
+            guards['configuration_sha256']!=plan['original_configuration_sha256'] or
+            report['source_files_sha256']!=plan['source_files_sha256'] or
+            report['packed_configuration_sha256']!=configuration(report['recognizers']) or
+            report['packed_configuration_sha256']==guards['configuration_sha256'] or
+            report['new_tts_requests']!=0 or report['new_http_requests']!=0 or report['new_removal_successes']!=0 or
+            report['reference_text_used'] or report['evaluation_asr_read'] or report['candidate_outputs_read']):
+        raise ValueError('Source-only precision control lost its sealed inputs, code or cache identity')
+    if ([i['id'] for i in expected]!=[i['id'] for i in plan['items']] or
+            [i['id'] for i in plan['items']]!=[r['id'] for r in report['cases']] or len(report['cases'])!=9):
+        raise ValueError('Keep every one of the nine Large-profile originals in order')
+    for item,case,row in zip(expected,plan['items'],report['cases'],strict=True):
+        source_sha=item['sha256'];before_cache=original_directory/'recognition/originals'/(source_sha+'.json')
+        after_cache=folder/'recognition'/(source_sha+'.json')
+        if (case['source_sha256']!=source_sha or row['source_sha256']!=source_sha or digest(ROOT/item['source'])!=source_sha or
+                digest(before_cache)!=case['original_cache_sha256'] or case['original_cache_sha256']!=originals[item['id']]['recognition_cache_sha256'] or
+                digest(after_cache)!=row['packed_cache_sha256']):
+            raise ValueError('Source-only recognition no longer binds the complete original or its caches')
+        before=read_recognition(original_directory/'recognition/originals',source_sha,guards['configuration_sha256'])
+        after=read_recognition(folder/'recognition',source_sha,report['packed_configuration_sha256'])
+        names=(before['primary'],before['secondary'])
+        same_profile=all(before[k]==after.get(k) for k in ('language','supported','primary','secondary'))
+        matches={name:before.get(name)==after.get(name) for name in names}
+        differences={name:paired_error(before.get(name,[]),after.get(name,[]),before['language']) for name in names}
+        if (row['same_language_and_profile']!=same_profile or row['normalized_units_identical']!=matches or
+                row['precision_disagreement']!=differences or row['source_parity_passed']!=(same_profile and all(matches.values())) or
+                row['original_token_ids_available']):
+            raise ValueError('Source-only parity was changed or overstated as token parity')
+    report['summary']={'source_recordings':9,'distinct_voices':len({i['voice'] for i in plan['items']}),
+                       'marked_originals':sum(i['marked_provenance'] for i in plan['items']),
+                       'nominal_controls':sum(not i['marked_provenance'] for i in plan['items']),
+                       'source_parity_matches':sum(r['source_parity_passed'] for r in report['cases']),
+                       'changed_sources':[r['id'] for r in report['cases'] if not r['source_parity_passed']],
+                       'scope':'Source-only precision comparisons against frozen original recognition, with no paired FP32 timing reference or removal observations'}
+    if report['all_sources_identical']!=all(r['source_parity_passed'] for r in report['cases']):
+        raise ValueError('Source-only summary disagrees with its complete case inventory')
+    report['control_plan']={k:v for k,v in plan.items() if k!='items'}
+    return report
+
+
 def export(directory,freeze_path):
     freeze=json.loads(freeze_path.read_text());frozen_sources(freeze)
     int8,raw8=component(directory,'int8',freeze);fp16,raw16=component(directory,'fp16',freeze)
@@ -120,9 +172,10 @@ def export(directory,freeze_path):
     return {'kind':'Spent-file Large-V3 precision development','fresh_independent_sources':0,'new_tts_requests':0,'new_http_requests':0,
             'new_removal_successes':0,'hardware':'AMD Ryzen 9 9900X; CPU quota four cores; no GPU',
             'int8_component':int8,'packed_fp16_component':fp16,'packed_fp16_workflow':workflow(directory),
+            'additional_original_source_control':source_control(directory),
             'active_frozen_study_uses_packed_weights':False,'original_primary_study_sha256':original_primary_sha256(freeze),
             'human_listening_approval':False,'physical_erasure_proven':False,
-            'limits':['Eight audio files are variants of three spent original recordings; no fresh independent sources or endpoint observations.',
+            'limits':['Component and whole-wrapper benchmarks reuse eight variants of three spent originals; the additional control reuses nine originals/eight voices from the active cohort. No new audio or removal observations.',
                       'Component measurements use forced known Hindi/Tamil language and one warmed full generation per file; loading/features/packing are excluded.',
                       'FP16 reuses the bound earlier FP32 measurements and separately reproduces its first-source reference; these are individual runs without statistical speed guarantees.',
                       'INT8 changed a primary guard decision and is not integrated. Packed FP16 remains experimental and outside the active frozen study.',

@@ -73,6 +73,21 @@ def original_primary_sha256(freeze):
     return checksum
 
 
+def summarize_attempt(attempt):
+    summary={k:attempt[k] for k in ('preset','state','sha256','detected','runtime_quality_guard',
+                                   'previously_checked_preset') if k in attempt}
+    model=attempt.get('model',{})
+    assessment_keys=('content_guard_passed','paired_disagreement','primary_guard','secondary_guard',
+                     'maximum_paired_disagreement','original_units','processed_units')
+    speech={k:model[k] for k in assessment_keys+('rejection_reason','initial_primary_skip_reason',
+                                               'repair_status','repair_reason','consensus_status','consensus_profile') if k in model}
+    for name in ('initial_content_assessment','raw_content_assessment'):
+        if name in model:
+            speech[name]={k:model[name][k] for k in assessment_keys if k in model[name]}
+    if speech:summary['speech_assessment']=speech
+    return summary
+
+
 def export(freeze_path, directory):
     import numpy as np
     import soundfile as sf
@@ -152,8 +167,7 @@ def export(freeze_path, directory):
                'selection_status':record['status'],'method_order':list(orders),
                'original_guard_calibration':control,
                'original_independent_calibration':[original_eval[(case,m)] for m in evaluation_metrics(item['language'])],
-               'attempts':[{k:a[k] for k in ('preset','state','sha256','detected','runtime_quality_guard','previously_checked_preset') if k in a}
-                           for a in record['attempts']],
+               'attempts':[summarize_attempt(a) for a in record['attempts']],
                'quality_qualified':False,'qualified_marked_transition':False}
         for attempt in record['attempts']:
             if attempt.get('detected') is True:

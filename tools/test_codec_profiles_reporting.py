@@ -1,11 +1,12 @@
 from copy import deepcopy
 from datetime import datetime,timedelta,timezone
 from pathlib import Path
+import json
 import sys
 import unittest
 
 sys.path.insert(0,str(Path(__file__).resolve().parent.parent))
-from experiments.codec_profiles_report import protocol,index_rows
+from experiments.codec_profiles_report import protocol,index_rows,summarize_attempt
 
 
 class ProfileEvidenceValidation(unittest.TestCase):
@@ -34,6 +35,20 @@ class ProfileEvidenceValidation(unittest.TestCase):
         report=deepcopy(self.report)
         report['checks'][0]['detected']=False
         with self.assertRaisesRegex(ValueError,'conflict'):protocol(report)
+
+    def test_rejection_keeps_unmeasured_primary_null_and_omits_raw_recognition(self):
+        attempt={'preset':'codec-band','state':'content_rejected','model':{
+            'content_guard_passed':False,'paired_disagreement':{'large':None,'mms':.12},
+            'maximum_paired_disagreement':.01,'initial_primary_skip_reason':'secondary_recognizer_rejected_candidate',
+            'rejection_reason':'recognizer_disagreement','transcript':'PRIVATE_TRANSCRIPT',
+            'alignment':{'words':['PRIVATE_TRANSCRIPT']},'embeddings':[.2,.3]}}
+        summary=summarize_attempt(attempt)
+        self.assertIsNone(summary['speech_assessment']['paired_disagreement']['large'])
+        self.assertEqual(summary['speech_assessment']['paired_disagreement']['mms'],.12)
+        self.assertEqual(summary['speech_assessment']['initial_primary_skip_reason'],
+                         'secondary_recognizer_rejected_candidate')
+        self.assertNotIn('PRIVATE_TRANSCRIPT',json.dumps(summary))
+        self.assertNotIn('embeddings',json.dumps(summary))
 
 
 if __name__=='__main__':unittest.main()

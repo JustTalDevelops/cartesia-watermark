@@ -147,6 +147,12 @@ API requests and pacing add time. These individual CPU runs add no fresh sources
 or removal observations and do not establish equivalent behavior on arbitrary
 recordings. INT8 changed one guard decision and is retained only in the report.
 
+A separate source-only control reused all nine Hindi/Tamil originals from the
+active cohort, including its nominal Tamil control, across eight voice IDs.
+Both recognizers' normalized units matched their frozen float32 caches for every
+source. Token IDs were not retained in those original caches. This control adds
+no candidate/detector observations and leaves the active study unchanged.
+
 An additional observation-only monitor enforces the protocol's existing stop
 rule during the study. The frozen generic verifier can continue after a negative
 answer followed by a positive answer and its positive confirmation. The monitor
