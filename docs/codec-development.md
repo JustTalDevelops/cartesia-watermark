@@ -66,8 +66,8 @@ vowel-preserving character policy with Turbo evaluation; its historical failure
 under the original policy remains recorded. The frozen fresh-study result stays
 6/14, and the two controls are not removal transitions.
 
-The second Tamil [follow-up](../results/codec_ta2_followup.json) retains seven
-rendered variants and a joint repair proposal rejected before rendering. The
+The second Tamil [follow-up](../results/codec_ta2_followup.json) retains ten
+rendered variants and two proposals rejected before rendering. The
 short repair covered 0.68 seconds of the 26.48-second recording. Although its
 4.4 kbps Mimi output passed both processing guards, independent Small character
 error increased by 0.0215, exceeding 0.01. The unpatched output passed independent
@@ -75,6 +75,13 @@ quality checks but failed its primary processing guard. Neither was detector
 tested. A separate sixteen-character-context consensus review found no supported
 isolated substitutions and changed no guard decision. The joint lower-bitrate
 repair would cover about 20.3%, exceeding the unchanged 20% ceiling.
+
+Two additional forward/inverse waveform reconstructions failed speech criteria
+and were not detector tested. A numerical repair follow-up preserved untouched
+PCM24 samples exactly and reproduced its identical-donor control byte for byte.
+Its independent speech error still increased by 0.0215, so it remains a failed
+removal. The alternative generated donor failed the unique-context safety rule
+before rendering. No speech limit or reference-based selection was changed.
 
 These are automated estimates, without human listening approval. A negative
 detector response does not establish physical erasure. Quality failures remain
