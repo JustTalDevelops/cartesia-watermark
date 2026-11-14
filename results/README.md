@@ -28,6 +28,7 @@ This directory mixes curated files included in Git with ignored local experiment
 | `codec_reliability.json` | All sixteen fresh requests: six fully qualified marked transitions, one selected Hindi quality failure, seven uncleared marked cases, and two nominal controls |
 | `codec_repair_development.json` | One spent French counterexample repaired locally: seven estimated quality gates passed, two whole-file negatives and four positive source controls; no change to the fresh-study count |
 | `codec_cycles_development.json` | One spent long-file counterexample after two codec passes: all seven estimated quality gates passed, two whole-file negatives and four positive source controls; no fresh independent source |
+| `codec_bitrate_development.json` | One spent Korean counterexample: native 3 kbps failed its speech guard; native 6 kbps and both 3/6 kbps band files remained detected twice, including two band files passing all seven estimated quality gates |
 | `model_catalog.json` | Published checkpoint inventory, loaders, aliases, and source/export checksums |
 
 **V3 is not a reliable remover.** Its original small API test did not generalize to subsequent real recordings. See [editor limitations](../docs/editor.md).
