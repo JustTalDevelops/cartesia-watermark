@@ -52,6 +52,28 @@ Use a new `.wav` output path; the CLI refuses overwrites. The CLI reads formats 
 
 Processing uses ten-second chunks with one-second overlaps and a fixed seed. The stronger preset had lower speech-recognizer agreement in a recorded trial, so check words as well as naturalness. None of these presets guarantees a negative detector result.
 
+### Check the exact output with Cartesia
+
+The optional verification CLI **uploads candidate recordings to Cartesia**. Install the reconstruction runtime above and configure `CARTESIA_API_KEY` in `.env` or the environment. Its lightweight parent environment needs only NumPy, SoundFile, and Requests. Reuse the app's `.venv` if it exists; for a fresh verification-only setup:
+
+```bash
+uv venv .venv --python 3.13
+uv pip install --python .venv/bin/python -r requirements/verification.txt
+.venv/bin/python tools/verify_reconstruction.py input.wav checked.flac --boundary-safe
+```
+
+It tries the fixed `full-flow`, then `strong` presets. A positive result tries the next preset. Only an HTTP 200 response with `detected: false` publishes an output. The published file has exactly the bytes queried: FLAC encoding happens before verification. The file is copied and hashed privately, then published atomically without overwriting an existing output. The command also protects existing audit reports.
+
+This checks the current endpoint response for that file. It does not establish physical watermark erasure, unchanged words, or the result of a different detector or a later query. Listen to the output. The audit records `quality_verified: false` explicitly. The web app remains local and does not run these checks.
+
+Whole recordings must be 5–300 seconds and the final upload at most 32 MB. The command never pads or crops audio to satisfy those limits. FLAC uses 24-bit PCM; WAV retains float samples. API errors, rate limits, malformed responses, and changed files produce no output. Exit status is `0` for a checked negative, `2` when every preset remained detected, and `3` when processing or verification failed. Each invocation gets a new audit in ignored `.cache/verification/`, so a failed check can be retried without discarding its history. Use `--report` to choose a new path, or `--presets full-flow` to test only that preset.
+
+### Experimental chunk correction
+
+`--boundary-safe` avoids a redundant final chunk when the preceding ten-second chunk already covers the recording's end. It also avoids applying an overlap fade to a standalone chunk. Identity-model probes reproduced ending distortion in the upstream scheduling at lengths such as 9.1, 9.5, and 18.5 seconds; the corrected schedule preserves those signals to floating-point roundoff. The per-chunk neural model, resampler, and multi-chunk alignment remain the pinned upstream implementations.
+
+The option is available on both reconstruction CLIs. It is opt-in; the app and the default standalone path retain the reference implementation. Candidate-specific detector and speech-quality evaluation must accompany any decision to promote it. Attribution and the upstream MIT license are in `tools/reconstruction_inference.py` and `tools/third_party/RESEMBLE_LICENSE`.
+
 ## Runtime
 
 The web app retains one reconstruction model in an isolated worker between uploads. Model weights, presets, seed, chunking, and waveform processing are unchanged. The standalone CLI starts a fresh runtime for each invocation.

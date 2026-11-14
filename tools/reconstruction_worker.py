@@ -8,8 +8,10 @@ import time
 
 
 class ReconstructionWorker:
-    def __init__(self, python, script):
+    def __init__(self, python, script, boundary_safe=False):
         self.command = [str(python), str(script), "--worker"]
+        if boundary_safe:
+            self.command.append('--boundary-safe')
         self.process = None
         self.lock = threading.RLock()
 

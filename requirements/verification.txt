@@ -1,0 +1,5 @@
+# Lightweight Python 3.13 parent for verify_reconstruction.py.
+# Install the separate reconstruction runtime and model as documented.
+numpy==2.5.4
+soundfile==0.14.0
+requests==2.34.2

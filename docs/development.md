@@ -8,6 +8,7 @@ Run commands from the repository root. The project keeps script entry points in 
 | --- | --- |
 | `requirements.txt` | Main Python 3.13 environment: inference, detector/training, web |
 | `requirements/inference.txt` | V3/V2 editing and quality guard |
+| `requirements/verification.txt` | Lightweight parent for API-checked reconstruction; model runtime installed separately |
 | `requirements/detector.txt` | Local detector and detector training |
 | `requirements/web.txt` | FastAPI and Uvicorn; install with inference |
 | `requirements/eval.txt` | Supplementary PESQ/DNSMOS evaluation |
@@ -26,7 +27,7 @@ The reconstruction runtime is [installed separately](reconstruction.md). FFmpeg/
 
 | Area | Files in `tools/` |
 | --- | --- |
-| Audio processing | `reconstruct_audio.py`, `reconstruction_worker.py`, `remove_watermark.py`, `remover.py`, `quality_blend.py` |
+| Audio processing | `reconstruct_audio.py`, `reconstruction_worker.py`, `reconstruction_inference.py`, `verify_reconstruction.py`, `remove_watermark.py`, `remover.py`, `quality_blend.py` |
 | Upload app | `serve_remover.py`, `check_remover_web.py`; assets in `web/` |
 | Detector | `detect_local.py`, `final_detector.py`, `frames.py`, `train_head.py` |
 | Training and release | `train_remover.py`, `eval_remover.py`, `export_remover.py`, `verify_remover.py` |

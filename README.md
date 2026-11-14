@@ -37,6 +37,8 @@ To process a WAV directly with reconstruction:
 .cache/resemble-venv/bin/python tools/reconstruct_audio.py input.wav output.wav
 ```
 
+The optional [verification CLI](docs/reconstruction.md#check-the-exact-output-with-cartesia) uploads candidates to Cartesia and saves an output only after a negative response for those exact file bytes. It requires API access; speech quality still needs listening.
+
 The separate experimental V3 CLI needs only the inference dependencies and the bundled checkpoint:
 
 ```bash

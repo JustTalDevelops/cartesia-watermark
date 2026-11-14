@@ -31,7 +31,7 @@ PRESETS = {
 }
 
 
-def load_reconstructor(preset):
+def load_reconstructor(preset, boundary_safe=False):
     if preset not in PRESETS:
         raise ValueError('Unknown reconstruction preset')
     for relative in ['hparams.yaml', 'ds/G/latest', 'ds/G/default/mp_rank_00_model_states.pt']:
@@ -46,6 +46,8 @@ def load_reconstructor(preset):
     torch.set_num_threads(4)
     model = load_enhancer(MODEL_DIR, 'cpu')
     model.configurate_(**PRESETS[preset])
+    if boundary_safe:
+        from reconstruction_inference import inference
     return model, inference
 
 
@@ -99,6 +101,7 @@ def process_file(model, inference, source, output, preset, metadata=None, starte
     with output.open('xb') as handle:
         sf.write(handle, result, rate, format='WAV', subtype='FLOAT')
     report = dict(preset=preset, settings=PRESETS[preset], seed=2035,
+                  inference_implementation=f'{inference.__module__}.{inference.__qualname__}',
                   checkpoint_sha256=CHECKPOINT_SHA256, sample_rate=rate,
                   samples=len(result), channels=1 if result.ndim == 1 else result.shape[1],
                   gain=gain, elapsed_seconds=time.monotonic()-started,
@@ -109,12 +112,12 @@ def process_file(model, inference, source, output, preset, metadata=None, starte
     return report
 
 
-def worker_main():
+def worker_main(boundary_safe=False):
     """Private line-delimited JSON pipe; keep the model out of the web runtime."""
     protocol = sys.stdout
     # Upstream imports and inference log progress. Reserve stdout for replies.
     with redirect_stdout(sys.stderr):
-        model, inference = load_reconstructor('standard')
+        model, inference = load_reconstructor('standard', boundary_safe=boundary_safe)
         print(json.dumps({'ready': True}), file=protocol, flush=True)
         for line in sys.stdin:
             try:
@@ -136,11 +139,13 @@ def main():
     parser.add_argument('--metadata', type=Path)
     parser.add_argument('--check', action='store_true')
     parser.add_argument('--worker', action='store_true', help=argparse.SUPPRESS)
+    parser.add_argument('--boundary-safe', action='store_true',
+                        help='Experimental chunk scheduling that avoids redundant tail chunks')
     args = parser.parse_args()
     if args.worker:
         if args.input or args.output or args.metadata or args.check:
             parser.error('Worker mode does not accept file arguments')
-        worker_main()
+        worker_main(boundary_safe=args.boundary_safe)
         return
     if not args.check:
         if not args.input or not args.output:
@@ -150,7 +155,7 @@ def main():
         except ValueError as error:
             parser.error(str(error))
     started = time.monotonic()
-    model, inference = load_reconstructor(args.preset)
+    model, inference = load_reconstructor(args.preset, boundary_safe=args.boundary_safe)
     if args.check:
         print(json.dumps({'ready': True, 'checkpoint_sha256': CHECKPOINT_SHA256}))
         return
