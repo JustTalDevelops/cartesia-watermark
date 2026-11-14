@@ -70,6 +70,7 @@ Their results do not establish reliable removal on real recordings.
 | `whisper_encoder_reuse.py`, `benchmark_whisper_encoder_reuse.py` | Prototype FP32 reuse of short-source language/transcription encoder output and compare exact generated tokens, language results and encoder-call counts |
 | `codec_ctc_repair.py`, `probe_codec_ctc_repair.py` | Develop one bounded repair of a spent rejected band file using locally matching native-donor units; reject donor errors, timing drift and excessive coverage, reproduce exact failed-file hashes and reassess without changing the frozen study |
 | `korean_spacing_diagnostic.py` | Inspect Korean spacing effects using the KsponSpeech character/boundary alignment; preserves every lexical character and never changes frozen study metrics |
+| `probe_codec_cycles.py` | Reproduce a spent positive native file exactly, then generate unassessed additional codec passes without detector requests or changes to historical results |
 
 The fresh codec study uses [pinned evaluation assets](codec_evaluation_assets.json) and
 [text normalization](codec_evaluation_text.py). Chinese reference-error scoring uses

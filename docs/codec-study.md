@@ -13,6 +13,29 @@ presets remain `codec-native` followed by `codec-band`. Both raw provider receip
 and complete canonical PCM24 FLAC sources are hashed. Canonicalization preserves
 the whole sample grid; the two declared stereo controls use fixed channel gains.
 
+## Completed result
+
+The [complete report](../results/codec_reliability.json) retains all sixteen
+requests. Every marked original was positive twice; both nominal controls were
+negative twice. The candidate phase had twice-positive opening and closing
+controls. All 66 HTTP attempts completed successfully.
+
+| Marked sources | Result |
+| --- | --- |
+| 6/14 | Twice-negative final file and all seven quality criteria passed |
+| 1/14 | Hindi cleared detection but Small reference error increased by 0.1184, exceeding 0.03 |
+| 7/14 | No verified output: French, first Arabic, Korean, Russian, both Tamil sources, and the long source |
+
+The two nominal controls passed processing and all quality criteria, but do not
+count as removal transitions. Korean also had insufficient original-source
+recognizer calibration under the frozen word-scoring policy. The long source
+remained detected twice with each content-qualified preset. Six other sources
+exhausted their presets because of detection or content-guard rejections.
+The workflow did not meet the reliability target. Subsequent development probes
+use these spent sources; they cannot change this study or add fresh evidence.
+
+## Frozen procedure
+
 Every original receives two whole-file detector checks and three original-only
 recognizer evaluations before any candidate selection. Candidate checks begin and
 end with twice-positive original controls. Each quality-qualified candidate gets

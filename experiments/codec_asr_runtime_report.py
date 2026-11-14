@@ -32,8 +32,7 @@ def export(directory):
     freeze_path = ROOT/'results/codec_reliability.freeze.json'
     freeze = load(freeze_path)
     for name, checksum in freeze['source_files_sha256'].items():
-        if hashlib.sha256((ROOT/name).read_bytes()).hexdigest() != checksum:
-            raise ValueError('The claimed unchanged processing/evaluation snapshot has changed')
+        check_source(freeze['evaluation_implementation_commit'], name, checksum)
     trials = []
     for folder, ref in [('codec_asr_quantization', '88e90ce'), ('codec_asr_precision_modelonly', '4a16c30')]:
         report = load(directory/folder/'result.json')

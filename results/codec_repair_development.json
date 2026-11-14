@@ -1,0 +1,355 @@
+{
+  "kind": "Spent development example; no independent fresh source",
+  "fresh_independent_sources": 0,
+  "frozen_primary_study_result_changed": false,
+  "source": {
+    "id": "codec_fresh_02_fr_sonic-preview",
+    "sha256": "72e3b625acf0f5b3fe78f0e06d7eea523c0e39708546973a17fec3e400f66480"
+  },
+  "candidate_sha256": "57f9bf93369bacadbac80768285fc69d8ca93571c5c5cc99e82edda052544937",
+  "primary_failure": "Native file stayed detected; band file exceeded the MMS consistency limit",
+  "repair": {
+    "source_sha256": "72e3b625acf0f5b3fe78f0e06d7eea523c0e39708546973a17fec3e400f66480",
+    "unsuccessful_audit_sha256": "89a29c00c232689ebe6259f39f0b40fb1e773c9ad0cab284035816fa7b9b23f4",
+    "probe_source_sha256": "5754fb2d5afa5074c844607a75f489a76bc297ba5947796cb8fac5608e77831c",
+    "repair_source_sha256": "d85f1622be3e4748b994b7957fa3a7d188eac2136cfabc4b0eaf8eb7db42ab54",
+    "language": "fr",
+    "reference_text_used": false,
+    "cartesia_requests": 0,
+    "fresh_independent_sources": 0,
+    "frozen_study_result_changed": false,
+    "quality_verified": false,
+    "complete": true,
+    "native_sha256": "79d21f00951184719eb5063751c07e091c12d8cc20e74a67609c7123481b0dc1",
+    "band_sha256": "ad451d257856d40cc99a6b419215470696ac6d9bb559f49ad1776b37ce4eadd7",
+    "rejected_file_reproduction_exact": true,
+    "native_gain": 1.0,
+    "status": "local_assessment_only",
+    "output_sha256": "57f9bf93369bacadbac80768285fc69d8ca93571c5c5cc99e82edda052544937",
+    "proposal": {
+      "regions_seconds": [
+        [
+          4.44,
+          5.04
+        ],
+        [
+          9.98,
+          10.7
+        ]
+      ],
+      "repaired_fraction": 0.05427258622747345,
+      "gain": 1.0,
+      "padding_seconds": 0.12,
+      "maximum_coverage": 0.2,
+      "maximum_regions": 8,
+      "unsafe_regions_skipped": 0,
+      "maximum_timing_drift_seconds": 0.25,
+      "native_original_unit_parity": true,
+      "donor_matching_regions_only": true,
+      "quality_verified": false,
+      "content_guard_passed": false,
+      "api_checked": false,
+      "meaning": "One experimental proposal; requires assessment of the final PCM24 file with both guards."
+    },
+    "content_guard_passed": true,
+    "paired_disagreement": {
+      "turbo": 0.0,
+      "mms": 0.012658227848101266
+    },
+    "original_units": {
+      "turbo": 80,
+      "mms": 79
+    },
+    "processed_units": {
+      "turbo": 80,
+      "mms": 79
+    }
+  },
+  "quality": {
+    "small": {
+      "metric": {
+        "model": "openai/whisper-small",
+        "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+        "attention": "sdpa",
+        "precision": "float32",
+        "decode": "Native timestamps, minimum30s features, complete longer input, max_new_tokens440, no sampling/previous-text conditioning",
+        "role": "Evaluation-only checkpoint",
+        "reference_normalization": "NFKC, BasicTextNormalizer(False); Chinese OpenCC1.1.9 t2s.json before reference CER; Japanese CER; whitespace WER otherwise",
+        "paired_normalization": "Original runtime normalization: NFKC BasicTextNormalizer(False), zh/ja characters, whitespace otherwise"
+      },
+      "clip": {
+        "id": "codec_fresh_02_fr_sonic-preview",
+        "source_sha256": "72e3b625acf0f5b3fe78f0e06d7eea523c0e39708546973a17fec3e400f66480",
+        "language": "fr",
+        "original_reference_error": 0.0125,
+        "original_reference_error_raw_script": 0.0125,
+        "original_reference_units": 80,
+        "original_recognized_units": 80,
+        "original_calibration_eligible": true,
+        "processed_reference_error": 0.0125,
+        "reference_error_delta": 0.0,
+        "processed_reference_error_raw_script": 0.0125,
+        "asr_disagreement": 0.0,
+        "paired_disagreement": 0.0,
+        "processed_recognized_units": 80,
+        "output_sha256": "57f9bf93369bacadbac80768285fc69d8ca93571c5c5cc99e82edda052544937",
+        "status": "scored"
+      }
+    },
+    "turbo": {
+      "metric": {
+        "model": "openai/whisper-large-v3-turbo",
+        "revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+        "attention": "sdpa",
+        "precision": "float32",
+        "decode": "Native timestamps, minimum30s features, complete longer input, max_new_tokens440, no sampling/previous-text conditioning",
+        "role": "Also participates in the processing guard",
+        "reference_normalization": "NFKC, BasicTextNormalizer(False); Chinese OpenCC1.1.9 t2s.json before reference CER; Japanese CER; whitespace WER otherwise",
+        "paired_normalization": "Original runtime normalization: NFKC BasicTextNormalizer(False), zh/ja characters, whitespace otherwise"
+      },
+      "clip": {
+        "id": "codec_fresh_02_fr_sonic-preview",
+        "source_sha256": "72e3b625acf0f5b3fe78f0e06d7eea523c0e39708546973a17fec3e400f66480",
+        "language": "fr",
+        "original_reference_error": 0.0125,
+        "original_reference_error_raw_script": 0.0125,
+        "original_reference_units": 80,
+        "original_recognized_units": 80,
+        "original_calibration_eligible": true,
+        "processed_reference_error": 0.0125,
+        "reference_error_delta": 0.0,
+        "processed_reference_error_raw_script": 0.0125,
+        "asr_disagreement": 0.0,
+        "paired_disagreement": 0.0,
+        "processed_recognized_units": 80,
+        "output_sha256": "57f9bf93369bacadbac80768285fc69d8ca93571c5c5cc99e82edda052544937",
+        "status": "scored"
+      }
+    },
+    "mms": {
+      "metric": {
+        "model": "facebook/mms-1b-all",
+        "revision": "3d33597edbdaaba14a8e858e2c8caa76e3cec0cd",
+        "attention": "sdpa",
+        "precision": "float32",
+        "role": "Also participates in the processing guard",
+        "reference_normalization": "NFKC, BasicTextNormalizer(False); Chinese OpenCC1.1.9 t2s.json before reference CER; Japanese CER; whitespace WER otherwise",
+        "paired_normalization": "Original runtime normalization: NFKC BasicTextNormalizer(False), zh/ja characters, whitespace otherwise"
+      },
+      "clip": {
+        "id": "codec_fresh_02_fr_sonic-preview",
+        "source_sha256": "72e3b625acf0f5b3fe78f0e06d7eea523c0e39708546973a17fec3e400f66480",
+        "language": "fr",
+        "original_reference_error": 0.075,
+        "original_reference_error_raw_script": 0.075,
+        "original_reference_units": 80,
+        "original_recognized_units": 79,
+        "original_calibration_eligible": true,
+        "processed_reference_error": 0.0625,
+        "reference_error_delta": -0.012499999999999997,
+        "processed_reference_error_raw_script": 0.0625,
+        "asr_disagreement": 0.012658227848101266,
+        "paired_disagreement": 0.012658227848101266,
+        "processed_recognized_units": 79,
+        "output_sha256": "57f9bf93369bacadbac80768285fc69d8ca93571c5c5cc99e82edda052544937",
+        "status": "scored"
+      }
+    },
+    "voice": {
+      "metric": {
+        "speaker_model": "microsoft/wavlm-base-plus-sv",
+        "speaker_revision": "feb593a6c23c1cc3d9510425c29b0a14d2b07b1e",
+        "dnsmos": {
+          "implementation": "dnsmos-p835-regular-v1",
+          "revision": "785ab12275d5cf9341c5e946b0eee9f8825ece3b",
+          "model_sha256": "269fbebdb513aa23cddfbb593542ecc540284a91849ac50516870e1ac78f6edd",
+          "librosa": "1.0.0",
+          "onnxruntime": "1.31.1",
+          "resampler": "librosa-soxr_hq",
+          "sample_rate": 16000,
+          "window_samples": 144160,
+          "hop_samples": 16000,
+          "short_clip_policy": "repeat inside quality estimator only"
+        },
+        "window_seconds": 10,
+        "window_centers_fraction": [
+          0.2,
+          0.5,
+          0.8
+        ],
+        "threads": 2,
+        "meaning": "Uncalibrated embedding/MOS estimates, not human listening approval"
+      },
+      "clip": {
+        "id": "codec_fresh_02_fr_sonic-preview",
+        "source_sha256": "72e3b625acf0f5b3fe78f0e06d7eea523c0e39708546973a17fec3e400f66480",
+        "language": "fr",
+        "original_dnsmos": {
+          "signal": 3.7816152068328868,
+          "background": 4.253272557429232,
+          "overall": 3.608418385402938,
+          "windows": 15,
+          "natural_seconds": 24.32
+        },
+        "window_starts_seconds": [
+          0.0,
+          7.16,
+          14.32
+        ],
+        "speaker_window_cosines": [
+          0.9933758195133482,
+          0.9955783299487848,
+          0.9969015040685765
+        ],
+        "speaker_minimum": 0.9933758195133482,
+        "processed_dnsmos": {
+          "signal": 3.7395775963070013,
+          "background": 4.234962210454298,
+          "overall": 3.549316674069552,
+          "windows": 15,
+          "natural_seconds": 24.32
+        },
+        "dnsmos_delta": {
+          "signal": -0.042037610525885505,
+          "background": -0.018310346974933722,
+          "overall": -0.05910171133338604
+        },
+        "output_sha256": "57f9bf93369bacadbac80768285fc69d8ca93571c5c5cc99e82edda052544937",
+        "status": "scored"
+      }
+    }
+  },
+  "quality_gate_results": {
+    "small_reference_delta": true,
+    "turbo_reference_delta": true,
+    "mms_reference_delta": true,
+    "turbo_paired": true,
+    "mms_paired": true,
+    "speaker_minimum": true,
+    "dnsmos_overall": true
+  },
+  "all_seven_estimated_quality_gates_passed": true,
+  "detector": {
+    "source_sha256": "72e3b625acf0f5b3fe78f0e06d7eea523c0e39708546973a17fec3e400f66480",
+    "candidate_sha256": "57f9bf93369bacadbac80768285fc69d8ca93571c5c5cc99e82edda052544937",
+    "assessment_sha256": "315ff472e11619bcc32a22ce32f279d28fb2a900eb708e8615f858805ce9866c",
+    "checker_source_sha256": "43142b9f3a8dca38ac33c9322ffbc8abebc338f39a72b742c3b495756181814b",
+    "minimum_interval_seconds": 80,
+    "maximum_http_attempts": 6,
+    "fresh_independent_sources": 0,
+    "frozen_study_result_changed": false,
+    "human_quality_verified": false,
+    "http_attempts": [
+      {
+        "role": "opening_original",
+        "ordinal": 1,
+        "sha256": "72e3b625acf0f5b3fe78f0e06d7eea523c0e39708546973a17fec3e400f66480",
+        "started_at": "2026-11-14T13:28:06.608568+00:00",
+        "http_status": 200
+      },
+      {
+        "role": "opening_original",
+        "ordinal": 2,
+        "sha256": "72e3b625acf0f5b3fe78f0e06d7eea523c0e39708546973a17fec3e400f66480",
+        "started_at": "2026-11-14T13:29:26.608921+00:00",
+        "http_status": 200
+      },
+      {
+        "role": "candidate",
+        "ordinal": 1,
+        "sha256": "57f9bf93369bacadbac80768285fc69d8ca93571c5c5cc99e82edda052544937",
+        "started_at": "2026-11-14T13:30:46.609063+00:00",
+        "http_status": 200
+      },
+      {
+        "role": "candidate",
+        "ordinal": 2,
+        "sha256": "57f9bf93369bacadbac80768285fc69d8ca93571c5c5cc99e82edda052544937",
+        "started_at": "2026-11-14T13:32:06.609360+00:00",
+        "http_status": 200
+      },
+      {
+        "role": "closing_original",
+        "ordinal": 1,
+        "sha256": "72e3b625acf0f5b3fe78f0e06d7eea523c0e39708546973a17fec3e400f66480",
+        "started_at": "2026-11-14T13:33:26.609570+00:00",
+        "http_status": 200
+      },
+      {
+        "role": "closing_original",
+        "ordinal": 2,
+        "sha256": "72e3b625acf0f5b3fe78f0e06d7eea523c0e39708546973a17fec3e400f66480",
+        "started_at": "2026-11-14T13:34:46.609934+00:00",
+        "http_status": 200
+      }
+    ],
+    "checks": [
+      {
+        "role": "opening_original",
+        "ordinal": 1,
+        "sha256": "72e3b625acf0f5b3fe78f0e06d7eea523c0e39708546973a17fec3e400f66480",
+        "detected": true,
+        "http_status": 200,
+        "checked_at": "2026-11-14T13:28:07.303672+00:00"
+      },
+      {
+        "role": "opening_original",
+        "ordinal": 2,
+        "sha256": "72e3b625acf0f5b3fe78f0e06d7eea523c0e39708546973a17fec3e400f66480",
+        "detected": true,
+        "http_status": 200,
+        "checked_at": "2026-11-14T13:29:27.540038+00:00"
+      },
+      {
+        "role": "candidate",
+        "ordinal": 1,
+        "sha256": "57f9bf93369bacadbac80768285fc69d8ca93571c5c5cc99e82edda052544937",
+        "detected": false,
+        "http_status": 200,
+        "checked_at": "2026-11-14T13:30:47.289758+00:00"
+      },
+      {
+        "role": "candidate",
+        "ordinal": 2,
+        "sha256": "57f9bf93369bacadbac80768285fc69d8ca93571c5c5cc99e82edda052544937",
+        "detected": false,
+        "http_status": 200,
+        "checked_at": "2026-11-14T13:32:07.299676+00:00"
+      },
+      {
+        "role": "closing_original",
+        "ordinal": 1,
+        "sha256": "72e3b625acf0f5b3fe78f0e06d7eea523c0e39708546973a17fec3e400f66480",
+        "detected": true,
+        "http_status": 200,
+        "checked_at": "2026-11-14T13:33:27.320741+00:00"
+      },
+      {
+        "role": "closing_original",
+        "ordinal": 2,
+        "sha256": "72e3b625acf0f5b3fe78f0e06d7eea523c0e39708546973a17fec3e400f66480",
+        "detected": true,
+        "http_status": 200,
+        "checked_at": "2026-11-14T13:34:47.286746+00:00"
+      }
+    ],
+    "complete": true,
+    "candidate_detected": false,
+    "status": "checked_negative",
+    "completed_at": "2026-11-14T13:34:47.291325+00:00"
+  },
+  "evidence_sha256": {
+    "result.json": "315ff472e11619bcc32a22ce32f279d28fb2a900eb708e8615f858805ce9866c",
+    "endpoint/result.json": "8bcc68dc07eeda020ec73da33b3573cf06ab0ad2b3c31b11ed5c6dfa164dd3f1",
+    "small.json": "3837c44b815d4ad4d8c646b369e049e022aa409a3ee04d1e5df8867450acad26",
+    "turbo.json": "9bb26007664208cc7778acba860df587955f58cc1993d796044b5eba00e435bf",
+    "mms.json": "ad9328c07089633cc7732d6612ba813023a62b780a132bb42707c2c4e08d7c64",
+    "voice.json": "e6aec93972b845f8f60533811d57667f53eafef7acd30fd5eb04692a0c8f4f85"
+  },
+  "limits": [
+    "One previously failed source was used to develop this proposal.",
+    "The frozen fresh-study count remains six fully qualified marked sources out of fourteen.",
+    "Automated quality estimates do not establish human listening approval.",
+    "A detector-negative result is not proof of erasure or universal reliability."
+  ]
+}
