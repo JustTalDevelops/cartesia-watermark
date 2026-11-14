@@ -74,8 +74,11 @@ class NativeCodec:
                          'sample_rate': 24000, 'bandwidth_kbps': 12., 'precision': 'float32',
                          'trained_by_this_project': False, 'model_downloads_during_processing': False}
 
-    def reconstruct(self, audio, rate):
+    def reconstruct(self, audio, rate, bandwidth_kbps=12.):
         import torch
+        bandwidth_ids = {1.5: 0, 3.: 1, 6.: 2, 12.: 3}
+        if bandwidth_kbps not in bandwidth_ids:
+            raise ValueError('Use a supported pinned codec bandwidth')
         validate_audio(audio, rate)
         channels = audio[:, None] if audio.ndim == 1 else audio
         divisor, rebuilt = gcd(rate, 24000), []
@@ -83,7 +86,7 @@ class NativeCodec:
             native = resample_poly(channel, 24000//divisor, rate//divisor)
             padded = np.pad(native, (0, (-len(native)) % 320), mode='reflect')
             with torch.inference_mode():
-                result = self.model(torch.from_numpy(padded)[None], bandwidth_id=torch.tensor([3])).flatten().numpy()
+                result = self.model(torch.from_numpy(padded)[None], bandwidth_id=torch.tensor([bandwidth_ids[bandwidth_kbps]])).flatten().numpy()
             if len(result) != len(padded) or not np.isfinite(result).all():
                 raise RuntimeError('Codec returned invalid samples or the wrong length')
             restored = resample_poly(result[:len(native)], rate//divisor, 24000//divisor)[:len(audio)]

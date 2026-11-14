@@ -91,6 +91,19 @@ class CodecRuntimeTests(unittest.TestCase):
         self.assertIsNone(self.runtime.cache)
         self.assertFalse(list(self.root.glob('.codec-*')))
 
+    def test_reduced_bandwidth_encodes_the_original_instead_of_the_first_pass(self):
+        calls = []
+        def reconstruct(audio, rate, bandwidth_kbps=12.):
+            calls.append((audio.copy(), bandwidth_kbps))
+            return audio*(.98 if bandwidth_kbps == 12. else .9), 1.
+        self.codec.reconstruct = reconstruct
+        report = self.runtime.process_file(self.source, self.output, 'codec-6k')
+        self.assertTrue(report['content_guard_passed'])
+        self.assertEqual([bandwidth for _, bandwidth in calls], [12., 6.])
+        np.testing.assert_array_equal(calls[0][0], calls[1][0])
+        self.assertEqual(report['candidate_codec_bandwidth_kbps'], 6.)
+        self.assertFalse(report['quality_verified'])
+
     def test_independent_rejection_has_no_output_and_immediate_fallback_reuses_source(self):
         self.recognizer.reject_native = True
         rejected = self.runtime.process_file(self.source, self.output, retain_job=True)

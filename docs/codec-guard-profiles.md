@@ -47,7 +47,12 @@ this project and are not included in its trained-model release. Processing makes
 no model downloads. Run `tools/reconstruct_codec.py --check` in the pinned Python
 3.12 environment after installation.
 
-The profile implementation passes 172 tests. Actual whole-file processing,
+The `codec-6k` preset reconstructs the original at the pinned checkpoint's
+6 kbps setting. It does not re-encode the first 12 kbps pass. The final whole
+PCM24 file still needs both speech guards and separate detector verification.
+The three-percent default and one-percent Hindi/Tamil limits also apply here.
+
+The profile implementation passes 173 tests. Actual whole-file processing,
 source-only calibration of the Arabic export on the new development sources,
 and independent selected-file quality checks are still required. A local speech
 check or detector-negative response does not establish reliable erasure.

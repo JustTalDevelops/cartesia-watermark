@@ -122,6 +122,12 @@ class CodecRuntime:
                         candidate = directory/'cycle.flac'
                         quantize(candidate, repeated, first_rate)
                         report.update(codec_cycle_passes=2, cycle_gain=gain)
+                    elif preset == 'codec-6k':
+                        rebuilt, gain = self.codec.reconstruct(audio, rate, bandwidth_kbps=SETTINGS['reduced_codec_bandwidth_kbps'])
+                        candidate = directory/'codec6.flac'
+                        quantize(candidate, rebuilt, rate)
+                        report.update(candidate_codec_bandwidth_kbps=SETTINGS['reduced_codec_bandwidth_kbps'],
+                                      reduced_bandwidth_gain=gain)
                     candidate_sha = digest(candidate)
                     result, candidate_rate = sf.read(candidate, dtype='float32')
                     if candidate_rate != rate or result.shape != audio.shape or not np.isfinite(result).all() or np.max(np.abs(result)) >= 1:
