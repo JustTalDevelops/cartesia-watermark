@@ -2,10 +2,25 @@ import unittest
 import numpy as np
 
 from speech_repair import (AlignmentUnavailable, RepairTooLarge, aligned_regions,
-                           blend_regions, disagreement, pcm_digest, units)
+                           blend_regions, disagreement, language_from_chunks, pcm_digest, units)
 
 
 class SpeechRepairTests(unittest.TestCase):
+    def test_absent_longform_tags_request_detection_and_missing_tags_do_not_conflict(self):
+        codes = {'english': 'en'}
+        result = {'chunks': [{'text': 'first', 'language': None}, {'text': 'second'}]}
+        self.assertEqual(language_from_chunks(result, codes), (None, True))
+        result['chunks'][0]['language'] = 'english'
+        self.assertEqual(language_from_chunks(result, codes), ('en', False))
+
+    def test_conflicting_unknown_and_empty_languages_remain_rejected(self):
+        codes = {'english': 'en', 'arabic': 'ar'}
+        result = {'chunks': [{'text': 'first', 'language': 'english'},
+                             {'text': 'second', 'language': 'arabic'}]}
+        self.assertEqual(language_from_chunks(result, codes), (None, False))
+        self.assertEqual(language_from_chunks({'chunks': [{'text': 'word', 'language': 'unknown'}]}, codes), (None, False))
+        self.assertEqual(language_from_chunks({'chunks': [{'text': ' ', 'language': None}]}, codes), (None, False))
+
     def test_word_and_character_units_and_empty_speech(self):
         self.assertEqual(units('Hello  WORLD', str.lower, 'en'), ['hello', 'world'])
         self.assertEqual(units('你 好', str.lower, 'zh'), ['你', '好'])

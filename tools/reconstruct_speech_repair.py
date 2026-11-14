@@ -21,7 +21,8 @@ import soundfile as sf
 
 from reconstruction_worker import ReconstructionWorker
 from speech_repair import (PRESETS, MAX_COVERAGE, MAX_DISAGREEMENT, AlignmentUnavailable,
-                           RepairTooLarge, aligned_regions, blend_regions, disagreement, pcm_digest, units)
+                           RepairTooLarge, aligned_regions, blend_regions, disagreement,
+                           language_from_chunks, pcm_digest, units)
 
 ROOT = Path(__file__).resolve().parent.parent
 ASSETS = json.loads((ROOT/'tools/speech_repair_assets.json').read_text())
@@ -73,7 +74,7 @@ class WordRecognizer:
                          'precision': 'float32', 'attention': 'eager', 'transformers': version('transformers'),
                          'encoder_attention_diagnostics_retained': False,
                          'decoder_cross_attention_for_word_alignment': 'unchanged',
-                         'language_policy': 'Infer original language, then force that language for candidates',
+                         'language_policy': 'Use unambiguous chunk tags; when absent, detect from initial features. Force original language for candidates.',
                          'normalization': 'BasicTextNormalizer(remove_diacritics=False), NFKC; Chinese/Japanese/Cantonese characters, otherwise whitespace units'}
 
     def transcribe(self, path, language=None):
@@ -86,10 +87,24 @@ class WordRecognizer:
                                    'language': language, 'task': 'transcribe', 'do_sample': False,
                                    'condition_on_prev_tokens': False, 'max_new_tokens': 440})
         if language is None:
-            languages = {c.get('language') for c in result.get('chunks', []) if c.get('text', '').strip()}
-            if len(languages) != 1:
-                return result, None
-            language = self.language_codes.get(next(iter(languages)))
+            language, needs_detection = language_from_chunks(result, self.language_codes)
+            if needs_detection and result.get('text', '').strip():
+                # Long-form generation strips language prompt tokens before
+                # word decoding. Reuse Whisper's own initial-feature detector
+                # rather than treating missing output tags as missing speech.
+                import torch
+                features = self.pipeline.feature_extractor(
+                    audio, sampling_rate=16000, return_tensors='pt', truncation=False,
+                    padding='max_length', max_length=max(len(audio), 30*16000))
+                with torch.inference_mode():
+                    model = self.pipeline.model
+                    token = int(model.detect_language(input_features=features.input_features,
+                                                     generation_config=model.generation_config)[0])
+                tag = next((name for name, value in model.generation_config.lang_to_id.items()
+                            if value == token), '')
+                code = tag[2:-2] if tag.startswith('<|') and tag.endswith('|>') else None
+                language = code if code in self.language_codes.values() else None
+                result['language_detected_from_initial_features'] = language is not None
         return result, language
 
 

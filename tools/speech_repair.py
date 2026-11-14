@@ -19,6 +19,16 @@ class RepairTooLarge(ValueError):
     pass
 
 
+def language_from_chunks(result, language_codes):
+    speech = [chunk for chunk in result['chunks'] if chunk.get('text', '').strip()]
+    tags = {chunk.get('language') for chunk in speech if chunk.get('language') is not None}
+    if not speech or len(tags) > 1:
+        return None, False
+    if not tags:
+        return None, True
+    return language_codes.get(next(iter(tags))), False
+
+
 def units(text, normalize, language):
     value = normalize(unicodedata.normalize('NFKC', text))
     return list(''.join(value.split())) if language in ('zh', 'ja', 'yue') else value.split()
