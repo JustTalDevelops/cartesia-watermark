@@ -30,6 +30,7 @@ The reconstruction runtime is [installed separately](reconstruction.md). FFmpeg/
 | --- | --- |
 | Audio processing | `reconstruct_audio.py`, `reconstruction_worker.py`, `reconstruction_inference.py`, `verify_reconstruction.py`, `remove_watermark.py`, `remover.py`, `quality_blend.py` |
 | Experimental vocoder | `reconstruct_vocoder.py`, `vocoder_inference.py`, `vocoder_assets.json` |
+| Experimental filtered prior | `reconstruct_filtered_prior.py`; reuses the isolated reconstruction runtime |
 | Upload app | `serve_remover.py`, `check_remover_web.py`; assets in `web/` |
 | Detector | `detect_local.py`, `final_detector.py`, `frames.py`, `train_head.py` |
 | Training and release | `train_remover.py`, `eval_remover.py`, `export_remover.py`, `verify_remover.py` |

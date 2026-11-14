@@ -71,7 +71,8 @@ def verification_summary(audit, environment):
             'checked_at': audit['checked_at'], 'quality_verified': False,
             'required_negative_checks': required, 'observed_negative_checks': required,
             'verification_cli_code_sha256': audit.get('verification_cli_code_sha256'),
-            'format': 'FLOAT WAV', 'exact_bytes_rechecked_after_publication': True,
+            'format': 'PCM24 FLAC' if str(audit.get('output', '')).lower().endswith('.flac') else 'FLOAT WAV',
+            'exact_bytes_rechecked_after_publication': True,
             'parent_environment': environment,
             'interpretation': 'Integration smoke test on a spent generated fixture; excluded from held-out and removal denominators.'}
 
@@ -106,6 +107,59 @@ def selected_quality_rows(primary, cases, fallback):
         rows.append({key: row[key] for key in
                      ('id', 'source_sha256', 'output_sha256', 'content', 'secondary_content', 'voice')})
     return rows
+
+
+def estimated_quality_gate(row):
+    """Preregistered filtered-prior criteria; estimates do not certify speech."""
+    delta = row['secondary_content'].get('reference_error_delta')
+    return {'reference_error_delta_at_most_003': delta is not None and delta <= .03+1e-12,
+            'speaker_cosine_at_least_095': row['voice']['speaker_minimum'] >= .95-1e-12,
+            'dnsmos_delta_at_least_minus_02': row['voice']['dnsmos_delta']['overall'] >= -.2-1e-12}
+
+
+def load_selected_fallback_quality(directory, prefix, cases, workflow_path):
+    ids = {c['id'] for c in cases.values() if c['fallback_needed'] and c['status'] == 'verified_negative'}
+    if not ids:
+        return [], {}
+    plan_path = directory/(prefix+'_quality.plan.json')
+    plan = json.loads(plan_path.read_text())
+    if plan['workflow_report_sha256'] != digest(workflow_path):
+        raise ValueError('Selected fallback quality belongs to another workflow')
+    indexed(plan['items'], ids, 'fallback quality plan')
+    metrics, evidence = {}, {}
+    for field, suffix in (('content', 'asr'), ('secondary_content', 'asr_turbo'), ('voice', 'voice_quality')):
+        path = directory/(prefix+'.'+suffix+'.json')
+        document = json.loads(path.read_text())
+        if document['complete'] is not True or document['plan_sha256'] != digest(plan_path):
+            raise ValueError('Incomplete or mismatched selected fallback quality')
+        metrics[field] = indexed(document['clips'], ids, 'fallback '+field)
+        evidence[field] = digest(path)
+    rows = []
+    for key in sorted(ids):
+        case = cases[key]
+        for group in metrics.values():
+            if (group[key]['source_sha256'] != case['source_sha256'] or
+                    group[key]['output_sha256'] != case['output_sha256']):
+                raise ValueError('Selected fallback quality measured different bytes')
+        rows.append({'id': key, 'source_sha256': case['source_sha256'], 'output_sha256': case['output_sha256'],
+                     'content': content_metrics(metrics['content'][key]),
+                     'secondary_content': content_metrics(metrics['secondary_content'][key]),
+                     'voice': {f: metrics['voice'][key][f] for f in
+                               ('speaker_window_cosines', 'speaker_minimum', 'speaker_mean',
+                                'original_dnsmos', 'processed_dnsmos', 'dnsmos_delta')}})
+    return rows, evidence
+
+
+def quality_summary(rows):
+    return {'recordings': len(rows),
+            'content_by_unit': summarize_content([r['content'] for r in rows]),
+            'secondary_content_by_unit': summarize_content([r['secondary_content'] for r in rows]),
+            'minimum_speaker_window_cosine': min((r['voice']['speaker_minimum'] for r in rows), default=None),
+            'median_dnsmos_overall_delta': median(r['voice']['dnsmos_delta']['overall'] for r in rows) if rows else None,
+            'estimated_criteria': {'reference_error_delta_maximum': .03, 'minimum_speaker_cosine': .95,
+                                   'minimum_dnsmos_overall_delta': -.2},
+            'recordings_meeting_all_estimated_criteria': sum(all(estimated_quality_gate(r).values()) for r in rows),
+            'human_listening_verified': False}
 
 
 def build_core_report(directory):

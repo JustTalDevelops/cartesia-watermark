@@ -2,7 +2,7 @@
 import unittest
 
 from experiments.reconstruction_reliability_report import (content_metrics, indexed, paired_counts,
-                                                            selected_quality_rows, summarize_content,
+                                                            estimated_quality_gate, selected_quality_rows, summarize_content,
                                                             verification_summary)
 
 
@@ -43,6 +43,8 @@ class ReliabilityAccountingTests(unittest.TestCase):
         summary = verification_summary(audit, {'torch_installed': False})
         self.assertNotIn('/private/', json.dumps(summary))
         self.assertEqual(summary['output_sha256'], 'output-hash')
+        audit['output'] = '/private/output.flac'
+        self.assertEqual(verification_summary(audit, {})['format'], 'PCM24 FLAC')
         audit['attempts'][0]['detected'] = True
         with self.assertRaises(ValueError):
             verification_summary(audit, {})
@@ -60,6 +62,17 @@ class ReliabilityAccountingTests(unittest.TestCase):
         checks[0]['detected'] = True
         with self.assertRaisesRegex(ValueError, 'required negative confirmations'):
             verification_summary(audit, {})
+
+    def test_quality_gate_keeps_missing_reference_and_voice_failures_visible(self):
+        row = {'secondary_content': {'reference_error_delta': .03},
+               'voice': {'speaker_minimum': .95, 'dnsmos_delta': {'overall': -.2}}}
+        self.assertTrue(all(estimated_quality_gate(row).values()))
+        row['secondary_content'] = {'asr_disagreement': 0.}
+        self.assertFalse(estimated_quality_gate(row)['reference_error_delta_at_most_003'])
+        row['voice']['speaker_minimum'] = .949
+        row['voice']['dnsmos_delta']['overall'] = -.201
+        self.assertFalse(estimated_quality_gate(row)['speaker_cosine_at_least_095'])
+        self.assertFalse(estimated_quality_gate(row)['dnsmos_delta_at_least_minus_02'])
 
     def test_character_and_word_errors_have_separate_summaries(self):
         summary = summarize_content([

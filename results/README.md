@@ -18,6 +18,7 @@ This directory mixes curated files included in Git with ignored local experiment
 | `reconstruction_vocoder.json` | Frozen vocoder measurements, its Japanese counterexample, and the fixed detector-checked fallback workflow with selected-output quality estimates |
 | `reconstruction_vocoder_runtime.json` | Controlled short-fixture timings for full-flow and smoothed-vocoder workers |
 | `reconstruction_verification.json` | Real lightweight CLI integration: two negative responses for the same whole-file output, checked again after publication |
+| `reconstruction_filtered_prior.json` | Frozen filtered-prior measurements, every-output repeats, checked fallbacks, speech-quality failures, and aggregate private regressions |
 | `model_catalog.json` | Published checkpoint inventory, loaders, aliases, and source/export checksums |
 
 **V3 is not a reliable remover.** Its original small API test did not generalize to subsequent real recordings. See [editor limitations](../docs/editor.md).
