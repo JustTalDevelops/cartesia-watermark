@@ -79,6 +79,12 @@ processing command performs no requests. Neither recognizer agreement nor a
 negative detector response proves physical erasure.
 
 These presets share the warm BigVGAN worker and source-recognition cache with
-`codec-band`. The current outer runtime still constructs its native 12 kbps cache;
-the plain prior does not mix that cached waveform into synthesis. This experimental
-branch does not change the upload app or the frozen V3 editor.
+`codec-band`. Native 12 kbps reconstruction now runs only when needed: the plain
+prior skips it, inverse synthesis runs only its required 6 kbps pass, and prior
+repair constructs a 12 kbps donor only after a failed guard needs repair.
+
+Actual runs at `af328bd` reproduced all four previously checked Tamil, Korean,
+Russian, and Arabic files byte for byte with real guards. The removed passes had
+taken only 0.6–0.8 seconds each; these changes do not establish a total processing
+speedup. Recognition dominates these examples. This experimental branch does not
+change the upload app or the frozen V3 editor.
