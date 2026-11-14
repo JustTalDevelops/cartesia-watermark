@@ -32,12 +32,49 @@ def verify_files(directory, study, rows):
             raise ValueError('Runtime output and final real-model guards disagree')
 
 
+def wrapper_integration(directory, reuse):
+    folder = directory/'profile_cli_integration_corrected'
+    report = load(folder/'result.json')
+    verify_source(report)
+    audit = json.loads((folder/'audit.json').read_text())
+    expected = [c['canonical_output_sha256'] for c in reuse['candidates']]
+    if (report['fresh_independent_sources'] != 0 or report['new_http_requests'] != 0 or report['new_tts_requests'] != 0 or
+            report['detector_transport'] != 'offline injected mock' or report['reference_text_used'] or report['study_entry_point'] or
+            report['original_recognition_inferences'] != 1 or report['canonical_output_sha256'] != expected[1] or
+            digest(folder/'candidate.flac') != expected[1] or digest(folder/'audit.json') != report['audit_sha256'] or
+            digest(directory/'codec_fresh/originals'/(report['source_case']+'.flac')) != report['source_sha256']):
+        raise ValueError('Local wrapper integration must remain exact-file, spent and explicitly mocked')
+    if ([c['canonical_output_sha256'] for c in report['candidates']] != expected or
+            [c['source_job_reused'] for c in report['candidates']] != [False,True] or
+            [c['band_prior_reused'] for c in report['candidates']] != [False,True] or
+            not report['temporary_recognition_and_voice_caches_removed']):
+        raise ValueError('Wrapper fallback changed files or lost its source/prior reuse')
+    expected_calls = [(report['source_sha256'],True)]*2+[(expected[0],True)]*2+[(expected[1],False)]*2+[(report['source_sha256'],True)]*2
+    if ([(c['sha256'],c['mocked_detected']) for c in report['mocked_detector_calls']] != expected_calls or
+            [(c['sha256'],c['detected']) for c in audit['checks']] != expected_calls or audit['output_sha256'] != expected[1]):
+        raise ValueError('Keep all eight explicitly mocked wrapper checks and the exact published file')
+    for case in report['candidates']:
+        voice=case['runtime_voice_guard']
+        if (not case['content_guard_passed'] or not all(v is not None and 0<=v<=.01+1e-12 for v in case['paired_disagreement'].values()) or
+                not voice['passed'] or voice['speaker_minimum']<.95 or voice['dnsmos_overall_delta']<-.2):
+            raise ValueError('Wrapper integration did not retain both real speech guards and voice estimates')
+    failed = json.loads((directory/'profile_cli_integration/result.json').read_text())
+    if (failed['complete'] or failed['error_type']!='TypeError' or failed['new_http_requests']!=0 or failed['new_tts_requests']!=0 or
+            (directory/'profile_cli_integration/candidate.flac').exists()):
+        raise ValueError('Retain the failed instrumentation attempt without publishing a candidate')
+    report['earlier_harness_attempt']={'error_type':'TypeError','cause':'Instrumentation omitted the recognizer comparison argument',
+                                     'elapsed_seconds':failed['elapsed_seconds'],'candidate_published':False,'new_http_requests':0,
+                                     'receipt_sha256':digest(directory/'profile_cli_integration/result.json')}
+    return report
+
+
 def export(directory):
     deferred = load(directory/'lazy_codec_integrations/result.json')
     fast = load(directory/'fast_guard_runtime/result.json')
     profiles = load(directory/'profile_preflight_integrations/result.json')
     reuse = load(directory/'profile_prior_reuse/result.json')
     voice = load(directory/'runtime_voice_preflight/result.json')
+    wrapper = wrapper_integration(directory, reuse)
     for report in (deferred, fast, profiles, reuse, voice):
         verify_source(report)
         if report['fresh_independent_sources'] != 0 or report['new_http_requests'] != 0 or report['reference_text_used']:
@@ -91,14 +128,16 @@ def export(directory):
             'deferred_native_integration': deferred, 'secondary_first_guard_integration': fast,
             'current_profile_preflight_integrations': profiles,
             'original_and_prior_reuse_integration': reuse, 'runtime_voice_gate_preflight': voice,
+            'single_file_profile_wrapper_integration': wrapper,
             'human_listening_approval': False, 'physical_erasure_proven': False,
             'limits': ['Four codec-deferral files and two secondary-first files reuse previously detector-checked outputs exactly.',
                        'The unused native12 passes took under one second each in these earlier runs; removing them did not establish an end-to-end speedup.',
                        'Secondary-first rejection skips an expensive primary only after the other recognizer fails; both final recognizers remain mandatory for accepted output.',
                        'A skipped primary has a null disagreement, never a passing score or an imputed measurement.',
-                       'Timings exclude outer runtime construction and come from individual sequential CPU runs, without statistical speed guarantees.',
+                       'Standalone processing timings exclude outer runtime construction. The full wrapper includes construction and original calibration; these scopes are not directly comparable.',
                        'Original/prior reuse times original recognition separately; the first and fallback methods share warm models and one vocoder synthesis, not free original calibration.',
                        'The voice-gate preflight accepts a previously qualified file and rejects a known naturalness failure using the same fixed thresholds; it adds no fresh source.',
+                       'The whole single-file wrapper used real ASR/voice models but an explicitly injected detector mock. Its eight callbacks are not HTTP observations or removal successes.',
                        'No new removal efficacy or fresh independent recordings are established by inference parity.']}
 
 
