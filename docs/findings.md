@@ -1,32 +1,42 @@
 # Cartesia audio watermark — findings
 
-Black-box study of the watermark Cartesia embeds in Sonic TTS output, done on 2026-11-11/12 with a paid API key.
-Every claim below comes from audio we generated through the public API and from Cartesia's own detector
-(`POST /v1/watermark/detect`, which returns only `{"detected": bool}`). Cartesia's docs describe the
-watermark in a single page (`build-with-cartesia/capability-guides/watermarking`). They don't name the
-technique, and say it is "always on and can't be disabled". The mechanism and frequency descriptions below are
-hypotheses from these probes, not a verified description of Cartesia's implementation.
+Historical black-box probes from November 11–12, 2026, using generated Sonic TTS audio and a paid API key.
+The observations below come from the public API and Cartesia's detector
+(`POST /v1/watermark/detect`, which returned only `{"detected": bool}`). At the time, Cartesia's watermarking
+guide described the feature as always on, without identifying its technique.
 
-## TL;DR
+**These probes do not establish reliable removal or reveal the implementation.** The later
+[frozen codec study](codec-study.md) qualified only 6/14 marked sources. See the
+[current project status](../README.md) and [development follow-ups](codec-development.md).
 
-- **Which models:** two distinct internal models carry it: **fluent-bird** (`sonic-3.6`,
+Historical negative labels use requested older-model provenance, principally `sonic-3.5` and `sonic-3`;
+their actual watermark absence was not independently verified. Accuracy and false-positive rates below
+are measured against those assigned labels. A positive reply on a nominal control does not by itself
+establish a detector false positive, and a negative reply does not prove watermark erasure. Frequency,
+mechanism and pipeline descriptions remain hypotheses from a limited set of probes.
+
+## Main observations
+
+- **Model coverage in these probes:** detector-positive output came from **fluent-bird** (`sonic-3.6`,
   `sonic-3.6-2026-08-27`) and **wise-puddle** (`sonic-preview`, `sonic-latest`, `sonic-3-latest`).
-  **Not** azure-disco (`sonic-3.5`) or `sonic-3`. `sonic-2` is sunset. Because two different models carry
-  the same mark, it is a separate post-processing stage, not something baked into one model's weights.
-- **Where it lives:** in the audio samples, not in metadata (the WAV headers are byte-identical across models).
-- **Every serving path is marked:** `/tts/bytes`, `/tts/sse` and the WebSocket API.
-- **Every output format is marked:** 8, 16, 22.05, 24, 44.1 and 48 kHz, f32/s16/μ-law, and MP3 at 32 and 128 kbps.
-  The model runs natively at 44.1 kHz, so the mark is applied before resampling and encoding.
-- **Band:** roughly **1.5–3.5 kHz**. That band alone is enough to be detected, and replacing it removes the mark.
-- **Mechanism (best current model):** a separate post-processing stage adds a **learned, signal-dependent
-  waveform concentrated in ~2–3.5 kHz**, roughly **6 dB below the speech in that band** (it raises the band's
-  energy by ~+1 dB in *both* marked models vs *both* unmarked ones). It lives in the waveform's fine structure
-  (phase), is spread redundantly across the band, and has **no fixed carrier, comb, echo or symbol rate**.
-  Detection is a neural classifier over ~1–2 s windows that weighs counter-evidence: overlapping unmarked
-  speech suppresses it, and so does misaligning the band by ≥33 ms. Not stock AudioSeal or WavMark.
-- **Robust to:** gain, polarity flip, sample shifts, MP3 32k/64k, Opus 16k, resampling to 8 and 16 kHz,
+  Older requested models supplied nominal negative labels; some `sonic-3.5` outputs also tested positive.
+  Shared detection across two model families does not locate watermarking before, within or after synthesis.
+- **Audio evidence:** detection survived tested container and encoding changes. Matching WAV headers alone
+  do not identify the mechanism.
+- **Tested serving paths:** `/tts/bytes`, `/tts/sse` and the WebSocket API returned detectable examples.
+- **Tested formats:** detectable examples included 8, 16, 22.05, 24, 44.1 and 48 kHz, f32/s16/μ-law,
+  and MP3 at 32 and 128 kbps. Their spectra suggest a 44.1 kHz source rate; these observations do not
+  establish where watermarking occurs relative to resampling and encoding.
+- **Frequency probes:** the **1.5–3.5 kHz** band alone tested positive on some recordings; replacing it
+  changed those detector answers to negative. This does not prove removal or a universal frequency boundary.
+- **Mechanism hypotheses:** tested spectral and phase edits suggest signal-dependent features concentrated
+  around 2–3.5 kHz. Marked-provenance models had about +1 dB more energy there, but different synthesis
+  models confound that comparison. No shared fixed carrier, comb, echo or symbol rate was resolved in
+  these analyses. Mixing, splicing and band delays suggest temporal integration; they do not reveal the
+  detector architecture. Stock AudioSeal/WavMark probes did not identify a matching watermark.
+- **Stayed detectable in tested examples:** gain, polarity flip, sample shifts, MP3 32k/64k, Opus 16k, resampling to 8 and 16 kHz,
   ±5% speed, noise at 20 dB SNR, and splicing (25% marked audio is enough).
-- **Broken by:** time reversal, low-pass ≤~2.7 kHz, high-pass ≥~1.6 kHz, white noise ≤14 dB SNR,
+- **Tested negative after:** time reversal, low-pass ≤~2.7 kHz, high-pass ≥~1.6 kHz, white noise ≤14 dB SNR,
   delaying the 2–3.5 kHz band by ≥33 ms, mixing in ≥~1/3 unmarked speech, full-band phase randomisation.
 - **Local detector: works, including on short clips and unseen languages.** `tools/detect_local.py` (round 4:
   XLS-R-300M layer-2 features over 3 s windows, three conv heads trained with mark-targeted contrastive variants).
@@ -35,14 +45,16 @@ hypotheses from these probes, not a verified description of Cartesia's implement
   (84% at 2%, 98% at 10%). All of its false positives were `sonic-3.5`. **Head-to-head on the same voices joined
   into ~8 s clips: it beats Cartesia's own detector**, 95.8% vs 85.4% accuracy (0% vs 19% false positives, 92% vs 90%
   caught). See §9 for the four rounds.
-- **Cartesia's own detector is not a clean ground truth:** it needs ≥5 s of audio, and silence padding drowns
-  the mark (18% recall on padded 3–4 s clips). Even on long clips it flags 13–30% of unedited `sonic-3.5` clips. See §8.
-- **Caveat on every "breaks it" result:** Cartesia's detector is a learned classifier, so "not detected" on weird
-  input (reversed, phase-scrambled, overlapping voices) may mean "out of distribution" rather than "mark removed".
-  Positive results (still detected) are the reliable evidence.
-- **The detector is deterministic but gives repeatable false positives:** an unedited `sonic-3.5` clip, a
-  **pure 1 kHz sine tone**, 3.5 audio low-passed at 8 kHz, and the last 6 s of a 3.5 clip were all flagged.
-  "False positives are rare" (Cartesia's docs) doesn't hold up under light edits or simple test signals.
+- **Cartesia's detector is not a clean ground truth:** it rejected audio shorter than 5 s, and silence-padded
+  3–4 s clips had only 18% recall in the tested cohort. It flagged 13–30% of unedited `sonic-3.5` clips in
+  several cohorts despite their assigned negative labels. See §8.
+- **Caveat on negative replies:** reversed, phase-scrambled or overlapping speech may be outside the
+  detector's useful input distribution. Neither positive nor negative replies prove watermark presence or
+  absence; repeated source controls help interpret the measured transition.
+- **Some unexpected positives repeated:** an unedited `sonic-3.5` clip, a **pure 1 kHz sine tone**,
+  3.5 audio low-passed at 8 kHz, and the last 6 s of a 3.5 clip were flagged. The sine-tone result is a
+  test-signal counterexample; older-model results retain the provenance limitation above. Repeated answers
+  on these files do not establish universal determinism or a population false-positive rate.
 
 ## Setup
 
@@ -65,7 +77,7 @@ hypotheses from these probes, not a verified description of Cartesia's implement
 | sonic-preview | wise-puddle | yes |
 | sonic-latest | wise-puddle | yes |
 | sonic-3-latest | wise-puddle | yes |
-| sonic-3.5 | azure-disco | no (except one clean false positive, see §6) |
+| sonic-3.5 | azure-disco | mostly no; one repeated positive in this probe, see §6 |
 | sonic-3 | ? | no |
 | sonic-2 | n/a | n/a (400 `model_sunsetted`) |
 
@@ -104,7 +116,8 @@ MP3 at 32 kbps / 22.05 kHz. The 48 kHz output has a hard cutoff at 22 kHz, which
 | white noise SNR 10 / 0 dB | F | F |
 | speed ×1.05 (resample) | **T** | F |
 
-Repeat queries of the same file always give the same answer, so the detector is deterministic.
+Repeated queries agreed on the tested files. This does not establish behavior for other files or future
+service versions; conflicting responses must remain a verification failure.
 
 ## 4. Band localisation (Butterworth band-pass and band-swap, 3.6 vs 3.5 twin)
 
@@ -114,10 +127,12 @@ Repeat queries of the same file always give the same answer, so the detector is 
 | 1–4 kHz | **T** | F | F |
 | 1.5–3.5 kHz | **T** | F | F |
 
-- 1.5–3.5 kHz is **sufficient** on its own and **necessary**: swapping it out kills detection.
+- In these examples, 1.5–3.5 kHz alone tested positive and swapping it out changed the reply to negative.
+  This is an observation about detector behavior on these files, not a necessity/sufficiency proof for the watermark.
 - 2–4 kHz alone is not enough, so the 1.5–2 kHz part matters.
-- The marked band **does not carry over** into unmarked (3.5) speech, but it *does* carry over into another
-  marked clip (§7). So it isn't a host-consistency check; overlapping unmarked speech counts as evidence against.
+- The tested band swaps into nominal older-model speech did not produce detection, while a swap into
+  another marked-provenance clip did (§7). Mixing may affect detection; these tests do not rule out
+  host-dependent behavior or establish the classifier's decision rule.
 
 ## 5. Temporal behaviour
 
@@ -128,7 +143,7 @@ Repeat queries of the same file always give the same answer, so the detector is 
 - `<break>` pauses come out as exact digital zeros in both 3.5 and 3.6, so no mark is added to silence.
   The mark lives only in generated speech.
 
-## 6. False positives (repeatable)
+## 6. Repeated positives on nominal controls and test signals
 
 | Input | Detected |
 |---|---|
@@ -156,8 +171,9 @@ Repeat queries of the same file always give the same answer, so the detector is 
 | White noise at 12 / 14 / 16 / 18 dB SNR | F / F / **T** / **T** |
 | 68% marked + 32% unmarked twin (sample mix) | **F** |
 
-Reading: the mark is carried by fine waveform structure, redundantly across ~1.5–3.5 kHz; the detector integrates
-~1–2 s, tolerates ~20 ms band misalignment, and is suppressed by overlapping unmarked speech.
+Interpretation: these results are consistent with sensitivity to fine waveform structure in this band and
+temporal context around 1–2 seconds. The tested files tolerated about 20 ms of band misalignment, and mixing
+nominal older-model speech changed some answers. This interpretation does not identify the watermark or detector.
 
 Offline analyses on 720 clips (30 voices × 6 texts × 4 models):
 - **Energy footprint:** both marked models sit +0.5 to +1.1 dB above both unmarked models in every 250 Hz band
@@ -165,15 +181,18 @@ Offline analyses on 720 clips (30 voices × 6 texts × 4 models):
 - **No echo hiding:** cepstral differences are smooth band-shape ripples, not a delay spike.
 - **No fixed carrier or symbol rate:** the cyclostationary spectrum of the 2–3.5 kHz band shows no line shared by the
   marked models (max whitened peak ~1.5×, at noise level).
-- **Not stock AudioSeal / WavMark:** AudioSeal's public detector scores ~0.005 on all four models; WavMark finds no payload.
-- **No unmarked path exists:** bytes, SSE and WebSocket output are all marked; none of the marked models support
-  `/infill`, so there's no way to get our own audio back with the mark applied.
+- **AudioSeal / WavMark probes:** AudioSeal's public detector scored about 0.005 on all four models and
+  WavMark found no payload. Failed recognition by those tools does not rule out related techniques.
+- **No matched clean target was obtained:** the tested bytes, SSE and WebSocket outputs were detectable,
+  and the tested marked-provenance models rejected `/infill`. These probes did not provide the same
+  generated waveform both before and after watermarking.
 
 ## 8. How good is Cartesia's own detector?
 
-Besides §6: the detector is deterministic, and its errors are repeatable. Its false positives on light edits of
-unmarked audio (8 kHz low-pass, 8 kHz resample, trimming) and on a 1 kHz sine mean "detected" alone isn't proof
-that audio came from Cartesia.
+The repeated positive sine-tone observation in §6 shows why a detector reply alone is insufficient source
+attribution. Older-model positives and their edited variants also conflict with assigned negative labels,
+but do not independently establish watermark absence. Neither repeated agreement nor these label conflicts
+establishes universal detector determinism.
 
 Measured against provenance on clean TTS clips (truth = which model made the clip):
 
@@ -188,8 +207,9 @@ Measured against provenance on clean TTS clips (truth = which model made the cli
 - **Duration dominates its recall.** The API rejects clips under 5 s, so short clips must be padded, and padding
   hurts it. On sealed3 it caught 65% of 4–5 s clips and 100% of clips over 5 s; on sealed4 (median 3.9 s), 8% of
   clips under 4 s. This fits the mixing result in §7: unmarked (here: silent) audio counts against the mark.
-- **sonic-3.5 is its blind spot:** a quarter to a third of unedited sonic-3.5 clips come back "detected". Our
-  scores don't predict which ones (AUC 0.67), so this looks like detector noise rather than a hidden mark.
+- **Nominal sonic-3.5 controls often tested positive:** roughly a quarter to a third in several cohorts.
+  Local scores predicted those answers poorly (AUC 0.67). This does not distinguish detector error,
+  shared synthesis traits, actual watermarking or another backend cause.
 
 ## 9. Local detector: attempts and status
 
@@ -224,11 +244,12 @@ What mattered, in order:
    non-English, and the sealed sets are mostly non-English. WavLM is pretrained on English. A linear probe on
    XLS-R (pretrained on 128 languages) beat the whole WavLM ensemble (validation AUC 0.993 vs 0.986), and the
    round-4 heads reached 0.998 English / 0.988 non-English on validation.
-2. **Mark-targeted contrastive variants (rounds 3–4).** For every marked training clip, three edits that keep its
-   timbre and change only the 1.5–3.5 kHz band, labelled by how Cartesia's detector treats the same edit (§7):
-   band delayed 10 ms → still marked; 40 ms → not marked; band replaced by the same voice and sentence from
-   sonic-3.5 → not marked. They push the detector to read the mark, not the voice. Agreement with Cartesia on
-   mixed audio (never trained on) rose from 0.58 to 0.68, and the variants won the validation comparison in both rounds.
+2. **Band-focused contrastive variants (rounds 3–4).** Each marked-provenance training clip had three band
+   edits intended to reduce model-timbre confounding. Labels followed Cartesia's replies to those edits (§7):
+   10 ms delay → detected; 40 ms delay → not detected; replacement from the same voice and sentence requested
+   through sonic-3.5 → not detected. Agreement with Cartesia on mixed audio absent from training rose from
+   0.58 to 0.68, and the variants won the validation comparison in both rounds. This does not prove that the
+   local detector learned the watermark itself.
 3. **Voice-disjoint splits.** Cartesia lists multilingual voices under several languages, so per-language sampling
    picked the same voice more than once; 6 sealed2 voices had leaked into training before splits went by voice ID.
 4. More voices alone (round 3: +30%) did **not** help.
@@ -267,14 +288,17 @@ Honest limits:
 - Whether a payload is present. Cartesia says it currently identifies only "Cartesia-generated", with
   per-customer attribution "planned". If it lands, comparing clips across two API keys would show it.
 - Speed range, codec bitrate floor.
-- Whether it survives time-stretching without pitch change, re-recording through a speaker and microphone, or
-  neural codecs (EnCodec/DAC).
+- Whether it survives time-stretching without pitch change or re-recording through a speaker and microphone.
+  Later [codec experiments](codec-development.md) explored EnCodec/DAC and retain both successes and failures.
 
 ## Detector rate limit (operational note)
 
-`/v1/watermark/detect` sits behind a **CloudFront** rate rule that returns 429 with an empty body *before auth*:
-the same 429 comes back without any API key. One IP gets roughly 12–15 calls in ~2 minutes before it is blocked
-for 10+ minutes. TTS and `/voices` aren't affected. The harness paces calls (`DETECT_INTERVAL`) and waits out 429s.
+During these historical probes, the detector returned empty-body 429 responses even without an API key,
+after roughly 12–15 calls in about two minutes from one IP; some pauses exceeded ten minutes. TTS and
+`/voices` did not show the same behavior. This observation does not identify the enforcing backend or a
+stable service quota. Historical exploration harnesses cache answers and may retry; the later
+[frozen study protocol](codec-study.md) uses direct shared pacing of at least 80 seconds and stops on API
+errors or inconsistent repeats without automatic replay.
 
 ## Reproduce
 
