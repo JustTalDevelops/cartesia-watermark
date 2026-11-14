@@ -607,12 +607,406 @@
       "scope": "One complete spent-source local run per configuration, including construction/calibration; all detector replies explicitly mocked"
     }
   },
+  "additional_original_source_control": {
+    "complete": true,
+    "status": "source_only_control_complete",
+    "planned_sources": 9,
+    "plan_sha256": "543ef959b0e55a4cda613753dfc16cf8198d06622b52b96df236e8fcb5df0b7c",
+    "source_only_precision_control": true,
+    "new_tts_requests": 0,
+    "new_http_requests": 0,
+    "new_removal_successes": 0,
+    "reference_text_used": false,
+    "evaluation_asr_read": false,
+    "candidate_outputs_read": false,
+    "active_study_uses_packed_weights": false,
+    "cases": [
+      {
+        "id": "profiles_fresh_16_hi_sonic-preview",
+        "source_sha256": "f4452e1f7a0bab7c56943f879029f2a4012c2d3c568599462706888fce153b85",
+        "language": "hi",
+        "same_language_and_profile": true,
+        "normalized_units_identical": {
+          "large": true,
+          "mms": true
+        },
+        "precision_disagreement": {
+          "large": 0.0,
+          "mms": 0.0
+        },
+        "original_cache_sha256": "65c5fc35b4c6fe703b6a8125f2bab3ac690711e1c149b06daaeff8ec9183dde4",
+        "packed_cache_sha256": "b9637b9cca77c96440129f8af4c89720609e8ce5326a0bb98ca6bf700c29a95c",
+        "packed_elapsed_seconds": 53.6639107754454,
+        "source_parity_passed": true,
+        "original_token_ids_available": false
+      },
+      {
+        "id": "profiles_fresh_17_hi_sonic-3.6",
+        "source_sha256": "06e0911696fef1e4420d57414392811ad14ffbaa10192d34cb18970b37c86e63",
+        "language": "hi",
+        "same_language_and_profile": true,
+        "normalized_units_identical": {
+          "large": true,
+          "mms": true
+        },
+        "precision_disagreement": {
+          "large": 0.0,
+          "mms": 0.0
+        },
+        "original_cache_sha256": "54fbb592ee78b58a7e9bc40f575451f303901b24d7cd32d4163fc2c96526951c",
+        "packed_cache_sha256": "9623e1cf9fd50c574534f5aa24d1ac1e3d4dbb3493381bbca55a0df4db0a6c5d",
+        "packed_elapsed_seconds": 40.06352744437754,
+        "source_parity_passed": true,
+        "original_token_ids_available": false
+      },
+      {
+        "id": "profiles_fresh_18_hi_sonic-preview",
+        "source_sha256": "62a6fa85d359fa5d2cd78873cbbcb7ca1ff34b3e915ffeeac7235af7b5cb24f5",
+        "language": "hi",
+        "same_language_and_profile": true,
+        "normalized_units_identical": {
+          "large": true,
+          "mms": true
+        },
+        "precision_disagreement": {
+          "large": 0.0,
+          "mms": 0.0
+        },
+        "original_cache_sha256": "418919859d8e6b2117ee05689cdb02c8b59e28c207f70f8aaa856311d6e8d327",
+        "packed_cache_sha256": "6d534a25a04ba97b634bce2293da1a7377f46f74828efb6d8f56f1202f4c12d9",
+        "packed_elapsed_seconds": 41.239108125679195,
+        "source_parity_passed": true,
+        "original_token_ids_available": false
+      },
+      {
+        "id": "profiles_fresh_19_hi_sonic-3.6",
+        "source_sha256": "82eccc6dfe1a21a5f869efa49a17abfbcdb8acc9e2f97283d2dda56ce43ec8c0",
+        "language": "hi",
+        "same_language_and_profile": true,
+        "normalized_units_identical": {
+          "large": true,
+          "mms": true
+        },
+        "precision_disagreement": {
+          "large": 0.0,
+          "mms": 0.0
+        },
+        "original_cache_sha256": "25bcbf42f2dd0219ee8eb9c6215c61cbd0312c7971c07df40d8bdfdb587776e6",
+        "packed_cache_sha256": "234d03004caddb56a819f0cce4b8caec5328bd83deeb3379546f28726d6d71a6",
+        "packed_elapsed_seconds": 43.16358925495297,
+        "source_parity_passed": true,
+        "original_token_ids_available": false
+      },
+      {
+        "id": "profiles_fresh_40_ta_sonic-preview",
+        "source_sha256": "0b6e8e7cc0fd3641dee23ae2197457cc7beda8cf735fe7602e4aab0db05b785e",
+        "language": "ta",
+        "same_language_and_profile": true,
+        "normalized_units_identical": {
+          "large": true,
+          "mms": true
+        },
+        "precision_disagreement": {
+          "large": 0.0,
+          "mms": 0.0
+        },
+        "original_cache_sha256": "4c0051a42b199569ee9d4d3b4995109cb75e609d7f54dbd4031dfad1f96d4457",
+        "packed_cache_sha256": "2bd1e56dc6ebac6665d0bfac5f9052827b061339201f1751d056e19b31b4a778",
+        "packed_elapsed_seconds": 51.17644266970456,
+        "source_parity_passed": true,
+        "original_token_ids_available": false
+      },
+      {
+        "id": "profiles_fresh_41_ta_sonic-3.6",
+        "source_sha256": "78c9a66462900d56bc47e6f9fd97e87c4ee76e0bc147c598fa29cfff75487dbe",
+        "language": "ta",
+        "same_language_and_profile": true,
+        "normalized_units_identical": {
+          "large": true,
+          "mms": true
+        },
+        "precision_disagreement": {
+          "large": 0.0,
+          "mms": 0.0
+        },
+        "original_cache_sha256": "36f441d195487752cd204290872f81a0b4930e3409555846da57b554825e57a4",
+        "packed_cache_sha256": "02ebc7d74d2a91fcd6df56bd01ab76143d2150f49657d02fbf88f14530aa566e",
+        "packed_elapsed_seconds": 44.267690079286695,
+        "source_parity_passed": true,
+        "original_token_ids_available": false
+      },
+      {
+        "id": "profiles_fresh_42_ta_sonic-preview",
+        "source_sha256": "239027629fc6976c47dc27edf31c5f72d413a388a7a5f19f5ee7b583d080a1cc",
+        "language": "ta",
+        "same_language_and_profile": true,
+        "normalized_units_identical": {
+          "large": true,
+          "mms": true
+        },
+        "precision_disagreement": {
+          "large": 0.0,
+          "mms": 0.0
+        },
+        "original_cache_sha256": "fac4fb97248edad4c4ccb9bc2db4f53f3f09545d897aa5236c55e21cccc9607b",
+        "packed_cache_sha256": "32cfe36e706f35adbcea697af501f8a5f898e201e7d770e7b289029d0b922670",
+        "packed_elapsed_seconds": 43.48021642770618,
+        "source_parity_passed": true,
+        "original_token_ids_available": false
+      },
+      {
+        "id": "profiles_fresh_43_ta_sonic-3.6",
+        "source_sha256": "5a22bab2ee92628e42e6a0366a60c0c7a86b1c0f9af63a0b0450a2df849b3691",
+        "language": "ta",
+        "same_language_and_profile": true,
+        "normalized_units_identical": {
+          "large": true,
+          "mms": true
+        },
+        "precision_disagreement": {
+          "large": 0.0,
+          "mms": 0.0
+        },
+        "original_cache_sha256": "fc5ae3fdee8a1edd52621561947e61840bda144082742207d80cb34267cc2886",
+        "packed_cache_sha256": "50c44185f2e300687f3d654cfdd7f1ddc5acc33a8141c213be7521cb97193a71",
+        "packed_elapsed_seconds": 49.26852849125862,
+        "source_parity_passed": true,
+        "original_token_ids_available": false
+      },
+      {
+        "id": "profiles_control_ta_sonic-3.5",
+        "source_sha256": "f957874b7716a1101a2234a26a06976519ade6e1cdff952e7bfef24a552d8b45",
+        "language": "ta",
+        "same_language_and_profile": true,
+        "normalized_units_identical": {
+          "large": true,
+          "mms": true
+        },
+        "precision_disagreement": {
+          "large": 0.0,
+          "mms": 0.0
+        },
+        "original_cache_sha256": "e82e5046411c3abd3a84fa8e1d33e53e83541742c2cf5f10332fe260eff038d5",
+        "packed_cache_sha256": "afebe673e03657a4441963234c64870713947b6ae315b9caf676d0c05267d0b8",
+        "packed_elapsed_seconds": 50.18304410763085,
+        "source_parity_passed": true,
+        "original_token_ids_available": false
+      }
+    ],
+    "source_implementation_commit": "2e550e86fdab38cbb0cb88ffb2b3182c01a22d99",
+    "source_files_sha256": {
+      "tools/verify_reconstruction.py": "7029453889415b86111ae5294e9233ce7786fad229d23e308a2b0046a376bfcc",
+      "tools/reconstruction_worker.py": "49b8816bd54a78957d45ed3596a63ba18a11bfa5eac0416070a85c692eef22f0",
+      "tools/codec_settings.py": "4ac4ab3d31ab5e037ae2c22d6f0070a5f947cf728d214a472417ec55d439b841",
+      "tools/codec_profiles.py": "7421dc49d291bd86251f8b7a8ad9706187bc5066b89cb1a990f97c38316947c6",
+      "tools/codec_assets.json": "99d443e93f0de80e837c50b17e0f93a796e0f19c05e1427d8fb33397ab62b1a5",
+      "tools/codec_audio.py": "2a0dac863e1d7c7577cf9f029f86b3973f90a6e77b935dc6bbce9169ff018f94",
+      "tools/codec_inference.py": "1f86876e3ab07e960dd9ac9c4ad9f1a773393ac31bdef969f9d25b52370d2a9e",
+      "tools/codec_teacher.py": "abebef4244f452e3d962ec6d88c9917806a98ad48512281875f41dc4d2cf3fb4",
+      "tools/codec_content.py": "1f7af6d64a8f79b80da9bbfb77f0d7497552b126fd189c8085e388e0604d97fe",
+      "tools/codec_text.py": "2b3f9503c9e39c330d60ae727415995822fec4daa4de7560572de905eab25f96",
+      "tools/codec_repair.py": "e6839578ce6d319e9463196521860b050d96f0f81f1ed8cafc14d3fe3918561a",
+      "tools/codec_word_consensus.py": "b8afdddddc1d8fab2b93036786a88ccb63473063dbc4e4572ed5d2619807a3f2",
+      "tools/korean_spacing.py": "2a191a4103a9a96539e99d138b6d74089a31b8ab36a60d26ac4c7bf3a1a6ca3a",
+      "tools/speech_repair.py": "4e3b883c3a2e0bf00546a5c4d5e4026aa1e875bca36881c4fe871e39675eb414",
+      "tools/speech_repair_assets.json": "2d1d68d1a00a006c0dc66b401ed21df291ff76fb4ab88b0f31f96960766226e2",
+      "tools/whisper_encoder_reuse.py": "1c2492c5ce80500b172d0657c3f73406b6b8b58f9c0d72b3b79c752bd203eb82",
+      "tools/reconstruct_codec.py": "ae8a607b333237bd4c01d3d4f7e8baa900a08ac39b8d70b60aafbe0add02d7de",
+      "tools/reconstruct_codec_band.py": "b5102f096a9a070b5496ced2f93ff3c29521d2326e78a2e8694a70bb7868e195",
+      "tools/vocoder_band_prior.py": "8b153b0e25421d560c3f9a41e5e36ea44f1ed0a7ad417b0c49af76f6e69b033f",
+      "tools/reconstruct_vocoder.py": "3378845287c3f1bf874147392184c5b15b43ca954adacd6eac484715e4564db0",
+      "tools/vocoder_inference.py": "38d02df4aa5d488aab7b37320dcbf6cc6e980178e23721783145adef138c37f2",
+      "tools/vocoder_assets.json": "ea7870e32da6336a800a3ddbe555d527267124470b44f8e7e0c72603aae4e7f6",
+      "tools/cartesia.py": "599d2b8b551af9f193bcc4c280f3b732a41c48c356c178ad747f17067eff5771",
+      "tools/eval_voice_quality.py": "f45829ffa8658c1158f44f7516bde482f391c71267ae6ba8b18c3853b3d747b2",
+      "tools/remover.py": "aad94e48280117f052aa8b0ce5ff8ae254154fb2611526852038912865666e6c",
+      "tools/quality_blend.py": "c74b1a6515d1b68d5edca69622b5242b78746b25186d8fab915194613d997df4",
+      "experiments/generate_codec_study.py": "9701ea895fb6328af4e2a1d6bde9341a92dfb7f01f7b09822d91f9574f866d20",
+      "experiments/run_codec_study.py": "9aaceb24c6c2786c0ac155a78832e0dd90f29578875f95453b05ba1c46305b65",
+      "experiments/run_codec_profiles.py": "a323bd4ddd08fdee42c65df353b42b64be3130ac687e5d8218fcb6cc5c5585ac",
+      "experiments/codec_profile_cache.py": "0a4b713275e89899414001494222ec486a781347babd12da6a83f6edf618a3ca",
+      "experiments/codec_profile_evaluation.py": "d191fea3a94f8bb2d85de7f5c6ba78cb0b179a47b3a6804f2aa7829ec1111f79",
+      "experiments/score_codec_study.py": "8fa758272b28150ba655243977e8ed82418231259ae158676daa27441dd8094c",
+      "experiments/codec_evaluation_text.py": "9d05a9350507e45912e47f0200f64732ed5cf03bc3d6581e8c6ad992ff4e2876",
+      "experiments/codec_evaluation_assets.json": "df1d047b380f6d218727bd451988a7823c9f82fb652aa62d7542b81b129e3dfc",
+      "experiments/freeze_codec_profiles.py": "95c78b910d10ded5df4e5f31f6f24c7efa0ebc33bc6a13fd05f16584a055d433",
+      "requirements/codec.txt": "bfe8b7b4d36b0e59dba5cd19b03077080f733480bbdaf94c6e46b38e39e789f1",
+      "requirements/speech_repair.txt": "9a20eb7a29bbf29cdb23239aecd0c81b011c537e497903c331ecc83379647b44",
+      "requirements/verification.txt": "d9332dade574c76d8794e0e5d7cccc1b8c654f008be8ea14ae68411ceb3f6dd7",
+      "requirements/vocoder.txt": "36aaf5ee7d8f582d03f0614f50305f9de3ade062de4e65e761ae4b5601929551",
+      "requirements/codec_evaluation.txt": "c82b1fd37c9d379c98fc251ac4c5f8544daa2fbea890d04f325a1240050b37b9",
+      "requirements/eval.txt": "c429198bfcf1459b979c377136e235a953360f86c952c4c1e202d77943e03af5",
+      "requirements/inference.txt": "38c7e9ab6bb997b1265e43417d9f1b3fecb1b27dca1662a772dcd584d1779785",
+      "tools/codec_packed_fp16.py": "724b69300cd59f3432a8fe8be6421c444127d550c1f341007521620faea71054"
+    },
+    "started_at": "2026-11-14T20:34:34.414653+00:00",
+    "packed_configuration_sha256": "72d02bbd277b89e06d41f5f7b93e1319e681a084545b4388f6b8ce90100d4821",
+    "recognizers": {
+      "guard_version": "prospective-v3-large-packed-fp16-experimental",
+      "turbo": {
+        "model": "openai/whisper-large-v3-turbo",
+        "revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9"
+      },
+      "primary_profiles": {
+        "en": "turbo",
+        "es": "turbo",
+        "fr": "turbo",
+        "de": "turbo",
+        "hi": "large",
+        "ja": "turbo",
+        "ar": "turbo",
+        "ko": "turbo",
+        "zh": "turbo",
+        "ru": "turbo",
+        "ta": "large"
+      },
+      "secondary_profiles": {
+        "en": "sensevoice",
+        "es": "mms",
+        "fr": "mms",
+        "de": "mms",
+        "hi": "mms",
+        "ja": "sensevoice",
+        "ar": "fastconformer",
+        "ko": "sensevoice",
+        "zh": "sensevoice",
+        "ru": "mms",
+        "ta": "mms"
+      },
+      "large": {
+        "model_id": "openai/whisper-large-v3",
+        "revision": "06f233fe06e710322aca913c1bc4249a0d71fce1",
+        "license": "Apache-2.0",
+        "weight_packing": {
+          "weights": "torch.float16",
+          "inputs_outputs": "torch.float32",
+          "policy": "All torch.nn.Linear except proj_out",
+          "linear_modules": 512,
+          "engine": "x86",
+          "implementation_sha256": "724b69300cd59f3432a8fe8be6421c444127d550c1f341007521620faea71054"
+        }
+      },
+      "fastconformer": {
+        "model_id": "krut42/voice-fastconformer-ar-ctc-int8",
+        "revision": "69e9fd30fc9dc81f9c632f82bdd993984e2e3084",
+        "upstream": "nvidia/stt_ar_fastconformer_hybrid_large_pcd_v1.0",
+        "license": "CC-BY-4.0",
+        "artifact": "Community ONNX int8 conversion, not official upstream numerical equivalence"
+      },
+      "mms": {
+        "model_id": "facebook/mms-1b-all",
+        "revision": "3d33597edbdaaba14a8e858e2c8caa76e3cec0cd",
+        "license": "cc-by-nc-4.0"
+      },
+      "sensevoice": {
+        "model_id": "FunAudioLLM/SenseVoiceSmall",
+        "export": "sherpa-onnx FP32, 2024-07-17",
+        "license": "FunASR Model Open Source License Agreement",
+        "license_url": "https://github.com/modelscope/FunASR/blob/main/MODEL_LICENSE"
+      },
+      "attention": "Whisper/MMS SDPA",
+      "precision": "Large linear weights packed FP16 with float32 inputs/outputs; Turbo/MMS/SenseVoice float32; pinned FastConformer INT8",
+      "threads": 4,
+      "language_policy": "Detect original language, force it for candidates; eleven supported utterance languages",
+      "supported_languages": [
+        "ar",
+        "de",
+        "en",
+        "es",
+        "fr",
+        "hi",
+        "ja",
+        "ko",
+        "ru",
+        "ta",
+        "zh"
+      ],
+      "normalization": "NFKC; Hindi/Tamil characters preserving combining vowel signs and viramas, punctuation/symbols removed, one-percent paired limit; Arabic vowel marks/tatweel removed; BasicTextNormalizer(False) elsewhere; Chinese OpenCC1.1.9 t2s characters; Japanese characters; Korean KsponSpeech spacing-normalized words; whitespace words otherwise",
+      "short_source_encoder_reuse": true,
+      "transcripts_written_to_disk": false,
+      "candidate_guard_order": "Secondary first; a failed secondary skips the primary, and accepted outputs still require both recognizers",
+      "model_downloads_during_processing": false
+    },
+    "all_sources_identical": true,
+    "completed_at": "2026-11-14T20:41:33.531874+00:00",
+    "summary": {
+      "source_recordings": 9,
+      "distinct_voices": 8,
+      "marked_originals": 8,
+      "nominal_controls": 1,
+      "source_parity_matches": 9,
+      "changed_sources": [],
+      "scope": "Source-only precision comparisons against frozen original recognition, with no paired FP32 timing reference or removal observations"
+    },
+    "control_plan": {
+      "scope": "All nine Large-profile original recordings from the active cohort; source-only precision control, zero removal observations",
+      "sealed_at": "2026-11-14T20:34:33.879054+00:00",
+      "source_implementation_commit": "2e550e86fdab38cbb0cb88ffb2b3182c01a22d99",
+      "source_files_sha256": {
+        "tools/verify_reconstruction.py": "7029453889415b86111ae5294e9233ce7786fad229d23e308a2b0046a376bfcc",
+        "tools/reconstruction_worker.py": "49b8816bd54a78957d45ed3596a63ba18a11bfa5eac0416070a85c692eef22f0",
+        "tools/codec_settings.py": "4ac4ab3d31ab5e037ae2c22d6f0070a5f947cf728d214a472417ec55d439b841",
+        "tools/codec_profiles.py": "7421dc49d291bd86251f8b7a8ad9706187bc5066b89cb1a990f97c38316947c6",
+        "tools/codec_assets.json": "99d443e93f0de80e837c50b17e0f93a796e0f19c05e1427d8fb33397ab62b1a5",
+        "tools/codec_audio.py": "2a0dac863e1d7c7577cf9f029f86b3973f90a6e77b935dc6bbce9169ff018f94",
+        "tools/codec_inference.py": "1f86876e3ab07e960dd9ac9c4ad9f1a773393ac31bdef969f9d25b52370d2a9e",
+        "tools/codec_teacher.py": "abebef4244f452e3d962ec6d88c9917806a98ad48512281875f41dc4d2cf3fb4",
+        "tools/codec_content.py": "1f7af6d64a8f79b80da9bbfb77f0d7497552b126fd189c8085e388e0604d97fe",
+        "tools/codec_text.py": "2b3f9503c9e39c330d60ae727415995822fec4daa4de7560572de905eab25f96",
+        "tools/codec_repair.py": "e6839578ce6d319e9463196521860b050d96f0f81f1ed8cafc14d3fe3918561a",
+        "tools/codec_word_consensus.py": "b8afdddddc1d8fab2b93036786a88ccb63473063dbc4e4572ed5d2619807a3f2",
+        "tools/korean_spacing.py": "2a191a4103a9a96539e99d138b6d74089a31b8ab36a60d26ac4c7bf3a1a6ca3a",
+        "tools/speech_repair.py": "4e3b883c3a2e0bf00546a5c4d5e4026aa1e875bca36881c4fe871e39675eb414",
+        "tools/speech_repair_assets.json": "2d1d68d1a00a006c0dc66b401ed21df291ff76fb4ab88b0f31f96960766226e2",
+        "tools/whisper_encoder_reuse.py": "1c2492c5ce80500b172d0657c3f73406b6b8b58f9c0d72b3b79c752bd203eb82",
+        "tools/reconstruct_codec.py": "ae8a607b333237bd4c01d3d4f7e8baa900a08ac39b8d70b60aafbe0add02d7de",
+        "tools/reconstruct_codec_band.py": "b5102f096a9a070b5496ced2f93ff3c29521d2326e78a2e8694a70bb7868e195",
+        "tools/vocoder_band_prior.py": "8b153b0e25421d560c3f9a41e5e36ea44f1ed0a7ad417b0c49af76f6e69b033f",
+        "tools/reconstruct_vocoder.py": "3378845287c3f1bf874147392184c5b15b43ca954adacd6eac484715e4564db0",
+        "tools/vocoder_inference.py": "38d02df4aa5d488aab7b37320dcbf6cc6e980178e23721783145adef138c37f2",
+        "tools/vocoder_assets.json": "ea7870e32da6336a800a3ddbe555d527267124470b44f8e7e0c72603aae4e7f6",
+        "tools/cartesia.py": "599d2b8b551af9f193bcc4c280f3b732a41c48c356c178ad747f17067eff5771",
+        "tools/eval_voice_quality.py": "f45829ffa8658c1158f44f7516bde482f391c71267ae6ba8b18c3853b3d747b2",
+        "tools/remover.py": "aad94e48280117f052aa8b0ce5ff8ae254154fb2611526852038912865666e6c",
+        "tools/quality_blend.py": "c74b1a6515d1b68d5edca69622b5242b78746b25186d8fab915194613d997df4",
+        "experiments/generate_codec_study.py": "9701ea895fb6328af4e2a1d6bde9341a92dfb7f01f7b09822d91f9574f866d20",
+        "experiments/run_codec_study.py": "9aaceb24c6c2786c0ac155a78832e0dd90f29578875f95453b05ba1c46305b65",
+        "experiments/run_codec_profiles.py": "a323bd4ddd08fdee42c65df353b42b64be3130ac687e5d8218fcb6cc5c5585ac",
+        "experiments/codec_profile_cache.py": "0a4b713275e89899414001494222ec486a781347babd12da6a83f6edf618a3ca",
+        "experiments/codec_profile_evaluation.py": "d191fea3a94f8bb2d85de7f5c6ba78cb0b179a47b3a6804f2aa7829ec1111f79",
+        "experiments/score_codec_study.py": "8fa758272b28150ba655243977e8ed82418231259ae158676daa27441dd8094c",
+        "experiments/codec_evaluation_text.py": "9d05a9350507e45912e47f0200f64732ed5cf03bc3d6581e8c6ad992ff4e2876",
+        "experiments/codec_evaluation_assets.json": "df1d047b380f6d218727bd451988a7823c9f82fb652aa62d7542b81b129e3dfc",
+        "experiments/freeze_codec_profiles.py": "95c78b910d10ded5df4e5f31f6f24c7efa0ebc33bc6a13fd05f16584a055d433",
+        "requirements/codec.txt": "bfe8b7b4d36b0e59dba5cd19b03077080f733480bbdaf94c6e46b38e39e789f1",
+        "requirements/speech_repair.txt": "9a20eb7a29bbf29cdb23239aecd0c81b011c537e497903c331ecc83379647b44",
+        "requirements/verification.txt": "d9332dade574c76d8794e0e5d7cccc1b8c654f008be8ea14ae68411ceb3f6dd7",
+        "requirements/vocoder.txt": "36aaf5ee7d8f582d03f0614f50305f9de3ade062de4e65e761ae4b5601929551",
+        "requirements/codec_evaluation.txt": "c82b1fd37c9d379c98fc251ac4c5f8544daa2fbea890d04f325a1240050b37b9",
+        "requirements/eval.txt": "c429198bfcf1459b979c377136e235a953360f86c952c4c1e202d77943e03af5",
+        "requirements/inference.txt": "38c7e9ab6bb997b1265e43417d9f1b3fecb1b27dca1662a772dcd584d1779785",
+        "tools/codec_packed_fp16.py": "724b69300cd59f3432a8fe8be6421c444127d550c1f341007521620faea71054"
+      },
+      "harness_sha256": "eebeccfdd059b2dc5185b787b59fd884fb4895c344e7394c147f6e47de3b446c",
+      "materialized_plan_sha256": "8230693d14d998adff9879618a4998f49b69e1effe7f79517450195b9c1d03d1",
+      "original_guards_sha256": "1068023e418deb64459488d08900a32fc899627480b017306432490ac12f3440",
+      "original_configuration_sha256": "0d0a0801070aeffaeb9447084813b7e5be1756b92b67a36eae02cd388cc9f060",
+      "new_removal_successes": 0,
+      "new_tts_requests": 0,
+      "new_http_requests": 0,
+      "reference_text_used": false,
+      "candidate_outputs_read": false,
+      "planned_sources": 9,
+      "distinct_voice_ids": 8,
+      "criteria": "Keep every source; identical detected profile and normalized primary/secondary units required for parity; no retuning or case exclusion"
+    }
+  },
   "active_frozen_study_uses_packed_weights": false,
   "original_primary_study_sha256": "c6eff519e25f2ed9d77e04568cb5e24191fc3f67007ff5393b26cfe5ce32f7c2",
   "human_listening_approval": false,
   "physical_erasure_proven": false,
   "limits": [
-    "Eight audio files are variants of three spent original recordings; no fresh independent sources or endpoint observations.",
+    "Component and whole-wrapper benchmarks reuse eight variants of three spent originals; the additional control reuses nine originals/eight voices from the active cohort. No new audio or removal observations.",
     "Component measurements use forced known Hindi/Tamil language and one warmed full generation per file; loading/features/packing are excluded.",
     "FP16 reuses the bound earlier FP32 measurements and separately reproduces its first-source reference; these are individual runs without statistical speed guarantees.",
     "INT8 changed a primary guard decision and is not integrated. Packed FP16 remains experimental and outside the active frozen study.",
