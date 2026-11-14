@@ -62,7 +62,7 @@ class BandRuntime:
 
     def process_file(self, manifest_path, output, preset='codec-band', metadata=None):
         validate_paths(manifest_path, output, metadata)
-        if preset != 'codec-band':
+        if preset not in ('codec-band', 'codec-band-prior'):
             raise ValueError('Unknown band reconstruction preset')
         manifest_sha = digest(manifest_path)
         manifest = json.loads(manifest_path.read_text())
@@ -77,9 +77,14 @@ class BandRuntime:
         started = time.monotonic()
         output.parent.mkdir(parents=True, exist_ok=True)
         with tempfile.TemporaryDirectory(prefix='.codec-band-', dir=output.parent) as temporary:
-            base, base_gain = self.reconstruct_base(original, rate)
-            base = quantize(Path(temporary)/'vocoder.flac', base, rate)
-            mixed, mix_gain = mix_reconstructions(base, native, rate)
+            if preset == 'codec-band-prior':
+                from vocoder_band_prior import BAND_EDGES_HZ, reconstruct
+                mixed, base_gain = reconstruct(self.model, self.features, original, rate, 1., 1., BAND_EDGES_HZ)
+                mix_gain = 1.
+            else:
+                base, base_gain = self.reconstruct_base(original, rate)
+                base = quantize(Path(temporary)/'vocoder.flac', base, rate)
+                mixed, mix_gain = mix_reconstructions(base, native, rate)
             result = quantize(Path(temporary)/'mixed.flac', mixed, rate)
             assessed_flac_sha = digest(Path(temporary)/'mixed.flac')
         if (digest(manifest_path) != manifest_sha or digest(source) != manifest['source_sha256'] or
@@ -93,6 +98,7 @@ class BandRuntime:
                   'checkpoint_sha256': self.assets['model_sha256']['bigvgan_generator.pt'],
                   'sample_rate': rate, 'samples': len(result), 'channels': 1 if result.ndim == 1 else result.shape[1],
                   'base_gain': base_gain, 'mix_gain': mix_gain, 'elapsed_seconds': time.monotonic()-started,
+                  'native_input_used_for_synthesis': preset != 'codec-band-prior',
                   'quality_verified': False, 'content_assessment': 'Performed by the owning codec runtime'}
         if metadata:
             with metadata.open('x') as handle:

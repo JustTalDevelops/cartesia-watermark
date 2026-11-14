@@ -96,7 +96,7 @@ class CodecRuntime:
                               native_elapsed_seconds=job['native_elapsed_seconds'])
                 with tempfile.TemporaryDirectory(prefix='.codec-assessment-', dir=output.parent) as temporary:
                     directory = Path(temporary)
-                    if preset in ('codec-band', 'codec-repair'):
+                    if preset in ('codec-band', 'codec-repair', 'codec-band-prior'):
                         manifest = directory/'band.input.json'
                         manifest.write_text(json.dumps({'source': str(source.resolve()), 'source_sha256': original_sha,
                                                         'native': str(candidate), 'native_sha256': job['native_sha256']}))
@@ -104,7 +104,8 @@ class CodecRuntime:
                             self.band_worker = self.worker_factory(ROOT/'.venv/bin/python', ROOT/'tools/reconstruct_codec_band.py',
                                                                    isolated=False)
                         band_path = directory/'band.wav'
-                        band_info = self.band_worker.run(manifest, band_path, 'codec-band', directory/'band.json',
+                        worker_preset = 'codec-band-prior' if preset == 'codec-band-prior' else 'codec-band'
+                        band_info = self.band_worker.run(manifest, band_path, worker_preset, directory/'band.json',
                                                          timeout=max(300, len(audio)/rate*8+120))
                         mixed, band_rate = sf.read(band_path, dtype='float32')
                         if (band_info.get('output_sha256') != digest(band_path) or band_rate != rate or mixed.shape != audio.shape or

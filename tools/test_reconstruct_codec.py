@@ -43,12 +43,14 @@ class FakeBand:
     def __init__(self):
         self.closed = False
         self.calls = 0
+        self.presets = []
 
     def close(self):
         self.closed = True
 
     def run(self, source, output, preset, metadata, timeout):
         self.calls += 1
+        self.presets.append(preset)
         request = json.loads(source.read_text())
         original, rate = sf.read(request['source'], dtype='float32')
         flac = metadata.with_suffix('.flac')
@@ -90,6 +92,17 @@ class CodecRuntimeTests(unittest.TestCase):
         np.testing.assert_array_equal(samples*2**23, np.rint(samples*2**23))
         self.assertIsNone(self.runtime.cache)
         self.assertFalse(list(self.root.glob('.codec-*')))
+
+    def test_band_prior_routes_to_its_preset_and_reuses_the_warm_worker(self):
+        first = self.runtime.process_file(self.source, self.output, 'codec-band-prior', retain_job=True)
+        self.assertTrue(first['content_guard_passed'])
+        self.assertFalse(first['quality_verified'])
+        second = self.runtime.process_file(self.source, self.root/'second.wav', 'codec-band')
+        self.assertTrue(second['source_job_reused'])
+        self.assertEqual(self.band.presets, ['codec-band-prior', 'codec-band'])
+        self.assertEqual(self.recognizer.source_calls, 1)
+        self.assertEqual(self.codec.calls, 1)
+        self.assertEqual(self.band.calls, 2)
 
     def test_reduced_bandwidth_encodes_the_original_instead_of_the_first_pass(self):
         calls = []
