@@ -1,0 +1,254 @@
+{
+  "schema": 1,
+  "scope": "Actual packaged native-codec / wide-band verification on two spent generated development sources",
+  "implementation_commit": "c2ae4fc50f8b8732e68931104e7367dfe7966b8b",
+  "source_files_sha256": {
+    "verify_reconstruction.py": "c82e2371dc40a7ca4d96b5fd58a6dd9dba08eb32f78023f9b3580779763ce7e5",
+    "reconstruction_worker.py": "49b8816bd54a78957d45ed3596a63ba18a11bfa5eac0416070a85c692eef22f0",
+    "codec_settings.py": "ca8ac87a192ce6ca3c4f12d371de830883a82f8d9d5d051d3df4b4641ca496b1",
+    "codec_assets.json": "a9baa8613045748014db76a4eb0f480c4c3fa0e783cd9006c8f8232f6c3f4275",
+    "codec_audio.py": "2a0dac863e1d7c7577cf9f029f86b3973f90a6e77b935dc6bbce9169ff018f94",
+    "codec_inference.py": "0fa88b480a8ada3dc0911f5638c8b1c138a99ae6ea293f40db8e54ca06e8f9f7",
+    "codec_content.py": "1eb6264f3fdce7bde26fff6ddea687db6c2b78b01c1f3cb44341f1289da4796c",
+    "reconstruct_codec.py": "85ef22acee11520c9066a9d414d2c3e266abebb0f5a6f7f0d5afcdbb6212a30a",
+    "reconstruct_codec_band.py": "f9452f51b8d58e310e6a122c024eadeafdfd5a38738a04585a89e1b39c401546",
+    "speech_repair.py": "4e3b883c3a2e0bf00546a5c4d5e4026aa1e875bca36881c4fe871e39675eb414",
+    "speech_repair_assets.json": "2d1d68d1a00a006c0dc66b401ed21df291ff76fb4ab88b0f31f96960766226e2",
+    "reconstruct_vocoder.py": "3378845287c3f1bf874147392184c5b15b43ca954adacd6eac484715e4564db0",
+    "vocoder_inference.py": "38d02df4aa5d488aab7b37320dcbf6cc6e980178e23721783145adef138c37f2",
+    "vocoder_assets.json": "ea7870e32da6336a800a3ddbe555d527267124470b44f8e7e0c72603aae4e7f6",
+    "reconstruct_audio.py": "25f3e120598995e398fe76a68a3fda943b53e4f294cad5887207888fb9229c96",
+    "reconstruction_inference.py": "1a3c6b8ae05019f04b9650a11b81a331b4ef6b11e9dc43c34e95a0371cbf8a8f"
+  },
+  "protocol_sha256": "653e14c8f771ed5dfd77723683d8b715d6ec2bc9d6c6e0686ce1b8edeae3e8de",
+  "independent_source_recordings": 2,
+  "fresh_efficacy_recordings": 0,
+  "new_tts_requests": 0,
+  "http_attempts": 6,
+  "positive_whole_source_controls": 2,
+  "cases": [
+    {
+      "id": "followup_06_ar_sonic-3.6",
+      "source_sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+      "output_sha256": "ac61ed1a8267fabff87a933c6b2e700165ecbb061dfa33452750921587fb86fa",
+      "selected_preset": "codec-band",
+      "sample_rate": 44100,
+      "samples": 1255968,
+      "channels": 1,
+      "exact_development_flac_parity": true,
+      "actual_cli_negative_confirmations": [
+        {
+          "ordinal": 1,
+          "state": "checked",
+          "http_status": 200,
+          "detected": false,
+          "checked_at": "2026-11-14T10:24:13.201653+00:00"
+        },
+        {
+          "ordinal": 2,
+          "state": "checked",
+          "http_status": 200,
+          "detected": false,
+          "checked_at": "2026-11-14T10:25:32.916721+00:00"
+        }
+      ],
+      "supplemental_ledger_role_labels": [
+        "processed_2",
+        "processed_3"
+      ],
+      "content_assessed_pcm_sha256": "9648bb877d5b456634a65c35ee37fe68d2ac51fa85bac0eb66b93b36c3eef8e9",
+      "estimated_quality_reused_from_identical_development_file": {
+        "asr": {
+          "asr_disagreement": 0.0,
+          "original_reference_error": 0.16129032258064516,
+          "processed_reference_error": 0.16129032258064516,
+          "reference_error_delta": 0.0
+        },
+        "asr_turbo": {
+          "asr_disagreement": 0.0,
+          "original_reference_error": 0.03225806451612903,
+          "processed_reference_error": 0.03225806451612903,
+          "reference_error_delta": 0.0
+        },
+        "voice_quality": {
+          "speaker_minimum": 0.9914467633447348,
+          "dnsmos_delta": {
+            "signal": -0.06394156558767428,
+            "background": -0.0018238596770840942,
+            "overall": -0.04936764247863268
+          }
+        },
+        "mms": {
+          "original_reference_error": 0.0967741935483871,
+          "processed_reference_error": 0.0967741935483871,
+          "reference_error_delta": 0.0,
+          "paired_disagreement": 0.0
+        }
+      },
+      "all_seven_estimated_quality_criteria_passed": true,
+      "attempts": [
+        {
+          "preset": "codec-native",
+          "state": "content_rejected",
+          "content_guard_passed": false,
+          "paired_disagreement": {
+            "turbo": 0.016129032258064516,
+            "mms": 0.03225806451612903
+          },
+          "worker_job_seconds_excluding_initial_model_load_and_api_waits": 45.528204639442265,
+          "source_job_reused": false
+        },
+        {
+          "preset": "codec-band",
+          "state": "checked",
+          "content_guard_passed": true,
+          "paired_disagreement": {
+            "turbo": 0.0,
+            "mms": 0.0
+          },
+          "worker_job_seconds_excluding_initial_model_load_and_api_waits": 60.6747321896255,
+          "source_job_reused": true
+        }
+      ],
+      "torch_or_scipy_imported_in_verification_parent": false,
+      "quality_verified": false
+    },
+    {
+      "id": "followup_10_ta_sonic-3.6",
+      "source_sha256": "91dbad3a2063dd29eae00148fbb21602e381fc88cc7eb52b99b203555c1ea963",
+      "output_sha256": "fe3111ac8ee1a7010ad70f26cc358d4d3d260a13964fa3e329a2531a03e25c8d",
+      "selected_preset": "codec-native",
+      "sample_rate": 44100,
+      "samples": 1220688,
+      "channels": 1,
+      "exact_development_flac_parity": true,
+      "actual_cli_negative_confirmations": [
+        {
+          "ordinal": 1,
+          "state": "checked",
+          "http_status": 200,
+          "detected": false,
+          "checked_at": "2026-11-14T10:26:52.901310+00:00"
+        },
+        {
+          "ordinal": 2,
+          "state": "checked",
+          "http_status": 200,
+          "detected": false,
+          "checked_at": "2026-11-14T10:28:13.190355+00:00"
+        }
+      ],
+      "supplemental_ledger_role_labels": [
+        "processed_1",
+        "processed_2"
+      ],
+      "content_assessed_pcm_sha256": "50e3af8723a1a510829fb3ca84aa4edfa72b4e3b7f7af95271214bbff9d35cc5",
+      "estimated_quality_reused_from_identical_development_file": {
+        "asr": {
+          "asr_disagreement": 0.06060606060606061,
+          "original_reference_error": 0.1242603550295858,
+          "processed_reference_error": 0.1242603550295858,
+          "reference_error_delta": 0.0
+        },
+        "asr_turbo": {
+          "asr_disagreement": 0.01818181818181818,
+          "original_reference_error": 0.10650887573964497,
+          "processed_reference_error": 0.1242603550295858,
+          "reference_error_delta": 0.017751479289940822
+        },
+        "voice_quality": {
+          "speaker_minimum": 0.9884675518413779,
+          "dnsmos_delta": {
+            "signal": 0.02545474093870892,
+            "background": 0.007097372949100844,
+            "overall": 0.024331515732133102
+          }
+        },
+        "mms": {
+          "original_reference_error": 0.0650887573964497,
+          "processed_reference_error": 0.07100591715976332,
+          "reference_error_delta": 0.005917159763313609,
+          "paired_disagreement": 0.005988023952095809
+        }
+      },
+      "all_seven_estimated_quality_criteria_passed": true,
+      "attempts": [
+        {
+          "preset": "codec-native",
+          "state": "checked",
+          "content_guard_passed": true,
+          "paired_disagreement": {
+            "turbo": 0.01818181818181818,
+            "mms": 0.005988023952095809
+          },
+          "worker_job_seconds_excluding_initial_model_load_and_api_waits": 54.96797863487154,
+          "source_job_reused": false
+        }
+      ],
+      "torch_or_scipy_imported_in_verification_parent": false,
+      "quality_verified": false
+    }
+  ],
+  "recognizer_unit_parity": [
+    {
+      "role": "original",
+      "sha256": "a486923f1d82a36987a99ee9412eb9b00a1f83fbcc991d79781eb4399f47f30b",
+      "language": "ar",
+      "turbo_units_exact_reference": true,
+      "mms_units_exact_reference": true
+    },
+    {
+      "role": "native",
+      "sha256": "7344ec4b72e6997a22bd892411999af35b483f819d87c158502ed5da3a78f578",
+      "language": "ar",
+      "turbo_units_exact_reference": true,
+      "mms_units_exact_reference": true,
+      "content_guard_passed": false,
+      "paired_disagreement": {
+        "turbo": 0.016129032258064516,
+        "mms": 0.03225806451612903
+      },
+      "original_units": {
+        "turbo": 62,
+        "mms": 62
+      },
+      "processed_units": {
+        "turbo": 62,
+        "mms": 62
+      }
+    },
+    {
+      "role": "wide",
+      "sha256": "ac61ed1a8267fabff87a933c6b2e700165ecbb061dfa33452750921587fb86fa",
+      "language": "ar",
+      "turbo_units_exact_reference": true,
+      "mms_units_exact_reference": true,
+      "content_guard_passed": true,
+      "paired_disagreement": {
+        "turbo": 0.0,
+        "mms": 0.0
+      },
+      "original_units": {
+        "turbo": 62,
+        "mms": 62
+      },
+      "processed_units": {
+        "turbo": 62,
+        "mms": 62
+      }
+    }
+  ],
+  "development_report_sha256": "0b4634e8f3a06b8bac0a926cae5d8eb98ff944509f20547a3bcec4d2d6eb72a4",
+  "quality_estimates_reused_only_for_identical_files": true,
+  "interpretation": "The tested implementation reproduces the two quality-qualified development selections and their exact-file repeated negative checks. Fresh validation remains pending.",
+  "limits": [
+    "Both sources were already used for development; repeated checks and packaging add no independent samples.",
+    "Turbo and MMS participate in selection. Their scores are not independent quality certification.",
+    "Supplemental Arabic HTTP role labels start at processed_2 because their counter included the opening original control. The actual verifier audit supplies the correct confirmation ordinals 1 and 2; both ledgers bind the same two requests and file hash.",
+    "Worker job timings exclude initial model loading and detector waits and cover two CPU examples only.",
+    "No human listening approval or physical watermark-erasure proof is claimed."
+  ],
+  "private_recordings_included": 0,
+  "recognized_words_exported": false,
+  "speaker_embeddings_exported": false
+}
