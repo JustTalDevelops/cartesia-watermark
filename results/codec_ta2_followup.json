@@ -1,0 +1,2011 @@
+{
+  "kind": "Spent second-Tamil split-band, Mimi, and primary-repair probes",
+  "independent_source_recordings": 1,
+  "fresh_independent_sources": 0,
+  "new_tts_requests": 0,
+  "frozen_primary_study_result_changed": false,
+  "planned_treatments": 13,
+  "rendered_candidates": 11,
+  "candidates": [
+    {
+      "id": "ta2_high_native",
+      "source_case": "codec_fresh_12_ta2_sonic-preview",
+      "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+      "candidate_sha256": "39f9a770585e121325daf65fd5785c8ebe13ba7df1c3063557a2d8aadefe4164",
+      "language": "ta",
+      "lineage": {
+        "type": "Partial original-band reconstruction with one generated outside region",
+        "outside_native_filter": {
+          "type": "highpass",
+          "cutoff_hz": 4000,
+          "order": 6,
+          "zero_phase": true
+        },
+        "original_band_baseline_sha256": "73d0a9b11bd16e7a5bafeabdf8f680ee3f34f684a443767b2488262998074a92",
+        "generated_native6_sha256": "e8e7c12539ce2f0465ca2ecb51bcc68e069b066564a2a08965714708f0e990a0",
+        "original_waveform_retained": true,
+        "full_regeneration": false
+      },
+      "content_assessment": {
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "output_sha256": "39f9a770585e121325daf65fd5785c8ebe13ba7df1c3063557a2d8aadefe4164",
+        "outside_native_filter": {
+          "type": "highpass",
+          "cutoff_hz": 4000,
+          "order": 6,
+          "zero_phase": true
+        },
+        "gain": 1.0,
+        "original_waveform_retained": true,
+        "complete": true,
+        "quality_verified": false,
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "large": 0.0,
+          "mms": 0.002325581395348837
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 415,
+          "mms": 430
+        },
+        "processed_units": {
+          "large": 415,
+          "mms": 430
+        }
+      },
+      "original_reference_error": {
+        "large": 0.023923444976076555,
+        "mms": 0.03110047846889952,
+        "small": 0.07655502392344497
+      },
+      "guard_reference_error": {
+        "large": 0.023923444976076555,
+        "mms": 0.03349282296650718
+      },
+      "guard_reference_error_delta": {
+        "large": 0.0,
+        "mms": 0.0023923444976076576
+      },
+      "evaluation": {
+        "id": "ta2_high_native",
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "output_sha256": "39f9a770585e121325daf65fd5785c8ebe13ba7df1c3063557a2d8aadefe4164",
+        "evaluation_checkpoint": "small",
+        "processed_reference_error": 0.07177033492822966,
+        "reference_error_delta": -0.004784688995215308,
+        "maximum_reference_delta": 0.01,
+        "reference_delta_passed": true
+      },
+      "additional_mms_evaluation": null,
+      "voice": {
+        "id": "ta2_high_native",
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "language": "ta",
+        "original_dnsmos": {
+          "signal": 3.689388415206841,
+          "background": 4.222667956781546,
+          "overall": 3.498669395903244,
+          "windows": 17,
+          "natural_seconds": 26.48
+        },
+        "window_starts_seconds": [
+          0.296,
+          8.24,
+          16.184
+        ],
+        "speaker_window_cosines": [
+          0.988248184376454,
+          0.9935450870502412,
+          0.9930055742160595
+        ],
+        "speaker_minimum": 0.988248184376454,
+        "processed_dnsmos": {
+          "signal": 3.6315380481147845,
+          "background": 4.192512960160318,
+          "overall": 3.4242955818634853,
+          "windows": 17,
+          "natural_seconds": 26.48
+        },
+        "dnsmos_delta": {
+          "signal": -0.05785036709205649,
+          "background": -0.03015499662122778,
+          "overall": -0.07437381403975873
+        },
+        "output_sha256": "39f9a770585e121325daf65fd5785c8ebe13ba7df1c3063557a2d8aadefe4164",
+        "status": "scored"
+      },
+      "quality_gate_results": {
+        "primary_paired": true,
+        "secondary_paired": true,
+        "primary_reference_delta": true,
+        "secondary_reference_delta": true,
+        "evaluation_reference_delta": true,
+        "speaker_minimum": true,
+        "dnsmos_overall": true
+      },
+      "calibrated_original_checkpoints": 3,
+      "quality_qualified": true,
+      "detector": {
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "candidate_sha256": "39f9a770585e121325daf65fd5785c8ebe13ba7df1c3063557a2d8aadefe4164",
+        "assessment_sha256": "7ee96d22bcf9e0a79b710fefb66ddfc64cb39e64d1c25c787b39711e2f384cfe",
+        "checker_source_sha256": "43142b9f3a8dca38ac33c9322ffbc8abebc338f39a72b742c3b495756181814b",
+        "minimum_interval_seconds": 80,
+        "maximum_http_attempts": 6,
+        "fresh_independent_sources": 0,
+        "frozen_study_result_changed": false,
+        "human_quality_verified": false,
+        "http_attempts": [
+          {
+            "role": "opening_original",
+            "ordinal": 1,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "started_at": "2026-11-14T17:48:04.526132+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "opening_original",
+            "ordinal": 2,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "started_at": "2026-11-14T17:49:24.526317+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "candidate",
+            "ordinal": 1,
+            "sha256": "39f9a770585e121325daf65fd5785c8ebe13ba7df1c3063557a2d8aadefe4164",
+            "started_at": "2026-11-14T17:50:44.526546+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "candidate",
+            "ordinal": 2,
+            "sha256": "39f9a770585e121325daf65fd5785c8ebe13ba7df1c3063557a2d8aadefe4164",
+            "started_at": "2026-11-14T17:52:04.526880+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "closing_original",
+            "ordinal": 1,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "started_at": "2026-11-14T17:53:24.527154+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "closing_original",
+            "ordinal": 2,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "started_at": "2026-11-14T17:54:44.527364+00:00",
+            "http_status": 200
+          }
+        ],
+        "checks": [
+          {
+            "role": "opening_original",
+            "ordinal": 1,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T17:48:05.171364+00:00"
+          },
+          {
+            "role": "opening_original",
+            "ordinal": 2,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T17:49:25.254304+00:00"
+          },
+          {
+            "role": "candidate",
+            "ordinal": 1,
+            "sha256": "39f9a770585e121325daf65fd5785c8ebe13ba7df1c3063557a2d8aadefe4164",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T17:50:45.234170+00:00"
+          },
+          {
+            "role": "candidate",
+            "ordinal": 2,
+            "sha256": "39f9a770585e121325daf65fd5785c8ebe13ba7df1c3063557a2d8aadefe4164",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T17:52:05.232202+00:00"
+          },
+          {
+            "role": "closing_original",
+            "ordinal": 1,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T17:53:25.124195+00:00"
+          },
+          {
+            "role": "closing_original",
+            "ordinal": 2,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T17:54:45.420055+00:00"
+          }
+        ],
+        "complete": true,
+        "candidate_detected": true,
+        "status": "checked_positive",
+        "completed_at": "2026-11-14T17:54:45.424637+00:00"
+      },
+      "qualified_detector_negative": false,
+      "status": "still_detected_twice"
+    },
+    {
+      "id": "ta2_low_native",
+      "source_case": "codec_fresh_12_ta2_sonic-preview",
+      "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+      "candidate_sha256": "a4bcf7ab51b02abc29b153790b6fe45bd1f08ccb836f208dc1fe6a99356b3c72",
+      "language": "ta",
+      "lineage": {
+        "type": "Partial original-band reconstruction with one generated outside region",
+        "outside_native_filter": {
+          "type": "lowpass",
+          "cutoff_hz": 1000,
+          "order": 6,
+          "zero_phase": true
+        },
+        "original_band_baseline_sha256": "73d0a9b11bd16e7a5bafeabdf8f680ee3f34f684a443767b2488262998074a92",
+        "generated_native6_sha256": "e8e7c12539ce2f0465ca2ecb51bcc68e069b066564a2a08965714708f0e990a0",
+        "original_waveform_retained": true,
+        "full_regeneration": false
+      },
+      "content_assessment": {
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "output_sha256": "a4bcf7ab51b02abc29b153790b6fe45bd1f08ccb836f208dc1fe6a99356b3c72",
+        "outside_native_filter": {
+          "type": "lowpass",
+          "cutoff_hz": 1000,
+          "order": 6,
+          "zero_phase": true
+        },
+        "gain": 1.0,
+        "original_waveform_retained": true,
+        "complete": true,
+        "quality_verified": false,
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "large": 0.0,
+          "mms": 0.004651162790697674
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 415,
+          "mms": 430
+        },
+        "processed_units": {
+          "large": 415,
+          "mms": 430
+        }
+      },
+      "original_reference_error": {
+        "large": 0.023923444976076555,
+        "mms": 0.03110047846889952,
+        "small": 0.07655502392344497
+      },
+      "guard_reference_error": {
+        "large": 0.023923444976076555,
+        "mms": 0.03110047846889952
+      },
+      "guard_reference_error_delta": {
+        "large": 0.0,
+        "mms": 0.0
+      },
+      "evaluation": {
+        "id": "ta2_low_native",
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "output_sha256": "a4bcf7ab51b02abc29b153790b6fe45bd1f08ccb836f208dc1fe6a99356b3c72",
+        "evaluation_checkpoint": "small",
+        "processed_reference_error": 0.08851674641148326,
+        "reference_error_delta": 0.011961722488038284,
+        "maximum_reference_delta": 0.01,
+        "reference_delta_passed": false
+      },
+      "additional_mms_evaluation": null,
+      "voice": {
+        "id": "ta2_low_native",
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "language": "ta",
+        "original_dnsmos": {
+          "signal": 3.689388415206841,
+          "background": 4.222667956781546,
+          "overall": 3.498669395903244,
+          "windows": 17,
+          "natural_seconds": 26.48
+        },
+        "window_starts_seconds": [
+          0.296,
+          8.24,
+          16.184
+        ],
+        "speaker_window_cosines": [
+          0.9870269605750865,
+          0.9912516604659667,
+          0.9930167989620577
+        ],
+        "speaker_minimum": 0.9870269605750865,
+        "processed_dnsmos": {
+          "signal": 3.6168816804870367,
+          "background": 4.186812709272736,
+          "overall": 3.409072730285604,
+          "windows": 17,
+          "natural_seconds": 26.48
+        },
+        "dnsmos_delta": {
+          "signal": -0.07250673471980429,
+          "background": -0.03585524750880964,
+          "overall": -0.0895966656176399
+        },
+        "output_sha256": "a4bcf7ab51b02abc29b153790b6fe45bd1f08ccb836f208dc1fe6a99356b3c72",
+        "status": "scored"
+      },
+      "quality_gate_results": {
+        "primary_paired": true,
+        "secondary_paired": true,
+        "primary_reference_delta": true,
+        "secondary_reference_delta": true,
+        "evaluation_reference_delta": false,
+        "speaker_minimum": true,
+        "dnsmos_overall": true
+      },
+      "calibrated_original_checkpoints": 3,
+      "quality_qualified": false,
+      "detector": null,
+      "qualified_detector_negative": false,
+      "status": "quality_rejected_not_detector_tested"
+    },
+    {
+      "id": "ta2_f0_native",
+      "source_case": "codec_fresh_12_ta2_sonic-preview",
+      "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+      "candidate_sha256": "adba3cbd77afd24f6e243691c7a9987e1abce8df9d49b8117a8ffa5a724036cb",
+      "language": "ta",
+      "lineage": {
+        "type": "Partial original-band reconstruction with one generated outside region",
+        "outside_native_filter": {
+          "type": "lowpass",
+          "cutoff_hz": 500,
+          "order": 6,
+          "zero_phase": true
+        },
+        "original_band_baseline_sha256": "73d0a9b11bd16e7a5bafeabdf8f680ee3f34f684a443767b2488262998074a92",
+        "generated_native6_sha256": "e8e7c12539ce2f0465ca2ecb51bcc68e069b066564a2a08965714708f0e990a0",
+        "original_waveform_retained": true,
+        "full_regeneration": false
+      },
+      "content_assessment": {
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "output_sha256": "adba3cbd77afd24f6e243691c7a9987e1abce8df9d49b8117a8ffa5a724036cb",
+        "outside_native_filter": {
+          "type": "lowpass",
+          "cutoff_hz": 500,
+          "order": 6,
+          "zero_phase": true
+        },
+        "gain": 1.0,
+        "original_waveform_retained": true,
+        "complete": true,
+        "quality_verified": false,
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "large": 0.0,
+          "mms": 0.0
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 415,
+          "mms": 430
+        },
+        "processed_units": {
+          "large": 415,
+          "mms": 430
+        }
+      },
+      "original_reference_error": {
+        "large": 0.023923444976076555,
+        "mms": 0.03110047846889952,
+        "small": 0.07655502392344497
+      },
+      "guard_reference_error": {
+        "large": 0.023923444976076555,
+        "mms": 0.03110047846889952
+      },
+      "guard_reference_error_delta": {
+        "large": 0.0,
+        "mms": 0.0
+      },
+      "evaluation": {
+        "id": "ta2_f0_native",
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "output_sha256": "adba3cbd77afd24f6e243691c7a9987e1abce8df9d49b8117a8ffa5a724036cb",
+        "evaluation_checkpoint": "small",
+        "processed_reference_error": 0.07894736842105263,
+        "reference_error_delta": 0.002392344497607654,
+        "maximum_reference_delta": 0.01,
+        "reference_delta_passed": true
+      },
+      "additional_mms_evaluation": null,
+      "voice": {
+        "id": "ta2_f0_native",
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "language": "ta",
+        "original_dnsmos": {
+          "signal": 3.689388415206841,
+          "background": 4.222667956781546,
+          "overall": 3.498669395903244,
+          "windows": 17,
+          "natural_seconds": 26.48
+        },
+        "window_starts_seconds": [
+          0.296,
+          8.24,
+          16.184
+        ],
+        "speaker_window_cosines": [
+          0.9874606628293447,
+          0.9929405031119335,
+          0.9915714107912792
+        ],
+        "speaker_minimum": 0.9874606628293447,
+        "processed_dnsmos": {
+          "signal": 3.5802425615696185,
+          "background": 4.165721160808048,
+          "overall": 3.3666899863034114,
+          "windows": 17,
+          "natural_seconds": 26.48
+        },
+        "dnsmos_delta": {
+          "signal": -0.10914585363722251,
+          "background": -0.05694679597349772,
+          "overall": -0.13197940959983256
+        },
+        "output_sha256": "adba3cbd77afd24f6e243691c7a9987e1abce8df9d49b8117a8ffa5a724036cb",
+        "status": "scored"
+      },
+      "quality_gate_results": {
+        "primary_paired": true,
+        "secondary_paired": true,
+        "primary_reference_delta": true,
+        "secondary_reference_delta": true,
+        "evaluation_reference_delta": true,
+        "speaker_minimum": true,
+        "dnsmos_overall": true
+      },
+      "calibrated_original_checkpoints": 3,
+      "quality_qualified": true,
+      "detector": {
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "candidate_sha256": "adba3cbd77afd24f6e243691c7a9987e1abce8df9d49b8117a8ffa5a724036cb",
+        "assessment_sha256": "856a93533fc4784557116dbea318cd6a0d498cf2efd3fc8c4ce1a92f8aa66797",
+        "checker_source_sha256": "43142b9f3a8dca38ac33c9322ffbc8abebc338f39a72b742c3b495756181814b",
+        "minimum_interval_seconds": 80,
+        "maximum_http_attempts": 6,
+        "fresh_independent_sources": 0,
+        "frozen_study_result_changed": false,
+        "human_quality_verified": false,
+        "http_attempts": [
+          {
+            "role": "opening_original",
+            "ordinal": 1,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "started_at": "2026-11-14T17:40:04.524551+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "opening_original",
+            "ordinal": 2,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "started_at": "2026-11-14T17:41:24.524942+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "candidate",
+            "ordinal": 1,
+            "sha256": "adba3cbd77afd24f6e243691c7a9987e1abce8df9d49b8117a8ffa5a724036cb",
+            "started_at": "2026-11-14T17:42:44.525106+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "candidate",
+            "ordinal": 2,
+            "sha256": "adba3cbd77afd24f6e243691c7a9987e1abce8df9d49b8117a8ffa5a724036cb",
+            "started_at": "2026-11-14T17:44:04.525481+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "closing_original",
+            "ordinal": 1,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "started_at": "2026-11-14T17:45:24.525712+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "closing_original",
+            "ordinal": 2,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "started_at": "2026-11-14T17:46:44.525984+00:00",
+            "http_status": 200
+          }
+        ],
+        "checks": [
+          {
+            "role": "opening_original",
+            "ordinal": 1,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T17:40:06.061425+00:00"
+          },
+          {
+            "role": "opening_original",
+            "ordinal": 2,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T17:41:25.237542+00:00"
+          },
+          {
+            "role": "candidate",
+            "ordinal": 1,
+            "sha256": "adba3cbd77afd24f6e243691c7a9987e1abce8df9d49b8117a8ffa5a724036cb",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T17:42:45.526886+00:00"
+          },
+          {
+            "role": "candidate",
+            "ordinal": 2,
+            "sha256": "adba3cbd77afd24f6e243691c7a9987e1abce8df9d49b8117a8ffa5a724036cb",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T17:44:05.221970+00:00"
+          },
+          {
+            "role": "closing_original",
+            "ordinal": 1,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T17:45:25.246299+00:00"
+          },
+          {
+            "role": "closing_original",
+            "ordinal": 2,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T17:46:45.524948+00:00"
+          }
+        ],
+        "complete": true,
+        "candidate_detected": true,
+        "status": "checked_positive",
+        "completed_at": "2026-11-14T17:46:45.529630+00:00"
+      },
+      "qualified_detector_negative": false,
+      "status": "still_detected_twice"
+    },
+    {
+      "id": "ta2_mimi16",
+      "source_case": "codec_fresh_12_ta2_sonic-preview",
+      "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+      "candidate_sha256": "861bea1b97647e6c8eeea60a497dce84acbff40acbc6891287b235db577329d7",
+      "language": "ta",
+      "lineage": {
+        "type": "Direct complete Mimi reconstruction",
+        "model": {
+          "model_id": "kyutai/mimi",
+          "revision": "89091b3e466eb6a9d11e537bf26b144f194978f7",
+          "license": "CC-BY-4.0",
+          "local_directory": ".cache/mimi-codec-model",
+          "trained_by_this_project": false,
+          "role": "Alternative speech-codec development; no removal or quality claim",
+          "files_sha256": {
+            "config.json": "aca6f44b04f7bc2e7466b71597d2d51e463ed1cf3cd7025d8848595580546c36",
+            "preprocessor_config.json": "fcb3805e597e786d4067706e602f6688524640f8d3396790e2e09b5942fcbdfb",
+            "model.safetensors": "bac7e85083dcded655d24eaadde7e6eea34c0da1b35fa2d284e641bd2b942a5e",
+            "README.md": "dd1070a95a83e4f07ccdf29f6ab2c387191c1cfa1deadcdc28dda9e83ad6e38b"
+          },
+          "complete": true
+        },
+        "encoder_prefix_reused": false,
+        "num_quantizers": 16,
+        "nominal_bitrate_kbps": 2.2,
+        "reconstruction_seconds": 12.37483763601631,
+        "guard_seconds": 70.00133585743606,
+        "timing_limit": "Separate exploratory runs; excludes startup and is not a controlled bitrate timing comparison"
+      },
+      "content_assessment": {
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "output_sha256": "861bea1b97647e6c8eeea60a497dce84acbff40acbc6891287b235db577329d7",
+        "num_quantizers": 16,
+        "nominal_bitrate_kbps": 2.2,
+        "gain": 0.9330069963672687,
+        "reconstruction_seconds": 12.37483763601631,
+        "guard_seconds": 70.00133585743606,
+        "complete": true,
+        "quality_verified": false,
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "large": 0.014457831325301205,
+          "mms": 0.01627906976744186
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 415,
+          "mms": 430
+        },
+        "processed_units": {
+          "large": 415,
+          "mms": 428
+        }
+      },
+      "original_reference_error": {
+        "large": 0.023923444976076555,
+        "mms": 0.03110047846889952,
+        "small": 0.07655502392344497
+      },
+      "guard_reference_error": {
+        "large": 0.023923444976076555,
+        "mms": 0.03827751196172249
+      },
+      "guard_reference_error_delta": {
+        "large": 0.0,
+        "mms": 0.007177033492822966
+      },
+      "evaluation": {
+        "id": "ta2_mimi16",
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "output_sha256": "861bea1b97647e6c8eeea60a497dce84acbff40acbc6891287b235db577329d7",
+        "evaluation_checkpoint": "small",
+        "processed_reference_error": 0.07894736842105263,
+        "reference_error_delta": 0.002392344497607654,
+        "maximum_reference_delta": 0.01,
+        "reference_delta_passed": true
+      },
+      "additional_mms_evaluation": null,
+      "voice": {
+        "id": "ta2_mimi16",
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "language": "ta",
+        "original_dnsmos": {
+          "signal": 3.689388415206841,
+          "background": 4.222667956781546,
+          "overall": 3.498669395903244,
+          "windows": 17,
+          "natural_seconds": 26.48
+        },
+        "window_starts_seconds": [
+          0.296,
+          8.24,
+          16.184
+        ],
+        "speaker_window_cosines": [
+          0.9854990903189499,
+          0.9937500072799784,
+          0.9944295966838573
+        ],
+        "speaker_minimum": 0.9854990903189499,
+        "processed_dnsmos": {
+          "signal": 3.5545473228345754,
+          "background": 4.181389043090459,
+          "overall": 3.3434584009737316,
+          "windows": 17,
+          "natural_seconds": 26.48
+        },
+        "dnsmos_delta": {
+          "signal": -0.1348410923722656,
+          "background": -0.04127891369108738,
+          "overall": -0.1552109949295124
+        },
+        "output_sha256": "861bea1b97647e6c8eeea60a497dce84acbff40acbc6891287b235db577329d7",
+        "status": "scored"
+      },
+      "quality_gate_results": {
+        "primary_paired": false,
+        "secondary_paired": false,
+        "primary_reference_delta": true,
+        "secondary_reference_delta": true,
+        "evaluation_reference_delta": true,
+        "speaker_minimum": true,
+        "dnsmos_overall": true
+      },
+      "calibrated_original_checkpoints": 3,
+      "quality_qualified": false,
+      "detector": null,
+      "qualified_detector_negative": false,
+      "status": "speech_rejected_not_detector_tested"
+    },
+    {
+      "id": "ta2_mimi32",
+      "source_case": "codec_fresh_12_ta2_sonic-preview",
+      "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+      "candidate_sha256": "3786fe0570c9fe74127668fbc83d40b342fe96158ea67923ae31226f1d516a49",
+      "language": "ta",
+      "lineage": {
+        "type": "Direct complete Mimi reconstruction",
+        "model": {
+          "model_id": "kyutai/mimi",
+          "revision": "89091b3e466eb6a9d11e537bf26b144f194978f7",
+          "license": "CC-BY-4.0",
+          "local_directory": ".cache/mimi-codec-model",
+          "trained_by_this_project": false,
+          "role": "Alternative speech-codec development; no removal or quality claim",
+          "files_sha256": {
+            "config.json": "aca6f44b04f7bc2e7466b71597d2d51e463ed1cf3cd7025d8848595580546c36",
+            "preprocessor_config.json": "fcb3805e597e786d4067706e602f6688524640f8d3396790e2e09b5942fcbdfb",
+            "model.safetensors": "bac7e85083dcded655d24eaadde7e6eea34c0da1b35fa2d284e641bd2b942a5e",
+            "README.md": "dd1070a95a83e4f07ccdf29f6ab2c387191c1cfa1deadcdc28dda9e83ad6e38b"
+          },
+          "complete": true
+        },
+        "encoder_prefix_reused": false,
+        "num_quantizers": 32,
+        "nominal_bitrate_kbps": 4.4,
+        "reconstruction_seconds": 1.3114910637959838,
+        "guard_seconds": 65.79702068958431,
+        "timing_limit": "Separate exploratory runs; excludes startup and is not a controlled bitrate timing comparison"
+      },
+      "content_assessment": {
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "output_sha256": "3786fe0570c9fe74127668fbc83d40b342fe96158ea67923ae31226f1d516a49",
+        "num_quantizers": 32,
+        "nominal_bitrate_kbps": 4.4,
+        "gain": 0.9640801417229732,
+        "reconstruction_seconds": 1.3114910637959838,
+        "guard_seconds": 65.79702068958431,
+        "complete": true,
+        "quality_verified": false,
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "large": 0.012048192771084338,
+          "mms": 0.0
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 415,
+          "mms": 430
+        },
+        "processed_units": {
+          "large": 415,
+          "mms": 430
+        }
+      },
+      "original_reference_error": {
+        "large": 0.023923444976076555,
+        "mms": 0.03110047846889952,
+        "small": 0.07655502392344497
+      },
+      "guard_reference_error": {
+        "large": 0.02631578947368421,
+        "mms": 0.03110047846889952
+      },
+      "guard_reference_error_delta": {
+        "large": 0.002392344497607654,
+        "mms": 0.0
+      },
+      "evaluation": {
+        "id": "ta2_mimi32",
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "output_sha256": "3786fe0570c9fe74127668fbc83d40b342fe96158ea67923ae31226f1d516a49",
+        "evaluation_checkpoint": "small",
+        "processed_reference_error": 0.08133971291866028,
+        "reference_error_delta": 0.004784688995215308,
+        "maximum_reference_delta": 0.01,
+        "reference_delta_passed": true
+      },
+      "additional_mms_evaluation": null,
+      "voice": {
+        "id": "ta2_mimi32",
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "language": "ta",
+        "original_dnsmos": {
+          "signal": 3.689388415206841,
+          "background": 4.222667956781546,
+          "overall": 3.498669395903244,
+          "windows": 17,
+          "natural_seconds": 26.48
+        },
+        "window_starts_seconds": [
+          0.296,
+          8.24,
+          16.184
+        ],
+        "speaker_window_cosines": [
+          0.9909136395943061,
+          0.996186050502019,
+          0.9950394475943714
+        ],
+        "speaker_minimum": 0.9909136395943061,
+        "processed_dnsmos": {
+          "signal": 3.654437810997797,
+          "background": 4.218595086901986,
+          "overall": 3.4590969649814585,
+          "windows": 17,
+          "natural_seconds": 26.48
+        },
+        "dnsmos_delta": {
+          "signal": -0.034950604209043945,
+          "background": -0.004072869879560237,
+          "overall": -0.03957243092178553
+        },
+        "output_sha256": "3786fe0570c9fe74127668fbc83d40b342fe96158ea67923ae31226f1d516a49",
+        "status": "scored"
+      },
+      "quality_gate_results": {
+        "primary_paired": false,
+        "secondary_paired": true,
+        "primary_reference_delta": true,
+        "secondary_reference_delta": true,
+        "evaluation_reference_delta": true,
+        "speaker_minimum": true,
+        "dnsmos_overall": true
+      },
+      "calibrated_original_checkpoints": 3,
+      "quality_qualified": false,
+      "detector": null,
+      "qualified_detector_negative": false,
+      "status": "speech_rejected_not_detector_tested"
+    },
+    {
+      "id": "ta2_mimi_repair16",
+      "source_case": "codec_fresh_12_ta2_sonic-preview",
+      "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+      "candidate_sha256": "f4643d1b41a5d0a6b1b994ddaf47491f95b76dabe0e19d3f4233b3f0d9690ac1",
+      "language": "ta",
+      "lineage": {
+        "type": "One primary-guard-guided generated-donor repair of Mimi",
+        "initial_candidate_sha256": "861bea1b97647e6c8eeea60a497dce84acbff40acbc6891287b235db577329d7",
+        "native_donor_sha256": "4e7cf06f725af2038ad0e91c277ae25b20b82172f7e03c76f437680f7cb4ef1b",
+        "repair": {
+          "primary_change_regions": 4,
+          "unsafe_regions_skipped": 3,
+          "context_units_each_side": 8,
+          "maximum_timing_drift_seconds": 0.25,
+          "padding_seconds": 0.12,
+          "maximum_regions": 8,
+          "donor_matching_regions_only": true,
+          "reference_text_used": false,
+          "evaluation_recognizer_used": false,
+          "detector_labels_used": false,
+          "regions_seconds": [
+            [
+              3.8,
+              4.48
+            ]
+          ],
+          "repaired_fraction": 0.025678901973679703,
+          "gain": 0.9999999274482054
+        },
+        "selection_code_commit": "2e19c21ff45bfbe6a7b564046942c014fd689653",
+        "selection_code_sha256": "f8f0abd4075fcd51648b2ab93f4401b2ee2ce4e36a2361cc80f733f4b557ee56",
+        "maximum_coverage": 0.2,
+        "processing_selection_uses_reference_text": false,
+        "processing_selection_uses_evaluation_asr": false
+      },
+      "content_assessment": {
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "output_sha256": "f4643d1b41a5d0a6b1b994ddaf47491f95b76dabe0e19d3f4233b3f0d9690ac1",
+        "initial_candidate_sha256": "861bea1b97647e6c8eeea60a497dce84acbff40acbc6891287b235db577329d7",
+        "num_quantizers": 16,
+        "repair": {
+          "primary_change_regions": 4,
+          "unsafe_regions_skipped": 3,
+          "context_units_each_side": 8,
+          "maximum_timing_drift_seconds": 0.25,
+          "padding_seconds": 0.12,
+          "maximum_regions": 8,
+          "donor_matching_regions_only": true,
+          "reference_text_used": false,
+          "evaluation_recognizer_used": false,
+          "detector_labels_used": false,
+          "regions_seconds": [
+            [
+              3.8,
+              4.48
+            ]
+          ],
+          "repaired_fraction": 0.025678901973679703,
+          "gain": 0.9999999274482054
+        },
+        "complete": true,
+        "quality_verified": false,
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "large": 0.00963855421686747,
+          "mms": 0.01627906976744186
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 415,
+          "mms": 430
+        },
+        "processed_units": {
+          "large": 414,
+          "mms": 428
+        }
+      },
+      "original_reference_error": {
+        "large": 0.023923444976076555,
+        "mms": 0.03110047846889952,
+        "small": 0.07655502392344497
+      },
+      "guard_reference_error": {
+        "large": 0.028708133971291867,
+        "mms": 0.03827751196172249
+      },
+      "guard_reference_error_delta": {
+        "large": 0.004784688995215312,
+        "mms": 0.007177033492822966
+      },
+      "evaluation": {
+        "id": "ta2_mimi_repair16",
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "output_sha256": "f4643d1b41a5d0a6b1b994ddaf47491f95b76dabe0e19d3f4233b3f0d9690ac1",
+        "evaluation_checkpoint": "small",
+        "processed_reference_error": 0.07894736842105263,
+        "reference_error_delta": 0.002392344497607654,
+        "maximum_reference_delta": 0.01,
+        "reference_delta_passed": true
+      },
+      "additional_mms_evaluation": null,
+      "voice": {
+        "id": "ta2_mimi_repair16",
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "language": "ta",
+        "original_dnsmos": {
+          "signal": 3.689388415206841,
+          "background": 4.222667956781546,
+          "overall": 3.498669395903244,
+          "windows": 17,
+          "natural_seconds": 26.48
+        },
+        "window_starts_seconds": [
+          0.296,
+          8.24,
+          16.184
+        ],
+        "speaker_window_cosines": [
+          0.9869427057737326,
+          0.9937500139373787,
+          0.9944296034804778
+        ],
+        "speaker_minimum": 0.9869427057737326,
+        "processed_dnsmos": {
+          "signal": 3.5563029860391917,
+          "background": 4.180774416496895,
+          "overall": 3.3450473237889384,
+          "windows": 17,
+          "natural_seconds": 26.48
+        },
+        "dnsmos_delta": {
+          "signal": -0.13308542916764932,
+          "background": -0.041893540284650754,
+          "overall": -0.15362207211430556
+        },
+        "output_sha256": "f4643d1b41a5d0a6b1b994ddaf47491f95b76dabe0e19d3f4233b3f0d9690ac1",
+        "status": "scored"
+      },
+      "quality_gate_results": {
+        "primary_paired": true,
+        "secondary_paired": false,
+        "primary_reference_delta": true,
+        "secondary_reference_delta": true,
+        "evaluation_reference_delta": true,
+        "speaker_minimum": true,
+        "dnsmos_overall": true
+      },
+      "calibrated_original_checkpoints": 3,
+      "quality_qualified": false,
+      "detector": null,
+      "qualified_detector_negative": false,
+      "status": "speech_rejected_not_detector_tested"
+    },
+    {
+      "id": "ta2_mimi_repair32",
+      "source_case": "codec_fresh_12_ta2_sonic-preview",
+      "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+      "candidate_sha256": "f04c9b84f2a5f07daa507d468ffec4feedcbcbcccb81dcfa14821498d4bdc645",
+      "language": "ta",
+      "lineage": {
+        "type": "One primary-guard-guided generated-donor repair of Mimi",
+        "initial_candidate_sha256": "3786fe0570c9fe74127668fbc83d40b342fe96158ea67923ae31226f1d516a49",
+        "native_donor_sha256": "4e7cf06f725af2038ad0e91c277ae25b20b82172f7e03c76f437680f7cb4ef1b",
+        "repair": {
+          "primary_change_regions": 3,
+          "unsafe_regions_skipped": 2,
+          "context_units_each_side": 8,
+          "maximum_timing_drift_seconds": 0.25,
+          "padding_seconds": 0.12,
+          "maximum_regions": 8,
+          "donor_matching_regions_only": true,
+          "reference_text_used": false,
+          "evaluation_recognizer_used": false,
+          "detector_labels_used": false,
+          "regions_seconds": [
+            [
+              3.8,
+              4.48
+            ]
+          ],
+          "repaired_fraction": 0.025678901973679703,
+          "gain": 0.9999999274482054
+        },
+        "selection_code_commit": "2e19c21ff45bfbe6a7b564046942c014fd689653",
+        "selection_code_sha256": "f8f0abd4075fcd51648b2ab93f4401b2ee2ce4e36a2361cc80f733f4b557ee56",
+        "maximum_coverage": 0.2,
+        "processing_selection_uses_reference_text": false,
+        "processing_selection_uses_evaluation_asr": false
+      },
+      "content_assessment": {
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "output_sha256": "f04c9b84f2a5f07daa507d468ffec4feedcbcbcccb81dcfa14821498d4bdc645",
+        "initial_candidate_sha256": "3786fe0570c9fe74127668fbc83d40b342fe96158ea67923ae31226f1d516a49",
+        "num_quantizers": 32,
+        "repair": {
+          "primary_change_regions": 3,
+          "unsafe_regions_skipped": 2,
+          "context_units_each_side": 8,
+          "maximum_timing_drift_seconds": 0.25,
+          "padding_seconds": 0.12,
+          "maximum_regions": 8,
+          "donor_matching_regions_only": true,
+          "reference_text_used": false,
+          "evaluation_recognizer_used": false,
+          "detector_labels_used": false,
+          "regions_seconds": [
+            [
+              3.8,
+              4.48
+            ]
+          ],
+          "repaired_fraction": 0.025678901973679703,
+          "gain": 0.9999999274482054
+        },
+        "complete": true,
+        "quality_verified": false,
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "large": 0.007228915662650603,
+          "mms": 0.002325581395348837
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 415,
+          "mms": 430
+        },
+        "processed_units": {
+          "large": 414,
+          "mms": 431
+        }
+      },
+      "original_reference_error": {
+        "large": 0.023923444976076555,
+        "mms": 0.03110047846889952,
+        "small": 0.07655502392344497
+      },
+      "guard_reference_error": {
+        "large": 0.03110047846889952,
+        "mms": 0.03349282296650718
+      },
+      "guard_reference_error_delta": {
+        "large": 0.007177033492822966,
+        "mms": 0.0023923444976076576
+      },
+      "evaluation": {
+        "id": "ta2_mimi_repair32",
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "output_sha256": "f04c9b84f2a5f07daa507d468ffec4feedcbcbcccb81dcfa14821498d4bdc645",
+        "evaluation_checkpoint": "small",
+        "processed_reference_error": 0.09808612440191387,
+        "reference_error_delta": 0.0215311004784689,
+        "maximum_reference_delta": 0.01,
+        "reference_delta_passed": false
+      },
+      "additional_mms_evaluation": null,
+      "voice": {
+        "id": "ta2_mimi_repair32",
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "language": "ta",
+        "original_dnsmos": {
+          "signal": 3.689388415206841,
+          "background": 4.222667956781546,
+          "overall": 3.498669395903244,
+          "windows": 17,
+          "natural_seconds": 26.48
+        },
+        "window_starts_seconds": [
+          0.296,
+          8.24,
+          16.184
+        ],
+        "speaker_window_cosines": [
+          0.9919685099636558,
+          0.996186074052037,
+          0.9950394438140477
+        ],
+        "speaker_minimum": 0.9919685099636558,
+        "processed_dnsmos": {
+          "signal": 3.6552433206723456,
+          "background": 4.219009101888488,
+          "overall": 3.4599999599193407,
+          "windows": 17,
+          "natural_seconds": 26.48
+        },
+        "dnsmos_delta": {
+          "signal": -0.034145094534495435,
+          "background": -0.003658854893058283,
+          "overall": -0.038669435983903266
+        },
+        "output_sha256": "f04c9b84f2a5f07daa507d468ffec4feedcbcbcccb81dcfa14821498d4bdc645",
+        "status": "scored"
+      },
+      "quality_gate_results": {
+        "primary_paired": true,
+        "secondary_paired": true,
+        "primary_reference_delta": true,
+        "secondary_reference_delta": true,
+        "evaluation_reference_delta": false,
+        "speaker_minimum": true,
+        "dnsmos_overall": true
+      },
+      "calibrated_original_checkpoints": 3,
+      "quality_qualified": false,
+      "detector": null,
+      "qualified_detector_negative": false,
+      "status": "quality_rejected_not_detector_tested"
+    },
+    {
+      "id": "ta2_tempo",
+      "source_case": "codec_fresh_12_ta2_sonic-preview",
+      "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+      "candidate_sha256": "ffb5c9194690f837ba148b5150a64047e2e76db4c24c9f1babfaac6ea2fb5fef",
+      "language": "ta",
+      "lineage": {
+        "type": "Whole-file Rubber Band forward/inverse reconstruction",
+        "filters": "rubberband=tempo=1.04:phase=independent:transients=smooth:formant=preserved,rubberband=tempo=0.96153846153846145:phase=independent:transients=smooth:formant=preserved",
+        "ffmpeg_version": "ffmpeg version 7.0.2-static https://johnvansickle.com/ffmpeg/  Copyright (c) 2000-2024 the FFmpeg developers",
+        "ffmpeg_executable_sha256": "e7e7fb30477f717e6f55f9180a70386c62677ef8a4d4d1a5d948f4098aa3eb99",
+        "conditioning_reflection_seconds_each_side": 0.25,
+        "conditioning_padding_removed_before_publication": true,
+        "global_alignment_samples": 1,
+        "no_local_alignment": true,
+        "render_seconds": 0.6221745330840349,
+        "aligned_waveform_correlation": 0.14192399382591248
+      },
+      "content_assessment": {
+        "label": "tempo",
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "output_sha256": "ffb5c9194690f837ba148b5150a64047e2e76db4c24c9f1babfaac6ea2fb5fef",
+        "filters": "rubberband=tempo=1.04:phase=independent:transients=smooth:formant=preserved,rubberband=tempo=0.96153846153846145:phase=independent:transients=smooth:formant=preserved",
+        "roundtrip_intermediate_duration_seconds": 25.942307692307693,
+        "restored_condition_samples": 1189818,
+        "input_condition_samples": 1189818,
+        "global_alignment_samples": 1,
+        "aligned_waveform_correlation": 0.14192399382591248,
+        "gain": 1.0,
+        "render_seconds": 0.6221745330840349,
+        "complete": true,
+        "quality_verified": false,
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "large": 0.02891566265060241,
+          "mms": 0.020930232558139535
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 415,
+          "mms": 430
+        },
+        "processed_units": {
+          "large": 414,
+          "mms": 425
+        }
+      },
+      "original_reference_error": {
+        "large": 0.023923444976076555,
+        "mms": 0.03110047846889952,
+        "small": 0.07655502392344497
+      },
+      "guard_reference_error": {
+        "large": 0.019138755980861243,
+        "mms": 0.02631578947368421
+      },
+      "guard_reference_error_delta": {
+        "large": -0.004784688995215312,
+        "mms": -0.004784688995215312
+      },
+      "evaluation": {
+        "id": "ta2_tempo",
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "output_sha256": "ffb5c9194690f837ba148b5150a64047e2e76db4c24c9f1babfaac6ea2fb5fef",
+        "evaluation_checkpoint": "small",
+        "processed_reference_error": 0.10047846889952153,
+        "reference_error_delta": 0.023923444976076555,
+        "maximum_reference_delta": 0.01,
+        "reference_delta_passed": false
+      },
+      "additional_mms_evaluation": null,
+      "voice": {
+        "id": "ta2_tempo",
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "language": "ta",
+        "original_dnsmos": {
+          "signal": 3.689388415206841,
+          "background": 4.222667956781546,
+          "overall": 3.498669395903244,
+          "windows": 17,
+          "natural_seconds": 26.48
+        },
+        "window_starts_seconds": [
+          0.296,
+          8.24,
+          16.184
+        ],
+        "speaker_window_cosines": [
+          0.9504060563835873,
+          0.8757162614263346,
+          0.9121253603998463
+        ],
+        "speaker_minimum": 0.8757162614263346,
+        "processed_dnsmos": {
+          "signal": 3.0544246755217186,
+          "background": 3.870864261056666,
+          "overall": 2.7312679851088113,
+          "windows": 17,
+          "natural_seconds": 26.48
+        },
+        "dnsmos_delta": {
+          "signal": -0.6349637396851224,
+          "background": -0.3518036957248798,
+          "overall": -0.7674014107944327
+        },
+        "output_sha256": "ffb5c9194690f837ba148b5150a64047e2e76db4c24c9f1babfaac6ea2fb5fef",
+        "status": "scored"
+      },
+      "quality_gate_results": {
+        "primary_paired": false,
+        "secondary_paired": false,
+        "primary_reference_delta": true,
+        "secondary_reference_delta": true,
+        "evaluation_reference_delta": false,
+        "speaker_minimum": false,
+        "dnsmos_overall": false
+      },
+      "calibrated_original_checkpoints": 3,
+      "quality_qualified": false,
+      "detector": null,
+      "qualified_detector_negative": false,
+      "status": "speech_rejected_not_detector_tested"
+    },
+    {
+      "id": "ta2_pitch",
+      "source_case": "codec_fresh_12_ta2_sonic-preview",
+      "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+      "candidate_sha256": "1b84a728f45349ff0553b7e5f9c33487cc94c3971e15453468eb24f79972a270",
+      "language": "ta",
+      "lineage": {
+        "type": "Whole-file Rubber Band forward/inverse reconstruction",
+        "filters": "rubberband=pitch=1.0249999999999999:phase=independent:transients=smooth:formant=preserved,rubberband=pitch=0.97560975609756106:phase=independent:transients=smooth:formant=preserved",
+        "ffmpeg_version": "ffmpeg version 7.0.2-static https://johnvansickle.com/ffmpeg/  Copyright (c) 2000-2024 the FFmpeg developers",
+        "ffmpeg_executable_sha256": "e7e7fb30477f717e6f55f9180a70386c62677ef8a4d4d1a5d948f4098aa3eb99",
+        "conditioning_reflection_seconds_each_side": 0.25,
+        "conditioning_padding_removed_before_publication": true,
+        "global_alignment_samples": -2,
+        "no_local_alignment": true,
+        "render_seconds": 0.6513144290074706,
+        "aligned_waveform_correlation": 0.33286312222480774
+      },
+      "content_assessment": {
+        "label": "pitch",
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "output_sha256": "1b84a728f45349ff0553b7e5f9c33487cc94c3971e15453468eb24f79972a270",
+        "filters": "rubberband=pitch=1.0249999999999999:phase=independent:transients=smooth:formant=preserved,rubberband=pitch=0.97560975609756106:phase=independent:transients=smooth:formant=preserved",
+        "roundtrip_intermediate_duration_seconds": 26.98,
+        "restored_condition_samples": 1189417,
+        "input_condition_samples": 1189818,
+        "global_alignment_samples": -2,
+        "aligned_waveform_correlation": 0.33286312222480774,
+        "gain": 1.0,
+        "render_seconds": 0.6513144290074706,
+        "complete": true,
+        "quality_verified": false,
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "large": 0.014457831325301205,
+          "mms": 0.03255813953488372
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 415,
+          "mms": 430
+        },
+        "processed_units": {
+          "large": 410,
+          "mms": 428
+        }
+      },
+      "original_reference_error": {
+        "large": 0.023923444976076555,
+        "mms": 0.03110047846889952,
+        "small": 0.07655502392344497
+      },
+      "guard_reference_error": {
+        "large": 0.028708133971291867,
+        "mms": 0.04066985645933014
+      },
+      "guard_reference_error_delta": {
+        "large": 0.004784688995215312,
+        "mms": 0.00956937799043062
+      },
+      "evaluation": {
+        "id": "ta2_pitch",
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "output_sha256": "1b84a728f45349ff0553b7e5f9c33487cc94c3971e15453468eb24f79972a270",
+        "evaluation_checkpoint": "small",
+        "processed_reference_error": 0.09808612440191387,
+        "reference_error_delta": 0.0215311004784689,
+        "maximum_reference_delta": 0.01,
+        "reference_delta_passed": false
+      },
+      "additional_mms_evaluation": null,
+      "voice": {
+        "id": "ta2_pitch",
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "language": "ta",
+        "original_dnsmos": {
+          "signal": 3.689388415206841,
+          "background": 4.222667956781546,
+          "overall": 3.498669395903244,
+          "windows": 17,
+          "natural_seconds": 26.48
+        },
+        "window_starts_seconds": [
+          0.296,
+          8.24,
+          16.184
+        ],
+        "speaker_window_cosines": [
+          0.9543169995471936,
+          0.9066662837948413,
+          0.9234078665423013
+        ],
+        "speaker_minimum": 0.9066662837948413,
+        "processed_dnsmos": {
+          "signal": 3.1404339467470996,
+          "background": 4.012942668914938,
+          "overall": 2.8725931553409394,
+          "windows": 17,
+          "natural_seconds": 26.48
+        },
+        "dnsmos_delta": {
+          "signal": -0.5489544684597414,
+          "background": -0.2097252878666076,
+          "overall": -0.6260762405623046
+        },
+        "output_sha256": "1b84a728f45349ff0553b7e5f9c33487cc94c3971e15453468eb24f79972a270",
+        "status": "scored"
+      },
+      "quality_gate_results": {
+        "primary_paired": false,
+        "secondary_paired": false,
+        "primary_reference_delta": true,
+        "secondary_reference_delta": true,
+        "evaluation_reference_delta": false,
+        "speaker_minimum": false,
+        "dnsmos_overall": false
+      },
+      "calibrated_original_checkpoints": 3,
+      "quality_qualified": false,
+      "detector": null,
+      "qualified_detector_negative": false,
+      "status": "speech_rejected_not_detector_tested"
+    },
+    {
+      "id": "ta2_pcm_native",
+      "source_case": "codec_fresh_12_ta2_sonic-preview",
+      "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+      "candidate_sha256": "7e4abae0a0e1bb61b53cf5b8c9c83b6ffa5220982076de7312e47d40430a7120",
+      "language": "ta",
+      "lineage": {
+        "type": "Primary-guided donor repair preserving untouched PCM24 samples",
+        "initial_candidate_sha256": "3786fe0570c9fe74127668fbc83d40b342fe96158ea67923ae31226f1d516a49",
+        "generated_donor_sha256": "4e7cf06f725af2038ad0e91c277ae25b20b82172f7e03c76f437680f7cb4ef1b",
+        "donor_order_predeclared": [
+          "native",
+          "prior"
+        ],
+        "selection": {
+          "primary_change_regions": 3,
+          "unsafe_regions_skipped": 2,
+          "context_units_each_side": 8,
+          "maximum_timing_drift_seconds": 0.25,
+          "padding_seconds": 0.12,
+          "maximum_regions": 8,
+          "donor_matching_regions_only": true,
+          "reference_text_used": false,
+          "evaluation_recognizer_used": false,
+          "detector_labels_used": false
+        },
+        "repair": {
+          "repaired_fraction": 0.025678901973679703,
+          "gain": 1.0,
+          "peak_headroom_ceiling": 0.999000072479248,
+          "maximum_coverage": 0.2,
+          "maximum_regions": 8,
+          "fade_seconds": 0.04,
+          "regions_seconds": [
+            [
+              3.8,
+              4.48
+            ]
+          ],
+          "untouched_samples_preserved": true,
+          "quality_verified": false,
+          "content_guard_passed": false,
+          "api_checked": false
+        },
+        "blend_implementation_commit": "a49e31ed246279ac16d62d1d3bd08b94193958e4",
+        "blend_source_sha256": "ea43282f5416a6fb142256b3338aeaabb6f438f38b93bbdbb2a2dbd78f3524c9",
+        "zero_operation_sha256": "3786fe0570c9fe74127668fbc83d40b342fe96158ea67923ae31226f1d516a49",
+        "zero_operation_exact": true,
+        "encoded_untouched_samples_preserved": true
+      },
+      "content_assessment": {
+        "label": "native",
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "output_sha256": "7e4abae0a0e1bb61b53cf5b8c9c83b6ffa5220982076de7312e47d40430a7120",
+        "donor_sha256": "4e7cf06f725af2038ad0e91c277ae25b20b82172f7e03c76f437680f7cb4ef1b",
+        "repair_selection": {
+          "primary_change_regions": 3,
+          "unsafe_regions_skipped": 2,
+          "context_units_each_side": 8,
+          "maximum_timing_drift_seconds": 0.25,
+          "padding_seconds": 0.12,
+          "maximum_regions": 8,
+          "donor_matching_regions_only": true,
+          "reference_text_used": false,
+          "evaluation_recognizer_used": false,
+          "detector_labels_used": false
+        },
+        "repair": {
+          "repaired_fraction": 0.025678901973679703,
+          "gain": 1.0,
+          "peak_headroom_ceiling": 0.999000072479248,
+          "maximum_coverage": 0.2,
+          "maximum_regions": 8,
+          "fade_seconds": 0.04,
+          "regions_seconds": [
+            [
+              3.8,
+              4.48
+            ]
+          ],
+          "untouched_samples_preserved": true,
+          "quality_verified": false,
+          "content_guard_passed": false,
+          "api_checked": false
+        },
+        "zero_operation_sha256": "3786fe0570c9fe74127668fbc83d40b342fe96158ea67923ae31226f1d516a49",
+        "zero_operation_exact": true,
+        "encoded_untouched_samples_preserved": true,
+        "outside_region_samples": 1137779,
+        "complete": true,
+        "quality_verified": false,
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "large": 0.007228915662650603,
+          "mms": 0.002325581395348837
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 415,
+          "mms": 430
+        },
+        "processed_units": {
+          "large": 414,
+          "mms": 431
+        }
+      },
+      "original_reference_error": {
+        "large": 0.023923444976076555,
+        "mms": 0.03110047846889952,
+        "small": 0.07655502392344497
+      },
+      "guard_reference_error": {
+        "large": 0.03110047846889952,
+        "mms": 0.03349282296650718
+      },
+      "guard_reference_error_delta": {
+        "large": 0.007177033492822966,
+        "mms": 0.0023923444976076576
+      },
+      "evaluation": {
+        "id": "ta2_pcm_native",
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "output_sha256": "7e4abae0a0e1bb61b53cf5b8c9c83b6ffa5220982076de7312e47d40430a7120",
+        "evaluation_checkpoint": "small",
+        "processed_reference_error": 0.09808612440191387,
+        "reference_error_delta": 0.0215311004784689,
+        "maximum_reference_delta": 0.01,
+        "reference_delta_passed": false
+      },
+      "additional_mms_evaluation": null,
+      "voice": {
+        "id": "ta2_pcm_native",
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "language": "ta",
+        "original_dnsmos": {
+          "signal": 3.689388415206841,
+          "background": 4.222667956781546,
+          "overall": 3.498669395903244,
+          "windows": 17,
+          "natural_seconds": 26.48
+        },
+        "window_starts_seconds": [
+          0.296,
+          8.24,
+          16.184
+        ],
+        "speaker_window_cosines": [
+          0.9919684919629114,
+          0.996186050502019,
+          0.9950394475943714
+        ],
+        "speaker_minimum": 0.9919684919629114,
+        "processed_dnsmos": {
+          "signal": 3.655243559017733,
+          "background": 4.219009209432861,
+          "overall": 3.4600004002811757,
+          "windows": 17,
+          "natural_seconds": 26.48
+        },
+        "dnsmos_delta": {
+          "signal": -0.03414485618910801,
+          "background": -0.0036587473486848765,
+          "overall": -0.03866899562206827
+        },
+        "output_sha256": "7e4abae0a0e1bb61b53cf5b8c9c83b6ffa5220982076de7312e47d40430a7120",
+        "status": "scored"
+      },
+      "quality_gate_results": {
+        "primary_paired": true,
+        "secondary_paired": true,
+        "primary_reference_delta": true,
+        "secondary_reference_delta": true,
+        "evaluation_reference_delta": false,
+        "speaker_minimum": true,
+        "dnsmos_overall": true
+      },
+      "calibrated_original_checkpoints": 3,
+      "quality_qualified": false,
+      "detector": null,
+      "qualified_detector_negative": false,
+      "status": "quality_rejected_not_detector_tested"
+    },
+    {
+      "id": "ta2_inverse_narrow",
+      "source_case": "codec_fresh_12_ta2_sonic-preview",
+      "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+      "candidate_sha256": "87b9a212665236a272043cb6b0fd41a53c14905abeb5f35b43df1fb48227da0f",
+      "language": "ta",
+      "lineage": {
+        "type": "Generated native6 outside, generated band prior inside the fixed narrower band",
+        "band_hz": [
+          1500,
+          3500
+        ],
+        "outside_generated_native6_sha256": "e8e7c12539ce2f0465ca2ecb51bcc68e069b066564a2a08965714708f0e990a0",
+        "inside_generated_prior_sha256": "0e7bf3c44379521412cb56eb6a7b2d4fe9ac8974a4c6725413584812b1c6bf45",
+        "mix_source_sha256": "2a0dac863e1d7c7577cf9f029f86b3973f90a6e77b935dc6bbce9169ff018f94",
+        "original_waveform_used_in_mixture": false
+      },
+      "content_assessment": {
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "output_sha256": "87b9a212665236a272043cb6b0fd41a53c14905abeb5f35b43df1fb48227da0f",
+        "gain": 0.9906019855966932,
+        "complete": true,
+        "quality_verified": false,
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "large": 0.0024096385542168677,
+          "mms": 0.002325581395348837
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 415,
+          "mms": 430
+        },
+        "processed_units": {
+          "large": 415,
+          "mms": 431
+        }
+      },
+      "original_reference_error": {
+        "large": 0.023923444976076555,
+        "mms": 0.03110047846889952,
+        "small": 0.07655502392344497
+      },
+      "guard_reference_error": {
+        "large": 0.02631578947368421,
+        "mms": 0.03349282296650718
+      },
+      "guard_reference_error_delta": {
+        "large": 0.002392344497607654,
+        "mms": 0.0023923444976076576
+      },
+      "evaluation": {
+        "id": "ta2_inverse_narrow",
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "output_sha256": "87b9a212665236a272043cb6b0fd41a53c14905abeb5f35b43df1fb48227da0f",
+        "evaluation_checkpoint": "small",
+        "processed_reference_error": 0.07655502392344497,
+        "reference_error_delta": 0.0,
+        "maximum_reference_delta": 0.01,
+        "reference_delta_passed": true
+      },
+      "additional_mms_evaluation": null,
+      "voice": {
+        "id": "ta2_inverse_narrow",
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "language": "ta",
+        "original_dnsmos": {
+          "signal": 3.689388415206841,
+          "background": 4.222667956781546,
+          "overall": 3.498669395903244,
+          "windows": 17,
+          "natural_seconds": 26.48
+        },
+        "window_starts_seconds": [
+          0.296,
+          8.24,
+          16.184
+        ],
+        "speaker_window_cosines": [
+          0.9866908274961868,
+          0.9921236184950609,
+          0.9941670684672094
+        ],
+        "speaker_minimum": 0.9866908274961868,
+        "processed_dnsmos": {
+          "signal": 3.629359484444774,
+          "background": 4.1857028175304265,
+          "overall": 3.4249489566935223,
+          "windows": 17,
+          "natural_seconds": 26.48
+        },
+        "dnsmos_delta": {
+          "signal": -0.060028930762066945,
+          "background": -0.03696513925111944,
+          "overall": -0.07372043920972171
+        },
+        "output_sha256": "87b9a212665236a272043cb6b0fd41a53c14905abeb5f35b43df1fb48227da0f",
+        "status": "scored"
+      },
+      "quality_gate_results": {
+        "primary_paired": true,
+        "secondary_paired": true,
+        "primary_reference_delta": true,
+        "secondary_reference_delta": true,
+        "evaluation_reference_delta": true,
+        "speaker_minimum": true,
+        "dnsmos_overall": true
+      },
+      "calibrated_original_checkpoints": 3,
+      "quality_qualified": true,
+      "detector": {
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "candidate_sha256": "87b9a212665236a272043cb6b0fd41a53c14905abeb5f35b43df1fb48227da0f",
+        "assessment_sha256": "99812f215b777063fcbe99797a228331ffc5ccc9474ffe2013b6370ef69da558",
+        "checker_source_sha256": "43142b9f3a8dca38ac33c9322ffbc8abebc338f39a72b742c3b495756181814b",
+        "minimum_interval_seconds": 80,
+        "maximum_http_attempts": 6,
+        "fresh_independent_sources": 0,
+        "frozen_study_result_changed": false,
+        "human_quality_verified": false,
+        "http_attempts": [
+          {
+            "role": "opening_original",
+            "ordinal": 1,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "started_at": "2026-11-14T18:09:03.913744+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "opening_original",
+            "ordinal": 2,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "started_at": "2026-11-14T18:10:23.914114+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "candidate",
+            "ordinal": 1,
+            "sha256": "87b9a212665236a272043cb6b0fd41a53c14905abeb5f35b43df1fb48227da0f",
+            "started_at": "2026-11-14T18:11:43.914487+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "candidate",
+            "ordinal": 2,
+            "sha256": "87b9a212665236a272043cb6b0fd41a53c14905abeb5f35b43df1fb48227da0f",
+            "started_at": "2026-11-14T18:13:03.914603+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "closing_original",
+            "ordinal": 1,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "started_at": "2026-11-14T18:14:23.914904+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "closing_original",
+            "ordinal": 2,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "started_at": "2026-11-14T18:15:43.915121+00:00",
+            "http_status": 200
+          }
+        ],
+        "checks": [
+          {
+            "role": "opening_original",
+            "ordinal": 1,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T18:09:04.634499+00:00"
+          },
+          {
+            "role": "opening_original",
+            "ordinal": 2,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T18:10:25.205181+00:00"
+          },
+          {
+            "role": "candidate",
+            "ordinal": 1,
+            "sha256": "87b9a212665236a272043cb6b0fd41a53c14905abeb5f35b43df1fb48227da0f",
+            "detected": false,
+            "http_status": 200,
+            "checked_at": "2026-11-14T18:11:44.529899+00:00"
+          },
+          {
+            "role": "candidate",
+            "ordinal": 2,
+            "sha256": "87b9a212665236a272043cb6b0fd41a53c14905abeb5f35b43df1fb48227da0f",
+            "detected": false,
+            "http_status": 200,
+            "checked_at": "2026-11-14T18:13:04.620608+00:00"
+          },
+          {
+            "role": "closing_original",
+            "ordinal": 1,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T18:14:24.614333+00:00"
+          },
+          {
+            "role": "closing_original",
+            "ordinal": 2,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T18:15:44.520793+00:00"
+          }
+        ],
+        "complete": true,
+        "candidate_detected": false,
+        "status": "checked_negative",
+        "completed_at": "2026-11-14T18:15:44.520881+00:00"
+      },
+      "qualified_detector_negative": true,
+      "status": "qualified_detector_negative"
+    }
+  ],
+  "unrendered_coverage_rejection": {
+    "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+    "initial_candidate_sha256": "861bea1b97647e6c8eeea60a497dce84acbff40acbc6891287b235db577329d7",
+    "native_donor_sha256": "4e7cf06f725af2038ad0e91c277ae25b20b82172f7e03c76f437680f7cb4ef1b",
+    "maximum_coverage": 0.2,
+    "maximum_regions": 8,
+    "proposal": {
+      "fresh_independent_sources": 0,
+      "reference_text_used": false,
+      "one_proposal_from_original_candidate": true,
+      "primary_regions_seconds": [
+        [
+          3.8,
+          4.48
+        ]
+      ],
+      "secondary_regions_seconds": [
+        [
+          0.1,
+          0.6
+        ],
+        [
+          1.2600000000000002,
+          2.3200000000000003
+        ],
+        [
+          2.52,
+          3.98
+        ],
+        [
+          9.14,
+          10.34
+        ],
+        [
+          10.16,
+          11.0
+        ]
+      ],
+      "combined_regions_seconds": [
+        [
+          0.1,
+          0.6
+        ],
+        [
+          1.2600000000000002,
+          2.3200000000000003
+        ],
+        [
+          2.52,
+          3.98
+        ],
+        [
+          3.8,
+          4.48
+        ],
+        [
+          9.14,
+          10.34
+        ],
+        [
+          10.16,
+          11.0
+        ]
+      ],
+      "secondary_proof": {
+        "unsafe_regions_skipped": 0,
+        "maximum_timing_drift_seconds": 0.25,
+        "native_original_unit_parity": false,
+        "donor_matching_regions_only": true
+      },
+      "complete": true
+    },
+    "rendered_output": false,
+    "new_http_requests": 0,
+    "new_asr_calls": 0,
+    "fresh_independent_sources": 0,
+    "complete": true,
+    "status": "coverage_rejected",
+    "reason": "Repair would replace too much of the recording"
+  },
+  "unrendered_donor_rejection": [
+    {
+      "label": "prior",
+      "status": "no_safe_donor_region",
+      "donor_sha256": "0e7bf3c44379521412cb56eb6a7b2d4fe9ac8974a4c6725413584812b1c6bf45",
+      "reason": "No uniquely anchored primary change has a safe generated donor"
+    }
+  ],
+  "donor_rejection_receipt": {
+    "expected_selection_rejection": "No uniquely anchored primary change has a safe generated donor",
+    "original_probe_log_sha256": "7b1c7566a563c7f8cb5b6fb391d84a43c0387d5d7b6729b8edafaee4619a3e74",
+    "rendered_native_result_preserved": true,
+    "prior_output_produced": false,
+    "new_asr_calls": 0,
+    "new_http_requests": 0,
+    "completed_at": "2026-11-14T18:05:47.821677+00:00",
+    "complete": true
+  },
+  "old_blending_numerical_review": {
+    "source_candidate_sha256": "3786fe0570c9fe74127668fbc83d40b342fe96158ea67923ae31226f1d516a49",
+    "patched_sha256": "f04c9b84f2a5f07daa507d468ffec4feedcbcbcccb81dcfa14821498d4bdc645",
+    "outside_region_samples": 1137779,
+    "outside_region_changed_samples": 2423,
+    "maximum_outside_difference_pcm24_steps": 1.0,
+    "base_peak": 0.999000072479248,
+    "nominal_headroom": 0.999,
+    "applied_gain": 0.9999999274482054,
+    "new_asr_calls": 0,
+    "reference_text_used": false
+  },
+  "packaged_narrow_inverse_integration": {
+    "implementation_commit": "bdc9a2314bb5b09ed2aa4285de411e3d717d08ba",
+    "source_files_sha256": {
+      "tools/codec_word_consensus.py": "b8afdddddc1d8fab2b93036786a88ccb63473063dbc4e4572ed5d2619807a3f2",
+      "tools/codec_audio.py": "2a0dac863e1d7c7577cf9f029f86b3973f90a6e77b935dc6bbce9169ff018f94",
+      "tools/codec_text.py": "2b3f9503c9e39c330d60ae727415995822fec4daa4de7560572de905eab25f96",
+      "tools/codec_teacher.py": "abebef4244f452e3d962ec6d88c9917806a98ad48512281875f41dc4d2cf3fb4",
+      "tools/codec_repair.py": "e6839578ce6d319e9463196521860b050d96f0f81f1ed8cafc14d3fe3918561a",
+      "tools/codec_content.py": "1f7af6d64a8f79b80da9bbfb77f0d7497552b126fd189c8085e388e0604d97fe",
+      "tools/codec_settings.py": "4ac4ab3d31ab5e037ae2c22d6f0070a5f947cf728d214a472417ec55d439b841",
+      "tools/codec_inference.py": "1f86876e3ab07e960dd9ac9c4ad9f1a773393ac31bdef969f9d25b52370d2a9e",
+      "tools/reconstruct_codec.py": "e5def4d0f7455a36cfe5c89f60084ce776f1c8824bdedcb5dc40dc5e3b833205",
+      "tools/reconstruct_codec_band.py": "b5102f096a9a070b5496ced2f93ff3c29521d2326e78a2e8694a70bb7868e195",
+      "tools/vocoder_band_prior.py": "8b153b0e25421d560c3f9a41e5e36ea44f1ed0a7ad417b0c49af76f6e69b033f"
+    },
+    "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+    "expected_canonical_sha256": "87b9a212665236a272043cb6b0fd41a53c14905abeb5f35b43df1fb48227da0f",
+    "fresh_independent_sources": 0,
+    "new_http_requests": 0,
+    "reference_text_used": false,
+    "neural_work_complete": true,
+    "started_at": "2026-11-14T18:11:02.418604+00:00",
+    "complete": true,
+    "content_guard_passed": true,
+    "paired_disagreement": {
+      "large": 0.0024096385542168677,
+      "mms": 0.002325581395348837
+    },
+    "actual_asr_used": true,
+    "output_wav_sha256": "f9565da4b739df0ca50f4f248dc4d3a4c3de9c0efc37813a2016246d4de358eb",
+    "canonical_output_sha256": "87b9a212665236a272043cb6b0fd41a53c14905abeb5f35b43df1fb48227da0f",
+    "metadata_sha256": "b228c27609304d4c40d81c4c352665a20b80b3a302016b7b260bd511b8e8553c",
+    "elapsed_seconds": 178.59028652496636,
+    "exact_prototype_file_reproduction": true,
+    "original_research_endpoint_receipt_sha256": "ebe77e97297e79d96b26c93e0422b9e633eb2561a3e14be1f67d9f92a61cd7c5",
+    "original_research_candidate_detected": false,
+    "meaning": "Actual packaged synthesis and both real guards; identical research-checked FLAC, no new detector observations or independent sources",
+    "completed_at": "2026-11-14T18:15:48.604368+00:00"
+  },
+  "unsupported_character_consensus_review": {
+    "candidate_sha256": "3786fe0570c9fe74127668fbc83d40b342fe96158ea67923ae31226f1d516a49",
+    "context_units_each_side": 16,
+    "supported_isolated_substitutions": [],
+    "raw_guard_rejection_retained": true,
+    "new_profile_applied": false,
+    "new_asr_calls": 0,
+    "new_http_requests": 0,
+    "fresh_independent_sources": 0,
+    "comparison_helper_sha256": "b2861fa7e6615c90480d656c011d14040bebdce27e5e89fb14124617049a5afe",
+    "complete": true
+  },
+  "qualified_detector_negative_sources": 1,
+  "human_listening_approval": false,
+  "physical_erasure_proven": false,
+  "limits": [
+    "All thirteen planned treatments reuse the same previously tested Sonic Preview recording.",
+    "Tamil processing and independent reference-delta thresholds remain one percent, with vowel marks preserved.",
+    "Split-band outputs retain original audio and cannot establish physical erasure.",
+    "The repair uses primary-ASR differences and unique independent timing context, generated donors only, and a twenty-percent coverage ceiling; final guards are rerun without transcript exceptions.",
+    "Reference text and the evaluation recognizer enter scoring only after processing is fixed.",
+    "Failed speech/quality checks remain failures and are not sent to the detector.",
+    "Repeated whole-file negatives with positive source brackets would still add no held-out source."
+  ]
+}

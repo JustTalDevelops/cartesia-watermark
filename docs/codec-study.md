@@ -33,6 +33,8 @@ remained detected twice with each content-qualified preset. Six other sources
 exhausted their presets because of detection or content-guard rejections.
 The workflow did not meet the reliability target. Subsequent development probes
 use these spent sources; they cannot change this study or add fresh evidence.
+See the [development results](codec-development.md) for the complete follow-ups,
+including detector-negative outputs that failed speech quality.
 
 ## Frozen procedure
 
@@ -75,6 +77,11 @@ the UTF-8 byte count at $65 per million credits, enforces the shared $50 ceiling
 and never repeats a request with an existing reservation. A failed or uncertain
 request remains fully reserved. The plan records the official pricing source and
 the date checked. Generation is a paid operation.
+
+A separately frozen future study can use `--generation-subdirectory` to keep its
+receipt under a different child directory of the same `--directory`. It still uses
+the existing shared ledger and rejects repeated reservation IDs. This option does
+not create a new budget or permit replaying the completed study.
 
 From the repository root, the explicit stages are:
 

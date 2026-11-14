@@ -1,0 +1,2255 @@
+{
+  "kind": "Spent vocoder smoothing and alternative-codec tradeoffs",
+  "independent_source_recordings": 3,
+  "fresh_independent_sources": 0,
+  "new_tts_requests": 0,
+  "frozen_primary_study_result_changed": false,
+  "candidates": [
+    {
+      "id": "ta_gentle",
+      "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+      "candidate_sha256": "697628b03dbef2ff891a3be011de3cd2eec010240540fcb5aee5dc6b80a4fcfc",
+      "settings": {
+        "sigma_frequency": 0.5,
+        "sigma_time": 0.5
+      },
+      "assessment": {
+        "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+        "output_sha256": "697628b03dbef2ff891a3be011de3cd2eec010240540fcb5aee5dc6b80a4fcfc",
+        "sigma_frequency": 0.5,
+        "sigma_time": 0.5,
+        "complete": true,
+        "quality_verified": false,
+        "recognizer_implementation_commit": "a984fb6d6d17965b7b2dcba5c2909f3f6431db9d",
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "large": 0.0023584905660377358,
+          "mms": 0.007042253521126761
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 424,
+          "mms": 426
+        },
+        "processed_units": {
+          "large": 424,
+          "mms": 427
+        }
+      },
+      "reference_errors": {
+        "original_guards": {
+          "large": 0.027972027972027972,
+          "mms": 0.030303030303030304
+        },
+        "processed_guards": {
+          "large": 0.030303030303030304,
+          "mms": 0.02564102564102564
+        },
+        "guard_deltas": {
+          "large": 0.002331002331002332,
+          "mms": -0.004662004662004664
+        },
+        "evaluation_only": {
+          "id": "ta_gentle",
+          "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+          "output_sha256": "697628b03dbef2ff891a3be011de3cd2eec010240540fcb5aee5dc6b80a4fcfc",
+          "evaluation_checkpoint": "small",
+          "processed_reference_error": 0.053613053613053616,
+          "reference_error_delta": 0.0023310023310023353,
+          "maximum_reference_delta": 0.01,
+          "reference_delta_passed": true
+        },
+        "evaluation_checkpoint": {
+          "historical_raw_cache_metadata": {
+            "model": "openai/whisper-small",
+            "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+            "attention": "sdpa",
+            "precision": "float32",
+            "decode": "Native timestamps, minimum30s features, complete longer input, max_new_tokens440, no sampling/previous-text conditioning",
+            "role": "Evaluation-only checkpoint",
+            "reference_normalization": "NFKC, BasicTextNormalizer(False); Chinese OpenCC1.1.9 t2s.json before reference CER; Japanese CER; whitespace WER otherwise",
+            "paired_normalization": "Original runtime normalization: NFKC BasicTextNormalizer(False), zh/ja characters, whitespace otherwise"
+          },
+          "role_in_these_candidates": "Evaluation only; never used for processing selection",
+          "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+          "original_reference_error": 0.05128205128205128
+        }
+      },
+      "voice": {
+        "id": "ta_gentle",
+        "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+        "language": "ta",
+        "original_dnsmos": {
+          "signal": 3.65679874251206,
+          "background": 4.199410242332689,
+          "overall": 3.44685987083851,
+          "windows": 21,
+          "natural_seconds": 30.08
+        },
+        "window_starts_seconds": [
+          1.016,
+          10.04,
+          19.064
+        ],
+        "speaker_window_cosines": [
+          0.9976381970429317,
+          0.9962025781932179,
+          0.9971615994779945
+        ],
+        "speaker_minimum": 0.9962025781932179,
+        "processed_dnsmos": {
+          "signal": 3.668653975344855,
+          "background": 4.1943467010730915,
+          "overall": 3.4491276272693208,
+          "windows": 21,
+          "natural_seconds": 30.08
+        },
+        "dnsmos_delta": {
+          "signal": 0.011855232832794993,
+          "background": -0.005063541259597848,
+          "overall": 0.0022677564308106746
+        },
+        "output_sha256": "697628b03dbef2ff891a3be011de3cd2eec010240540fcb5aee5dc6b80a4fcfc",
+        "status": "scored"
+      },
+      "quality_gate_results": {
+        "evaluation_checkpoint_reference_delta": true,
+        "primary_reference_delta": true,
+        "secondary_reference_delta": true,
+        "primary_paired": true,
+        "secondary_paired": true,
+        "speaker_minimum": true,
+        "dnsmos_overall": true
+      },
+      "calibrated_original_checkpoints": 3,
+      "original_calibration_ceiling": 0.1,
+      "all_seven_estimated_quality_gates_passed": true,
+      "additional_mms_evaluation": null,
+      "additional_mms_reference_delta_passed": null,
+      "quality_qualified": true,
+      "detector": {
+        "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+        "candidate_sha256": "697628b03dbef2ff891a3be011de3cd2eec010240540fcb5aee5dc6b80a4fcfc",
+        "assessment_sha256": "7f4748a3b171246de4b45950587490d3eef36c5d2570fc94c5a18d2b9625ed5b",
+        "checker_source_sha256": "43142b9f3a8dca38ac33c9322ffbc8abebc338f39a72b742c3b495756181814b",
+        "minimum_interval_seconds": 80,
+        "maximum_http_attempts": 6,
+        "fresh_independent_sources": 0,
+        "frozen_study_result_changed": false,
+        "human_quality_verified": false,
+        "http_attempts": [
+          {
+            "role": "opening_original",
+            "ordinal": 1,
+            "sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+            "started_at": "2026-11-14T15:11:27.920740+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "opening_original",
+            "ordinal": 2,
+            "sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+            "started_at": "2026-11-14T15:12:47.920909+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "candidate",
+            "ordinal": 1,
+            "sha256": "697628b03dbef2ff891a3be011de3cd2eec010240540fcb5aee5dc6b80a4fcfc",
+            "started_at": "2026-11-14T15:14:07.921512+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "candidate",
+            "ordinal": 2,
+            "sha256": "697628b03dbef2ff891a3be011de3cd2eec010240540fcb5aee5dc6b80a4fcfc",
+            "started_at": "2026-11-14T15:15:27.922044+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "closing_original",
+            "ordinal": 1,
+            "sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+            "started_at": "2026-11-14T15:16:47.922351+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "closing_original",
+            "ordinal": 2,
+            "sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+            "started_at": "2026-11-14T15:18:07.922844+00:00",
+            "http_status": 200
+          }
+        ],
+        "checks": [
+          {
+            "role": "opening_original",
+            "ordinal": 1,
+            "sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T15:11:29.046763+00:00"
+          },
+          {
+            "role": "opening_original",
+            "ordinal": 2,
+            "sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T15:12:48.697791+00:00"
+          },
+          {
+            "role": "candidate",
+            "ordinal": 1,
+            "sha256": "697628b03dbef2ff891a3be011de3cd2eec010240540fcb5aee5dc6b80a4fcfc",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T15:14:08.697209+00:00"
+          },
+          {
+            "role": "candidate",
+            "ordinal": 2,
+            "sha256": "697628b03dbef2ff891a3be011de3cd2eec010240540fcb5aee5dc6b80a4fcfc",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T15:15:29.005913+00:00"
+          },
+          {
+            "role": "closing_original",
+            "ordinal": 1,
+            "sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T15:16:48.681696+00:00"
+          },
+          {
+            "role": "closing_original",
+            "ordinal": 2,
+            "sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T15:18:08.693298+00:00"
+          }
+        ],
+        "complete": true,
+        "candidate_detected": true,
+        "status": "checked_positive",
+        "completed_at": "2026-11-14T15:18:08.693575+00:00"
+      },
+      "qualified_detector_negative": false,
+      "status": "still_detected_twice"
+    },
+    {
+      "id": "ta_smoothed",
+      "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+      "candidate_sha256": "178edb3780f83924116264dd97d0ea3caba3a5464bd00ba35ba4734fa789c898",
+      "settings": {
+        "sigma_frequency": 1.0,
+        "sigma_time": 1.0
+      },
+      "assessment": {
+        "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+        "output_sha256": "178edb3780f83924116264dd97d0ea3caba3a5464bd00ba35ba4734fa789c898",
+        "sigma_frequency": 1.0,
+        "sigma_time": 1.0,
+        "complete": true,
+        "quality_verified": false,
+        "recognizer_implementation_commit": "a984fb6d6d17965b7b2dcba5c2909f3f6431db9d",
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "large": 0.007075471698113208,
+          "mms": 0.009389671361502348
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 424,
+          "mms": 426
+        },
+        "processed_units": {
+          "large": 424,
+          "mms": 426
+        }
+      },
+      "reference_errors": {
+        "original_guards": {
+          "large": 0.027972027972027972,
+          "mms": 0.030303030303030304
+        },
+        "processed_guards": {
+          "large": 0.03496503496503497,
+          "mms": 0.03263403263403263
+        },
+        "guard_deltas": {
+          "large": 0.006993006993006996,
+          "mms": 0.0023310023310023284
+        },
+        "evaluation_only": {
+          "id": "ta_smoothed",
+          "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+          "output_sha256": "178edb3780f83924116264dd97d0ea3caba3a5464bd00ba35ba4734fa789c898",
+          "evaluation_checkpoint": "small",
+          "processed_reference_error": 0.06993006993006994,
+          "reference_error_delta": 0.018648018648018655,
+          "maximum_reference_delta": 0.01,
+          "reference_delta_passed": false
+        },
+        "evaluation_checkpoint": {
+          "historical_raw_cache_metadata": {
+            "model": "openai/whisper-small",
+            "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+            "attention": "sdpa",
+            "precision": "float32",
+            "decode": "Native timestamps, minimum30s features, complete longer input, max_new_tokens440, no sampling/previous-text conditioning",
+            "role": "Evaluation-only checkpoint",
+            "reference_normalization": "NFKC, BasicTextNormalizer(False); Chinese OpenCC1.1.9 t2s.json before reference CER; Japanese CER; whitespace WER otherwise",
+            "paired_normalization": "Original runtime normalization: NFKC BasicTextNormalizer(False), zh/ja characters, whitespace otherwise"
+          },
+          "role_in_these_candidates": "Evaluation only; never used for processing selection",
+          "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+          "original_reference_error": 0.05128205128205128
+        }
+      },
+      "voice": {
+        "id": "ta_smoothed",
+        "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+        "language": "ta",
+        "original_dnsmos": {
+          "signal": 3.65679874251206,
+          "background": 4.199410242332689,
+          "overall": 3.44685987083851,
+          "windows": 21,
+          "natural_seconds": 30.08
+        },
+        "window_starts_seconds": [
+          1.016,
+          10.04,
+          19.064
+        ],
+        "speaker_window_cosines": [
+          0.9797453555487231,
+          0.9651010334771074,
+          0.9650324288181862
+        ],
+        "speaker_minimum": 0.9650324288181862,
+        "processed_dnsmos": {
+          "signal": 3.291893514766974,
+          "background": 3.950404377573584,
+          "overall": 2.979375757090043,
+          "windows": 21,
+          "natural_seconds": 30.08
+        },
+        "dnsmos_delta": {
+          "signal": -0.36490522774508616,
+          "background": -0.24900586475910513,
+          "overall": -0.4674841137484669
+        },
+        "output_sha256": "178edb3780f83924116264dd97d0ea3caba3a5464bd00ba35ba4734fa789c898",
+        "status": "scored"
+      },
+      "quality_gate_results": {
+        "evaluation_checkpoint_reference_delta": false,
+        "primary_reference_delta": true,
+        "secondary_reference_delta": true,
+        "primary_paired": true,
+        "secondary_paired": true,
+        "speaker_minimum": true,
+        "dnsmos_overall": false
+      },
+      "calibrated_original_checkpoints": 3,
+      "original_calibration_ceiling": 0.1,
+      "all_seven_estimated_quality_gates_passed": false,
+      "additional_mms_evaluation": null,
+      "additional_mms_reference_delta_passed": null,
+      "quality_qualified": false,
+      "detector": {
+        "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+        "candidate_sha256": "178edb3780f83924116264dd97d0ea3caba3a5464bd00ba35ba4734fa789c898",
+        "assessment_sha256": "e807ddcca1afa0a9793d8f7b5a49830efa5e2f25fbf25f321c95de0033dfe09c",
+        "checker_source_sha256": "43142b9f3a8dca38ac33c9322ffbc8abebc338f39a72b742c3b495756181814b",
+        "minimum_interval_seconds": 80,
+        "maximum_http_attempts": 6,
+        "fresh_independent_sources": 0,
+        "frozen_study_result_changed": false,
+        "human_quality_verified": false,
+        "http_attempts": [
+          {
+            "role": "opening_original",
+            "ordinal": 1,
+            "sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+            "started_at": "2026-11-14T15:19:27.923051+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "opening_original",
+            "ordinal": 2,
+            "sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+            "started_at": "2026-11-14T15:20:47.923181+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "candidate",
+            "ordinal": 1,
+            "sha256": "178edb3780f83924116264dd97d0ea3caba3a5464bd00ba35ba4734fa789c898",
+            "started_at": "2026-11-14T15:22:07.923315+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "candidate",
+            "ordinal": 2,
+            "sha256": "178edb3780f83924116264dd97d0ea3caba3a5464bd00ba35ba4734fa789c898",
+            "started_at": "2026-11-14T15:23:27.923562+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "closing_original",
+            "ordinal": 1,
+            "sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+            "started_at": "2026-11-14T15:24:47.923785+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "closing_original",
+            "ordinal": 2,
+            "sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+            "started_at": "2026-11-14T15:26:07.924020+00:00",
+            "http_status": 200
+          }
+        ],
+        "checks": [
+          {
+            "role": "opening_original",
+            "ordinal": 1,
+            "sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T15:19:28.690225+00:00"
+          },
+          {
+            "role": "opening_original",
+            "ordinal": 2,
+            "sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T15:20:49.050298+00:00"
+          },
+          {
+            "role": "candidate",
+            "ordinal": 1,
+            "sha256": "178edb3780f83924116264dd97d0ea3caba3a5464bd00ba35ba4734fa789c898",
+            "detected": false,
+            "http_status": 200,
+            "checked_at": "2026-11-14T15:22:08.938216+00:00"
+          },
+          {
+            "role": "candidate",
+            "ordinal": 2,
+            "sha256": "178edb3780f83924116264dd97d0ea3caba3a5464bd00ba35ba4734fa789c898",
+            "detected": false,
+            "http_status": 200,
+            "checked_at": "2026-11-14T15:23:28.567826+00:00"
+          },
+          {
+            "role": "closing_original",
+            "ordinal": 1,
+            "sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T15:24:48.694602+00:00"
+          },
+          {
+            "role": "closing_original",
+            "ordinal": 2,
+            "sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T15:26:08.689744+00:00"
+          }
+        ],
+        "complete": true,
+        "candidate_detected": false,
+        "status": "checked_negative",
+        "completed_at": "2026-11-14T15:26:08.694222+00:00"
+      },
+      "qualified_detector_negative": false,
+      "status": "detector_negative_but_quality_rejected"
+    },
+    {
+      "id": "ta_mid",
+      "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+      "candidate_sha256": "bc9758e8c3e57c17314e0355adc4867eb9303b80d8c0f50b824548807112fb50",
+      "settings": {
+        "sigma_frequency": 0.75,
+        "sigma_time": 0.75
+      },
+      "assessment": {
+        "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+        "output_sha256": "bc9758e8c3e57c17314e0355adc4867eb9303b80d8c0f50b824548807112fb50",
+        "sigma_frequency": 0.75,
+        "sigma_time": 0.75,
+        "complete": true,
+        "quality_verified": false,
+        "recognizer_implementation_commit": "a984fb6d6d17965b7b2dcba5c2909f3f6431db9d",
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "large": 0.007075471698113208,
+          "mms": 0.009389671361502348
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 424,
+          "mms": 426
+        },
+        "processed_units": {
+          "large": 424,
+          "mms": 428
+        }
+      },
+      "reference_errors": {
+        "original_guards": {
+          "large": 0.027972027972027972,
+          "mms": 0.030303030303030304
+        },
+        "processed_guards": {
+          "large": 0.03496503496503497,
+          "mms": 0.027972027972027972
+        },
+        "guard_deltas": {
+          "large": 0.006993006993006996,
+          "mms": -0.002331002331002332
+        },
+        "evaluation_only": {
+          "id": "ta_mid",
+          "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+          "output_sha256": "bc9758e8c3e57c17314e0355adc4867eb9303b80d8c0f50b824548807112fb50",
+          "evaluation_checkpoint": "small",
+          "processed_reference_error": 0.07692307692307693,
+          "reference_error_delta": 0.025641025641025647,
+          "maximum_reference_delta": 0.01,
+          "reference_delta_passed": false
+        },
+        "evaluation_checkpoint": {
+          "historical_raw_cache_metadata": {
+            "model": "openai/whisper-small",
+            "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+            "attention": "sdpa",
+            "precision": "float32",
+            "decode": "Native timestamps, minimum30s features, complete longer input, max_new_tokens440, no sampling/previous-text conditioning",
+            "role": "Evaluation-only checkpoint",
+            "reference_normalization": "NFKC, BasicTextNormalizer(False); Chinese OpenCC1.1.9 t2s.json before reference CER; Japanese CER; whitespace WER otherwise",
+            "paired_normalization": "Original runtime normalization: NFKC BasicTextNormalizer(False), zh/ja characters, whitespace otherwise"
+          },
+          "role_in_these_candidates": "Evaluation only; never used for processing selection",
+          "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+          "original_reference_error": 0.05128205128205128
+        }
+      },
+      "voice": {
+        "id": "ta_mid",
+        "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+        "language": "ta",
+        "original_dnsmos": {
+          "signal": 3.65679874251206,
+          "background": 4.199410242332689,
+          "overall": 3.44685987083851,
+          "windows": 21,
+          "natural_seconds": 30.08
+        },
+        "window_starts_seconds": [
+          1.016,
+          10.04,
+          19.064
+        ],
+        "speaker_window_cosines": [
+          0.9875708592119276,
+          0.9904421918690545,
+          0.9878484865625344
+        ],
+        "speaker_minimum": 0.9875708592119276,
+        "processed_dnsmos": {
+          "signal": 3.5011903135417737,
+          "background": 4.121510246582558,
+          "overall": 3.2473066227600094,
+          "windows": 21,
+          "natural_seconds": 30.08
+        },
+        "dnsmos_delta": {
+          "signal": -0.15560842897028637,
+          "background": -0.07789999575013162,
+          "overall": -0.19955324807850072
+        },
+        "output_sha256": "bc9758e8c3e57c17314e0355adc4867eb9303b80d8c0f50b824548807112fb50",
+        "status": "scored"
+      },
+      "quality_gate_results": {
+        "evaluation_checkpoint_reference_delta": false,
+        "primary_reference_delta": true,
+        "secondary_reference_delta": true,
+        "primary_paired": true,
+        "secondary_paired": true,
+        "speaker_minimum": true,
+        "dnsmos_overall": true
+      },
+      "calibrated_original_checkpoints": 3,
+      "original_calibration_ceiling": 0.1,
+      "all_seven_estimated_quality_gates_passed": false,
+      "additional_mms_evaluation": null,
+      "additional_mms_reference_delta_passed": null,
+      "quality_qualified": false,
+      "detector": {
+        "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+        "candidate_sha256": "bc9758e8c3e57c17314e0355adc4867eb9303b80d8c0f50b824548807112fb50",
+        "assessment_sha256": "84e7792bb5fd71764c22663093a6198aab99cfcfe1c8a6dbc7c7f220c6bbdb0c",
+        "checker_source_sha256": "43142b9f3a8dca38ac33c9322ffbc8abebc338f39a72b742c3b495756181814b",
+        "minimum_interval_seconds": 80,
+        "maximum_http_attempts": 6,
+        "fresh_independent_sources": 0,
+        "frozen_study_result_changed": false,
+        "human_quality_verified": false,
+        "http_attempts": [
+          {
+            "role": "opening_original",
+            "ordinal": 1,
+            "sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+            "started_at": "2026-11-14T15:43:27.927457+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "opening_original",
+            "ordinal": 2,
+            "sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+            "started_at": "2026-11-14T15:44:47.927676+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "candidate",
+            "ordinal": 1,
+            "sha256": "bc9758e8c3e57c17314e0355adc4867eb9303b80d8c0f50b824548807112fb50",
+            "started_at": "2026-11-14T15:46:07.928007+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "candidate",
+            "ordinal": 2,
+            "sha256": "bc9758e8c3e57c17314e0355adc4867eb9303b80d8c0f50b824548807112fb50",
+            "started_at": "2026-11-14T15:47:27.928236+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "closing_original",
+            "ordinal": 1,
+            "sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+            "started_at": "2026-11-14T15:48:47.928439+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "closing_original",
+            "ordinal": 2,
+            "sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+            "started_at": "2026-11-14T15:50:07.928740+00:00",
+            "http_status": 200
+          }
+        ],
+        "checks": [
+          {
+            "role": "opening_original",
+            "ordinal": 1,
+            "sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T15:43:28.696073+00:00"
+          },
+          {
+            "role": "opening_original",
+            "ordinal": 2,
+            "sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T15:44:48.752133+00:00"
+          },
+          {
+            "role": "candidate",
+            "ordinal": 1,
+            "sha256": "bc9758e8c3e57c17314e0355adc4867eb9303b80d8c0f50b824548807112fb50",
+            "detected": false,
+            "http_status": 200,
+            "checked_at": "2026-11-14T15:46:09.002864+00:00"
+          },
+          {
+            "role": "candidate",
+            "ordinal": 2,
+            "sha256": "bc9758e8c3e57c17314e0355adc4867eb9303b80d8c0f50b824548807112fb50",
+            "detected": false,
+            "http_status": 200,
+            "checked_at": "2026-11-14T15:47:28.684255+00:00"
+          },
+          {
+            "role": "closing_original",
+            "ordinal": 1,
+            "sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T15:48:49.036373+00:00"
+          },
+          {
+            "role": "closing_original",
+            "ordinal": 2,
+            "sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T15:50:08.683329+00:00"
+          }
+        ],
+        "complete": true,
+        "candidate_detected": false,
+        "status": "checked_negative",
+        "completed_at": "2026-11-14T15:50:08.687432+00:00"
+      },
+      "qualified_detector_negative": false,
+      "status": "detector_negative_but_quality_rejected"
+    },
+    {
+      "id": "ta2_gentle",
+      "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+      "candidate_sha256": "800d9d016c0919c1481aff9b8e3caedcd528542895ddf55a912ef4c0f37a0abe",
+      "settings": {
+        "sigma_frequency": 0.5,
+        "sigma_time": 0.5
+      },
+      "assessment": {
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "output_sha256": "800d9d016c0919c1481aff9b8e3caedcd528542895ddf55a912ef4c0f37a0abe",
+        "sigma_frequency": 0.5,
+        "sigma_time": 0.5,
+        "complete": true,
+        "quality_verified": false,
+        "recognizer_implementation_commit": "a984fb6d6d17965b7b2dcba5c2909f3f6431db9d",
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "large": 0.0,
+          "mms": 0.002325581395348837
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 415,
+          "mms": 430
+        },
+        "processed_units": {
+          "large": 415,
+          "mms": 430
+        }
+      },
+      "reference_errors": {
+        "original_guards": {
+          "large": 0.023923444976076555,
+          "mms": 0.03110047846889952
+        },
+        "processed_guards": {
+          "large": 0.023923444976076555,
+          "mms": 0.03349282296650718
+        },
+        "guard_deltas": {
+          "large": 0.0,
+          "mms": 0.0023923444976076576
+        },
+        "evaluation_only": {
+          "id": "ta2_gentle",
+          "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+          "output_sha256": "800d9d016c0919c1481aff9b8e3caedcd528542895ddf55a912ef4c0f37a0abe",
+          "evaluation_checkpoint": "small",
+          "processed_reference_error": 0.08373205741626795,
+          "reference_error_delta": 0.007177033492822976,
+          "maximum_reference_delta": 0.01,
+          "reference_delta_passed": true
+        },
+        "evaluation_checkpoint": {
+          "historical_raw_cache_metadata": {
+            "model": "openai/whisper-small",
+            "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+            "attention": "sdpa",
+            "precision": "float32",
+            "decode": "Native timestamps, minimum30s features, complete longer input, max_new_tokens440, no sampling/previous-text conditioning",
+            "role": "Evaluation-only checkpoint",
+            "reference_normalization": "NFKC, BasicTextNormalizer(False); Chinese OpenCC1.1.9 t2s.json before reference CER; Japanese CER; whitespace WER otherwise",
+            "paired_normalization": "Original runtime normalization: NFKC BasicTextNormalizer(False), zh/ja characters, whitespace otherwise"
+          },
+          "role_in_these_candidates": "Evaluation only; never used for processing selection",
+          "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+          "original_reference_error": 0.07655502392344497
+        }
+      },
+      "voice": {
+        "id": "ta2_gentle",
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "language": "ta",
+        "original_dnsmos": {
+          "signal": 3.689388415206841,
+          "background": 4.222667956781546,
+          "overall": 3.498669395903244,
+          "windows": 17,
+          "natural_seconds": 26.48
+        },
+        "window_starts_seconds": [
+          0.296,
+          8.24,
+          16.184
+        ],
+        "speaker_window_cosines": [
+          0.9942467785755308,
+          0.9941497993363433,
+          0.9950344635594734
+        ],
+        "speaker_minimum": 0.9941497993363433,
+        "processed_dnsmos": {
+          "signal": 3.6623366524498144,
+          "background": 4.211668554147817,
+          "overall": 3.463283490850294,
+          "windows": 17,
+          "natural_seconds": 26.48
+        },
+        "dnsmos_delta": {
+          "signal": -0.027051762757026587,
+          "background": -0.010999402633729005,
+          "overall": -0.03538590505295014
+        },
+        "output_sha256": "800d9d016c0919c1481aff9b8e3caedcd528542895ddf55a912ef4c0f37a0abe",
+        "status": "scored"
+      },
+      "quality_gate_results": {
+        "evaluation_checkpoint_reference_delta": true,
+        "primary_reference_delta": true,
+        "secondary_reference_delta": true,
+        "primary_paired": true,
+        "secondary_paired": true,
+        "speaker_minimum": true,
+        "dnsmos_overall": true
+      },
+      "calibrated_original_checkpoints": 3,
+      "original_calibration_ceiling": 0.1,
+      "all_seven_estimated_quality_gates_passed": true,
+      "additional_mms_evaluation": null,
+      "additional_mms_reference_delta_passed": null,
+      "quality_qualified": true,
+      "detector": {
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "candidate_sha256": "800d9d016c0919c1481aff9b8e3caedcd528542895ddf55a912ef4c0f37a0abe",
+        "assessment_sha256": "ccb9c410bb9c79836b4bd2c91b54dbf28719883031ec9af8f0d9c054e773eec7",
+        "checker_source_sha256": "43142b9f3a8dca38ac33c9322ffbc8abebc338f39a72b742c3b495756181814b",
+        "minimum_interval_seconds": 80,
+        "maximum_http_attempts": 6,
+        "fresh_independent_sources": 0,
+        "frozen_study_result_changed": false,
+        "human_quality_verified": false,
+        "http_attempts": [
+          {
+            "role": "opening_original",
+            "ordinal": 1,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "started_at": "2026-11-14T15:35:27.926088+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "opening_original",
+            "ordinal": 2,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "started_at": "2026-11-14T15:36:47.926284+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "candidate",
+            "ordinal": 1,
+            "sha256": "800d9d016c0919c1481aff9b8e3caedcd528542895ddf55a912ef4c0f37a0abe",
+            "started_at": "2026-11-14T15:38:07.926487+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "candidate",
+            "ordinal": 2,
+            "sha256": "800d9d016c0919c1481aff9b8e3caedcd528542895ddf55a912ef4c0f37a0abe",
+            "started_at": "2026-11-14T15:39:27.926772+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "closing_original",
+            "ordinal": 1,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "started_at": "2026-11-14T15:40:47.926943+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "closing_original",
+            "ordinal": 2,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "started_at": "2026-11-14T15:42:07.927085+00:00",
+            "http_status": 200
+          }
+        ],
+        "checks": [
+          {
+            "role": "opening_original",
+            "ordinal": 1,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T15:35:28.921445+00:00"
+          },
+          {
+            "role": "opening_original",
+            "ordinal": 2,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T15:36:48.957522+00:00"
+          },
+          {
+            "role": "candidate",
+            "ordinal": 1,
+            "sha256": "800d9d016c0919c1481aff9b8e3caedcd528542895ddf55a912ef4c0f37a0abe",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T15:38:08.635137+00:00"
+          },
+          {
+            "role": "candidate",
+            "ordinal": 2,
+            "sha256": "800d9d016c0919c1481aff9b8e3caedcd528542895ddf55a912ef4c0f37a0abe",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T15:39:28.637786+00:00"
+          },
+          {
+            "role": "closing_original",
+            "ordinal": 1,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T15:40:48.521854+00:00"
+          },
+          {
+            "role": "closing_original",
+            "ordinal": 2,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T15:42:08.635651+00:00"
+          }
+        ],
+        "complete": true,
+        "candidate_detected": true,
+        "status": "checked_positive",
+        "completed_at": "2026-11-14T15:42:08.640330+00:00"
+      },
+      "qualified_detector_negative": false,
+      "status": "still_detected_twice"
+    },
+    {
+      "id": "ta2_smoothed",
+      "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+      "candidate_sha256": "83a70bf6007b34ecf96b870da1423867a7ba11e2557d27d3c3a396a6bcaf66df",
+      "settings": {
+        "sigma_frequency": 1.0,
+        "sigma_time": 1.0
+      },
+      "assessment": {
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "output_sha256": "83a70bf6007b34ecf96b870da1423867a7ba11e2557d27d3c3a396a6bcaf66df",
+        "sigma_frequency": 1.0,
+        "sigma_time": 1.0,
+        "complete": true,
+        "quality_verified": false,
+        "recognizer_implementation_commit": "a984fb6d6d17965b7b2dcba5c2909f3f6431db9d",
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "large": 0.02650602409638554,
+          "mms": 0.018604651162790697
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 415,
+          "mms": 430
+        },
+        "processed_units": {
+          "large": 415,
+          "mms": 428
+        }
+      },
+      "reference_errors": {
+        "original_guards": {
+          "large": 0.023923444976076555,
+          "mms": 0.03110047846889952
+        },
+        "processed_guards": {
+          "large": 0.0215311004784689,
+          "mms": 0.04066985645933014
+        },
+        "guard_deltas": {
+          "large": -0.002392344497607654,
+          "mms": 0.00956937799043062
+        },
+        "evaluation_only": {
+          "id": "ta2_smoothed",
+          "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+          "output_sha256": "83a70bf6007b34ecf96b870da1423867a7ba11e2557d27d3c3a396a6bcaf66df",
+          "evaluation_checkpoint": "small",
+          "processed_reference_error": 0.145933014354067,
+          "reference_error_delta": 0.06937799043062202,
+          "maximum_reference_delta": 0.01,
+          "reference_delta_passed": false
+        },
+        "evaluation_checkpoint": {
+          "historical_raw_cache_metadata": {
+            "model": "openai/whisper-small",
+            "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+            "attention": "sdpa",
+            "precision": "float32",
+            "decode": "Native timestamps, minimum30s features, complete longer input, max_new_tokens440, no sampling/previous-text conditioning",
+            "role": "Evaluation-only checkpoint",
+            "reference_normalization": "NFKC, BasicTextNormalizer(False); Chinese OpenCC1.1.9 t2s.json before reference CER; Japanese CER; whitespace WER otherwise",
+            "paired_normalization": "Original runtime normalization: NFKC BasicTextNormalizer(False), zh/ja characters, whitespace otherwise"
+          },
+          "role_in_these_candidates": "Evaluation only; never used for processing selection",
+          "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+          "original_reference_error": 0.07655502392344497
+        }
+      },
+      "voice": {
+        "id": "ta2_smoothed",
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "language": "ta",
+        "original_dnsmos": {
+          "signal": 3.689388415206841,
+          "background": 4.222667956781546,
+          "overall": 3.498669395903244,
+          "windows": 17,
+          "natural_seconds": 26.48
+        },
+        "window_starts_seconds": [
+          0.296,
+          8.24,
+          16.184
+        ],
+        "speaker_window_cosines": [
+          0.9372550400746098,
+          0.9482549873860264,
+          0.9512645704038768
+        ],
+        "speaker_minimum": 0.9372550400746098,
+        "processed_dnsmos": {
+          "signal": 3.1758015256175973,
+          "background": 4.067251409815007,
+          "overall": 2.930615672858207,
+          "windows": 17,
+          "natural_seconds": 26.48
+        },
+        "dnsmos_delta": {
+          "signal": -0.5135868895892437,
+          "background": -0.1554165469665385,
+          "overall": -0.5680537230450371
+        },
+        "output_sha256": "83a70bf6007b34ecf96b870da1423867a7ba11e2557d27d3c3a396a6bcaf66df",
+        "status": "scored"
+      },
+      "quality_gate_results": {
+        "evaluation_checkpoint_reference_delta": false,
+        "primary_reference_delta": true,
+        "secondary_reference_delta": true,
+        "primary_paired": false,
+        "secondary_paired": false,
+        "speaker_minimum": false,
+        "dnsmos_overall": false
+      },
+      "calibrated_original_checkpoints": 3,
+      "original_calibration_ceiling": 0.1,
+      "all_seven_estimated_quality_gates_passed": false,
+      "additional_mms_evaluation": null,
+      "additional_mms_reference_delta_passed": null,
+      "quality_qualified": false,
+      "detector": null,
+      "qualified_detector_negative": false,
+      "status": "speech_rejected_not_detector_tested"
+    },
+    {
+      "id": "ar_mimi16",
+      "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+      "candidate_sha256": "70a8778e2d8ed2c2d86ab48a2bec04164bf3c13ce3c8f574a36e6d5b5d3abda0",
+      "settings": {
+        "num_quantizers": 16,
+        "nominal_bitrate_kbps": 2.2
+      },
+      "assessment": {
+        "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+        "output_sha256": "70a8778e2d8ed2c2d86ab48a2bec04164bf3c13ce3c8f574a36e6d5b5d3abda0",
+        "num_quantizers": 16,
+        "nominal_bitrate_kbps": 2.2,
+        "gain": 1.0,
+        "decode_and_guard_elapsed_seconds": 17.80753008648753,
+        "encoder_prefix_reused": true,
+        "complete": true,
+        "quality_verified": false,
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "turbo": 0.014084507042253521,
+          "fastconformer": 0.0
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "fastconformer",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 71,
+          "fastconformer": 71
+        },
+        "processed_units": {
+          "turbo": 71,
+          "fastconformer": 71
+        }
+      },
+      "reference_errors": {
+        "original_guards": {
+          "turbo": 0.04225352112676056,
+          "fastconformer": 0.0
+        },
+        "processed_guards": {
+          "turbo": 0.056338028169014086,
+          "fastconformer": 0.0
+        },
+        "guard_deltas": {
+          "turbo": 0.014084507042253523,
+          "fastconformer": 0.0
+        },
+        "evaluation_only": {
+          "id": "ar_mimi16",
+          "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+          "output_sha256": "70a8778e2d8ed2c2d86ab48a2bec04164bf3c13ce3c8f574a36e6d5b5d3abda0",
+          "evaluation_checkpoint": "large",
+          "processed_reference_error": 0.014084507042253521,
+          "reference_error_delta": 0.0,
+          "maximum_reference_delta": 0.03,
+          "reference_delta_passed": true
+        },
+        "evaluation_checkpoint": {
+          "historical_raw_cache_metadata": {
+            "model": "openai/whisper-large-v3",
+            "revision": "06f233fe06e710322aca913c1bc4249a0d71fce1",
+            "precision": "float32",
+            "attention": "sdpa",
+            "role": "Additional evaluation checkpoint; shares Whisper ancestry, not an independent architecture; no change to frozen primary results"
+          },
+          "role_in_these_candidates": "Evaluation only; never used for processing selection",
+          "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+          "original_reference_error": 0.014084507042253521
+        }
+      },
+      "voice": {
+        "id": "ar_mimi16",
+        "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+        "language": "ar",
+        "original_dnsmos": {
+          "signal": 3.669378029186744,
+          "background": 4.207749741145473,
+          "overall": 3.4701676199644593,
+          "windows": 22,
+          "natural_seconds": 31.68
+        },
+        "window_starts_seconds": [
+          1.336,
+          10.84,
+          20.344
+        ],
+        "speaker_window_cosines": [
+          0.9947233445916261,
+          0.9907773489308647,
+          0.9907469342111966
+        ],
+        "speaker_minimum": 0.9907469342111966,
+        "processed_dnsmos": {
+          "signal": 3.67351916835141,
+          "background": 4.224577912205218,
+          "overall": 3.4727396760267273,
+          "windows": 22,
+          "natural_seconds": 31.68
+        },
+        "dnsmos_delta": {
+          "signal": 0.004141139164665741,
+          "background": 0.016828171059745323,
+          "overall": 0.002572056062267958
+        },
+        "output_sha256": "70a8778e2d8ed2c2d86ab48a2bec04164bf3c13ce3c8f574a36e6d5b5d3abda0",
+        "status": "scored"
+      },
+      "quality_gate_results": {
+        "evaluation_checkpoint_reference_delta": true,
+        "primary_reference_delta": true,
+        "secondary_reference_delta": true,
+        "primary_paired": true,
+        "secondary_paired": true,
+        "speaker_minimum": true,
+        "dnsmos_overall": true
+      },
+      "calibrated_original_checkpoints": 3,
+      "original_calibration_ceiling": 0.15,
+      "all_seven_estimated_quality_gates_passed": true,
+      "additional_mms_evaluation": {
+        "num_quantizers": 16,
+        "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+        "output_sha256": "70a8778e2d8ed2c2d86ab48a2bec04164bf3c13ce3c8f574a36e6d5b5d3abda0",
+        "processed_reference_error": 0.11267605633802817,
+        "reference_error_delta": 0.01408450704225353,
+        "paired_disagreement": 0.056338028169014086,
+        "maximum_reference_delta": 0.03,
+        "reference_delta_passed": true
+      },
+      "additional_mms_reference_delta_passed": true,
+      "quality_qualified": true,
+      "detector": {
+        "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+        "candidate_sha256": "70a8778e2d8ed2c2d86ab48a2bec04164bf3c13ce3c8f574a36e6d5b5d3abda0",
+        "assessment_sha256": "50baa71a8c4164f6f9e6d66d230b954daedcd41a1f232cec36eb537e8c6e9722",
+        "checker_source_sha256": "43142b9f3a8dca38ac33c9322ffbc8abebc338f39a72b742c3b495756181814b",
+        "minimum_interval_seconds": 80,
+        "maximum_http_attempts": 6,
+        "fresh_independent_sources": 0,
+        "frozen_study_result_changed": false,
+        "human_quality_verified": false,
+        "http_attempts": [
+          {
+            "role": "opening_original",
+            "ordinal": 1,
+            "sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+            "started_at": "2026-11-14T15:27:27.924707+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "opening_original",
+            "ordinal": 2,
+            "sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+            "started_at": "2026-11-14T15:28:47.924896+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "candidate",
+            "ordinal": 1,
+            "sha256": "70a8778e2d8ed2c2d86ab48a2bec04164bf3c13ce3c8f574a36e6d5b5d3abda0",
+            "started_at": "2026-11-14T15:30:07.925043+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "candidate",
+            "ordinal": 2,
+            "sha256": "70a8778e2d8ed2c2d86ab48a2bec04164bf3c13ce3c8f574a36e6d5b5d3abda0",
+            "started_at": "2026-11-14T15:31:27.925301+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "closing_original",
+            "ordinal": 1,
+            "sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+            "started_at": "2026-11-14T15:32:47.925605+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "closing_original",
+            "ordinal": 2,
+            "sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+            "started_at": "2026-11-14T15:34:07.925780+00:00",
+            "http_status": 200
+          }
+        ],
+        "checks": [
+          {
+            "role": "opening_original",
+            "ordinal": 1,
+            "sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T15:27:28.712439+00:00"
+          },
+          {
+            "role": "opening_original",
+            "ordinal": 2,
+            "sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T15:28:48.708125+00:00"
+          },
+          {
+            "role": "candidate",
+            "ordinal": 1,
+            "sha256": "70a8778e2d8ed2c2d86ab48a2bec04164bf3c13ce3c8f574a36e6d5b5d3abda0",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T15:30:08.714296+00:00"
+          },
+          {
+            "role": "candidate",
+            "ordinal": 2,
+            "sha256": "70a8778e2d8ed2c2d86ab48a2bec04164bf3c13ce3c8f574a36e6d5b5d3abda0",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T15:31:28.720942+00:00"
+          },
+          {
+            "role": "closing_original",
+            "ordinal": 1,
+            "sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T15:32:48.710290+00:00"
+          },
+          {
+            "role": "closing_original",
+            "ordinal": 2,
+            "sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T15:34:08.708676+00:00"
+          }
+        ],
+        "complete": true,
+        "candidate_detected": true,
+        "status": "checked_positive",
+        "completed_at": "2026-11-14T15:34:08.713096+00:00"
+      },
+      "qualified_detector_negative": false,
+      "status": "still_detected_twice"
+    },
+    {
+      "id": "ta_frequency",
+      "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+      "candidate_sha256": "3befc713bede20bdc259dad461b4e0b74048ab53a269d3ab955dc4194abd161a",
+      "settings": {
+        "sigma_frequency": 1.0,
+        "sigma_time": 0.5
+      },
+      "assessment": {
+        "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+        "output_sha256": "3befc713bede20bdc259dad461b4e0b74048ab53a269d3ab955dc4194abd161a",
+        "sigma_frequency": 1.0,
+        "sigma_time": 0.5,
+        "gain": 1.0,
+        "samples": 1326528,
+        "sample_rate": 44100,
+        "channels": 1,
+        "render_seconds": 39.525292029604316,
+        "complete": true,
+        "quality_verified": false,
+        "recognizer_implementation_commit": "a984fb6d6d17965b7b2dcba5c2909f3f6431db9d",
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "large": 0.02122641509433962,
+          "mms": 0.004694835680751174
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 424,
+          "mms": 426
+        },
+        "processed_units": {
+          "large": 431,
+          "mms": 426
+        }
+      },
+      "reference_errors": {
+        "original_guards": {
+          "large": 0.027972027972027972,
+          "mms": 0.030303030303030304
+        },
+        "processed_guards": {
+          "large": 0.04895104895104895,
+          "mms": 0.03263403263403263
+        },
+        "guard_deltas": {
+          "large": 0.02097902097902098,
+          "mms": 0.0023310023310023284
+        },
+        "evaluation_only": {
+          "id": "ta_frequency",
+          "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+          "output_sha256": "3befc713bede20bdc259dad461b4e0b74048ab53a269d3ab955dc4194abd161a",
+          "evaluation_checkpoint": "small",
+          "processed_reference_error": 0.06993006993006994,
+          "reference_error_delta": 0.018648018648018655,
+          "maximum_reference_delta": 0.01,
+          "reference_delta_passed": false
+        },
+        "evaluation_checkpoint": {
+          "historical_raw_cache_metadata": {
+            "model": "openai/whisper-small",
+            "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+            "attention": "sdpa",
+            "precision": "float32",
+            "decode": "Native timestamps, minimum30s features, complete longer input, max_new_tokens440, no sampling/previous-text conditioning",
+            "role": "Evaluation-only checkpoint",
+            "reference_normalization": "NFKC, BasicTextNormalizer(False); Chinese OpenCC1.1.9 t2s.json before reference CER; Japanese CER; whitespace WER otherwise",
+            "paired_normalization": "Original runtime normalization: NFKC BasicTextNormalizer(False), zh/ja characters, whitespace otherwise"
+          },
+          "role_in_these_candidates": "Evaluation only; never used for processing selection",
+          "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+          "original_reference_error": 0.05128205128205128
+        }
+      },
+      "voice": {
+        "id": "ta_frequency",
+        "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+        "language": "ta",
+        "original_dnsmos": {
+          "signal": 3.65679874251206,
+          "background": 4.199410242332689,
+          "overall": 3.44685987083851,
+          "windows": 21,
+          "natural_seconds": 30.08
+        },
+        "window_starts_seconds": [
+          1.016,
+          10.04,
+          19.064
+        ],
+        "speaker_window_cosines": [
+          0.9831900309812376,
+          0.9883831893357964,
+          0.9805487187444176
+        ],
+        "speaker_minimum": 0.9805487187444176,
+        "processed_dnsmos": {
+          "signal": 3.3010517765364593,
+          "background": 3.9026635870655646,
+          "overall": 2.9854632088469866,
+          "windows": 21,
+          "natural_seconds": 30.08
+        },
+        "dnsmos_delta": {
+          "signal": -0.35574696597560074,
+          "background": -0.29674665526712474,
+          "overall": -0.4613966619915235
+        },
+        "output_sha256": "3befc713bede20bdc259dad461b4e0b74048ab53a269d3ab955dc4194abd161a",
+        "status": "scored"
+      },
+      "quality_gate_results": {
+        "evaluation_checkpoint_reference_delta": false,
+        "primary_reference_delta": false,
+        "secondary_reference_delta": true,
+        "primary_paired": false,
+        "secondary_paired": true,
+        "speaker_minimum": true,
+        "dnsmos_overall": false
+      },
+      "calibrated_original_checkpoints": 3,
+      "original_calibration_ceiling": 0.1,
+      "all_seven_estimated_quality_gates_passed": false,
+      "additional_mms_evaluation": null,
+      "additional_mms_reference_delta_passed": null,
+      "quality_qualified": false,
+      "detector": null,
+      "qualified_detector_negative": false,
+      "status": "speech_rejected_not_detector_tested"
+    },
+    {
+      "id": "ta_time",
+      "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+      "candidate_sha256": "2d1b294ac72508a0a8b320869a46845dcd793b068524e449a1928f91c7a68c17",
+      "settings": {
+        "sigma_frequency": 0.5,
+        "sigma_time": 1.0
+      },
+      "assessment": {
+        "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+        "output_sha256": "2d1b294ac72508a0a8b320869a46845dcd793b068524e449a1928f91c7a68c17",
+        "sigma_frequency": 0.5,
+        "sigma_time": 1.0,
+        "gain": 1.0,
+        "samples": 1326528,
+        "sample_rate": 44100,
+        "channels": 1,
+        "render_seconds": 39.83548113517463,
+        "complete": true,
+        "quality_verified": false,
+        "recognizer_implementation_commit": "a984fb6d6d17965b7b2dcba5c2909f3f6431db9d",
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "large": 0.007075471698113208,
+          "mms": 0.014084507042253521
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 424,
+          "mms": 426
+        },
+        "processed_units": {
+          "large": 424,
+          "mms": 426
+        }
+      },
+      "reference_errors": {
+        "original_guards": {
+          "large": 0.027972027972027972,
+          "mms": 0.030303030303030304
+        },
+        "processed_guards": {
+          "large": 0.03496503496503497,
+          "mms": 0.03263403263403263
+        },
+        "guard_deltas": {
+          "large": 0.006993006993006996,
+          "mms": 0.0023310023310023284
+        },
+        "evaluation_only": {
+          "id": "ta_time",
+          "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+          "output_sha256": "2d1b294ac72508a0a8b320869a46845dcd793b068524e449a1928f91c7a68c17",
+          "evaluation_checkpoint": "small",
+          "processed_reference_error": 0.06293706293706294,
+          "reference_error_delta": 0.011655011655011663,
+          "maximum_reference_delta": 0.01,
+          "reference_delta_passed": false
+        },
+        "evaluation_checkpoint": {
+          "historical_raw_cache_metadata": {
+            "model": "openai/whisper-small",
+            "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+            "attention": "sdpa",
+            "precision": "float32",
+            "decode": "Native timestamps, minimum30s features, complete longer input, max_new_tokens440, no sampling/previous-text conditioning",
+            "role": "Evaluation-only checkpoint",
+            "reference_normalization": "NFKC, BasicTextNormalizer(False); Chinese OpenCC1.1.9 t2s.json before reference CER; Japanese CER; whitespace WER otherwise",
+            "paired_normalization": "Original runtime normalization: NFKC BasicTextNormalizer(False), zh/ja characters, whitespace otherwise"
+          },
+          "role_in_these_candidates": "Evaluation only; never used for processing selection",
+          "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+          "original_reference_error": 0.05128205128205128
+        }
+      },
+      "voice": {
+        "id": "ta_time",
+        "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+        "language": "ta",
+        "original_dnsmos": {
+          "signal": 3.65679874251206,
+          "background": 4.199410242332689,
+          "overall": 3.44685987083851,
+          "windows": 21,
+          "natural_seconds": 30.08
+        },
+        "window_starts_seconds": [
+          1.016,
+          10.04,
+          19.064
+        ],
+        "speaker_window_cosines": [
+          0.9885440062368892,
+          0.9919828752440195,
+          0.9907926614402187
+        ],
+        "speaker_minimum": 0.9885440062368892,
+        "processed_dnsmos": {
+          "signal": 3.372488005324163,
+          "background": 4.08989764425797,
+          "overall": 3.1211075554703367,
+          "windows": 21,
+          "natural_seconds": 30.08
+        },
+        "dnsmos_delta": {
+          "signal": -0.284310737187897,
+          "background": -0.10951259807471914,
+          "overall": -0.3257523153681734
+        },
+        "output_sha256": "2d1b294ac72508a0a8b320869a46845dcd793b068524e449a1928f91c7a68c17",
+        "status": "scored"
+      },
+      "quality_gate_results": {
+        "evaluation_checkpoint_reference_delta": false,
+        "primary_reference_delta": true,
+        "secondary_reference_delta": true,
+        "primary_paired": true,
+        "secondary_paired": false,
+        "speaker_minimum": true,
+        "dnsmos_overall": false
+      },
+      "calibrated_original_checkpoints": 3,
+      "original_calibration_ceiling": 0.1,
+      "all_seven_estimated_quality_gates_passed": false,
+      "additional_mms_evaluation": null,
+      "additional_mms_reference_delta_passed": null,
+      "quality_qualified": false,
+      "detector": null,
+      "qualified_detector_negative": false,
+      "status": "speech_rejected_not_detector_tested"
+    },
+    {
+      "id": "ta_time_repaired",
+      "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+      "candidate_sha256": "45782fdf5a9c7e6b929407153f0ff1e8671bd1fb984fb2bd873c147e3eea96b1",
+      "settings": {},
+      "assessment": {
+        "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+        "output_sha256": "45782fdf5a9c7e6b929407153f0ff1e8671bd1fb984fb2bd873c147e3eea96b1",
+        "recognizer_implementation_commit": "a984fb6d6d17965b7b2dcba5c2909f3f6431db9d",
+        "complete": true,
+        "quality_verified": false,
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "large": 0.007075471698113208,
+          "mms": 0.009389671361502348
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 424,
+          "mms": 426
+        },
+        "processed_units": {
+          "large": 424,
+          "mms": 426
+        }
+      },
+      "reference_errors": {
+        "original_guards": {
+          "large": 0.027972027972027972,
+          "mms": 0.030303030303030304
+        },
+        "processed_guards": {
+          "large": 0.03496503496503497,
+          "mms": 0.030303030303030304
+        },
+        "guard_deltas": {
+          "large": 0.006993006993006996,
+          "mms": 0.0
+        },
+        "evaluation_only": {
+          "id": "ta_time_repaired",
+          "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+          "output_sha256": "45782fdf5a9c7e6b929407153f0ff1e8671bd1fb984fb2bd873c147e3eea96b1",
+          "evaluation_checkpoint": "small",
+          "processed_reference_error": 0.07226107226107226,
+          "reference_error_delta": 0.020979020979020976,
+          "maximum_reference_delta": 0.01,
+          "reference_delta_passed": false
+        },
+        "evaluation_checkpoint": {
+          "historical_raw_cache_metadata": {
+            "model": "openai/whisper-small",
+            "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+            "attention": "sdpa",
+            "precision": "float32",
+            "decode": "Native timestamps, minimum30s features, complete longer input, max_new_tokens440, no sampling/previous-text conditioning",
+            "role": "Evaluation-only checkpoint",
+            "reference_normalization": "NFKC, BasicTextNormalizer(False); Chinese OpenCC1.1.9 t2s.json before reference CER; Japanese CER; whitespace WER otherwise",
+            "paired_normalization": "Original runtime normalization: NFKC BasicTextNormalizer(False), zh/ja characters, whitespace otherwise"
+          },
+          "role_in_these_candidates": "Evaluation only; never used for processing selection",
+          "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+          "original_reference_error": 0.05128205128205128
+        }
+      },
+      "voice": {
+        "id": "ta_time_repaired",
+        "source_sha256": "ea23671ad02d4adbb62006c745f92e11cfbd845ce1f6c6d480832c3eec327b3a",
+        "language": "ta",
+        "original_dnsmos": {
+          "signal": 3.65679874251206,
+          "background": 4.199410242332689,
+          "overall": 3.44685987083851,
+          "windows": 21,
+          "natural_seconds": 30.08
+        },
+        "window_starts_seconds": [
+          1.016,
+          10.04,
+          19.064
+        ],
+        "speaker_window_cosines": [
+          0.9879929748073466,
+          0.9933040022004396,
+          0.993036695700759
+        ],
+        "speaker_minimum": 0.9879929748073466,
+        "processed_dnsmos": {
+          "signal": 3.377256812148757,
+          "background": 4.077501923090032,
+          "overall": 3.1219028645105853,
+          "windows": 21,
+          "natural_seconds": 30.08
+        },
+        "dnsmos_delta": {
+          "signal": -0.2795419303633029,
+          "background": -0.12190831924265755,
+          "overall": -0.3249570063279248
+        },
+        "output_sha256": "45782fdf5a9c7e6b929407153f0ff1e8671bd1fb984fb2bd873c147e3eea96b1",
+        "status": "scored"
+      },
+      "quality_gate_results": {
+        "evaluation_checkpoint_reference_delta": false,
+        "primary_reference_delta": true,
+        "secondary_reference_delta": true,
+        "primary_paired": true,
+        "secondary_paired": true,
+        "speaker_minimum": true,
+        "dnsmos_overall": false
+      },
+      "calibrated_original_checkpoints": 3,
+      "original_calibration_ceiling": 0.1,
+      "all_seven_estimated_quality_gates_passed": false,
+      "additional_mms_evaluation": null,
+      "additional_mms_reference_delta_passed": null,
+      "quality_qualified": false,
+      "detector": null,
+      "qualified_detector_negative": false,
+      "status": "quality_rejected_not_detector_tested"
+    },
+    {
+      "id": "ar_mimi12",
+      "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+      "candidate_sha256": "89420da2a6ad2815ffb7a447f41453269fcbbc10e22130bd7663879dca58a6a8",
+      "settings": {
+        "num_quantizers": 12,
+        "nominal_bitrate_kbps": 1.65
+      },
+      "assessment": {
+        "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+        "output_sha256": "89420da2a6ad2815ffb7a447f41453269fcbbc10e22130bd7663879dca58a6a8",
+        "num_quantizers": 12,
+        "nominal_bitrate_kbps": 1.65,
+        "gain": 1.0,
+        "decode_and_guard_elapsed_seconds": 25.865958944894373,
+        "encoder_prefix_reused": false,
+        "complete": true,
+        "quality_verified": false,
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "turbo": 0.028169014084507043,
+          "fastconformer": 0.0
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "fastconformer",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 71,
+          "fastconformer": 71
+        },
+        "processed_units": {
+          "turbo": 71,
+          "fastconformer": 71
+        }
+      },
+      "reference_errors": {
+        "original_guards": {
+          "turbo": 0.04225352112676056,
+          "fastconformer": 0.0
+        },
+        "processed_guards": {
+          "turbo": 0.07042253521126761,
+          "fastconformer": 0.0
+        },
+        "guard_deltas": {
+          "turbo": 0.028169014084507046,
+          "fastconformer": 0.0
+        },
+        "evaluation_only": {
+          "id": "ar_mimi12",
+          "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+          "output_sha256": "89420da2a6ad2815ffb7a447f41453269fcbbc10e22130bd7663879dca58a6a8",
+          "evaluation_checkpoint": "large",
+          "processed_reference_error": 0.028169014084507043,
+          "reference_error_delta": 0.014084507042253521,
+          "maximum_reference_delta": 0.03,
+          "reference_delta_passed": true
+        },
+        "evaluation_checkpoint": {
+          "historical_raw_cache_metadata": {
+            "model": "openai/whisper-large-v3",
+            "revision": "06f233fe06e710322aca913c1bc4249a0d71fce1",
+            "precision": "float32",
+            "attention": "sdpa",
+            "role": "Additional evaluation checkpoint; shares Whisper ancestry, not an independent architecture; no change to frozen primary results"
+          },
+          "role_in_these_candidates": "Evaluation only; never used for processing selection",
+          "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+          "original_reference_error": 0.014084507042253521
+        }
+      },
+      "voice": {
+        "id": "ar_mimi12",
+        "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+        "language": "ar",
+        "original_dnsmos": {
+          "signal": 3.669378029186744,
+          "background": 4.207749741145473,
+          "overall": 3.4701676199644593,
+          "windows": 22,
+          "natural_seconds": 31.68
+        },
+        "window_starts_seconds": [
+          1.336,
+          10.84,
+          20.344
+        ],
+        "speaker_window_cosines": [
+          0.9918766746573627,
+          0.9874512469237302,
+          0.9869339770703919
+        ],
+        "speaker_minimum": 0.9869339770703919,
+        "processed_dnsmos": {
+          "signal": 3.6608310500779138,
+          "background": 4.218506843138972,
+          "overall": 3.4581192177073614,
+          "windows": 22,
+          "natural_seconds": 31.68
+        },
+        "dnsmos_delta": {
+          "signal": -0.0085469791088304,
+          "background": 0.010757101993498885,
+          "overall": -0.012048402257097912
+        },
+        "output_sha256": "89420da2a6ad2815ffb7a447f41453269fcbbc10e22130bd7663879dca58a6a8",
+        "status": "scored"
+      },
+      "quality_gate_results": {
+        "evaluation_checkpoint_reference_delta": true,
+        "primary_reference_delta": true,
+        "secondary_reference_delta": true,
+        "primary_paired": true,
+        "secondary_paired": true,
+        "speaker_minimum": true,
+        "dnsmos_overall": true
+      },
+      "calibrated_original_checkpoints": 3,
+      "original_calibration_ceiling": 0.15,
+      "all_seven_estimated_quality_gates_passed": true,
+      "additional_mms_evaluation": {
+        "num_quantizers": 12,
+        "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+        "output_sha256": "89420da2a6ad2815ffb7a447f41453269fcbbc10e22130bd7663879dca58a6a8",
+        "processed_reference_error": 0.14084507042253522,
+        "reference_error_delta": 0.042253521126760576,
+        "paired_disagreement": 0.09859154929577464,
+        "maximum_reference_delta": 0.03,
+        "reference_delta_passed": false
+      },
+      "additional_mms_reference_delta_passed": false,
+      "quality_qualified": false,
+      "detector": null,
+      "qualified_detector_negative": false,
+      "status": "quality_rejected_not_detector_tested"
+    },
+    {
+      "id": "ar_mimi14",
+      "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+      "candidate_sha256": "21cd0e6e1f71434d90d8351ae3a08534b854cf39d72441372027a9683cc45557",
+      "settings": {
+        "num_quantizers": 14,
+        "nominal_bitrate_kbps": 1.925
+      },
+      "assessment": {
+        "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+        "output_sha256": "21cd0e6e1f71434d90d8351ae3a08534b854cf39d72441372027a9683cc45557",
+        "num_quantizers": 14,
+        "nominal_bitrate_kbps": 1.925,
+        "gain": 1.0,
+        "decode_and_guard_elapsed_seconds": 25.663110250607133,
+        "encoder_prefix_reused": false,
+        "complete": true,
+        "quality_verified": false,
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "turbo": 0.028169014084507043,
+          "fastconformer": 0.0
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "fastconformer",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 71,
+          "fastconformer": 71
+        },
+        "processed_units": {
+          "turbo": 71,
+          "fastconformer": 71
+        }
+      },
+      "reference_errors": {
+        "original_guards": {
+          "turbo": 0.04225352112676056,
+          "fastconformer": 0.0
+        },
+        "processed_guards": {
+          "turbo": 0.07042253521126761,
+          "fastconformer": 0.0
+        },
+        "guard_deltas": {
+          "turbo": 0.028169014084507046,
+          "fastconformer": 0.0
+        },
+        "evaluation_only": {
+          "id": "ar_mimi14",
+          "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+          "output_sha256": "21cd0e6e1f71434d90d8351ae3a08534b854cf39d72441372027a9683cc45557",
+          "evaluation_checkpoint": "large",
+          "processed_reference_error": 0.028169014084507043,
+          "reference_error_delta": 0.014084507042253521,
+          "maximum_reference_delta": 0.03,
+          "reference_delta_passed": true
+        },
+        "evaluation_checkpoint": {
+          "historical_raw_cache_metadata": {
+            "model": "openai/whisper-large-v3",
+            "revision": "06f233fe06e710322aca913c1bc4249a0d71fce1",
+            "precision": "float32",
+            "attention": "sdpa",
+            "role": "Additional evaluation checkpoint; shares Whisper ancestry, not an independent architecture; no change to frozen primary results"
+          },
+          "role_in_these_candidates": "Evaluation only; never used for processing selection",
+          "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+          "original_reference_error": 0.014084507042253521
+        }
+      },
+      "voice": {
+        "id": "ar_mimi14",
+        "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+        "language": "ar",
+        "original_dnsmos": {
+          "signal": 3.669378029186744,
+          "background": 4.207749741145473,
+          "overall": 3.4701676199644593,
+          "windows": 22,
+          "natural_seconds": 31.68
+        },
+        "window_starts_seconds": [
+          1.336,
+          10.84,
+          20.344
+        ],
+        "speaker_window_cosines": [
+          0.9944786524161168,
+          0.9904479175582226,
+          0.9893312550922259
+        ],
+        "speaker_minimum": 0.9893312550922259,
+        "processed_dnsmos": {
+          "signal": 3.6627258182101228,
+          "background": 4.219985501692036,
+          "overall": 3.4620589409024216,
+          "windows": 22,
+          "natural_seconds": 31.68
+        },
+        "dnsmos_delta": {
+          "signal": -0.006652210976621387,
+          "background": 0.012235760546563057,
+          "overall": -0.008108679062037716
+        },
+        "output_sha256": "21cd0e6e1f71434d90d8351ae3a08534b854cf39d72441372027a9683cc45557",
+        "status": "scored"
+      },
+      "quality_gate_results": {
+        "evaluation_checkpoint_reference_delta": true,
+        "primary_reference_delta": true,
+        "secondary_reference_delta": true,
+        "primary_paired": true,
+        "secondary_paired": true,
+        "speaker_minimum": true,
+        "dnsmos_overall": true
+      },
+      "calibrated_original_checkpoints": 3,
+      "original_calibration_ceiling": 0.15,
+      "all_seven_estimated_quality_gates_passed": true,
+      "additional_mms_evaluation": {
+        "id": "ar_mimi14_mms",
+        "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+        "output_sha256": "21cd0e6e1f71434d90d8351ae3a08534b854cf39d72441372027a9683cc45557",
+        "evaluation_checkpoint": "mms",
+        "processed_reference_error": 0.14084507042253522,
+        "reference_error_delta": 0.042253521126760576,
+        "maximum_reference_delta": 0.03,
+        "reference_delta_passed": false
+      },
+      "additional_mms_reference_delta_passed": false,
+      "quality_qualified": false,
+      "detector": null,
+      "qualified_detector_negative": false,
+      "status": "quality_rejected_not_detector_tested"
+    },
+    {
+      "id": "ar_mimi8",
+      "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+      "candidate_sha256": "cfd7eefd4296f3ed5045571a08c697248ffc920e4aa72f03b97a61d0b57390fe",
+      "assessment": {
+        "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+        "output_sha256": "cfd7eefd4296f3ed5045571a08c697248ffc920e4aa72f03b97a61d0b57390fe",
+        "num_quantizers": 8,
+        "nominal_bitrate_kbps": 1.1,
+        "gain": 1.0,
+        "decode_and_guard_elapsed_seconds": 25.488966471515596,
+        "encoder_prefix_reused": true,
+        "complete": true,
+        "quality_verified": false,
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "turbo": 0.11267605633802817,
+          "fastconformer": 0.0
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "fastconformer",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 71,
+          "fastconformer": 71
+        },
+        "processed_units": {
+          "turbo": 71,
+          "fastconformer": 71
+        },
+        "reference_error_evaluation_only": {
+          "turbo": 0.1267605633802817,
+          "fastconformer": 0.0
+        },
+        "reference_error_delta_evaluation_only": {
+          "turbo": 0.08450704225352113,
+          "fastconformer": 0.0
+        }
+      },
+      "stronger_checkpoint_reassessment": {
+        "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+        "output_sha256": "cfd7eefd4296f3ed5045571a08c697248ffc920e4aa72f03b97a61d0b57390fe",
+        "fresh_independent_sources": 0,
+        "frozen_primary_result_changed": false,
+        "original_turbo_fast_assessment": {
+          "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+          "output_sha256": "cfd7eefd4296f3ed5045571a08c697248ffc920e4aa72f03b97a61d0b57390fe",
+          "num_quantizers": 8,
+          "nominal_bitrate_kbps": 1.1,
+          "gain": 1.0,
+          "decode_and_guard_elapsed_seconds": 25.488966471515596,
+          "encoder_prefix_reused": true,
+          "complete": true,
+          "quality_verified": false,
+          "content_guard_passed": false,
+          "paired_disagreement": {
+            "turbo": 0.11267605633802817,
+            "fastconformer": 0.0
+          },
+          "primary_guard": "turbo",
+          "secondary_guard": "fastconformer",
+          "maximum_paired_disagreement": 0.03,
+          "original_units": {
+            "turbo": 71,
+            "fastconformer": 71
+          },
+          "processed_units": {
+            "turbo": 71,
+            "fastconformer": 71
+          }
+        },
+        "new_profile": "Whisper Large V3 FP32 plus the same pinned Arabic FastConformer INT8; original Turbo rejection is retained.",
+        "uses_reference_text_for_guard": false,
+        "models": {
+          "large": {
+            "historical_cache_metadata": {
+              "model": "openai/whisper-large-v3",
+              "revision": "06f233fe06e710322aca913c1bc4249a0d71fce1",
+              "precision": "float32",
+              "attention": "sdpa",
+              "role": "Additional evaluation checkpoint; shares Whisper ancestry, not an independent architecture; no change to frozen primary results"
+            },
+            "role_in_this_reassessment": "processing_guard",
+            "original_reference_error": 0.014084507042253521,
+            "processed_reference_error": 0.08450704225352113,
+            "reference_error_delta": 0.07042253521126761,
+            "paired_disagreement": 0.07042253521126761
+          },
+          "mms": {
+            "historical_cache_metadata": {
+              "model": "facebook/mms-1b-all",
+              "revision": "3d33597edbdaaba14a8e858e2c8caa76e3cec0cd",
+              "attention": "sdpa",
+              "precision": "float32",
+              "role": "Also participates in the processing guard",
+              "reference_normalization": "NFKC, BasicTextNormalizer(False); Chinese OpenCC1.1.9 t2s.json before reference CER; Japanese CER; whitespace WER otherwise",
+              "paired_normalization": "Original runtime normalization: NFKC BasicTextNormalizer(False), zh/ja characters, whitespace otherwise"
+            },
+            "role_in_this_reassessment": "evaluation_only",
+            "original_reference_error": 0.09859154929577464,
+            "processed_reference_error": 0.2676056338028169,
+            "reference_error_delta": 0.16901408450704225,
+            "paired_disagreement": 0.22535211267605634
+          }
+        },
+        "complete": true,
+        "all_originals_completed_at": "2026-11-14T15:38:50.919615+00:00",
+        "strong_guard_assessment": {
+          "content_guard_passed": false,
+          "paired_disagreement": {
+            "large": 0.07042253521126761,
+            "fastconformer": 0.0
+          },
+          "primary_guard": "large",
+          "secondary_guard": "fastconformer",
+          "maximum_paired_disagreement": 0.03,
+          "original_units": {
+            "large": 71,
+            "fastconformer": 71
+          },
+          "processed_units": {
+            "large": 71,
+            "fastconformer": 71
+          }
+        },
+        "voice": {
+          "plan_sha256": "1d814bda7354549c301319f163856f70edc1827748cb2ddd5fed716189d7997c",
+          "metric": {
+            "speaker_model": "microsoft/wavlm-base-plus-sv",
+            "speaker_revision": "feb593a6c23c1cc3d9510425c29b0a14d2b07b1e",
+            "dnsmos": {
+              "implementation": "dnsmos-p835-regular-v1",
+              "revision": "785ab12275d5cf9341c5e946b0eee9f8825ece3b",
+              "model_sha256": "269fbebdb513aa23cddfbb593542ecc540284a91849ac50516870e1ac78f6edd",
+              "librosa": "1.0.0",
+              "onnxruntime": "1.31.1",
+              "resampler": "librosa-soxr_hq",
+              "sample_rate": 16000,
+              "window_samples": 144160,
+              "hop_samples": 16000,
+              "short_clip_policy": "repeat inside quality estimator only"
+            },
+            "window_seconds": 10,
+            "window_centers_fraction": [
+              0.2,
+              0.5,
+              0.8
+            ],
+            "threads": 2,
+            "meaning": "Uncalibrated embedding/MOS estimates, not human listening approval"
+          },
+          "originals_only": false,
+          "candidate_outputs_read": true,
+          "clips": [
+            {
+              "id": "ar_mimi8_strong_review",
+              "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+              "language": "ar",
+              "original_dnsmos": {
+                "signal": 3.669378029186744,
+                "background": 4.207749741145473,
+                "overall": 3.4701676199644593,
+                "windows": 22,
+                "natural_seconds": 31.68
+              },
+              "window_starts_seconds": [
+                1.336,
+                10.84,
+                20.344
+              ],
+              "speaker_window_cosines": [
+                0.9836059061976644,
+                0.9777315886153152,
+                0.9779765343621165
+              ],
+              "speaker_minimum": 0.9777315886153152,
+              "processed_dnsmos": {
+                "signal": 3.6208447022366643,
+                "background": 4.192347309655535,
+                "overall": 3.4110819911283587,
+                "windows": 22,
+                "natural_seconds": 31.68
+              },
+              "dnsmos_delta": {
+                "signal": -0.048533326950079836,
+                "background": -0.015402431489937918,
+                "overall": -0.05908562883610058
+              },
+              "output_sha256": "cfd7eefd4296f3ed5045571a08c697248ffc920e4aa72f03b97a61d0b57390fe",
+              "status": "scored"
+            }
+          ],
+          "complete": true,
+          "completed_at": "2026-11-14T15:39:51.564572+00:00"
+        }
+      },
+      "detector": null,
+      "qualified_detector_negative": false,
+      "status": "speech_rejected_not_detector_tested"
+    }
+  ],
+  "qualified_detector_negatives": 0,
+  "upstream_mimi_assets": {
+    "model_id": "kyutai/mimi",
+    "revision": "89091b3e466eb6a9d11e537bf26b144f194978f7",
+    "license": "CC-BY-4.0",
+    "local_directory": ".cache/mimi-codec-model",
+    "trained_by_this_project": false,
+    "role": "Alternative speech-codec development; no removal or quality claim",
+    "files_sha256": {
+      "config.json": "aca6f44b04f7bc2e7466b71597d2d51e463ed1cf3cd7025d8848595580546c36",
+      "preprocessor_config.json": "fcb3805e597e786d4067706e602f6688524640f8d3396790e2e09b5942fcbdfb",
+      "model.safetensors": "bac7e85083dcded655d24eaadde7e6eea34c0da1b35fa2d284e641bd2b942a5e",
+      "README.md": "dd1070a95a83e4f07ccdf29f6ab2c387191c1cfa1deadcdc28dda9e83ad6e38b"
+    },
+    "complete": true
+  },
+  "human_listening_approval": false,
+  "additional_mms_evaluation": {
+    "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+    "fresh_independent_sources": 0,
+    "frozen_primary_result_changed": false,
+    "original_reference_error": 0.09859154929577464,
+    "original_calibrated": true,
+    "original_completed_at": "2026-11-14T15:51:30.407382+00:00",
+    "historical_cache_metadata": {
+      "model": "facebook/mms-1b-all",
+      "revision": "3d33597edbdaaba14a8e858e2c8caa76e3cec0cd",
+      "attention": "sdpa",
+      "precision": "float32",
+      "role": "Also participates in the processing guard",
+      "reference_normalization": "NFKC, BasicTextNormalizer(False); Chinese OpenCC1.1.9 t2s.json before reference CER; Japanese CER; whitespace WER otherwise",
+      "paired_normalization": "Original runtime normalization: NFKC BasicTextNormalizer(False), zh/ja characters, whitespace otherwise"
+    },
+    "role_in_this_review": "Additional evaluation-only recognizer with an architecture distinct from Whisper; not a processing guard",
+    "candidates": [
+      {
+        "num_quantizers": 16,
+        "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+        "output_sha256": "70a8778e2d8ed2c2d86ab48a2bec04164bf3c13ce3c8f574a36e6d5b5d3abda0",
+        "processed_reference_error": 0.11267605633802817,
+        "reference_error_delta": 0.01408450704225353,
+        "paired_disagreement": 0.056338028169014086,
+        "maximum_reference_delta": 0.03,
+        "reference_delta_passed": true
+      },
+      {
+        "num_quantizers": 12,
+        "source_sha256": "cde5b62d71b36cc0591a7b87a12dbb572c31f5eaddc3617b5d3e436346653011",
+        "output_sha256": "89420da2a6ad2815ffb7a447f41453269fcbbc10e22130bd7663879dca58a6a8",
+        "processed_reference_error": 0.14084507042253522,
+        "reference_error_delta": 0.042253521126760576,
+        "paired_disagreement": 0.09859154929577464,
+        "maximum_reference_delta": 0.03,
+        "reference_delta_passed": false
+      }
+    ],
+    "complete": true
+  },
+  "physical_erasure_proven": false,
+  "limits": [
+    "All three sources were used previously; no new held-out evidence.",
+    "Tamil uses the prospective one-percent character policy preserving vowel marks; Arabic uses three-percent words.",
+    "These checkpoint and normalization profiles differ from the frozen primary study.",
+    "A detector-negative file that damages speech remains a failed removal.",
+    "Whisper checkpoints share ancestry and do not constitute independent recognizer architectures.",
+    "The 12- and 14-quantizer Mimi files passed seven estimates but failed the additional calibrated MMS reference-delta check; neither was detector-tested.",
+    "Original calibration and voice scores are estimates, not human approval.",
+    "The frozen primary result remains six qualified marked sources out of fourteen."
+  ]
+}

@@ -71,6 +71,16 @@ Their results do not establish reliable removal on real recordings.
 | `codec_ctc_repair.py`, `probe_codec_ctc_repair.py` | Develop one bounded repair of a spent rejected band file using locally matching native-donor units; reject donor errors, timing drift and excessive coverage, reproduce exact failed-file hashes and reassess without changing the frozen study |
 | `korean_spacing_diagnostic.py` | Inspect Korean spacing effects using the KsponSpeech character/boundary alignment; preserves every lexical character and never changes frozen study metrics |
 | `probe_codec_cycles.py` | Reproduce a spent positive native file exactly, then generate unassessed additional codec passes without detector requests or changes to historical results |
+| `codec_cycles_report.py` | Bind second-pass long-file observations to exact bytes and historical source code; voice qualification stays pending until its matching report is complete |
+| `probe_codec_bitrate.py`, `probe_codec_bitrate_band.py` | Assess fixed lower codec bitrates and matching wide-band reconstructions on spent sources; no reference text, API requests or fresh efficacy samples |
+| `codec_consensus_guard.py` | Diagnose isolated substitutions supported by unchanged context in both other-recognizer transcripts; never changes a processing decision or threshold |
+| `codec_word_consensus.py` | Build the explicit bounded Arabic comparison profile while retaining raw disagreements; context support never substitutes for independent quality evaluation |
+| `codec_primary_repair.py` | Locate primary-recognizer disagreements in unique independently timed context for bounded generated-donor repair; does not waive transcript differences or use reference/evaluation text |
+| `pcm24_repair.py` | Preserve untouched canonical samples and an identical-donor control exactly during bounded blending; accommodates the existing headroom target's upper PCM24 bin without changing speech or coverage limits |
+| `probe_vocoder_smoothing.py`, `probe_band_group_delay.py` | Controlled log-mel smoothing and band-delay probes, with whole-file PCM24 outputs and explicit zero-delay parity checks |
+| `vocoder_codec_tradeoff_report.py`, `vocoder_band_report.py`, `codec_followup_report.py` | Curate spent codec/vocoder treatments and exact-file integration, preserving quality failures and repeated detector controls |
+| `codec_profile_replay_report.py` | Reassess saved selected files with the prospective language profiles, without new synthesis or detector requests; retains both nominal controls and the frozen primary outcome |
+| `codec_ta2_followup_report.py`, `codec_inference_followup_report.py` | Retain the failed second-Tamil probes and verify exact-file inference optimizations, including skipped-primary null scores and individual CPU timing limits |
 
 The fresh codec study uses [pinned evaluation assets](codec_evaluation_assets.json) and
 [text normalization](codec_evaluation_text.py). Chinese reference-error scoring uses

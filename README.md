@@ -54,6 +54,8 @@ A separate [speech repair candidate](docs/speech-repair.md) adds recognizer chec
 
 The newer [codec reconstruction candidate](docs/codec-reconstruction.md) combines native codec synthesis, a wide-band fallback, and two recognizer guards. Its [prospectively frozen fresh study](docs/codec-study.md) is complete and retains every failure. The current candidate did not meet the reliability target. It is an opt-in CLI, with additional upstream model assets and license terms.
 
+[Subsequent development results](docs/codec-development.md) retain repaired examples and every unresolved counterexample. These follow-ups reuse study recordings and add no fresh validation.
+
 The separate experimental V3 CLI needs only the inference dependencies and the bundled checkpoint:
 
 ```bash
