@@ -17,9 +17,10 @@ def original_evaluation(quality, case, metric):
     return quality['evaluation_checkpoints'][metric]
 
 
-def candidate(directory, case, label, folder, scored, original_guards, quality, evaluation_id, language, lineage):
+def candidate(directory, case, label, folder, scored, original_guards, quality, evaluation_id, language, lineage,
+              assessment_filename='assessment.json'):
     path = folder/'candidate.flac'
-    assessment_path = folder/'assessment.json'
+    assessment_path = folder/assessment_filename
     assessment = load(assessment_path)
     checksum = digest(path)
     source = directory/'codec_fresh/originals'/(case+'.flac')
@@ -144,8 +145,42 @@ def export(directory):
                               scored, original['original_reference_error'], cycles_quality, case, original['language'],
                               {k: scored[k] for k in ('first_native_sha256', 'initial_cycle_sha256',
                                   'initial_content_assessment', 'repair_status', 'repair')}))
+    for study_name, quality_name, label_prefix, consensus in (
+            ('codec_band_strong_remaining', 'band_strong_remaining_quality', 'strong_band', False),
+            ('inverse6_transfer', 'inverse6_transfer_quality', 'inverse_transfer', True)):
+        study = load(directory/study_name/'result.json')
+        measured = load(directory/quality_name/'result.json')
+        load(directory/('band_strong_remaining_endpoint_queue.json' if not consensus else 'inverse6_transfer_endpoint_queue.json'))
+        for scored in study['candidates']:
+            case = scored['id']
+            original = next(c for c in study['original_calibration'] if c['id'] == case)
+            language = original['language']
+            assessment_filename = 'assessment.consensus.json' if consensus and language == 'ar' else 'assessment.json'
+            rows.append(candidate(directory, case, label_prefix+'_'+language, directory/study_name/case,
+                                  scored, original['original_reference_error'], measured, case, language,
+                                  {'type': label_prefix, 'raw_content_guard_passed': scored['content_guard_passed'],
+                                   'settings': study.get('settings'), 'implementation_commit': study.get('implementation_commit'),
+                                   'new_arabic_consensus_profile': consensus and language == 'ar'},
+                                  assessment_filename=assessment_filename))
+    inverse12 = load(directory/'inverse12_ta2/result.json')
+    inverse12_quality = load(directory/'inverse12_ta2_quality/result.json')
+    rows.append(candidate(directory, 'codec_fresh_12_ta2_sonic-preview', 'ta2_inverse12', directory/'inverse12_ta2',
+                          inverse12['candidates'][0], inverse12['original_reference_error'], inverse12_quality,
+                          'ta2_inverse12', 'ta', {'type': 'generated native12 outside, generated band prior inside',
+                                               'band_hz': [1000, 4000]}))
+    refined = load(directory/'inverse6_ta2_refined/result.json')
+    if refined['status'] == 'assessed':
+        refined_quality = load(directory/'inverse6_ta2_refined_quality/result.json')
+        load(directory/'inverse6_ta2_refined_endpoint_queue.json')
+        rows.append(candidate(directory, 'codec_fresh_12_ta2_sonic-preview', 'ta2_inverse6_refined',
+                              directory/'inverse6_ta2_refined', refined['candidates'][0],
+                              refined['original_reference_error'], refined_quality, 'ta2_inverse6_refined', 'ta',
+                              {'type': 'one MMS-based generated-donor refinement, including sub-threshold mismatches',
+                               'initial_candidate_sha256': refined['initial_candidate_sha256'],
+                               'native_donor_sha256': refined['native_donor_sha256'], 'repair': refined['repair']}))
     repair_row = next(c for c in rows if c['id'] == 'ru_band_prior_repair')
     inverse_row = next(c for c in rows if c['id'] == 'ko_inverse_wide')
+    arabic_row = next(c for c in rows if c['id'] == 'inverse_transfer_ar')
     return {'kind': 'Spent follow-up reconstructions, repairs, inverse mixtures and rejected probes',
             'independent_source_recordings': len({c['source_sha256'] for c in rows}),
             'fresh_independent_sources': 0, 'new_tts_requests': 0, 'frozen_primary_study_result_changed': False,
@@ -153,6 +188,7 @@ def export(directory):
             'qualified_detector_negative_sources': len({c['source_sha256'] for c in rows if c['qualified_detector_negative']}),
             'packaged_repair_integration': packaged(directory, 'band_prior_repair_integration', repair_row, directory/'ru_band_repair/endpoint/result.json'),
             'packaged_inverse_integration': packaged(directory, 'band_inverse6_integration', inverse_row, directory/'ko_inverse_band_mix/wide/endpoint/result.json'),
+            'packaged_arabic_consensus_integration': packaged(directory, 'ar_consensus_integration', arabic_row, directory/'inverse6_transfer/codec_fresh_06_ar1_sonic-3.6/endpoint/result.json'),
             'evaluation_model_metadata': quality['evaluation_checkpoints'], 'voice_metric': quality['voice']['metric'],
             'discarded_first_phase_control': json.loads((directory/'ko_band_group_delay/control_review.json').read_text()),
             'human_listening_approval': False, 'physical_erasure_proven': False,
@@ -160,6 +196,7 @@ def export(directory):
                        'The first Tamil band-prior example is reported separately; the frozen primary count is unchanged.',
                        'Language profiles differ from the primary frozen study; Tamil uses one-percent characters preserving vowel marks.',
                        'Arabic uses Turbo/FastConformer guards and Large/MMS evaluations; Whisper checkpoints share ancestry.',
+                       'The inverse Arabic transfer uses an explicit new word-consensus profile; its raw 3/71 rejection remains recorded. One supported correction leaves 2/71 disagreement, within the unchanged 0.03 limit.',
                        'Every speech/naturalness failure remains a failure without a detector query.',
                        'The initial zero-delay gain/rounding mismatch was retained; only the corrected byte-identical control was used.',
                        'A detector-negative result does not prove physical erasure or reliability on new recordings.']}

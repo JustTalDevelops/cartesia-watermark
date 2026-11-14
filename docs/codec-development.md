@@ -11,6 +11,7 @@ do not establish reliable removal on new recordings.
 | [Korean lower bitrates](../results/codec_bitrate_development.json) | Both 3 and 6 kbps band reconstructions passed seven estimated quality gates but stayed detectable twice. The speech-rejected native 3 kbps output was not queried. |
 | [Korean inverse mixture](../results/codec_followup_development.json) | Generated native 6 kbps speech outside 1–4 kHz, with the generated band prior inside, passed seven quality estimates and cleared twice with positive source brackets. The narrower mixture and timing probes failed quality. |
 | [Russian band-prior repair](../results/codec_followup_development.json) | A half-second generated-donor patch repaired the failed guard. The complete output passed seven quality estimates and cleared twice with positive source brackets. |
+| [Arabic inverse mixture and consensus](../results/codec_followup_development.json) | The explicit consensus profile retained the raw rejection, discounted one jointly supported transcription correction, and passed the other independent checks. The exact file cleared twice with four positive source controls. |
 | [Tamil gentle vocoder](../results/vocoder_codec_tradeoffs.json) | Both recordings passed the prospective quality checks but stayed detectable twice. |
 | [Tamil stronger vocoder](../results/vocoder_codec_tradeoffs.json) | Midpoint and stronger smoothing cleared detection on the first recording but increased independent recognizer errors. Stronger smoothing also reduced estimated naturalness. These are failed removals. |
 | [Tamil band-focused vocoder](../results/vocoder_band_development.json) | Smoothing focused on 1–4 kHz passed seven estimated quality checks on the first recording and returned two negative responses with four positive source controls. The stronger variant failed naturalness and was not queried. This is one spent source. |
@@ -41,8 +42,18 @@ of Russian audio and 60.8 seconds for 29.92 seconds of Korean audio, excluding
 initial outer-runtime construction. These are single-case timings, with different
 recognizers; they do not measure an app-wide speedup. The [follow-up report](../results/codec_followup_development.json)
 retains the unsuccessful Arabic and second Tamil band-prior outputs, the rejected
-second codec passes, and both discarded timing variants. Arabic and the second
-Tamil source remain unresolved.
+second codec passes, and both discarded timing variants.
+
+The opt-in Arabic consensus path records both the raw 3/71 disagreement and the
+adjusted 2/71 comparison. A correction needs one unique phrase with two unchanged
+context words on each side in the other recognizer's original and processed
+transcripts; at most two corrections and 3% of source words are allowed. The
+comparison limit remains 0.03. Reference text and detector labels do not enter
+this rule. Large V3, MMS, speaker, and naturalness checks remain separate. The
+packaged path reproduced the checked file using real models in 91.6 seconds for
+31.68 seconds of audio, excluding initial outer-runtime construction. The raw
+failure is not reclassified as a pass under the original profile. The second
+Tamil recording remains unresolved.
 
 These are automated estimates, without human listening approval. A negative
 detector response does not establish physical erasure. Quality failures remain
