@@ -4,8 +4,8 @@
   "fresh_independent_sources": 0,
   "new_tts_requests": 0,
   "frozen_primary_study_result_changed": false,
-  "planned_treatments": 12,
-  "rendered_candidates": 10,
+  "planned_treatments": 13,
+  "rendered_candidates": 11,
   "candidates": [
     {
       "id": "ta2_high_native",
@@ -1609,6 +1609,230 @@
       "detector": null,
       "qualified_detector_negative": false,
       "status": "quality_rejected_not_detector_tested"
+    },
+    {
+      "id": "ta2_inverse_narrow",
+      "source_case": "codec_fresh_12_ta2_sonic-preview",
+      "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+      "candidate_sha256": "87b9a212665236a272043cb6b0fd41a53c14905abeb5f35b43df1fb48227da0f",
+      "language": "ta",
+      "lineage": {
+        "type": "Generated native6 outside, generated band prior inside the fixed narrower band",
+        "band_hz": [
+          1500,
+          3500
+        ],
+        "outside_generated_native6_sha256": "e8e7c12539ce2f0465ca2ecb51bcc68e069b066564a2a08965714708f0e990a0",
+        "inside_generated_prior_sha256": "0e7bf3c44379521412cb56eb6a7b2d4fe9ac8974a4c6725413584812b1c6bf45",
+        "mix_source_sha256": "2a0dac863e1d7c7577cf9f029f86b3973f90a6e77b935dc6bbce9169ff018f94",
+        "original_waveform_used_in_mixture": false
+      },
+      "content_assessment": {
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "output_sha256": "87b9a212665236a272043cb6b0fd41a53c14905abeb5f35b43df1fb48227da0f",
+        "gain": 0.9906019855966932,
+        "complete": true,
+        "quality_verified": false,
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "large": 0.0024096385542168677,
+          "mms": 0.002325581395348837
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 415,
+          "mms": 430
+        },
+        "processed_units": {
+          "large": 415,
+          "mms": 431
+        }
+      },
+      "original_reference_error": {
+        "large": 0.023923444976076555,
+        "mms": 0.03110047846889952,
+        "small": 0.07655502392344497
+      },
+      "guard_reference_error": {
+        "large": 0.02631578947368421,
+        "mms": 0.03349282296650718
+      },
+      "guard_reference_error_delta": {
+        "large": 0.002392344497607654,
+        "mms": 0.0023923444976076576
+      },
+      "evaluation": {
+        "id": "ta2_inverse_narrow",
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "output_sha256": "87b9a212665236a272043cb6b0fd41a53c14905abeb5f35b43df1fb48227da0f",
+        "evaluation_checkpoint": "small",
+        "processed_reference_error": 0.07655502392344497,
+        "reference_error_delta": 0.0,
+        "maximum_reference_delta": 0.01,
+        "reference_delta_passed": true
+      },
+      "additional_mms_evaluation": null,
+      "voice": {
+        "id": "ta2_inverse_narrow",
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "language": "ta",
+        "original_dnsmos": {
+          "signal": 3.689388415206841,
+          "background": 4.222667956781546,
+          "overall": 3.498669395903244,
+          "windows": 17,
+          "natural_seconds": 26.48
+        },
+        "window_starts_seconds": [
+          0.296,
+          8.24,
+          16.184
+        ],
+        "speaker_window_cosines": [
+          0.9866908274961868,
+          0.9921236184950609,
+          0.9941670684672094
+        ],
+        "speaker_minimum": 0.9866908274961868,
+        "processed_dnsmos": {
+          "signal": 3.629359484444774,
+          "background": 4.1857028175304265,
+          "overall": 3.4249489566935223,
+          "windows": 17,
+          "natural_seconds": 26.48
+        },
+        "dnsmos_delta": {
+          "signal": -0.060028930762066945,
+          "background": -0.03696513925111944,
+          "overall": -0.07372043920972171
+        },
+        "output_sha256": "87b9a212665236a272043cb6b0fd41a53c14905abeb5f35b43df1fb48227da0f",
+        "status": "scored"
+      },
+      "quality_gate_results": {
+        "primary_paired": true,
+        "secondary_paired": true,
+        "primary_reference_delta": true,
+        "secondary_reference_delta": true,
+        "evaluation_reference_delta": true,
+        "speaker_minimum": true,
+        "dnsmos_overall": true
+      },
+      "calibrated_original_checkpoints": 3,
+      "quality_qualified": true,
+      "detector": {
+        "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+        "candidate_sha256": "87b9a212665236a272043cb6b0fd41a53c14905abeb5f35b43df1fb48227da0f",
+        "assessment_sha256": "99812f215b777063fcbe99797a228331ffc5ccc9474ffe2013b6370ef69da558",
+        "checker_source_sha256": "43142b9f3a8dca38ac33c9322ffbc8abebc338f39a72b742c3b495756181814b",
+        "minimum_interval_seconds": 80,
+        "maximum_http_attempts": 6,
+        "fresh_independent_sources": 0,
+        "frozen_study_result_changed": false,
+        "human_quality_verified": false,
+        "http_attempts": [
+          {
+            "role": "opening_original",
+            "ordinal": 1,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "started_at": "2026-11-14T18:09:03.913744+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "opening_original",
+            "ordinal": 2,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "started_at": "2026-11-14T18:10:23.914114+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "candidate",
+            "ordinal": 1,
+            "sha256": "87b9a212665236a272043cb6b0fd41a53c14905abeb5f35b43df1fb48227da0f",
+            "started_at": "2026-11-14T18:11:43.914487+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "candidate",
+            "ordinal": 2,
+            "sha256": "87b9a212665236a272043cb6b0fd41a53c14905abeb5f35b43df1fb48227da0f",
+            "started_at": "2026-11-14T18:13:03.914603+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "closing_original",
+            "ordinal": 1,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "started_at": "2026-11-14T18:14:23.914904+00:00",
+            "http_status": 200
+          },
+          {
+            "role": "closing_original",
+            "ordinal": 2,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "started_at": "2026-11-14T18:15:43.915121+00:00",
+            "http_status": 200
+          }
+        ],
+        "checks": [
+          {
+            "role": "opening_original",
+            "ordinal": 1,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T18:09:04.634499+00:00"
+          },
+          {
+            "role": "opening_original",
+            "ordinal": 2,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T18:10:25.205181+00:00"
+          },
+          {
+            "role": "candidate",
+            "ordinal": 1,
+            "sha256": "87b9a212665236a272043cb6b0fd41a53c14905abeb5f35b43df1fb48227da0f",
+            "detected": false,
+            "http_status": 200,
+            "checked_at": "2026-11-14T18:11:44.529899+00:00"
+          },
+          {
+            "role": "candidate",
+            "ordinal": 2,
+            "sha256": "87b9a212665236a272043cb6b0fd41a53c14905abeb5f35b43df1fb48227da0f",
+            "detected": false,
+            "http_status": 200,
+            "checked_at": "2026-11-14T18:13:04.620608+00:00"
+          },
+          {
+            "role": "closing_original",
+            "ordinal": 1,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T18:14:24.614333+00:00"
+          },
+          {
+            "role": "closing_original",
+            "ordinal": 2,
+            "sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+            "detected": true,
+            "http_status": 200,
+            "checked_at": "2026-11-14T18:15:44.520793+00:00"
+          }
+        ],
+        "complete": true,
+        "candidate_detected": false,
+        "status": "checked_negative",
+        "completed_at": "2026-11-14T18:15:44.520881+00:00"
+      },
+      "qualified_detector_negative": true,
+      "status": "qualified_detector_negative"
     }
   ],
   "unrendered_coverage_rejection": {
@@ -1721,6 +1945,45 @@
     "new_asr_calls": 0,
     "reference_text_used": false
   },
+  "packaged_narrow_inverse_integration": {
+    "implementation_commit": "bdc9a2314bb5b09ed2aa4285de411e3d717d08ba",
+    "source_files_sha256": {
+      "tools/codec_word_consensus.py": "b8afdddddc1d8fab2b93036786a88ccb63473063dbc4e4572ed5d2619807a3f2",
+      "tools/codec_audio.py": "2a0dac863e1d7c7577cf9f029f86b3973f90a6e77b935dc6bbce9169ff018f94",
+      "tools/codec_text.py": "2b3f9503c9e39c330d60ae727415995822fec4daa4de7560572de905eab25f96",
+      "tools/codec_teacher.py": "abebef4244f452e3d962ec6d88c9917806a98ad48512281875f41dc4d2cf3fb4",
+      "tools/codec_repair.py": "e6839578ce6d319e9463196521860b050d96f0f81f1ed8cafc14d3fe3918561a",
+      "tools/codec_content.py": "1f7af6d64a8f79b80da9bbfb77f0d7497552b126fd189c8085e388e0604d97fe",
+      "tools/codec_settings.py": "4ac4ab3d31ab5e037ae2c22d6f0070a5f947cf728d214a472417ec55d439b841",
+      "tools/codec_inference.py": "1f86876e3ab07e960dd9ac9c4ad9f1a773393ac31bdef969f9d25b52370d2a9e",
+      "tools/reconstruct_codec.py": "e5def4d0f7455a36cfe5c89f60084ce776f1c8824bdedcb5dc40dc5e3b833205",
+      "tools/reconstruct_codec_band.py": "b5102f096a9a070b5496ced2f93ff3c29521d2326e78a2e8694a70bb7868e195",
+      "tools/vocoder_band_prior.py": "8b153b0e25421d560c3f9a41e5e36ea44f1ed0a7ad417b0c49af76f6e69b033f"
+    },
+    "source_sha256": "1667497b752fe6329e5ceb4a83da7680577d79fc8c3f2d467d03bb4aa559dc86",
+    "expected_canonical_sha256": "87b9a212665236a272043cb6b0fd41a53c14905abeb5f35b43df1fb48227da0f",
+    "fresh_independent_sources": 0,
+    "new_http_requests": 0,
+    "reference_text_used": false,
+    "neural_work_complete": true,
+    "started_at": "2026-11-14T18:11:02.418604+00:00",
+    "complete": true,
+    "content_guard_passed": true,
+    "paired_disagreement": {
+      "large": 0.0024096385542168677,
+      "mms": 0.002325581395348837
+    },
+    "actual_asr_used": true,
+    "output_wav_sha256": "f9565da4b739df0ca50f4f248dc4d3a4c3de9c0efc37813a2016246d4de358eb",
+    "canonical_output_sha256": "87b9a212665236a272043cb6b0fd41a53c14905abeb5f35b43df1fb48227da0f",
+    "metadata_sha256": "b228c27609304d4c40d81c4c352665a20b80b3a302016b7b260bd511b8e8553c",
+    "elapsed_seconds": 178.59028652496636,
+    "exact_prototype_file_reproduction": true,
+    "original_research_endpoint_receipt_sha256": "ebe77e97297e79d96b26c93e0422b9e633eb2561a3e14be1f67d9f92a61cd7c5",
+    "original_research_candidate_detected": false,
+    "meaning": "Actual packaged synthesis and both real guards; identical research-checked FLAC, no new detector observations or independent sources",
+    "completed_at": "2026-11-14T18:15:48.604368+00:00"
+  },
   "unsupported_character_consensus_review": {
     "candidate_sha256": "3786fe0570c9fe74127668fbc83d40b342fe96158ea67923ae31226f1d516a49",
     "context_units_each_side": 16,
@@ -1733,11 +1996,11 @@
     "comparison_helper_sha256": "b2861fa7e6615c90480d656c011d14040bebdce27e5e89fb14124617049a5afe",
     "complete": true
   },
-  "qualified_detector_negative_sources": 0,
+  "qualified_detector_negative_sources": 1,
   "human_listening_approval": false,
   "physical_erasure_proven": false,
   "limits": [
-    "All twelve planned treatments reuse the same previously tested Sonic Preview recording.",
+    "All thirteen planned treatments reuse the same previously tested Sonic Preview recording.",
     "Tamil processing and independent reference-delta thresholds remain one percent, with vowel marks preserved.",
     "Split-band outputs retain original audio and cannot establish physical erasure.",
     "The repair uses primary-ASR differences and unique independent timing context, generated donors only, and a twenty-percent coverage ceiling; final guards are rerun without transcript exceptions.",

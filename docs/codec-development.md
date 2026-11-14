@@ -17,7 +17,7 @@ do not establish reliable removal on new recordings.
 | [Tamil band-focused vocoder](../results/vocoder_band_development.json) | Smoothing focused on 1–4 kHz passed seven estimated quality checks on the first recording and returned two negative responses with four positive source controls. The stronger variant failed naturalness and was not queried. This is one spent source. |
 | [Tamil separate smoothing and repair](../results/vocoder_codec_tradeoffs.json) | Separate frequency/time smoothing failed the speech guards. A bounded repair passed the processing guards but failed independent speech and naturalness checks. None was detector-tested. |
 | [Second Tamil original-band mixture](../results/codec_followup_development.json) | Keeping original audio outside the generated middle band passed quality but remained detectable twice. Stronger smoothing failed independent speech evaluation and was not queried. Neither mixture establishes physical erasure. |
-| [Second Tamil split-band and Mimi probes](../results/codec_ta2_followup.json) | Both quality-qualified split-band files stayed detectable twice. Direct Mimi reconstructions failed processing guards; a short generated-donor repair passed both guards at 4.4 kbps but failed independent speech evaluation. A larger 2.2 kbps repair exceeded the fixed coverage limit. No successful removal. |
+| [Second Tamil follow-up](../results/codec_ta2_followup.json) | The generated inverse mixture narrowed to 1.5–3.5 kHz passed seven estimated quality criteria and cleared twice with four positive source controls. Earlier split-band, Mimi, repair, and waveform-reconstruction failures remain recorded. |
 | [Arabic Mimi codec](../results/vocoder_codec_tradeoffs.json) | The 2.2 kbps output passed the measured quality checks but stayed detectable twice. The 1.1 kbps output failed speech checks. The 1.65 and 1.925 kbps outputs passed seven estimates but failed an additional MMS check. The rejected files were not detector-tested. |
 
 The prospective language profiles differ from the frozen study. Tamil uses
@@ -54,8 +54,7 @@ comparison limit remains 0.03. Reference text and detector labels do not enter
 this rule. Large V3, MMS, speaker, and naturalness checks remain separate. The
 packaged path reproduced the checked file using real models in 91.6 seconds for
 31.68 seconds of audio, excluding initial outer-runtime construction. The raw
-failure is not reclassified as a pass under the original profile. The second
-Tamil recording remains unresolved.
+failure is not reclassified as a pass under the original profile.
 
 A [compatibility replay](../results/codec_profile_replay.json) reassessed nine
 previously selected whole files with the prospective language profiles. All nine
@@ -66,7 +65,7 @@ vowel-preserving character policy with Turbo evaluation; its historical failure
 under the original policy remains recorded. The frozen fresh-study result stays
 6/14, and the two controls are not removal transitions.
 
-The second Tamil [follow-up](../results/codec_ta2_followup.json) retains ten
+The second Tamil [follow-up](../results/codec_ta2_followup.json) retains eleven
 rendered variants and two proposals rejected before rendering. The
 short repair covered 0.68 seconds of the 26.48-second recording. Although its
 4.4 kbps Mimi output passed both processing guards, independent Small character
@@ -82,6 +81,14 @@ PCM24 samples exactly and reproduced its identical-donor control byte for byte.
 Its independent speech error still increased by 0.0215, so it remains a failed
 removal. The alternative generated donor failed the unique-context safety rule
 before rendering. No speech limit or reference-based selection was changed.
+
+The subsequent fixed 1.5–3.5 kHz inverse mixture passed both processing guards
+and the independent speech, speaker, and naturalness estimates. Its exact whole
+file returned two negatives between four positive original controls. The
+packaged `codec-band-inverse6-narrow` path reproduced the same FLAC bytes using
+real recognizers in 178.6 seconds for 26.48 seconds of audio, excluding outer
+runtime construction. This is another treatment of the same spent recording,
+with zero fresh independent sources; it does not change the frozen 6/14 study.
 
 These are automated estimates, without human listening approval. A negative
 detector response does not establish physical erasure. Quality failures remain

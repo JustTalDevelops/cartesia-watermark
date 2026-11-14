@@ -8,7 +8,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
-from experiments.codec_followup_report import candidate
+from experiments.codec_followup_report import candidate, packaged
 from experiments.vocoder_codec_tradeoff_report import load
 
 
@@ -91,8 +91,20 @@ def export(directory):
                            'zero_operation_exact': True, 'encoded_untouched_samples_preserved': True}
             rows.append(candidate(directory, case, label, directory/study_name/str(variant), scored,
                                   study['original_reference_error'], quality, label, 'ta', lineage))
-    if len(rows) != 10 or len({r['source_sha256'] for r in rows}) != 1:
-        raise ValueError('Keep all ten rendered treatments of the one spent source')
+    narrow = load(directory/'ta2_inverse_narrow/result.json')
+    narrow_quality = load(directory/'ta2_inverse_narrow_quality/result.json')
+    load(directory/'ta2_inverse_narrow_endpoint_queue.json')
+    rows.append(candidate(directory, case, 'ta2_inverse_narrow', directory/'ta2_inverse_narrow',
+                          narrow['candidates'][0], narrow['original_reference_error'], narrow_quality,
+                          'ta2_inverse_narrow', 'ta',
+                          {'type': 'Generated native6 outside, generated band prior inside the fixed narrower band',
+                           'band_hz': narrow['band_hz'],
+                           'outside_generated_native6_sha256': narrow['outside_generated_native6_sha256'],
+                           'inside_generated_prior_sha256': narrow['inside_generated_prior_sha256'],
+                           'mix_source_sha256': narrow['mix_source_sha256'],
+                           'original_waveform_used_in_mixture': False}))
+    if len(rows) != 11 or len({r['source_sha256'] for r in rows}) != 1:
+        raise ValueError('Keep all eleven rendered treatments of the one spent source')
     joint = load(directory/'mimi_joint_repair/result.json')
     consensus_review = load(directory/'tamil_mimi_consensus_review.json')
     initial = next(r for r in rows if r['id'] == 'ta2_mimi16')
@@ -112,15 +124,17 @@ def export(directory):
     return {'kind': 'Spent second-Tamil split-band, Mimi, and primary-repair probes',
             'independent_source_recordings': 1, 'fresh_independent_sources': 0,
             'new_tts_requests': 0, 'frozen_primary_study_result_changed': False,
-            'planned_treatments': 12, 'rendered_candidates': 10,
+            'planned_treatments': 13, 'rendered_candidates': 11,
             'candidates': rows, 'unrendered_coverage_rejection': joint,
             'unrendered_donor_rejection': load(directory/'mimi_pcm24_repair/result.json')['unrendered_candidates'],
             'donor_rejection_receipt': load(directory/'mimi_pcm24_repair/selection_rejection_receipt.json'),
             'old_blending_numerical_review': numerical_review,
+            'packaged_narrow_inverse_integration': packaged(directory, 'narrow_inverse_integration', rows[-1],
+                                                            directory/'ta2_inverse_narrow/endpoint/result.json'),
             'unsupported_character_consensus_review': consensus_review,
             'qualified_detector_negative_sources': int(any(r['qualified_detector_negative'] for r in rows)),
             'human_listening_approval': False, 'physical_erasure_proven': False,
-            'limits': ['All twelve planned treatments reuse the same previously tested Sonic Preview recording.',
+            'limits': ['All thirteen planned treatments reuse the same previously tested Sonic Preview recording.',
                        'Tamil processing and independent reference-delta thresholds remain one percent, with vowel marks preserved.',
                        'Split-band outputs retain original audio and cannot establish physical erasure.',
                        'The repair uses primary-ASR differences and unique independent timing context, generated donors only, and a twenty-percent coverage ceiling; final guards are rerun without transcript exceptions.',
