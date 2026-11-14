@@ -1,6 +1,6 @@
 # Speech reconstruction
 
-The main upload workflow uses a local Resemble Enhance model with fixed presets. Reconstruction has cleared some tested recordings and failed others. It changes more of the signal than V3; compare the voice and words by listening.
+The main upload workflow uses a local Resemble Enhance model with fixed presets. The default reference preset has mixed detection results. The separately evaluated full-flow preset cleared every processed file in a frozen study, with measurable speech-content risks. Compare the voice and words by listening.
 
 ## Install the separate runtime
 
@@ -62,9 +62,13 @@ uv pip install --python .venv/bin/python -r requirements/verification.txt
 .venv/bin/python tools/verify_reconstruction.py input.wav checked.flac --boundary-safe
 ```
 
-It tries the fixed `full-flow`, then `strong` presets. A positive result tries the next preset. Only an HTTP 200 response with `detected: false` publishes an output. The published file has exactly the bytes queried: FLAC encoding happens before verification. The file is copied and hashed privately, then published atomically without overwriting an existing output. The command also protects existing audit reports.
+It tries the fixed `full-flow`, then `strong` presets. By default, the CLI requires **two HTTP 200 responses with `detected: false` for the same exact file** before publishing. Any positive response rejects that candidate and tries the next preset, including a positive response after an earlier negative. API errors stop verification without an output. Use `--confirmations 1` for a single check or `--confirmations 3` for three checks; repeated queries add endpoint pacing time, independently of model inference.
 
-This checks the current endpoint response for that file. It does not establish physical watermark erasure, unchanged words, or the result of a different detector or a later query. Listen to the output. The audit records `quality_verified: false` explicitly. The web app remains local and does not run these checks.
+The published file has exactly the bytes queried: FLAC encoding happens before verification. The file is copied and hashed privately, then published atomically without overwriting an existing output. The command also protects existing audit reports and records every confirmation. The reusable Python function retains its single-check default for existing callers; the CLI passes its requested count explicitly.
+
+The [recorded CLI integration](../results/reconstruction_verification.json) ran in a parent environment without Torch on a complete 18.96-second authored fixture. It received two separate negative responses and preserved the exact checked FLOAT WAV bytes after publication. This spent fixture is excluded from held-out counts.
+
+This checks the current endpoint response for that file. Repeated responses are not independent recordings or a proof of physical watermark erasure, unchanged words, or future detector behavior. Listen to the output. The audit records `quality_verified: false` explicitly. The web app remains local and does not run these checks.
 
 Whole recordings must be 5–300 seconds and the final upload at most 32 MB. The command never pads or crops audio to satisfy those limits. FLAC uses 24-bit PCM; WAV retains float samples. API errors, rate limits, malformed responses, and changed files produce no output. Exit status is `0` for a checked negative, `2` when every preset remained detected, and `3` when processing or verification failed. Each invocation gets a new audit in ignored `.cache/verification/`, so a failed check can be retried without discarding its history. Use `--report` to choose a new path, or `--presets full-flow` to test only that preset.
 
@@ -72,7 +76,7 @@ Whole recordings must be 5–300 seconds and the final upload at most 32 MB. The
 
 `--boundary-safe` avoids a redundant final chunk when the preceding ten-second chunk already covers the recording's end. It also avoids applying an overlap fade to a standalone chunk. Identity-model probes reproduced ending distortion in the upstream scheduling at lengths such as 9.1, 9.5, and 18.5 seconds; the corrected schedule preserves those signals to floating-point roundoff. The per-chunk neural model, resampler, and multi-chunk alignment remain the pinned upstream implementations.
 
-The option is available on both reconstruction CLIs. It is opt-in; the app and the default standalone path retain the reference implementation. Candidate-specific detector and speech-quality evaluation must accompany any decision to promote it. Attribution and the upstream MIT license are in `tools/reconstruction_inference.py` and `tools/third_party/RESEMBLE_LICENSE`.
+The option is available on both reconstruction CLIs. It is opt-in on the command line. The app's default reference method retains the original implementation; its explicit full-flow and stronger-denoising choices use the corrected schedule. Saved results keep their original files and settings. Attribution and the upstream MIT license are in `tools/reconstruction_inference.py` and `tools/third_party/RESEMBLE_LICENSE`.
 
 ## Runtime
 
@@ -82,9 +86,28 @@ On this machine, a four-second mono fixture took about 11.1 seconds through a fr
 
 The [runtime report](../results/reconstruction_runtime.json) records these measurements and checks. CPU thread experiments favored the existing four-thread setting, which remains unchanged. These are runtime measurements, not new detector-efficacy results.
 
+## Full-flow reliability study
+
+The [completed report](../results/reconstruction_reliability.json) records 50 whole-file comparisons using the fixed full-flow preset, seed 2035, corrected chunk scheduling, and PCM24 FLAC encoding before endpoint checks. Its [input plan](../audio/reconstruction_reliability_plan.json) records public sources and authored generation requests. The model recipe was frozen before processed labels were observed.
+
+| Sources | Recordings | Original endpoint response | Processed endpoint response |
+| --- | ---: | --- | --- |
+| Generated marked Sonic speech | 20 | 20 positive | 20 negative |
+| Nominally unmarked Sonic 3.5 controls | 5 | 1 positive, 4 negative | 5 negative |
+| Public Cartesia audio, model unspecified | 16 | 2 positive, 14 negative | 16 negative |
+| Other-provider controls | 9 | 9 negative | 9 negative |
+
+The long supplement includes five 116–252-second recordings from three voices. One extends another recording's text and shares its voice. Twenty core/development repeat queries and five long-output repeat queries all remained negative; three development recordings are excluded from the 50-source corpus. All ten service-control rechecks remained positive. Repeats, related recordings, and originally negative controls do not establish an independent population success rate. A nominally unmarked control's positive response is not proof of a watermark or its subsequent erasure.
+
+Speech quality remains a limitation. The minimum sampled speaker-embedding cosine was 0.961, and the median overall DNSMOS change was −0.052. These descriptive estimates do not guarantee unchanged speech. Whisper Turbo's Arabic reference word error rose from 0% to 13.16%; Tamil also had a substantial increase. A second recognizer and per-recording metrics are retained in the report. No human listening approval is claimed for this candidate, and it does not replace the app's reference default.
+
+The verification CLI checks each new recording's actual final bytes. A finite study cannot prove physical watermark erasure, unchanged words, every future recording, or later detector behavior.
+
 ## Smoothed-vocoder candidate
 
-`tools/reconstruct_vocoder.py` is a separate experimental candidate under fresh evaluation. It reconstructs a fixed Gaussian-smoothed log-mel spectrogram through upstream NVIDIA BigVGAN. Development checks cleared two difficult recordings; those spent cases do not establish general removal or unchanged speech. The main app continues to use Resemble Enhance.
+`tools/reconstruct_vocoder.py` is a separate experimental candidate. It reconstructs a fixed Gaussian-smoothed log-mel spectrogram through upstream NVIDIA BigVGAN. Development checks cleared four recordings, but a subsequently generated Japanese recording remained detected. The app offers this as an optional method and keeps the Resemble reference preset as its default.
+
+The vocoder preserved substantially more words in the difficult Arabic development recording than full-flow reconstruction. Its speaker-similarity and DNSMOS estimates declined, including on English recordings. These are model estimates; human listening approval has not been established. A detector-negative response alone does not make this a quality-preserving replacement.
 
 This candidate uses the main Python 3.13 environment:
 
@@ -101,8 +124,16 @@ Download `config.json` and `bigvgan_generator.pt` from the [pinned upstream mode
 .venv/bin/python tools/reconstruct_vocoder.py input.wav output.wav --metadata output.json
 ```
 
-To check this candidate explicitly, use `tools/verify_reconstruction.py input.wav checked.flac --presets smoothed-vocoder --boundary-safe`. The optional preset order `smoothed-vocoder full-flow strong` checks the vocoder first and falls back to the two flow presets only on positive responses. The command loads each runtime only if needed and records which one supplied the checked file. This experimental order is opt-in while evaluation is in progress.
+To check this candidate explicitly, use `tools/verify_reconstruction.py input.wav checked.flac --presets smoothed-vocoder --boundary-safe`. The optional preset order `smoothed-vocoder full-flow strong` checks the vocoder first and falls back to the two flow presets on positive responses. Install both model runtimes for that order. The command loads each runtime only if needed and records which one supplied the checked file.
 
 The fixed recipe uses the model's 44.1 kHz, 128-band features, Gaussian sigma 1 in both frequency and time with reflected boundaries, 256-frame synthesis blocks with 32 frames of context, and four CPU threads. Context is discarded at block boundaries without dropping or duplicating samples. Input rate, channels, and sample count are restored; a shared peak gain prevents clipping. Choose new output and metadata paths.
 
 In a controlled four-second mono runtime probe under a four-core CPU quota, the median of two warm runs was 4.77 seconds for this candidate and 5.99 seconds for boundary-safe full-flow reconstruction. Cold workers took 6.92 and 10.41 seconds respectively. Cold and warm decoded samples matched exactly within each method. The [runtime metadata](../results/reconstruction_vocoder_runtime.json) records the setup; this short timing probe measured no detector efficacy.
+
+### Fresh evaluation and checked fallback
+
+The [completed vocoder report](../results/reconstruction_vocoder.json) contains 14 newly generated recordings: 12 marked requests from previously unused project voices across 11 languages, plus two matched Sonic 3.5 controls. Two long marked recordings were reused from the full-flow supplement and counted separately. The primary vocoder cleared 11/12 fresh marked sources and both long sources; Japanese remained detected. All ten planned exact-output repeats were negative. The nominal French control was originally positive; its subsequent negative response is not proof of watermark removal.
+
+A fixed `smoothed-vocoder → full-flow → strong` rule was sealed before the fresh processed labels. It produced checked-negative files for all 16 sources, using full-flow only for Japanese. These are the same recordings, with no increase in the sample count for fallback attempts. Positive service controls passed before and after fallback. The study used single checks plus its predeclared repeat schedule; the current CLI's default two-confirmation policy is a subsequent integration change.
+
+Quality estimates describe the actual selected files. The Japanese fallback had unchanged Turbo character error, minimum speaker cosine 0.989, and overall DNSMOS change −0.043. Across all 16 selected files, median paired Turbo disagreement was zero, with maximum word-reference error increase 1.75 percentage points. Minimum speaker cosine was 0.936 and median overall DNSMOS declined by 0.682. The smaller recognizer disagreed more on some cases. These estimates expose a voice-quality tradeoff; no human listening approval or universal success claim is made.

@@ -1,0 +1,1889 @@
+{
+  "schema_version": 1,
+  "candidate": {
+    "method": "smoothed-vocoder",
+    "model": "nvidia/bigvgan_v2_44khz_128band_512x",
+    "revision": "95a9d1dcb12906c03edd938d77b9333d6ded7dfb",
+    "model_sha256": "d9fe7ec6bd0b44ed9d66973d5012d8181c1570b01e5c72df51973e241dccd357",
+    "source_commit": "7d2b454564a6c7d014227f635b7423881f14bdac",
+    "log_mel_gaussian_sigma_frequency": 1.0,
+    "log_mel_gaussian_sigma_time": 1.0,
+    "gaussian_mode": "reflect",
+    "mel_chunk_frames": 256,
+    "context_frames": 32,
+    "torch_threads": 4,
+    "preserve_rate_channels_samples": true,
+    "peak_limit": 0.999
+  },
+  "settings": {
+    "mel_sigma_frequency": 1.0,
+    "mel_sigma_time": 1.0,
+    "gaussian_mode": "reflect",
+    "mel_chunk_frames": 256,
+    "context_frames": 32,
+    "torch_threads": 4
+  },
+  "inference_source_commit": "fb72d8bdde3ac8a732f582fdeb68570a77586fe5",
+  "inference_code_sha256": {
+    "tools/reconstruct_vocoder.py": "3378845287c3f1bf874147392184c5b15b43ca954adacd6eac484715e4564db0",
+    "tools/vocoder_inference.py": "38d02df4aa5d488aab7b37320dcbf6cc6e980178e23721783145adef138c37f2",
+    "tools/vocoder_assets.json": "ea7870e32da6336a800a3ddbe555d527267124470b44f8e7e0c72603aae4e7f6"
+  },
+  "upstream_model_trained_by_this_project": false,
+  "selection": {
+    "fresh_recordings": 14,
+    "fresh_voice_ids": 12,
+    "fresh_languages": [
+      "ar",
+      "de",
+      "en",
+      "es",
+      "fr",
+      "hi",
+      "ja",
+      "ko",
+      "ru",
+      "ta",
+      "zh"
+    ],
+    "english_voice_note": "Fresh English uses a previously unused German-primary multilingual voice with English requested.",
+    "long_supplement": "The existing Spanish 142.88-second recording and longest English 252.08-second recording. Fixed before any smoothed-vocoder held-out output labels. Sources reused across methods; not newly generated voices or independent additions to the project corpus.",
+    "no_universal_or_independent_population_claim": true
+  },
+  "summary": {
+    "recordings": 16,
+    "original_positive": 15,
+    "positive_to_negative": 14,
+    "remaining_positive": 1,
+    "original_negative": 1,
+    "negative_to_positive": 0,
+    "negative_to_negative": 1
+  },
+  "by_provenance": {
+    "generated_marked": {
+      "recordings": 14,
+      "original_positive": 14,
+      "positive_to_negative": 13,
+      "remaining_positive": 1,
+      "original_negative": 0,
+      "negative_to_positive": 0,
+      "negative_to_negative": 0
+    },
+    "generated_unmarked": {
+      "recordings": 2,
+      "original_positive": 1,
+      "positive_to_negative": 1,
+      "remaining_positive": 0,
+      "original_negative": 1,
+      "negative_to_positive": 0,
+      "negative_to_negative": 1
+    }
+  },
+  "fresh_study": {
+    "plan_sha256": "fbd18dd52e76d4ff3eb682ad1ea4545f096f9edd6ec7221f46607d2eeb6de26b",
+    "evidence_sha256": {
+      "plan": "fbd18dd52e76d4ff3eb682ad1ea4545f096f9edd6ec7221f46607d2eeb6de26b",
+      "api": "3f114de8a221f1995bce1a69bc1f2d15536730311af278c4a170f7c4c3532b3d",
+      "render": "39abcf59de4525c10a709f2cac548fb93ba116822740d4125799462608f648dc",
+      "asr": "9ecaf76759ed976dee544d9bb0a7f7631890051dab1567cc042bd4b37aca4fa6",
+      "secondary_asr": "7b998431066d4f27f6b5ac86f5b069ec2490bdf3f9bc69a7cef8d7b7e1b1140f",
+      "voice": "433939b3087bafb400d2609fd7b12676fc54fb3c03a4d2a4ad90c214017de4f0"
+    },
+    "candidate": {
+      "method": "smoothed-vocoder",
+      "model": "nvidia/bigvgan_v2_44khz_128band_512x",
+      "revision": "95a9d1dcb12906c03edd938d77b9333d6ded7dfb",
+      "model_sha256": "d9fe7ec6bd0b44ed9d66973d5012d8181c1570b01e5c72df51973e241dccd357",
+      "source_commit": "7d2b454564a6c7d014227f635b7423881f14bdac",
+      "log_mel_gaussian_sigma_frequency": 1.0,
+      "log_mel_gaussian_sigma_time": 1.0,
+      "gaussian_mode": "reflect",
+      "mel_chunk_frames": 256,
+      "context_frames": 32,
+      "torch_threads": 4,
+      "preserve_rate_channels_samples": true,
+      "peak_limit": 0.999
+    },
+    "settings": {
+      "mel_sigma_frequency": 1.0,
+      "mel_sigma_time": 1.0,
+      "gaussian_mode": "reflect",
+      "mel_chunk_frames": 256,
+      "context_frames": 32,
+      "torch_threads": 4
+    },
+    "code_sha256": {
+      "tools/reconstruct_vocoder.py": "3378845287c3f1bf874147392184c5b15b43ca954adacd6eac484715e4564db0",
+      "tools/vocoder_inference.py": "38d02df4aa5d488aab7b37320dcbf6cc6e980178e23721783145adef138c37f2",
+      "tools/vocoder_assets.json": "ea7870e32da6336a800a3ddbe555d527267124470b44f8e7e0c72603aae4e7f6"
+    },
+    "summary": {
+      "recordings": 14,
+      "original_positive": 13,
+      "positive_to_negative": 12,
+      "remaining_positive": 1,
+      "original_negative": 1,
+      "negative_to_positive": 0,
+      "negative_to_negative": 1
+    },
+    "http_attempts": 39,
+    "http_status_counts": {
+      "200": 39
+    },
+    "repeated_outputs": 8,
+    "repeated_outputs_negative": 8,
+    "positive_service_controls": 3,
+    "service_controls": 3,
+    "completed_at": "2026-11-14T02:57:52.348416+00:00"
+  },
+  "long_study": {
+    "plan_sha256": "1b01e072e8d7f5272c33ccd3860745088bf3dcf4990766d8fdb53d0b41f8af6c",
+    "evidence_sha256": {
+      "plan": "1b01e072e8d7f5272c33ccd3860745088bf3dcf4990766d8fdb53d0b41f8af6c",
+      "api": "6ea864c5ace90b68abee2fff71a59e3476d4afa80f6825b50ff2da3f6296d0c8",
+      "render": "fae665c2baf7ef40bb25134a0babede1438e354f8a6f083c611886b72d4f8f1d",
+      "asr": "8111c1e10e00d2c8e6937bcf4c6aee5436359a8b8d3ca3dc8c40a250d44578b8",
+      "secondary_asr": "7810675a34397e235578571abba04a33a4cd37e41bb0ec48a873aff02673eda9",
+      "voice": "b673f3e96dc4702ab24a30bd75d70006fcc347050c403b4f30a1be960ae9b6f8"
+    },
+    "candidate": {
+      "method": "smoothed-vocoder",
+      "model": "nvidia/bigvgan_v2_44khz_128band_512x",
+      "revision": "95a9d1dcb12906c03edd938d77b9333d6ded7dfb",
+      "model_sha256": "d9fe7ec6bd0b44ed9d66973d5012d8181c1570b01e5c72df51973e241dccd357",
+      "source_commit": "7d2b454564a6c7d014227f635b7423881f14bdac",
+      "log_mel_gaussian_sigma_frequency": 1.0,
+      "log_mel_gaussian_sigma_time": 1.0,
+      "gaussian_mode": "reflect",
+      "mel_chunk_frames": 256,
+      "context_frames": 32,
+      "torch_threads": 4,
+      "preserve_rate_channels_samples": true,
+      "peak_limit": 0.999
+    },
+    "settings": {
+      "mel_sigma_frequency": 1.0,
+      "mel_sigma_time": 1.0,
+      "gaussian_mode": "reflect",
+      "mel_chunk_frames": 256,
+      "context_frames": 32,
+      "torch_threads": 4
+    },
+    "code_sha256": {
+      "tools/reconstruct_vocoder.py": "3378845287c3f1bf874147392184c5b15b43ca954adacd6eac484715e4564db0",
+      "tools/vocoder_inference.py": "38d02df4aa5d488aab7b37320dcbf6cc6e980178e23721783145adef138c37f2",
+      "tools/vocoder_assets.json": "ea7870e32da6336a800a3ddbe555d527267124470b44f8e7e0c72603aae4e7f6"
+    },
+    "summary": {
+      "recordings": 2,
+      "original_positive": 2,
+      "positive_to_negative": 2,
+      "remaining_positive": 0,
+      "original_negative": 0,
+      "negative_to_positive": 0,
+      "negative_to_negative": 0
+    },
+    "http_attempts": 9,
+    "http_status_counts": {
+      "200": 9
+    },
+    "repeated_outputs": 2,
+    "repeated_outputs_negative": 2,
+    "positive_service_controls": 3,
+    "service_controls": 3,
+    "completed_at": "2026-11-14T01:55:13.778755+00:00"
+  },
+  "quality_metrics": {
+    "asr": {
+      "model": "openai/whisper-small",
+      "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "method": "Native long-form timestamp decoding; no artificial segment word cuts",
+      "do_sample": false,
+      "condition_on_prev_tokens": false,
+      "max_new_tokens_per_segment": 440,
+      "known_language": "Fresh requests and explicit public language metadata; otherwise original automatic detection, reused for output",
+      "normalization": "Whisper BasicTextNormalizer(remove_diacritics=False), NFKC; Chinese/Japanese CER, otherwise whitespace WER",
+      "limitation": "Recognizer output is an estimate; paired disagreements do not prove changed speech or unchanged speech.",
+      "padding_policy": "Waveform padded to at least 30 seconds at 16kHz; complete longer audio untruncated; attention mask supplied"
+    },
+    "secondary_asr": {
+      "model": "openai/whisper-large-v3-turbo",
+      "revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "method": "Native long-form timestamp decoding; no artificial segment word cuts",
+      "do_sample": false,
+      "condition_on_prev_tokens": false,
+      "max_new_tokens_per_segment": 440,
+      "known_language": "Fresh requests and explicit public language metadata; otherwise original automatic detection, reused for output",
+      "normalization": "Whisper BasicTextNormalizer(remove_diacritics=False), NFKC; Chinese/Japanese CER, otherwise whitespace WER",
+      "limitation": "Recognizer output is an estimate; paired disagreements do not prove changed speech or unchanged speech.",
+      "padding_policy": "Waveform padded to at least 30 seconds at 16kHz; complete longer audio untruncated; attention mask supplied"
+    },
+    "speaker": {
+      "model": "microsoft/wavlm-base-plus-sv",
+      "revision": "feb593a6c23c1cc3d9510425c29b0a14d2b07b1e",
+      "window_seconds": 10,
+      "window_centers_fraction": [
+        0.2,
+        0.5,
+        0.8
+      ],
+      "limitation": "Descriptive embedding cosine; no calibrated speaker identity or listening guarantee"
+    },
+    "dnsmos": {
+      "implementation": "dnsmos-p835-regular-v1",
+      "revision": "785ab12275d5cf9341c5e946b0eee9f8825ece3b",
+      "model_sha256": "269fbebdb513aa23cddfbb593542ecc540284a91849ac50516870e1ac78f6edd",
+      "librosa": "1.0.0",
+      "onnxruntime": "1.31.1",
+      "resampler": "librosa-soxr_hq",
+      "sample_rate": 16000,
+      "window_samples": 144160,
+      "hop_samples": 16000,
+      "short_clip_policy": "repeat inside quality estimator only"
+    },
+    "content_by_unit": {
+      "character": {
+        "recordings": 2,
+        "with_reference_text": 2,
+        "median_asr_disagreement": 0.17471988795518206,
+        "median_reference_error_delta": -0.09794165757906216,
+        "maximum_reference_error_delta": 0.017857142857142856
+      },
+      "word": {
+        "recordings": 14,
+        "with_reference_text": 14,
+        "median_asr_disagreement": 0.011336032388663967,
+        "median_reference_error_delta": 0.0,
+        "maximum_reference_error_delta": 0.03508771929824561
+      }
+    },
+    "secondary_content_by_unit": {
+      "character": {
+        "recordings": 2,
+        "with_reference_text": 2,
+        "median_asr_disagreement": 0.0,
+        "median_reference_error_delta": 0.0,
+        "maximum_reference_error_delta": 0.0
+      },
+      "word": {
+        "recordings": 14,
+        "with_reference_text": 14,
+        "median_asr_disagreement": 0.0,
+        "median_reference_error_delta": 0.0,
+        "maximum_reference_error_delta": 0.017543859649122806
+      }
+    },
+    "minimum_speaker_window_cosine": 0.9357737969171056,
+    "median_dnsmos_overall_delta": -0.6818244537363412,
+    "human_listening_verified": false
+  },
+  "development_regressions": {
+    "recordings": 4,
+    "negative_responses": 4,
+    "not_in_held_out_denominator": true,
+    "individual_private_fingerprints_excluded": true
+  },
+  "official_source_parity": {
+    "purpose": "Local implementation parity probe only; two-second authored excerpt never uploaded to a detector.",
+    "official_source_commit": "7d2b454564a6c7d014227f635b7423881f14bdac",
+    "model_revision": "95a9d1dcb12906c03edd938d77b9333d6ded7dfb",
+    "model_sha256": "d9fe7ec6bd0b44ed9d66973d5012d8181c1570b01e5c72df51973e241dccd357",
+    "mel_tensors_exact": true,
+    "output_tensors_exact": true,
+    "maximum_difference": 0.0,
+    "decoded_output_tensor_sha256": "2125c63594e302796d1e0d77cc8243247679b0d77205e209469616fbba5cb58a"
+  },
+  "verification_cli_smoke": {
+    "status": "verified_negative",
+    "source_sha256": "2ab7b204cddd665b22cdc877ae713f5f1c8b516d2b9e1175370e90cc7eb4c5ac",
+    "output_sha256": "5c212409ead59dd7a959388204229deac3eb1f73ab0ff60d0f7ae05e6247af07",
+    "selected_preset": "smoothed-vocoder",
+    "checked_at": "2026-11-14T01:52:31.930232+00:00",
+    "quality_verified": false,
+    "required_negative_checks": 1,
+    "observed_negative_checks": 1,
+    "verification_cli_code_sha256": "9b60c9f6cdf5fa1499236abe0424143840b59e142b44e0c09840f1e2a92ae8c2",
+    "format": "FLOAT WAV",
+    "exact_bytes_rechecked_after_publication": true,
+    "parent_environment": {
+      "python": "3.13.16",
+      "packages": {
+        "numpy": "2.5.4",
+        "soundfile": "0.14.0",
+        "requests": "2.34.2"
+      },
+      "torch_installed": false
+    },
+    "interpretation": "Integration smoke test on a spent generated fixture; excluded from held-out and removal denominators."
+  },
+  "runtime": {
+    "scope": "Controlled local CPU runtime only; no detector requests or removal claims",
+    "fixture": {
+      "seconds": 4,
+      "sample_rate": 44100,
+      "samples": 176400,
+      "channels": 1,
+      "sha256": "fe4098d2295c41b1580b15cfd440a7c2fe99b198e57cbda4ad4c68b0cdc7dadc",
+      "provenance": "Four-second excerpt of authored synthetic speech; used only for runtime measurement, never submitted as a shortened detector case."
+    },
+    "cpu_quota": "400000/100000 microseconds = four cores",
+    "other_neural_jobs_paused": true,
+    "threads": 4,
+    "measurements": [
+      {
+        "preset": "full-flow",
+        "cold_worker_seconds": 10.413375694304705,
+        "warm_worker_seconds": [
+          5.968339313752949,
+          6.0212102849036455
+        ],
+        "median_warm_seconds": 5.994774799328297,
+        "decoded_pcm_exact_cold_and_warm": true,
+        "inference_settings": {
+          "nfe": 32,
+          "solver": "midpoint",
+          "lambd": 0.1,
+          "tau": 1.0
+        },
+        "checkpoint_sha256": "f9d035f318de3e6d919bc70cf7ad7d32b4fe92ec5cbe0b30029a27f5db07d9d6"
+      },
+      {
+        "preset": "smoothed-vocoder",
+        "cold_worker_seconds": 6.917372044175863,
+        "warm_worker_seconds": [
+          4.839670934714377,
+          4.7072672341018915
+        ],
+        "median_warm_seconds": 4.773469084408134,
+        "decoded_pcm_exact_cold_and_warm": true,
+        "inference_settings": {
+          "mel_sigma_frequency": 1.0,
+          "mel_sigma_time": 1.0,
+          "gaussian_mode": "reflect",
+          "mel_chunk_frames": 256,
+          "context_frames": 32,
+          "torch_threads": 4
+        },
+        "checkpoint_sha256": "d9fe7ec6bd0b44ed9d66973d5012d8181c1570b01e5c72df51973e241dccd357"
+      }
+    ],
+    "limits": "One machine and short mono excerpt; two warm observations per method. Not a throughput or quality guarantee for longer, stereo, or arbitrary audio."
+  },
+  "native_generation": {
+    "new_requests": 14,
+    "characters": 6099,
+    "reused_long_sources": 2
+  },
+  "fixed_fallback_workflow": {
+    "plan_sha256": "45f0f2ee278ebebc1f1cadd7a777119b5690709280d32d867d5e8b70686d6f76",
+    "report_sha256": "1a9eca39a4868f353c2826fa71f7f0792b86379f8e57f31d40d621cf69683882",
+    "decision_rule": "Keep the exact primary FLAC if its response is negative; otherwise try full-flow boundary-safe, then strong boundary-safe, preserving whole-file PCM24 FLAC encoding before each query. Stop at the first negative; publish no verified file on errors or all-positive results. No tuning from fresh processed labels.",
+    "repeat_handling": "Any positive primary response, including an exact-file repeat, triggers the fixed fallback order. Repeated responses are not independent recordings.",
+    "source_recordings": 16,
+    "fallback_sources": 1,
+    "verified_negative_sources": 16,
+    "http_attempts": 3,
+    "outcomes": [
+      {
+        "id": "vocoder_00_en_sonic-3.6",
+        "source_sha256": "f961e86678b2f79f26ccf4ffec22d3fa5ca69ecd8aa1d91fc6badf5606eacc06",
+        "primary_detected": false,
+        "primary_repeat_detected": false,
+        "fallback_needed": false,
+        "status": "verified_negative",
+        "quality_verified": false,
+        "selected_preset": "smoothed-vocoder",
+        "output_sha256": "349976b77b916fb23151ebe387b55c177f3678647012a0ca135fc229f3350743",
+        "checked_at": "2026-11-14T02:44:32.354341+00:00"
+      },
+      {
+        "id": "vocoder_01_es_sonic-preview",
+        "source_sha256": "5d02ce6dbfc614a000efc88d22701a286699813239e3694bda7e0510efdc32ee",
+        "primary_detected": false,
+        "primary_repeat_detected": null,
+        "fallback_needed": false,
+        "status": "verified_negative",
+        "quality_verified": false,
+        "selected_preset": "smoothed-vocoder",
+        "output_sha256": "5fd23fbe9e3161502d799ea4776e9c472ff9f0e2c1dbaae8616cd57bebd270f7",
+        "checked_at": "2026-11-14T02:03:11.788174+00:00"
+      },
+      {
+        "id": "vocoder_02_fr_sonic-3.6",
+        "source_sha256": "33f992fc9298b5289216013e500df152711d2c3d330824c152a576bf87a5fbdd",
+        "primary_detected": false,
+        "primary_repeat_detected": false,
+        "fallback_needed": false,
+        "status": "verified_negative",
+        "quality_verified": false,
+        "selected_preset": "smoothed-vocoder",
+        "output_sha256": "6e059c5be659073d30e1f2005fbcf33ab475f70c5208da42aac455fce8f55c85",
+        "checked_at": "2026-11-14T02:47:11.564526+00:00"
+      },
+      {
+        "id": "vocoder_03_de_sonic-preview",
+        "source_sha256": "c3cc1fe4e59af7b3db211ee662120452c2da06e6c637e48723eefdfead55743e",
+        "primary_detected": false,
+        "primary_repeat_detected": null,
+        "fallback_needed": false,
+        "status": "verified_negative",
+        "quality_verified": false,
+        "selected_preset": "smoothed-vocoder",
+        "output_sha256": "55be1571ed799967a57f86aaa51aac97de1a46b5811411843b19400faaf896ae",
+        "checked_at": "2026-11-14T02:08:31.563421+00:00"
+      },
+      {
+        "id": "vocoder_04_hi_sonic-3.6",
+        "source_sha256": "e2fee7d002e0a5a2e96c33d6065fb05889b6707f4baa29c2ce4c5f7c3ea32c0c",
+        "primary_detected": false,
+        "primary_repeat_detected": false,
+        "fallback_needed": false,
+        "status": "verified_negative",
+        "quality_verified": false,
+        "selected_preset": "smoothed-vocoder",
+        "output_sha256": "b266bd4ba7fd3dbb1749cc5e4ca97f77b6054bddb618b4586174d6e026eaee9f",
+        "checked_at": "2026-11-14T02:49:51.539890+00:00"
+      },
+      {
+        "id": "vocoder_05_ja_sonic-preview",
+        "source_sha256": "cc3975f27dabb9b15f766c34c72be4c0095a6769eb7f0182a05a0dc88374e24c",
+        "primary_detected": true,
+        "primary_repeat_detected": null,
+        "fallback_needed": true,
+        "status": "verified_negative",
+        "quality_verified": false,
+        "selected_preset": "full-flow",
+        "output_sha256": "24f44b509fd4827ed57b4db4760da080e356403a5de182b780319a36d33e8175",
+        "checked_at": "2026-11-14T03:00:31.608873+00:00"
+      },
+      {
+        "id": "vocoder_06_ar_sonic-3.6",
+        "source_sha256": "c516904d3b12fa8afe0ee159e2af481bfdf0a3d3a56f5f00aaf939db749f7289",
+        "primary_detected": false,
+        "primary_repeat_detected": false,
+        "fallback_needed": false,
+        "status": "verified_negative",
+        "quality_verified": false,
+        "selected_preset": "smoothed-vocoder",
+        "output_sha256": "511dc3fd832e0d8eecf45039f1b31ebd7ce2e065f2148bfcccf9884ace94fd84",
+        "checked_at": "2026-11-14T02:51:11.667577+00:00"
+      },
+      {
+        "id": "vocoder_07_ko_sonic-preview",
+        "source_sha256": "1e86e34d8e6a8df224f58ff1626179ebf9d4c15925add1574d7800a4a966843a",
+        "primary_detected": false,
+        "primary_repeat_detected": null,
+        "fallback_needed": false,
+        "status": "verified_negative",
+        "quality_verified": false,
+        "selected_preset": "smoothed-vocoder",
+        "output_sha256": "464c28a2848ad35e4207d694a0b9d8d295062a4afd8710ace04ebfd921b25157",
+        "checked_at": "2026-11-14T02:20:31.582017+00:00"
+      },
+      {
+        "id": "vocoder_08_zh_sonic-3.6",
+        "source_sha256": "c4becded9623b25a361a2158c316e2e8e9b587d8323358a6526312c5bb9e5351",
+        "primary_detected": false,
+        "primary_repeat_detected": false,
+        "fallback_needed": false,
+        "status": "verified_negative",
+        "quality_verified": false,
+        "selected_preset": "smoothed-vocoder",
+        "output_sha256": "379f7167063e187acd8d49f84d1c01962a959436771f5efdc254ddee0e31889d",
+        "checked_at": "2026-11-14T02:52:31.588092+00:00"
+      },
+      {
+        "id": "vocoder_09_ru_sonic-preview",
+        "source_sha256": "a417d877acbdaef185d23a86b14a59b3cab5abbd3ca1746b9d86e0abc0b19945",
+        "primary_detected": false,
+        "primary_repeat_detected": null,
+        "fallback_needed": false,
+        "status": "verified_negative",
+        "quality_verified": false,
+        "selected_preset": "smoothed-vocoder",
+        "output_sha256": "b92e43b0f4b55f47e39b76f6311b59f1a336ecd6c57084d8ceeeb9c9578e1333",
+        "checked_at": "2026-11-14T02:27:12.147801+00:00"
+      },
+      {
+        "id": "vocoder_10_ta_sonic-3.6",
+        "source_sha256": "45a6df49eed68a7a740db7bc9e546c777ba806db7591b7f54bf35144f0694d7b",
+        "primary_detected": false,
+        "primary_repeat_detected": false,
+        "fallback_needed": false,
+        "status": "verified_negative",
+        "quality_verified": false,
+        "selected_preset": "smoothed-vocoder",
+        "output_sha256": "65e6e09d420762a665e1a339e02fddd46c27a0f0ceb862a721ee2e1585f0cd18",
+        "checked_at": "2026-11-14T02:53:51.852671+00:00"
+      },
+      {
+        "id": "vocoder_11_ar_sonic-preview",
+        "source_sha256": "669c3fd73b39c62f12fe6670e76eb6dadef8491a69c5df388da7955e53c8cb26",
+        "primary_detected": false,
+        "primary_repeat_detected": false,
+        "fallback_needed": false,
+        "status": "verified_negative",
+        "quality_verified": false,
+        "selected_preset": "smoothed-vocoder",
+        "output_sha256": "0f2bd866ecabfab85fe8abc69e492656e6253a212b7322d1726f0380ae9793db",
+        "checked_at": "2026-11-14T02:55:11.669123+00:00"
+      },
+      {
+        "id": "vocoder_00_en_sonic-3.5",
+        "source_sha256": "741715f71284bad2517eabc31b38f6cffe54ee21b9a4ad912a02efd8e89f241f",
+        "primary_detected": false,
+        "primary_repeat_detected": null,
+        "fallback_needed": false,
+        "status": "verified_negative",
+        "quality_verified": false,
+        "selected_preset": "smoothed-vocoder",
+        "output_sha256": "f00f069521946bb90814724b6b35a18406b996b69ef12d6a82dd7bef3cc780db",
+        "checked_at": "2026-11-14T02:36:32.130621+00:00"
+      },
+      {
+        "id": "vocoder_02_fr_sonic-3.5",
+        "source_sha256": "63fcd36d97e73914f4fde8307788b7de3d3b855b8265affd77866d835605cdb5",
+        "primary_detected": false,
+        "primary_repeat_detected": false,
+        "fallback_needed": false,
+        "status": "verified_negative",
+        "quality_verified": false,
+        "selected_preset": "smoothed-vocoder",
+        "output_sha256": "28bb9da91c31020353e9e417d59ac9da041b57fbfa00af81b62560cce9ab53e9",
+        "checked_at": "2026-11-14T02:56:31.452183+00:00"
+      },
+      {
+        "id": "long_02_es_sonic-3.6",
+        "source_sha256": "77837a25ef548f9869880641c41bdb724dfb7ded2163caa1ad4f6cb93fd9a370",
+        "primary_detected": false,
+        "primary_repeat_detected": false,
+        "fallback_needed": false,
+        "status": "verified_negative",
+        "quality_verified": false,
+        "selected_preset": "smoothed-vocoder",
+        "output_sha256": "4087c20ef36885676e1d23c7ef35d1c07cba62ae8d934f0be7defbe0458267a2",
+        "checked_at": "2026-11-14T01:45:53.700681+00:00"
+      },
+      {
+        "id": "long_04_en_sonic-3.6",
+        "source_sha256": "0e7da429ce36a226c3ba1be7fca35bc23c018b967835b66dab2e61439aa255a4",
+        "primary_detected": false,
+        "primary_repeat_detected": false,
+        "fallback_needed": false,
+        "status": "verified_negative",
+        "quality_verified": false,
+        "selected_preset": "smoothed-vocoder",
+        "output_sha256": "b87ac5d7e4125a9186f2c334a3d0baa90df4d65a7b0f48b17eb5747386945f07",
+        "checked_at": "2026-11-14T01:49:55.289666+00:00"
+      }
+    ],
+    "human_listening_verified": false,
+    "selected_output_quality": {
+      "recordings": 16,
+      "content_by_unit": {
+        "character": {
+          "recordings": 2,
+          "with_reference_text": 2,
+          "median_asr_disagreement": 0.16981792717086833,
+          "median_reference_error_delta": -0.10175845147219192,
+          "maximum_reference_error_delta": 0.017857142857142856
+        },
+        "word": {
+          "recordings": 14,
+          "with_reference_text": 14,
+          "median_asr_disagreement": 0.011336032388663967,
+          "median_reference_error_delta": 0.0,
+          "maximum_reference_error_delta": 0.03508771929824561
+        }
+      },
+      "secondary_content_by_unit": {
+        "character": {
+          "recordings": 2,
+          "with_reference_text": 2,
+          "median_asr_disagreement": 0.0,
+          "median_reference_error_delta": 0.0,
+          "maximum_reference_error_delta": 0.0
+        },
+        "word": {
+          "recordings": 14,
+          "with_reference_text": 14,
+          "median_asr_disagreement": 0.0,
+          "median_reference_error_delta": 0.0,
+          "maximum_reference_error_delta": 0.017543859649122806
+        }
+      },
+      "minimum_speaker_window_cosine": 0.9357737969171056,
+      "median_dnsmos_overall_delta": -0.6818244537363412,
+      "fallback_evidence_sha256": {
+        "content": "59a9b8cb50c9d20b55056ffeaa6a4cb22b826a6b9276e7e05b4b74a54296882e",
+        "secondary_content": "a0d815b4be6edc4bae7bd84d12817d8d87ef203cb031e8fac2e72117266b1693",
+        "voice": "bd58a09c63b4f8f3d33e50253f602d165c9c4776b8674cb20bac9c4a99d61e38"
+      },
+      "fallback_measurements": [
+        {
+          "id": "vocoder_05_ja_sonic-preview",
+          "source_sha256": "cc3975f27dabb9b15f766c34c72be4c0095a6769eb7f0182a05a0dc88374e24c",
+          "output_sha256": "24f44b509fd4827ed57b4db4760da080e356403a5de182b780319a36d33e8175",
+          "content": {
+            "language": "ja",
+            "unit": "character",
+            "original_units": 102,
+            "processed_units": 131,
+            "asr_disagreement": 0.30392156862745096,
+            "reference_units": 131,
+            "original_reference_error": 0.24427480916030533,
+            "processed_reference_error": 0.022900763358778626,
+            "reference_error_delta": -0.2213740458015267
+          },
+          "secondary_content": {
+            "language": "ja",
+            "unit": "character",
+            "original_units": 131,
+            "processed_units": 131,
+            "asr_disagreement": 0.0,
+            "reference_units": 131,
+            "original_reference_error": 0.007633587786259542,
+            "processed_reference_error": 0.007633587786259542,
+            "reference_error_delta": 0.0
+          },
+          "voice": {
+            "speaker_window_cosines": [
+              0.9898140125423367,
+              0.9886037347050498,
+              0.9901322944344367
+            ],
+            "speaker_minimum": 0.9886037347050498,
+            "speaker_mean": 0.9895166805606078,
+            "original_dnsmos": {
+              "signal": 3.7069300945741372,
+              "background": 4.1321449491010345,
+              "overall": 3.483955018795623,
+              "windows": 15,
+              "natural_seconds": 24.32
+            },
+            "processed_dnsmos": {
+              "signal": 3.674181056595845,
+              "background": 4.124589398957627,
+              "overall": 3.441069013905965,
+              "windows": 15,
+              "natural_seconds": 24.32
+            },
+            "dnsmos_delta": {
+              "signal": -0.03274903797829243,
+              "background": -0.0075555501434072525,
+              "overall": -0.042886004889658214
+            }
+          }
+        }
+      ],
+      "human_listening_verified": false
+    },
+    "interpretation": "Same source recordings; fallback queries do not increase the sample count. Top-level speech metrics describe the primary candidate. Selected-output metrics use exact-byte-bound fallback measurements for replaced files."
+  },
+  "environment": {
+    "vocoder": {
+      "python": "3.13.16",
+      "packages": {
+        "torch": "2.15.0+cpu",
+        "numpy": "2.5.4",
+        "scipy": "1.18.1",
+        "soundfile": "0.14.0",
+        "librosa": "1.0.0",
+        "matplotlib": "3.11.2",
+        "huggingface_hub": "2.4.0",
+        "tqdm": "4.70.1"
+      },
+      "cpu_quota": "400000 100000",
+      "cpu_threads_per_model": 4
+    },
+    "asr": {
+      "python": "3.12.3",
+      "packages": {
+        "torch": "2.5.1+cpu",
+        "torchaudio": "2.5.1+cpu",
+        "transformers": "4.46.3",
+        "numpy": "1.26.4",
+        "scipy": "1.17.1",
+        "soundfile": "0.14.0",
+        "librosa": "0.11.0",
+        "onnxruntime": null
+      }
+    },
+    "voice": {
+      "python": "3.13.16",
+      "packages": {
+        "torch": "2.15.0+cpu",
+        "torchaudio": null,
+        "transformers": "5.22.2",
+        "numpy": "2.5.4",
+        "scipy": "1.18.1",
+        "soundfile": "0.14.0",
+        "librosa": "1.0.0",
+        "onnxruntime": "1.31.1"
+      }
+    }
+  },
+  "all_primary_processed_responses_negative": false,
+  "service_controls_all_positive": true,
+  "interpretation": "Frozen whole-file measurements. Controls, prior development cases, and repeated queries do not inflate removal counts. No claim of universal erasure, unchanged words, or later endpoint behavior.",
+  "clips": [
+    {
+      "id": "vocoder_00_en_sonic-3.6",
+      "cohort": "vocoder_fresh_native",
+      "model": "sonic-3.6",
+      "language": "en",
+      "voice_primary_language": "de",
+      "seconds": 59.44,
+      "sample_rate": 16000,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "source_sha256": "f961e86678b2f79f26ccf4ffec22d3fa5ca69ecd8aa1d91fc6badf5606eacc06",
+      "output_sha256": "349976b77b916fb23151ebe387b55c177f3678647012a0ca135fc229f3350743",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-14T01:04:32.097018+00:00",
+      "processed_checked_at": "2026-11-14T02:00:32.045507+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 195,
+        "processed_units": 195,
+        "asr_disagreement": 0.0,
+        "reference_units": 195,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": 0.0
+      },
+      "secondary_content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 194,
+        "processed_units": 195,
+        "asr_disagreement": 0.010309278350515464,
+        "reference_units": 195,
+        "original_reference_error": 0.010256410256410256,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": -0.010256410256410256
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9530447626921019,
+          0.959988573802922,
+          0.962657074323425
+        ],
+        "speaker_minimum": 0.9530447626921019,
+        "speaker_mean": 0.9585634702728162,
+        "original_dnsmos": {
+          "signal": 3.775610761353704,
+          "background": 4.187943861531466,
+          "overall": 3.561124668947451,
+          "windows": 50,
+          "natural_seconds": 59.44
+        },
+        "processed_dnsmos": {
+          "signal": 3.2561472567840766,
+          "background": 3.913813381864143,
+          "overall": 2.9449554837544967,
+          "windows": 50,
+          "natural_seconds": 59.44
+        },
+        "dnsmos_delta": {
+          "signal": -0.5194635045696274,
+          "background": -0.2741304796673232,
+          "overall": -0.6161691851929545
+        }
+      },
+      "processed_repeat_detected": false,
+      "repeat_checked_at": "2026-11-14T02:44:32.354341+00:00"
+    },
+    {
+      "id": "vocoder_01_es_sonic-preview",
+      "cohort": "vocoder_fresh_native",
+      "model": "sonic-preview",
+      "language": "es",
+      "voice_primary_language": "es",
+      "seconds": 24.16,
+      "sample_rate": 24000,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "source_sha256": "5d02ce6dbfc614a000efc88d22701a286699813239e3694bda7e0510efdc32ee",
+      "output_sha256": "5fd23fbe9e3161502d799ea4776e9c472ff9f0e2c1dbaae8616cd57bebd270f7",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-14T01:07:11.622555+00:00",
+      "processed_checked_at": "2026-11-14T02:03:11.788174+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "es",
+        "unit": "word",
+        "original_units": 64,
+        "processed_units": 63,
+        "asr_disagreement": 0.03125,
+        "reference_units": 63,
+        "original_reference_error": 0.031746031746031744,
+        "processed_reference_error": 0.015873015873015872,
+        "reference_error_delta": -0.015873015873015872
+      },
+      "secondary_content": {
+        "language": "es",
+        "unit": "word",
+        "original_units": 63,
+        "processed_units": 63,
+        "asr_disagreement": 0.0,
+        "reference_units": 63,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9576108062301123,
+          0.9529514337428644,
+          0.9504653901456741
+        ],
+        "speaker_minimum": 0.9504653901456741,
+        "speaker_mean": 0.9536758767062169,
+        "original_dnsmos": {
+          "signal": 3.7764720368841003,
+          "background": 4.260094801274369,
+          "overall": 3.6235800918055654,
+          "windows": 15,
+          "natural_seconds": 24.16
+        },
+        "processed_dnsmos": {
+          "signal": 3.2475152535453735,
+          "background": 3.976176615368672,
+          "overall": 2.9636218523383078,
+          "windows": 15,
+          "natural_seconds": 24.16
+        },
+        "dnsmos_delta": {
+          "signal": -0.5289567833387268,
+          "background": -0.28391818590569695,
+          "overall": -0.6599582394672576
+        }
+      }
+    },
+    {
+      "id": "vocoder_02_fr_sonic-3.6",
+      "cohort": "vocoder_fresh_native",
+      "model": "sonic-3.6",
+      "language": "fr",
+      "voice_primary_language": "fr",
+      "seconds": 19.84,
+      "sample_rate": 44100,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "source_sha256": "33f992fc9298b5289216013e500df152711d2c3d330824c152a576bf87a5fbdd",
+      "output_sha256": "6e059c5be659073d30e1f2005fbcf33ab475f70c5208da42aac455fce8f55c85",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-14T01:09:51.918205+00:00",
+      "processed_checked_at": "2026-11-14T02:05:52.020378+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "fr",
+        "unit": "word",
+        "original_units": 64,
+        "processed_units": 66,
+        "asr_disagreement": 0.09375,
+        "reference_units": 65,
+        "original_reference_error": 0.06153846153846154,
+        "processed_reference_error": 0.09230769230769231,
+        "reference_error_delta": 0.03076923076923077
+      },
+      "secondary_content": {
+        "language": "fr",
+        "unit": "word",
+        "original_units": 65,
+        "processed_units": 65,
+        "asr_disagreement": 0.0,
+        "reference_units": 65,
+        "original_reference_error": 0.03076923076923077,
+        "processed_reference_error": 0.03076923076923077,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9833022391550368,
+          0.9855841495294344,
+          0.9835367234522925
+        ],
+        "speaker_minimum": 0.9833022391550368,
+        "speaker_mean": 0.9841410373789211,
+        "original_dnsmos": {
+          "signal": 3.827845085598279,
+          "background": 4.2391970570977415,
+          "overall": 3.6513932198415104,
+          "windows": 10,
+          "natural_seconds": 19.84
+        },
+        "processed_dnsmos": {
+          "signal": 3.3083372477458264,
+          "background": 4.061737175028342,
+          "overall": 3.0521672267715565,
+          "windows": 10,
+          "natural_seconds": 19.84
+        },
+        "dnsmos_delta": {
+          "signal": -0.5195078378524527,
+          "background": -0.17745988206939955,
+          "overall": -0.5992259930699539
+        }
+      },
+      "processed_repeat_detected": false,
+      "repeat_checked_at": "2026-11-14T02:47:11.564526+00:00"
+    },
+    {
+      "id": "vocoder_03_de_sonic-preview",
+      "cohort": "vocoder_fresh_native",
+      "model": "sonic-preview",
+      "language": "de",
+      "voice_primary_language": "de",
+      "seconds": 22.56,
+      "sample_rate": 48000,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "source_sha256": "c3cc1fe4e59af7b3db211ee662120452c2da06e6c637e48723eefdfead55743e",
+      "output_sha256": "55be1571ed799967a57f86aaa51aac97de1a46b5811411843b19400faaf896ae",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-14T01:13:51.686540+00:00",
+      "processed_checked_at": "2026-11-14T02:08:31.563421+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "de",
+        "unit": "word",
+        "original_units": 59,
+        "processed_units": 59,
+        "asr_disagreement": 0.0,
+        "reference_units": 59,
+        "original_reference_error": 0.03389830508474576,
+        "processed_reference_error": 0.03389830508474576,
+        "reference_error_delta": 0.0
+      },
+      "secondary_content": {
+        "language": "de",
+        "unit": "word",
+        "original_units": 59,
+        "processed_units": 59,
+        "asr_disagreement": 0.0,
+        "reference_units": 59,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9755460268938195,
+          0.9716182425720963,
+          0.9884872653662784
+        ],
+        "speaker_minimum": 0.9716182425720963,
+        "speaker_mean": 0.9785505116107314,
+        "original_dnsmos": {
+          "signal": 3.703063254439664,
+          "background": 4.145274641040115,
+          "overall": 3.45976353972601,
+          "windows": 13,
+          "natural_seconds": 22.56
+        },
+        "processed_dnsmos": {
+          "signal": 3.305999838484256,
+          "background": 3.66819617392445,
+          "overall": 2.874493597456803,
+          "windows": 13,
+          "natural_seconds": 22.56
+        },
+        "dnsmos_delta": {
+          "signal": -0.39706341595540806,
+          "background": -0.47707846711566493,
+          "overall": -0.5852699422692069
+        }
+      }
+    },
+    {
+      "id": "vocoder_04_hi_sonic-3.6",
+      "cohort": "vocoder_fresh_native",
+      "model": "sonic-3.6",
+      "language": "hi",
+      "voice_primary_language": "hi",
+      "seconds": 21.36,
+      "sample_rate": 16000,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "source_sha256": "e2fee7d002e0a5a2e96c33d6065fb05889b6707f4baa29c2ce4c5f7c3ea32c0c",
+      "output_sha256": "b266bd4ba7fd3dbb1749cc5e4ca97f77b6054bddb618b4586174d6e026eaee9f",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-14T01:19:11.453988+00:00",
+      "processed_checked_at": "2026-11-14T02:11:11.459664+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "hi",
+        "unit": "word",
+        "original_units": 106,
+        "processed_units": 107,
+        "asr_disagreement": 0.16981132075471697,
+        "reference_units": 118,
+        "original_reference_error": 0.2966101694915254,
+        "processed_reference_error": 0.3305084745762712,
+        "reference_error_delta": 0.03389830508474578
+      },
+      "secondary_content": {
+        "language": "hi",
+        "unit": "word",
+        "original_units": 115,
+        "processed_units": 115,
+        "asr_disagreement": 0.008695652173913044,
+        "reference_units": 118,
+        "original_reference_error": 0.1016949152542373,
+        "processed_reference_error": 0.11016949152542373,
+        "reference_error_delta": 0.008474576271186432
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9688908020234004,
+          0.9661781838802033,
+          0.9518998249028828
+        ],
+        "speaker_minimum": 0.9518998249028828,
+        "speaker_mean": 0.9623229369354954,
+        "original_dnsmos": {
+          "signal": 3.7088549488171494,
+          "background": 4.217585773947939,
+          "overall": 3.5013994152346526,
+          "windows": 12,
+          "natural_seconds": 21.36
+        },
+        "processed_dnsmos": {
+          "signal": 3.3885921765578773,
+          "background": 3.9579661314730163,
+          "overall": 3.0699580728381815,
+          "windows": 12,
+          "natural_seconds": 21.36
+        },
+        "dnsmos_delta": {
+          "signal": -0.32026277225927213,
+          "background": -0.25961964247492286,
+          "overall": -0.43144134239647114
+        }
+      },
+      "processed_repeat_detected": false,
+      "repeat_checked_at": "2026-11-14T02:49:51.539890+00:00"
+    },
+    {
+      "id": "vocoder_05_ja_sonic-preview",
+      "cohort": "vocoder_fresh_native",
+      "model": "sonic-preview",
+      "language": "ja",
+      "voice_primary_language": "ja",
+      "seconds": 24.32,
+      "sample_rate": 24000,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "source_sha256": "cc3975f27dabb9b15f766c34c72be4c0095a6769eb7f0182a05a0dc88374e24c",
+      "output_sha256": "5b73287335775b9daee7b9bd5b206a7c79a092fa899b6a3096d12c74486ca61d",
+      "original_detected": true,
+      "processed_detected": true,
+      "original_checked_at": "2026-11-14T01:23:12.172013+00:00",
+      "processed_checked_at": "2026-11-14T02:13:51.490517+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "ja",
+        "unit": "character",
+        "original_units": 102,
+        "processed_units": 133,
+        "asr_disagreement": 0.3137254901960784,
+        "reference_units": 131,
+        "original_reference_error": 0.24427480916030533,
+        "processed_reference_error": 0.030534351145038167,
+        "reference_error_delta": -0.21374045801526717
+      },
+      "secondary_content": {
+        "language": "ja",
+        "unit": "character",
+        "original_units": 131,
+        "processed_units": 131,
+        "asr_disagreement": 0.0,
+        "reference_units": 131,
+        "original_reference_error": 0.007633587786259542,
+        "processed_reference_error": 0.007633587786259542,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9596022409561069,
+          0.9722154703332287,
+          0.9702684569540387
+        ],
+        "speaker_minimum": 0.9596022409561069,
+        "speaker_mean": 0.9673620560811248,
+        "original_dnsmos": {
+          "signal": 3.7069300945741372,
+          "background": 4.1321449491010345,
+          "overall": 3.483955018795623,
+          "windows": 15,
+          "natural_seconds": 24.32
+        },
+        "processed_dnsmos": {
+          "signal": 3.527677466657441,
+          "background": 3.8944557020966064,
+          "overall": 3.1827294471682506,
+          "windows": 15,
+          "natural_seconds": 24.32
+        },
+        "dnsmos_delta": {
+          "signal": -0.17925262791669638,
+          "background": -0.23768924700442806,
+          "overall": -0.3012255716273726
+        }
+      }
+    },
+    {
+      "id": "vocoder_06_ar_sonic-3.6",
+      "cohort": "vocoder_fresh_native",
+      "model": "sonic-3.6",
+      "language": "ar",
+      "voice_primary_language": "ar",
+      "seconds": 28.88,
+      "sample_rate": 44100,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "source_sha256": "c516904d3b12fa8afe0ee159e2af481bfdf0a3d3a56f5f00aaf939db749f7289",
+      "output_sha256": "511dc3fd832e0d8eecf45039f1b31ebd7ce2e065f2148bfcccf9884ace94fd84",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-14T01:25:51.784798+00:00",
+      "processed_checked_at": "2026-11-14T02:17:51.646322+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "ar",
+        "unit": "word",
+        "original_units": 57,
+        "processed_units": 57,
+        "asr_disagreement": 0.017543859649122806,
+        "reference_units": 58,
+        "original_reference_error": 0.08620689655172414,
+        "processed_reference_error": 0.10344827586206896,
+        "reference_error_delta": 0.01724137931034482
+      },
+      "secondary_content": {
+        "language": "ar",
+        "unit": "word",
+        "original_units": 58,
+        "processed_units": 58,
+        "asr_disagreement": 0.0,
+        "reference_units": 58,
+        "original_reference_error": 0.034482758620689655,
+        "processed_reference_error": 0.034482758620689655,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9585975394272055,
+          0.9477583763804388,
+          0.9537437184582829
+        ],
+        "speaker_minimum": 0.9477583763804388,
+        "speaker_mean": 0.9533665447553091,
+        "original_dnsmos": {
+          "signal": 3.7081173579791513,
+          "background": 4.141209623683108,
+          "overall": 3.4808323277612847,
+          "windows": 19,
+          "natural_seconds": 28.88
+        },
+        "processed_dnsmos": {
+          "signal": 3.312626254610567,
+          "background": 3.5429436346016736,
+          "overall": 2.8148240054361104,
+          "windows": 19,
+          "natural_seconds": 28.88
+        },
+        "dnsmos_delta": {
+          "signal": -0.3954911033685842,
+          "background": -0.5982659890814341,
+          "overall": -0.6660083223251743
+        }
+      },
+      "processed_repeat_detected": false,
+      "repeat_checked_at": "2026-11-14T02:51:11.667577+00:00"
+    },
+    {
+      "id": "vocoder_07_ko_sonic-preview",
+      "cohort": "vocoder_fresh_native",
+      "model": "sonic-preview",
+      "language": "ko",
+      "voice_primary_language": "ko",
+      "seconds": 23.92,
+      "sample_rate": 48000,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "source_sha256": "1e86e34d8e6a8df224f58ff1626179ebf9d4c15925add1574d7800a4a966843a",
+      "output_sha256": "464c28a2848ad35e4207d694a0b9d8d295062a4afd8710ace04ebfd921b25157",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-14T01:28:31.743908+00:00",
+      "processed_checked_at": "2026-11-14T02:20:31.582017+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "ko",
+        "unit": "word",
+        "original_units": 44,
+        "processed_units": 44,
+        "asr_disagreement": 0.0,
+        "reference_units": 44,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": 0.0
+      },
+      "secondary_content": {
+        "language": "ko",
+        "unit": "word",
+        "original_units": 42,
+        "processed_units": 42,
+        "asr_disagreement": 0.0,
+        "reference_units": 44,
+        "original_reference_error": 0.09090909090909091,
+        "processed_reference_error": 0.09090909090909091,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9531886912895645,
+          0.9635111225945585,
+          0.9694730470078397
+        ],
+        "speaker_minimum": 0.9531886912895645,
+        "speaker_mean": 0.9620576202973209,
+        "original_dnsmos": {
+          "signal": 3.74957147926809,
+          "background": 4.223166013173987,
+          "overall": 3.5236117141338386,
+          "windows": 14,
+          "natural_seconds": 23.92
+        },
+        "processed_dnsmos": {
+          "signal": 3.141686435031058,
+          "background": 3.4810697574032496,
+          "overall": 2.607676980543648,
+          "windows": 14,
+          "natural_seconds": 23.92
+        },
+        "dnsmos_delta": {
+          "signal": -0.6078850442370323,
+          "background": -0.7420962557707376,
+          "overall": -0.9159347335901904
+        }
+      }
+    },
+    {
+      "id": "vocoder_08_zh_sonic-3.6",
+      "cohort": "vocoder_fresh_native",
+      "model": "sonic-3.6",
+      "language": "zh",
+      "voice_primary_language": "zh",
+      "seconds": 23.04,
+      "sample_rate": 16000,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "source_sha256": "c4becded9623b25a361a2158c316e2e8e9b587d8323358a6526312c5bb9e5351",
+      "output_sha256": "379f7167063e187acd8d49f84d1c01962a959436771f5efdc254ddee0e31889d",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-14T01:32:31.794316+00:00",
+      "processed_checked_at": "2026-11-14T02:23:11.481169+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "zh",
+        "unit": "character",
+        "original_units": 112,
+        "processed_units": 112,
+        "asr_disagreement": 0.03571428571428571,
+        "reference_units": 112,
+        "original_reference_error": 0.008928571428571428,
+        "processed_reference_error": 0.026785714285714284,
+        "reference_error_delta": 0.017857142857142856
+      },
+      "secondary_content": {
+        "language": "zh",
+        "unit": "character",
+        "original_units": 112,
+        "processed_units": 112,
+        "asr_disagreement": 0.0,
+        "reference_units": 112,
+        "original_reference_error": 0.008928571428571428,
+        "processed_reference_error": 0.008928571428571428,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9357737969171056,
+          0.9556572240821442,
+          0.956177186863701
+        ],
+        "speaker_minimum": 0.9357737969171056,
+        "speaker_mean": 0.949202735954317,
+        "original_dnsmos": {
+          "signal": 3.7757072516045525,
+          "background": 4.259119088609228,
+          "overall": 3.6078198424090715,
+          "windows": 14,
+          "natural_seconds": 23.04
+        },
+        "processed_dnsmos": {
+          "signal": 2.9957337860145037,
+          "background": 4.041227204538596,
+          "overall": 2.7481580416660436,
+          "windows": 14,
+          "natural_seconds": 23.04
+        },
+        "dnsmos_delta": {
+          "signal": -0.7799734655900488,
+          "background": -0.21789188407063165,
+          "overall": -0.8596618007430279
+        }
+      },
+      "processed_repeat_detected": false,
+      "repeat_checked_at": "2026-11-14T02:52:31.588092+00:00"
+    },
+    {
+      "id": "vocoder_09_ru_sonic-preview",
+      "cohort": "vocoder_fresh_native",
+      "model": "sonic-preview",
+      "language": "ru",
+      "voice_primary_language": "ru",
+      "seconds": 25.92,
+      "sample_rate": 24000,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "source_sha256": "a417d877acbdaef185d23a86b14a59b3cab5abbd3ca1746b9d86e0abc0b19945",
+      "output_sha256": "b92e43b0f4b55f47e39b76f6311b59f1a336ecd6c57084d8ceeeb9c9578e1333",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-14T01:36:31.666012+00:00",
+      "processed_checked_at": "2026-11-14T02:27:12.147801+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "ru",
+        "unit": "word",
+        "original_units": 54,
+        "processed_units": 54,
+        "asr_disagreement": 0.0,
+        "reference_units": 54,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": 0.0
+      },
+      "secondary_content": {
+        "language": "ru",
+        "unit": "word",
+        "original_units": 54,
+        "processed_units": 54,
+        "asr_disagreement": 0.0,
+        "reference_units": 54,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9434142891540838,
+          0.9631939552429483,
+          0.9664791960848976
+        ],
+        "speaker_minimum": 0.9434142891540838,
+        "speaker_mean": 0.9576958134939765,
+        "original_dnsmos": {
+          "signal": 3.772780661206224,
+          "background": 4.213594210253698,
+          "overall": 3.570941025518784,
+          "windows": 16,
+          "natural_seconds": 25.92
+        },
+        "processed_dnsmos": {
+          "signal": 2.9912877473580672,
+          "background": 3.7422532620215723,
+          "overall": 2.627449427135446,
+          "windows": 16,
+          "natural_seconds": 25.92
+        },
+        "dnsmos_delta": {
+          "signal": -0.7814929138481568,
+          "background": -0.47134094823212536,
+          "overall": -0.9434915983833378
+        }
+      }
+    },
+    {
+      "id": "vocoder_10_ta_sonic-3.6",
+      "cohort": "vocoder_fresh_native",
+      "model": "sonic-3.6",
+      "language": "ta",
+      "voice_primary_language": "ta",
+      "seconds": 23.92,
+      "sample_rate": 44100,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "source_sha256": "45a6df49eed68a7a740db7bc9e546c777ba806db7591b7f54bf35144f0694d7b",
+      "output_sha256": "65e6e09d420762a665e1a339e02fddd46c27a0f0ceb862a721ee2e1585f0cd18",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-14T01:40:31.996541+00:00",
+      "processed_checked_at": "2026-11-14T02:29:51.868392+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "ta",
+        "unit": "word",
+        "original_units": 137,
+        "processed_units": 137,
+        "asr_disagreement": 0.051094890510948905,
+        "reference_units": 136,
+        "original_reference_error": 0.058823529411764705,
+        "processed_reference_error": 0.08823529411764706,
+        "reference_error_delta": 0.02941176470588236
+      },
+      "secondary_content": {
+        "language": "ta",
+        "unit": "word",
+        "original_units": 132,
+        "processed_units": 132,
+        "asr_disagreement": 0.007575757575757576,
+        "reference_units": 136,
+        "original_reference_error": 0.11764705882352941,
+        "processed_reference_error": 0.125,
+        "reference_error_delta": 0.00735294117647059
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9824185069470812,
+          0.9702140595418015,
+          0.9508096220484811
+        ],
+        "speaker_minimum": 0.9508096220484811,
+        "speaker_mean": 0.967814062845788,
+        "original_dnsmos": {
+          "signal": 3.6148924862352,
+          "background": 4.0209236514406355,
+          "overall": 3.293645997965902,
+          "windows": 14,
+          "natural_seconds": 23.92
+        },
+        "processed_dnsmos": {
+          "signal": 3.2611999776493086,
+          "background": 3.4481834260642623,
+          "overall": 2.7042518483613494,
+          "windows": 14,
+          "natural_seconds": 23.92
+        },
+        "dnsmos_delta": {
+          "signal": -0.3536925085858913,
+          "background": -0.5727402253763731,
+          "overall": -0.5893941496045527
+        }
+      },
+      "processed_repeat_detected": false,
+      "repeat_checked_at": "2026-11-14T02:53:51.852671+00:00"
+    },
+    {
+      "id": "vocoder_11_ar_sonic-preview",
+      "cohort": "vocoder_fresh_native",
+      "model": "sonic-preview",
+      "language": "ar",
+      "voice_primary_language": "ar",
+      "seconds": 26.4,
+      "sample_rate": 48000,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "source_sha256": "669c3fd73b39c62f12fe6670e76eb6dadef8491a69c5df388da7955e53c8cb26",
+      "output_sha256": "0f2bd866ecabfab85fe8abc69e492656e6253a212b7322d1726f0380ae9793db",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-14T01:44:31.809718+00:00",
+      "processed_checked_at": "2026-11-14T02:32:31.834334+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "ar",
+        "unit": "word",
+        "original_units": 58,
+        "processed_units": 57,
+        "asr_disagreement": 0.1206896551724138,
+        "reference_units": 57,
+        "original_reference_error": 0.22807017543859648,
+        "processed_reference_error": 0.2631578947368421,
+        "reference_error_delta": 0.03508771929824561
+      },
+      "secondary_content": {
+        "language": "ar",
+        "unit": "word",
+        "original_units": 58,
+        "processed_units": 58,
+        "asr_disagreement": 0.017241379310344827,
+        "reference_units": 57,
+        "original_reference_error": 0.05263157894736842,
+        "processed_reference_error": 0.07017543859649122,
+        "reference_error_delta": 0.017543859649122806
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9565053484038535,
+          0.9533966038778613,
+          0.9585445062134677
+        ],
+        "speaker_minimum": 0.9533966038778613,
+        "speaker_mean": 0.9561488194983943,
+        "original_dnsmos": {
+          "signal": 3.732857259221754,
+          "background": 4.171224958798767,
+          "overall": 3.516266600820043,
+          "windows": 17,
+          "natural_seconds": 26.4
+        },
+        "processed_dnsmos": {
+          "signal": 3.0822378562160497,
+          "background": 3.9611563363127504,
+          "overall": 2.8118043926752145,
+          "windows": 17,
+          "natural_seconds": 26.4
+        },
+        "dnsmos_delta": {
+          "signal": -0.6506194030057042,
+          "background": -0.21006862248601665,
+          "overall": -0.7044622081448284
+        }
+      },
+      "processed_repeat_detected": false,
+      "repeat_checked_at": "2026-11-14T02:55:11.669123+00:00"
+    },
+    {
+      "id": "vocoder_00_en_sonic-3.5",
+      "cohort": "vocoder_fresh_native",
+      "model": "sonic-3.5",
+      "language": "en",
+      "voice_primary_language": "de",
+      "seconds": 62.08,
+      "sample_rate": 16000,
+      "channels": 1,
+      "declared_watermarked": false,
+      "provenance_group": "generated_unmarked",
+      "source_sha256": "741715f71284bad2517eabc31b38f6cffe54ee21b9a4ad912a02efd8e89f241f",
+      "output_sha256": "f00f069521946bb90814724b6b35a18406b996b69ef12d6a82dd7bef3cc780db",
+      "original_detected": false,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-14T01:48:32.038353+00:00",
+      "processed_checked_at": "2026-11-14T02:36:32.130621+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 195,
+        "processed_units": 195,
+        "asr_disagreement": 0.005128205128205128,
+        "reference_units": 195,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.005128205128205128,
+        "reference_error_delta": 0.005128205128205128
+      },
+      "secondary_content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 195,
+        "processed_units": 195,
+        "asr_disagreement": 0.0,
+        "reference_units": 195,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9392301911903025,
+          0.9505501492985335,
+          0.9609377689500225
+        ],
+        "speaker_minimum": 0.9392301911903025,
+        "speaker_mean": 0.9502393698129529,
+        "original_dnsmos": {
+          "signal": 3.804284727197071,
+          "background": 4.226487335127828,
+          "overall": 3.6019853600971707,
+          "windows": 53,
+          "natural_seconds": 62.08
+        },
+        "processed_dnsmos": {
+          "signal": 3.1939263940768066,
+          "background": 3.9478948491913535,
+          "overall": 2.900924439181422,
+          "windows": 53,
+          "natural_seconds": 62.08
+        },
+        "dnsmos_delta": {
+          "signal": -0.6103583331202644,
+          "background": -0.2785924859364748,
+          "overall": -0.7010609209157486
+        }
+      }
+    },
+    {
+      "id": "vocoder_02_fr_sonic-3.5",
+      "cohort": "vocoder_fresh_native",
+      "model": "sonic-3.5",
+      "language": "fr",
+      "voice_primary_language": "fr",
+      "seconds": 19.68,
+      "sample_rate": 44100,
+      "channels": 1,
+      "declared_watermarked": false,
+      "provenance_group": "generated_unmarked",
+      "source_sha256": "63fcd36d97e73914f4fde8307788b7de3d3b855b8265affd77866d835605cdb5",
+      "output_sha256": "28bb9da91c31020353e9e417d59ac9da041b57fbfa00af81b62560cce9ab53e9",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-14T01:53:51.570316+00:00",
+      "processed_checked_at": "2026-11-14T02:39:11.460451+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "fr",
+        "unit": "word",
+        "original_units": 66,
+        "processed_units": 65,
+        "asr_disagreement": 0.07575757575757576,
+        "reference_units": 65,
+        "original_reference_error": 0.07692307692307693,
+        "processed_reference_error": 0.046153846153846156,
+        "reference_error_delta": -0.03076923076923077
+      },
+      "secondary_content": {
+        "language": "fr",
+        "unit": "word",
+        "original_units": 65,
+        "processed_units": 65,
+        "asr_disagreement": 0.015384615384615385,
+        "reference_units": 65,
+        "original_reference_error": 0.03076923076923077,
+        "processed_reference_error": 0.046153846153846156,
+        "reference_error_delta": 0.015384615384615385
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9838064979709156,
+          0.9848839753095444,
+          0.9829196711063803
+        ],
+        "speaker_minimum": 0.9829196711063803,
+        "speaker_mean": 0.9838700481289467,
+        "original_dnsmos": {
+          "signal": 3.8323991792585113,
+          "background": 4.25198824722005,
+          "overall": 3.661906046246031,
+          "windows": 10,
+          "natural_seconds": 19.68
+        },
+        "processed_dnsmos": {
+          "signal": 3.214808606729192,
+          "background": 4.06096379993607,
+          "overall": 2.964265461098523,
+          "windows": 10,
+          "natural_seconds": 19.68
+        },
+        "dnsmos_delta": {
+          "signal": -0.6175905725293194,
+          "background": -0.19102444728397927,
+          "overall": -0.697640585147508
+        }
+      },
+      "processed_repeat_detected": false,
+      "repeat_checked_at": "2026-11-14T02:56:31.452183+00:00"
+    },
+    {
+      "id": "long_02_es_sonic-3.6",
+      "cohort": "vocoder_long_native",
+      "model": "sonic-3.6",
+      "language": "es",
+      "voice_primary_language": "es",
+      "seconds": 142.88,
+      "sample_rate": 24000,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "source_sha256": "77837a25ef548f9869880641c41bdb724dfb7ded2163caa1ad4f6cb93fd9a370",
+      "output_sha256": "4087c20ef36885676e1d23c7ef35d1c07cba62ae8d934f0be7defbe0458267a2",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-14T01:15:13.832433+00:00",
+      "processed_checked_at": "2026-11-14T01:33:53.337138+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "es",
+        "unit": "word",
+        "original_units": 392,
+        "processed_units": 392,
+        "asr_disagreement": 0.0,
+        "reference_units": 393,
+        "original_reference_error": 0.002544529262086514,
+        "processed_reference_error": 0.002544529262086514,
+        "reference_error_delta": 0.0
+      },
+      "secondary_content": {
+        "language": "es",
+        "unit": "word",
+        "original_units": 394,
+        "processed_units": 394,
+        "asr_disagreement": 0.0,
+        "reference_units": 393,
+        "original_reference_error": 0.002544529262086514,
+        "processed_reference_error": 0.002544529262086514,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9654171531804805,
+          0.9595312773606233,
+          0.9679845328039873
+        ],
+        "speaker_minimum": 0.9595312773606233,
+        "speaker_mean": 0.964310987781697,
+        "original_dnsmos": {
+          "signal": 3.7616651945792587,
+          "background": 4.177776902940991,
+          "overall": 3.5486889022237595,
+          "windows": 133,
+          "natural_seconds": 142.88
+        },
+        "processed_dnsmos": {
+          "signal": 3.101289345795692,
+          "background": 3.629991209399394,
+          "overall": 2.7000828475648233,
+          "windows": 133,
+          "natural_seconds": 142.88
+        },
+        "dnsmos_delta": {
+          "signal": -0.6603758487835667,
+          "background": -0.5477856935415972,
+          "overall": -0.8486060546589362
+        }
+      },
+      "processed_repeat_detected": false,
+      "repeat_checked_at": "2026-11-14T01:45:53.700681+00:00"
+    },
+    {
+      "id": "long_04_en_sonic-3.6",
+      "cohort": "vocoder_long_native",
+      "model": "sonic-3.6",
+      "language": "en",
+      "voice_primary_language": "en",
+      "seconds": 252.08,
+      "sample_rate": 24000,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "source_sha256": "0e7da429ce36a226c3ba1be7fca35bc23c018b967835b66dab2e61439aa255a4",
+      "output_sha256": "b87ac5d7e4125a9186f2c334a3d0baa90df4d65a7b0f48b17eb5747386945f07",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-14T01:20:36.234560+00:00",
+      "processed_checked_at": "2026-11-14T01:37:55.506423+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 799,
+        "processed_units": 798,
+        "asr_disagreement": 0.0025031289111389237,
+        "reference_units": 799,
+        "original_reference_error": 0.0037546933667083854,
+        "processed_reference_error": 0.0037546933667083854,
+        "reference_error_delta": 0.0
+      },
+      "secondary_content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 799,
+        "processed_units": 799,
+        "asr_disagreement": 0.0025031289111389237,
+        "reference_units": 799,
+        "original_reference_error": 0.0012515644555694619,
+        "processed_reference_error": 0.0037546933667083854,
+        "reference_error_delta": 0.0025031289111389233
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9707357466913034,
+          0.9568960764893379,
+          0.9725786483624442
+        ],
+        "speaker_minimum": 0.9568960764893379,
+        "speaker_mean": 0.9667368238476951,
+        "original_dnsmos": {
+          "signal": 3.792507884578847,
+          "background": 4.199644946120417,
+          "overall": 3.5853973232324425,
+          "windows": 243,
+          "natural_seconds": 252.08
+        },
+        "processed_dnsmos": {
+          "signal": 2.9859399383693703,
+          "background": 3.5634935098544442,
+          "overall": 2.567111832835125,
+          "windows": 243,
+          "natural_seconds": 252.08
+        },
+        "dnsmos_delta": {
+          "signal": -0.8065679462094768,
+          "background": -0.6361514362659726,
+          "overall": -1.0182854903973175
+        }
+      },
+      "processed_repeat_detected": false,
+      "repeat_checked_at": "2026-11-14T01:49:55.289666+00:00"
+    }
+  ],
+  "study_completed_at": "2026-11-14T03:01:52.404911+00:00",
+  "exported_at": "2026-11-14T03:11:13.372938+00:00"
+}

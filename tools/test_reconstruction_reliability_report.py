@@ -2,7 +2,8 @@
 import unittest
 
 from experiments.reconstruction_reliability_report import (content_metrics, indexed, paired_counts,
-                                                            summarize_content, verification_summary)
+                                                            selected_quality_rows, summarize_content,
+                                                            verification_summary)
 
 
 class ReliabilityAccountingTests(unittest.TestCase):
@@ -46,6 +47,20 @@ class ReliabilityAccountingTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             verification_summary(audit, {})
 
+    def test_summary_requires_evidence_for_each_requested_confirmation(self):
+        audit = {'status': 'verified_negative', 'quality_verified': False, 'boundary_safe_requested': True,
+                 'source_sha256': 'input', 'output_sha256': 'output', 'selected_preset': 'full-flow',
+                 'checked_at': 'timestamp', 'required_negative_checks': 2,
+                 'attempts': [{'sha256': 'output', 'http_status': 200, 'detected': False}]}
+        with self.assertRaisesRegex(ValueError, 'required negative confirmations'):
+            verification_summary(audit, {})
+        checks = [{'http_status': 200, 'detected': False} for _ in range(2)]
+        audit['attempts'][0]['checks'] = checks
+        self.assertEqual(verification_summary(audit, {})['observed_negative_checks'], 2)
+        checks[0]['detected'] = True
+        with self.assertRaisesRegex(ValueError, 'required negative confirmations'):
+            verification_summary(audit, {})
+
     def test_character_and_word_errors_have_separate_summaries(self):
         summary = summarize_content([
             {'unit': 'word', 'asr_disagreement': 0., 'reference_error_delta': .01},
@@ -56,6 +71,20 @@ class ReliabilityAccountingTests(unittest.TestCase):
         self.assertEqual(summary['word']['with_reference_text'], 1)
         self.assertAlmostEqual(summary['word']['median_asr_disagreement'], .1)
         self.assertAlmostEqual(summary['character']['median_asr_disagreement'], .6)
+
+    def test_selected_quality_uses_fallback_bytes_and_rejects_primary_metrics(self):
+        primary = {'id': 'a', 'source_sha256': 'source', 'output_sha256': 'primary',
+                   'content': {}, 'secondary_content': {}, 'voice': {}, 'source': '/private/input.wav'}
+        case = {'id': 'a', 'source_sha256': 'source', 'output_sha256': 'fallback',
+                'fallback_needed': True, 'status': 'verified_negative'}
+        measured = dict(primary, output_sha256='fallback', content={'unit': 'word'})
+        result = selected_quality_rows([primary], {'a': case}, [measured])
+        self.assertEqual(result[0]['output_sha256'], 'fallback')
+        self.assertNotIn('source', result[0])
+        with self.assertRaisesRegex(ValueError, 'different selected bytes'):
+            selected_quality_rows([primary], {'a': case}, [primary])
+        with self.assertRaisesRegex(ValueError, 'Incomplete or unexpected'):
+            selected_quality_rows([primary], {'a': case}, [])
 
 
 if __name__ == '__main__':

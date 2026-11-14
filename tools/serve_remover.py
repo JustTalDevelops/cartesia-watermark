@@ -40,7 +40,11 @@ CHECKPOINT_SHA256 = "c5ddec58926c24e0f92c83475d589286ea98f2a8bc95124097ef567cc19
 RECONSTRUCTION_PYTHON = ROOT / '.cache/resemble-venv/bin/python'
 RECONSTRUCTION_SCRIPT = ROOT / 'tools/reconstruct_audio.py'
 reconstructor = ReconstructionWorker(RECONSTRUCTION_PYTHON, RECONSTRUCTION_SCRIPT)
-RECONSTRUCTION_METHODS = {'reconstruct': 'standard', 'reconstruct_strong': 'strong'}
+flow_reconstructor = ReconstructionWorker(RECONSTRUCTION_PYTHON, RECONSTRUCTION_SCRIPT, boundary_safe=True)
+vocoder_reconstructor = ReconstructionWorker(ROOT/'.venv/bin/python', ROOT/'tools/reconstruct_vocoder.py')
+RECONSTRUCTION_METHODS = {'reconstruct': 'standard', 'reconstruct_fullflow': 'full-flow',
+                          'reconstruct_strong': 'strong', 'vocoder': 'smoothed-vocoder'}
+DEFAULT_METHOD = 'reconstruct'
 MAX_BYTES = 100 * 1024 * 1024
 MAX_SECONDS = 15 * 60
 RETENTION = 24 * 60 * 60
@@ -129,9 +133,11 @@ def process_job(job_id):
         if method in RECONSTRUCTION_METHODS:
             update(job_id, message='Reconstructing speech… This takes about 2–3 minutes per minute of audio.')
             try:
-                reconstructor.run(reference, directory/'processed.wav', RECONSTRUCTION_METHODS[method],
-                                  directory/'reconstruction.json',
-                                  timeout=max(180, math.ceil(len(audio)/actual_rate*8+120)))
+                worker = (vocoder_reconstructor if method == 'vocoder' else
+                          reconstructor if method == 'reconstruct' else flow_reconstructor)
+                worker.run(reference, directory/'processed.wav', RECONSTRUCTION_METHODS[method],
+                           directory/'reconstruction.json',
+                           timeout=max(180, math.ceil(len(audio)/actual_rate*8+120)))
             except subprocess.TimeoutExpired:
                 raise ValueError('Reconstruction took too long. Try a shorter recording.') from None
             except (RuntimeError, OSError, ValueError):
@@ -200,6 +206,8 @@ async def lifespan(app):
         cleaner.cancel()
         executor.shutdown(wait=True)
         reconstructor.close()
+        flow_reconstructor.close()
+        vocoder_reconstructor.close()
 
 
 app = FastAPI(lifespan=lifespan, docs_url=None, redoc_url=None, openapi_url=None)
@@ -241,14 +249,14 @@ def styles():
 
 @app.get("/api/health")
 def health():
-    return {"ready": model is not None, "model": "Reconstruction", "default_method": "reconstruct", "max_upload_bytes": MAX_BYTES,
+    return {"ready": model is not None, "model": "Reconstruction", "default_method": DEFAULT_METHOD, "max_upload_bytes": MAX_BYTES,
             "max_seconds": MAX_SECONDS, "retention_hours": RETENTION // 3600}
 
 
 @app.post("/api/jobs", status_code=202)
-async def upload(request: Request, filename: str = "recording", strength: float = 1, method: str = 'reconstruct'):
+async def upload(request: Request, filename: str = "recording", strength: float = 1, method: str = DEFAULT_METHOD):
     if method not in (*RECONSTRUCTION_METHODS, 'editor'):
-        raise HTTPException(422, 'Choose Reconstruction or Small edits.')
+        raise HTTPException(422, 'Choose a processing method from the list.')
     if not math.isfinite(strength) or not 0.25 <= strength <= 1:
         raise HTTPException(422, "Edit amount must be between 25% and 100%.")
     if not slots.acquire(blocking=False):

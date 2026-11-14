@@ -1,0 +1,3772 @@
+{
+  "schema_version": 1,
+  "candidate": "full-flow with boundary-safe chunks",
+  "settings": {
+    "nfe": 32,
+    "solver": "midpoint",
+    "lambd": 0.1,
+    "tau": 1.0,
+    "seed": 2035
+  },
+  "model_sha256": "f9d035f318de3e6d919bc70cf7ad7d32b4fe92ec5cbe0b30029a27f5db07d9d6",
+  "inference_code_sha256": {
+    "tools/reconstruct_audio.py": "25f3e120598995e398fe76a68a3fda943b53e4f294cad5887207888fb9229c96",
+    "tools/reconstruction_inference.py": "1a3c6b8ae05019f04b9650a11b81a331b4ef6b11e9dc43c34e95a0371cbf8a8f",
+    "tools/reconstruction_worker.py": "566866c61e45c1364ca2f42adeec5876386c0a0cbf91836fe972769529ea9469"
+  },
+  "plan_sha256": "959557d3b8271a7aaa08315a085786a7af8d023437bdbf445dc7830c8bb8bafd",
+  "evidence_sha256": {
+    "api": "e498fa5d47138ff064d2553b8c79a0c0e27923203b0ba30474b6819b1cc595b6",
+    "render": "7abd34ef49da4a8169a44790977360c7e16263eae8610450ce08690f396aaf42",
+    "asr": "6e222fdf6dbd678db11a4fcfc4fa2bb501d61ccda4216ac76790589e3610ee72",
+    "secondary_asr": "58c89b6cb7de263afb9dc04f8d6d3e79ac72e422c8b3d3319281384e0b4f9d3d",
+    "voice": "32eb4aa8cab71246dfac1df9272e1954b979d9f4375ea4654cbd209624a5e364"
+  },
+  "study_completed_at": "2026-11-14T02:48:31.996908+00:00",
+  "exported_at": "2026-11-14T03:11:13.317236+00:00",
+  "selection": {
+    "public": "All 5–300 second public page samples; full recordings, hash order",
+    "fresh": "16 public voice IDs absent from prior corpus plans/results, 20 authored utterances; four matched sonic-3.5 controls",
+    "fresh_voice_ids": 16,
+    "fresh_languages": [
+      "ar",
+      "de",
+      "en",
+      "es",
+      "fr",
+      "hi",
+      "ja",
+      "ko",
+      "ru",
+      "ta",
+      "zh"
+    ],
+    "fresh_sample_rates": [
+      16000,
+      24000,
+      44100,
+      48000
+    ],
+    "public_after_labels_unseen_before_fix": true
+  },
+  "measurement": {
+    "initial_min_interval_seconds": 40,
+    "respect_shared_cooldowns": true,
+    "interval_doubles_on_429_up_to_seconds": 240,
+    "maximum_http_attempts": 102,
+    "order": "All originals in frozen order, then all processed outputs. Fixed original sentinels rechecked during the processed phase to detect service drift.",
+    "actual_http_attempts": 95,
+    "http_status_counts": {
+      "200": 94,
+      "429": 1
+    },
+    "final_interval_seconds": 80,
+    "sentinel_rechecks": 4,
+    "sentinels_remained_positive": true,
+    "execution_notes": [
+      {
+        "at": "2026-11-13T23:23:39.495747+00:00",
+        "reason": "Prioritize all native processed outputs for earlier failure diagnosis while retaining every planned recording and the fixed candidate.",
+        "candidate_or_case_set_changed": false,
+        "all_originals_complete": true,
+        "native_processed_labels_seen": false,
+        "already_completed_processed_ids": [
+          "public_00",
+          "public_01",
+          "public_02"
+        ],
+        "sentinel_counts_unchanged": [
+          10,
+          20,
+          30,
+          40
+        ],
+        "http_budget_unchanged": true,
+        "previous_measurement_script_sha256": "d045f4d5ae384844f58af917f6242c8a4998ffcfc01d32cbdb9bdd137cf05cc4",
+        "updated_measurement_script_sha256": "cfe2f6e55f1f9663aa466321b8c8e712ba99aafb98679cc1a958b14d098c7734"
+      },
+      {
+        "at": "2026-11-14T00:22:03.878098+00:00",
+        "reason": "Yield between requests so queued development clients can use the shared serialized detector; global minimum spacing and case set unchanged.",
+        "candidate_or_case_set_changed": false,
+        "global_rate_increased": false,
+        "measurement_script_sha256": "7b83053612b93f0e1145482180e573afe1393ce2f6153d543ca4c4cf800a1125"
+      }
+    ]
+  },
+  "summary": {
+    "recordings": 50,
+    "original_positive": 23,
+    "positive_to_negative": 23,
+    "remaining_positive": 0,
+    "original_negative": 27,
+    "negative_to_positive": 0,
+    "negative_to_negative": 27
+  },
+  "by_cohort": {
+    "fresh_native": {
+      "recordings": 20,
+      "original_positive": 17,
+      "positive_to_negative": 17,
+      "remaining_positive": 0,
+      "original_negative": 3,
+      "negative_to_positive": 0,
+      "negative_to_negative": 3
+    },
+    "long_native": {
+      "recordings": 5,
+      "original_positive": 4,
+      "positive_to_negative": 4,
+      "remaining_positive": 0,
+      "original_negative": 1,
+      "negative_to_positive": 0,
+      "negative_to_negative": 1
+    },
+    "public": {
+      "recordings": 25,
+      "original_positive": 2,
+      "positive_to_negative": 2,
+      "remaining_positive": 0,
+      "original_negative": 23,
+      "negative_to_positive": 0,
+      "negative_to_negative": 23
+    }
+  },
+  "by_provenance": {
+    "cartesia_published_model_unspecified": {
+      "recordings": 16,
+      "original_positive": 2,
+      "positive_to_negative": 2,
+      "remaining_positive": 0,
+      "original_negative": 14,
+      "negative_to_positive": 0,
+      "negative_to_negative": 14
+    },
+    "generated_marked": {
+      "recordings": 20,
+      "original_positive": 20,
+      "positive_to_negative": 20,
+      "remaining_positive": 0,
+      "original_negative": 0,
+      "negative_to_positive": 0,
+      "negative_to_negative": 0
+    },
+    "generated_unmarked": {
+      "recordings": 5,
+      "original_positive": 1,
+      "positive_to_negative": 1,
+      "remaining_positive": 0,
+      "original_negative": 4,
+      "negative_to_positive": 0,
+      "negative_to_negative": 4
+    },
+    "other_provider": {
+      "recordings": 9,
+      "original_positive": 0,
+      "positive_to_negative": 0,
+      "remaining_positive": 0,
+      "original_negative": 9,
+      "negative_to_positive": 0,
+      "negative_to_negative": 9
+    }
+  },
+  "quality_metrics": {
+    "asr": {
+      "model": "openai/whisper-small",
+      "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "method": "Native long-form timestamp decoding; no artificial segment word cuts",
+      "do_sample": false,
+      "condition_on_prev_tokens": false,
+      "max_new_tokens_per_segment": 440,
+      "known_language": "Fresh requests and explicit public language metadata; otherwise original automatic detection, reused for output",
+      "normalization": "Whisper BasicTextNormalizer(remove_diacritics=False), NFKC; Chinese/Japanese CER, otherwise whitespace WER",
+      "limitation": "Recognizer output is an estimate; paired disagreements do not prove changed speech or unchanged speech.",
+      "padding_policy": "Waveform padded to at least 30 seconds at 16kHz; complete longer audio untruncated; attention mask supplied"
+    },
+    "speaker": {
+      "model": "microsoft/wavlm-base-plus-sv",
+      "revision": "feb593a6c23c1cc3d9510425c29b0a14d2b07b1e",
+      "window_seconds": 10,
+      "window_centers_fraction": [
+        0.2,
+        0.5,
+        0.8
+      ],
+      "limitation": "Descriptive embedding cosine; no calibrated speaker identity or listening guarantee"
+    },
+    "secondary_asr": {
+      "model": "openai/whisper-large-v3-turbo",
+      "revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "method": "Native long-form timestamp decoding; no artificial segment word cuts",
+      "do_sample": false,
+      "condition_on_prev_tokens": false,
+      "max_new_tokens_per_segment": 440,
+      "known_language": "Fresh requests and explicit public language metadata; otherwise original automatic detection, reused for output",
+      "normalization": "Whisper BasicTextNormalizer(remove_diacritics=False), NFKC; Chinese/Japanese CER, otherwise whitespace WER",
+      "limitation": "Recognizer output is an estimate; paired disagreements do not prove changed speech or unchanged speech.",
+      "padding_policy": "Waveform padded to at least 30 seconds at 16kHz; complete longer audio untruncated; attention mask supplied"
+    },
+    "dnsmos": {
+      "implementation": "dnsmos-p835-regular-v1",
+      "revision": "785ab12275d5cf9341c5e946b0eee9f8825ece3b",
+      "model_sha256": "269fbebdb513aa23cddfbb593542ecc540284a91849ac50516870e1ac78f6edd",
+      "librosa": "1.0.0",
+      "onnxruntime": "1.31.1",
+      "resampler": "librosa-soxr_hq",
+      "sample_rate": 16000,
+      "window_samples": 144160,
+      "hop_samples": 16000,
+      "short_clip_policy": "repeat inside quality estimator only"
+    },
+    "content_by_unit": {
+      "character": {
+        "recordings": 2,
+        "with_reference_text": 2,
+        "median_asr_disagreement": 0.01050426116254707,
+        "median_reference_error_delta": 0.007772020725388601,
+        "maximum_reference_error_delta": 0.015544041450777202
+      },
+      "word": {
+        "recordings": 48,
+        "with_reference_text": 44,
+        "median_asr_disagreement": 0.0018198377214770657,
+        "median_reference_error_delta": 0.0,
+        "maximum_reference_error_delta": 0.3421052631578947
+      }
+    },
+    "secondary_content_by_unit": {
+      "character": {
+        "recordings": 2,
+        "with_reference_text": 2,
+        "median_asr_disagreement": 0.013148907103825136,
+        "median_reference_error_delta": 0.0,
+        "maximum_reference_error_delta": 0.0
+      },
+      "word": {
+        "recordings": 23,
+        "with_reference_text": 23,
+        "median_asr_disagreement": 0.0,
+        "median_reference_error_delta": 0.0,
+        "maximum_reference_error_delta": 0.13157894736842105
+      }
+    },
+    "minimum_speaker_window_cosine": 0.9610840792882207,
+    "median_dnsmos_overall_delta": -0.0523390866754152,
+    "human_listening_verified": false
+  },
+  "interpretation": "Observed complete-file endpoint responses for this frozen candidate. Originally negative recordings do not count as removals. Sentinels are repeated controls, not new samples. No universal success, physical erasure, or human-rated speech fidelity claim.",
+  "clips": [
+    {
+      "id": "public_00",
+      "cohort": "public",
+      "seconds": 16.92,
+      "sample_rate": 44100,
+      "channels": 1,
+      "provenance_group": "other_provider",
+      "url": "https://www.cartesia.ai/_astro/hi-in-competitor.pMu2GXc0.mp3",
+      "page": "https://www.cartesia.ai/blog/sonic-3.6",
+      "role": "other_provider_control",
+      "source_sha256": "1d4a1a5bd7b0dab043213d2cd4d6b90e5d07b343a0fdcf72d79dda65f90c38bc",
+      "output_sha256": "6afd28db374a319ed4c8e280a9a1ab302bf966deb414cacc897d1e15f1c61f99",
+      "original_detected": false,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T22:23:31.315052+00:00",
+      "processed_checked_at": "2026-11-13T23:20:31.680996+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "hi",
+        "unit": "word",
+        "original_units": 73,
+        "processed_units": 73,
+        "asr_disagreement": 0.1232876712328767,
+        "reference_units": 62,
+        "original_reference_error": 0.4032258064516129,
+        "processed_reference_error": 0.46774193548387094,
+        "reference_error_delta": 0.06451612903225806
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9894878290383409,
+          0.9871120501481049,
+          0.9893902977577671
+        ],
+        "speaker_minimum": 0.9871120501481049,
+        "speaker_mean": 0.9886633923147375,
+        "original_dnsmos": {
+          "signal": 3.359363045938968,
+          "background": 4.114318060396274,
+          "overall": 3.150761143877127,
+          "windows": 7,
+          "natural_seconds": 16.92
+        },
+        "processed_dnsmos": {
+          "signal": 3.6086452498409227,
+          "background": 4.1953436721423545,
+          "overall": 3.4029458749918797,
+          "windows": 7,
+          "natural_seconds": 16.92
+        },
+        "dnsmos_delta": {
+          "signal": 0.24928220390195488,
+          "background": 0.0810256117460808,
+          "overall": 0.2521847311147529
+        }
+      }
+    },
+    {
+      "id": "public_01",
+      "cohort": "public",
+      "seconds": 263.22786848072565,
+      "sample_rate": 44100,
+      "channels": 1,
+      "provenance_group": "cartesia_published_model_unspecified",
+      "url": "https://www.cartesia.ai/_astro/narration.reading.COfqzvQ-.mp3",
+      "page": "https://www.cartesia.ai/blog/multilingual-voices",
+      "role": "Cartesia_published_sample",
+      "source_sha256": "2fab0e4a78bec58fb70a45361280e34eb62019af65bc28671dfa6a2edb189fe1",
+      "output_sha256": "1a6c6f8753749b8146ff839aa7e5f3b97f1f95dd1fc81bc646bc459c0bfa7569",
+      "original_detected": false,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T22:24:16.440769+00:00",
+      "processed_checked_at": "2026-11-13T23:21:57.083232+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": null,
+        "unit": "word",
+        "original_units": 721,
+        "processed_units": 711,
+        "asr_disagreement": 0.05547850208044383
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9874149400081182,
+          0.9909849352421287,
+          0.9668560466335131
+        ],
+        "speaker_minimum": 0.9668560466335131,
+        "speaker_mean": 0.9817519739612534,
+        "original_dnsmos": {
+          "signal": 3.7610828600842896,
+          "background": 4.205678467410882,
+          "overall": 3.5608712321386276,
+          "windows": 254,
+          "natural_seconds": 263.227875
+        },
+        "processed_dnsmos": {
+          "signal": 3.722486587093127,
+          "background": 4.172651870082349,
+          "overall": 3.506660674255509,
+          "windows": 254,
+          "natural_seconds": 263.227875
+        },
+        "dnsmos_delta": {
+          "signal": -0.03859627299116264,
+          "background": -0.03302659732853286,
+          "overall": -0.05421055788311868
+        }
+      },
+      "processed_repeat_detected": false
+    },
+    {
+      "id": "public_02",
+      "cohort": "public",
+      "seconds": 15.188662131519274,
+      "sample_rate": 44100,
+      "channels": 1,
+      "provenance_group": "cartesia_published_model_unspecified",
+      "url": "https://www.cartesia.ai/_astro/fr_CA.Cc3X42Tf.mp3",
+      "page": "https://www.cartesia.ai/sonic",
+      "role": "Cartesia_published_sample",
+      "source_sha256": "5156dc9857797a170f42245b6ca8c7bc52f5f4f7a771d770113645f77f7aa7e0",
+      "output_sha256": "3ef462c826d80651296b3d26b16f9c8545332c2778ab4cf870d2377558505c56",
+      "original_detected": false,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T22:24:51.489026+00:00",
+      "processed_checked_at": "2026-11-13T23:23:11.404693+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "fr",
+        "unit": "word",
+        "original_units": 54,
+        "processed_units": 54,
+        "asr_disagreement": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9870384304800106,
+          0.985378956884498,
+          0.9881867608593181
+        ],
+        "speaker_minimum": 0.985378956884498,
+        "speaker_mean": 0.9868680494079421,
+        "original_dnsmos": {
+          "signal": 3.7118788252785215,
+          "background": 4.203204785071015,
+          "overall": 3.507979316199321,
+          "windows": 6,
+          "natural_seconds": 15.1510625
+        },
+        "processed_dnsmos": {
+          "signal": 3.698813255330966,
+          "background": 4.180584462558826,
+          "overall": 3.4764926320138954,
+          "windows": 6,
+          "natural_seconds": 15.1510625
+        },
+        "dnsmos_delta": {
+          "signal": -0.013065569947555478,
+          "background": -0.022620322512188373,
+          "overall": -0.03148668418542577
+        }
+      }
+    },
+    {
+      "id": "public_03",
+      "cohort": "public",
+      "seconds": 6.32,
+      "sample_rate": 44100,
+      "channels": 1,
+      "provenance_group": "cartesia_published_model_unspecified",
+      "url": "https://www.cartesia.ai/_astro/fr-fr-sonic.CD8RWvXr.mp3",
+      "page": "https://www.cartesia.ai/blog/sonic-3.6",
+      "role": "Cartesia_published_sample",
+      "source_sha256": "2aad82d98db562f1058595f8c148ffc4168466eae9bfe917a9244b97e70e87c6",
+      "output_sha256": "b99f33c20b6cdf66f8f2d4042ec3fe5a5d1968b4d3faae9a8b4c08be2ed2b341",
+      "original_detected": false,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T22:25:31.047716+00:00",
+      "processed_checked_at": "2026-11-13T23:59:11.369892+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "fr",
+        "unit": "word",
+        "original_units": 18,
+        "processed_units": 18,
+        "asr_disagreement": 0.0,
+        "reference_units": 17,
+        "original_reference_error": 0.058823529411764705,
+        "processed_reference_error": 0.058823529411764705,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9759267836822274
+        ],
+        "speaker_minimum": 0.9759267836822274,
+        "speaker_mean": 0.9759267836822274,
+        "original_dnsmos": {
+          "signal": 3.774537843863332,
+          "background": 4.214307205751692,
+          "overall": 3.566680184142136,
+          "windows": 3,
+          "natural_seconds": 6.32
+        },
+        "processed_dnsmos": {
+          "signal": 3.6889419437646267,
+          "background": 4.090990717035869,
+          "overall": 3.4348702105064977,
+          "windows": 3,
+          "natural_seconds": 6.32
+        },
+        "dnsmos_delta": {
+          "signal": -0.08559590009870544,
+          "background": -0.12331648871582335,
+          "overall": -0.1318099736356384
+        }
+      }
+    },
+    {
+      "id": "public_04",
+      "cohort": "public",
+      "seconds": 10.4,
+      "sample_rate": 44100,
+      "channels": 1,
+      "provenance_group": "cartesia_published_model_unspecified",
+      "url": "https://www.cartesia.ai/_astro/hinglish-showcase.DFvYr9GT.mp3",
+      "page": "https://www.cartesia.ai/blog/sonic-3.6",
+      "role": "Cartesia_published_sample",
+      "source_sha256": "49d61e6764a011edb2d5d8ebb8494b175ca8f601794c5262d5eb0c184d7e8030",
+      "output_sha256": "99bcfc0f19ca339ec3c8c84f1e30d4c5788f7fa650b44a0614e70f84cc29fe07",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T22:26:11.128949+00:00",
+      "processed_checked_at": "2026-11-14T00:00:31.370446+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "hi",
+        "unit": "word",
+        "original_units": 73,
+        "processed_units": 68,
+        "asr_disagreement": 0.2602739726027397,
+        "reference_units": 41,
+        "original_reference_error": 1.2926829268292683,
+        "processed_reference_error": 1.170731707317073,
+        "reference_error_delta": -0.12195121951219523
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9780133426772026,
+          0.9774194048780783,
+          0.9798030687742509
+        ],
+        "speaker_minimum": 0.9774194048780783,
+        "speaker_mean": 0.9784119387765106,
+        "original_dnsmos": {
+          "signal": 3.7610129656627738,
+          "background": 4.214660710195674,
+          "overall": 3.5763766516249325,
+          "windows": 1,
+          "natural_seconds": 10.4
+        },
+        "processed_dnsmos": {
+          "signal": 3.684730884206121,
+          "background": 4.1677881705741955,
+          "overall": 3.4763161533013807,
+          "windows": 1,
+          "natural_seconds": 10.4
+        },
+        "dnsmos_delta": {
+          "signal": -0.07628208145665294,
+          "background": -0.04687253962147864,
+          "overall": -0.1000604983235518
+        }
+      }
+    },
+    {
+      "id": "public_05",
+      "cohort": "public",
+      "seconds": 16.0,
+      "sample_rate": 44100,
+      "channels": 1,
+      "provenance_group": "cartesia_published_model_unspecified",
+      "url": "https://www.cartesia.ai/_astro/en-au-showcase.cuRONZ23.mp3",
+      "page": "https://www.cartesia.ai/blog/sonic-3.6",
+      "role": "Cartesia_published_sample",
+      "source_sha256": "908118bc19ec72345c219f028590b625ebea938f0801d64d7b31da63d77d8f91",
+      "output_sha256": "f2580aa79bdec7561437c6984b30c52d76ecdcf8f50abbdc3e99b3b5299052b2",
+      "original_detected": false,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T22:26:51.179013+00:00",
+      "processed_checked_at": "2026-11-14T00:03:11.476888+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 39,
+        "processed_units": 40,
+        "asr_disagreement": 0.05128205128205128,
+        "reference_units": 41,
+        "original_reference_error": 0.12195121951219512,
+        "processed_reference_error": 0.0975609756097561,
+        "reference_error_delta": -0.02439024390243902
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9908662858887404,
+          0.9909085671982016,
+          0.9890770741785628
+        ],
+        "speaker_minimum": 0.9890770741785628,
+        "speaker_mean": 0.9902839757551684,
+        "original_dnsmos": {
+          "signal": 3.7843862122510408,
+          "background": 4.221828931040209,
+          "overall": 3.578407098171058,
+          "windows": 7,
+          "natural_seconds": 16.0
+        },
+        "processed_dnsmos": {
+          "signal": 3.6801063602956248,
+          "background": 4.166141887833961,
+          "overall": 3.4629660232107833,
+          "windows": 7,
+          "natural_seconds": 16.0
+        },
+        "dnsmos_delta": {
+          "signal": -0.104279851955416,
+          "background": -0.05568704320624818,
+          "overall": -0.11544107496027456
+        }
+      }
+    },
+    {
+      "id": "public_06",
+      "cohort": "public",
+      "seconds": 16.0,
+      "sample_rate": 44100,
+      "channels": 1,
+      "provenance_group": "cartesia_published_model_unspecified",
+      "url": "https://www.cartesia.ai/_astro/es-es-sonic.62hb9AuZ.mp3",
+      "page": "https://www.cartesia.ai/blog/sonic-3.6",
+      "role": "Cartesia_published_sample",
+      "source_sha256": "0e8f5c5eb09808f0f4acf93cd0df9c7c7a382d89ffa4d20ef8110125ae69130d",
+      "output_sha256": "d4a601514757fbbff88ac926bcfb798ab6fe4ff798df71190e015b9fc13b0c26",
+      "original_detected": false,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T22:27:31.244983+00:00",
+      "processed_checked_at": "2026-11-14T00:04:31.594078+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "es",
+        "unit": "word",
+        "original_units": 41,
+        "processed_units": 41,
+        "asr_disagreement": 0.0,
+        "reference_units": 37,
+        "original_reference_error": 0.1891891891891892,
+        "processed_reference_error": 0.1891891891891892,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9911306795091858,
+          0.9859567146483849,
+          0.9846081398382007
+        ],
+        "speaker_minimum": 0.9846081398382007,
+        "speaker_mean": 0.9872318446652572,
+        "original_dnsmos": {
+          "signal": 3.7750447609908817,
+          "background": 4.209813706838439,
+          "overall": 3.5696199641621478,
+          "windows": 7,
+          "natural_seconds": 16.0
+        },
+        "processed_dnsmos": {
+          "signal": 3.7525123263546525,
+          "background": 4.218365596977069,
+          "overall": 3.553645190447941,
+          "windows": 7,
+          "natural_seconds": 16.0
+        },
+        "dnsmos_delta": {
+          "signal": -0.022532434636229226,
+          "background": 0.008551890138630114,
+          "overall": -0.015974773714206858
+        }
+      }
+    },
+    {
+      "id": "public_07",
+      "cohort": "public",
+      "seconds": 11.44,
+      "sample_rate": 44100,
+      "channels": 1,
+      "provenance_group": "cartesia_published_model_unspecified",
+      "url": "https://www.cartesia.ai/_astro/en-au-sonic.2vhDU-og.mp3",
+      "page": "https://www.cartesia.ai/blog/sonic-3.6",
+      "role": "Cartesia_published_sample",
+      "source_sha256": "988b366424e6aba210f3d421653ad651ee36c9c48aaed4ffb0c42129daebc133",
+      "output_sha256": "4b8e6e92c8d4df353ddd1e84bbf79df9e583b899815a614a421d4929e2c9fe94",
+      "original_detected": false,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T22:28:11.108911+00:00",
+      "processed_checked_at": "2026-11-14T00:05:51.998587+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 45,
+        "processed_units": 45,
+        "asr_disagreement": 0.0,
+        "reference_units": 44,
+        "original_reference_error": 0.045454545454545456,
+        "processed_reference_error": 0.045454545454545456,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9925220239409505,
+          0.9927130027037394,
+          0.9934216435006057
+        ],
+        "speaker_minimum": 0.9925220239409505,
+        "speaker_mean": 0.9928855567150986,
+        "original_dnsmos": {
+          "signal": 3.7119355076590064,
+          "background": 4.208087239713786,
+          "overall": 3.4625237965814994,
+          "windows": 2,
+          "natural_seconds": 11.44
+        },
+        "processed_dnsmos": {
+          "signal": 3.6624938866137775,
+          "background": 4.190112059559912,
+          "overall": 3.41921072195637,
+          "windows": 2,
+          "natural_seconds": 11.44
+        },
+        "dnsmos_delta": {
+          "signal": -0.04944162104522887,
+          "background": -0.017975180153873893,
+          "overall": -0.043313074625129566
+        }
+      }
+    },
+    {
+      "id": "public_08",
+      "cohort": "public",
+      "seconds": 9.92,
+      "sample_rate": 44100,
+      "channels": 1,
+      "provenance_group": "other_provider",
+      "url": "https://www.cartesia.ai/_astro/pt-br-competitor.Weor3lQB.mp3",
+      "page": "https://www.cartesia.ai/blog/sonic-3.6",
+      "role": "other_provider_control",
+      "source_sha256": "d6c6a7783c8a21f9f28f41618578ac2760cd702609e557a10be168768d27331e",
+      "output_sha256": "3f653822d1f1eb8f0d8c059293942a3390bcd9bf68709c51a7fe117f4cfe630b",
+      "original_detected": false,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T22:28:51.212436+00:00",
+      "processed_checked_at": "2026-11-14T00:08:31.472425+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "pt",
+        "unit": "word",
+        "original_units": 26,
+        "processed_units": 26,
+        "asr_disagreement": 0.0,
+        "reference_units": 26,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9712301507483655
+        ],
+        "speaker_minimum": 0.9712301507483655,
+        "speaker_mean": 0.9712301507483655,
+        "original_dnsmos": {
+          "signal": 3.5660563430329573,
+          "background": 4.174046031776936,
+          "overall": 3.370013414387917,
+          "windows": 1,
+          "natural_seconds": 9.92
+        },
+        "processed_dnsmos": {
+          "signal": 3.694309219133107,
+          "background": 4.154719630163385,
+          "overall": 3.477669886086342,
+          "windows": 1,
+          "natural_seconds": 9.92
+        },
+        "dnsmos_delta": {
+          "signal": 0.12825287610014957,
+          "background": -0.019326401613551702,
+          "overall": 0.10765647169842518
+        }
+      }
+    },
+    {
+      "id": "public_09",
+      "cohort": "public",
+      "seconds": 5.68,
+      "sample_rate": 44100,
+      "channels": 1,
+      "provenance_group": "other_provider",
+      "url": "https://www.cartesia.ai/_astro/en-gb-competitor.CriaYkFW.mp3",
+      "page": "https://www.cartesia.ai/blog/sonic-3.6",
+      "role": "other_provider_control",
+      "source_sha256": "f314f97fe6f9fc23b7aeefad42636b3625e8bf785d791ece76d2869f494a21d9",
+      "output_sha256": "f8e905275ea9932b7adb15b8f2eff2eaee8c92090ab4ad0cfdfef92069cae138",
+      "original_detected": false,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T22:29:31.071971+00:00",
+      "processed_checked_at": "2026-11-14T00:11:11.578846+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 20,
+        "processed_units": 20,
+        "asr_disagreement": 0.0,
+        "reference_units": 20,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9866091305915161
+        ],
+        "speaker_minimum": 0.9866091305915161,
+        "speaker_mean": 0.9866091305915161,
+        "original_dnsmos": {
+          "signal": 3.59217706350171,
+          "background": 4.210829894001643,
+          "overall": 3.408854024073676,
+          "windows": 2,
+          "natural_seconds": 5.68
+        },
+        "processed_dnsmos": {
+          "signal": 3.4443570140044044,
+          "background": 4.123532587027034,
+          "overall": 3.2150057101564746,
+          "windows": 2,
+          "natural_seconds": 5.68
+        },
+        "dnsmos_delta": {
+          "signal": -0.14782004949730565,
+          "background": -0.0872973069746088,
+          "overall": -0.1938483139172016
+        }
+      }
+    },
+    {
+      "id": "public_10",
+      "cohort": "public",
+      "seconds": 5.6,
+      "sample_rate": 44100,
+      "channels": 1,
+      "provenance_group": "other_provider",
+      "url": "https://www.cartesia.ai/_astro/es-mx-competitor.BybGjxXv.mp3",
+      "page": "https://www.cartesia.ai/blog/sonic-3.6",
+      "role": "other_provider_control",
+      "source_sha256": "efa81b982e84193c6831d6ba2a65acb7324048c9a2a04540f877ae3dc2091c28",
+      "output_sha256": "fc5d3abf50aee8cdbdeea9043b51839264d8edc9df0a6e1f8fd767894f5552f3",
+      "original_detected": false,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T22:30:11.076308+00:00",
+      "processed_checked_at": "2026-11-14T00:15:11.371278+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "es",
+        "unit": "word",
+        "original_units": 22,
+        "processed_units": 22,
+        "asr_disagreement": 0.0,
+        "reference_units": 22,
+        "original_reference_error": 0.13636363636363635,
+        "processed_reference_error": 0.13636363636363635,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9743290887775391
+        ],
+        "speaker_minimum": 0.9743290887775391,
+        "speaker_mean": 0.9743290887775391,
+        "original_dnsmos": {
+          "signal": 3.3980387596945882,
+          "background": 3.5171674406590676,
+          "overall": 2.800915207270334,
+          "windows": 2,
+          "natural_seconds": 5.6
+        },
+        "processed_dnsmos": {
+          "signal": 3.614594043609587,
+          "background": 3.836714315791486,
+          "overall": 3.1851390580729264,
+          "windows": 2,
+          "natural_seconds": 5.6
+        },
+        "dnsmos_delta": {
+          "signal": 0.21655528391499868,
+          "background": 0.3195468751324184,
+          "overall": 0.38422385080259236
+        }
+      }
+    },
+    {
+      "id": "public_11",
+      "cohort": "public",
+      "seconds": 16.393038548752834,
+      "sample_rate": 44100,
+      "channels": 1,
+      "provenance_group": "cartesia_published_model_unspecified",
+      "url": "https://www.cartesia.ai/_astro/es_ES.BWCPnwcu.mp3",
+      "page": "https://www.cartesia.ai/sonic",
+      "role": "Cartesia_published_sample",
+      "source_sha256": "2af9c9fb639057433eb83b59331d03145c7aefd554b54051224e096d5eb2a1e3",
+      "output_sha256": "582fd139a74797cd441d34c7b7f4710c51eab6680bb87aaffee26497cfe84ac9",
+      "original_detected": false,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T22:30:51.256435+00:00",
+      "processed_checked_at": "2026-11-14T00:16:31.475418+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "es",
+        "unit": "word",
+        "original_units": 51,
+        "processed_units": 48,
+        "asr_disagreement": 0.0784313725490196
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9874181061230751,
+          0.9887548057657667,
+          0.9911142606845955
+        ],
+        "speaker_minimum": 0.9874181061230751,
+        "speaker_mean": 0.9890957241911457,
+        "original_dnsmos": {
+          "signal": 3.740432312889095,
+          "background": 4.231991341137987,
+          "overall": 3.539135886798923,
+          "windows": 7,
+          "natural_seconds": 16.3526875
+        },
+        "processed_dnsmos": {
+          "signal": 3.7407222147024703,
+          "background": 4.154552146388115,
+          "overall": 3.496732187517653,
+          "windows": 7,
+          "natural_seconds": 16.3526875
+        },
+        "dnsmos_delta": {
+          "signal": 0.0002899018133755149,
+          "background": -0.07743919474987226,
+          "overall": -0.04240369928126997
+        }
+      }
+    },
+    {
+      "id": "public_12",
+      "cohort": "public",
+      "seconds": 5.36,
+      "sample_rate": 44100,
+      "channels": 1,
+      "provenance_group": "cartesia_published_model_unspecified",
+      "url": "https://www.cartesia.ai/_astro/en-us-sonic.CzG4LqYh.mp3",
+      "page": "https://www.cartesia.ai/blog/sonic-3.6",
+      "role": "Cartesia_published_sample",
+      "source_sha256": "505863f911eef0c7be7f95da9eeec09bba69334e10ce0cd3ecc142a775cdace8",
+      "output_sha256": "aa1584a0ffda840a28772f52eb54fbb7a3607c44749046af6122e35805f444d4",
+      "original_detected": false,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T22:36:31.781419+00:00",
+      "processed_checked_at": "2026-11-14T00:17:51.288321+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 22,
+        "processed_units": 22,
+        "asr_disagreement": 0.0,
+        "reference_units": 22,
+        "original_reference_error": 0.045454545454545456,
+        "processed_reference_error": 0.045454545454545456,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9768609625310847
+        ],
+        "speaker_minimum": 0.9768609625310847,
+        "speaker_mean": 0.9768609625310847,
+        "original_dnsmos": {
+          "signal": 3.7798330214191167,
+          "background": 4.230689253001082,
+          "overall": 3.5835395175453653,
+          "windows": 1,
+          "natural_seconds": 5.36
+        },
+        "processed_dnsmos": {
+          "signal": 3.6405432850336648,
+          "background": 4.168976365126321,
+          "overall": 3.418465674681544,
+          "windows": 1,
+          "natural_seconds": 5.36
+        },
+        "dnsmos_delta": {
+          "signal": -0.13928973638545195,
+          "background": -0.06171288787476126,
+          "overall": -0.16507384286382143
+        }
+      }
+    },
+    {
+      "id": "public_13",
+      "cohort": "public",
+      "seconds": 5.76,
+      "sample_rate": 44100,
+      "channels": 1,
+      "provenance_group": "other_provider",
+      "url": "https://www.cartesia.ai/_astro/en-us-competitor.Xv7PAUht.mp3",
+      "page": "https://www.cartesia.ai/blog/sonic-3.6",
+      "role": "other_provider_control",
+      "source_sha256": "acf0d98562b2cd5b8ec958e79e430bdc4a76cd288854ac530d97323c722fc615",
+      "output_sha256": "6d8e036e0b20640d836d8f9ed36ed8502faa34af6ccf21b1668349be0d5d262a",
+      "original_detected": false,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T22:37:51.182038+00:00",
+      "processed_checked_at": "2026-11-14T00:19:11.375567+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 22,
+        "processed_units": 22,
+        "asr_disagreement": 0.0,
+        "reference_units": 22,
+        "original_reference_error": 0.045454545454545456,
+        "processed_reference_error": 0.045454545454545456,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9736503720124464
+        ],
+        "speaker_minimum": 0.9736503720124464,
+        "speaker_mean": 0.9736503720124464,
+        "original_dnsmos": {
+          "signal": 3.710371939613083,
+          "background": 4.21095722827935,
+          "overall": 3.517293788297503,
+          "windows": 2,
+          "natural_seconds": 5.76
+        },
+        "processed_dnsmos": {
+          "signal": 3.671190486398543,
+          "background": 4.203697966511948,
+          "overall": 3.466826172829791,
+          "windows": 2,
+          "natural_seconds": 5.76
+        },
+        "dnsmos_delta": {
+          "signal": -0.03918145321454025,
+          "background": -0.007259261767401881,
+          "overall": -0.050467615467711724
+        }
+      }
+    },
+    {
+      "id": "public_14",
+      "cohort": "public",
+      "seconds": 5.344013605442177,
+      "sample_rate": 44100,
+      "channels": 1,
+      "provenance_group": "cartesia_published_model_unspecified",
+      "url": "https://www.cartesia.ai/_astro/healthcare-hi.BulRMwv8.mp3",
+      "page": "https://www.cartesia.ai/blog/multilingual-voices",
+      "role": "Cartesia_published_sample",
+      "source_sha256": "64d2ac081f2a07e75bab4fb8b61378444cc63a5652d1f1ac18715a524cebd0ec",
+      "output_sha256": "fb17cdd832adf47f0834743060efbb9404620d2745b96a0a49bebc84b6415db0",
+      "original_detected": false,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T22:39:11.271011+00:00",
+      "processed_checked_at": "2026-11-14T00:20:31.285427+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "hi",
+        "unit": "word",
+        "original_units": 13,
+        "processed_units": 32,
+        "asr_disagreement": 1.4615384615384615,
+        "reference_units": 26,
+        "original_reference_error": 0.7692307692307693,
+        "processed_reference_error": 0.6538461538461539,
+        "reference_error_delta": -0.11538461538461542
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9648372340128417
+        ],
+        "speaker_minimum": 0.9648372340128417,
+        "speaker_mean": 0.9648372340128417,
+        "original_dnsmos": {
+          "signal": 3.6908207771639217,
+          "background": 4.156534862757098,
+          "overall": 3.465676073122452,
+          "windows": 1,
+          "natural_seconds": 5.329
+        },
+        "processed_dnsmos": {
+          "signal": 3.710724079390652,
+          "background": 4.1398881127083795,
+          "overall": 3.471157391068465,
+          "windows": 1,
+          "natural_seconds": 5.329
+        },
+        "dnsmos_delta": {
+          "signal": 0.019903302226730535,
+          "background": -0.01664675004871885,
+          "overall": 0.005481317946013142
+        }
+      }
+    },
+    {
+      "id": "public_15",
+      "cohort": "public",
+      "seconds": 6.32,
+      "sample_rate": 44100,
+      "channels": 1,
+      "provenance_group": "other_provider",
+      "url": "https://www.cartesia.ai/_astro/fr-fr-competitor.BuXK1fPv.mp3",
+      "page": "https://www.cartesia.ai/blog/sonic-3.6",
+      "role": "other_provider_control",
+      "source_sha256": "f94a67f21a1d3bda04bf22eda963f5d13d9eec36d4a6c28880420759419e3cc8",
+      "output_sha256": "9fc554405d94df72775fb91251df2b54568883751efc80bd37b5eae19954bd3b",
+      "original_detected": false,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T22:40:31.169554+00:00",
+      "processed_checked_at": "2026-11-14T00:23:11.909408+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "fr",
+        "unit": "word",
+        "original_units": 17,
+        "processed_units": 17,
+        "asr_disagreement": 0.0,
+        "reference_units": 17,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9852470081939356
+        ],
+        "speaker_minimum": 0.9852470081939356,
+        "speaker_mean": 0.9852470081939356,
+        "original_dnsmos": {
+          "signal": 3.642629267980532,
+          "background": 3.9911349027720626,
+          "overall": 3.3450017295103702,
+          "windows": 3,
+          "natural_seconds": 6.32
+        },
+        "processed_dnsmos": {
+          "signal": 3.6203106341101496,
+          "background": 3.803680801673174,
+          "overall": 3.2290482214437817,
+          "windows": 3,
+          "natural_seconds": 6.32
+        },
+        "dnsmos_delta": {
+          "signal": -0.022318633870382243,
+          "background": -0.1874541010988886,
+          "overall": -0.11595350806658855
+        }
+      }
+    },
+    {
+      "id": "public_16",
+      "cohort": "public",
+      "seconds": 15.28,
+      "sample_rate": 44100,
+      "channels": 1,
+      "provenance_group": "other_provider",
+      "url": "https://www.cartesia.ai/_astro/en-au-competitor.BI64UaqN.mp3",
+      "page": "https://www.cartesia.ai/blog/sonic-3.6",
+      "role": "other_provider_control",
+      "source_sha256": "838415c40689e40d280ae19310f8aabb10ccc997b940f8da5a17cd48a9a85dbb",
+      "output_sha256": "6b36a047b91679122f4a3f8860b20dcee679bdd6bdb1e9abdac3ae9681075273",
+      "original_detected": false,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T22:41:51.609636+00:00",
+      "processed_checked_at": "2026-11-14T00:24:31.773075+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 45,
+        "processed_units": 45,
+        "asr_disagreement": 0.0,
+        "reference_units": 44,
+        "original_reference_error": 0.045454545454545456,
+        "processed_reference_error": 0.045454545454545456,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.987852961100554,
+          0.9873582657556454,
+          0.9849020589983074
+        ],
+        "speaker_minimum": 0.9849020589983074,
+        "speaker_mean": 0.986704428618169,
+        "original_dnsmos": {
+          "signal": 3.770297658011034,
+          "background": 4.220693294037125,
+          "overall": 3.561169818521732,
+          "windows": 6,
+          "natural_seconds": 15.28
+        },
+        "processed_dnsmos": {
+          "signal": 3.673776842296467,
+          "background": 4.168061379017323,
+          "overall": 3.4311293498381144,
+          "windows": 6,
+          "natural_seconds": 15.28
+        },
+        "dnsmos_delta": {
+          "signal": -0.09652081571456694,
+          "background": -0.05263191501980202,
+          "overall": -0.13004046868361785
+        }
+      }
+    },
+    {
+      "id": "public_17",
+      "cohort": "public",
+      "seconds": 6.56,
+      "sample_rate": 44100,
+      "channels": 1,
+      "provenance_group": "cartesia_published_model_unspecified",
+      "url": "https://www.cartesia.ai/_astro/en-gb-sonic.Ctm4wu5G.mp3",
+      "page": "https://www.cartesia.ai/blog/sonic-3.6",
+      "role": "Cartesia_published_sample",
+      "source_sha256": "ccb7b63b04b0b7045c71101f6fca8976e668521365d1d342d51b7d01a48c451a",
+      "output_sha256": "d3a02684f0a8fa42bc76e80df9997f5c94d78d1d6b06e6a5426d1d6d34e3c938",
+      "original_detected": false,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T22:43:11.189145+00:00",
+      "processed_checked_at": "2026-11-14T00:25:51.620081+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 20,
+        "processed_units": 20,
+        "asr_disagreement": 0.0,
+        "reference_units": 20,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9900921437044389
+        ],
+        "speaker_minimum": 0.9900921437044389,
+        "speaker_mean": 0.9900921437044389,
+        "original_dnsmos": {
+          "signal": 3.6997509485867166,
+          "background": 4.198973928254739,
+          "overall": 3.490952360073307,
+          "windows": 4,
+          "natural_seconds": 6.56
+        },
+        "processed_dnsmos": {
+          "signal": 3.7106902635013514,
+          "background": 4.202537373025891,
+          "overall": 3.5076840372739886,
+          "windows": 4,
+          "natural_seconds": 6.56
+        },
+        "dnsmos_delta": {
+          "signal": 0.010939314914634846,
+          "background": 0.003563444771151225,
+          "overall": 0.016731677200681805
+        }
+      }
+    },
+    {
+      "id": "public_18",
+      "cohort": "public",
+      "seconds": 16.393038548752834,
+      "sample_rate": 44100,
+      "channels": 1,
+      "provenance_group": "cartesia_published_model_unspecified",
+      "url": "https://www.cartesia.ai/_astro/en_US.DNMEYMsK.mp3",
+      "page": "https://www.cartesia.ai/sonic",
+      "role": "Cartesia_published_sample",
+      "source_sha256": "884969340d22302aa9b63a532d7c81beacf2450a3429eeb87f10806e4fd4b9ac",
+      "output_sha256": "79e960c31e4606ec2a6f2e8d1e6d66931862b15c47d37b779ff09282be3f2432",
+      "original_detected": false,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T22:44:31.350602+00:00",
+      "processed_checked_at": "2026-11-14T00:28:31.483104+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 46,
+        "processed_units": 46,
+        "asr_disagreement": 0.021739130434782608
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9920962993018096,
+          0.98711075793716,
+          0.9822001789047506
+        ],
+        "speaker_minimum": 0.9822001789047506,
+        "speaker_mean": 0.9871357453812402,
+        "original_dnsmos": {
+          "signal": 3.8157877078787696,
+          "background": 4.244356120545169,
+          "overall": 3.6194060678870947,
+          "windows": 7,
+          "natural_seconds": 16.3526875
+        },
+        "processed_dnsmos": {
+          "signal": 3.751199124506694,
+          "background": 4.217264028261284,
+          "overall": 3.538041628705531,
+          "windows": 7,
+          "natural_seconds": 16.3526875
+        },
+        "dnsmos_delta": {
+          "signal": -0.06458858337207563,
+          "background": -0.027092092283885094,
+          "overall": -0.08136443918156377
+        }
+      }
+    },
+    {
+      "id": "public_19",
+      "cohort": "public",
+      "seconds": 10.8,
+      "sample_rate": 44100,
+      "channels": 1,
+      "provenance_group": "cartesia_published_model_unspecified",
+      "url": "https://www.cartesia.ai/_astro/en-us-demo-sonic.DsEXoOz4.mp3",
+      "page": "https://www.cartesia.ai/blog/sonic-3.6",
+      "role": "Cartesia_published_sample",
+      "source_sha256": "1af12e7c328a98379f4fb222e5f3696381046c9afa3613fe98b5e7ddf1f66ace",
+      "output_sha256": "0d32952bb4812146593d15f480a9e7f3a38642b13e528e32c07965d346213e2e",
+      "original_detected": false,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T22:45:51.555666+00:00",
+      "processed_checked_at": "2026-11-14T00:29:51.394738+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 34,
+        "processed_units": 34,
+        "asr_disagreement": 0.0,
+        "reference_units": 34,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9843375943315913,
+          0.9854765810779063,
+          0.9859548239684612
+        ],
+        "speaker_minimum": 0.9843375943315913,
+        "speaker_mean": 0.9852563331259864,
+        "original_dnsmos": {
+          "signal": 3.7050000146568807,
+          "background": 4.213109192213351,
+          "overall": 3.513643708969933,
+          "windows": 1,
+          "natural_seconds": 10.8
+        },
+        "processed_dnsmos": {
+          "signal": 3.708429789100617,
+          "background": 4.213910923325116,
+          "overall": 3.5094055648778686,
+          "windows": 1,
+          "natural_seconds": 10.8
+        },
+        "dnsmos_delta": {
+          "signal": 0.0034297744437363775,
+          "background": 0.0008017311117649584,
+          "overall": -0.004238144092064466
+        }
+      }
+    },
+    {
+      "id": "public_20",
+      "cohort": "public",
+      "seconds": 6.16,
+      "sample_rate": 44100,
+      "channels": 1,
+      "provenance_group": "cartesia_published_model_unspecified",
+      "url": "https://www.cartesia.ai/_astro/es-mx-sonic.Dd527tLc.mp3",
+      "page": "https://www.cartesia.ai/blog/sonic-3.6",
+      "role": "Cartesia_published_sample",
+      "source_sha256": "268758b188616ca62377ea63116c4faf22786f64e8549a557c2a2e9e1a98f113",
+      "output_sha256": "7496210380cd6f3f08a6c055b79307fb310218d5a17926dde76c05134d38ee83",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T22:47:11.170825+00:00",
+      "processed_checked_at": "2026-11-14T00:36:31.673274+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "es",
+        "unit": "word",
+        "original_units": 22,
+        "processed_units": 22,
+        "asr_disagreement": 0.18181818181818182,
+        "reference_units": 22,
+        "original_reference_error": 0.13636363636363635,
+        "processed_reference_error": 0.13636363636363635,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9706211973252976
+        ],
+        "speaker_minimum": 0.9706211973252976,
+        "speaker_mean": 0.9706211973252976,
+        "original_dnsmos": {
+          "signal": 3.646427965784716,
+          "background": 4.129795948374652,
+          "overall": 3.405722512508064,
+          "windows": 3,
+          "natural_seconds": 6.16
+        },
+        "processed_dnsmos": {
+          "signal": 3.477066840770057,
+          "background": 4.0452953240269185,
+          "overall": 3.214931642854158,
+          "windows": 3,
+          "natural_seconds": 6.16
+        },
+        "dnsmos_delta": {
+          "signal": -0.16936112501465894,
+          "background": -0.08450062434773375,
+          "overall": -0.19079086965390601
+        }
+      }
+    },
+    {
+      "id": "public_21",
+      "cohort": "public",
+      "seconds": 17.28,
+      "sample_rate": 44100,
+      "channels": 1,
+      "provenance_group": "cartesia_published_model_unspecified",
+      "url": "https://www.cartesia.ai/_astro/hi-in-sonic.B5WdX-h8.mp3",
+      "page": "https://www.cartesia.ai/blog/sonic-3.6",
+      "role": "Cartesia_published_sample",
+      "source_sha256": "4972766a9ddb84a492e0cb9418cdb3f79783639ddde6cc3b48899d9b3d59baf4",
+      "output_sha256": "2fd7f1efdf47469fe218f875ea524980a431950d2530965d145eedad224e5cea",
+      "original_detected": false,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T22:48:31.357382+00:00",
+      "processed_checked_at": "2026-11-14T00:39:11.578796+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "hi",
+        "unit": "word",
+        "original_units": 68,
+        "processed_units": 68,
+        "asr_disagreement": 0.0,
+        "reference_units": 62,
+        "original_reference_error": 0.4032258064516129,
+        "processed_reference_error": 0.4032258064516129,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9932752719153628,
+          0.989799965697225,
+          0.9911115222257945
+        ],
+        "speaker_minimum": 0.989799965697225,
+        "speaker_mean": 0.991395586612794,
+        "original_dnsmos": {
+          "signal": 3.582330874660928,
+          "background": 4.180409878614872,
+          "overall": 3.361228539301203,
+          "windows": 8,
+          "natural_seconds": 17.28
+        },
+        "processed_dnsmos": {
+          "signal": 3.60653326482279,
+          "background": 4.06954862339223,
+          "overall": 3.3305720800660685,
+          "windows": 8,
+          "natural_seconds": 17.28
+        },
+        "dnsmos_delta": {
+          "signal": 0.02420239016186221,
+          "background": -0.11086125522264201,
+          "overall": -0.03065645923513438
+        }
+      }
+    },
+    {
+      "id": "public_22",
+      "cohort": "public",
+      "seconds": 12.64,
+      "sample_rate": 44100,
+      "channels": 1,
+      "provenance_group": "other_provider",
+      "url": "https://www.cartesia.ai/_astro/en-us-demo-competitor.D0qdKgTD.mp3",
+      "page": "https://www.cartesia.ai/blog/sonic-3.6",
+      "role": "other_provider_control",
+      "source_sha256": "b29659f1199346ddd04751ea7002aaad0fec0069b5c5582173a673c97f5e3157",
+      "output_sha256": "e71b5f73061818b13d74cd75e7fbbb8cf2afc24de639a64882c6ee9adc11eb83",
+      "original_detected": false,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T22:49:51.270020+00:00",
+      "processed_checked_at": "2026-11-14T00:40:31.869491+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 34,
+        "processed_units": 34,
+        "asr_disagreement": 0.0,
+        "reference_units": 34,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9803088845099057,
+          0.9761740404139911,
+          0.9752447317825319
+        ],
+        "speaker_minimum": 0.9752447317825319,
+        "speaker_mean": 0.9772425522354763,
+        "original_dnsmos": {
+          "signal": 3.7003911613721936,
+          "background": 4.19597183415971,
+          "overall": 3.5025465225927896,
+          "windows": 3,
+          "natural_seconds": 12.64
+        },
+        "processed_dnsmos": {
+          "signal": 3.616068934198259,
+          "background": 4.1486407896883515,
+          "overall": 3.392692979341936,
+          "windows": 3,
+          "natural_seconds": 12.64
+        },
+        "dnsmos_delta": {
+          "signal": -0.08432222717393456,
+          "background": -0.04733104447135883,
+          "overall": -0.10985354325085384
+        }
+      }
+    },
+    {
+      "id": "public_23",
+      "cohort": "public",
+      "seconds": 8.88,
+      "sample_rate": 44100,
+      "channels": 1,
+      "provenance_group": "cartesia_published_model_unspecified",
+      "url": "https://www.cartesia.ai/_astro/pt-br-sonic.xkhpxBjz.mp3",
+      "page": "https://www.cartesia.ai/blog/sonic-3.6",
+      "role": "Cartesia_published_sample",
+      "source_sha256": "eb68778bd294dcac9df0acb5fe65f6afc82232291832771f20134afce8ab1d5f",
+      "output_sha256": "035e9c7238003e297a9f0ab6d44c135ebdde73cf5d81bd15e20d19f9f8830026",
+      "original_detected": false,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T22:51:11.176750+00:00",
+      "processed_checked_at": "2026-11-14T00:41:51.370160+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "pt",
+        "unit": "word",
+        "original_units": 26,
+        "processed_units": 26,
+        "asr_disagreement": 0.0,
+        "reference_units": 26,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9871888990953417
+        ],
+        "speaker_minimum": 0.9871888990953417,
+        "speaker_mean": 0.9871888990953417,
+        "original_dnsmos": {
+          "signal": 3.736531096023839,
+          "background": 4.238822228599853,
+          "overall": 3.5518628284995666,
+          "windows": 8,
+          "natural_seconds": 8.88
+        },
+        "processed_dnsmos": {
+          "signal": 3.7416055042582976,
+          "background": 4.167240139092016,
+          "overall": 3.523325585072184,
+          "windows": 8,
+          "natural_seconds": 8.88
+        },
+        "dnsmos_delta": {
+          "signal": 0.005074408234458705,
+          "background": -0.07158208950783695,
+          "overall": -0.02853724342738273
+        }
+      }
+    },
+    {
+      "id": "public_24",
+      "cohort": "public",
+      "seconds": 18.64,
+      "sample_rate": 44100,
+      "channels": 1,
+      "provenance_group": "other_provider",
+      "url": "https://www.cartesia.ai/_astro/es-es-competitor.C_1noWPX.mp3",
+      "page": "https://www.cartesia.ai/blog/sonic-3.6",
+      "role": "other_provider_control",
+      "source_sha256": "59fff83f8bddc49edff9d6255bde56baea829afe4521c4e7fbb78548ca1a7959",
+      "output_sha256": "daa8740ae7275e8c0b485a3d263b6df769ccb69506d2cf7953b73af94cf83b4d",
+      "original_detected": false,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T22:52:31.330501+00:00",
+      "processed_checked_at": "2026-11-14T00:44:31.545144+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "es",
+        "unit": "word",
+        "original_units": 41,
+        "processed_units": 41,
+        "asr_disagreement": 0.0975609756097561,
+        "reference_units": 37,
+        "original_reference_error": 0.16216216216216217,
+        "processed_reference_error": 0.2702702702702703,
+        "reference_error_delta": 0.10810810810810811
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9773660073580257,
+          0.9689563471201004,
+          0.9717018727580051
+        ],
+        "speaker_minimum": 0.9689563471201004,
+        "speaker_mean": 0.9726747424120438,
+        "original_dnsmos": {
+          "signal": 3.423429707930589,
+          "background": 4.171993831104046,
+          "overall": 3.217735702570491,
+          "windows": 9,
+          "natural_seconds": 18.64
+        },
+        "processed_dnsmos": {
+          "signal": 3.592064109948557,
+          "background": 4.184366119825064,
+          "overall": 3.394050243265438,
+          "windows": 9,
+          "natural_seconds": 18.64
+        },
+        "dnsmos_delta": {
+          "signal": 0.1686344020179682,
+          "background": 0.012372288721018698,
+          "overall": 0.17631454069494712
+        }
+      }
+    },
+    {
+      "id": "fresh_00_en_sonic-3.6",
+      "cohort": "fresh_native",
+      "seconds": 42.88,
+      "sample_rate": 16000,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "model": "sonic-3.6",
+      "language": "en",
+      "voice_primary_language": "fr",
+      "source_sha256": "6cb60b46f6f66d7203e91649bf09dc7edbeea9aa7dade3c271ad0dff90d20d88",
+      "output_sha256": "49282e0ac86b359532719255070e5116dd557237b30fa270d74b37189373314f",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T22:53:51.771386+00:00",
+      "processed_checked_at": "2026-11-13T23:24:31.772938+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 130,
+        "processed_units": 130,
+        "asr_disagreement": 0.0,
+        "reference_units": 130,
+        "original_reference_error": 0.007692307692307693,
+        "processed_reference_error": 0.007692307692307693,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9915413882091398,
+          0.9877851835359713,
+          0.983816980553619
+        ],
+        "speaker_minimum": 0.983816980553619,
+        "speaker_mean": 0.9877145174329099,
+        "original_dnsmos": {
+          "signal": 3.6518304896655636,
+          "background": 4.167652924351864,
+          "overall": 3.433861967646376,
+          "windows": 33,
+          "natural_seconds": 42.88
+        },
+        "processed_dnsmos": {
+          "signal": 3.6588603583349655,
+          "background": 4.1333829252006655,
+          "overall": 3.416034192155122,
+          "windows": 33,
+          "natural_seconds": 42.88
+        },
+        "dnsmos_delta": {
+          "signal": 0.0070298686694019175,
+          "background": -0.03426999915119833,
+          "overall": -0.01782777549125436
+        }
+      },
+      "secondary_content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 130,
+        "processed_units": 130,
+        "asr_disagreement": 0.0,
+        "reference_units": 130,
+        "original_reference_error": 0.007692307692307693,
+        "processed_reference_error": 0.007692307692307693,
+        "reference_error_delta": 0.0
+      },
+      "processed_repeat_detected": false
+    },
+    {
+      "id": "fresh_01_en_sonic-preview",
+      "cohort": "fresh_native",
+      "seconds": 43.04,
+      "sample_rate": 24000,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "model": "sonic-preview",
+      "language": "en",
+      "voice_primary_language": "de",
+      "source_sha256": "6eb80c4299a07057cbe6f9a63681883ac2f2069725224af53edbc9c4dbd4cabf",
+      "output_sha256": "f324ffb5fcf6885b884caa32722919dafeacb5b183cf881657300ea0dcea177a",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T22:55:11.810206+00:00",
+      "processed_checked_at": "2026-11-13T23:25:51.669386+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 123,
+        "processed_units": 123,
+        "asr_disagreement": 0.0,
+        "reference_units": 123,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9788878378197968,
+          0.9791998898337615,
+          0.9842928274782761
+        ],
+        "speaker_minimum": 0.9788878378197968,
+        "speaker_mean": 0.9807935183772781,
+        "original_dnsmos": {
+          "signal": 3.7331298337935275,
+          "background": 4.144490766669357,
+          "overall": 3.4939925784907153,
+          "windows": 34,
+          "natural_seconds": 43.04
+        },
+        "processed_dnsmos": {
+          "signal": 3.733957539380814,
+          "background": 4.178318903762967,
+          "overall": 3.5198244600619972,
+          "windows": 34,
+          "natural_seconds": 43.04
+        },
+        "dnsmos_delta": {
+          "signal": 0.0008277055872865091,
+          "background": 0.03382813709360999,
+          "overall": 0.02583188157128191
+        }
+      },
+      "secondary_content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 123,
+        "processed_units": 123,
+        "asr_disagreement": 0.008130081300813009,
+        "reference_units": 123,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.008130081300813009,
+        "reference_error_delta": 0.008130081300813009
+      },
+      "processed_repeat_detected": false
+    },
+    {
+      "id": "fresh_02_en_sonic-3.6",
+      "cohort": "fresh_native",
+      "seconds": 24.16,
+      "sample_rate": 44100,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "model": "sonic-3.6",
+      "language": "en",
+      "voice_primary_language": "ja",
+      "source_sha256": "48a902fe78110eefeecc1fa57066126e8ead5bc10115ac23c8668f9ecd7721ce",
+      "output_sha256": "7900535623b02bdeb6dd2672b624eb17ca40f3e019c0a1aeb92810d8ab5a85e3",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T22:56:31.506109+00:00",
+      "processed_checked_at": "2026-11-13T23:27:11.487984+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 77,
+        "processed_units": 77,
+        "asr_disagreement": 0.0,
+        "reference_units": 77,
+        "original_reference_error": 0.012987012987012988,
+        "processed_reference_error": 0.012987012987012988,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9922928772442929,
+          0.9909029971025498,
+          0.9783845118844468
+        ],
+        "speaker_minimum": 0.9783845118844468,
+        "speaker_mean": 0.9871934620770965,
+        "original_dnsmos": {
+          "signal": 3.6737232863309055,
+          "background": 4.194580340181712,
+          "overall": 3.462952370174258,
+          "windows": 15,
+          "natural_seconds": 24.16
+        },
+        "processed_dnsmos": {
+          "signal": 3.6917489487510493,
+          "background": 4.1264145776344625,
+          "overall": 3.4461136802272145,
+          "windows": 15,
+          "natural_seconds": 24.16
+        },
+        "dnsmos_delta": {
+          "signal": 0.018025662420143806,
+          "background": -0.06816576254724982,
+          "overall": -0.016838689947043406
+        }
+      },
+      "secondary_content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 77,
+        "processed_units": 77,
+        "asr_disagreement": 0.0,
+        "reference_units": 77,
+        "original_reference_error": 0.012987012987012988,
+        "processed_reference_error": 0.012987012987012988,
+        "reference_error_delta": 0.0
+      },
+      "processed_repeat_detected": false
+    },
+    {
+      "id": "fresh_03_en_sonic-preview",
+      "cohort": "fresh_native",
+      "seconds": 18.96,
+      "sample_rate": 48000,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "model": "sonic-preview",
+      "language": "en",
+      "voice_primary_language": "hi",
+      "source_sha256": "768d01072520e7e77f590ac5dda34bfbc748d21c14cceed70758e738acef03ba",
+      "output_sha256": "13d57503bb146994a21b49546628ec07bb5e81dd7f7a3f4fad789a23601a33bf",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T22:57:51.459247+00:00",
+      "processed_checked_at": "2026-11-13T23:28:31.518624+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 58,
+        "processed_units": 58,
+        "asr_disagreement": 0.0,
+        "reference_units": 58,
+        "original_reference_error": 0.017241379310344827,
+        "processed_reference_error": 0.017241379310344827,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9800341356338591,
+          0.9901103574754493,
+          0.9881287153096093
+        ],
+        "speaker_minimum": 0.9800341356338591,
+        "speaker_mean": 0.9860910694729726,
+        "original_dnsmos": {
+          "signal": 3.788265341505937,
+          "background": 4.246089776722823,
+          "overall": 3.6052625383039762,
+          "windows": 9,
+          "natural_seconds": 18.96
+        },
+        "processed_dnsmos": {
+          "signal": 3.7254612982523705,
+          "background": 4.182536218194726,
+          "overall": 3.5145204750056274,
+          "windows": 9,
+          "natural_seconds": 18.96
+        },
+        "dnsmos_delta": {
+          "signal": -0.06280404325356637,
+          "background": -0.0635535585280973,
+          "overall": -0.09074206329834889
+        }
+      },
+      "secondary_content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 58,
+        "processed_units": 58,
+        "asr_disagreement": 0.0,
+        "reference_units": 58,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": 0.0
+      },
+      "processed_repeat_detected": false
+    },
+    {
+      "id": "fresh_04_es_sonic-3.6",
+      "cohort": "fresh_native",
+      "seconds": 32.16,
+      "sample_rate": 16000,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "model": "sonic-3.6",
+      "language": "es",
+      "voice_primary_language": "es",
+      "source_sha256": "ce02a5b79d317fb3dab71eaffce071141f7cd4421db5f06c876d0d68bc36575b",
+      "output_sha256": "e8eaa1efec5de2002f91a7b3ae5c287eff254e71afb968c89351aedaea1e7da8",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T22:59:11.649313+00:00",
+      "processed_checked_at": "2026-11-13T23:29:51.805293+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "es",
+        "unit": "word",
+        "original_units": 85,
+        "processed_units": 85,
+        "asr_disagreement": 0.0,
+        "reference_units": 85,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9885561037139561,
+          0.9836044645384672,
+          0.9871794648769983
+        ],
+        "speaker_minimum": 0.9836044645384672,
+        "speaker_mean": 0.9864466777098072,
+        "original_dnsmos": {
+          "signal": 3.654884974185158,
+          "background": 4.191559579961062,
+          "overall": 3.4456545118511057,
+          "windows": 23,
+          "natural_seconds": 32.16
+        },
+        "processed_dnsmos": {
+          "signal": 3.651290104657812,
+          "background": 4.002377619344103,
+          "overall": 3.3572579011007377,
+          "windows": 23,
+          "natural_seconds": 32.16
+        },
+        "dnsmos_delta": {
+          "signal": -0.0035948695273457787,
+          "background": -0.1891819606169589,
+          "overall": -0.08839661075036798
+        }
+      },
+      "secondary_content": {
+        "language": "es",
+        "unit": "word",
+        "original_units": 85,
+        "processed_units": 85,
+        "asr_disagreement": 0.011764705882352941,
+        "reference_units": 85,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.011764705882352941,
+        "reference_error_delta": 0.011764705882352941
+      },
+      "processed_repeat_detected": false
+    },
+    {
+      "id": "fresh_05_es_sonic-preview",
+      "cohort": "fresh_native",
+      "seconds": 23.12,
+      "sample_rate": 24000,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "model": "sonic-preview",
+      "language": "es",
+      "voice_primary_language": "es",
+      "source_sha256": "7b2215c7601ed078a210705d1f6e00e9454cd882925e924b24b746b7e43099f0",
+      "output_sha256": "cbab9fe747c9ff0fb1cbe5e0b51228fada6cb5409806588d440cea9fa89b8817",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T23:00:31.508824+00:00",
+      "processed_checked_at": "2026-11-13T23:31:11.401568+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "es",
+        "unit": "word",
+        "original_units": 71,
+        "processed_units": 70,
+        "asr_disagreement": 0.04225352112676056,
+        "reference_units": 70,
+        "original_reference_error": 0.04285714285714286,
+        "processed_reference_error": 0.02857142857142857,
+        "reference_error_delta": -0.014285714285714287
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9710172640559571,
+          0.9881098484203041,
+          0.9756310290739622
+        ],
+        "speaker_minimum": 0.9710172640559571,
+        "speaker_mean": 0.9782527138500745,
+        "original_dnsmos": {
+          "signal": 3.8133715873060376,
+          "background": 4.2398366727427215,
+          "overall": 3.6378478381208947,
+          "windows": 14,
+          "natural_seconds": 23.12
+        },
+        "processed_dnsmos": {
+          "signal": 3.75036090466313,
+          "background": 4.072429764276855,
+          "overall": 3.4851842849383092,
+          "windows": 14,
+          "natural_seconds": 23.12
+        },
+        "dnsmos_delta": {
+          "signal": -0.06301068264290777,
+          "background": -0.1674069084658667,
+          "overall": -0.1526635531825855
+        }
+      },
+      "secondary_content": {
+        "language": "es",
+        "unit": "word",
+        "original_units": 70,
+        "processed_units": 70,
+        "asr_disagreement": 0.0,
+        "reference_units": 70,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": 0.0
+      },
+      "processed_repeat_detected": false
+    },
+    {
+      "id": "fresh_06_fr_sonic-3.6",
+      "cohort": "fresh_native",
+      "seconds": 25.12,
+      "sample_rate": 44100,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "model": "sonic-3.6",
+      "language": "fr",
+      "voice_primary_language": "fr",
+      "source_sha256": "ea6f99b13e0a747229d8b973e0c82c9be0bfeb20a059fa3911f6d75c8d0971b7",
+      "output_sha256": "2b781b7fcf37807469b123996750d2cbed1b50868a250349d9b1394d0df830d2",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T23:01:51.672496+00:00",
+      "processed_checked_at": "2026-11-13T23:32:31.581091+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "fr",
+        "unit": "word",
+        "original_units": 84,
+        "processed_units": 83,
+        "asr_disagreement": 0.08333333333333333,
+        "reference_units": 84,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.08333333333333333,
+        "reference_error_delta": 0.08333333333333333
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9772061841735018,
+          0.9906140565795658,
+          0.9809208245290095
+        ],
+        "speaker_minimum": 0.9772061841735018,
+        "speaker_mean": 0.982913688427359,
+        "original_dnsmos": {
+          "signal": 3.672896801267395,
+          "background": 4.201245051019097,
+          "overall": 3.4676531677447318,
+          "windows": 16,
+          "natural_seconds": 25.12
+        },
+        "processed_dnsmos": {
+          "signal": 3.6612235023051554,
+          "background": 4.127608827741951,
+          "overall": 3.412543638084211,
+          "windows": 16,
+          "natural_seconds": 25.12
+        },
+        "dnsmos_delta": {
+          "signal": -0.011673298962239453,
+          "background": -0.0736362232771457,
+          "overall": -0.05510952966052063
+        }
+      },
+      "secondary_content": {
+        "language": "fr",
+        "unit": "word",
+        "original_units": 84,
+        "processed_units": 84,
+        "asr_disagreement": 0.03571428571428571,
+        "reference_units": 84,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.03571428571428571,
+        "reference_error_delta": 0.03571428571428571
+      },
+      "processed_repeat_detected": false
+    },
+    {
+      "id": "fresh_07_fr_sonic-preview",
+      "cohort": "fresh_native",
+      "seconds": 22.64,
+      "sample_rate": 48000,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "model": "sonic-preview",
+      "language": "fr",
+      "voice_primary_language": "fr",
+      "source_sha256": "53cb8f49b246c190a961aba10be1c894683dc5f66394b8f05704e59604a0de22",
+      "output_sha256": "f5b08b39945463fd4d52bff98fed6e3095b1e36217c9e5a51c03c0c670aafed7",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T23:03:11.642700+00:00",
+      "processed_checked_at": "2026-11-13T23:35:11.862536+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "fr",
+        "unit": "word",
+        "original_units": 76,
+        "processed_units": 77,
+        "asr_disagreement": 0.05263157894736842,
+        "reference_units": 76,
+        "original_reference_error": 0.02631578947368421,
+        "processed_reference_error": 0.07894736842105263,
+        "reference_error_delta": 0.05263157894736842
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9732823037989549,
+          0.9776059244195392,
+          0.9753439832806333
+        ],
+        "speaker_minimum": 0.9732823037989549,
+        "speaker_mean": 0.9754107371663757,
+        "original_dnsmos": {
+          "signal": 3.7988331892583505,
+          "background": 4.223925797425203,
+          "overall": 3.6007645106092947,
+          "windows": 13,
+          "natural_seconds": 22.64
+        },
+        "processed_dnsmos": {
+          "signal": 3.7343407787968954,
+          "background": 4.1462441833595385,
+          "overall": 3.4901773774905993,
+          "windows": 13,
+          "natural_seconds": 22.64
+        },
+        "dnsmos_delta": {
+          "signal": -0.06449241046145504,
+          "background": -0.0776816140656642,
+          "overall": -0.11058713311869539
+        }
+      },
+      "secondary_content": {
+        "language": "fr",
+        "unit": "word",
+        "original_units": 76,
+        "processed_units": 76,
+        "asr_disagreement": 0.0,
+        "reference_units": 76,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": 0.0
+      },
+      "processed_repeat_detected": false
+    },
+    {
+      "id": "fresh_08_de_sonic-3.6",
+      "cohort": "fresh_native",
+      "seconds": 25.68,
+      "sample_rate": 16000,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "model": "sonic-3.6",
+      "language": "de",
+      "voice_primary_language": "de",
+      "source_sha256": "f80a62e0cbd777d0d8a8d2804d15113a1025c8d4647c5ba1f2011ae0ed88b0ab",
+      "output_sha256": "1c613ae0f79bd4937425444b3d09cfdc6d7183c5a8db452ce1a306096d1c101a",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T23:04:31.515157+00:00",
+      "processed_checked_at": "2026-11-13T23:36:31.770697+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "de",
+        "unit": "word",
+        "original_units": 69,
+        "processed_units": 69,
+        "asr_disagreement": 0.014492753623188406,
+        "reference_units": 69,
+        "original_reference_error": 0.014492753623188406,
+        "processed_reference_error": 0.028985507246376812,
+        "reference_error_delta": 0.014492753623188406
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9870839423261104,
+          0.9708851446213945,
+          0.9795029865438871
+        ],
+        "speaker_minimum": 0.9708851446213945,
+        "speaker_mean": 0.9791573578304641,
+        "original_dnsmos": {
+          "signal": 3.6634185726857513,
+          "background": 4.009690559358499,
+          "overall": 3.3502889680796604,
+          "windows": 16,
+          "natural_seconds": 25.68
+        },
+        "processed_dnsmos": {
+          "signal": 3.6012670263062936,
+          "background": 4.031732858186792,
+          "overall": 3.304479961567874,
+          "windows": 16,
+          "natural_seconds": 25.68
+        },
+        "dnsmos_delta": {
+          "signal": -0.062151546379457745,
+          "background": 0.022042298828292672,
+          "overall": -0.04580900651178643
+        }
+      },
+      "secondary_content": {
+        "language": "de",
+        "unit": "word",
+        "original_units": 69,
+        "processed_units": 69,
+        "asr_disagreement": 0.0,
+        "reference_units": 69,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": 0.0
+      },
+      "processed_repeat_detected": false
+    },
+    {
+      "id": "fresh_09_hi_sonic-preview",
+      "cohort": "fresh_native",
+      "seconds": 30.96,
+      "sample_rate": 24000,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "model": "sonic-preview",
+      "language": "hi",
+      "voice_primary_language": "hi",
+      "source_sha256": "e9d79efda3045b002f09a6938146f6cf7ec7f16bd87124c95af1e5381fe84214",
+      "output_sha256": "3371c48019644ac8cbaa936a78dc70533673e01f6389ecb1b51bdb6a4b29e232",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T23:05:51.627212+00:00",
+      "processed_checked_at": "2026-11-13T23:37:51.594673+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "hi",
+        "unit": "word",
+        "original_units": 163,
+        "processed_units": 162,
+        "asr_disagreement": 0.2147239263803681,
+        "reference_units": 169,
+        "original_reference_error": 0.2958579881656805,
+        "processed_reference_error": 0.3136094674556213,
+        "reference_error_delta": 0.017751479289940808
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9854535197642911,
+          0.9842986236042786,
+          0.9805771667233429
+        ],
+        "speaker_minimum": 0.9805771667233429,
+        "speaker_mean": 0.9834431033639709,
+        "original_dnsmos": {
+          "signal": 3.7562192022125136,
+          "background": 4.19093511969083,
+          "overall": 3.5457660533587823,
+          "windows": 21,
+          "natural_seconds": 30.96
+        },
+        "processed_dnsmos": {
+          "signal": 3.683425523878973,
+          "background": 4.192364788031004,
+          "overall": 3.480863950923395,
+          "windows": 21,
+          "natural_seconds": 30.96
+        },
+        "dnsmos_delta": {
+          "signal": -0.07279367833354078,
+          "background": 0.0014296683401742172,
+          "overall": -0.0649021024353873
+        }
+      },
+      "secondary_content": {
+        "language": "hi",
+        "unit": "word",
+        "original_units": 167,
+        "processed_units": 167,
+        "asr_disagreement": 0.03592814371257485,
+        "reference_units": 169,
+        "original_reference_error": 0.08284023668639054,
+        "processed_reference_error": 0.08875739644970414,
+        "reference_error_delta": 0.005917159763313598
+      },
+      "processed_repeat_detected": false
+    },
+    {
+      "id": "fresh_10_ja_sonic-3.6",
+      "cohort": "fresh_native",
+      "seconds": 33.04,
+      "sample_rate": 44100,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "model": "sonic-3.6",
+      "language": "ja",
+      "voice_primary_language": "ja",
+      "source_sha256": "c8f6ec04f635c077a21642f45d7c10013d02f6a298937ae5b43d7fa254758964",
+      "output_sha256": "625ac598b092ec4de2ba26180de42d76bf3e84ba274f0e9aaf8653969cecb3c5",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T23:07:11.874513+00:00",
+      "processed_checked_at": "2026-11-13T23:39:11.601636+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "ja",
+        "unit": "character",
+        "original_units": 193,
+        "processed_units": 194,
+        "asr_disagreement": 0.015544041450777202,
+        "reference_units": 193,
+        "original_reference_error": 0.015544041450777202,
+        "processed_reference_error": 0.031088082901554404,
+        "reference_error_delta": 0.015544041450777202
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9919158906613224,
+          0.9766641578257999,
+          0.9937000566183258
+        ],
+        "speaker_minimum": 0.9766641578257999,
+        "speaker_mean": 0.9874267017018159,
+        "original_dnsmos": {
+          "signal": 3.611963360416292,
+          "background": 4.22810078935903,
+          "overall": 3.4388651263279435,
+          "windows": 24,
+          "natural_seconds": 33.04
+        },
+        "processed_dnsmos": {
+          "signal": 3.604099751476664,
+          "background": 4.187332443916811,
+          "overall": 3.4108436925527745,
+          "windows": 24,
+          "natural_seconds": 33.04
+        },
+        "dnsmos_delta": {
+          "signal": -0.007863608939628008,
+          "background": -0.040768345442218745,
+          "overall": -0.02802143377516897
+        }
+      },
+      "secondary_content": {
+        "language": "ja",
+        "unit": "character",
+        "original_units": 192,
+        "processed_units": 193,
+        "asr_disagreement": 0.020833333333333332,
+        "reference_units": 193,
+        "original_reference_error": 0.02072538860103627,
+        "processed_reference_error": 0.02072538860103627,
+        "reference_error_delta": 0.0
+      },
+      "processed_repeat_detected": false
+    },
+    {
+      "id": "fresh_11_ar_sonic-preview",
+      "cohort": "fresh_native",
+      "seconds": 33.12,
+      "sample_rate": 48000,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "model": "sonic-preview",
+      "language": "ar",
+      "voice_primary_language": "ar",
+      "source_sha256": "2ab7b204cddd665b22cdc877ae713f5f1c8b516d2b9e1175370e90cc7eb4c5ac",
+      "output_sha256": "5617fe5988925ed380bb30a3b1cb521fd5c8c29a7066118ac81646787cf4d4fb",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T23:08:31.713584+00:00",
+      "processed_checked_at": "2026-11-13T23:40:31.971844+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "ar",
+        "unit": "word",
+        "original_units": 76,
+        "processed_units": 77,
+        "asr_disagreement": 0.4605263157894737,
+        "reference_units": 76,
+        "original_reference_error": 0.13157894736842105,
+        "processed_reference_error": 0.47368421052631576,
+        "reference_error_delta": 0.3421052631578947
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9656645997305546,
+          0.9761207676955688,
+          0.9746807325417974
+        ],
+        "speaker_minimum": 0.9656645997305546,
+        "speaker_mean": 0.9721553666559736,
+        "original_dnsmos": {
+          "signal": 3.587782028750501,
+          "background": 4.129223672921433,
+          "overall": 3.3640130355263547,
+          "windows": 24,
+          "natural_seconds": 33.12
+        },
+        "processed_dnsmos": {
+          "signal": 3.708661475730334,
+          "background": 4.138342889705209,
+          "overall": 3.466618010291604,
+          "windows": 24,
+          "natural_seconds": 33.12
+        },
+        "dnsmos_delta": {
+          "signal": 0.1208794469798331,
+          "background": 0.009119216783775919,
+          "overall": 0.10260497476524932
+        }
+      },
+      "secondary_content": {
+        "language": "ar",
+        "unit": "word",
+        "original_units": 76,
+        "processed_units": 77,
+        "asr_disagreement": 0.13157894736842105,
+        "reference_units": 76,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.13157894736842105,
+        "reference_error_delta": 0.13157894736842105
+      },
+      "processed_repeat_detected": false
+    },
+    {
+      "id": "fresh_12_ko_sonic-3.6",
+      "cohort": "fresh_native",
+      "seconds": 32.96,
+      "sample_rate": 16000,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "model": "sonic-3.6",
+      "language": "ko",
+      "voice_primary_language": "ko",
+      "source_sha256": "1fbdc1f391491fc41526665b8ebf70342dc0760ba6698251e411a65f7e0e3b5a",
+      "output_sha256": "c0dd81ba12937b7811318b034b21e538e89105994b776dbe68ed49bd7880ac68",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T23:09:51.671634+00:00",
+      "processed_checked_at": "2026-11-13T23:41:51.611096+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "ko",
+        "unit": "word",
+        "original_units": 60,
+        "processed_units": 61,
+        "asr_disagreement": 0.08333333333333333,
+        "reference_units": 64,
+        "original_reference_error": 0.140625,
+        "processed_reference_error": 0.15625,
+        "reference_error_delta": 0.015625
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9905381912049327,
+          0.9850633025779678,
+          0.9868554708986723
+        ],
+        "speaker_minimum": 0.9850633025779678,
+        "speaker_mean": 0.9874856548938576,
+        "original_dnsmos": {
+          "signal": 3.694163409426425,
+          "background": 4.145265740567744,
+          "overall": 3.4416938966950026,
+          "windows": 23,
+          "natural_seconds": 32.96
+        },
+        "processed_dnsmos": {
+          "signal": 3.682724454874972,
+          "background": 4.149880440589202,
+          "overall": 3.451163153628575,
+          "windows": 23,
+          "natural_seconds": 32.96
+        },
+        "dnsmos_delta": {
+          "signal": -0.011438954551453051,
+          "background": 0.004614700021457807,
+          "overall": 0.009469256933572368
+        }
+      },
+      "secondary_content": {
+        "language": "ko",
+        "unit": "word",
+        "original_units": 61,
+        "processed_units": 63,
+        "asr_disagreement": 0.06557377049180328,
+        "reference_units": 64,
+        "original_reference_error": 0.109375,
+        "processed_reference_error": 0.046875,
+        "reference_error_delta": -0.0625
+      },
+      "processed_repeat_detected": false
+    },
+    {
+      "id": "fresh_13_zh_sonic-preview",
+      "cohort": "fresh_native",
+      "seconds": 35.44,
+      "sample_rate": 24000,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "model": "sonic-preview",
+      "language": "zh",
+      "voice_primary_language": "zh",
+      "source_sha256": "02b7bb9274288dbc51f49cbfd864727a9f213fc887f939817e27212748f47edd",
+      "output_sha256": "4a3d7997ee51518878cb4c05835f24c1d1f08f0db149faa1e1236a352065d58b",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T23:11:11.870474+00:00",
+      "processed_checked_at": "2026-11-13T23:43:11.592125+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "zh",
+        "unit": "character",
+        "original_units": 183,
+        "processed_units": 183,
+        "asr_disagreement": 0.00546448087431694,
+        "reference_units": 183,
+        "original_reference_error": 0.07650273224043716,
+        "processed_reference_error": 0.07650273224043716,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9827929372299539,
+          0.9741722333527183,
+          0.9771202164962414
+        ],
+        "speaker_minimum": 0.9741722333527183,
+        "speaker_mean": 0.9780284623596378,
+        "original_dnsmos": {
+          "signal": 3.7384326035320044,
+          "background": 4.203863348123192,
+          "overall": 3.5383698677303106,
+          "windows": 26,
+          "natural_seconds": 35.44
+        },
+        "processed_dnsmos": {
+          "signal": 3.676891681189419,
+          "background": 4.125316756271141,
+          "overall": 3.4322431098039954,
+          "windows": 26,
+          "natural_seconds": 35.44
+        },
+        "dnsmos_delta": {
+          "signal": -0.06154092234258535,
+          "background": -0.07854659185205115,
+          "overall": -0.10612675792631521
+        }
+      },
+      "secondary_content": {
+        "language": "zh",
+        "unit": "character",
+        "original_units": 183,
+        "processed_units": 183,
+        "asr_disagreement": 0.00546448087431694,
+        "reference_units": 183,
+        "original_reference_error": 0.02185792349726776,
+        "processed_reference_error": 0.02185792349726776,
+        "reference_error_delta": 0.0
+      },
+      "processed_repeat_detected": false
+    },
+    {
+      "id": "fresh_14_ru_sonic-3.6",
+      "cohort": "fresh_native",
+      "seconds": 30.64,
+      "sample_rate": 44100,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "model": "sonic-3.6",
+      "language": "ru",
+      "voice_primary_language": "ru",
+      "source_sha256": "4b8bd8c4401c457d11ea43d3a1b857636ae263c8ff8759c34bacada8983de2f1",
+      "output_sha256": "07c7fec9d87673134541264742ea0acc2b107f8add9a7807b813d9e5954b2610",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T23:12:31.688237+00:00",
+      "processed_checked_at": "2026-11-13T23:44:31.874092+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "ru",
+        "unit": "word",
+        "original_units": 71,
+        "processed_units": 71,
+        "asr_disagreement": 0.056338028169014086,
+        "reference_units": 71,
+        "original_reference_error": 0.028169014084507043,
+        "processed_reference_error": 0.08450704225352113,
+        "reference_error_delta": 0.05633802816901408
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9930348765102361,
+          0.9836233828480352,
+          0.9726747214469931
+        ],
+        "speaker_minimum": 0.9726747214469931,
+        "speaker_mean": 0.9831109936017549,
+        "original_dnsmos": {
+          "signal": 3.5066449158014756,
+          "background": 3.97925734807982,
+          "overall": 3.2007361709912723,
+          "windows": 21,
+          "natural_seconds": 30.64
+        },
+        "processed_dnsmos": {
+          "signal": 3.5884487599510364,
+          "background": 4.046138650445197,
+          "overall": 3.314956609963803,
+          "windows": 21,
+          "natural_seconds": 30.64
+        },
+        "dnsmos_delta": {
+          "signal": 0.08180384414956077,
+          "background": 0.06688130236537715,
+          "overall": 0.11422043897253076
+        }
+      },
+      "secondary_content": {
+        "language": "ru",
+        "unit": "word",
+        "original_units": 71,
+        "processed_units": 70,
+        "asr_disagreement": 0.028169014084507043,
+        "reference_units": 71,
+        "original_reference_error": 0.056338028169014086,
+        "processed_reference_error": 0.08450704225352113,
+        "reference_error_delta": 0.02816901408450704
+      },
+      "processed_repeat_detected": false
+    },
+    {
+      "id": "fresh_15_ta_sonic-preview",
+      "cohort": "fresh_native",
+      "seconds": 28.72,
+      "sample_rate": 48000,
+      "channels": 1,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "model": "sonic-preview",
+      "language": "ta",
+      "voice_primary_language": "ta",
+      "source_sha256": "baed9a7322a4cd8af889dd631f7d4eab71cadbdf993dfa561b37bd5f6d359225",
+      "output_sha256": "accd0bbc79e940d1d18babd6cc2e4e8d48825863e848735d0c4cbf2cf1d109ba",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T23:13:51.895757+00:00",
+      "processed_checked_at": "2026-11-13T23:45:51.688042+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "ta",
+        "unit": "word",
+        "original_units": 173,
+        "processed_units": 157,
+        "asr_disagreement": 0.24277456647398843,
+        "reference_units": 197,
+        "original_reference_error": 0.22842639593908629,
+        "processed_reference_error": 0.38578680203045684,
+        "reference_error_delta": 0.15736040609137056
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9610840792882207,
+          0.9752274102204865,
+          0.9835794038427067
+        ],
+        "speaker_minimum": 0.9610840792882207,
+        "speaker_mean": 0.9732969644504713,
+        "original_dnsmos": {
+          "signal": 3.5903311940788725,
+          "background": 4.200105390880949,
+          "overall": 3.40011670906133,
+          "windows": 19,
+          "natural_seconds": 28.72
+        },
+        "processed_dnsmos": {
+          "signal": 3.588152239303051,
+          "background": 4.126100003570298,
+          "overall": 3.362355165871825,
+          "windows": 19,
+          "natural_seconds": 28.72
+        },
+        "dnsmos_delta": {
+          "signal": -0.002178954775821307,
+          "background": -0.07400538731065076,
+          "overall": -0.03776154318950464
+        }
+      },
+      "secondary_content": {
+        "language": "ta",
+        "unit": "word",
+        "original_units": 149,
+        "processed_units": 149,
+        "asr_disagreement": 0.11409395973154363,
+        "reference_units": 197,
+        "original_reference_error": 0.29949238578680204,
+        "processed_reference_error": 0.36548223350253806,
+        "reference_error_delta": 0.06598984771573602
+      },
+      "processed_repeat_detected": false
+    },
+    {
+      "id": "fresh_00_en_sonic-3.5",
+      "cohort": "fresh_native",
+      "seconds": 46.48,
+      "sample_rate": 16000,
+      "channels": 1,
+      "declared_watermarked": false,
+      "provenance_group": "generated_unmarked",
+      "model": "sonic-3.5",
+      "language": "en",
+      "voice_primary_language": "fr",
+      "source_sha256": "372b52cf536fb2e7afa52942c0ddeda7cfe1e1b56f228c9a6d1b926677f7d55a",
+      "output_sha256": "ed052b55a741e515bcf4a20fd04d07e12742aefa26755c74ff19393b047bc4e4",
+      "original_detected": false,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T23:15:11.697029+00:00",
+      "processed_checked_at": "2026-11-13T23:48:31.873830+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 130,
+        "processed_units": 130,
+        "asr_disagreement": 0.0,
+        "reference_units": 130,
+        "original_reference_error": 0.007692307692307693,
+        "processed_reference_error": 0.007692307692307693,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9907994352645124,
+          0.9871271171053413,
+          0.9863015406244524
+        ],
+        "speaker_minimum": 0.9863015406244524,
+        "speaker_mean": 0.9880760309981019,
+        "original_dnsmos": {
+          "signal": 3.6929502708847517,
+          "background": 4.184403519435816,
+          "overall": 3.4727892923973154,
+          "windows": 37,
+          "natural_seconds": 46.48
+        },
+        "processed_dnsmos": {
+          "signal": 3.681959239378298,
+          "background": 4.121353083339017,
+          "overall": 3.428428236031064,
+          "windows": 37,
+          "natural_seconds": 46.48
+        },
+        "dnsmos_delta": {
+          "signal": -0.010991031506453641,
+          "background": -0.06305043609679917,
+          "overall": -0.04436105636625154
+        }
+      },
+      "secondary_content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 130,
+        "processed_units": 130,
+        "asr_disagreement": 0.0,
+        "reference_units": 130,
+        "original_reference_error": 0.007692307692307693,
+        "processed_reference_error": 0.007692307692307693,
+        "reference_error_delta": 0.0
+      }
+    },
+    {
+      "id": "fresh_04_es_sonic-3.5",
+      "cohort": "fresh_native",
+      "seconds": 34.72,
+      "sample_rate": 16000,
+      "channels": 1,
+      "declared_watermarked": false,
+      "provenance_group": "generated_unmarked",
+      "model": "sonic-3.5",
+      "language": "es",
+      "voice_primary_language": "es",
+      "source_sha256": "bac4cfca2688e701f068f68e3a82f8763f6a997f8bbf12b177c61f6a5a291e6b",
+      "output_sha256": "923f0f512bee12863b937dc3a2359c8840f0c4415ed8aec284a6d7e8e3d4a633",
+      "original_detected": false,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T23:16:32.071521+00:00",
+      "processed_checked_at": "2026-11-13T23:53:51.578537+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "es",
+        "unit": "word",
+        "original_units": 85,
+        "processed_units": 85,
+        "asr_disagreement": 0.0,
+        "reference_units": 85,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9880653927274438,
+          0.9846838321530842,
+          0.9918115087058432
+        ],
+        "speaker_minimum": 0.9846838321530842,
+        "speaker_mean": 0.988186911195457,
+        "original_dnsmos": {
+          "signal": 3.5844865616979775,
+          "background": 4.184712491208018,
+          "overall": 3.3780017802035793,
+          "windows": 25,
+          "natural_seconds": 34.72
+        },
+        "processed_dnsmos": {
+          "signal": 3.6733181038259692,
+          "background": 4.152679835219743,
+          "overall": 3.442052929920075,
+          "windows": 25,
+          "natural_seconds": 34.72
+        },
+        "dnsmos_delta": {
+          "signal": 0.08883154212799171,
+          "background": -0.03203265598827443,
+          "overall": 0.06405114971649573
+        }
+      },
+      "secondary_content": {
+        "language": "es",
+        "unit": "word",
+        "original_units": 85,
+        "processed_units": 85,
+        "asr_disagreement": 0.0,
+        "reference_units": 85,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": 0.0
+      }
+    },
+    {
+      "id": "fresh_06_fr_sonic-3.5",
+      "cohort": "fresh_native",
+      "seconds": 24.56,
+      "sample_rate": 44100,
+      "channels": 1,
+      "declared_watermarked": false,
+      "provenance_group": "generated_unmarked",
+      "model": "sonic-3.5",
+      "language": "fr",
+      "voice_primary_language": "fr",
+      "source_sha256": "46445fa660198163b5a515a6f3afc934bce38effa343c4b40c569e07ccf23dba",
+      "output_sha256": "b9c888bcf67886fdaab808532cd6995597709acf9bf64bf9a6179dd86f449e16",
+      "original_detected": true,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T23:17:51.673351+00:00",
+      "processed_checked_at": "2026-11-13T23:56:31.588808+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "fr",
+        "unit": "word",
+        "original_units": 84,
+        "processed_units": 84,
+        "asr_disagreement": 0.047619047619047616,
+        "reference_units": 84,
+        "original_reference_error": 0.047619047619047616,
+        "processed_reference_error": 0.047619047619047616,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9707125609038748,
+          0.9623453725689085,
+          0.9843160229211138
+        ],
+        "speaker_minimum": 0.9623453725689085,
+        "speaker_mean": 0.9724579854646324,
+        "original_dnsmos": {
+          "signal": 3.752619423720517,
+          "background": 4.229213019462501,
+          "overall": 3.559625436373466,
+          "windows": 15,
+          "natural_seconds": 24.56
+        },
+        "processed_dnsmos": {
+          "signal": 3.7028044684407244,
+          "background": 4.187334012486671,
+          "overall": 3.496622656560616,
+          "windows": 15,
+          "natural_seconds": 24.56
+        },
+        "dnsmos_delta": {
+          "signal": -0.04981495527979263,
+          "background": -0.04187900697582947,
+          "overall": -0.06300277981284985
+        }
+      },
+      "secondary_content": {
+        "language": "fr",
+        "unit": "word",
+        "original_units": 84,
+        "processed_units": 84,
+        "asr_disagreement": 0.023809523809523808,
+        "reference_units": 84,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.023809523809523808,
+        "reference_error_delta": 0.023809523809523808
+      }
+    },
+    {
+      "id": "fresh_09_hi_sonic-3.5",
+      "cohort": "fresh_native",
+      "seconds": 30.0,
+      "sample_rate": 24000,
+      "channels": 1,
+      "declared_watermarked": false,
+      "provenance_group": "generated_unmarked",
+      "model": "sonic-3.5",
+      "language": "hi",
+      "voice_primary_language": "hi",
+      "source_sha256": "034fb0322de06b1a3505b34c27417fede2c5c3967b38ea239bf2980f6e162b0a",
+      "output_sha256": "5dfa712833975322e6ce6334eba71a4c8f27496b1dd6a08717dcc2fde03ff616",
+      "original_detected": false,
+      "processed_detected": false,
+      "original_checked_at": "2026-11-13T23:19:11.889385+00:00",
+      "processed_checked_at": "2026-11-13T23:57:51.572009+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "hi",
+        "unit": "word",
+        "original_units": 124,
+        "processed_units": 126,
+        "asr_disagreement": 0.11290322580645161,
+        "reference_units": 169,
+        "original_reference_error": 0.42011834319526625,
+        "processed_reference_error": 0.4437869822485207,
+        "reference_error_delta": 0.023668639053254448
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9626468251655778,
+          0.9832250655807173,
+          0.9831715383979958
+        ],
+        "speaker_minimum": 0.9626468251655778,
+        "speaker_mean": 0.9763478097147636,
+        "original_dnsmos": {
+          "signal": 3.7817030756893284,
+          "background": 4.2335548818608775,
+          "overall": 3.5909683633315828,
+          "windows": 21,
+          "natural_seconds": 30.0
+        },
+        "processed_dnsmos": {
+          "signal": 3.7046803094255543,
+          "background": 4.113006583335462,
+          "overall": 3.4589845253821374,
+          "windows": 21,
+          "natural_seconds": 30.0
+        },
+        "dnsmos_delta": {
+          "signal": -0.07702276626377413,
+          "background": -0.12054829852541538,
+          "overall": -0.13198383794944535
+        }
+      },
+      "secondary_content": {
+        "language": "hi",
+        "unit": "word",
+        "original_units": 126,
+        "processed_units": 126,
+        "asr_disagreement": 0.007936507936507936,
+        "reference_units": 169,
+        "original_reference_error": 0.3076923076923077,
+        "processed_reference_error": 0.30177514792899407,
+        "reference_error_delta": -0.00591715976331364
+      }
+    },
+    {
+      "id": "long_00_en_sonic-3.6",
+      "cohort": "long_native",
+      "model": "sonic-3.6",
+      "language": "en",
+      "seconds": 171.04,
+      "sample_rate": 24000,
+      "channels": 1,
+      "voice_primary_language": "en",
+      "voice_absent_from_prior_project_plans": false,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "source_sha256": "321c79fc68f07e48129ad4b548882ab7da7b580f705e1959b3961e191188e760",
+      "output_sha256": "0673f0bca4dc271bebfdf31851e07f40cc3efa5f92a915369bd9025ac6f17a13",
+      "original_detected": true,
+      "processed_detected": false,
+      "processed_repeat_detected": false,
+      "original_checked_at": "2026-11-14T01:59:13.965537+00:00",
+      "processed_checked_at": "2026-11-14T02:16:34.071722+00:00",
+      "repeat_checked_at": "2026-11-14T02:35:14.006927+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 550,
+        "processed_units": 550,
+        "asr_disagreement": 0.0018181818181818182,
+        "reference_units": 550,
+        "original_reference_error": 0.0018181818181818182,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": -0.0018181818181818182
+      },
+      "secondary_content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 550,
+        "processed_units": 550,
+        "asr_disagreement": 0.0,
+        "reference_units": 550,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9869482970679515,
+          0.9889167008618599,
+          0.9912907588414066
+        ],
+        "speaker_minimum": 0.9869482970679515,
+        "speaker_mean": 0.9890519189237393,
+        "original_dnsmos": {
+          "signal": 3.798184076383423,
+          "background": 4.209047603727593,
+          "overall": 3.596784012427075,
+          "windows": 162,
+          "natural_seconds": 171.04
+        },
+        "processed_dnsmos": {
+          "signal": 3.730956407831199,
+          "background": 4.1328909235898434,
+          "overall": 3.4923713168175965,
+          "windows": 162,
+          "natural_seconds": 171.04
+        },
+        "dnsmos_delta": {
+          "signal": -0.06722766855222417,
+          "background": -0.07615668013774979,
+          "overall": -0.10441269560947841
+        }
+      }
+    },
+    {
+      "id": "long_01_en_sonic-preview",
+      "cohort": "long_native",
+      "model": "sonic-preview",
+      "language": "en",
+      "seconds": 116.08,
+      "sample_rate": 24000,
+      "channels": 1,
+      "voice_primary_language": "fr",
+      "voice_absent_from_prior_project_plans": true,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "source_sha256": "ac549ec28cb3788ab2aad9da02fb74865daaf472f499f7cbce1f9e3281ea292d",
+      "output_sha256": "ac7a9e368adaceb3d1c1874593153799803f2a4ae802e1cafd508968beba1212",
+      "original_detected": true,
+      "processed_detected": false,
+      "processed_repeat_detected": false,
+      "original_checked_at": "2026-11-14T02:01:53.599928+00:00",
+      "processed_checked_at": "2026-11-14T02:19:13.057161+00:00",
+      "repeat_checked_at": "2026-11-14T02:37:53.055450+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 364,
+        "processed_units": 363,
+        "asr_disagreement": 0.016483516483516484,
+        "reference_units": 363,
+        "original_reference_error": 0.008264462809917356,
+        "processed_reference_error": 0.01928374655647383,
+        "reference_error_delta": 0.011019283746556474
+      },
+      "secondary_content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 363,
+        "processed_units": 363,
+        "asr_disagreement": 0.0027548209366391185,
+        "reference_units": 363,
+        "original_reference_error": 0.005509641873278237,
+        "processed_reference_error": 0.008264462809917356,
+        "reference_error_delta": 0.0027548209366391185
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.982489577928206,
+          0.9835988300011892,
+          0.9854059634910133
+        ],
+        "speaker_minimum": 0.982489577928206,
+        "speaker_mean": 0.9838314571401362,
+        "original_dnsmos": {
+          "signal": 3.753003742332207,
+          "background": 4.147920678036899,
+          "overall": 3.5160013912557773,
+          "windows": 107,
+          "natural_seconds": 116.08
+        },
+        "processed_dnsmos": {
+          "signal": 3.7137761809912226,
+          "background": 4.065060234631418,
+          "overall": 3.4358365539807605,
+          "windows": 107,
+          "natural_seconds": 116.08
+        },
+        "dnsmos_delta": {
+          "signal": -0.03922756134098426,
+          "background": -0.08286044340548049,
+          "overall": -0.08016483727501678
+        }
+      }
+    },
+    {
+      "id": "long_02_es_sonic-3.6",
+      "cohort": "long_native",
+      "model": "sonic-3.6",
+      "language": "es",
+      "seconds": 142.88,
+      "sample_rate": 24000,
+      "channels": 1,
+      "voice_primary_language": "es",
+      "voice_absent_from_prior_project_plans": true,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "source_sha256": "77837a25ef548f9869880641c41bdb724dfb7ded2163caa1ad4f6cb93fd9a370",
+      "output_sha256": "56b2f713b502f13dc479fb764a03d6671871b4e96571614198e4e1502b9cbdc2",
+      "original_detected": true,
+      "processed_detected": false,
+      "processed_repeat_detected": false,
+      "original_checked_at": "2026-11-14T02:04:33.491470+00:00",
+      "processed_checked_at": "2026-11-14T02:21:53.342940+00:00",
+      "repeat_checked_at": "2026-11-14T02:40:33.681872+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "es",
+        "unit": "word",
+        "original_units": 392,
+        "processed_units": 394,
+        "asr_disagreement": 0.01020408163265306,
+        "reference_units": 393,
+        "original_reference_error": 0.002544529262086514,
+        "processed_reference_error": 0.007633587786259542,
+        "reference_error_delta": 0.0050890585241730275
+      },
+      "secondary_content": {
+        "language": "es",
+        "unit": "word",
+        "original_units": 394,
+        "processed_units": 394,
+        "asr_disagreement": 0.0,
+        "reference_units": 393,
+        "original_reference_error": 0.002544529262086514,
+        "processed_reference_error": 0.002544529262086514,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9851602419517922,
+          0.9765231585782363,
+          0.9822920948302858
+        ],
+        "speaker_minimum": 0.9765231585782363,
+        "speaker_mean": 0.9813251651201048,
+        "original_dnsmos": {
+          "signal": 3.7616651945792587,
+          "background": 4.177776902940991,
+          "overall": 3.5486889022237595,
+          "windows": 133,
+          "natural_seconds": 142.88
+        },
+        "processed_dnsmos": {
+          "signal": 3.670889030711509,
+          "background": 4.103998156392015,
+          "overall": 3.4218853524725032,
+          "windows": 133,
+          "natural_seconds": 142.88
+        },
+        "dnsmos_delta": {
+          "signal": -0.09077616386774956,
+          "background": -0.07377874654897632,
+          "overall": -0.1268035497512563
+        }
+      }
+    },
+    {
+      "id": "long_03_en_sonic-3.5",
+      "cohort": "long_native",
+      "model": "sonic-3.5",
+      "language": "en",
+      "seconds": 171.52,
+      "sample_rate": 24000,
+      "channels": 1,
+      "voice_primary_language": "en",
+      "voice_absent_from_prior_project_plans": false,
+      "declared_watermarked": false,
+      "provenance_group": "generated_unmarked",
+      "source_sha256": "3358583964efbdec7a1c450011cefc1b774f7c438062e96e55ee0451038cda63",
+      "output_sha256": "1d64dba1dad597486f0b19eae819706182c56feb46082dcc601873594d706bba",
+      "original_detected": false,
+      "processed_detected": false,
+      "processed_repeat_detected": false,
+      "original_checked_at": "2026-11-14T02:07:14.090165+00:00",
+      "processed_checked_at": "2026-11-14T02:24:34.279390+00:00",
+      "repeat_checked_at": "2026-11-14T02:43:14.219935+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 549,
+        "processed_units": 550,
+        "asr_disagreement": 0.0018214936247723133,
+        "reference_units": 550,
+        "original_reference_error": 0.0018181818181818182,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": -0.0018181818181818182
+      },
+      "secondary_content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 550,
+        "processed_units": 550,
+        "asr_disagreement": 0.0,
+        "reference_units": 550,
+        "original_reference_error": 0.0,
+        "processed_reference_error": 0.0,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.9898990376223153,
+          0.9919436073523156,
+          0.9933562540959238
+        ],
+        "speaker_minimum": 0.9898990376223153,
+        "speaker_mean": 0.9917329663568516,
+        "original_dnsmos": {
+          "signal": 3.784160348479599,
+          "background": 4.201225085546375,
+          "overall": 3.579353447663324,
+          "windows": 162,
+          "natural_seconds": 171.52
+        },
+        "processed_dnsmos": {
+          "signal": 3.703678509586132,
+          "background": 4.050496371458426,
+          "overall": 3.4241552959536246,
+          "windows": 162,
+          "natural_seconds": 171.52
+        },
+        "dnsmos_delta": {
+          "signal": -0.08048183889346694,
+          "background": -0.15072871408794963,
+          "overall": -0.15519815170969942
+        }
+      }
+    },
+    {
+      "id": "long_04_en_sonic-3.6",
+      "cohort": "long_native",
+      "model": "sonic-3.6",
+      "language": "en",
+      "seconds": 252.08,
+      "sample_rate": 24000,
+      "channels": 1,
+      "voice_primary_language": "en",
+      "voice_absent_from_prior_project_plans": false,
+      "declared_watermarked": true,
+      "provenance_group": "generated_marked",
+      "source_sha256": "0e7da429ce36a226c3ba1be7fca35bc23c018b967835b66dab2e61439aa255a4",
+      "output_sha256": "2076a0c114f467740d0ea27018449dd58d9f63615391efd708bcd9d1cc0406fa",
+      "original_detected": true,
+      "processed_detected": false,
+      "processed_repeat_detected": false,
+      "original_checked_at": "2026-11-14T02:09:55.480801+00:00",
+      "processed_checked_at": "2026-11-14T02:28:35.546097+00:00",
+      "repeat_checked_at": "2026-11-14T02:45:55.380671+00:00",
+      "max_encoding_error": 5.960464477539063e-08,
+      "format_and_length_preserved": true,
+      "finite_unclipped": true,
+      "content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 799,
+        "processed_units": 799,
+        "asr_disagreement": 0.0037546933667083854,
+        "reference_units": 799,
+        "original_reference_error": 0.0037546933667083854,
+        "processed_reference_error": 0.0025031289111389237,
+        "reference_error_delta": -0.0012515644555694616
+      },
+      "secondary_content": {
+        "language": "en",
+        "unit": "word",
+        "original_units": 799,
+        "processed_units": 799,
+        "asr_disagreement": 0.0,
+        "reference_units": 799,
+        "original_reference_error": 0.0012515644555694619,
+        "processed_reference_error": 0.0012515644555694619,
+        "reference_error_delta": 0.0
+      },
+      "voice": {
+        "speaker_window_cosines": [
+          0.991201225617174,
+          0.987223750860768,
+          0.9829334707818078
+        ],
+        "speaker_minimum": 0.9829334707818078,
+        "speaker_mean": 0.9871194824199166,
+        "original_dnsmos": {
+          "signal": 3.792507884578847,
+          "background": 4.199644946120417,
+          "overall": 3.5853973232324425,
+          "windows": 243,
+          "natural_seconds": 252.08
+        },
+        "processed_dnsmos": {
+          "signal": 3.7411326386870996,
+          "background": 4.125795481157775,
+          "overall": 3.498427986059257,
+          "windows": 243,
+          "natural_seconds": 252.08
+        },
+        "dnsmos_delta": {
+          "signal": -0.05137524589174758,
+          "background": -0.07384946496264178,
+          "overall": -0.08696933717318567
+        }
+      }
+    }
+  ],
+  "inference_source_commit": "42edb1f6105df8e2c452aff086b1f98f0366cc9f",
+  "verification_cli_smoke": {
+    "status": "verified_negative",
+    "source_sha256": "6a173da5cdf9432c64757ee04e8ba16aaf4247aa936903980dcc988b56b7c97e",
+    "output_sha256": "cc3265aa522a1d82b13d2928a442f2f7dcaff41911fec3e917aefc373b92ed0b",
+    "selected_preset": "full-flow",
+    "checked_at": "2026-11-14T00:43:11.662308+00:00",
+    "quality_verified": false,
+    "required_negative_checks": 1,
+    "observed_negative_checks": 1,
+    "verification_cli_code_sha256": null,
+    "format": "FLOAT WAV",
+    "exact_bytes_rechecked_after_publication": true,
+    "parent_environment": {
+      "python": "3.13.16",
+      "packages": {
+        "numpy": "2.5.4",
+        "soundfile": "0.14.0",
+        "requests": "2.34.2"
+      },
+      "torch_installed": false
+    },
+    "interpretation": "Integration smoke test on a spent generated fixture; excluded from held-out and removal denominators."
+  },
+  "repeat_stability": {
+    "plan_sha256": "4bccadd4507548afb3878a95f1acc27996856665daf534789c8686bc2e19994e",
+    "report_sha256": "b44b4095a14100f98f2a6df9a9ac16a6af22a89844bf70b83651fa2011461a1a",
+    "fixed_targets": 20,
+    "negative_responses": 20,
+    "changed_public_responses": [],
+    "http_attempts": 23,
+    "positive_service_controls": 3,
+    "service_controls": 3,
+    "public_observations": [
+      {
+        "id": "fresh_00_en_sonic-3.6",
+        "sha256": "49282e0ac86b359532719255070e5116dd557237b30fa270d74b37189373314f",
+        "detected": false,
+        "http_status": 200,
+        "checked_at": "2026-11-14T00:51:12.003369+00:00"
+      },
+      {
+        "id": "fresh_01_en_sonic-preview",
+        "sha256": "f324ffb5fcf6885b884caa32722919dafeacb5b183cf881657300ea0dcea177a",
+        "detected": false,
+        "http_status": 200,
+        "checked_at": "2026-11-14T00:52:31.853982+00:00"
+      },
+      {
+        "id": "fresh_02_en_sonic-3.6",
+        "sha256": "7900535623b02bdeb6dd2672b624eb17ca40f3e019c0a1aeb92810d8ab5a85e3",
+        "detected": false,
+        "http_status": 200,
+        "checked_at": "2026-11-14T00:53:51.849159+00:00"
+      },
+      {
+        "id": "fresh_03_en_sonic-preview",
+        "sha256": "13d57503bb146994a21b49546628ec07bb5e81dd7f7a3f4fad789a23601a33bf",
+        "detected": false,
+        "http_status": 200,
+        "checked_at": "2026-11-14T00:56:31.735660+00:00"
+      },
+      {
+        "id": "fresh_04_es_sonic-3.6",
+        "sha256": "e8eaa1efec5de2002f91a7b3ae5c287eff254e71afb968c89351aedaea1e7da8",
+        "detected": false,
+        "http_status": 200,
+        "checked_at": "2026-11-14T00:59:11.720954+00:00"
+      },
+      {
+        "id": "fresh_05_es_sonic-preview",
+        "sha256": "cbab9fe747c9ff0fb1cbe5e0b51228fada6cb5409806588d440cea9fa89b8817",
+        "detected": false,
+        "http_status": 200,
+        "checked_at": "2026-11-14T01:00:31.572592+00:00"
+      },
+      {
+        "id": "fresh_06_fr_sonic-3.6",
+        "sha256": "2b781b7fcf37807469b123996750d2cbed1b50868a250349d9b1394d0df830d2",
+        "detected": false,
+        "http_status": 200,
+        "checked_at": "2026-11-14T01:01:51.666691+00:00"
+      },
+      {
+        "id": "fresh_07_fr_sonic-preview",
+        "sha256": "f5b08b39945463fd4d52bff98fed6e3095b1e36217c9e5a51c03c0c670aafed7",
+        "detected": false,
+        "http_status": 200,
+        "checked_at": "2026-11-14T01:03:11.667400+00:00"
+      },
+      {
+        "id": "fresh_08_de_sonic-3.6",
+        "sha256": "1c613ae0f79bd4937425444b3d09cfdc6d7183c5a8db452ce1a306096d1c101a",
+        "detected": false,
+        "http_status": 200,
+        "checked_at": "2026-11-14T01:05:51.871659+00:00"
+      },
+      {
+        "id": "fresh_09_hi_sonic-preview",
+        "sha256": "3371c48019644ac8cbaa936a78dc70533673e01f6389ecb1b51bdb6a4b29e232",
+        "detected": false,
+        "http_status": 200,
+        "checked_at": "2026-11-14T01:08:31.964260+00:00"
+      },
+      {
+        "id": "fresh_10_ja_sonic-3.6",
+        "sha256": "625ac598b092ec4de2ba26180de42d76bf3e84ba274f0e9aaf8653969cecb3c5",
+        "detected": false,
+        "http_status": 200,
+        "checked_at": "2026-11-14T01:17:52.089769+00:00"
+      },
+      {
+        "id": "fresh_11_ar_sonic-preview",
+        "sha256": "5617fe5988925ed380bb30a3b1cb521fd5c8c29a7066118ac81646787cf4d4fb",
+        "detected": false,
+        "http_status": 200,
+        "checked_at": "2026-11-14T01:21:51.859631+00:00"
+      },
+      {
+        "id": "fresh_12_ko_sonic-3.6",
+        "sha256": "c0dd81ba12937b7811318b034b21e538e89105994b776dbe68ed49bd7880ac68",
+        "detected": false,
+        "http_status": 200,
+        "checked_at": "2026-11-14T01:24:31.698739+00:00"
+      },
+      {
+        "id": "fresh_13_zh_sonic-preview",
+        "sha256": "4a3d7997ee51518878cb4c05835f24c1d1f08f0db149faa1e1236a352065d58b",
+        "detected": false,
+        "http_status": 200,
+        "checked_at": "2026-11-14T01:27:11.787010+00:00"
+      },
+      {
+        "id": "fresh_14_ru_sonic-3.6",
+        "sha256": "07c7fec9d87673134541264742ea0acc2b107f8add9a7807b813d9e5954b2610",
+        "detected": false,
+        "http_status": 200,
+        "checked_at": "2026-11-14T01:31:11.793101+00:00"
+      },
+      {
+        "id": "fresh_15_ta_sonic-preview",
+        "sha256": "accd0bbc79e940d1d18babd6cc2e4e8d48825863e848735d0c4cbf2cf1d109ba",
+        "detected": false,
+        "http_status": 200,
+        "checked_at": "2026-11-14T01:35:12.128592+00:00"
+      },
+      {
+        "id": "public_01",
+        "sha256": "1a6c6f8753749b8146ff839aa7e5f3b97f1f95dd1fc81bc646bc459c0bfa7569",
+        "detected": false,
+        "http_status": 200,
+        "checked_at": "2026-11-14T01:39:16.617778+00:00"
+      }
+    ],
+    "execution_notes": [
+      {
+        "at": "2026-11-14T00:49:17.424188+00:00",
+        "reason": "Yield between requests to queued clients. Frozen targets, candidate, spacing and HTTP cap unchanged.",
+        "global_rate_increased": false,
+        "measurement_script_sha256": "1e21e7a36f81a25602c01acddb39a00ed9f906c77354502b33a08a485fa16e8b"
+      }
+    ],
+    "private_development_regressions": {
+      "recordings": 3,
+      "negative_responses": 3
+    },
+    "interpretation": "Repeated exact-file responses are not additional independent recordings. Private development inputs and their individual fingerprints remain local."
+  },
+  "core_study_summary": {
+    "recordings": 45,
+    "original_positive": 19,
+    "positive_to_negative": 19,
+    "remaining_positive": 0,
+    "original_negative": 26,
+    "negative_to_positive": 0,
+    "negative_to_negative": 26
+  },
+  "long_study": {
+    "plan_sha256": "c76989038c8bace2dc45ab181b5f465ac1493c3605764b9337460a7e53b08f4d",
+    "evidence_sha256": {
+      "plan": "c76989038c8bace2dc45ab181b5f465ac1493c3605764b9337460a7e53b08f4d",
+      "render": "55a3134a3c515a5a6d9e9dfd50f85fde0389f671ca2393ca4d10a4ef53f04ddb",
+      "api": "cd0920f0898e43027336e55e4a0f843c190f6fd891673a3bb4a9f1bb17c41328",
+      "asr": "0f5e108ae9ad9c5a10c04a10d977474c45e653ddc5dd9314cb8072a10c422181",
+      "secondary_asr": "2bf2d439c0d1a604b472903ed18af870e767156aea6457b10bbd9af41ac9fd80",
+      "voice": "a1c6406afb50fbb97f5f73ca0070163afc913f3a283973ee72c0f865e48187b7"
+    },
+    "summary": {
+      "recordings": 5,
+      "original_positive": 4,
+      "positive_to_negative": 4,
+      "remaining_positive": 0,
+      "original_negative": 1,
+      "negative_to_positive": 0,
+      "negative_to_negative": 1
+    },
+    "duration_seconds": [
+      171.04,
+      116.08,
+      142.88,
+      171.52,
+      252.08
+    ],
+    "distinct_voices": 3,
+    "correlation_note": "long_04 extends long_00 text and shares the familiar English voice; long_03 is the paired unmarked control. Not five independent voices.",
+    "http_attempts": 18,
+    "repeated_outputs_negative": 5,
+    "repeated_outputs": 5,
+    "positive_service_controls": 3,
+    "service_controls": 3,
+    "execution_notes": [
+      {
+        "at": "2026-11-14T00:49:31.393824+00:00",
+        "reason": "Yield queued clients between requests; changed before the first long measurement. Candidate, order, spacing and cap unchanged.",
+        "global_rate_increased": false,
+        "measurement_script_sha256": "353ceb426d4103cff9b1e60bcc0f27fbd4ce3195625bd80a1568552e6ea5c9a4"
+      }
+    ]
+  },
+  "environment": {
+    "asr": {
+      "python": "3.12.3",
+      "packages": {
+        "torch": "2.5.1+cpu",
+        "torchaudio": "2.5.1+cpu",
+        "transformers": "4.46.3",
+        "numpy": "1.26.4",
+        "scipy": "1.17.1",
+        "soundfile": "0.14.0",
+        "librosa": "0.11.0",
+        "onnxruntime": null
+      }
+    },
+    "voice": {
+      "python": "3.13.16",
+      "packages": {
+        "torch": "2.15.0+cpu",
+        "torchaudio": null,
+        "transformers": "5.22.2",
+        "numpy": "2.5.4",
+        "scipy": "1.18.1",
+        "soundfile": "0.14.0",
+        "librosa": "1.0.0",
+        "onnxruntime": "1.31.1"
+      }
+    }
+  },
+  "native_generation": {
+    "requests": 25,
+    "characters": 25520,
+    "utf8_bytes": 30072
+  },
+  "evaluation_corrections": [
+    {
+      "at": "2026-11-13T23:55:40.394119+00:00",
+      "scope": "ASR evaluation only; frozen candidate and endpoint measurements unchanged",
+      "bug": "Short automatic-language input had 1515 mel frames; Whisper encoder requires 3000.",
+      "correction": "Pad the ASR waveform to at least 30 seconds, preserving full longer input and its attention mask.",
+      "cache_policy": "Reuse an old transcript only after exact equality of every old/new feature tensor and attention mask. Otherwise rerun inference."
+    }
+  ],
+  "quality_protocol_sha256": {
+    "boundary_v2.quality_protocol.json": "f610c494e456d46c8fcd3e868b5286e6d089f7a8c1fdc29351466bf421491571",
+    "long_v2.quality_protocol.json": "cc11ddd6a50ecc82d8cb1304d3797732b94d349ac859c9249e4e41ec2942e98f"
+  },
+  "total_study_http_attempts": 136,
+  "all_processed_responses_negative": true,
+  "service_controls_all_positive": true
+}

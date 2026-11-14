@@ -88,11 +88,14 @@ range.addEventListener("input", () => { $("strength-value").value = `${range.val
 methodSelect.addEventListener("change", () => {
   const reconstruction = methodSelect.value !== "editor";
   $("editor-settings").hidden = reconstruction;
-  $("method-help").textContent = methodSelect.value === "reconstruct_strong"
-    ? "For persistent watermarks. Listen for changes in the words and voice. Allow about 2–3 minutes per minute of audio."
-    : reconstruction
-    ? "Rebuilds speech using the approved reconstruction method. Allow about 2–3 minutes per minute of audio."
-    : "Makes small edits with the earlier V3 model. This is faster, but remained detectable on both test recordings.";
+  const descriptions = {
+    reconstruct: "Rebuilds speech with the reference settings. Compare the words and voice. Allow about 2–3 minutes per minute of audio.",
+    vocoder: "An experimental speech reconstruction method. Compare the words and voice. Detector checks are separate.",
+    reconstruct_fullflow: "Rebuilds more of the recording. Listen for changes in the words and voice. Detector checks are separate.",
+    reconstruct_strong: "Adds stronger denoising before reconstruction. Listen for changes in the words and voice. Allow about 2–3 minutes per minute of audio.",
+    editor: "Makes small edits with the earlier V3 model. This is faster, but remained detectable on both test recordings."
+  };
+  $("method-help").textContent = descriptions[methodSelect.value];
 });
 
 function responseMessage(text, fallback) {
@@ -130,7 +133,9 @@ function showResult(row, focus) {
   $("result").hidden = false;
   $("result-name").textContent = row.filename;
   const minutes = Math.floor(row.seconds / 60), seconds = Math.floor(row.seconds % 60).toString().padStart(2, "0");
-  const methodName = row.method === "reconstruct_strong" ? "Stronger reconstruction" : row.method === "reconstruct" ? "Reconstruction" : "Small edits";
+  const methodName = {reconstruct: "Reference reconstruction", vocoder: "Experimental reconstruction",
+    reconstruct_fullflow: "Full-flow reconstruction", reconstruct_strong: "Stronger reconstruction",
+    editor: "Small edits"}[row.method] || "Small edits";
   $("metadata").textContent = `${minutes}:${seconds} · ${row.sample_rate / 1000} kHz · ${row.channels === 1 ? "Mono" : "Stereo"} · ${methodName}`;
   const verification = $("verification");
   verification.className = "help";

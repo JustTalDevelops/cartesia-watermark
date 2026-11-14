@@ -134,6 +134,41 @@ class VerifiedReconstructionTests(unittest.TestCase):
         self.assertEqual(report['status'], 'not_cleared')
         self.assertEqual(len(report['attempts']), 2)
 
+    def test_confirmation_rechecks_the_same_bytes_before_publication(self):
+        checked = []
+
+        def detector(candidate):
+            self.assertFalse(self.output.exists())
+            checked.append(candidate.read_bytes())
+            return 200, {'detected': False}
+
+        result = self.run_verified(detector, confirmations=2)
+        self.assertEqual(checked, [self.output.read_bytes()]*2)
+        self.assertEqual(result['negative_checks'], 2)
+        self.assertEqual(result['required_negative_checks'], 2)
+        self.assertEqual(len(result['attempts'][0]['checks']), 2)
+
+    def test_later_positive_rejects_an_earlier_negative_and_uses_fallback(self):
+        answers = iter((False, True, False, False))
+        result = self.run_verified(lambda _: (200, {'detected': next(answers)}), confirmations=2)
+        self.assertEqual(result['selected_preset'], 'strong')
+        self.assertEqual([a['detected'] for a in result['attempts']], [True, False])
+        self.assertEqual(result['negative_checks'], 2)
+
+    def test_unavailable_confirmation_publishes_nothing(self):
+        answers = iter(((200, {'detected': False}), (503, {})))
+        with self.assertRaises(RuntimeError):
+            self.run_verified(lambda _: next(answers), confirmations=2)
+        self.assertFalse(self.output.exists())
+        self.assertEqual(self.worker.calls, ['full-flow'])
+
+    def test_confirmation_count_is_bounded_before_processing(self):
+        for count in (0, 4, True, 1.5):
+            with self.subTest(count=count), self.assertRaises(ValueError):
+                self.run_verified(lambda _: (200, {'detected': False}), confirmations=count)
+        self.assertEqual(self.worker.calls, [])
+        self.assertFalse(self.report.exists())
+
     def test_api_errors_and_malformed_replies_do_not_trigger_more_presets(self):
         for status, response in ((429, {}), (503, {}), (200, {'detected': 0}), (200, {})):
             with self.subTest(status=status, response=response):

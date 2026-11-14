@@ -58,6 +58,9 @@ def wait_browser(page, expression):
 
 
 def main():
+    code, health_body = request('/api/health')
+    assert code == 200
+    default_method = json.loads(health_body)['default_method']
     expected, sample_rate = sf.read(ROOT / "audio/english_blend25/en_006_marked.wav")
     assert request("/api/jobs", "POST", b"hello")[0] == 403
     assert request("/api/jobs", "POST", b"", HEADERS)[0] == 400
@@ -84,6 +87,24 @@ def main():
     assert request("/api/jobs/" + job)[0] == 404
     print("API: exact PCM, range requests, invalid/empty/oversize upload, edit limits, request protection and delete pass.", flush=True)
 
+    source_audio, source_rate = sf.read(SOURCE)
+    for method in ('vocoder', 'reconstruct_fullflow'):
+        code, body = request('/api/jobs?filename=reference.wav&method='+method, 'POST', SOURCE.read_bytes(), HEADERS)
+        assert code == 202
+        reconstruction_job = json.loads(body)['id']
+        try:
+            row = wait_job(reconstruction_job)
+            assert row['state'] == 'done' and row['method'] == method, row
+            code, body = request('/api/jobs/'+reconstruction_job+'/audio/download')
+            assert code == 200
+            actual, rate = sf.read(io.BytesIO(body))
+            assert rate == source_rate and actual.shape == source_audio.shape
+            assert np.isfinite(actual).all() and np.max(np.abs(actual)) < 1
+            assert sf.info(io.BytesIO(body)).subtype == 'FLOAT'
+        finally:
+            assert request('/api/jobs/'+reconstruction_job, 'DELETE', headers=HEADERS)[0] == 200
+    print('API: vocoder and boundary-safe full-flow uploads preserve rate, channels, length and FLOAT downloads.', flush=True)
+
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True, args=["--no-sandbox"])
         desktop = browser.new_context(viewport={"width": 1280, "height": 1050}, accept_downloads=True)
@@ -91,7 +112,7 @@ def main():
         errors = []
         page.on("pageerror", lambda error: errors.append(str(error)))
         page.goto(BASE, wait_until="networkidle")
-        assert page.locator("#method").input_value() == "reconstruct"
+        assert page.locator("#method").input_value() == default_method
         assert page.locator("#editor-settings").is_hidden()
         page.screenshot(path=str(ROOT / "results/remover_web_desktop_initial.png"), full_page=True)
         mobile = browser.new_context(viewport={"width": 390, "height": 844}, is_mobile=True, has_touch=True)
@@ -133,10 +154,12 @@ def main():
     freeze = json.loads((ROOT / "results/remover_quality_v3.freeze.json").read_text())
     for path, expected_hash in freeze["inference_code_sha256"].items():
         assert hashlib.sha256((ROOT / path).read_bytes()).hexdigest() == expected_hash
-    report = {"url": BASE, "model": "V3", "frozen_inference_unchanged": True,
+    report = {"url": BASE, "models": ["V3", "smoothed-vocoder", "full-flow"], "frozen_inference_unchanged": True,
               "API_and_UI_checks_passed": True, "download_PCM_exact_to_verified_model": True,
+              "default_method": default_method, "new_reconstruction_methods_preserve_format": True,
               "desktop_and_mobile": True, "browser_errors": errors,
               "checks": ["WAV upload and processing", "Exact output PCM versus verified V3 example",
+                         "Vocoder and full-flow rate/channel/length preservation and FLOAT downloads",
                          "Audio range requests for seeking", "A/B switching retains playback position",
                          "Full-quality download through the UI", "Job survives browser refresh",
                          "Mobile layout without horizontal overflow", "Explicit delete removes output",

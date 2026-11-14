@@ -2,7 +2,7 @@
 
 Tools for studying Cartesia's audio watermark, running a local detector, and experimenting with speech reconstruction. Includes a local upload app for listening to and downloading processed recordings.
 
-**Removal is unresolved.** The V3 editor still flags Cartesia's detector on real recordings. Reconstruction has cleared some tested recordings and failed others; neither method reliably removes the watermark. A detector-negative result is not proof of erasure.
+**Removal is experimental.** V3 remains detectable on real recordings. Cartesia returned negative for all **20 marked generated outputs** in the frozen full-flow candidate's [50-recording study](results/reconstruction_reliability.json), but reconstruction can change words and voice quality. The faster vocoder has a fresh Japanese counterexample. Use exact-file verification for a checked result; these tests do not establish universal removal.
 
 **[Download the trained models](https://github.com/JustTalDevelops/cartesia-watermark/releases/tag/models-2026-11-13)** — detector heads, frozen V1–V3 editors, and separate research checkpoints. See the [model guide and catalog](docs/models.md) for contents, loading instructions, and upstream attribution.
 
@@ -11,10 +11,12 @@ Tools for studying Cartesia's audio watermark, running a local detector, and exp
 | Method | What it does | Status |
 | --- | --- | --- |
 | Reconstruction (default) | Rebuilds speech with a local Resemble Enhance model | Mixed detection results; slower, changes more of the signal |
+| Full-flow reconstruction | Rebuilds speech from a random latent prior | 20/20 marked generated outputs checked negative; can change spoken words |
+| Experimental reconstruction | Rebuilds smoothed speech features with NVIDIA BigVGAN | Faster in the recorded short benchmark; a fresh Japanese case remained detected |
 | Stronger reconstruction | Uses more aggressive denoising before reconstruction | Experimental; listen for changes to the voice and words |
 | Small edits (V3) | Applies two small waveform networks with a quality guard | Preserves voice fidelity well; unreliable watermark suppression |
 
-The app processes audio locally and never sends uploads to Cartesia. It preserves sample rate, channel count, and sample count, and downloads FLOAT WAV files. Uploads expire after 24 hours and can be deleted immediately.
+The app processes audio locally and never sends uploads to Cartesia. It preserves sample rate, channel count, and sample count, and downloads FLOAT WAV files. Uploads expire after 24 hours and can be deleted immediately. Each method needs its separately documented model assets; the experimental vocoder setup is optional.
 
 Requires Python 3.13, [uv](https://docs.astral.sh/uv/), and `ffmpeg`/`ffprobe` on your PATH. Run commands from the repository root:
 
@@ -37,7 +39,7 @@ To process a WAV directly with reconstruction:
 .cache/resemble-venv/bin/python tools/reconstruct_audio.py input.wav output.wav
 ```
 
-The optional [verification CLI](docs/reconstruction.md#check-the-exact-output-with-cartesia) uploads candidates to Cartesia and saves an output only after a negative response for those exact file bytes. It requires API access; speech quality still needs listening.
+The optional [verification CLI](docs/reconstruction.md#check-the-exact-output-with-cartesia) uploads candidates to Cartesia and, by default, saves an output only after two negative responses for those exact file bytes. Its opt-in vocoder → full-flow → strong order produced checked outputs for all 16 planned sources in a [separate study](results/reconstruction_vocoder.json), which includes two reused long recordings. It requires API access; speech quality still needs listening.
 
 The separate experimental V3 CLI needs only the inference dependencies and the bundled checkpoint:
 

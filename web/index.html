@@ -30,11 +30,13 @@
       <div class="settings">
         <div class="setting-label"><label for="method">Processing method</label></div>
         <select id="method" aria-describedby="method-help">
-          <option value="reconstruct" selected>Reconstruction (recommended)</option>
+          <option value="reconstruct" selected>Reference reconstruction</option>
+          <option value="vocoder">Experimental reconstruction</option>
+          <option value="reconstruct_fullflow">Full-flow reconstruction</option>
           <option value="reconstruct_strong">Stronger reconstruction</option>
           <option value="editor">Small edits (V3)</option>
         </select>
-        <p id="method-help" class="help">Rebuilds speech using the approved reconstruction method. Allow about 2–3 minutes per minute of audio.</p>
+        <p id="method-help" class="help">Rebuilds speech with the reference settings. Compare the words and voice. Allow about 2–3 minutes per minute of audio.</p>
       </div>
       <div id="editor-settings" class="settings" hidden>
         <div class="setting-label"><label for="strength">Edit amount</label><output id="strength-value" for="strength">100%</output></div>

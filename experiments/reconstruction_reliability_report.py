@@ -58,9 +58,19 @@ def verification_summary(audit, environment):
                 attempt.get('http_status') == 200 and attempt.get('detected') is False]
     if len(selected) != 1:
         raise ValueError('Smoke test has no unique checked output')
+    required = audit.get('required_negative_checks', 1)
+    confirmations = selected[0].get('checks')
+    if confirmations is None:
+        if required != 1:
+            raise ValueError('Smoke test lacks the required negative confirmations')
+    elif (len(confirmations) != required or
+          any(c.get('http_status') != 200 or c.get('detected') is not False for c in confirmations)):
+        raise ValueError('Smoke test lacks the required negative confirmations')
     return {'status': audit['status'], 'source_sha256': audit['source_sha256'],
             'output_sha256': audit['output_sha256'], 'selected_preset': audit['selected_preset'],
             'checked_at': audit['checked_at'], 'quality_verified': False,
+            'required_negative_checks': required, 'observed_negative_checks': required,
+            'verification_cli_code_sha256': audit.get('verification_cli_code_sha256'),
             'format': 'FLOAT WAV', 'exact_bytes_rechecked_after_publication': True,
             'parent_environment': environment,
             'interpretation': 'Integration smoke test on a spent generated fixture; excluded from held-out and removal denominators.'}
@@ -77,6 +87,25 @@ def summarize_content(records):
                         'median_reference_error_delta': median(deltas) if deltas else None,
                         'maximum_reference_error_delta': max(deltas) if deltas else None}
     return result
+
+
+def selected_quality_rows(primary, cases, fallback):
+    """Bind quality estimates to selected bytes, never to a discarded candidate."""
+    expected = {case['id'] for case in cases.values()
+                if case['fallback_needed'] and case['status'] == 'verified_negative'}
+    measured = indexed(fallback, expected, 'selected fallback quality')
+    rows = []
+    for original in primary:
+        case = cases[original['id']]
+        if case['status'] != 'verified_negative':
+            continue
+        row = measured[original['id']] if case['fallback_needed'] else original
+        if (row['source_sha256'] != case['source_sha256'] or
+                row['output_sha256'] != case['output_sha256']):
+            raise ValueError('Quality evidence describes different selected bytes')
+        rows.append({key: row[key] for key in
+                     ('id', 'source_sha256', 'output_sha256', 'content', 'secondary_content', 'voice')})
+    return rows
 
 
 def build_core_report(directory):
@@ -344,6 +373,38 @@ def build_vocoder_report(directory):
         final.append({key: case[key] for key in ('id', 'source_sha256', 'primary_detected', 'primary_repeat_detected',
                                                 'fallback_needed', 'status', 'quality_verified') } |
                      {key: case[key] for key in ('selected_preset', 'output_sha256', 'checked_at') if key in case})
+    fallback_quality = []
+    fallback_evidence = {}
+    fallback_ids = {case['id'] for case in cases.values()
+                    if case['fallback_needed'] and case['status'] == 'verified_negative'}
+    if fallback_ids:
+        quality_plan_path = directory/'vocoder_fallback_quality.plan.json'
+        quality_plan = json.loads(quality_plan_path.read_text())
+        if quality_plan['workflow_report_sha256'] != digest(workflow_path):
+            raise ValueError('Fallback quality belongs to a different workflow')
+        indexed(quality_plan['items'], fallback_ids, 'fallback quality plan')
+        metrics = {}
+        for name, suffix in (('content', 'asr'), ('secondary_content', 'asr_turbo'), ('voice', 'voice_quality')):
+            path = directory/('vocoder_fallback.'+suffix+'.json')
+            document = json.loads(path.read_text())
+            if document['complete'] is not True or document['plan_sha256'] != digest(quality_plan_path):
+                raise ValueError('Incomplete or mismatched fallback quality')
+            metrics[name] = indexed(document['clips'], fallback_ids, 'fallback '+name)
+            fallback_evidence[name] = digest(path)
+        for key in sorted(fallback_ids):
+            case = cases[key]
+            for group in metrics.values():
+                if (group[key]['source_sha256'] != case['source_sha256'] or
+                        group[key]['output_sha256'] != case['output_sha256']):
+                    raise ValueError('Fallback quality measured different audio')
+            fallback_quality.append({'id': key, 'source_sha256': case['source_sha256'],
+                                     'output_sha256': case['output_sha256'],
+                                     'content': content_metrics(metrics['content'][key]),
+                                     'secondary_content': content_metrics(metrics['secondary_content'][key]),
+                                     'voice': {field: metrics['voice'][key][field] for field in
+                                               ('speaker_window_cosines', 'speaker_minimum', 'speaker_mean',
+                                                'original_dnsmos', 'processed_dnsmos', 'dnsmos_delta')}})
+    selected = selected_quality_rows(rows, cases, fallback_quality)
     primary_plan = json.loads((directory/'vocoder_eval.plan.json').read_text())
     long_plan = json.loads((directory/'vocoder_long_eval.plan.json').read_text())
     reservations = json.loads((directory/'budget.json').read_text())['requests']
@@ -359,6 +420,15 @@ def build_vocoder_report(directory):
     for row in regressions['clips']+prototype['clips']:
         if row['http_status'] != 200 or type(row['detected']) is not bool:
             raise ValueError('Invalid development regression observation')
+    smoke = json.loads((directory/'verified_vocoder_smoke.audit.json').read_text())
+    expected_files = {Path(name).name: sha for name, sha in protocol['code_sha256'].items()
+                      if name != 'tools/verify_reconstruction.py'}
+    if (smoke['source_files_sha256_at_start'] != expected_files or
+            smoke['verification_cli_code_sha256'] != protocol['code_sha256']['tools/verify_reconstruction.py'] or
+            smoke['selected_preset'] != 'smoothed-vocoder' or
+            digest(Path(smoke['output'])) != smoke['output_sha256']):
+        raise ValueError('Packaged vocoder verification smoke changed code or published bytes')
+    smoke_summary = verification_summary(smoke, json.loads((directory/'verification_environment.json').read_text()))
     return {'schema_version': 1, 'candidate': fresh['candidate'], 'settings': fresh['settings'],
             'inference_source_commit': source['commit'], 'inference_code_sha256': fresh['code_sha256'],
             'upstream_model_trained_by_this_project': False,
@@ -384,6 +454,8 @@ def build_vocoder_report(directory):
                                         'not_in_held_out_denominator': True,
                                         'individual_private_fingerprints_excluded': True},
             'official_source_parity': json.loads((directory/'bigvgan_source_parity.json').read_text()),
+            'verification_cli_smoke': smoke_summary,
+            'runtime': json.loads((directory/'vocoder_runtime.json').read_text()),
             'native_generation': {'new_requests': len(generated),
                                    'characters': sum(r['characters'] for r in generated.values()),
                                    'reused_long_sources': len(long['clips'])},
@@ -393,7 +465,16 @@ def build_vocoder_report(directory):
                                          'verified_negative_sources': sum(r['status'] == 'verified_negative' for r in cases.values()),
                                          'http_attempts': len(workflow['http_attempts']), 'outcomes': final,
                                          'human_listening_verified': False,
-                                         'interpretation': 'Same source recordings; fallback queries do not increase the sample count. Speech metrics above describe the primary candidate, not any selected fallback.'},
+                                         'selected_output_quality': {
+                                             'recordings': len(selected),
+                                             'content_by_unit': summarize_content([r['content'] for r in selected]),
+                                             'secondary_content_by_unit': summarize_content([r['secondary_content'] for r in selected]),
+                                             'minimum_speaker_window_cosine': min((r['voice']['speaker_minimum'] for r in selected), default=None),
+                                             'median_dnsmos_overall_delta': median(r['voice']['dnsmos_delta']['overall'] for r in selected) if selected else None,
+                                             'fallback_evidence_sha256': fallback_evidence,
+                                             'fallback_measurements': fallback_quality,
+                                             'human_listening_verified': False},
+                                         'interpretation': 'Same source recordings; fallback queries do not increase the sample count. Top-level speech metrics describe the primary candidate. Selected-output metrics use exact-byte-bound fallback measurements for replaced files.'},
             'environment': {name: json.loads((directory/f'{name}_environment.json').read_text())
                              for name in ('vocoder', 'asr', 'voice')},
             'all_primary_processed_responses_negative': all(not r['processed_detected'] and not r.get('processed_repeat_detected', False) for r in rows),

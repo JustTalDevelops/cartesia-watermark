@@ -88,7 +88,7 @@ def publish_exact(source, output, expected):
 
 
 def reconstruct_verified(source, output, report_path, presets=('full-flow', 'strong'),
-                         worker=None, detector=None, boundary_safe=False):
+                         worker=None, detector=None, boundary_safe=False, confirmations=1):
     """Return an audit record only after publishing the exact checked bytes.
 
     On a positive result, try the next fixed preset. API errors, unavailable
@@ -104,6 +104,8 @@ def reconstruct_verified(source, output, report_path, presets=('full-flow', 'str
         raise ValueError('Output must be WAV or FLAC')
     if not presets or any(preset not in PRESETS for preset in presets):
         raise ValueError('Choose at least one supported reconstruction preset')
+    if type(confirmations) is not int or not 1 <= confirmations <= 3:
+        raise ValueError('Choose between one and three negative confirmations')
     audio, sample_rate = sf.read(source)
     channels = 1 if audio.ndim == 1 else audio.shape[1]
     if channels not in (1, 2) or not np.isfinite(audio).all() or not 8000 <= sample_rate <= 96000:
@@ -130,6 +132,7 @@ def reconstruct_verified(source, output, report_path, presets=('full-flow', 'str
               'verification_cli_code_sha256': digest(Path(__file__)),
               'source_files_sha256_at_start': {name: digest(ROOT/'tools'/name) for name in source_files},
               'boundary_safe_requested': boundary_safe,
+              'required_negative_checks': confirmations,
               'quality_verified': False,
               'meaning': 'Exact output file checked negative by the current Cartesia detector; not proof of erasure or unchanged speech.',
               'attempts': []}
@@ -175,22 +178,30 @@ def reconstruct_verified(source, output, report_path, presets=('full-flow', 'str
                 attempt = {'preset': preset, 'sha256': sha, 'model': metadata, 'state': 'checking'}
                 report['attempts'].append(attempt)
                 save_report(report_path, report)
-                status, response = detector(candidate)
-                if digest(candidate) != sha:
-                    raise RuntimeError('Candidate changed during verification')
-                attempt['http_status'] = status
-                if status != 200 or not isinstance(response, dict) or type(response.get('detected')) is not bool:
-                    raise RuntimeError(f'Verification unavailable (HTTP {status}); no output published')
-                attempt.update(detected=response['detected'], state='checked',
-                               checked_at=datetime.now(timezone.utc).isoformat())
-                save_report(report_path, report)
-                if response['detected']:
+                attempt['checks'] = []
+                for number in range(confirmations):
+                    check = {'ordinal': number+1, 'state': 'checking'}
+                    attempt['checks'].append(check)
+                    save_report(report_path, report)
+                    status, response = detector(candidate)
+                    if digest(candidate) != sha:
+                        raise RuntimeError('Candidate changed during verification')
+                    check['http_status'] = attempt['http_status'] = status
+                    if status != 200 or not isinstance(response, dict) or type(response.get('detected')) is not bool:
+                        raise RuntimeError(f'Verification unavailable (HTTP {status}); no output published')
+                    check.update(detected=response['detected'], state='checked',
+                                 checked_at=datetime.now(timezone.utc).isoformat())
+                    attempt.update(detected=check['detected'], state='checked', checked_at=check['checked_at'])
+                    save_report(report_path, report)
+                    if check['detected']:
+                        break
+                if attempt['detected']:
                     continue
                 if digest(source) != report['source_sha256']:
                     raise RuntimeError('Source changed during verification')
                 published_identity = publish_exact(candidate, output, sha)
                 report.update(status='verified_negative', output_sha256=sha, selected_preset=preset,
-                              checked_at=attempt['checked_at'])
+                              checked_at=attempt['checked_at'], negative_checks=len(attempt['checks']))
                 save_report(report_path, report)
                 return report
         report['status'] = 'not_cleared'
@@ -216,12 +227,14 @@ def main():
     parser.add_argument('--presets', nargs='+', choices=PRESETS, default=['full-flow', 'strong'])
     parser.add_argument('--report', type=Path)
     parser.add_argument('--boundary-safe', action='store_true', help='Use experimental corrected chunk scheduling')
+    parser.add_argument('--confirmations', type=int, choices=(1, 2, 3), default=2,
+                        help='Required negative responses for the same exact file (default: 2)')
     args = parser.parse_args()
     report_path = args.report or ROOT/'.cache/verification'/(args.output.stem+'.'+uuid.uuid4().hex+'.json')
     report_existed = report_path.exists()
     try:
         report = reconstruct_verified(args.input, args.output, report_path, tuple(args.presets),
-                                      boundary_safe=args.boundary_safe)
+                                      boundary_safe=args.boundary_safe, confirmations=args.confirmations)
     except NotCleared as error:
         print(str(error), file=sys.stderr)
         print('Audit report:', report_path, file=sys.stderr)
@@ -234,6 +247,7 @@ def main():
         return 3
     print(json.dumps({'status': report['status'], 'output': str(args.output),
                       'sha256': report['output_sha256'], 'preset': report['selected_preset'],
+                      'negative_checks': report['negative_checks'],
                       'quality_verified': False, 'report': str(report_path)}, indent=2))
     return 0
 

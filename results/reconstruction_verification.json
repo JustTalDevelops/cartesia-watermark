@@ -1,0 +1,52 @@
+{
+  "status": "verified_negative",
+  "source_sha256": "768d01072520e7e77f590ac5dda34bfbc748d21c14cceed70758e738acef03ba",
+  "output_sha256": "77049ca362c615f4abe3d96b007731d581d99cde4063b49eebe63caf8bf75b6f",
+  "selected_preset": "full-flow",
+  "checked_at": "2026-11-14T03:17:55.512839+00:00",
+  "quality_verified": false,
+  "required_negative_checks": 2,
+  "observed_negative_checks": 2,
+  "verification_cli_code_sha256": "7afbd9e4b59abf0ad3f995261de78a24a8d0429701446b55a2bcd46e5019344b",
+  "format": "FLOAT WAV",
+  "exact_bytes_rechecked_after_publication": true,
+  "parent_environment": {
+    "python": "3.13.16",
+    "packages": {
+      "numpy": "2.5.4",
+      "soundfile": "0.14.0",
+      "requests": "2.34.2"
+    },
+    "torch_installed": false
+  },
+  "interpretation": "Integration smoke test on a spent generated fixture; excluded from held-out and removal denominators.",
+  "fixture_id": "fresh_03_en_sonic-preview",
+  "whole_recording_seconds": 18.96,
+  "source_files_sha256": {
+    "reconstruct_audio.py": "25f3e120598995e398fe76a68a3fda943b53e4f294cad5887207888fb9229c96",
+    "reconstruction_worker.py": "566866c61e45c1364ca2f42adeec5876386c0a0cbf91836fe972769529ea9469",
+    "reconstruction_inference.py": "1a3c6b8ae05019f04b9650a11b81a331b4ef6b11e9dc43c34e95a0371cbf8a8f"
+  },
+  "http_attempts": 2,
+  "http_statuses": [
+    200,
+    200
+  ],
+  "observations": [
+    {
+      "ordinal": 1,
+      "state": "checked",
+      "http_status": 200,
+      "detected": false,
+      "checked_at": "2026-11-14T03:16:35.512054+00:00"
+    },
+    {
+      "ordinal": 2,
+      "state": "checked",
+      "http_status": 200,
+      "detected": false,
+      "checked_at": "2026-11-14T03:17:55.512839+00:00"
+    }
+  ],
+  "sample_count_increase": 0
+}
