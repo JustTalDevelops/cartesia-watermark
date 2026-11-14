@@ -9,6 +9,8 @@ do not establish reliable removal on new recordings.
 | [French local repair](../results/codec_repair_development.json) | The exact repaired output passed seven estimated quality gates and returned two negative detector responses. |
 | [Long English recording](../results/codec_cycles_development.json) | A second native-codec pass preserved the whole 101.12-second recording, passed seven estimated quality gates, and returned two negative responses. |
 | [Korean lower bitrates](../results/codec_bitrate_development.json) | Both 3 and 6 kbps band reconstructions passed seven estimated quality gates but stayed detectable twice. The speech-rejected native 3 kbps output was not queried. |
+| [Korean inverse mixture](../results/codec_followup_development.json) | Generated native 6 kbps speech outside 1–4 kHz, with the generated band prior inside, passed seven quality estimates and cleared twice with positive source brackets. The narrower mixture and timing probes failed quality. |
+| [Russian band-prior repair](../results/codec_followup_development.json) | A half-second generated-donor patch repaired the failed guard. The complete output passed seven quality estimates and cleared twice with positive source brackets. |
 | [Tamil gentle vocoder](../results/vocoder_codec_tradeoffs.json) | Both recordings passed the prospective quality checks but stayed detectable twice. |
 | [Tamil stronger vocoder](../results/vocoder_codec_tradeoffs.json) | Midpoint and stronger smoothing cleared detection on the first recording but increased independent recognizer errors. Stronger smoothing also reduced estimated naturalness. These are failed removals. |
 | [Tamil band-focused vocoder](../results/vocoder_band_development.json) | Smoothing focused on 1–4 kHz passed seven estimated quality checks on the first recording and returned two negative responses with four positive source controls. The stronger variant failed naturalness and was not queried. This is one spent source. |
@@ -31,6 +33,16 @@ recognizers reproduced the tested FLAC bytes exactly; the report binds its sourc
 commit. Processing and worker shutdown took 205.2 seconds for 30.08 seconds of
 audio on the four-core CPU machine, excluding initial outer-runtime construction.
 It adds no fresh validation and does not change the app's methods.
+
+The same branch also includes `codec-band-prior-repair` and `codec-band-inverse6`.
+Both packaged paths reproduced their detector-checked Russian/Korean files with
+real guards. Processing and worker shutdown took 148.1 seconds for 32.88 seconds
+of Russian audio and 60.8 seconds for 29.92 seconds of Korean audio, excluding
+initial outer-runtime construction. These are single-case timings, with different
+recognizers; they do not measure an app-wide speedup. The [follow-up report](../results/codec_followup_development.json)
+retains the unsuccessful Arabic and second Tamil band-prior outputs, the rejected
+second codec passes, and both discarded timing variants. Arabic and the second
+Tamil source remain unresolved.
 
 These are automated estimates, without human listening approval. A negative
 detector response does not establish physical erasure. Quality failures remain
