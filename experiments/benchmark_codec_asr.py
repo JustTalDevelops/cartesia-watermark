@@ -1,4 +1,4 @@
-"""Exploratory FP32/INT8 CPU recognition benchmark on spent recordings only.
+"""Exploratory FP32/BF16/INT8 recognition benchmark on spent recordings only.
 
 Does not modify the processing runtime, select audio, call APIs or read fresh
 study outputs. MMS is loaded anew per language: adapter switching after eager
@@ -6,8 +6,8 @@ quantization is not supported by this experiment. Timings exclude model loading
 and conversion; report all repetitions and transcript differences honestly.
 """
 import argparse
+from contextlib import nullcontext
 import gc
-import hashlib
 import json
 from pathlib import Path
 import sys
@@ -26,14 +26,14 @@ def weight_bytes(model, torch):
     return floating+quantized
 
 
-def benchmark(plan_path, directory, repetitions=2):
+def benchmark(plan_path, directory, repetitions=2, methods=('fp32', 'dynamic-int8-linear')):
     import torch
     plan = json.loads(plan_path.read_text())
     directory.mkdir(parents=True, exist_ok=False)
     report_path = directory/'result.json'
     report = {'plan_sha256': digest(plan_path), 'source_sha256': digest(Path(__file__)),
               'threads': 4, 'engine': torch.backends.quantized.engine,
-              'methods': ['fp32', 'dynamic-int8-linear'], 'repetitions': repetitions,
+              'methods': list(methods), 'repetitions': repetitions,
               'fresh_sources_read': 0, 'api_calls': 0, 'runtime_modified': False,
               'scope': 'Two spent generated sources, their selected development outputs, exploratory timings only; MMS quantization is fixed-language, not a deployed multilingual runtime.',
               'torch': torch.__version__, 'cases': [], 'complete': False}
@@ -56,13 +56,15 @@ def benchmark(plan_path, directory, repetitions=2):
                 scorer.model.eval()
                 scorer.language = adapter
             original_units = {}
-            for method in ('fp32', 'dynamic-int8-linear'):
+            for method in methods:
                 conversion = 0
-                if method != 'fp32':
+                if method.startswith('dynamic-int8'):
                     names = {name for name, module in scorer.model.named_modules()
                              if isinstance(module, torch.nn.Linear) and name != 'proj_out'}
                     started = time.perf_counter()
-                    torch.ao.quantization.quantize_dynamic(scorer.model, names, dtype=torch.qint8, inplace=True)
+                    configuration = ({name: torch.ao.quantization.per_channel_dynamic_qconfig for name in names}
+                                     if method == 'dynamic-int8-channel' else names)
+                    torch.ao.quantization.quantize_dynamic(scorer.model, configuration, dtype=torch.qint8, inplace=True)
                     scorer.model.eval()
                     conversion = time.perf_counter()-started
                 size = weight_bytes(scorer.model, torch)
@@ -80,7 +82,9 @@ def benchmark(plan_path, directory, repetitions=2):
                         scorer.cache = directory/'cache'/metric/language/method/str(repetition)
                         scorer.cache.mkdir(parents=True, exist_ok=True)
                         started = time.perf_counter()
-                        text = scorer.transcribe(path, language)
+                        context = torch.autocast('cpu', dtype=torch.bfloat16) if method == 'bf16-autocast' else nullcontext()
+                        with context:
+                            text = scorer.transcribe(path, language)
                         row['times_seconds'].append(time.perf_counter()-started)
                         sequence = units(text, scorer.normalize, language)
                         sequences.append(sequence)
@@ -106,8 +110,15 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--plan', type=Path, required=True)
     parser.add_argument('--directory', type=Path, required=True)
+    parser.add_argument('--methods', nargs='+', choices=('fp32', 'bf16-autocast', 'dynamic-int8-linear', 'dynamic-int8-channel'),
+                        default=['fp32', 'dynamic-int8-linear'])
     args = parser.parse_args()
-    benchmark(args.plan, args.directory)
+    if args.methods[0] != 'fp32' or len(set(args.methods)) != len(args.methods):
+        parser.error('Methods must start with a unique FP32 baseline')
+    if sum(m.startswith('dynamic-int8') for m in args.methods) > 1 or any(
+            m.startswith('dynamic-int8') for m in args.methods[:-1]):
+        parser.error('Choose at most one INT8 method, last; conversion mutates the benchmark model')
+    benchmark(args.plan, args.directory, methods=args.methods)
 
 
 if __name__ == '__main__':
