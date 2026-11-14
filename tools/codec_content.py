@@ -70,6 +70,7 @@ class ContentRecognizer:
             'supported_languages': sorted(MMS_CODES),
             'normalization': 'NFKC; Hindi/Tamil characters preserving combining vowel signs and viramas, punctuation/symbols removed, one-percent paired limit; Arabic vowel marks/tatweel removed; BasicTextNormalizer(False) elsewhere; Chinese OpenCC1.1.9 t2s characters; Japanese characters; Korean KsponSpeech spacing-normalized words; whitespace words otherwise',
             'short_source_encoder_reuse': True, 'transcripts_written_to_disk': False,
+            'candidate_guard_order': 'Secondary first; a failed secondary skips the primary, and accepted outputs still require both recognizers',
             'model_downloads_during_processing': False}
 
     def check_profiles(self):
@@ -181,7 +182,10 @@ class ContentRecognizer:
             alignment['duration'] = info.frames/info.samplerate
         return name, text_units(text, self.normalizer, language), alignment
 
-    def transcribe(self, path, language=None):
+    def transcribe_candidate(self, path, before):
+        return self.transcribe(path, before['language'], comparison=before)
+
+    def transcribe(self, path, language=None, comparison=None):
         import torch
         audio, batch = self.features(path)
         generation, reused = dict(batch), False
@@ -190,6 +194,23 @@ class ContentRecognizer:
                 language, generation, reused = prepare_original(self.whisper_model, batch)
             if language not in MMS_CODES:
                 return {'language': language, 'supported': False, 'turbo': [], 'mms': [], 'secondary': 'mms'}
+            early_secondary = None
+            if comparison is not None:
+                primary = 'large' if language in LARGE_LANGUAGES else 'turbo'
+                secondary = secondary_for(language)
+                if (comparison.get('language') != language or comparison.get('primary', 'turbo') != primary or
+                        comparison.get('secondary', 'mms') != secondary):
+                    raise ValueError('Candidate comparison requires the same source language profile')
+                early_secondary = self.secondary_transcribe(path, language, audio)
+                if early_secondary[0] != secondary:
+                    raise RuntimeError('Candidate secondary recognizer changed profile')
+                score = paired_error(comparison.get(secondary, []), early_secondary[1], language)
+                maximum = LANGUAGE_MAX_DISAGREEMENT.get(language, MAX_DISAGREEMENT)
+                if score is None or score > maximum+1e-12:
+                    return {'language': language, 'supported': True, 'primary': primary, 'secondary': secondary,
+                            primary: [], secondary: early_secondary[1], 'alignment': early_secondary[2],
+                            'source_encoder_reused': False, 'primary_skipped': True,
+                            'primary_skip_reason': 'secondary_recognizer_rejected_candidate'}
             primary, processor, model = 'turbo', self.whisper_processor, self.whisper_model
             if language in LARGE_LANGUAGES:
                 primary, reused = 'large', False
@@ -200,7 +221,8 @@ class ContentRecognizer:
                 **generation, language=language, task='transcribe', return_timestamps=True,
                 max_new_tokens=440, do_sample=False, condition_on_prev_tokens=False)
             text = processor.batch_decode(prediction, skip_special_tokens=True)[0]
-            secondary, secondary_units, alignment = self.secondary_transcribe(path, language, audio)
+            secondary, secondary_units, alignment = (early_secondary if early_secondary is not None else
+                                                     self.secondary_transcribe(path, language, audio))
         return {'language': language, 'supported': True, 'primary': primary, 'secondary': secondary,
                 primary: text_units(text, self.normalizer, language), secondary: secondary_units,
                 'alignment': alignment, 'source_encoder_reused': reused}
