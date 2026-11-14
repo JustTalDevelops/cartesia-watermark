@@ -113,6 +113,14 @@ runs also reproduced their previously checked files. The new operational voice
 gate accepted the narrow Tamil output and rejected a known naturalness failure.
 All of these are spent-source preflights.
 
+An offline integration of the experimental single-file profile wrapper reproduced
+the checked narrow Tamil file using real speech and voice models. It reused one
+original transcription and one generated prior across both methods. The complete
+local workflow took 269.3 seconds, including model construction and original
+calibration, with eight explicitly mocked detector callbacks and no HTTP calls.
+This verifies packaging and exact-file parity; it adds no removal observations.
+The earlier failed call-counter instrumentation attempt remains in the report.
+
 The [separate frozen language-profile study](https://github.com/JustTalDevelops/cartesia-watermark/blob/codec-band-prior-20261114/docs/codec-profiles-study.md)
 declares 44 new marked requests and four matched nominal controls before
 generation. Its code, inputs, method order, evaluation roles and thresholds are
