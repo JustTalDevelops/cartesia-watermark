@@ -104,6 +104,21 @@ took 26.6 seconds before and 10.2 seconds after. Complete Russian repair took
 seconds. These individual CPU runs exclude outer-runtime construction and do not
 establish an app-wide speedup. Both final files reproduced the checked bytes.
 
+A further actual fallback run reused one original recognition and one generated
+band prior. Original recognition took 76.2 seconds, the first method 104.7
+seconds, and the cached narrow fallback 66.8 seconds. Both outputs reproduced
+their checked bytes. These scopes differ from standalone processing; original
+calibration is not free. Current-profile French repair and long-English cycle
+runs also reproduced their previously checked files. The new operational voice
+gate accepted the narrow Tamil output and rejected a known naturalness failure.
+All of these are spent-source preflights.
+
+The [separate frozen language-profile study](https://github.com/JustTalDevelops/cartesia-watermark/blob/codec-band-prior-20261114/docs/codec-profiles-study.md)
+declares 44 new marked requests and four matched nominal controls before
+generation. Its code, inputs, method order, evaluation roles and thresholds are
+frozen. That protocol is not efficacy evidence; its results must be reported
+separately without changing the original 6/14 study.
+
 The alternative [Mimi weights](https://huggingface.co/kyutai/mimi) are upstream
 CC-BY-4.0 assets, separate from the models trained by this project. The smoothing
 and codec probes are experiments; they do not change the app's processing methods
