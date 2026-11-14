@@ -11,6 +11,7 @@ Tools for studying Cartesia's audio watermark, running a local detector, and exp
 | Method | What it does | Status |
 | --- | --- | --- |
 | Reconstruction (default) | Rebuilds speech with a local Resemble Enhance model | Mixed detection results; slower, changes more of the signal |
+| Balanced reconstruction (experimental) | Uses a filtered starting prior with the original speech condition | Encouraging voice estimates; can change words and remain detectable |
 | Full-flow reconstruction | Rebuilds speech from a random latent prior | 20/20 marked generated outputs checked negative; can change spoken words |
 | Experimental reconstruction | Rebuilds smoothed speech features with NVIDIA BigVGAN | Faster in the recorded short benchmark; a fresh Japanese case remained detected |
 | Stronger reconstruction | Uses more aggressive denoising before reconstruction | Experimental; listen for changes to the voice and words |

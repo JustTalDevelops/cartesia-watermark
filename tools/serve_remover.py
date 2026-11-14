@@ -42,8 +42,10 @@ RECONSTRUCTION_SCRIPT = ROOT / 'tools/reconstruct_audio.py'
 reconstructor = ReconstructionWorker(RECONSTRUCTION_PYTHON, RECONSTRUCTION_SCRIPT)
 flow_reconstructor = ReconstructionWorker(RECONSTRUCTION_PYTHON, RECONSTRUCTION_SCRIPT, boundary_safe=True)
 vocoder_reconstructor = ReconstructionWorker(ROOT/'.venv/bin/python', ROOT/'tools/reconstruct_vocoder.py')
+filtered_reconstructor = ReconstructionWorker(RECONSTRUCTION_PYTHON, ROOT/'tools/reconstruct_filtered_prior.py')
 RECONSTRUCTION_METHODS = {'reconstruct': 'standard', 'reconstruct_fullflow': 'full-flow',
-                          'reconstruct_strong': 'strong', 'vocoder': 'smoothed-vocoder'}
+                          'reconstruct_strong': 'strong', 'vocoder': 'smoothed-vocoder',
+                          'reconstruct_filtered': 'filtered-prior'}
 DEFAULT_METHOD = 'reconstruct'
 MAX_BYTES = 100 * 1024 * 1024
 MAX_SECONDS = 15 * 60
@@ -133,7 +135,8 @@ def process_job(job_id):
         if method in RECONSTRUCTION_METHODS:
             update(job_id, message='Reconstructing speech… This takes about 2–3 minutes per minute of audio.')
             try:
-                worker = (vocoder_reconstructor if method == 'vocoder' else
+                worker = (filtered_reconstructor if method == 'reconstruct_filtered' else
+                          vocoder_reconstructor if method == 'vocoder' else
                           reconstructor if method == 'reconstruct' else flow_reconstructor)
                 worker.run(reference, directory/'processed.wav', RECONSTRUCTION_METHODS[method],
                            directory/'reconstruction.json',
@@ -208,6 +211,7 @@ async def lifespan(app):
         reconstructor.close()
         flow_reconstructor.close()
         vocoder_reconstructor.close()
+        filtered_reconstructor.close()
 
 
 app = FastAPI(lifespan=lifespan, docs_url=None, redoc_url=None, openapi_url=None)

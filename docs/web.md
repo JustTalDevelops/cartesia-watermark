@@ -1,6 +1,6 @@
 # Local recording tester
 
-The upload app reconstructs speech, offers A/B playback, and downloads FLOAT WAV. Reference reconstruction is the default. Full-flow, stronger denoising, an experimental smoothed-vocoder method, and the V3 Small edits path are explicit choices. See [reconstruction setup](reconstruction.md) and [V3 limitations](editor.md).
+The upload app reconstructs speech, offers A/B playback, and downloads FLOAT WAV. Reference reconstruction is the default. Balanced reconstruction (the experimental filtered-prior candidate), full-flow, stronger denoising, a smoothed-vocoder candidate, and V3 Small edits are explicit choices. See [reconstruction setup](reconstruction.md) and [V3 limitations](editor.md).
 
 ## Start the app
 
@@ -34,9 +34,9 @@ The example binds to localhost. To use a tailnet address, edit `ExecStart` in yo
 
 The server never calls Cartesia. A displayed detection result comes only from a saved response matching the exact downloadable WAV hash; new uploads are unchecked. Local listening trials and their evidence expire with the recording.
 
-The reconstruction model loads on the first reconstruction job and stays in an isolated worker for subsequent uploads. This saves repeated Python imports, checkpoint verification, and model loading. It retains model memory while the server runs. A failed or timed-out worker is discarded and recreated for the next job. Restart the server after updating reconstruction code or assets.
+Each reconstruction runtime loads on its first job and stays in an isolated worker for subsequent uploads. This saves repeated Python imports, checkpoint verification, and model loading. Used workers retain model memory while the server runs. A failed or timed-out worker is discarded and recreated for the next job. Restart the server after updating reconstruction code or assets.
 
-The optional Experimental reconstruction method uses the [separately installed smoothed-vocoder candidate](reconstruction.md#smoothed-vocoder-candidate) in its own lazy worker. Full-flow reconstruction is another explicit choice. The reference reconstruction mapping and saved recordings retain their original settings; choosing a new method does not rewrite existing results. Every app method remains local and unchecked unless a saved, exact-file detector response is available.
+The optional Experimental reconstruction method uses the [separately installed smoothed-vocoder candidate](reconstruction.md#smoothed-vocoder-candidate) in its own lazy worker. Balanced reconstruction uses the [filtered-prior candidate](reconstruction.md#filtered-prior-candidate) and the existing Python 3.12 assets. Both remain experimental. The reference reconstruction mapping and saved recordings retain their original settings; choosing a new method does not rewrite existing results. Every app method remains local and unchecked unless a saved, exact-file detector response is available.
 
 ## Checks and interface notes
 
@@ -48,6 +48,6 @@ uv pip install --python .venv/bin/python playwright==1.65.1
 REMOVER_WEB_URL=http://127.0.0.1:7860 .venv/bin/python tools/check_remover_web.py
 ```
 
-See Playwright's [installation guide](https://playwright.dev/python/docs/intro) for supported systems and browser dependencies. If its bundled Node runtime cannot start on your image, `PLAYWRIGHT_NODEJS_PATH=/path/to/node` selects an existing compatible Node executable. The check covers the frozen V3 output, both new reconstruction routes, desktop/mobile playback, downloads, refresh, and deletion.
+See Playwright's [installation guide](https://playwright.dev/python/docs/intro) for supported systems and browser dependencies. If its bundled Node runtime cannot start on your image, `PLAYWRIGHT_NODEJS_PATH=/path/to/node` selects an existing compatible Node executable. The check covers the frozen V3 output, vocoder/full-flow/filtered-prior uploads, desktop/mobile playback, downloads, refresh, and deletion.
 
 The [design](web/design.md), [product scope](web/product.md), and [upload flow](web/surface.md) explain the existing interface decisions.

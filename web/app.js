@@ -90,6 +90,7 @@ methodSelect.addEventListener("change", () => {
   $("editor-settings").hidden = reconstruction;
   const descriptions = {
     reconstruct: "Rebuilds speech with the reference settings. Compare the words and voice. Allow about 2–3 minutes per minute of audio.",
+    reconstruct_filtered: "An experimental alternative with encouraging voice-quality estimates. Compare the words and voice. Detector checks are separate.",
     vocoder: "An experimental speech reconstruction method. Compare the words and voice. Detector checks are separate.",
     reconstruct_fullflow: "Rebuilds more of the recording. Listen for changes in the words and voice. Detector checks are separate.",
     reconstruct_strong: "Adds stronger denoising before reconstruction. Listen for changes in the words and voice. Allow about 2–3 minutes per minute of audio.",
@@ -133,7 +134,8 @@ function showResult(row, focus) {
   $("result").hidden = false;
   $("result-name").textContent = row.filename;
   const minutes = Math.floor(row.seconds / 60), seconds = Math.floor(row.seconds % 60).toString().padStart(2, "0");
-  const methodName = {reconstruct: "Reference reconstruction", vocoder: "Experimental reconstruction",
+  const methodName = {reconstruct: "Reference reconstruction",
+    reconstruct_filtered: "Balanced reconstruction (experimental)", vocoder: "Experimental reconstruction",
     reconstruct_fullflow: "Full-flow reconstruction", reconstruct_strong: "Stronger reconstruction",
     editor: "Small edits"}[row.method] || "Small edits";
   $("metadata").textContent = `${minutes}:${seconds} · ${row.sample_rate / 1000} kHz · ${row.channels === 1 ? "Mono" : "Stereo"} · ${methodName}`;

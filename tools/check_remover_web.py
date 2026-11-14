@@ -88,7 +88,7 @@ def main():
     print("API: exact PCM, range requests, invalid/empty/oversize upload, edit limits, request protection and delete pass.", flush=True)
 
     source_audio, source_rate = sf.read(SOURCE)
-    for method in ('vocoder', 'reconstruct_fullflow'):
+    for method in ('vocoder', 'reconstruct_fullflow', 'reconstruct_filtered'):
         code, body = request('/api/jobs?filename=reference.wav&method='+method, 'POST', SOURCE.read_bytes(), HEADERS)
         assert code == 202
         reconstruction_job = json.loads(body)['id']
@@ -103,7 +103,7 @@ def main():
             assert sf.info(io.BytesIO(body)).subtype == 'FLOAT'
         finally:
             assert request('/api/jobs/'+reconstruction_job, 'DELETE', headers=HEADERS)[0] == 200
-    print('API: vocoder and boundary-safe full-flow uploads preserve rate, channels, length and FLOAT downloads.', flush=True)
+    print('API: vocoder, full-flow and filtered-prior uploads preserve rate, channels, length and FLOAT downloads.', flush=True)
 
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True, args=["--no-sandbox"])
@@ -114,6 +114,10 @@ def main():
         page.goto(BASE, wait_until="networkidle")
         assert page.locator("#method").input_value() == default_method
         assert page.locator("#editor-settings").is_hidden()
+        page.locator('#method').select_option('reconstruct_filtered')
+        assert page.locator('#editor-settings').is_hidden()
+        assert 'Compare the words and voice' in page.locator('#method-help').inner_text()
+        page.locator('#method').select_option(default_method)
         page.screenshot(path=str(ROOT / "results/remover_web_desktop_initial.png"), full_page=True)
         mobile = browser.new_context(viewport={"width": 390, "height": 844}, is_mobile=True, has_touch=True)
         phone = mobile.new_page()
@@ -154,12 +158,12 @@ def main():
     freeze = json.loads((ROOT / "results/remover_quality_v3.freeze.json").read_text())
     for path, expected_hash in freeze["inference_code_sha256"].items():
         assert hashlib.sha256((ROOT / path).read_bytes()).hexdigest() == expected_hash
-    report = {"url": BASE, "models": ["V3", "smoothed-vocoder", "full-flow"], "frozen_inference_unchanged": True,
+    report = {"url": BASE, "models": ["V3", "smoothed-vocoder", "full-flow", "filtered-prior"], "frozen_inference_unchanged": True,
               "API_and_UI_checks_passed": True, "download_PCM_exact_to_verified_model": True,
               "default_method": default_method, "new_reconstruction_methods_preserve_format": True,
               "desktop_and_mobile": True, "browser_errors": errors,
               "checks": ["WAV upload and processing", "Exact output PCM versus verified V3 example",
-                         "Vocoder and full-flow rate/channel/length preservation and FLOAT downloads",
+                         "Vocoder, full-flow and filtered-prior format preservation and FLOAT downloads",
                          "Audio range requests for seeking", "A/B switching retains playback position",
                          "Full-quality download through the UI", "Job survives browser refresh",
                          "Mobile layout without horizontal overflow", "Explicit delete removes output",
