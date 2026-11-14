@@ -70,6 +70,11 @@ class CodecRuntime:
                       native_elapsed_seconds=job['native_elapsed_seconds'])
         return job['native']
 
+    def recognize_candidate(self, path, before):
+        if hasattr(self.recognizer, 'transcribe_candidate'):
+            return self.recognizer.transcribe_candidate(path, before)
+        return self.recognizer.transcribe(path, before['language'])
+
     def process_file(self, source, output, preset='codec-native', metadata=None, retain_job=False):
         validate_paths(source, output, metadata)
         if preset not in PRESETS:
@@ -155,10 +160,12 @@ class CodecRuntime:
                     result, candidate_rate = sf.read(candidate, dtype='float32')
                     if candidate_rate != rate or result.shape != audio.shape or not np.isfinite(result).all() or np.max(np.abs(result)) >= 1:
                         raise RuntimeError('Candidate changed the format or returned invalid samples')
-                    after = self.recognizer.transcribe(candidate, job['before']['language'])
+                    after = self.recognize_candidate(candidate, job['before'])
                     if digest(candidate) != candidate_sha or digest(source) != original_sha:
                         raise RuntimeError('A source or candidate changed during content assessment')
                     assessment = assess(job['before'], after)
+                    if after.get('primary_skipped'):
+                        report['initial_primary_skip_reason'] = after['primary_skip_reason']
                     if preset == 'codec-band-inverse6-consensus' and not assessment['content_guard_passed']:
                         report['raw_content_assessment'] = assessment
                         before = job['before']
@@ -198,7 +205,7 @@ class CodecRuntime:
                                 candidate = directory/'repair.flac'
                                 result = quantize(candidate, repaired, rate)
                                 candidate_sha = digest(candidate)
-                                repaired_after = self.recognizer.transcribe(candidate, job['before']['language'])
+                                repaired_after = self.recognize_candidate(candidate, job['before'])
                                 if digest(candidate) != candidate_sha or digest(source) != original_sha:
                                     raise RuntimeError('A source or repair changed during final content assessment')
                                 assessment = assess(job['before'], repaired_after)
