@@ -6,6 +6,7 @@ spent development treatment of the same complete recording.
 """
 import argparse
 import json
+import math
 from pathlib import Path
 import sys
 
@@ -18,6 +19,7 @@ def probe(source, bitrate_directory, directory, guard_tools):
     sys.path.insert(0, str(guard_tools))
     from codec_audio import digest, quantize, validate_audio
     from codec_content import ContentRecognizer, assess
+    from codec_text import text_units
     from reconstruction_worker import ReconstructionWorker
     provenance = json.loads((bitrate_directory/'result.json').read_text())
     source_sha = digest(source)
@@ -40,6 +42,32 @@ def probe(source, bitrate_directory, directory, guard_tools):
     validate_audio(audio, rate)
     recognizer = ContentRecognizer()
     before = recognizer.transcribe(source)
+
+    def record_sense_alignment(recording, expected, target):
+        if expected.get('secondary') != 'sensevoice':
+            return None
+        stream = recognizer.sense.create_stream()
+        stream.accept_waveform(16000, recognizer.audio(recording))
+        recognizer.sense.decode_stream(stream)
+        result = stream.result
+        if text_units(result.text, recognizer.normalizer, before['language']) != expected['sensevoice']:
+            raise ValueError('Timestamp inspection changed the ordinary SenseVoice transcription')
+        tokens = list(getattr(result, 'tokens', []) or [])
+        timestamps = [float(value) for value in (getattr(result, 'timestamps', []) or [])]
+        duration = sf.info(recording).duration
+        usable = (bool(tokens) and len(tokens) == len(timestamps) and
+                  all(math.isfinite(value) and 0 <= value <= duration for value in timestamps) and
+                  timestamps == sorted(timestamps))
+        # Raw recognized content stays in the ignored development directory.
+        target.write_text(json.dumps({'sha256': digest(recording), 'text': result.text,
+            'tokens': tokens, 'timestamps': timestamps, 'duration': duration,
+            'timestamp_structure_valid': usable, 'word_alignment_verified': False,
+            'changes_processing_assessment': False}, ensure_ascii=False, indent=2)+'\n')
+        return {'token_count': len(tokens), 'timestamp_count': len(timestamps),
+                'timestamp_structure_valid': usable, 'word_alignment_verified': False}
+
+    report['source_sense_alignment'] = record_sense_alignment(source, before, directory/'source.sense_alignment.json')
+    save()
     worker = ReconstructionWorker(ROOT/'.venv/bin/python', ROOT/'tools/reconstruct_codec_band.py')
     try:
         for bandwidth in (3., 6.):
@@ -70,6 +98,7 @@ def probe(source, bitrate_directory, directory, guard_tools):
             row = {'source_sha256': source_sha, 'output_sha256': checksum, 'native_bandwidth_kbps': bandwidth,
                 'native_sha256': digest(native), 'band_metadata_sha256': digest(folder/'band.json'),
                 'complete': True, 'quality_verified': False, **assess(before, after)}
+            row['sense_alignment'] = record_sense_alignment(candidate, after, folder/'sense_alignment.json')
             (folder/'assessment.json').write_text(json.dumps(row, indent=2)+'\n')
             report['candidates'].append(row)
             save()
