@@ -101,4 +101,6 @@ Download `config.json` and `bigvgan_generator.pt` from the [pinned upstream mode
 .venv/bin/python tools/reconstruct_vocoder.py input.wav output.wav --metadata output.json
 ```
 
+To check this candidate explicitly, use `tools/verify_reconstruction.py input.wav checked.flac --presets smoothed-vocoder --boundary-safe`. The optional preset order `smoothed-vocoder full-flow strong` checks the vocoder first and falls back to the two flow presets only on positive responses. The command loads each runtime only if needed and records which one supplied the checked file. This experimental order is opt-in while evaluation is in progress.
+
 The fixed recipe uses the model's 44.1 kHz, 128-band features, Gaussian sigma 1 in both frequency and time with reflected boundaries, 256-frame synthesis blocks with 32 frames of context, and four CPU threads. Context is discarded at block boundaries without dropping or duplicating samples. Input rate, channels, and sample count are restored; a shared peak gain prevents clipping. Choose new output and metadata paths.

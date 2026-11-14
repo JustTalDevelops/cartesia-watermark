@@ -15,6 +15,10 @@ from verify_reconstruction import NotCleared, digest, reconstruct_verified
 class FakeWorker:
     def __init__(self):
         self.calls = []
+        self.closed = False
+
+    def close(self):
+        self.closed = True
 
     def run(self, source, output, preset, metadata_path, timeout):
         audio, sample_rate = sf.read(source)
@@ -57,6 +61,29 @@ class VerifiedReconstructionTests(unittest.TestCase):
         self.assertEqual(digest(self.source), source_hash)
         self.assertEqual(result['status'], 'verified_negative')
         self.assertFalse(result['quality_verified'])
+
+    def test_owned_runtimes_are_loaded_lazily_reused_and_closed(self):
+        for rejected in (0, 2):
+            with self.subTest(rejected=rejected):
+                workers, scripts = [], []
+
+                def factory(python, script, **kwargs):
+                    scripts.append(Path(script).name)
+                    workers.append(FakeWorker())
+                    return workers[-1]
+
+                answers = iter([(200, {'detected': True})]*rejected+[(200, {'detected': False})])
+                with patch('verify_reconstruction.ReconstructionWorker', side_effect=factory):
+                    result = reconstruct_verified(
+                        self.source, self.root/f'checked{rejected}.wav', self.root/f'checked{rejected}.json',
+                        presets=('smoothed-vocoder', 'full-flow', 'strong'), detector=lambda _: next(answers))
+                self.assertEqual(scripts, ['reconstruct_vocoder.py']+
+                                 (['reconstruct_audio.py'] if rejected else []))
+                self.assertEqual(workers[0].calls, ['smoothed-vocoder'])
+                if rejected:
+                    self.assertEqual(workers[1].calls, ['full-flow', 'strong'])
+                self.assertTrue(all(w.closed for w in workers))
+                self.assertEqual(result['selected_preset'], 'strong' if rejected else 'smoothed-vocoder')
 
     def test_missing_api_key_fails_before_reconstruction(self):
         with patch.dict('os.environ', {}), patch('cartesia._env', return_value=None):

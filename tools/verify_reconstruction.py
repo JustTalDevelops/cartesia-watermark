@@ -21,7 +21,7 @@ import soundfile as sf
 from reconstruction_worker import ReconstructionWorker
 
 ROOT = Path(__file__).resolve().parent.parent
-PRESETS = ('standard', 'full-flow', 'strong')
+PRESETS = ('standard', 'full-flow', 'strong', 'smoothed-vocoder')
 MAX_BYTES = 32_000_000
 
 
@@ -117,18 +117,18 @@ def reconstruct_verified(source, output, report_path, presets=('full-flow', 'str
         if not _env('CARTESIA_API_KEY'):
             raise ValueError('Set CARTESIA_API_KEY in the environment or .env before verification')
         detector = detect
-    owned_worker = worker is None
-    if owned_worker:
-        worker = ReconstructionWorker(ROOT/'.cache/resemble-venv/bin/python',
-                                      ROOT/'tools/reconstruct_audio.py', boundary_safe=boundary_safe)
+    owned_workers = {}
     output.parent.mkdir(parents=True, exist_ok=True)
+    source_files = ['reconstruct_audio.py', 'reconstruction_worker.py', 'reconstruction_inference.py']
+    if 'smoothed-vocoder' in presets:
+        source_files.extend(('reconstruct_vocoder.py', 'vocoder_inference.py', 'vocoder_assets.json'))
     report = {'status': 'processing', 'source': str(source.resolve()), 'source_sha256': digest(source),
               'output': str(output.resolve()), 'presets': list(presets), 'seconds': seconds,
               'sample_rate': sample_rate, 'samples': len(audio), 'channels': channels,
-              'reconstructor_code_sha256': digest(ROOT/'tools/reconstruct_audio.py'),
-              'source_files_sha256_at_start': {name: digest(ROOT/'tools'/name) for name in
-                                        ('reconstruct_audio.py', 'reconstruction_worker.py',
-                                         'reconstruction_inference.py')},
+              'reconstructor_code_sha256': digest(ROOT/'tools'/(
+                  'reconstruct_vocoder.py' if presets[0] == 'smoothed-vocoder' else 'reconstruct_audio.py')),
+              'verification_cli_code_sha256': digest(Path(__file__)),
+              'source_files_sha256_at_start': {name: digest(ROOT/'tools'/name) for name in source_files},
               'boundary_safe_requested': boundary_safe,
               'quality_verified': False,
               'meaning': 'Exact output file checked negative by the current Cartesia detector; not proof of erasure or unchanged speech.',
@@ -139,9 +139,19 @@ def reconstruct_verified(source, output, report_path, presets=('full-flow', 'str
         with tempfile.TemporaryDirectory(prefix='.reconstruction-', dir=output.parent) as directory:
             directory = Path(directory)
             for index, preset in enumerate(presets):
+                active_worker = worker
+                if active_worker is None:
+                    vocoder = preset == 'smoothed-vocoder'
+                    key = 'vocoder' if vocoder else 'flow'
+                    if key not in owned_workers:
+                        owned_workers[key] = ReconstructionWorker(
+                            ROOT/('.venv/bin/python' if vocoder else '.cache/resemble-venv/bin/python'),
+                            ROOT/'tools'/('reconstruct_vocoder.py' if vocoder else 'reconstruct_audio.py'),
+                            boundary_safe=False if vocoder else boundary_safe)
+                    active_worker = owned_workers[key]
                 raw = directory/f'{index}.wav'
-                metadata = worker.run(source, raw, preset, directory/f'{index}.json',
-                                      timeout=max(300, seconds*8+120))
+                metadata = active_worker.run(source, raw, preset, directory/f'{index}.json',
+                                             timeout=max(300, seconds*8+120))
                 if metadata.get('preset') != preset or metadata.get('output_sha256') != digest(raw):
                     raise RuntimeError('Reconstruction metadata does not match the candidate')
                 edited, rate = sf.read(raw)
@@ -195,8 +205,8 @@ def reconstruct_verified(source, output, report_path, presets=('full-flow', 'str
         save_report(report_path, report)
         raise
     finally:
-        if owned_worker:
-            worker.close()
+        for owned in owned_workers.values():
+            owned.close()
 
 
 def main():
