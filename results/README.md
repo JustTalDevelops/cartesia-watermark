@@ -27,6 +27,8 @@ This directory mixes curated files included in Git with ignored local experiment
 | `codec_reliability.freeze.json` | Prospective source/evaluation freeze for sixteen new codec-study requests; a protocol, not efficacy evidence |
 | `codec_reliability.json` | All sixteen fresh requests: six fully qualified marked transitions, one selected Hindi quality failure, seven uncleared marked cases, and two nominal controls |
 | `codec_profiles_reliability.json` | Completed 48-request language-profile study: 19/44 marked sources qualified, 25 failed; four nominal controls and all repeated checks retained separately |
+| `ticodec_generation_development.json` | All 25 spent failures rendered with TiCodec: five processing-eligible outputs, seventeen speech rejections and three voice-estimate rejections; no cohort removal qualification |
+| `ticodec_pilot_development.json` | One spent English stereo derivative: seven estimated quality criteria passed, two exact-file negatives and four positive source controls; no fresh validation or change to 19/44 |
 | `codec_repair_development.json` | One spent French counterexample repaired locally: seven estimated quality gates passed, two whole-file negatives and four positive source controls; no change to the fresh-study count |
 | `codec_cycles_development.json` | One spent long-file counterexample after two codec passes: all seven estimated quality gates passed, two whole-file negatives and four positive source controls; no fresh independent source |
 | `codec_bitrate_development.json` | One spent Korean counterexample: native 3 kbps failed its speech guard; native 6 kbps and both 3/6 kbps band files remained detected twice, including two band files passing all seven estimated quality gates |

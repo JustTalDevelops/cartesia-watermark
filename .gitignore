@@ -4,9 +4,9 @@
 !.env.example
 
 # Python environment / caches
-.venv/
+.venv
 __pycache__/
-.cache/
+.cache
 
 # Generated audio (regenerate with tools/corpus*.py). Keep only the voice/text plans so the exact voices,
 # sentences and train/validation/sealed splits are reproducible.
@@ -67,6 +67,8 @@ results/*
 !results/codec_asr_runtime.json
 !results/codec_reliability.freeze.json
 !results/codec_reliability.json
+!results/ticodec_generation_development.json
+!results/ticodec_pilot_development.json
 !results/codec_profiles_reliability.json
 !results/codec_repair_development.json
 !results/codec_cycles_development.json
