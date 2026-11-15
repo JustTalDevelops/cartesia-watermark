@@ -83,7 +83,7 @@ Their results do not establish reliable removal on real recordings.
 | `codec_profile_replay_report.py` | Reassess saved selected files with the prospective language profiles, without new synthesis or detector requests; retains both nominal controls and the frozen primary outcome |
 | `codec_ta2_followup_report.py`, `codec_inference_followup_report.py` | Retain the failed second-Tamil probes and verify exact-file inference optimizations, including skipped-primary null scores and individual CPU timing limits |
 | `codec_precision_report.py` | Recheck every spent FP32/INT8/packed-FP16 transcription comparison, timing and guard decision against private observations and exact input files; curate full-wrapper parity with explicitly mocked detector replies |
-| `codec_frame_alignment.py` | Prepare a fixed frame-offset panel sharing the pinned codec model; offsets are undone before rate restoration, and real-model efficacy remains untested; see the [development procedure](../docs/codec-frame-alignment.md) |
+| `codec_frame_alignment.py`, `probe_codec_frames.py` | Prepare and generate a fixed frame-offset panel sharing the pinned codec model, only after revalidating the completed study; offsets are undone before rate restoration, and real-model efficacy remains untested; see the [development procedure](../docs/codec-frame-alignment.md) |
 
 The fresh codec study uses [pinned evaluation assets](codec_evaluation_assets.json) and
 [text normalization](codec_evaluation_text.py). Chinese reference-error scoring uses

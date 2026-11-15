@@ -55,6 +55,32 @@ repeats stop the phase without automatic replay. No crop or pad is added to a
 detector input. Voice estimates guide eligibility and are not independent evidence.
 Reference-error evaluation follows the declared detector measurements.
 
+Identical encoded files retain their treatment rows and share the same actual
+detector observations, without extra requests or independent-sample credit.
+
+## Generate the panel after study completion
+
+From this experiment's checkout, with the existing pinned environments and
+assets installed:
+
+```bash
+.cache/resemble-venv/bin/python experiments/probe_codec_frames.py \
+  --completed-study .cache/removal-reliability/codec_profiles_fresh/curated_complete_report.json \
+  --directory .cache/removal-reliability/codec_frame_development
+```
+
+The runner checks all completed phases and reproduces the full curated report
+before loading models or creating the output directory. It refuses an existing
+directory or an output inside the original study directory. Its manifest includes
+every failed marked source and all four treatments. Source recognition reuses
+the original file-bound calibration; new recognition and voice caches stay in
+the development directory. A historical zero-offset mismatch stops the panel.
+
+This command makes no detector or TTS requests. It retains speech and voice
+rejections. The retained FLACs are development artifacts; `processing_eligible`
+does not mean detector-cleared or independently quality-qualified. A separate
+declared phase is still required for endpoint and reference-error measurements.
+
 These development observations cannot rewrite the completed study or establish
 fresh efficacy. A candidate formed from them still needs a separately frozen
 study on new recordings. Negative detector replies, recognizer agreement and
