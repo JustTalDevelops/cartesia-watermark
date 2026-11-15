@@ -1,20 +1,47 @@
 """Validate and export the complete X-Codec2 development panel, without models."""
 import argparse
 from collections import Counter
+import hashlib
 import json
 import math
 from pathlib import Path
 import sys
 
 ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT)); sys.path.insert(0, str(ROOT/'tools'))
-from codec_audio import digest
-from codec_content import assess
-from experiments.codec_profile_cache import read_recognition
+
+
+def digest(path):
+    value = hashlib.sha256()
+    with path.open('rb') as handle:
+        for chunk in iter(lambda: handle.read(8*1024**2), b''): value.update(chunk)
+    return value.hexdigest()
 
 
 def load(path):
     return json.loads(path.read_text())
+
+
+def read_recognition(directory, checksum, identity):
+    value = load(directory/(checksum+'.json'))
+    if value['audio_sha256'] != checksum or value['configuration_sha256'] != identity:
+        raise ValueError('Recognition must bind the exact audio and original configuration')
+    return value['recognition']
+
+
+def processing_assessor(source_hashes):
+    """Replay with the actual frozen worker version, never the caller's branch."""
+    paths = [Path(name) for name in source_hashes if Path(name).name == 'codec_content.py']
+    if len(paths) != 1: raise ValueError('Require one recorded processing implementation')
+    tools = paths[0].parent
+    sys.path.insert(0, str(tools.parent)); sys.path.insert(0, str(tools))
+    from codec_content import assess
+    for name in source_hashes:
+        path = Path(name)
+        module = sys.modules.get(path.stem)
+        if path.parent == tools and path.suffix == '.py' and module is not None:
+            if Path(module.__file__).resolve() != path.resolve():
+                raise ValueError('A different processing branch was already imported; use a fresh worker')
+    return assess
 
 
 def validate_parity(case):
@@ -67,6 +94,7 @@ def export(directory):
     for path, sha in {**measured['code_files_sha256'], **measured['input_files_sha256']}.items():
         if digest(Path(path)) != sha:
             raise ValueError('A frozen generation input or implementation changed')
+    assess = processing_assessor(measured['code_files_sha256'])
     expected = validate_completion(measured, declared, study)
     identity = measured['recognition_configuration_sha256']; voice = load(original/'original_voice.json')
     rows = []

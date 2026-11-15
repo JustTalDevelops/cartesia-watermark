@@ -16,7 +16,7 @@ The [synthetic preflight](../results/xcodec2_prefix_preflight.json) used the act
 
 The generation panel keeps all 25 sources, including speech and voice rejections. It preserves each recording's sample count, sample rate and channel count, processes complete channels independently, and uses the original speech and voice limits. No reference text guides generation or candidate selection. Detection and independent reference scoring are separate phases.
 
-[The offline exporter](../experiments/xcodec2_generation_report.py) checks the frozen declaration, source and output checksums, sample grids, per-channel parity controls, recognizer receipts and operational voice receipts before producing a public report. It refuses partial runs and omits transcripts, embeddings, generated audio and local filesystem paths.
+[The offline exporter](../experiments/xcodec2_generation_report.py) checks the frozen declaration, source and output checksums, sample grids, per-channel parity controls, recognizer receipts and operational voice receipts before producing a public report. It replays assessments with the recorded processing checkout, which must still be present unchanged; it rejects a different processing version already imported by the caller. It refuses partial runs and omits transcripts, embeddings, generated audio and local filesystem paths.
 
 ```bash
 python experiments/xcodec2_generation_report.py \

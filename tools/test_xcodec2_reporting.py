@@ -3,9 +3,11 @@ from copy import deepcopy
 import unittest
 from pathlib import Path
 import sys
+from types import SimpleNamespace
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from experiments.xcodec2_generation_report import validate_completion, validate_parity
+from experiments.xcodec2_generation_report import processing_assessor, validate_completion, validate_parity
 
 
 def fixtures():
@@ -25,6 +27,17 @@ def fixtures():
 
 
 class ReportingTests(unittest.TestCase):
+    def test_replay_rejects_a_different_imported_branch(self):
+        module = SimpleNamespace(assess=object(), __file__='/different/tools/codec_content.py')
+        with patch.object(sys, 'path', list(sys.path)), patch.dict(sys.modules, codec_content=module):
+            with self.assertRaises(ValueError):
+                processing_assessor({'/frozen/tools/codec_content.py': 'checksum'})
+
+    def test_replay_uses_the_recorded_processing_version(self):
+        module = SimpleNamespace(assess=object(), __file__='/frozen/tools/codec_content.py')
+        with patch.object(sys, 'path', list(sys.path)), patch.dict(sys.modules, codec_content=module):
+            self.assertIs(processing_assessor({'/frozen/tools/codec_content.py': 'checksum'}), module.assess)
+
     def test_all_rejections_are_retained(self):
         self.assertEqual(len(validate_completion(*fixtures())), 25)
 
