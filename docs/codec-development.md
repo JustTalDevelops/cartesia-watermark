@@ -189,6 +189,32 @@ uses this completed cohort as spent development data. Such follow-ups do not
 change its 19/44 outcome or add fresh efficacy samples. Any resulting candidate
 still requires a new frozen validation cohort.
 
+## Completed frame-alignment follow-up
+
+The [complete frame report](../results/codec_frame_development.json) retains all
+100 treatments: four fixed codec input offsets for each of the 25 previous
+failures. Sixty outputs passed processing checks; forty failed speech checks.
+All sixty eligible files received two detector checks, with four positive-source
+controls, for 124 HTTP attempts. Fifty-eight remained detected and two checked
+negative twice.
+
+Only one source qualified after the frozen reference checks: Chinese source 35
+at native offset 160. Its processing recognizers agreed with their original
+transcriptions, the Small recognizer's reference error did not increase, speaker
+minimum was 0.9961 and overall DNSMOS delta was -0.0171.
+
+The detector-negative Arabic source 27 at the same offset did not qualify.
+MMS reference error increased by 0.0455, above the declared 0.03 limit; Large
+reference error was unchanged. The processing and voice checks had passed.
+This disagreement remains a failure in the report. All 100 treatment records
+are retained; neither repeated negatives nor these estimates prove physical
+erasure or universal reliability.
+
+The [frozen evaluation protocol](https://github.com/JustTalDevelops/cartesia-watermark/blob/7df4ea49/docs/codec-frame-evaluation.md)
+scored every eligible output, including those still detected. These are spent
+recordings, with no new synthesis, fresh validation or human listening approval.
+The completed 19/44 study remains unchanged.
+
 ## TiCodec development pilot
 
 The [separate TiCodec branch](https://github.com/JustTalDevelops/cartesia-watermark/tree/codec-ticodec-20261115)
@@ -205,16 +231,37 @@ Sample rate, sample count and channel count matched the source. The operational
 speaker minimum was 0.9587 and the DNSMOS overall delta -0.0635; those estimates
 guided eligibility and are not independent listening approval.
 
-This qualifies one **spent** source. The other four eligible files have no
-completed endpoint/reference qualification, and all twenty processing rejections
-remain. No fresh sources were added, the original 19/44 outcome is unchanged,
-and physical erasure or universal reliability is not established.
+This qualified one **spent** source. The other four eligible files were
+subsequently checked in the complete joint follow-up below. The twenty original
+processing rejections remain in their generation report. The author TiCodec
+weights are upstream assets, not models trained or redistributed by this project.
 
-A separate [fixed middle-band recipe](https://github.com/JustTalDevelops/cartesia-watermark/blob/964c408/docs/codec-ticodec-band.md)
-combines generated Native and TiCodec stems to investigate the voice/speech
-trade-off. Its fifty planned mixtures remain development treatments; it has no
-completed removal validation. The author TiCodec weights are upstream assets,
-not models trained or redistributed by this project.
+## Completed TiCodec and middle-band follow-up
+
+The [complete joint report](../results/ticodec_joint_development.json) retains
+all 75 treatments: the original TiCodec output and two
+[fixed middle-band mixtures](https://github.com/JustTalDevelops/cartesia-watermark/blob/964c408/docs/codec-ticodec-band.md)
+for each of the 25 spent failures. Twenty-nine outputs passed processing checks;
+forty-three failed speech checks and three failed voice or naturalness estimates.
+
+The prior English pilot keeps its original measurements. The other 28 eligible
+files received two new detector checks each, with four positive original-source
+controls, for 60 new HTTP attempts. Fourteen files checked negative twice and
+fourteen remained detected. Every newly eligible file, including the detected
+files, then received the frozen separate reference evaluation.
+
+Twelve treatments across **eight distinct spent sources** qualified, including
+the prior English pilot. They cover English, Spanish, Hindi, Japanese and Chinese.
+Three newly detector-negative treatments failed the Small recognizer reference
+check: the original TiCodec German and Japanese outputs, and the narrow-band
+Tamil mixture. The Japanese source qualified through a different treatment;
+failed treatments remain failed in the report.
+
+The [frozen evaluation protocol](https://github.com/JustTalDevelops/cartesia-watermark/blob/1b6f873a/docs/codec-ticodec-evaluation.md)
+keeps all processing rejections and quality failures. This is development evidence
+on previously used recordings, with no new synthesis, fresh efficacy sources or
+human listening approval. It does not update the original 19/44 study or establish
+physical erasure or universal reliability.
 
 ## TiCodec latent-code development panel
 
