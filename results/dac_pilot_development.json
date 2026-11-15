@@ -1,0 +1,260 @@
+{
+  "kind": "Single spent-source DAC pilot",
+  "case_id": "profiles_fresh_42_ta_sonic-preview",
+  "source_sha256": "239027629fc6976c47dc27edf31c5f72d413a388a7a5f19f5ee7b583d080a1cc",
+  "candidate_sha256": "afeca71f1bc6de738730eed67285f37da0048ab11d468075805c830117638c24",
+  "completed_study_sha256": "777355dff6ed90ec0beec56558b0c3a4fc974abb88c38993d95d554c6040cd4b",
+  "dac_completion_sha256": "feb6d7e3b9704fbb73c572fa4d0cf84c84c22801eeb21c4c474eba89f4e1d200",
+  "original_generation_sha256": "df49c065647e9ccefbffda6a6e03e0d69385e7df4ba4cb991096e12ee240fa98",
+  "generation_inventory": [
+    {
+      "id": "profiles_fresh_19_hi_sonic-3.6",
+      "status": "content_rejected",
+      "sha256": "b1acd74376e2de8932950554a7b912df5fc9517785da10f1dfbf67ace597d2c1"
+    },
+    {
+      "id": "profiles_fresh_40_ta_sonic-preview",
+      "status": "content_rejected",
+      "sha256": "61b53a6311ff400fd3cb0413f63290508633ad5df5f31a6b5e5a0af1595f1825"
+    },
+    {
+      "id": "profiles_fresh_42_ta_sonic-preview",
+      "status": "processing_eligible",
+      "sha256": "afeca71f1bc6de738730eed67285f37da0048ab11d468075805c830117638c24"
+    }
+  ],
+  "declaration_sha256": "21a22f60572a92be2c22fb9ed554d54567f8969b36faacd5fe0c0ec95842f668",
+  "endpoint_sha256": "e2faa728f905e70a8cacf8395f878666937c5ce12a6068d9153ef5dcd76c84be",
+  "evaluation_sha256": "700c650e7029df2ba3cfa8c03766918cea49331bda901dc39edaf17f720bd020",
+  "formatter_sha256": "53aad8116bc1b216d8eb4d040be8783ef39f72858ae5949c3596822d01aa8803",
+  "source_format": {
+    "samples": 1266552,
+    "sample_rate": 44100,
+    "channels": 1
+  },
+  "model": {
+    "model": "descript/dac_44khz",
+    "model_revision": "c1bc521685adf9cfe247bc39a5ca58917eda1ac4",
+    "assets": {
+      "config.json": "4eb55fb9af1990b8d608184ad29b70e358589719af7ea8d3c06998f7c2264a64",
+      "model.safetensors": "6128ebff483a41422b0164d079a3773b0d8d82e64c4293d775994cbf8baf913a"
+    },
+    "trained_by_this_project": false,
+    "precision": "float32"
+  },
+  "speech_assessment": {
+    "content_guard_passed": true,
+    "paired_disagreement": {
+      "large": 0.007281553398058253,
+      "mms": 0.007194244604316547
+    },
+    "primary_guard": "large",
+    "secondary_guard": "mms",
+    "maximum_paired_disagreement": 0.01,
+    "original_units": {
+      "large": 412,
+      "mms": 417
+    },
+    "processed_units": {
+      "large": 414,
+      "mms": 420
+    }
+  },
+  "original_reference_error": {
+    "large": 0.04009433962264151,
+    "mms": 0.03773584905660377,
+    "small": 0.07075471698113207
+  },
+  "guard_reference_delta": {
+    "large": 0.007075471698113213,
+    "mms": 0.0023584905660377353
+  },
+  "independent_evaluation": [
+    {
+      "id": "profiles_fresh_42_ta_sonic-preview",
+      "metric": "small",
+      "language": "ta",
+      "source_sha256": "239027629fc6976c47dc27edf31c5f72d413a388a7a5f19f5ee7b583d080a1cc",
+      "original": {
+        "reference_error": 0.07075471698113207,
+        "reference_units": 424,
+        "recognized_units": 423,
+        "comparison_units": "characters",
+        "raw_word_reference_error_diagnostic_only": 0.40384615384615385,
+        "maximum_reference_delta": 0.01,
+        "original_calibration_ceiling": 0.1,
+        "calibrated": true
+      },
+      "status": "scored",
+      "output_sha256": "afeca71f1bc6de738730eed67285f37da0048ab11d468075805c830117638c24",
+      "processed": {
+        "reference_error": 0.07783018867924528,
+        "reference_units": 424,
+        "recognized_units": 423,
+        "comparison_units": "characters",
+        "raw_word_reference_error_diagnostic_only": 0.4423076923076923,
+        "maximum_reference_delta": 0.01,
+        "original_calibration_ceiling": 0.1,
+        "calibrated": true
+      },
+      "reference_error_delta": 0.007075471698113206,
+      "reference_delta_passed": true
+    }
+  ],
+  "voice_estimates": {
+    "id": "profiles_fresh_42_ta_sonic-preview",
+    "source_sha256": "239027629fc6976c47dc27edf31c5f72d413a388a7a5f19f5ee7b583d080a1cc",
+    "language": "ta",
+    "original_dnsmos": {
+      "signal": 3.667183287951099,
+      "background": 4.208593986488782,
+      "overall": 3.461609319910403,
+      "windows": 19,
+      "natural_seconds": 28.72
+    },
+    "window_starts_seconds": [
+      0.744,
+      9.36,
+      17.976
+    ],
+    "speaker_window_cosines": [
+      0.9976230592996219,
+      0.998583555230326,
+      0.9969387061984787
+    ],
+    "speaker_minimum": 0.9969387061984787,
+    "processed_dnsmos": {
+      "signal": 3.6365235497426616,
+      "background": 4.208833144145328,
+      "overall": 3.431984575847108,
+      "windows": 19,
+      "natural_seconds": 28.72
+    },
+    "dnsmos_delta": {
+      "signal": -0.03065973820843748,
+      "background": 0.00023915765654614063,
+      "overall": -0.029624744063295072
+    },
+    "output_sha256": "afeca71f1bc6de738730eed67285f37da0048ab11d468075805c830117638c24",
+    "status": "scored"
+  },
+  "quality_gate_results": {
+    "large_paired": true,
+    "mms_paired": true,
+    "large_reference_delta": true,
+    "mms_reference_delta": true,
+    "evaluation_small_reference_delta": true,
+    "speaker_minimum": true,
+    "dnsmos_overall": true
+  },
+  "calibrated_original_checkpoints": 3,
+  "source_calibration_sufficient": true,
+  "all_estimated_quality_gates_passed": true,
+  "quality_qualified": true,
+  "candidate_detected": true,
+  "qualified_spent_transition": false,
+  "http_attempts": [
+    {
+      "role": "opening_original",
+      "ordinal": 1,
+      "sha256": "239027629fc6976c47dc27edf31c5f72d413a388a7a5f19f5ee7b583d080a1cc",
+      "started_at": "2026-11-15T06:20:17.087371+00:00",
+      "http_status": 200
+    },
+    {
+      "role": "opening_original",
+      "ordinal": 2,
+      "sha256": "239027629fc6976c47dc27edf31c5f72d413a388a7a5f19f5ee7b583d080a1cc",
+      "started_at": "2026-11-15T06:24:17.088316+00:00",
+      "http_status": 200
+    },
+    {
+      "role": "candidate",
+      "ordinal": 1,
+      "sha256": "afeca71f1bc6de738730eed67285f37da0048ab11d468075805c830117638c24",
+      "started_at": "2026-11-15T06:29:37.089428+00:00",
+      "http_status": 200
+    },
+    {
+      "role": "candidate",
+      "ordinal": 2,
+      "sha256": "afeca71f1bc6de738730eed67285f37da0048ab11d468075805c830117638c24",
+      "started_at": "2026-11-15T06:34:57.090695+00:00",
+      "http_status": 200
+    },
+    {
+      "role": "closing_original",
+      "ordinal": 1,
+      "sha256": "239027629fc6976c47dc27edf31c5f72d413a388a7a5f19f5ee7b583d080a1cc",
+      "started_at": "2026-11-15T06:38:57.091624+00:00",
+      "http_status": 200
+    },
+    {
+      "role": "closing_original",
+      "ordinal": 2,
+      "sha256": "239027629fc6976c47dc27edf31c5f72d413a388a7a5f19f5ee7b583d080a1cc",
+      "started_at": "2026-11-15T06:42:57.092264+00:00",
+      "http_status": 200
+    }
+  ],
+  "checks": [
+    {
+      "role": "opening_original",
+      "ordinal": 1,
+      "sha256": "239027629fc6976c47dc27edf31c5f72d413a388a7a5f19f5ee7b583d080a1cc",
+      "detected": true,
+      "http_status": 200,
+      "checked_at": "2026-11-15T06:20:17.829389+00:00"
+    },
+    {
+      "role": "opening_original",
+      "ordinal": 2,
+      "sha256": "239027629fc6976c47dc27edf31c5f72d413a388a7a5f19f5ee7b583d080a1cc",
+      "detected": true,
+      "http_status": 200,
+      "checked_at": "2026-11-15T06:24:18.006509+00:00"
+    },
+    {
+      "role": "candidate",
+      "ordinal": 1,
+      "sha256": "afeca71f1bc6de738730eed67285f37da0048ab11d468075805c830117638c24",
+      "detected": true,
+      "http_status": 200,
+      "checked_at": "2026-11-15T06:29:38.052324+00:00"
+    },
+    {
+      "role": "candidate",
+      "ordinal": 2,
+      "sha256": "afeca71f1bc6de738730eed67285f37da0048ab11d468075805c830117638c24",
+      "detected": true,
+      "http_status": 200,
+      "checked_at": "2026-11-15T06:34:57.834952+00:00"
+    },
+    {
+      "role": "closing_original",
+      "ordinal": 1,
+      "sha256": "239027629fc6976c47dc27edf31c5f72d413a388a7a5f19f5ee7b583d080a1cc",
+      "detected": true,
+      "http_status": 200,
+      "checked_at": "2026-11-15T06:38:57.852030+00:00"
+    },
+    {
+      "role": "closing_original",
+      "ordinal": 2,
+      "sha256": "239027629fc6976c47dc27edf31c5f72d413a388a7a5f19f5ee7b583d080a1cc",
+      "detected": true,
+      "http_status": 200,
+      "checked_at": "2026-11-15T06:42:57.760332+00:00"
+    }
+  ],
+  "new_tts_requests": 0,
+  "fresh_efficacy_sources": 0,
+  "completed_19_of_44_result_changed": false,
+  "human_listening_approval": false,
+  "physical_erasure_proven": false,
+  "limits": [
+    "One spent source; repeated calls do not add independent sources.",
+    "Operational voice estimates guide eligibility; Whisper checkpoints share ancestry.",
+    "Negative detector replies and estimated quality do not prove physical erasure or universal removal."
+  ]
+}

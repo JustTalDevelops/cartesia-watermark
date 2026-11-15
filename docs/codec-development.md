@@ -284,6 +284,32 @@ No fresh sources or synthesis requests were added, and the frozen 19/44 outcome
 is unchanged. The upstream TiCodec weights remain separate from this project's
 trained-model release.
 
+## Completed hard-case suppression failures
+
+Two follow-ups reused the same fixed Hindi source 19 and Tamil sources 40 and
+42. They added no fresh recordings or synthesis and did not qualify a removal.
+
+The [DAC pilot report](../results/dac_pilot_development.json) retains all three
+source outcomes. Hindi 19 and Tamil 40 failed processing speech checks. The
+eligible Tamil 42 output passed all seven frozen quality estimates, including
+the Small recognizer's reference-error delta of 0.0071, but its exact complete
+file remained detected on both checks. Four positive source controls complete
+the six-request panel. An initially interrupted measurement was completed
+without rerendering or replacing the original recorded history.
+
+The [continuous-body repair report](../results/ticodec_body_repair_development.json)
+retains all nine treatments: three continuous TiCodec bodies per source, each
+repaired once from a generated Native donor. Seven failed speech checks.
+Tamil 42's continuous-local and continuous-both repairs passed the unchanged
+separate reference checks, yet both remained detected twice. Four positive
+source controls complete the eight-request panel. The continuous representations
+exceed the original quantized codec's nominal bitrate.
+
+These are suppression failures despite passing estimated quality. The reports
+retain every failed processing outcome. Upstream DAC, TiCodec and Native weights are separate from
+this project's trained-model release. No human listening approval or physical
+erasure is established, and the completed 19/44 study remains unchanged.
+
 ## X-Codec2 execution experiment
 
 The separate [X-Codec2 development notes](codec-xcodec2-development.md) describe an
