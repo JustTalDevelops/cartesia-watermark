@@ -88,6 +88,14 @@ def summarize_attempt(attempt):
     return summary
 
 
+def add_measurements(row, measurements):
+    identifiers = ('id','voice','model','language','detected_language','source_sha256',
+                   'marked_provenance','original_detected')
+    if any(name in measurements for name in identifiers):
+        raise ValueError('Measurements cannot overwrite source identifiers')
+    row.update(measurements)
+
+
 def attempt_speech_evidence(before, attempt, directory, identity):
     """Check failed and selected attempts against their actual recognition caches."""
     model = attempt['model']
@@ -272,9 +280,9 @@ def export(freeze_path, directory):
                 raise ValueError('Retain two actual negatives for the exact selected whole file')
             qualification = quality_criteria(item['language'],assessed['paired_disagreement'],guard_deltas,eval_deltas,source_errors,
                 voice['speaker_minimum'],voice['dnsmos_delta']['overall'],assessed['content_guard_passed'],control['language_matches_request'])
-            row.update(qualification,output_sha256=output_sha,selected_preset=record['selected_preset'],raw_content_assessment=raw,
+            add_measurements(row,dict(qualification,output_sha256=output_sha,selected_preset=record['selected_preset'],raw_content_assessment=raw,
                        final_content_assessment=assessed,original_reference_error=source_errors,guard_reference_delta=guard_deltas,
-                       independent_evaluation=eval_rows,voice=voice,negative_checks=negative)
+                       independent_evaluation=eval_rows,voice_estimates=voice,negative_checks=negative))
             row['qualified_marked_transition']=item['marked_provenance'] and originals[case]['detected'] and qualification['quality_qualified']
         elif output.exists():
             raise ValueError('An unselected case unexpectedly has a published output')
