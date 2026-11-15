@@ -274,8 +274,16 @@ Nineteen outputs across nine sources passed the unchanged processing guards;
 eight failed voice or naturalness estimates and forty-eight failed speech guards.
 Continuous local inputs improved processing eligibility in some Hindi and Korean
 examples, but every Tamil treatment remained speech-rejected. No thresholds were
-relaxed. These are generation results: detector clearance, separate reference
-qualification and human listening remain unmeasured for the new outputs.
+relaxed.
+
+The [completed detector and reference report](../results/ticodec_latents_development.json)
+retains all 75 outcomes. Every eligible file was checked twice and independently
+reference-scored, including files that remained detected. The phase made 42 HTTP
+attempts with positive source brackets. Ten treatments across five spent sources
+qualified: German 14, Hindi 18, Japanese 20, and Chinese 33 and 35. The other nine
+eligible treatments remained detected. Most qualified sources overlap earlier
+panels; German 14 adds one previously unresolved development case. This is not a
+fresh test or a validated combined workflow. Human listening remains unmeasured.
 
 The [generation and endpoint protocol](https://github.com/JustTalDevelops/cartesia-watermark/blob/codec-ticodec-20261115/docs/codec-ticodec-latent-evaluation.md)
 keeps rejected rows, distinct recordings and repeated measurements separate.
@@ -283,6 +291,21 @@ Continuous representations do not retain the original codec's nominal bitrate.
 No fresh sources or synthesis requests were added, and the frozen 19/44 outcome
 is unchanged. The upstream TiCodec weights remain separate from this project's
 trained-model release.
+
+## One-pass timing-map failure
+
+The [timing-map report](../results/timing_map_development.json) retains all three
+fixed Hindi/Tamil hard cases. A single Rubber Band R3 pass changed local timing
+by at most 40 milliseconds while preserving pitch, total duration and the audio
+grid. Two Tamil outputs failed the unchanged speech guards. The Hindi output
+passed the processing and independent reference checks but remained detected on
+both official queries, with four positive source controls. The phase made six
+HTTP attempts and qualified zero removals.
+
+Processing the transform itself took 0.67–0.78 seconds per recording on this CPU;
+these timings exclude speech recognition, model startup and application overhead.
+This method retains original signal information. Neither its timing nor a
+detector result establishes physical erasure. No fresh recordings were added.
 
 ## Completed hard-case suppression failures
 

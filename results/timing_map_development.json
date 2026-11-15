@@ -1,0 +1,428 @@
+{
+  "kind": "Spent-source one-pass timing-map development results",
+  "formatter_source_sha256": "3574830e3f6440c0796069c3c9dbf681d1a5d256ddb81bb9cb3d28e03fcce29d",
+  "declaration_sha256": "ffe7d3ef6113f95d784e2691bd18e22e46735d6494799c53e9b75af3dfdc4932",
+  "endpoint_sha256": "0c6c5cefd44a0bf844bd8b909a9cb0a522b2beca606c7515bb506fcd934f9814",
+  "evaluation_sha256": "c1a238d9569723a0c15ea0f71e0ad07416215fe95d8b72058d70d5cbe35aa5ea",
+  "generation_sha256": "1ddf52f1fa2b0958c0f208b941c68cca71d534ff62d39cca893e540cb7d6dc7f",
+  "completed_study_sha256": "777355dff6ed90ec0beec56558b0c3a4fc974abb88c38993d95d554c6040cd4b",
+  "code_files_sha256": {
+    "tools/verify_reconstruction.py": "7029453889415b86111ae5294e9233ce7786fad229d23e308a2b0046a376bfcc",
+    "tools/reconstruction_worker.py": "49b8816bd54a78957d45ed3596a63ba18a11bfa5eac0416070a85c692eef22f0",
+    "tools/codec_settings.py": "4ac4ab3d31ab5e037ae2c22d6f0070a5f947cf728d214a472417ec55d439b841",
+    "tools/codec_profiles.py": "7421dc49d291bd86251f8b7a8ad9706187bc5066b89cb1a990f97c38316947c6",
+    "tools/codec_assets.json": "99d443e93f0de80e837c50b17e0f93a796e0f19c05e1427d8fb33397ab62b1a5",
+    "tools/codec_audio.py": "2a0dac863e1d7c7577cf9f029f86b3973f90a6e77b935dc6bbce9169ff018f94",
+    "tools/codec_inference.py": "1f86876e3ab07e960dd9ac9c4ad9f1a773393ac31bdef969f9d25b52370d2a9e",
+    "tools/codec_teacher.py": "abebef4244f452e3d962ec6d88c9917806a98ad48512281875f41dc4d2cf3fb4",
+    "tools/codec_content.py": "1f7af6d64a8f79b80da9bbfb77f0d7497552b126fd189c8085e388e0604d97fe",
+    "tools/codec_text.py": "2b3f9503c9e39c330d60ae727415995822fec4daa4de7560572de905eab25f96",
+    "tools/codec_repair.py": "e6839578ce6d319e9463196521860b050d96f0f81f1ed8cafc14d3fe3918561a",
+    "tools/codec_word_consensus.py": "b8afdddddc1d8fab2b93036786a88ccb63473063dbc4e4572ed5d2619807a3f2",
+    "tools/korean_spacing.py": "2a191a4103a9a96539e99d138b6d74089a31b8ab36a60d26ac4c7bf3a1a6ca3a",
+    "tools/speech_repair.py": "4e3b883c3a2e0bf00546a5c4d5e4026aa1e875bca36881c4fe871e39675eb414",
+    "tools/speech_repair_assets.json": "2d1d68d1a00a006c0dc66b401ed21df291ff76fb4ab88b0f31f96960766226e2",
+    "tools/whisper_encoder_reuse.py": "1c2492c5ce80500b172d0657c3f73406b6b8b58f9c0d72b3b79c752bd203eb82",
+    "tools/reconstruct_codec.py": "ae8a607b333237bd4c01d3d4f7e8baa900a08ac39b8d70b60aafbe0add02d7de",
+    "tools/reconstruct_codec_band.py": "b5102f096a9a070b5496ced2f93ff3c29521d2326e78a2e8694a70bb7868e195",
+    "tools/vocoder_band_prior.py": "8b153b0e25421d560c3f9a41e5e36ea44f1ed0a7ad417b0c49af76f6e69b033f",
+    "tools/reconstruct_vocoder.py": "3378845287c3f1bf874147392184c5b15b43ca954adacd6eac484715e4564db0",
+    "tools/vocoder_inference.py": "38d02df4aa5d488aab7b37320dcbf6cc6e980178e23721783145adef138c37f2",
+    "tools/vocoder_assets.json": "ea7870e32da6336a800a3ddbe555d527267124470b44f8e7e0c72603aae4e7f6",
+    "tools/cartesia.py": "599d2b8b551af9f193bcc4c280f3b732a41c48c356c178ad747f17067eff5771",
+    "tools/eval_voice_quality.py": "f45829ffa8658c1158f44f7516bde482f391c71267ae6ba8b18c3853b3d747b2",
+    "tools/remover.py": "aad94e48280117f052aa8b0ce5ff8ae254154fb2611526852038912865666e6c",
+    "tools/quality_blend.py": "c74b1a6515d1b68d5edca69622b5242b78746b25186d8fab915194613d997df4",
+    "experiments/generate_codec_study.py": "9701ea895fb6328af4e2a1d6bde9341a92dfb7f01f7b09822d91f9574f866d20",
+    "experiments/run_codec_study.py": "9aaceb24c6c2786c0ac155a78832e0dd90f29578875f95453b05ba1c46305b65",
+    "experiments/run_codec_profiles.py": "a323bd4ddd08fdee42c65df353b42b64be3130ac687e5d8218fcb6cc5c5585ac",
+    "experiments/codec_profile_cache.py": "0a4b713275e89899414001494222ec486a781347babd12da6a83f6edf618a3ca",
+    "experiments/codec_profile_evaluation.py": "d191fea3a94f8bb2d85de7f5c6ba78cb0b179a47b3a6804f2aa7829ec1111f79",
+    "experiments/score_codec_study.py": "8fa758272b28150ba655243977e8ed82418231259ae158676daa27441dd8094c",
+    "experiments/codec_evaluation_text.py": "9d05a9350507e45912e47f0200f64732ed5cf03bc3d6581e8c6ad992ff4e2876",
+    "experiments/codec_evaluation_assets.json": "df1d047b380f6d218727bd451988a7823c9f82fb652aa62d7542b81b129e3dfc",
+    "experiments/freeze_codec_profiles.py": "95c78b910d10ded5df4e5f31f6f24c7efa0ebc33bc6a13fd05f16584a055d433",
+    "requirements/codec.txt": "bfe8b7b4d36b0e59dba5cd19b03077080f733480bbdaf94c6e46b38e39e789f1",
+    "requirements/speech_repair.txt": "9a20eb7a29bbf29cdb23239aecd0c81b011c537e497903c331ecc83379647b44",
+    "requirements/verification.txt": "d9332dade574c76d8794e0e5d7cccc1b8c654f008be8ea14ae68411ceb3f6dd7",
+    "requirements/vocoder.txt": "36aaf5ee7d8f582d03f0614f50305f9de3ade062de4e65e761ae4b5601929551",
+    "requirements/codec_evaluation.txt": "c82b1fd37c9d379c98fc251ac4c5f8544daa2fbea890d04f325a1240050b37b9",
+    "requirements/eval.txt": "c429198bfcf1459b979c377136e235a953360f86c952c4c1e202d77943e03af5",
+    "requirements/inference.txt": "38c7e9ab6bb997b1265e43417d9f1b3fecb1b27dca1662a772dcd584d1779785",
+    "experiments/ticodec_adapter.py": "96be43a9e19b110fb98d414954b7d2339beb3cf607f13b508ad324aeef1e89b6",
+    "experiments/ticodec_assets.json": "214bdc2a2c2fc259bb63758846420a7ebd5457ceac20a547350a5ae07b084ba7",
+    "experiments/validate_ticodec.py": "5310d4750f86c91a9f73e9ae37ff0308b44588d3de46547f9fcc649854a715a1",
+    "experiments/probe_ticodec.py": "bbca3d80a0d35909260ada3f1827570c7827ded3df66da06fe2740aad06386b6",
+    "experiments/probe_codec_frames.py": "19e369e66ce9231fdc3f55006b9e11b523d5ed991063127518213c4d0322aeb8",
+    "experiments/codec_profiles_report.py": "047d998495ef6bb2aee144a5308e16d063d3e997e559836453a1308dbb393a25",
+    "private-prototype/render_timing_map_hard3.py": "a72bd7de8383a0f0c0e68711c5b4f379025b7f1d5894021ffe14d82bc1ebd74c",
+    "private-prototype/rubberband_timing_map.py": "e4bed785655b4b5953d7e435c516d998f41321590e755c6297e061bd9bafb14e",
+    "private-prototype/assess_timing_map_hard3.py": "3d719fd9123cce379cbeddcfe9f1dc1030b26a2ef89008518fb4da1b3e08e860",
+    "private-prototype/check_timing_map_panel.py": "c31d079f24ab8c3c369a1c57a090699866b58e265c45ae7e0a651d63ddffd27d",
+    "private-prototype/timing_map_panel_report.py": "3574830e3f6440c0796069c3c9dbf681d1a5d256ddb81bb9cb3d28e03fcce29d",
+    "private-prototype/timing_map_panel.protocol.md": "67f173bd1c7bede40ef19afd67144ce43e9fdfab36c81593b2ed79751ac425b9",
+    "experiments/check_codec_frames.py": "83677021e116b10a1aa1ededa516e079f49669a1d1fc3ef99e7ffe6e778e3466",
+    "experiments/check_ticodec_latents.py": "74920b2e28768844524359785e366de1093ed6c20995b2957428d1431cfcf136",
+    "experiments/ticodec_panel_report.py": "6f7ee64041ec475a5248ee6d0e8b45073895a3464102b90832dd32ddf56766d1"
+  },
+  "evaluation_checkpoints": {
+    "turbo": {
+      "raw_transcription_helper_metadata": {
+        "model": "openai/whisper-large-v3-turbo",
+        "revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+        "attention": "sdpa",
+        "precision": "float32",
+        "decode": "Native timestamps, minimum30s features, complete longer input, max_new_tokens440, no sampling/previous-text conditioning",
+        "role": "Also participates in the processing guard",
+        "reference_normalization": "NFKC, BasicTextNormalizer(False); Chinese OpenCC1.1.9 t2s.json before reference CER; Japanese CER; whitespace WER otherwise",
+        "paired_normalization": "Original runtime normalization: NFKC BasicTextNormalizer(False), zh/ja characters, whitespace otherwise"
+      },
+      "study_role": "Evaluation transcription only; see the language roles"
+    }
+  },
+  "transform": {
+    "library": "RubberBand",
+    "version": "3.3.0",
+    "engine": 3,
+    "amplitude_seconds": 0.04,
+    "period_seconds": 4.0,
+    "original_waveform_information_retained": true,
+    "full_regeneration": false,
+    "neural_generation": false
+  },
+  "planned_spent_sources": 3,
+  "planned_generation_treatments": 3,
+  "new_endpoint_treatments": 1,
+  "qualified_spent_sources": 0,
+  "qualified_treatments": 0,
+  "treatments": [
+    {
+      "id": "profiles_fresh_19_hi_sonic-3.6",
+      "method": "smooth-map-40ms",
+      "processing_status": "processing_eligible",
+      "endpoint_phase_status": "pending",
+      "sha256": "bc55afc8641d1d7b823764b5ef11f812f80ee2586476db33c262a9efd3c272ce",
+      "language": "hi",
+      "source_sha256": "82eccc6dfe1a21a5f869efa49a17abfbcdb8acc9e2f97283d2dda56ce43ec8c0",
+      "source_format": {
+        "samples": 1248912,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "speech_assessment": {
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "large": 0.006369426751592357,
+          "mms": 0.009345794392523364
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 314,
+          "mms": 321
+        },
+        "processed_units": {
+          "large": 313,
+          "mms": 322
+        }
+      },
+      "runtime_quality_guard": {
+        "passed": true,
+        "source_sha256": "82eccc6dfe1a21a5f869efa49a17abfbcdb8acc9e2f97283d2dda56ce43ec8c0",
+        "candidate_sha256": "bc55afc8641d1d7b823764b5ef11f812f80ee2586476db33c262a9efd3c272ce",
+        "speaker_minimum": 0.9814158988816974,
+        "speaker_minimum_required": 0.95,
+        "dnsmos_overall_delta": -0.040832128900015974,
+        "dnsmos_overall_delta_required": -0.2,
+        "receipt_sha256": "a337cfef0a9a31e814fa6c0309b497f715d20a6b0c7ea535e92ec69645616629",
+        "same_file_estimates_reused": false,
+        "independent_evaluation": false,
+        "reference_text_used": false
+      },
+      "qualified_spent_transition": false,
+      "quality_gate_results": {
+        "large_paired": true,
+        "mms_paired": true,
+        "large_reference_delta": true,
+        "mms_reference_delta": true,
+        "evaluation_turbo_reference_delta": true,
+        "speaker_minimum": true,
+        "dnsmos_overall": true
+      },
+      "calibrated_original_checkpoints": 3,
+      "source_calibration_sufficient": true,
+      "all_estimated_quality_gates_passed": true,
+      "quality_qualified": true,
+      "detected": true,
+      "original_reference_error": {
+        "large": 0.037383177570093455,
+        "mms": 0.01557632398753894,
+        "turbo": 0.056074766355140186
+      },
+      "guard_reference_delta": {
+        "large": 0.0031152647975077885,
+        "mms": -0.009345794392523366
+      },
+      "independent_evaluation": [
+        {
+          "id": "profiles_fresh_19_hi_sonic-3.6__smooth-map-40ms",
+          "metric": "turbo",
+          "language": "hi",
+          "source_sha256": "82eccc6dfe1a21a5f869efa49a17abfbcdb8acc9e2f97283d2dda56ce43ec8c0",
+          "original": {
+            "reference_error": 0.056074766355140186,
+            "reference_units": 321,
+            "recognized_units": 312,
+            "comparison_units": "characters",
+            "raw_word_reference_error_diagnostic_only": 0.15853658536585366,
+            "maximum_reference_delta": 0.01,
+            "original_calibration_ceiling": 0.1,
+            "calibrated": true
+          },
+          "status": "scored",
+          "output_sha256": "bc55afc8641d1d7b823764b5ef11f812f80ee2586476db33c262a9efd3c272ce",
+          "processed": {
+            "reference_error": 0.056074766355140186,
+            "reference_units": 321,
+            "recognized_units": 312,
+            "comparison_units": "characters",
+            "raw_word_reference_error_diagnostic_only": 0.15853658536585366,
+            "maximum_reference_delta": 0.01,
+            "original_calibration_ceiling": 0.1,
+            "calibrated": true
+          },
+          "reference_error_delta": 0.0,
+          "reference_delta_passed": true
+        }
+      ],
+      "voice_estimates": {
+        "id": "profiles_fresh_19_hi_sonic-3.6",
+        "source_sha256": "82eccc6dfe1a21a5f869efa49a17abfbcdb8acc9e2f97283d2dda56ce43ec8c0",
+        "language": "hi",
+        "original_dnsmos": {
+          "signal": 3.8027221931486053,
+          "background": 4.231058006208487,
+          "overall": 3.607415330647959,
+          "windows": 19,
+          "natural_seconds": 28.32
+        },
+        "window_starts_seconds": [
+          0.664,
+          9.16,
+          17.656
+        ],
+        "speaker_window_cosines": [
+          0.9913186303064924,
+          0.9814158988816974,
+          0.9888793718417871
+        ],
+        "speaker_minimum": 0.9814158988816974,
+        "processed_dnsmos": {
+          "signal": 3.7708326667338703,
+          "background": 4.207239424721557,
+          "overall": 3.566583201747943,
+          "windows": 19,
+          "natural_seconds": 28.32
+        },
+        "dnsmos_delta": {
+          "signal": -0.03188952641473497,
+          "background": -0.023818581486930057,
+          "overall": -0.040832128900015974
+        },
+        "output_sha256": "bc55afc8641d1d7b823764b5ef11f812f80ee2586476db33c262a9efd3c272ce",
+        "status": "scored"
+      },
+      "identical_file_observations_reused": false
+    },
+    {
+      "id": "profiles_fresh_40_ta_sonic-preview",
+      "method": "smooth-map-40ms",
+      "processing_status": "content_rejected",
+      "endpoint_phase_status": "processing_rejected",
+      "sha256": "d27901811729cd087ecda2710ae043ab6c512289dff602352477415517e135cb",
+      "language": "ta",
+      "source_sha256": "0b6e8e7cc0fd3641dee23ae2197457cc7beda8cf735fe7602e4aab0db05b785e",
+      "source_format": {
+        "samples": 1471176,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "large": 0.02109704641350211,
+          "mms": 0.004123711340206186
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 474,
+          "mms": 485
+        },
+        "processed_units": {
+          "large": 477,
+          "mms": 484
+        }
+      },
+      "runtime_quality_guard": null,
+      "qualified_spent_transition": false
+    },
+    {
+      "id": "profiles_fresh_42_ta_sonic-preview",
+      "method": "smooth-map-40ms",
+      "processing_status": "content_rejected",
+      "endpoint_phase_status": "processing_rejected",
+      "sha256": "683cc064114cfe07da67eb8c387cfe51aa53798de0d525fad2937b1434a89e80",
+      "language": "ta",
+      "source_sha256": "239027629fc6976c47dc27edf31c5f72d413a388a7a5f19f5ee7b583d080a1cc",
+      "source_format": {
+        "samples": 1266552,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "large": null,
+          "mms": 0.016786570743405275
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 412,
+          "mms": 417
+        },
+        "processed_units": {
+          "large": 0,
+          "mms": 418
+        }
+      },
+      "runtime_quality_guard": null,
+      "qualified_spent_transition": false
+    }
+  ],
+  "http_attempts": [
+    {
+      "id": "profiles_fresh_19_hi_sonic-3.6",
+      "role": "opening_positive_control",
+      "ordinal": 1,
+      "sha256": "82eccc6dfe1a21a5f869efa49a17abfbcdb8acc9e2f97283d2dda56ce43ec8c0",
+      "started_at": "2026-11-15T07:28:17.117006+00:00",
+      "http_status": 200
+    },
+    {
+      "id": "profiles_fresh_19_hi_sonic-3.6",
+      "role": "opening_positive_control",
+      "ordinal": 2,
+      "sha256": "82eccc6dfe1a21a5f869efa49a17abfbcdb8acc9e2f97283d2dda56ce43ec8c0",
+      "started_at": "2026-11-15T07:30:57.117334+00:00",
+      "http_status": 200
+    },
+    {
+      "id": "profiles_fresh_19_hi_sonic-3.6",
+      "role": "candidate",
+      "ordinal": 1,
+      "sha256": "bc55afc8641d1d7b823764b5ef11f812f80ee2586476db33c262a9efd3c272ce",
+      "method": "smooth-map-40ms",
+      "started_at": "2026-11-15T07:33:37.118878+00:00",
+      "http_status": 200
+    },
+    {
+      "id": "profiles_fresh_19_hi_sonic-3.6",
+      "role": "candidate",
+      "ordinal": 2,
+      "sha256": "bc55afc8641d1d7b823764b5ef11f812f80ee2586476db33c262a9efd3c272ce",
+      "method": "smooth-map-40ms",
+      "started_at": "2026-11-15T07:36:17.119240+00:00",
+      "http_status": 200
+    },
+    {
+      "id": "profiles_fresh_42_ta_sonic-preview",
+      "role": "closing_positive_control",
+      "ordinal": 1,
+      "sha256": "239027629fc6976c47dc27edf31c5f72d413a388a7a5f19f5ee7b583d080a1cc",
+      "started_at": "2026-11-15T07:38:57.122893+00:00",
+      "http_status": 200
+    },
+    {
+      "id": "profiles_fresh_42_ta_sonic-preview",
+      "role": "closing_positive_control",
+      "ordinal": 2,
+      "sha256": "239027629fc6976c47dc27edf31c5f72d413a388a7a5f19f5ee7b583d080a1cc",
+      "started_at": "2026-11-15T07:40:17.121365+00:00",
+      "http_status": 200
+    }
+  ],
+  "checks": [
+    {
+      "id": "profiles_fresh_19_hi_sonic-3.6",
+      "role": "opening_positive_control",
+      "ordinal": 1,
+      "sha256": "82eccc6dfe1a21a5f869efa49a17abfbcdb8acc9e2f97283d2dda56ce43ec8c0",
+      "detected": true,
+      "http_status": 200,
+      "checked_at": "2026-11-15T07:28:17.770593+00:00"
+    },
+    {
+      "id": "profiles_fresh_19_hi_sonic-3.6",
+      "role": "opening_positive_control",
+      "ordinal": 2,
+      "sha256": "82eccc6dfe1a21a5f869efa49a17abfbcdb8acc9e2f97283d2dda56ce43ec8c0",
+      "detected": true,
+      "http_status": 200,
+      "checked_at": "2026-11-15T07:30:57.762363+00:00"
+    },
+    {
+      "id": "profiles_fresh_19_hi_sonic-3.6",
+      "role": "candidate",
+      "ordinal": 1,
+      "sha256": "bc55afc8641d1d7b823764b5ef11f812f80ee2586476db33c262a9efd3c272ce",
+      "method": "smooth-map-40ms",
+      "detected": true,
+      "http_status": 200,
+      "checked_at": "2026-11-15T07:33:37.917412+00:00"
+    },
+    {
+      "id": "profiles_fresh_19_hi_sonic-3.6",
+      "role": "candidate",
+      "ordinal": 2,
+      "sha256": "bc55afc8641d1d7b823764b5ef11f812f80ee2586476db33c262a9efd3c272ce",
+      "method": "smooth-map-40ms",
+      "detected": true,
+      "http_status": 200,
+      "checked_at": "2026-11-15T07:36:17.896159+00:00"
+    },
+    {
+      "id": "profiles_fresh_42_ta_sonic-preview",
+      "role": "closing_positive_control",
+      "ordinal": 1,
+      "sha256": "239027629fc6976c47dc27edf31c5f72d413a388a7a5f19f5ee7b583d080a1cc",
+      "detected": true,
+      "http_status": 200,
+      "checked_at": "2026-11-15T07:38:58.069808+00:00"
+    },
+    {
+      "id": "profiles_fresh_42_ta_sonic-preview",
+      "role": "closing_positive_control",
+      "ordinal": 2,
+      "sha256": "239027629fc6976c47dc27edf31c5f72d413a388a7a5f19f5ee7b583d080a1cc",
+      "detected": true,
+      "http_status": 200,
+      "checked_at": "2026-11-15T07:40:18.177903+00:00"
+    }
+  ],
+  "processing_assessment_sha256": "1ddf52f1fa2b0958c0f208b941c68cca71d534ff62d39cca893e540cb7d6dc7f",
+  "new_tts_requests": 0,
+  "fresh_efficacy_sources": 0,
+  "completed_19_of_44_result_changed": false,
+  "human_listening_approval": false,
+  "physical_erasure_proven": false,
+  "limits": [
+    "These are spent development recordings; repeated methods and controls are not independent sources.",
+    "Voice estimates guide eligibility; Whisper checkpoints share ancestry.",
+    "Negative detector replies and estimated quality cannot establish physical erasure or universal reliability."
+  ]
+}
