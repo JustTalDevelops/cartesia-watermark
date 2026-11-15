@@ -26,6 +26,7 @@ This directory mixes curated files included in Git with ignored local experiment
 | `codec_asr_runtime.json` | Exploratory precision timings, word differences, failed BF16 preprocessing, exact-token short-source encoder reuse and sixteen-original MMS comparison; no processing runtime change or fresh removal evidence |
 | `codec_reliability.freeze.json` | Prospective source/evaluation freeze for sixteen new codec-study requests; a protocol, not efficacy evidence |
 | `codec_reliability.json` | All sixteen fresh requests: six fully qualified marked transitions, one selected Hindi quality failure, seven uncleared marked cases, and two nominal controls |
+| `codec_profiles_reliability.json` | Completed 48-request language-profile study: 19/44 marked sources qualified, 25 failed; four nominal controls and all repeated checks retained separately |
 | `codec_repair_development.json` | One spent French counterexample repaired locally: seven estimated quality gates passed, two whole-file negatives and four positive source controls; no change to the fresh-study count |
 | `codec_cycles_development.json` | One spent long-file counterexample after two codec passes: all seven estimated quality gates passed, two whole-file negatives and four positive source controls; no fresh independent source |
 | `codec_bitrate_development.json` | One spent Korean counterexample: native 3 kbps failed its speech guard; native 6 kbps and both 3/6 kbps band files remained detected twice, including two band files passing all seven estimated quality gates |
