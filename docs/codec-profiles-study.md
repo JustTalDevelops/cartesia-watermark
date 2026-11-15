@@ -1,9 +1,10 @@
 # Prospective language-profile study
 
-This protocol is separate from the original frozen codec study, which remains
-6/14 qualified marked sources. Development follow-ups are spent recordings.
-This new protocol must be frozen before its first TTS request; the freeze alone
-is not removal evidence.
+The study is complete: **19/44 marked sources qualified; 25 failed the workflow**.
+The [complete report](../results/codec_profiles_reliability.json) retains all 48
+requests, including four matched nominal controls. The original frozen codec
+study remains 6/14; subsequent use of either cohort is spent-source development.
+The procedure below was frozen before this cohort's first TTS request.
 
 The authored plan contains 44 marked requests using 44 public voice IDs absent
 from the project's prior scan: four requests in each of eleven languages, with
@@ -12,6 +13,19 @@ controls reuse selected marked voices and passages. Two English requests have
 predeclared long-duration slots. Four marked requests and the matched English
 control use full stereo derivatives. The voice's primary-language tag sometimes
 differs from the requested utterance language; both are recorded.
+
+All 44 marked originals tested positive twice. Every selected marked file tested
+negative twice and passed all declared criteria, including withheld transcription
+reference-error checks. Both long English sources and two of four marked stereo
+sources qualified. All eight Hindi/Tamil marked sources failed. These observations
+do not establish reliable general removal, unchanged speech or physical erasure.
+
+The four nominal Sonic 3.5 controls had two positive and two negative original
+responses. Three processed control outputs qualified and tested negative twice;
+one exhausted its routes. Their actual watermark absence is unverified, and
+control outputs are not additional marked removal successes. The whole study
+retains 96 baseline and 130 candidate-phase HTTP checks with positive source
+controls at both ends of selection.
 
 ## Fixed processing and evaluation
 
@@ -142,7 +156,7 @@ For Hindi/Tamil, the optional `--experimental-packed-large` flag packs the
 Large V3 recognizer's linear weights into FP16 and retains float32 inputs and
 outputs. It requires the pinned Python 3.12 x86 CPU environment and uses a
 separate recognition-cache identity. Packing is lazy and occurs once per model.
-The active frozen study continues to use the original float32 recognizer.
+The completed frozen study used the original float32 recognizer.
 
 The [spent-file precision report](../results/codec_precision_development.json)
 compares eight files from three originals. Packed FP16 reproduced every token
@@ -155,10 +169,10 @@ or removal observations and do not establish equivalent behavior on arbitrary
 recordings. INT8 changed one guard decision and is retained only in the report.
 
 A separate source-only control reused all nine Hindi/Tamil originals from the
-active cohort, including its nominal Tamil control, across eight voice IDs.
+language-profile cohort, including its nominal Tamil control, across eight voice IDs.
 Both recognizers' normalized units matched their frozen float32 caches for every
 source. Token IDs were not retained in those original caches. This control adds
-no candidate/detector observations and leaves the active study unchanged.
+no candidate/detector observations and leaves the completed study unchanged.
 
 An additional observation-only monitor enforces the protocol's existing stop
 rule during the study. The frozen generic verifier can continue after a negative
