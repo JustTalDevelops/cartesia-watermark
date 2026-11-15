@@ -56,6 +56,7 @@ results/*
 !results/head_conv_heldout_x4c[012].pt
 !results/README.md
 !results/reconstruction_runtime.json
+!results/reconstruction_flow_cache_runtime.json
 !results/reconstruction_local_shift.json
 !results/reconstruction_reliability.json
 !results/reconstruction_vocoder.json

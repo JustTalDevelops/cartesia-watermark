@@ -86,6 +86,15 @@ On this machine, a four-second mono fixture took about 11.1 seconds through a fr
 
 The [runtime report](../results/reconstruction_runtime.json) records these measurements and checks. CPU thread experiments favored the existing four-thread setting, which remains unchanged. These are runtime measurements, not new detector-efficacy results.
 
+Two later [exact-output CPU experiments](../results/reconstruction_flow_cache_runtime.json)
+skipped an unused full-noise prior encoder and reused fixed conditioning
+projections across flow evaluations. Both reproduced the samples, FLAC bytes,
+initial prior states and final RNG state in the recorded checks. On one spent
+28.32-second recording, two warm paired runs measured only 1.01× and 1.02× speedups.
+Short mono/stereo and preset-switch controls also matched. Neither prototype was
+added to the application: the measured gain was too small to justify the extra
+implementation. These measurements add no removal-efficacy evidence.
+
 ## Full-flow reliability study
 
 The [completed report](../results/reconstruction_reliability.json) records 50 whole-file comparisons using the fixed full-flow preset, seed 2035, corrected chunk scheduling, and PCM24 FLAC encoding before endpoint checks. Its [input plan](../audio/reconstruction_reliability_plan.json) records public sources and authored generation requests. The model recipe was frozen before processed labels were observed.

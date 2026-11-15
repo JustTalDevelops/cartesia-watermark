@@ -1,0 +1,1027 @@
+{
+  "kind": "Exact-output CPU reconstruction runtime experiments; prototypes not adopted",
+  "planned_methods": 2,
+  "methods": [
+    {
+      "method": "full_flow_prior_benchmark",
+      "raw_benchmark_sha256": "5537ad82e478dacacb91fd07f379b58ca0817b8ed04062f61ee95b5ce066e95b",
+      "checkpoint_sha256": "f9d035f318de3e6d919bc70cf7ad7d32b4fe92ec5cbe0b30029a27f5db07d9d6",
+      "torch_version": "2.5.1+cpu",
+      "thread_count": 4,
+      "device": "cpu",
+      "precision": "float32",
+      "boundary_safe": true,
+      "source_sha256": "82eccc6dfe1a21a5f869efa49a17abfbcdb8acc9e2f97283d2dda56ce43ec8c0",
+      "source_samples": 1248912,
+      "source_sample_rate": 44100,
+      "warm_whole_recording_order": [
+        "baseline",
+        "fast",
+        "fast",
+        "baseline"
+      ],
+      "baseline_seconds": [
+        45.732733198441565,
+        45.78232007473707
+      ],
+      "optimized_seconds": [
+        45.306571716442704,
+        45.251614443957806
+      ],
+      "baseline_mean_seconds": 45.75752663658932,
+      "optimized_mean_seconds": 45.279093080200255,
+      "measured_speedup": 1.010566323745523,
+      "sample_and_file_bytes_exact": true,
+      "initial_prior_states_exact": true,
+      "final_rng_state_exact": true,
+      "old_spent_output_reproduced": true,
+      "runs": [
+        {
+          "label": "warmup",
+          "preset": "full-flow",
+          "fast": false,
+          "seed": 2035,
+          "seconds": 2.002663048915565,
+          "output_sha256": "4d53ace8854b49e4977e819161478804d7d3b9a49eb2fea35e920e4654ded735",
+          "gain": 1.0,
+          "encoder_grids": [
+            {
+              "shape": [
+                1,
+                64,
+                53
+              ],
+              "stride": [
+                3392,
+                53,
+                1
+              ],
+              "dtype": "torch.float32",
+              "device": "cpu",
+              "finite": true
+            }
+          ],
+          "initial_state_sha256": [
+            "2f09b63a19e013ea48f7e2eba67f2c5e9af00feb720d3219344d53fba769bb24"
+          ],
+          "final_rng_state_sha256": "1f250b1752cad305511b35a72ffc09acf3bfd6fe74bfee3db559ce049151c69a",
+          "optimization_counts": {}
+        },
+        {
+          "label": "short-mono-baseline",
+          "preset": "full-flow",
+          "fast": false,
+          "seed": 2035,
+          "seconds": 1.5872527454048395,
+          "output_sha256": "4d53ace8854b49e4977e819161478804d7d3b9a49eb2fea35e920e4654ded735",
+          "gain": 1.0,
+          "encoder_grids": [
+            {
+              "shape": [
+                1,
+                64,
+                53
+              ],
+              "stride": [
+                3392,
+                53,
+                1
+              ],
+              "dtype": "torch.float32",
+              "device": "cpu",
+              "finite": true
+            }
+          ],
+          "initial_state_sha256": [
+            "2f09b63a19e013ea48f7e2eba67f2c5e9af00feb720d3219344d53fba769bb24"
+          ],
+          "final_rng_state_sha256": "1f250b1752cad305511b35a72ffc09acf3bfd6fe74bfee3db559ce049151c69a",
+          "optimization_counts": {}
+        },
+        {
+          "label": "short-mono-fast",
+          "preset": "full-flow",
+          "fast": true,
+          "seed": 2035,
+          "seconds": 1.124261325225234,
+          "output_sha256": "4d53ace8854b49e4977e819161478804d7d3b9a49eb2fea35e920e4654ded735",
+          "gain": 1.0,
+          "encoder_grids": [],
+          "initial_state_sha256": [
+            "2f09b63a19e013ea48f7e2eba67f2c5e9af00feb720d3219344d53fba769bb24"
+          ],
+          "final_rng_state_sha256": "1f250b1752cad305511b35a72ffc09acf3bfd6fe74bfee3db559ce049151c69a",
+          "optimization_counts": {
+            "skipped_encoder_calls": 1,
+            "fallback_calls": 0
+          }
+        },
+        {
+          "label": "short-stereo-baseline",
+          "preset": "full-flow",
+          "fast": false,
+          "seed": 9035,
+          "seconds": 2.198211363516748,
+          "output_sha256": "3b1c98977e433311be51ade42db1d3f8c453c76ff3a384494218784901b84520",
+          "gain": 1.0,
+          "encoder_grids": [
+            {
+              "shape": [
+                1,
+                64,
+                49
+              ],
+              "stride": [
+                3136,
+                49,
+                1
+              ],
+              "dtype": "torch.float32",
+              "device": "cpu",
+              "finite": true
+            },
+            {
+              "shape": [
+                1,
+                64,
+                49
+              ],
+              "stride": [
+                3136,
+                49,
+                1
+              ],
+              "dtype": "torch.float32",
+              "device": "cpu",
+              "finite": true
+            }
+          ],
+          "initial_state_sha256": [
+            "5c4ea8bde350c4106c13899cf50e51d256a98d27efa7e4ed1a99fe3d46eacc04",
+            "5c4ea8bde350c4106c13899cf50e51d256a98d27efa7e4ed1a99fe3d46eacc04"
+          ],
+          "final_rng_state_sha256": "585cbc5f0cb945bcc852ef303d5636e4785809bb142d8f13db04c665b03cf88d",
+          "optimization_counts": {}
+        },
+        {
+          "label": "short-stereo-fast",
+          "preset": "full-flow",
+          "fast": true,
+          "seed": 9035,
+          "seconds": 2.0876295687630773,
+          "output_sha256": "3b1c98977e433311be51ade42db1d3f8c453c76ff3a384494218784901b84520",
+          "gain": 1.0,
+          "encoder_grids": [],
+          "initial_state_sha256": [
+            "5c4ea8bde350c4106c13899cf50e51d256a98d27efa7e4ed1a99fe3d46eacc04",
+            "5c4ea8bde350c4106c13899cf50e51d256a98d27efa7e4ed1a99fe3d46eacc04"
+          ],
+          "final_rng_state_sha256": "585cbc5f0cb945bcc852ef303d5636e4785809bb142d8f13db04c665b03cf88d",
+          "optimization_counts": {
+            "skipped_encoder_calls": 2,
+            "fallback_calls": 0
+          }
+        },
+        {
+          "label": "standard-fallback-baseline",
+          "preset": "standard",
+          "fast": false,
+          "seed": 2035,
+          "seconds": 1.1226687617599964,
+          "output_sha256": "8c9a9f5045c8e7a939a3e53d78889865e6ae2108c2a51e16eeb28363390a7162",
+          "gain": 1.0,
+          "encoder_grids": [
+            {
+              "shape": [
+                1,
+                64,
+                53
+              ],
+              "stride": [
+                3392,
+                53,
+                1
+              ],
+              "dtype": "torch.float32",
+              "device": "cpu",
+              "finite": true
+            }
+          ],
+          "initial_state_sha256": [
+            "0e19b56458602009dd17f87ff5863994bbcec5a5917bb2c46e8ebb3e1f833408"
+          ],
+          "final_rng_state_sha256": "1f250b1752cad305511b35a72ffc09acf3bfd6fe74bfee3db559ce049151c69a",
+          "optimization_counts": {}
+        },
+        {
+          "label": "standard-fallback-fast",
+          "preset": "standard",
+          "fast": true,
+          "seed": 2035,
+          "seconds": 1.1542898090556264,
+          "output_sha256": "8c9a9f5045c8e7a939a3e53d78889865e6ae2108c2a51e16eeb28363390a7162",
+          "gain": 1.0,
+          "encoder_grids": [
+            {
+              "shape": [
+                1,
+                64,
+                53
+              ],
+              "stride": [
+                3392,
+                53,
+                1
+              ],
+              "dtype": "torch.float32",
+              "device": "cpu",
+              "finite": true
+            }
+          ],
+          "initial_state_sha256": [
+            "0e19b56458602009dd17f87ff5863994bbcec5a5917bb2c46e8ebb3e1f833408"
+          ],
+          "final_rng_state_sha256": "1f250b1752cad305511b35a72ffc09acf3bfd6fe74bfee3db559ce049151c69a",
+          "optimization_counts": {
+            "skipped_encoder_calls": 0,
+            "fallback_calls": 1
+          }
+        },
+        {
+          "label": "strong-full-noise-baseline",
+          "preset": "strong",
+          "fast": false,
+          "seed": 9035,
+          "seconds": 1.1273342398926616,
+          "output_sha256": "f66324cde4773b48f6d46088ffc98302c2960afd8aa147ccabdcff97ad4575d6",
+          "gain": 1.0,
+          "encoder_grids": [
+            {
+              "shape": [
+                1,
+                64,
+                53
+              ],
+              "stride": [
+                3392,
+                53,
+                1
+              ],
+              "dtype": "torch.float32",
+              "device": "cpu",
+              "finite": true
+            }
+          ],
+          "initial_state_sha256": [
+            "061a3d451026e8d8702f81d8c2747ee3630857453b1ea87b563541c6500fdae5"
+          ],
+          "final_rng_state_sha256": "3e847300435c549391b86105386c7ee6a9a0912c2ec321ae3e9233f4ce29e1f4",
+          "optimization_counts": {}
+        },
+        {
+          "label": "strong-full-noise-fast",
+          "preset": "strong",
+          "fast": true,
+          "seed": 9035,
+          "seconds": 1.1341258129104972,
+          "output_sha256": "f66324cde4773b48f6d46088ffc98302c2960afd8aa147ccabdcff97ad4575d6",
+          "gain": 1.0,
+          "encoder_grids": [],
+          "initial_state_sha256": [
+            "061a3d451026e8d8702f81d8c2747ee3630857453b1ea87b563541c6500fdae5"
+          ],
+          "final_rng_state_sha256": "3e847300435c549391b86105386c7ee6a9a0912c2ec321ae3e9233f4ce29e1f4",
+          "optimization_counts": {
+            "skipped_encoder_calls": 1,
+            "fallback_calls": 0
+          }
+        },
+        {
+          "label": "spent-0",
+          "preset": "full-flow",
+          "fast": false,
+          "seed": 2035,
+          "seconds": 45.732733198441565,
+          "output_sha256": "4c99005d00fba4b3f0b09a732ec4a617829f4a432cce62c88c841f3a56fdf974",
+          "gain": 1.0,
+          "encoder_grids": [
+            {
+              "shape": [
+                1,
+                64,
+                1051
+              ],
+              "stride": [
+                67264,
+                1051,
+                1
+              ],
+              "dtype": "torch.float32",
+              "device": "cpu",
+              "finite": true
+            },
+            {
+              "shape": [
+                1,
+                64,
+                1051
+              ],
+              "stride": [
+                67264,
+                1051,
+                1
+              ],
+              "dtype": "torch.float32",
+              "device": "cpu",
+              "finite": true
+            },
+            {
+              "shape": [
+                1,
+                64,
+                1051
+              ],
+              "stride": [
+                67264,
+                1051,
+                1
+              ],
+              "dtype": "torch.float32",
+              "device": "cpu",
+              "finite": true
+            },
+            {
+              "shape": [
+                1,
+                64,
+                139
+              ],
+              "stride": [
+                8896,
+                139,
+                1
+              ],
+              "dtype": "torch.float32",
+              "device": "cpu",
+              "finite": true
+            }
+          ],
+          "initial_state_sha256": [
+            "aa7ecc91853d388620534272da05a4b2ef0fa4113b202d370db8ac54717482fe",
+            "55fb9fd4cedddbb6a3b5f50c78986fc707e1c216ddc0d81002b042292470f7dc",
+            "3dbbac8c3b3521f597e3ad47e4f300a25c8e9b7dede44a55c6f28f1fb2fa4976",
+            "daff42cadebfe770f0f0218d349ee4f6e9ea16be52fff3338aeea9d2b6918a15"
+          ],
+          "final_rng_state_sha256": "cc99daa85ba63bc799112e67c1db6f21d10f4c65a4dd1adf097f703e24de9128",
+          "optimization_counts": {}
+        },
+        {
+          "label": "spent-1",
+          "preset": "full-flow",
+          "fast": true,
+          "seed": 2035,
+          "seconds": 45.306571716442704,
+          "output_sha256": "4c99005d00fba4b3f0b09a732ec4a617829f4a432cce62c88c841f3a56fdf974",
+          "gain": 1.0,
+          "encoder_grids": [],
+          "initial_state_sha256": [
+            "aa7ecc91853d388620534272da05a4b2ef0fa4113b202d370db8ac54717482fe",
+            "55fb9fd4cedddbb6a3b5f50c78986fc707e1c216ddc0d81002b042292470f7dc",
+            "3dbbac8c3b3521f597e3ad47e4f300a25c8e9b7dede44a55c6f28f1fb2fa4976",
+            "daff42cadebfe770f0f0218d349ee4f6e9ea16be52fff3338aeea9d2b6918a15"
+          ],
+          "final_rng_state_sha256": "cc99daa85ba63bc799112e67c1db6f21d10f4c65a4dd1adf097f703e24de9128",
+          "optimization_counts": {
+            "skipped_encoder_calls": 4,
+            "fallback_calls": 0
+          }
+        },
+        {
+          "label": "spent-2",
+          "preset": "full-flow",
+          "fast": true,
+          "seed": 2035,
+          "seconds": 45.251614443957806,
+          "output_sha256": "4c99005d00fba4b3f0b09a732ec4a617829f4a432cce62c88c841f3a56fdf974",
+          "gain": 1.0,
+          "encoder_grids": [],
+          "initial_state_sha256": [
+            "aa7ecc91853d388620534272da05a4b2ef0fa4113b202d370db8ac54717482fe",
+            "55fb9fd4cedddbb6a3b5f50c78986fc707e1c216ddc0d81002b042292470f7dc",
+            "3dbbac8c3b3521f597e3ad47e4f300a25c8e9b7dede44a55c6f28f1fb2fa4976",
+            "daff42cadebfe770f0f0218d349ee4f6e9ea16be52fff3338aeea9d2b6918a15"
+          ],
+          "final_rng_state_sha256": "cc99daa85ba63bc799112e67c1db6f21d10f4c65a4dd1adf097f703e24de9128",
+          "optimization_counts": {
+            "skipped_encoder_calls": 4,
+            "fallback_calls": 0
+          }
+        },
+        {
+          "label": "spent-3",
+          "preset": "full-flow",
+          "fast": false,
+          "seed": 2035,
+          "seconds": 45.78232007473707,
+          "output_sha256": "4c99005d00fba4b3f0b09a732ec4a617829f4a432cce62c88c841f3a56fdf974",
+          "gain": 1.0,
+          "encoder_grids": [
+            {
+              "shape": [
+                1,
+                64,
+                1051
+              ],
+              "stride": [
+                67264,
+                1051,
+                1
+              ],
+              "dtype": "torch.float32",
+              "device": "cpu",
+              "finite": true
+            },
+            {
+              "shape": [
+                1,
+                64,
+                1051
+              ],
+              "stride": [
+                67264,
+                1051,
+                1
+              ],
+              "dtype": "torch.float32",
+              "device": "cpu",
+              "finite": true
+            },
+            {
+              "shape": [
+                1,
+                64,
+                1051
+              ],
+              "stride": [
+                67264,
+                1051,
+                1
+              ],
+              "dtype": "torch.float32",
+              "device": "cpu",
+              "finite": true
+            },
+            {
+              "shape": [
+                1,
+                64,
+                139
+              ],
+              "stride": [
+                8896,
+                139,
+                1
+              ],
+              "dtype": "torch.float32",
+              "device": "cpu",
+              "finite": true
+            }
+          ],
+          "initial_state_sha256": [
+            "aa7ecc91853d388620534272da05a4b2ef0fa4113b202d370db8ac54717482fe",
+            "55fb9fd4cedddbb6a3b5f50c78986fc707e1c216ddc0d81002b042292470f7dc",
+            "3dbbac8c3b3521f597e3ad47e4f300a25c8e9b7dede44a55c6f28f1fb2fa4976",
+            "daff42cadebfe770f0f0218d349ee4f6e9ea16be52fff3338aeea9d2b6918a15"
+          ],
+          "final_rng_state_sha256": "cc99daa85ba63bc799112e67c1db6f21d10f4c65a4dd1adf097f703e24de9128",
+          "optimization_counts": {}
+        }
+      ]
+    },
+    {
+      "method": "flow_condition_cache_benchmark",
+      "raw_benchmark_sha256": "fea6f055aa02db7161376a8180526b7b5153d3903605065ff969d5aa3cf0505d",
+      "checkpoint_sha256": "f9d035f318de3e6d919bc70cf7ad7d32b4fe92ec5cbe0b30029a27f5db07d9d6",
+      "torch_version": "2.5.1+cpu",
+      "thread_count": 4,
+      "device": "cpu",
+      "precision": "float32",
+      "boundary_safe": true,
+      "source_sha256": "82eccc6dfe1a21a5f869efa49a17abfbcdb8acc9e2f97283d2dda56ce43ec8c0",
+      "source_samples": 1248912,
+      "source_sample_rate": 44100,
+      "warm_whole_recording_order": [
+        "baseline",
+        "fast",
+        "fast",
+        "baseline"
+      ],
+      "baseline_seconds": [
+        45.68422921653837,
+        45.772250877693295
+      ],
+      "optimized_seconds": [
+        44.99040676280856,
+        44.75171136204153
+      ],
+      "baseline_mean_seconds": 45.72824004711583,
+      "optimized_mean_seconds": 44.87105906242505,
+      "measured_speedup": 1.0191032037710157,
+      "sample_and_file_bytes_exact": true,
+      "initial_prior_states_exact": true,
+      "final_rng_state_exact": true,
+      "old_spent_output_reproduced": true,
+      "runs": [
+        {
+          "label": "warmup",
+          "preset": "full-flow",
+          "fast": false,
+          "seed": 2035,
+          "seconds": 1.2814108282327652,
+          "output_sha256": "4d53ace8854b49e4977e819161478804d7d3b9a49eb2fea35e920e4654ded735",
+          "gain": 1.0,
+          "encoder_grids": [
+            {
+              "shape": [
+                1,
+                64,
+                53
+              ],
+              "stride": [
+                3392,
+                53,
+                1
+              ],
+              "dtype": "torch.float32",
+              "device": "cpu",
+              "finite": true
+            }
+          ],
+          "initial_state_sha256": [
+            "2f09b63a19e013ea48f7e2eba67f2c5e9af00feb720d3219344d53fba769bb24"
+          ],
+          "final_rng_state_sha256": "1f250b1752cad305511b35a72ffc09acf3bfd6fe74bfee3db559ce049151c69a",
+          "optimization_counts": {}
+        },
+        {
+          "label": "short-mono-baseline",
+          "preset": "full-flow",
+          "fast": false,
+          "seed": 2035,
+          "seconds": 1.0955491214990616,
+          "output_sha256": "4d53ace8854b49e4977e819161478804d7d3b9a49eb2fea35e920e4654ded735",
+          "gain": 1.0,
+          "encoder_grids": [
+            {
+              "shape": [
+                1,
+                64,
+                53
+              ],
+              "stride": [
+                3392,
+                53,
+                1
+              ],
+              "dtype": "torch.float32",
+              "device": "cpu",
+              "finite": true
+            }
+          ],
+          "initial_state_sha256": [
+            "2f09b63a19e013ea48f7e2eba67f2c5e9af00feb720d3219344d53fba769bb24"
+          ],
+          "final_rng_state_sha256": "1f250b1752cad305511b35a72ffc09acf3bfd6fe74bfee3db559ce049151c69a",
+          "optimization_counts": {}
+        },
+        {
+          "label": "short-mono-fast",
+          "preset": "full-flow",
+          "fast": true,
+          "seed": 2035,
+          "seconds": 0.9942414229735732,
+          "output_sha256": "4d53ace8854b49e4977e819161478804d7d3b9a49eb2fea35e920e4654ded735",
+          "gain": 1.0,
+          "encoder_grids": [],
+          "initial_state_sha256": [
+            "2f09b63a19e013ea48f7e2eba67f2c5e9af00feb720d3219344d53fba769bb24"
+          ],
+          "final_rng_state_sha256": "1f250b1752cad305511b35a72ffc09acf3bfd6fe74bfee3db559ce049151c69a",
+          "optimization_counts": {
+            "skipped_encoder_calls": 1,
+            "fallback_calls": 0,
+            "condition_computations": 31,
+            "condition_cache_hits": 961,
+            "cached_flow_chunks": 1
+          }
+        },
+        {
+          "label": "short-stereo-baseline",
+          "preset": "full-flow",
+          "fast": false,
+          "seed": 9035,
+          "seconds": 2.173024724237621,
+          "output_sha256": "3b1c98977e433311be51ade42db1d3f8c453c76ff3a384494218784901b84520",
+          "gain": 1.0,
+          "encoder_grids": [
+            {
+              "shape": [
+                1,
+                64,
+                49
+              ],
+              "stride": [
+                3136,
+                49,
+                1
+              ],
+              "dtype": "torch.float32",
+              "device": "cpu",
+              "finite": true
+            },
+            {
+              "shape": [
+                1,
+                64,
+                49
+              ],
+              "stride": [
+                3136,
+                49,
+                1
+              ],
+              "dtype": "torch.float32",
+              "device": "cpu",
+              "finite": true
+            }
+          ],
+          "initial_state_sha256": [
+            "5c4ea8bde350c4106c13899cf50e51d256a98d27efa7e4ed1a99fe3d46eacc04",
+            "5c4ea8bde350c4106c13899cf50e51d256a98d27efa7e4ed1a99fe3d46eacc04"
+          ],
+          "final_rng_state_sha256": "585cbc5f0cb945bcc852ef303d5636e4785809bb142d8f13db04c665b03cf88d",
+          "optimization_counts": {}
+        },
+        {
+          "label": "short-stereo-fast",
+          "preset": "full-flow",
+          "fast": true,
+          "seed": 9035,
+          "seconds": 1.8532540630549192,
+          "output_sha256": "3b1c98977e433311be51ade42db1d3f8c453c76ff3a384494218784901b84520",
+          "gain": 1.0,
+          "encoder_grids": [],
+          "initial_state_sha256": [
+            "5c4ea8bde350c4106c13899cf50e51d256a98d27efa7e4ed1a99fe3d46eacc04",
+            "5c4ea8bde350c4106c13899cf50e51d256a98d27efa7e4ed1a99fe3d46eacc04"
+          ],
+          "final_rng_state_sha256": "585cbc5f0cb945bcc852ef303d5636e4785809bb142d8f13db04c665b03cf88d",
+          "optimization_counts": {
+            "skipped_encoder_calls": 2,
+            "fallback_calls": 0,
+            "condition_computations": 62,
+            "condition_cache_hits": 1922,
+            "cached_flow_chunks": 2
+          }
+        },
+        {
+          "label": "standard-fallback-baseline",
+          "preset": "standard",
+          "fast": false,
+          "seed": 2035,
+          "seconds": 1.1047871122136712,
+          "output_sha256": "8c9a9f5045c8e7a939a3e53d78889865e6ae2108c2a51e16eeb28363390a7162",
+          "gain": 1.0,
+          "encoder_grids": [
+            {
+              "shape": [
+                1,
+                64,
+                53
+              ],
+              "stride": [
+                3392,
+                53,
+                1
+              ],
+              "dtype": "torch.float32",
+              "device": "cpu",
+              "finite": true
+            }
+          ],
+          "initial_state_sha256": [
+            "0e19b56458602009dd17f87ff5863994bbcec5a5917bb2c46e8ebb3e1f833408"
+          ],
+          "final_rng_state_sha256": "1f250b1752cad305511b35a72ffc09acf3bfd6fe74bfee3db559ce049151c69a",
+          "optimization_counts": {}
+        },
+        {
+          "label": "standard-fallback-fast",
+          "preset": "standard",
+          "fast": true,
+          "seed": 2035,
+          "seconds": 1.0084041208028793,
+          "output_sha256": "8c9a9f5045c8e7a939a3e53d78889865e6ae2108c2a51e16eeb28363390a7162",
+          "gain": 1.0,
+          "encoder_grids": [
+            {
+              "shape": [
+                1,
+                64,
+                53
+              ],
+              "stride": [
+                3392,
+                53,
+                1
+              ],
+              "dtype": "torch.float32",
+              "device": "cpu",
+              "finite": true
+            }
+          ],
+          "initial_state_sha256": [
+            "0e19b56458602009dd17f87ff5863994bbcec5a5917bb2c46e8ebb3e1f833408"
+          ],
+          "final_rng_state_sha256": "1f250b1752cad305511b35a72ffc09acf3bfd6fe74bfee3db559ce049151c69a",
+          "optimization_counts": {
+            "skipped_encoder_calls": 0,
+            "fallback_calls": 1,
+            "condition_computations": 31,
+            "condition_cache_hits": 961,
+            "cached_flow_chunks": 1
+          }
+        },
+        {
+          "label": "strong-full-noise-baseline",
+          "preset": "strong",
+          "fast": false,
+          "seed": 9035,
+          "seconds": 1.1259980276226997,
+          "output_sha256": "f66324cde4773b48f6d46088ffc98302c2960afd8aa147ccabdcff97ad4575d6",
+          "gain": 1.0,
+          "encoder_grids": [
+            {
+              "shape": [
+                1,
+                64,
+                53
+              ],
+              "stride": [
+                3392,
+                53,
+                1
+              ],
+              "dtype": "torch.float32",
+              "device": "cpu",
+              "finite": true
+            }
+          ],
+          "initial_state_sha256": [
+            "061a3d451026e8d8702f81d8c2747ee3630857453b1ea87b563541c6500fdae5"
+          ],
+          "final_rng_state_sha256": "3e847300435c549391b86105386c7ee6a9a0912c2ec321ae3e9233f4ce29e1f4",
+          "optimization_counts": {}
+        },
+        {
+          "label": "strong-full-noise-fast",
+          "preset": "strong",
+          "fast": true,
+          "seed": 9035,
+          "seconds": 0.9873189507052302,
+          "output_sha256": "f66324cde4773b48f6d46088ffc98302c2960afd8aa147ccabdcff97ad4575d6",
+          "gain": 1.0,
+          "encoder_grids": [],
+          "initial_state_sha256": [
+            "061a3d451026e8d8702f81d8c2747ee3630857453b1ea87b563541c6500fdae5"
+          ],
+          "final_rng_state_sha256": "3e847300435c549391b86105386c7ee6a9a0912c2ec321ae3e9233f4ce29e1f4",
+          "optimization_counts": {
+            "skipped_encoder_calls": 1,
+            "fallback_calls": 0,
+            "condition_computations": 31,
+            "condition_cache_hits": 961,
+            "cached_flow_chunks": 1
+          }
+        },
+        {
+          "label": "spent-0",
+          "preset": "full-flow",
+          "fast": false,
+          "seed": 2035,
+          "seconds": 45.68422921653837,
+          "output_sha256": "4c99005d00fba4b3f0b09a732ec4a617829f4a432cce62c88c841f3a56fdf974",
+          "gain": 1.0,
+          "encoder_grids": [
+            {
+              "shape": [
+                1,
+                64,
+                1051
+              ],
+              "stride": [
+                67264,
+                1051,
+                1
+              ],
+              "dtype": "torch.float32",
+              "device": "cpu",
+              "finite": true
+            },
+            {
+              "shape": [
+                1,
+                64,
+                1051
+              ],
+              "stride": [
+                67264,
+                1051,
+                1
+              ],
+              "dtype": "torch.float32",
+              "device": "cpu",
+              "finite": true
+            },
+            {
+              "shape": [
+                1,
+                64,
+                1051
+              ],
+              "stride": [
+                67264,
+                1051,
+                1
+              ],
+              "dtype": "torch.float32",
+              "device": "cpu",
+              "finite": true
+            },
+            {
+              "shape": [
+                1,
+                64,
+                139
+              ],
+              "stride": [
+                8896,
+                139,
+                1
+              ],
+              "dtype": "torch.float32",
+              "device": "cpu",
+              "finite": true
+            }
+          ],
+          "initial_state_sha256": [
+            "aa7ecc91853d388620534272da05a4b2ef0fa4113b202d370db8ac54717482fe",
+            "55fb9fd4cedddbb6a3b5f50c78986fc707e1c216ddc0d81002b042292470f7dc",
+            "3dbbac8c3b3521f597e3ad47e4f300a25c8e9b7dede44a55c6f28f1fb2fa4976",
+            "daff42cadebfe770f0f0218d349ee4f6e9ea16be52fff3338aeea9d2b6918a15"
+          ],
+          "final_rng_state_sha256": "cc99daa85ba63bc799112e67c1db6f21d10f4c65a4dd1adf097f703e24de9128",
+          "optimization_counts": {}
+        },
+        {
+          "label": "spent-1",
+          "preset": "full-flow",
+          "fast": true,
+          "seed": 2035,
+          "seconds": 44.99040676280856,
+          "output_sha256": "4c99005d00fba4b3f0b09a732ec4a617829f4a432cce62c88c841f3a56fdf974",
+          "gain": 1.0,
+          "encoder_grids": [],
+          "initial_state_sha256": [
+            "aa7ecc91853d388620534272da05a4b2ef0fa4113b202d370db8ac54717482fe",
+            "55fb9fd4cedddbb6a3b5f50c78986fc707e1c216ddc0d81002b042292470f7dc",
+            "3dbbac8c3b3521f597e3ad47e4f300a25c8e9b7dede44a55c6f28f1fb2fa4976",
+            "daff42cadebfe770f0f0218d349ee4f6e9ea16be52fff3338aeea9d2b6918a15"
+          ],
+          "final_rng_state_sha256": "cc99daa85ba63bc799112e67c1db6f21d10f4c65a4dd1adf097f703e24de9128",
+          "optimization_counts": {
+            "skipped_encoder_calls": 4,
+            "fallback_calls": 0,
+            "condition_computations": 124,
+            "condition_cache_hits": 3844,
+            "cached_flow_chunks": 4
+          }
+        },
+        {
+          "label": "spent-2",
+          "preset": "full-flow",
+          "fast": true,
+          "seed": 2035,
+          "seconds": 44.75171136204153,
+          "output_sha256": "4c99005d00fba4b3f0b09a732ec4a617829f4a432cce62c88c841f3a56fdf974",
+          "gain": 1.0,
+          "encoder_grids": [],
+          "initial_state_sha256": [
+            "aa7ecc91853d388620534272da05a4b2ef0fa4113b202d370db8ac54717482fe",
+            "55fb9fd4cedddbb6a3b5f50c78986fc707e1c216ddc0d81002b042292470f7dc",
+            "3dbbac8c3b3521f597e3ad47e4f300a25c8e9b7dede44a55c6f28f1fb2fa4976",
+            "daff42cadebfe770f0f0218d349ee4f6e9ea16be52fff3338aeea9d2b6918a15"
+          ],
+          "final_rng_state_sha256": "cc99daa85ba63bc799112e67c1db6f21d10f4c65a4dd1adf097f703e24de9128",
+          "optimization_counts": {
+            "skipped_encoder_calls": 4,
+            "fallback_calls": 0,
+            "condition_computations": 124,
+            "condition_cache_hits": 3844,
+            "cached_flow_chunks": 4
+          }
+        },
+        {
+          "label": "spent-3",
+          "preset": "full-flow",
+          "fast": false,
+          "seed": 2035,
+          "seconds": 45.772250877693295,
+          "output_sha256": "4c99005d00fba4b3f0b09a732ec4a617829f4a432cce62c88c841f3a56fdf974",
+          "gain": 1.0,
+          "encoder_grids": [
+            {
+              "shape": [
+                1,
+                64,
+                1051
+              ],
+              "stride": [
+                67264,
+                1051,
+                1
+              ],
+              "dtype": "torch.float32",
+              "device": "cpu",
+              "finite": true
+            },
+            {
+              "shape": [
+                1,
+                64,
+                1051
+              ],
+              "stride": [
+                67264,
+                1051,
+                1
+              ],
+              "dtype": "torch.float32",
+              "device": "cpu",
+              "finite": true
+            },
+            {
+              "shape": [
+                1,
+                64,
+                1051
+              ],
+              "stride": [
+                67264,
+                1051,
+                1
+              ],
+              "dtype": "torch.float32",
+              "device": "cpu",
+              "finite": true
+            },
+            {
+              "shape": [
+                1,
+                64,
+                139
+              ],
+              "stride": [
+                8896,
+                139,
+                1
+              ],
+              "dtype": "torch.float32",
+              "device": "cpu",
+              "finite": true
+            }
+          ],
+          "initial_state_sha256": [
+            "aa7ecc91853d388620534272da05a4b2ef0fa4113b202d370db8ac54717482fe",
+            "55fb9fd4cedddbb6a3b5f50c78986fc707e1c216ddc0d81002b042292470f7dc",
+            "3dbbac8c3b3521f597e3ad47e4f300a25c8e9b7dede44a55c6f28f1fb2fa4976",
+            "daff42cadebfe770f0f0218d349ee4f6e9ea16be52fff3338aeea9d2b6918a15"
+          ],
+          "final_rng_state_sha256": "cc99daa85ba63bc799112e67c1db6f21d10f4c65a4dd1adf097f703e24de9128",
+          "optimization_counts": {}
+        }
+      ]
+    }
+  ],
+  "production_runtime_changed": false,
+  "new_http_requests": 0,
+  "new_tts_requests": 0,
+  "new_quality_inferences": 0,
+  "fresh_efficacy_sources": 0,
+  "removal_efficacy_measured": false,
+  "limits": [
+    "These are two warm paired baseline/optimized runs on one spent 28.32-second mono source, plus short synthetic mono/stereo and preset-switch controls.",
+    "Observed one-to-two-percent gains were too small to justify adding the prototypes to the application.",
+    "The same rejected historical output was reproduced; sample parity and timings are not new removal or speech-quality evidence."
+  ]
+}

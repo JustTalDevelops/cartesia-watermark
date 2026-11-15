@@ -13,6 +13,7 @@ This directory mixes curated files included in Git with ignored local experiment
 | `sealed*.json`, `h2h4_*.json`, `val_scores_*.json` | Historical detector evaluation |
 | `align.json`, `mechanism.json`, `phase2.json`, `detect_cache.json` | Evidence for the watermark investigation |
 | `reconstruction_runtime.json` | Reconstruction worker timings and output-equivalence checks |
+| `reconstruction_flow_cache_runtime.json` | Two CPU prototypes reproduced samples, exact-file bytes and RNG state, but improved a warm 28.32-second recording by only 1–2%; neither was added to the application |
 | `reconstruction_local_shift.json` | A generated unmarked control exposing local-detector distribution shift after reconstruction |
 | `reconstruction_reliability.json` | Whole-file endpoint checks, repeats, provenance controls, and speech-quality estimates for the frozen full-flow candidate |
 | `reconstruction_vocoder.json` | Frozen vocoder measurements, its Japanese counterexample, and the fixed detector-checked fallback workflow with selected-output quality estimates |
