@@ -307,7 +307,34 @@ these timings exclude speech recognition, model startup and application overhead
 This method retains original signal information. Neither its timing nor a
 detector result establishes physical erasure. No fresh recordings were added.
 
+## Fixed full-flow follow-up
+
+The [completed full-flow panel](../results/fullflow_spent_development.json) retains
+all 25 spent failures with one fixed 32-evaluation midpoint preset and seed 2035.
+Sixteen failed speech guards, including three previously measured exact-file
+rejections reused without rerendering. All nine eligible outputs returned two
+negative responses and received separate reference checks. Four positive source
+controls complete the 22-request detector phase.
+
+Seven sources qualified: English 00, Spanish 04, German 14, Japanese 20, and
+Chinese 32, 33 and 35. French 10 failed its Small reference delta of 0.0370;
+Arabic 24 failed its MMS reference delta of 0.0448. Both exceed the unchanged
+0.03 limit despite negative detector replies. These seven successes overlap
+other development panels and do not validate a combined workflow or change the
+original 19/44 result. No fresh recordings, synthesis or human listening approval
+were added.
+
 ## Completed hard-case suppression failures
+
+The [completed DAC follow-up](../results/dac_followup_development.json) retains
+six continuous-feature outputs and twelve generated-DAC-donor repair slots across
+the same three Hindi/Tamil hard cases. Fourteen failed speech guards and one
+repair was unsafe. All three eligible outputs came from Tamil 42 and remained
+detected on both official checks, with four positive source controls and ten HTTP
+attempts in total. Every eligible output received its separate reference checks.
+The half-continuous DAC output and repaired continuous-local TiCodec output passed
+all seven quality estimates. The repaired continuous-both output additionally
+failed the Small recognizer's reference check. Zero removals qualified.
 
 The [generation ablation report](../results/hard_case_ablations_development.json)
 also retains nine outputs across Hindi 19 and Tamil 40 and 42. Increasing full-flow

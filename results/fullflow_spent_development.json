@@ -1,0 +1,2432 @@
+{
+  "kind": "Spent-source fixed full-flow development results",
+  "formatter_source_sha256": "fbb7ae4a150296437c3b9d1e8736a924d65882f949b6fd66a95b53e43250b456",
+  "declaration_sha256": "ead6b5e79178c00bc7ed7028815b10a41bae2af2ce24cf34ebf7ab7facefb83d",
+  "endpoint_sha256": "8aa471f2ee927fe37e4f382ea57634614784c1ed920b0230451f0b759f72d417",
+  "evaluation_sha256": "27944a98a098f68d39e71eff493ad11e4b5a37a47480b42b593ab45b9558e858",
+  "generation_sha256": "1bce8276f257bbecb701932c776086ab31421774114f4fc4fcef6fa8cdd474ed",
+  "completed_study_sha256": "777355dff6ed90ec0beec56558b0c3a4fc974abb88c38993d95d554c6040cd4b",
+  "code_files_sha256": {
+    "tools/verify_reconstruction.py": "7029453889415b86111ae5294e9233ce7786fad229d23e308a2b0046a376bfcc",
+    "tools/reconstruction_worker.py": "49b8816bd54a78957d45ed3596a63ba18a11bfa5eac0416070a85c692eef22f0",
+    "tools/codec_settings.py": "4ac4ab3d31ab5e037ae2c22d6f0070a5f947cf728d214a472417ec55d439b841",
+    "tools/codec_profiles.py": "7421dc49d291bd86251f8b7a8ad9706187bc5066b89cb1a990f97c38316947c6",
+    "tools/codec_assets.json": "99d443e93f0de80e837c50b17e0f93a796e0f19c05e1427d8fb33397ab62b1a5",
+    "tools/codec_audio.py": "2a0dac863e1d7c7577cf9f029f86b3973f90a6e77b935dc6bbce9169ff018f94",
+    "tools/codec_inference.py": "1f86876e3ab07e960dd9ac9c4ad9f1a773393ac31bdef969f9d25b52370d2a9e",
+    "tools/codec_teacher.py": "abebef4244f452e3d962ec6d88c9917806a98ad48512281875f41dc4d2cf3fb4",
+    "tools/codec_content.py": "1f7af6d64a8f79b80da9bbfb77f0d7497552b126fd189c8085e388e0604d97fe",
+    "tools/codec_text.py": "2b3f9503c9e39c330d60ae727415995822fec4daa4de7560572de905eab25f96",
+    "tools/codec_repair.py": "e6839578ce6d319e9463196521860b050d96f0f81f1ed8cafc14d3fe3918561a",
+    "tools/codec_word_consensus.py": "b8afdddddc1d8fab2b93036786a88ccb63473063dbc4e4572ed5d2619807a3f2",
+    "tools/korean_spacing.py": "2a191a4103a9a96539e99d138b6d74089a31b8ab36a60d26ac4c7bf3a1a6ca3a",
+    "tools/speech_repair.py": "4e3b883c3a2e0bf00546a5c4d5e4026aa1e875bca36881c4fe871e39675eb414",
+    "tools/speech_repair_assets.json": "2d1d68d1a00a006c0dc66b401ed21df291ff76fb4ab88b0f31f96960766226e2",
+    "tools/whisper_encoder_reuse.py": "1c2492c5ce80500b172d0657c3f73406b6b8b58f9c0d72b3b79c752bd203eb82",
+    "tools/reconstruct_codec.py": "ae8a607b333237bd4c01d3d4f7e8baa900a08ac39b8d70b60aafbe0add02d7de",
+    "tools/reconstruct_codec_band.py": "b5102f096a9a070b5496ced2f93ff3c29521d2326e78a2e8694a70bb7868e195",
+    "tools/vocoder_band_prior.py": "8b153b0e25421d560c3f9a41e5e36ea44f1ed0a7ad417b0c49af76f6e69b033f",
+    "tools/reconstruct_vocoder.py": "3378845287c3f1bf874147392184c5b15b43ca954adacd6eac484715e4564db0",
+    "tools/vocoder_inference.py": "38d02df4aa5d488aab7b37320dcbf6cc6e980178e23721783145adef138c37f2",
+    "tools/vocoder_assets.json": "ea7870e32da6336a800a3ddbe555d527267124470b44f8e7e0c72603aae4e7f6",
+    "tools/cartesia.py": "599d2b8b551af9f193bcc4c280f3b732a41c48c356c178ad747f17067eff5771",
+    "tools/eval_voice_quality.py": "f45829ffa8658c1158f44f7516bde482f391c71267ae6ba8b18c3853b3d747b2",
+    "tools/remover.py": "aad94e48280117f052aa8b0ce5ff8ae254154fb2611526852038912865666e6c",
+    "tools/quality_blend.py": "c74b1a6515d1b68d5edca69622b5242b78746b25186d8fab915194613d997df4",
+    "experiments/generate_codec_study.py": "9701ea895fb6328af4e2a1d6bde9341a92dfb7f01f7b09822d91f9574f866d20",
+    "experiments/run_codec_study.py": "9aaceb24c6c2786c0ac155a78832e0dd90f29578875f95453b05ba1c46305b65",
+    "experiments/run_codec_profiles.py": "a323bd4ddd08fdee42c65df353b42b64be3130ac687e5d8218fcb6cc5c5585ac",
+    "experiments/codec_profile_cache.py": "0a4b713275e89899414001494222ec486a781347babd12da6a83f6edf618a3ca",
+    "experiments/codec_profile_evaluation.py": "d191fea3a94f8bb2d85de7f5c6ba78cb0b179a47b3a6804f2aa7829ec1111f79",
+    "experiments/score_codec_study.py": "8fa758272b28150ba655243977e8ed82418231259ae158676daa27441dd8094c",
+    "experiments/codec_evaluation_text.py": "9d05a9350507e45912e47f0200f64732ed5cf03bc3d6581e8c6ad992ff4e2876",
+    "experiments/codec_evaluation_assets.json": "df1d047b380f6d218727bd451988a7823c9f82fb652aa62d7542b81b129e3dfc",
+    "experiments/freeze_codec_profiles.py": "95c78b910d10ded5df4e5f31f6f24c7efa0ebc33bc6a13fd05f16584a055d433",
+    "requirements/codec.txt": "bfe8b7b4d36b0e59dba5cd19b03077080f733480bbdaf94c6e46b38e39e789f1",
+    "requirements/speech_repair.txt": "9a20eb7a29bbf29cdb23239aecd0c81b011c537e497903c331ecc83379647b44",
+    "requirements/verification.txt": "d9332dade574c76d8794e0e5d7cccc1b8c654f008be8ea14ae68411ceb3f6dd7",
+    "requirements/vocoder.txt": "36aaf5ee7d8f582d03f0614f50305f9de3ade062de4e65e761ae4b5601929551",
+    "requirements/codec_evaluation.txt": "c82b1fd37c9d379c98fc251ac4c5f8544daa2fbea890d04f325a1240050b37b9",
+    "requirements/eval.txt": "c429198bfcf1459b979c377136e235a953360f86c952c4c1e202d77943e03af5",
+    "requirements/inference.txt": "38c7e9ab6bb997b1265e43417d9f1b3fecb1b27dca1662a772dcd584d1779785",
+    "experiments/ticodec_adapter.py": "96be43a9e19b110fb98d414954b7d2339beb3cf607f13b508ad324aeef1e89b6",
+    "experiments/ticodec_assets.json": "214bdc2a2c2fc259bb63758846420a7ebd5457ceac20a547350a5ae07b084ba7",
+    "experiments/validate_ticodec.py": "5310d4750f86c91a9f73e9ae37ff0308b44588d3de46547f9fcc649854a715a1",
+    "experiments/probe_ticodec.py": "bbca3d80a0d35909260ada3f1827570c7827ded3df66da06fe2740aad06386b6",
+    "experiments/probe_codec_frames.py": "19e369e66ce9231fdc3f55006b9e11b523d5ed991063127518213c4d0322aeb8",
+    "experiments/codec_profiles_report.py": "047d998495ef6bb2aee144a5308e16d063d3e997e559836453a1308dbb393a25",
+    "private-prototype/probe_fullflow_spent_profiles.py": "1b4e6330fbfa618e938a027777972bcb9f3605257ad14fcfb6178facda819f18",
+    "tools/reconstruct_audio.py": "25f3e120598995e398fe76a68a3fda943b53e4f294cad5887207888fb9229c96",
+    "tools/reconstruction_inference.py": "1a3c6b8ae05019f04b9650a11b81a331b4ef6b11e9dc43c34e95a0371cbf8a8f",
+    "upstream/resemble-enhance/app.py": "a3eb9a342d5d6826531f81aee1dec0967bbca57f0bb79459b17fd4b8ad0f7694",
+    "upstream/resemble-enhance/resemble_enhance/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "upstream/resemble-enhance/resemble_enhance/common.py": "675da1829bea4d8cac20a253e452dfbe546599c6886f99979d43be2578fa3916",
+    "upstream/resemble-enhance/resemble_enhance/data/__init__.py": "d85bb70e0843216e1080f687fcfd3c3ebe2d255e3ae086742cf0b5c727b95459",
+    "upstream/resemble-enhance/resemble_enhance/data/dataset.py": "c7a2988a8d49c7f3066d13ad2f9863bee654e5019ad3804b397b0d4793b33ab9",
+    "upstream/resemble-enhance/resemble_enhance/data/distorter/__init__.py": "2e48ff07b2e6efa36fbfe3dd54918e9c94e2a97f6fd3b29ed5b1789cd25ec9d1",
+    "upstream/resemble-enhance/resemble_enhance/data/distorter/base.py": "00f358781fcacaf9378aa71afca2d04809c52cd8c81b74a8e53480f3bcc95e9c",
+    "upstream/resemble-enhance/resemble_enhance/data/distorter/custom.py": "dee3898a8659b843f405ab9b7e9012562148cb48ce8bfb9eecd9289778fbf8d5",
+    "upstream/resemble-enhance/resemble_enhance/data/distorter/distorter.py": "08b4bdf4ffaefd35653c710a58b3460a598dc5ff169f0de0554ce0fc4debab3c",
+    "upstream/resemble-enhance/resemble_enhance/data/distorter/sox.py": "c5f7857c0339b375c639d1b7afb74c03d5cfab5cf7bf0a22315f32520dfa97c2",
+    "upstream/resemble-enhance/resemble_enhance/data/utils.py": "0877084924f9d4351ddee1b874979779028eb0abe25d43f9dcaca8f0d8922722",
+    "upstream/resemble-enhance/resemble_enhance/denoiser/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "upstream/resemble-enhance/resemble_enhance/denoiser/__main__.py": "d0fa73fca65fde0c197ac2756954d6f2cbd11bfebc4dfe380ef3fa13f83b9a88",
+    "upstream/resemble-enhance/resemble_enhance/denoiser/denoiser.py": "08fb8ad44cde940ad78776d7ca140dfefb113e172be7515878f39b8b1457d7e3",
+    "upstream/resemble-enhance/resemble_enhance/denoiser/hparams.py": "ab3abc1ca8f2814edd7e5a3461d78637a4c8e6c76ad1cfd2a89f86cf95b428f6",
+    "upstream/resemble-enhance/resemble_enhance/denoiser/inference.py": "986f565b978e35dfc84ab917130165cb74c98dc1bf38545281d64f469c556ac2",
+    "upstream/resemble-enhance/resemble_enhance/denoiser/train.py": "56914893fb3973449708d05121bf701952687633ba92d05c3776da2140420ff5",
+    "upstream/resemble-enhance/resemble_enhance/denoiser/unet.py": "13da1f566436e2416ca34010b595a26831fd39c1b1e296db6560fe0df4036aa5",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/__main__.py": "e4c312523314183c0029f6affe0550c1965d9a87a6b7d005bf32792944b08d64",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/download.py": "5c47bf7a47c89e74fafd9b915b2299c24df8723a8d0f78bf1d2f0f1e250b18da",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/enhancer.py": "6e6d6ece0df0f02d94c3fdf12ddd6d569f36bfd21d89f0bc81b7257166a66670",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/hparams.py": "a74036ab7b8a031d7501486a7de2e9a6de9acae6520c91e4c81e4624f8f39c89",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/inference.py": "46bc03443e477118c3e09fde94db3e4431a48f2dfac65f63d6beab57b6b91427",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/lcfm/__init__.py": "cb74de38d184a307ca9a9156859a4699daf960300034130660ebc616bf32a1de",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/lcfm/cfm.py": "e2a920d0d0dcbbaef08c6fd8fbba21fa03fc06641224db6941a9327bae3b5db2",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/lcfm/irmae.py": "10ff0e32d24b55caa7b0af02002645621d815a178e05abb7760cdde7d3ec87fd",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/lcfm/lcfm.py": "97ed3982a8c94a7070c9a3295f764610387191776a13fd504279abdcdd475dd5",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/lcfm/wn.py": "649d0c55699a0363e9e9e661b761faed98f6f3f394b022380e4fff547956eb8d",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/train.py": "1ed24e2fe84ec61235577e99f6bba7d5aecce3eff649ce2d1c82a451a51fde81",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/univnet/__init__.py": "e217a0bce1ed367d7dd8feedbe2d67a77e99256e161f64a887542a828109ec1a",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/univnet/alias_free_torch/__init__.py": "d5e4587b0a372029705f55ff1c35bf6e08763a483de36e33f391e10af7dd4f71",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/univnet/alias_free_torch/filter.py": "3534e2fe065399c9332541e6f9b600bbef8dde9fe8ad0a753b79b4346d4cd633",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/univnet/alias_free_torch/resample.py": "7f0fcf223b03d260930f86cb21d2a21932ed7930687ca0570b566fc27bb114b2",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/univnet/amp.py": "ea3e584f47ae835bfebbd6036b8ef7ed4fe9b01b3559453024256772991f7beb",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/univnet/discriminator.py": "aa6038be73b18a035f9dce80007e3987ab22afa27db89b55d75b9a84fcface59",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/univnet/lvcnet.py": "75a6cd226c087afbc7ebb79c58bd0a0a7e4c5ae4ec70760442e1e1a8ecb672cb",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/univnet/mrstft.py": "394ce2d1a5ea90bf1922bb02ad849783edc82f1ce868d760d3de33308cb7337e",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/univnet/univnet.py": "c13501d780081ae8d46e2aac80cb9b88c262e053533368d11f8f14b3e31266b7",
+    "upstream/resemble-enhance/resemble_enhance/hparams.py": "f0ab1195a3e6a7869e2f1ad3279f064df57717fa6486540375ed816b00290194",
+    "upstream/resemble-enhance/resemble_enhance/inference.py": "e70f97b2203879185c4c136fbee519cddf65290264f5ac2d8bbb4f9b7e93d32e",
+    "upstream/resemble-enhance/resemble_enhance/melspec.py": "b80ddfad3e0cb10a583eead8436b63729803e3990b6d96601104d688105c32e5",
+    "upstream/resemble-enhance/resemble_enhance/utils/__init__.py": "ef7b9d042959b7ffbd74d27f80427b5f764bf509eb22d39fc7a48f38471155aa",
+    "upstream/resemble-enhance/resemble_enhance/utils/control.py": "d8f82ff89af99cf931bbd68eb6e0ccabfec1ae54fa940d91b015e13f044e04c3",
+    "upstream/resemble-enhance/resemble_enhance/utils/distributed.py": "2d9e805f9cb5a390e449534485f22901a0b1b8eee19d38381f1aa7c9e21a14af",
+    "upstream/resemble-enhance/resemble_enhance/utils/engine.py": "550bae1158d61c3f44e95939a14c8a1c0fe2578cf87ccbd7b381923acc161be4",
+    "upstream/resemble-enhance/resemble_enhance/utils/logging.py": "6bd0c8333452d7c245b17796542f6e52384117c3fc67a532554a7533ca46bee6",
+    "upstream/resemble-enhance/resemble_enhance/utils/train_loop.py": "6f8c8b95649e21777ca13cb9f88015fee3470b7218866d3e154839111c54ce19",
+    "upstream/resemble-enhance/resemble_enhance/utils/utils.py": "e004f02f45cc083ffe56d0d8869f23f423adced6226da6a769b9004e1fe224b8",
+    "upstream/resemble-enhance/setup.py": "f4a9ccd3399c3d199d59a476f26b1ed8cd07ec849f4ba82e2c49e314492cffb5",
+    "private-prototype/probe_resemble_hard3.py": "35786258f47bb4202a4bda16fb8938ff120ed4a7a1114282a18e68397d0fad9f",
+    "private-prototype/check_fullflow_spent_panel.py": "4a80af63808fa36cf2bea7d12d465232b51e26b03e9dfaa1031d221486c74386",
+    "private-prototype/fullflow_spent_panel_report.py": "0eb77a5146e45d863cff287a867c37a60427b6c4831460f329772cfca1e2330c",
+    "private-prototype/fullflow_spent_panel.protocol.md": "d057c24ceb8e720ff0f4c9395d9d143eeca60976ebfb2fc394b85438c39ed82f",
+    "experiments/check_codec_frames.py": "83677021e116b10a1aa1ededa516e079f49669a1d1fc3ef99e7ffe6e778e3466",
+    "experiments/check_ticodec_latents.py": "74920b2e28768844524359785e366de1093ed6c20995b2957428d1431cfcf136",
+    "experiments/ticodec_panel_report.py": "6f7ee64041ec475a5248ee6d0e8b45073895a3464102b90832dd32ddf56766d1"
+  },
+  "evaluation_checkpoints": {
+    "small": {
+      "raw_transcription_helper_metadata": {
+        "model": "openai/whisper-small",
+        "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+        "attention": "sdpa",
+        "precision": "float32",
+        "decode": "Native timestamps, minimum30s features, complete longer input, max_new_tokens440, no sampling/previous-text conditioning",
+        "role": "Evaluation-only checkpoint",
+        "reference_normalization": "NFKC, BasicTextNormalizer(False); Chinese OpenCC1.1.9 t2s.json before reference CER; Japanese CER; whitespace WER otherwise",
+        "paired_normalization": "Original runtime normalization: NFKC BasicTextNormalizer(False), zh/ja characters, whitespace otherwise"
+      },
+      "study_role": "Evaluation transcription only; see the language roles"
+    },
+    "large": {
+      "raw_transcription_helper_metadata": {
+        "model": "openai/whisper-large-v3",
+        "revision": "06f233fe06e710322aca913c1bc4249a0d71fce1",
+        "license": "Apache-2.0",
+        "attention": "sdpa",
+        "precision": "float32",
+        "decode": "Native timestamps, minimum30s features, complete longer input, max_new_tokens440, no sampling/previous-text conditioning",
+        "role": "Arabic evaluation transcription; shares Whisper ancestry with Turbo",
+        "reference_normalization": "Raw transcription cache; scoring uses the prospective codec_text policy"
+      },
+      "study_role": "Evaluation transcription only; see the language roles"
+    },
+    "mms": {
+      "raw_transcription_helper_metadata": {
+        "model": "facebook/mms-1b-all",
+        "revision": "3d33597edbdaaba14a8e858e2c8caa76e3cec0cd",
+        "attention": "sdpa",
+        "precision": "float32",
+        "role": "Also participates in the processing guard",
+        "reference_normalization": "NFKC, BasicTextNormalizer(False); Chinese OpenCC1.1.9 t2s.json before reference CER; Japanese CER; whitespace WER otherwise",
+        "paired_normalization": "Original runtime normalization: NFKC BasicTextNormalizer(False), zh/ja characters, whitespace otherwise"
+      },
+      "study_role": "Evaluation transcription only; see the language roles"
+    }
+  },
+  "model": {
+    "family": "Resemble Enhance",
+    "checkpoint_sha256": "f9d035f318de3e6d919bc70cf7ad7d32b4fe92ec5cbe0b30029a27f5db07d9d6",
+    "settings": {
+      "nfe": 32,
+      "solver": "midpoint",
+      "lambd": 0.1,
+      "tau": 1.0
+    },
+    "seed": 2035,
+    "precision": "float32",
+    "boundary_safe": true,
+    "trained_by_this_project": false
+  },
+  "planned_spent_sources": 25,
+  "planned_generation_treatments": 25,
+  "new_endpoint_treatments": 9,
+  "qualified_spent_sources": 7,
+  "qualified_treatments": 7,
+  "treatments": [
+    {
+      "id": "profiles_fresh_00_en_sonic-preview",
+      "method": "full-flow-seed2035",
+      "processing_status": "processing_eligible",
+      "endpoint_phase_status": "pending",
+      "sha256": "3d80fa17e3980d3a62abfd3e1b88d1fcf595081fe6485208bca0e4f8ec46b416",
+      "language": "en",
+      "source_sha256": "edb551f5d795d538ddeaefe6434f7240f7c4edebb235e48d557fbc5f2f73fc99",
+      "source_format": {
+        "samples": 1167768,
+        "sample_rate": 44100,
+        "channels": 2
+      },
+      "speech_assessment": {
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "turbo": 0.0,
+          "sensevoice": 0.0
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "sensevoice",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 85,
+          "sensevoice": 85
+        },
+        "processed_units": {
+          "turbo": 85,
+          "sensevoice": 85
+        }
+      },
+      "runtime_quality_guard": {
+        "passed": true,
+        "source_sha256": "edb551f5d795d538ddeaefe6434f7240f7c4edebb235e48d557fbc5f2f73fc99",
+        "candidate_sha256": "3d80fa17e3980d3a62abfd3e1b88d1fcf595081fe6485208bca0e4f8ec46b416",
+        "speaker_minimum": 0.9834863256558053,
+        "speaker_minimum_required": 0.95,
+        "dnsmos_overall_delta": -0.05337217754572876,
+        "dnsmos_overall_delta_required": -0.2,
+        "receipt_sha256": "619256e9ca0605485305ac2fe4ec9d94b5be4af189bceb18927d72d07bda04f1",
+        "same_file_estimates_reused": false,
+        "independent_evaluation": false,
+        "reference_text_used": false
+      },
+      "qualified_spent_transition": true,
+      "quality_gate_results": {
+        "turbo_paired": true,
+        "sensevoice_paired": true,
+        "turbo_reference_delta": true,
+        "sensevoice_reference_delta": true,
+        "evaluation_small_reference_delta": true,
+        "speaker_minimum": true,
+        "dnsmos_overall": true
+      },
+      "calibrated_original_checkpoints": 3,
+      "source_calibration_sufficient": true,
+      "all_estimated_quality_gates_passed": true,
+      "quality_qualified": true,
+      "detected": false,
+      "original_reference_error": {
+        "turbo": 0.0,
+        "sensevoice": 0.0,
+        "small": 0.0
+      },
+      "guard_reference_delta": {
+        "turbo": 0.0,
+        "sensevoice": 0.0
+      },
+      "independent_evaluation": [
+        {
+          "id": "profiles_fresh_00_en_sonic-preview__full-flow-seed2035",
+          "metric": "small",
+          "language": "en",
+          "source_sha256": "edb551f5d795d538ddeaefe6434f7240f7c4edebb235e48d557fbc5f2f73fc99",
+          "original": {
+            "reference_error": 0.0,
+            "reference_units": 85,
+            "recognized_units": 85,
+            "comparison_units": "words",
+            "raw_word_reference_error_diagnostic_only": 0.0,
+            "maximum_reference_delta": 0.03,
+            "original_calibration_ceiling": 0.15,
+            "calibrated": true
+          },
+          "status": "scored",
+          "output_sha256": "3d80fa17e3980d3a62abfd3e1b88d1fcf595081fe6485208bca0e4f8ec46b416",
+          "processed": {
+            "reference_error": 0.0,
+            "reference_units": 85,
+            "recognized_units": 85,
+            "comparison_units": "words",
+            "raw_word_reference_error_diagnostic_only": 0.0,
+            "maximum_reference_delta": 0.03,
+            "original_calibration_ceiling": 0.15,
+            "calibrated": true
+          },
+          "reference_error_delta": 0.0,
+          "reference_delta_passed": true
+        }
+      ],
+      "voice_estimates": {
+        "id": "profiles_fresh_00_en_sonic-preview",
+        "source_sha256": "edb551f5d795d538ddeaefe6434f7240f7c4edebb235e48d557fbc5f2f73fc99",
+        "language": "en",
+        "original_dnsmos": {
+          "signal": 3.7554651738735703,
+          "background": 4.224490487064131,
+          "overall": 3.5506698947440998,
+          "windows": 17,
+          "natural_seconds": 26.48
+        },
+        "window_starts_seconds": [
+          0.296,
+          8.24,
+          16.184
+        ],
+        "speaker_window_cosines": [
+          0.9889973278547297,
+          0.9908403330232639,
+          0.9834863256558053
+        ],
+        "speaker_minimum": 0.9834863256558053,
+        "processed_dnsmos": {
+          "signal": 3.7206917978894767,
+          "background": 4.175853709496754,
+          "overall": 3.497297717198371,
+          "windows": 17,
+          "natural_seconds": 26.48
+        },
+        "dnsmos_delta": {
+          "signal": -0.03477337598409358,
+          "background": -0.04863677756737683,
+          "overall": -0.05337217754572876
+        },
+        "output_sha256": "3d80fa17e3980d3a62abfd3e1b88d1fcf595081fe6485208bca0e4f8ec46b416",
+        "status": "scored"
+      },
+      "identical_file_observations_reused": false
+    },
+    {
+      "id": "profiles_fresh_04_es_sonic-preview",
+      "method": "full-flow-seed2035",
+      "processing_status": "processing_eligible",
+      "endpoint_phase_status": "pending",
+      "sha256": "d236e16155ea3fcc19cfd20eb676b89558ac495c798207539ccdd793d72a5aa2",
+      "language": "es",
+      "source_sha256": "9f4bb0990d5dff0d4f8a05e93e2f665702cdbe4452432a2bd4bb0e1a5212fe2b",
+      "source_format": {
+        "samples": 1203048,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "speech_assessment": {
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "turbo": 0.0,
+          "mms": 0.0
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 81,
+          "mms": 81
+        },
+        "processed_units": {
+          "turbo": 81,
+          "mms": 81
+        }
+      },
+      "runtime_quality_guard": {
+        "passed": true,
+        "source_sha256": "9f4bb0990d5dff0d4f8a05e93e2f665702cdbe4452432a2bd4bb0e1a5212fe2b",
+        "candidate_sha256": "d236e16155ea3fcc19cfd20eb676b89558ac495c798207539ccdd793d72a5aa2",
+        "speaker_minimum": 0.9880496474302428,
+        "speaker_minimum_required": 0.95,
+        "dnsmos_overall_delta": 0.049541090225431184,
+        "dnsmos_overall_delta_required": -0.2,
+        "receipt_sha256": "5be60fa76763136639975603d024cc035b9b335eefee407652b1c00ef143790e",
+        "same_file_estimates_reused": false,
+        "independent_evaluation": false,
+        "reference_text_used": false
+      },
+      "qualified_spent_transition": true,
+      "quality_gate_results": {
+        "turbo_paired": true,
+        "mms_paired": true,
+        "turbo_reference_delta": true,
+        "mms_reference_delta": true,
+        "evaluation_small_reference_delta": true,
+        "speaker_minimum": true,
+        "dnsmos_overall": true
+      },
+      "calibrated_original_checkpoints": 3,
+      "source_calibration_sufficient": true,
+      "all_estimated_quality_gates_passed": true,
+      "quality_qualified": true,
+      "detected": false,
+      "original_reference_error": {
+        "turbo": 0.0,
+        "mms": 0.0,
+        "small": 0.0
+      },
+      "guard_reference_delta": {
+        "turbo": 0.0,
+        "mms": 0.0
+      },
+      "independent_evaluation": [
+        {
+          "id": "profiles_fresh_04_es_sonic-preview__full-flow-seed2035",
+          "metric": "small",
+          "language": "es",
+          "source_sha256": "9f4bb0990d5dff0d4f8a05e93e2f665702cdbe4452432a2bd4bb0e1a5212fe2b",
+          "original": {
+            "reference_error": 0.0,
+            "reference_units": 81,
+            "recognized_units": 81,
+            "comparison_units": "words",
+            "raw_word_reference_error_diagnostic_only": 0.0,
+            "maximum_reference_delta": 0.03,
+            "original_calibration_ceiling": 0.15,
+            "calibrated": true
+          },
+          "status": "scored",
+          "output_sha256": "d236e16155ea3fcc19cfd20eb676b89558ac495c798207539ccdd793d72a5aa2",
+          "processed": {
+            "reference_error": 0.0,
+            "reference_units": 81,
+            "recognized_units": 81,
+            "comparison_units": "words",
+            "raw_word_reference_error_diagnostic_only": 0.0,
+            "maximum_reference_delta": 0.03,
+            "original_calibration_ceiling": 0.15,
+            "calibrated": true
+          },
+          "reference_error_delta": 0.0,
+          "reference_delta_passed": true
+        }
+      ],
+      "voice_estimates": {
+        "id": "profiles_fresh_04_es_sonic-preview",
+        "source_sha256": "9f4bb0990d5dff0d4f8a05e93e2f665702cdbe4452432a2bd4bb0e1a5212fe2b",
+        "language": "es",
+        "original_dnsmos": {
+          "signal": 3.6210541560679124,
+          "background": 4.156667945178285,
+          "overall": 3.393401646657426,
+          "windows": 18,
+          "natural_seconds": 27.28
+        },
+        "window_starts_seconds": [
+          0.456,
+          8.64,
+          16.824
+        ],
+        "speaker_window_cosines": [
+          0.9880496474302428,
+          0.9932716942189788,
+          0.9907425347002042
+        ],
+        "speaker_minimum": 0.9880496474302428,
+        "processed_dnsmos": {
+          "signal": 3.6706709444686103,
+          "background": 4.169503391964745,
+          "overall": 3.4429427368828573,
+          "windows": 18,
+          "natural_seconds": 27.28
+        },
+        "dnsmos_delta": {
+          "signal": 0.04961678840069794,
+          "background": 0.012835446786460203,
+          "overall": 0.049541090225431184
+        },
+        "output_sha256": "d236e16155ea3fcc19cfd20eb676b89558ac495c798207539ccdd793d72a5aa2",
+        "status": "scored"
+      },
+      "identical_file_observations_reused": false
+    },
+    {
+      "id": "profiles_fresh_10_fr_sonic-preview",
+      "method": "full-flow-seed2035",
+      "processing_status": "processing_eligible",
+      "endpoint_phase_status": "pending",
+      "sha256": "eb37cf2da95da43e033969cff068c099c590484d0a4ccdc9a3dad3eda8aaa5b6",
+      "language": "fr",
+      "source_sha256": "cc9b132b7e2c8ab443ef6431fb8d1d5ba8e5b74f6cd82d901611b0d6cfa5bbce",
+      "source_format": {
+        "samples": 1054872,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "speech_assessment": {
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "turbo": 0.0,
+          "mms": 0.012345679012345678
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 81,
+          "mms": 81
+        },
+        "processed_units": {
+          "turbo": 81,
+          "mms": 81
+        }
+      },
+      "runtime_quality_guard": {
+        "passed": true,
+        "source_sha256": "cc9b132b7e2c8ab443ef6431fb8d1d5ba8e5b74f6cd82d901611b0d6cfa5bbce",
+        "candidate_sha256": "eb37cf2da95da43e033969cff068c099c590484d0a4ccdc9a3dad3eda8aaa5b6",
+        "speaker_minimum": 0.9847252433282707,
+        "speaker_minimum_required": 0.95,
+        "dnsmos_overall_delta": -0.13638759891725405,
+        "dnsmos_overall_delta_required": -0.2,
+        "receipt_sha256": "2b8ebd8ba513e4656b02c39362b6d83cec5052cbf529bc462cfe872d04f7af3a",
+        "same_file_estimates_reused": false,
+        "independent_evaluation": false,
+        "reference_text_used": false
+      },
+      "qualified_spent_transition": false,
+      "quality_gate_results": {
+        "turbo_paired": true,
+        "mms_paired": true,
+        "turbo_reference_delta": true,
+        "mms_reference_delta": true,
+        "evaluation_small_reference_delta": false,
+        "speaker_minimum": true,
+        "dnsmos_overall": true
+      },
+      "calibrated_original_checkpoints": 3,
+      "source_calibration_sufficient": true,
+      "all_estimated_quality_gates_passed": false,
+      "quality_qualified": false,
+      "detected": false,
+      "original_reference_error": {
+        "turbo": 0.0,
+        "mms": 0.0,
+        "small": 0.012345679012345678
+      },
+      "guard_reference_delta": {
+        "turbo": 0.0,
+        "mms": 0.012345679012345678
+      },
+      "independent_evaluation": [
+        {
+          "id": "profiles_fresh_10_fr_sonic-preview__full-flow-seed2035",
+          "metric": "small",
+          "language": "fr",
+          "source_sha256": "cc9b132b7e2c8ab443ef6431fb8d1d5ba8e5b74f6cd82d901611b0d6cfa5bbce",
+          "original": {
+            "reference_error": 0.012345679012345678,
+            "reference_units": 81,
+            "recognized_units": 81,
+            "comparison_units": "words",
+            "raw_word_reference_error_diagnostic_only": 0.012345679012345678,
+            "maximum_reference_delta": 0.03,
+            "original_calibration_ceiling": 0.15,
+            "calibrated": true
+          },
+          "status": "scored",
+          "output_sha256": "eb37cf2da95da43e033969cff068c099c590484d0a4ccdc9a3dad3eda8aaa5b6",
+          "processed": {
+            "reference_error": 0.04938271604938271,
+            "reference_units": 81,
+            "recognized_units": 82,
+            "comparison_units": "words",
+            "raw_word_reference_error_diagnostic_only": 0.04938271604938271,
+            "maximum_reference_delta": 0.03,
+            "original_calibration_ceiling": 0.15,
+            "calibrated": true
+          },
+          "reference_error_delta": 0.037037037037037035,
+          "reference_delta_passed": false
+        }
+      ],
+      "voice_estimates": {
+        "id": "profiles_fresh_10_fr_sonic-preview",
+        "source_sha256": "cc9b132b7e2c8ab443ef6431fb8d1d5ba8e5b74f6cd82d901611b0d6cfa5bbce",
+        "language": "fr",
+        "original_dnsmos": {
+          "signal": 3.8219336899301752,
+          "background": 4.220083592743708,
+          "overall": 3.6301771057923715,
+          "windows": 14,
+          "natural_seconds": 23.92
+        },
+        "window_starts_seconds": [
+          0.0,
+          6.96,
+          13.92
+        ],
+        "speaker_window_cosines": [
+          0.9925076806643311,
+          0.9861002693588214,
+          0.9847252433282707
+        ],
+        "speaker_minimum": 0.9847252433282707,
+        "processed_dnsmos": {
+          "signal": 3.725334476760103,
+          "background": 4.131832321810084,
+          "overall": 3.4937895068751175,
+          "windows": 14,
+          "natural_seconds": 23.92
+        },
+        "dnsmos_delta": {
+          "signal": -0.09659921317007214,
+          "background": -0.0882512709336245,
+          "overall": -0.13638759891725405
+        },
+        "output_sha256": "eb37cf2da95da43e033969cff068c099c590484d0a4ccdc9a3dad3eda8aaa5b6",
+        "status": "scored"
+      },
+      "identical_file_observations_reused": false
+    },
+    {
+      "id": "profiles_fresh_11_fr_sonic-3.6",
+      "method": "full-flow-seed2035",
+      "processing_status": "content_rejected",
+      "endpoint_phase_status": "processing_rejected",
+      "sha256": "5989b2437d25367b0f825132fd3155dfab1d8caf131fe3f29db2dd0814237758",
+      "language": "fr",
+      "source_sha256": "51c1764f7385ebca9daaf8c69f2c8f253ed2a7f6d82fa22926a252152ab54239",
+      "source_format": {
+        "samples": 1100736,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "turbo": null,
+          "mms": 0.038461538461538464
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 80,
+          "mms": 78
+        },
+        "processed_units": {
+          "turbo": 0,
+          "mms": 78
+        }
+      },
+      "runtime_quality_guard": null,
+      "qualified_spent_transition": false
+    },
+    {
+      "id": "profiles_fresh_13_de_sonic-3.6",
+      "method": "full-flow-seed2035",
+      "processing_status": "content_rejected",
+      "endpoint_phase_status": "processing_rejected",
+      "sha256": "b3b86c5c083a89d9c41b2cea6e64b0f5f9fbca1655530c191453906f2df85e17",
+      "language": "de",
+      "source_sha256": "0ff7a36f3e0071b35a20ffeafc2f260b664ef3b29f3aa5295955ea85658ab2dc",
+      "source_format": {
+        "samples": 1125432,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "turbo": null,
+          "mms": 0.07246376811594203
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 70,
+          "mms": 69
+        },
+        "processed_units": {
+          "turbo": 0,
+          "mms": 66
+        }
+      },
+      "runtime_quality_guard": null,
+      "qualified_spent_transition": false
+    },
+    {
+      "id": "profiles_fresh_14_de_sonic-preview",
+      "method": "full-flow-seed2035",
+      "processing_status": "processing_eligible",
+      "endpoint_phase_status": "pending",
+      "sha256": "5cd987da69584c59f1f8012af5a81b5f97b01abb9749f9d48a8dddad714fb8c5",
+      "language": "de",
+      "source_sha256": "6e9d61bef51fbe6f968192ac29b6759d926c2f2d2dabf67b2ccacfe819e87f31",
+      "source_format": {
+        "samples": 1086624,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "speech_assessment": {
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "turbo": 0.0,
+          "mms": 0.027777777777777776
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 73,
+          "mms": 72
+        },
+        "processed_units": {
+          "turbo": 73,
+          "mms": 72
+        }
+      },
+      "runtime_quality_guard": {
+        "passed": true,
+        "source_sha256": "6e9d61bef51fbe6f968192ac29b6759d926c2f2d2dabf67b2ccacfe819e87f31",
+        "candidate_sha256": "5cd987da69584c59f1f8012af5a81b5f97b01abb9749f9d48a8dddad714fb8c5",
+        "speaker_minimum": 0.98030539978193,
+        "speaker_minimum_required": 0.95,
+        "dnsmos_overall_delta": 0.05485147031073545,
+        "dnsmos_overall_delta_required": -0.2,
+        "receipt_sha256": "46ad3fa46d3c05e81e516bad20d72d7c4634984671f99db1d98585c7c07d4352",
+        "same_file_estimates_reused": false,
+        "independent_evaluation": false,
+        "reference_text_used": false
+      },
+      "qualified_spent_transition": true,
+      "quality_gate_results": {
+        "turbo_paired": true,
+        "mms_paired": true,
+        "turbo_reference_delta": true,
+        "mms_reference_delta": true,
+        "evaluation_small_reference_delta": true,
+        "speaker_minimum": true,
+        "dnsmos_overall": true
+      },
+      "calibrated_original_checkpoints": 3,
+      "source_calibration_sufficient": true,
+      "all_estimated_quality_gates_passed": true,
+      "quality_qualified": true,
+      "detected": false,
+      "original_reference_error": {
+        "turbo": 0.0,
+        "mms": 0.0684931506849315,
+        "small": 0.0410958904109589
+      },
+      "guard_reference_delta": {
+        "turbo": 0.0,
+        "mms": 0.0136986301369863
+      },
+      "independent_evaluation": [
+        {
+          "id": "profiles_fresh_14_de_sonic-preview__full-flow-seed2035",
+          "metric": "small",
+          "language": "de",
+          "source_sha256": "6e9d61bef51fbe6f968192ac29b6759d926c2f2d2dabf67b2ccacfe819e87f31",
+          "original": {
+            "reference_error": 0.0410958904109589,
+            "reference_units": 73,
+            "recognized_units": 72,
+            "comparison_units": "words",
+            "raw_word_reference_error_diagnostic_only": 0.0410958904109589,
+            "maximum_reference_delta": 0.03,
+            "original_calibration_ceiling": 0.15,
+            "calibrated": true
+          },
+          "status": "scored",
+          "output_sha256": "5cd987da69584c59f1f8012af5a81b5f97b01abb9749f9d48a8dddad714fb8c5",
+          "processed": {
+            "reference_error": 0.0684931506849315,
+            "reference_units": 73,
+            "recognized_units": 71,
+            "comparison_units": "words",
+            "raw_word_reference_error_diagnostic_only": 0.0684931506849315,
+            "maximum_reference_delta": 0.03,
+            "original_calibration_ceiling": 0.15,
+            "calibrated": true
+          },
+          "reference_error_delta": 0.0273972602739726,
+          "reference_delta_passed": true
+        }
+      ],
+      "voice_estimates": {
+        "id": "profiles_fresh_14_de_sonic-preview",
+        "source_sha256": "6e9d61bef51fbe6f968192ac29b6759d926c2f2d2dabf67b2ccacfe819e87f31",
+        "language": "de",
+        "original_dnsmos": {
+          "signal": 3.711643147424598,
+          "background": 4.180868786656923,
+          "overall": 3.486752046949985,
+          "windows": 15,
+          "natural_seconds": 24.64
+        },
+        "window_starts_seconds": [
+          0.0,
+          7.32,
+          14.64
+        ],
+        "speaker_window_cosines": [
+          0.9840756698589306,
+          0.9839394004805339,
+          0.98030539978193
+        ],
+        "speaker_minimum": 0.98030539978193,
+        "processed_dnsmos": {
+          "signal": 3.7430245561161337,
+          "background": 4.2009199426004935,
+          "overall": 3.5416035172607203,
+          "windows": 15,
+          "natural_seconds": 24.64
+        },
+        "dnsmos_delta": {
+          "signal": 0.03138140869153583,
+          "background": 0.020051155943570542,
+          "overall": 0.05485147031073545
+        },
+        "output_sha256": "5cd987da69584c59f1f8012af5a81b5f97b01abb9749f9d48a8dddad714fb8c5",
+        "status": "scored"
+      },
+      "identical_file_observations_reused": false
+    },
+    {
+      "id": "profiles_fresh_16_hi_sonic-preview",
+      "method": "full-flow-seed2035",
+      "processing_status": "content_rejected",
+      "endpoint_phase_status": "processing_rejected",
+      "sha256": "7c5ad0dd457e0c79c8dac6c83301017007f67869105839d30116b3fa2ab9fdda",
+      "language": "hi",
+      "source_sha256": "f4452e1f7a0bab7c56943f879029f2a4012c2d3c568599462706888fce153b85",
+      "source_format": {
+        "samples": 1139544,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "large": null,
+          "mms": 0.0196078431372549
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 298,
+          "mms": 306
+        },
+        "processed_units": {
+          "large": 0,
+          "mms": 303
+        }
+      },
+      "runtime_quality_guard": null,
+      "qualified_spent_transition": false
+    },
+    {
+      "id": "profiles_fresh_17_hi_sonic-3.6",
+      "method": "full-flow-seed2035",
+      "processing_status": "content_rejected",
+      "endpoint_phase_status": "processing_rejected",
+      "sha256": "a7c712069a33159a8a8aea4caef4b6353fbba0a82c06ec2e7accf8667eff7986",
+      "language": "hi",
+      "source_sha256": "06e0911696fef1e4420d57414392811ad14ffbaa10192d34cb18970b37c86e63",
+      "source_format": {
+        "samples": 1125432,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "large": null,
+          "mms": 0.02364864864864865
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 286,
+          "mms": 296
+        },
+        "processed_units": {
+          "large": 0,
+          "mms": 297
+        }
+      },
+      "runtime_quality_guard": null,
+      "qualified_spent_transition": false
+    },
+    {
+      "id": "profiles_fresh_18_hi_sonic-preview",
+      "method": "full-flow-seed2035",
+      "processing_status": "content_rejected",
+      "endpoint_phase_status": "processing_rejected",
+      "sha256": "38d1e5fa14a805e0c646cc6981ab66f7ac891b768535b022b772c73228ca6d0b",
+      "language": "hi",
+      "source_sha256": "62a6fa85d359fa5d2cd78873cbbcb7ca1ff34b3e915ffeeac7235af7b5cb24f5",
+      "source_format": {
+        "samples": 1181880,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "large": null,
+          "mms": 0.0273972602739726
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 290,
+          "mms": 292
+        },
+        "processed_units": {
+          "large": 0,
+          "mms": 295
+        }
+      },
+      "runtime_quality_guard": null,
+      "qualified_spent_transition": false
+    },
+    {
+      "id": "profiles_fresh_19_hi_sonic-3.6",
+      "method": "full-flow-seed2035",
+      "processing_status": "content_rejected",
+      "endpoint_phase_status": "processing_rejected",
+      "sha256": "4c99005d00fba4b3f0b09a732ec4a617829f4a432cce62c88c841f3a56fdf974",
+      "language": "hi",
+      "source_sha256": "82eccc6dfe1a21a5f869efa49a17abfbcdb8acc9e2f97283d2dda56ce43ec8c0",
+      "source_format": {
+        "samples": 1248912,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "large": null,
+          "mms": 0.03426791277258567
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 314,
+          "mms": 321
+        },
+        "processed_units": {
+          "large": 0,
+          "mms": 318
+        }
+      },
+      "runtime_quality_guard": null,
+      "qualified_spent_transition": false
+    },
+    {
+      "id": "profiles_fresh_20_ja_sonic-preview",
+      "method": "full-flow-seed2035",
+      "processing_status": "processing_eligible",
+      "endpoint_phase_status": "pending",
+      "sha256": "8425737eba885596a6720edc411809b47bbf02a48d3eb9d102da985d5c1880a6",
+      "language": "ja",
+      "source_sha256": "fb17c276ba05b16b56e8cf29eb6026517517c15f5dbdc317a072e4818ddd5b9c",
+      "source_format": {
+        "samples": 1241856,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "speech_assessment": {
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "turbo": 0.0,
+          "sensevoice": 0.026490066225165563
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "sensevoice",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 151,
+          "sensevoice": 151
+        },
+        "processed_units": {
+          "turbo": 151,
+          "sensevoice": 151
+        }
+      },
+      "runtime_quality_guard": {
+        "passed": true,
+        "source_sha256": "fb17c276ba05b16b56e8cf29eb6026517517c15f5dbdc317a072e4818ddd5b9c",
+        "candidate_sha256": "8425737eba885596a6720edc411809b47bbf02a48d3eb9d102da985d5c1880a6",
+        "speaker_minimum": 0.9759986992149987,
+        "speaker_minimum_required": 0.95,
+        "dnsmos_overall_delta": -0.014063601057908048,
+        "dnsmos_overall_delta_required": -0.2,
+        "receipt_sha256": "3354beedbb4f112500ae800be7cce409ea3cd4f3286af5274a6eb7ab516a0470",
+        "same_file_estimates_reused": false,
+        "independent_evaluation": false,
+        "reference_text_used": false
+      },
+      "qualified_spent_transition": true,
+      "quality_gate_results": {
+        "turbo_paired": true,
+        "sensevoice_paired": true,
+        "turbo_reference_delta": true,
+        "sensevoice_reference_delta": true,
+        "evaluation_small_reference_delta": true,
+        "speaker_minimum": true,
+        "dnsmos_overall": true
+      },
+      "calibrated_original_checkpoints": 3,
+      "source_calibration_sufficient": true,
+      "all_estimated_quality_gates_passed": true,
+      "quality_qualified": true,
+      "detected": false,
+      "original_reference_error": {
+        "turbo": 0.02666666666666667,
+        "sensevoice": 0.013333333333333334,
+        "small": 0.04666666666666667
+      },
+      "guard_reference_delta": {
+        "turbo": 0.0,
+        "sensevoice": 0.026666666666666665
+      },
+      "independent_evaluation": [
+        {
+          "id": "profiles_fresh_20_ja_sonic-preview__full-flow-seed2035",
+          "metric": "small",
+          "language": "ja",
+          "source_sha256": "fb17c276ba05b16b56e8cf29eb6026517517c15f5dbdc317a072e4818ddd5b9c",
+          "original": {
+            "reference_error": 0.04666666666666667,
+            "reference_units": 150,
+            "recognized_units": 151,
+            "comparison_units": "characters",
+            "raw_word_reference_error_diagnostic_only": 0.6666666666666666,
+            "maximum_reference_delta": 0.03,
+            "original_calibration_ceiling": 0.15,
+            "calibrated": true
+          },
+          "status": "scored",
+          "output_sha256": "8425737eba885596a6720edc411809b47bbf02a48d3eb9d102da985d5c1880a6",
+          "processed": {
+            "reference_error": 0.07333333333333333,
+            "reference_units": 150,
+            "recognized_units": 152,
+            "comparison_units": "characters",
+            "raw_word_reference_error_diagnostic_only": 0.5833333333333334,
+            "maximum_reference_delta": 0.03,
+            "original_calibration_ceiling": 0.15,
+            "calibrated": true
+          },
+          "reference_error_delta": 0.026666666666666665,
+          "reference_delta_passed": true
+        }
+      ],
+      "voice_estimates": {
+        "id": "profiles_fresh_20_ja_sonic-preview",
+        "source_sha256": "fb17c276ba05b16b56e8cf29eb6026517517c15f5dbdc317a072e4818ddd5b9c",
+        "language": "ja",
+        "original_dnsmos": {
+          "signal": 3.6925699650017676,
+          "background": 4.214843115113072,
+          "overall": 3.4930188289115556,
+          "windows": 19,
+          "natural_seconds": 28.16
+        },
+        "window_starts_seconds": [
+          0.632,
+          9.08,
+          17.528
+        ],
+        "speaker_window_cosines": [
+          0.9761605220520237,
+          0.9759986992149987,
+          0.9828540768623137
+        ],
+        "speaker_minimum": 0.9759986992149987,
+        "processed_dnsmos": {
+          "signal": 3.689515816009313,
+          "background": 4.177400031195046,
+          "overall": 3.4789552278536475,
+          "windows": 19,
+          "natural_seconds": 28.16
+        },
+        "dnsmos_delta": {
+          "signal": -0.0030541489924544862,
+          "background": -0.03744308391802598,
+          "overall": -0.014063601057908048
+        },
+        "output_sha256": "8425737eba885596a6720edc411809b47bbf02a48d3eb9d102da985d5c1880a6",
+        "status": "scored"
+      },
+      "identical_file_observations_reused": false
+    },
+    {
+      "id": "profiles_fresh_24_ar_sonic-preview",
+      "method": "full-flow-seed2035",
+      "processing_status": "processing_eligible",
+      "endpoint_phase_status": "pending",
+      "sha256": "e6bf833c2b5a07947d4b395f2889f3d25a13588de74e9d46d94e51aa1be9c0bd",
+      "language": "ar",
+      "source_sha256": "fcef17ba7ccc5a5d736842c8344fa5552df94268831e53059291ac1d5efe507b",
+      "source_format": {
+        "samples": 1382976,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "speech_assessment": {
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "turbo": 0.014925373134328358,
+          "fastconformer": 0.014925373134328358
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "fastconformer",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 67,
+          "fastconformer": 67
+        },
+        "processed_units": {
+          "turbo": 67,
+          "fastconformer": 67
+        }
+      },
+      "runtime_quality_guard": {
+        "passed": true,
+        "source_sha256": "fcef17ba7ccc5a5d736842c8344fa5552df94268831e53059291ac1d5efe507b",
+        "candidate_sha256": "e6bf833c2b5a07947d4b395f2889f3d25a13588de74e9d46d94e51aa1be9c0bd",
+        "speaker_minimum": 0.9749238807344186,
+        "speaker_minimum_required": 0.95,
+        "dnsmos_overall_delta": -0.10924918056821031,
+        "dnsmos_overall_delta_required": -0.2,
+        "receipt_sha256": "71fade3c9047ab86d832f59b002e2c6670ee2222a5cfa07fb033c756465c4c7f",
+        "same_file_estimates_reused": false,
+        "independent_evaluation": false,
+        "reference_text_used": false
+      },
+      "qualified_spent_transition": false,
+      "quality_gate_results": {
+        "turbo_paired": true,
+        "fastconformer_paired": true,
+        "turbo_reference_delta": true,
+        "fastconformer_reference_delta": true,
+        "evaluation_large_reference_delta": true,
+        "evaluation_mms_reference_delta": false,
+        "speaker_minimum": true,
+        "dnsmos_overall": true
+      },
+      "calibrated_original_checkpoints": 4,
+      "source_calibration_sufficient": true,
+      "all_estimated_quality_gates_passed": false,
+      "quality_qualified": false,
+      "detected": false,
+      "original_reference_error": {
+        "turbo": 0.0,
+        "fastconformer": 0.0,
+        "large": 0.029850746268656716,
+        "mms": 0.1044776119402985
+      },
+      "guard_reference_delta": {
+        "turbo": 0.014925373134328358,
+        "fastconformer": 0.014925373134328358
+      },
+      "independent_evaluation": [
+        {
+          "id": "profiles_fresh_24_ar_sonic-preview__full-flow-seed2035",
+          "metric": "large",
+          "language": "ar",
+          "source_sha256": "fcef17ba7ccc5a5d736842c8344fa5552df94268831e53059291ac1d5efe507b",
+          "original": {
+            "reference_error": 0.029850746268656716,
+            "reference_units": 67,
+            "recognized_units": 67,
+            "comparison_units": "words",
+            "raw_word_reference_error_diagnostic_only": 0.029850746268656716,
+            "maximum_reference_delta": 0.03,
+            "original_calibration_ceiling": 0.15,
+            "calibrated": true
+          },
+          "status": "scored",
+          "output_sha256": "e6bf833c2b5a07947d4b395f2889f3d25a13588de74e9d46d94e51aa1be9c0bd",
+          "processed": {
+            "reference_error": 0.04477611940298507,
+            "reference_units": 67,
+            "recognized_units": 67,
+            "comparison_units": "words",
+            "raw_word_reference_error_diagnostic_only": 0.04477611940298507,
+            "maximum_reference_delta": 0.03,
+            "original_calibration_ceiling": 0.15,
+            "calibrated": true
+          },
+          "reference_error_delta": 0.014925373134328356,
+          "reference_delta_passed": true
+        },
+        {
+          "id": "profiles_fresh_24_ar_sonic-preview__full-flow-seed2035",
+          "metric": "mms",
+          "language": "ar",
+          "source_sha256": "fcef17ba7ccc5a5d736842c8344fa5552df94268831e53059291ac1d5efe507b",
+          "original": {
+            "reference_error": 0.1044776119402985,
+            "reference_units": 67,
+            "recognized_units": 66,
+            "comparison_units": "words",
+            "raw_word_reference_error_diagnostic_only": 0.11940298507462686,
+            "maximum_reference_delta": 0.03,
+            "original_calibration_ceiling": 0.15,
+            "calibrated": true
+          },
+          "status": "scored",
+          "output_sha256": "e6bf833c2b5a07947d4b395f2889f3d25a13588de74e9d46d94e51aa1be9c0bd",
+          "processed": {
+            "reference_error": 0.14925373134328357,
+            "reference_units": 67,
+            "recognized_units": 65,
+            "comparison_units": "words",
+            "raw_word_reference_error_diagnostic_only": 0.16417910447761194,
+            "maximum_reference_delta": 0.03,
+            "original_calibration_ceiling": 0.15,
+            "calibrated": true
+          },
+          "reference_error_delta": 0.044776119402985065,
+          "reference_delta_passed": false
+        }
+      ],
+      "voice_estimates": {
+        "id": "profiles_fresh_24_ar_sonic-preview",
+        "source_sha256": "fcef17ba7ccc5a5d736842c8344fa5552df94268831e53059291ac1d5efe507b",
+        "language": "ar",
+        "original_dnsmos": {
+          "signal": 3.7508582116172273,
+          "background": 4.105135592766385,
+          "overall": 3.486882322673957,
+          "windows": 22,
+          "natural_seconds": 31.36
+        },
+        "window_starts_seconds": [
+          1.272,
+          10.68,
+          20.088
+        ],
+        "speaker_window_cosines": [
+          0.9749238807344186,
+          0.986527822582054,
+          0.986199364632476
+        ],
+        "speaker_minimum": 0.9749238807344186,
+        "processed_dnsmos": {
+          "signal": 3.6895928051405518,
+          "background": 3.9945295930032256,
+          "overall": 3.3776331421057466,
+          "windows": 22,
+          "natural_seconds": 31.36
+        },
+        "dnsmos_delta": {
+          "signal": -0.061265406476675555,
+          "background": -0.11060599976315943,
+          "overall": -0.10924918056821031
+        },
+        "output_sha256": "e6bf833c2b5a07947d4b395f2889f3d25a13588de74e9d46d94e51aa1be9c0bd",
+        "status": "scored"
+      },
+      "identical_file_observations_reused": false
+    },
+    {
+      "id": "profiles_fresh_27_ar_sonic-3.6",
+      "method": "full-flow-seed2035",
+      "processing_status": "content_rejected",
+      "endpoint_phase_status": "processing_rejected",
+      "sha256": "de993624a76c907c9ec37c7b7611af19a1f109daefe0ed69b783b4efdc390253",
+      "language": "ar",
+      "source_sha256": "8005d66011a7cc5a0066634a989f2874f34bbeaa416c664661b5f5578b441d1d",
+      "source_format": {
+        "samples": 1330056,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "turbo": null,
+          "fastconformer": 0.045454545454545456
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "fastconformer",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 67,
+          "fastconformer": 66
+        },
+        "processed_units": {
+          "turbo": 0,
+          "fastconformer": 66
+        }
+      },
+      "runtime_quality_guard": null,
+      "qualified_spent_transition": false
+    },
+    {
+      "id": "profiles_fresh_28_ko_sonic-preview",
+      "method": "full-flow-seed2035",
+      "processing_status": "content_rejected",
+      "endpoint_phase_status": "processing_rejected",
+      "sha256": "19e2c14ebcce64d37b99b022427ce020e91dfd05aca824002bf4b424f276ac8f",
+      "language": "ko",
+      "source_sha256": "0a702f517ecbdc1002615e6855f47aaf14cb68ef72035f4756964a9b732ee60e",
+      "source_format": {
+        "samples": 1273608,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "turbo": null,
+          "sensevoice": 0.09433962264150944
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "sensevoice",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 53,
+          "sensevoice": 53
+        },
+        "processed_units": {
+          "turbo": 0,
+          "sensevoice": 53
+        }
+      },
+      "runtime_quality_guard": null,
+      "qualified_spent_transition": false
+    },
+    {
+      "id": "profiles_fresh_30_ko_sonic-preview",
+      "method": "full-flow-seed2035",
+      "processing_status": "content_rejected",
+      "endpoint_phase_status": "processing_rejected",
+      "sha256": "c09f73f31f26536cf8db6207e792019ee9a2d3425b007842d1725d6f2565c10d",
+      "language": "ko",
+      "source_sha256": "9dc04b84b233bb3a595445761396bf195323746ed3090831705265d039d9b80a",
+      "source_format": {
+        "samples": 1319472,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "turbo": null,
+          "sensevoice": 0.14
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "sensevoice",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 51,
+          "sensevoice": 50
+        },
+        "processed_units": {
+          "turbo": 0,
+          "sensevoice": 48
+        }
+      },
+      "runtime_quality_guard": null,
+      "qualified_spent_transition": false
+    },
+    {
+      "id": "profiles_fresh_32_zh_sonic-preview",
+      "method": "full-flow-seed2035",
+      "processing_status": "processing_eligible",
+      "endpoint_phase_status": "pending",
+      "sha256": "6d221a862d2323a796bf636fbd3a88ff5880d2b774669223466b93f2b333f68e",
+      "language": "zh",
+      "source_sha256": "cf6b35749a76df1cdf25507eb31f13d519fc06000bccf23227f8ba8289f32dbf",
+      "source_format": {
+        "samples": 1428840,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "speech_assessment": {
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "turbo": 0.007042253521126761,
+          "sensevoice": 0.007042253521126761
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "sensevoice",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 142,
+          "sensevoice": 142
+        },
+        "processed_units": {
+          "turbo": 142,
+          "sensevoice": 142
+        }
+      },
+      "runtime_quality_guard": {
+        "passed": true,
+        "source_sha256": "cf6b35749a76df1cdf25507eb31f13d519fc06000bccf23227f8ba8289f32dbf",
+        "candidate_sha256": "6d221a862d2323a796bf636fbd3a88ff5880d2b774669223466b93f2b333f68e",
+        "speaker_minimum": 0.9846767613907461,
+        "speaker_minimum_required": 0.95,
+        "dnsmos_overall_delta": 0.08485170725171365,
+        "dnsmos_overall_delta_required": -0.2,
+        "receipt_sha256": "4c4d7fe0e43d12a675e0ffa8681e34469df9d3d681f673f5a2e69997e3e1ad03",
+        "same_file_estimates_reused": false,
+        "independent_evaluation": false,
+        "reference_text_used": false
+      },
+      "qualified_spent_transition": true,
+      "quality_gate_results": {
+        "turbo_paired": true,
+        "sensevoice_paired": true,
+        "turbo_reference_delta": true,
+        "sensevoice_reference_delta": true,
+        "evaluation_small_reference_delta": true,
+        "speaker_minimum": true,
+        "dnsmos_overall": true
+      },
+      "calibrated_original_checkpoints": 3,
+      "source_calibration_sufficient": true,
+      "all_estimated_quality_gates_passed": true,
+      "quality_qualified": true,
+      "detected": false,
+      "original_reference_error": {
+        "turbo": 0.007042253521126761,
+        "sensevoice": 0.007042253521126761,
+        "small": 0.056338028169014086
+      },
+      "guard_reference_delta": {
+        "turbo": 0.007042253521126761,
+        "sensevoice": 0.007042253521126761
+      },
+      "independent_evaluation": [
+        {
+          "id": "profiles_fresh_32_zh_sonic-preview__full-flow-seed2035",
+          "metric": "small",
+          "language": "zh",
+          "source_sha256": "cf6b35749a76df1cdf25507eb31f13d519fc06000bccf23227f8ba8289f32dbf",
+          "original": {
+            "reference_error": 0.056338028169014086,
+            "reference_units": 142,
+            "recognized_units": 142,
+            "comparison_units": "characters",
+            "raw_word_reference_error_diagnostic_only": 0.9285714285714286,
+            "maximum_reference_delta": 0.03,
+            "original_calibration_ceiling": 0.15,
+            "calibrated": true
+          },
+          "status": "scored",
+          "output_sha256": "6d221a862d2323a796bf636fbd3a88ff5880d2b774669223466b93f2b333f68e",
+          "processed": {
+            "reference_error": 0.06338028169014084,
+            "reference_units": 142,
+            "recognized_units": 142,
+            "comparison_units": "characters",
+            "raw_word_reference_error_diagnostic_only": 0.9285714285714286,
+            "maximum_reference_delta": 0.03,
+            "original_calibration_ceiling": 0.15,
+            "calibrated": true
+          },
+          "reference_error_delta": 0.007042253521126758,
+          "reference_delta_passed": true
+        }
+      ],
+      "voice_estimates": {
+        "id": "profiles_fresh_32_zh_sonic-preview",
+        "source_sha256": "cf6b35749a76df1cdf25507eb31f13d519fc06000bccf23227f8ba8289f32dbf",
+        "language": "zh",
+        "original_dnsmos": {
+          "signal": 3.618385175005149,
+          "background": 4.214469424940732,
+          "overall": 3.4227429426315044,
+          "windows": 23,
+          "natural_seconds": 32.4
+        },
+        "window_starts_seconds": [
+          1.48,
+          11.2,
+          20.92
+        ],
+        "speaker_window_cosines": [
+          0.9854349821489494,
+          0.9846767613907461,
+          0.9866820418193014
+        ],
+        "speaker_minimum": 0.9846767613907461,
+        "processed_dnsmos": {
+          "signal": 3.720875514737041,
+          "background": 4.191751373912138,
+          "overall": 3.507594649883218,
+          "windows": 23,
+          "natural_seconds": 32.4
+        },
+        "dnsmos_delta": {
+          "signal": 0.10249033973189192,
+          "background": -0.022718051028594033,
+          "overall": 0.08485170725171365
+        },
+        "output_sha256": "6d221a862d2323a796bf636fbd3a88ff5880d2b774669223466b93f2b333f68e",
+        "status": "scored"
+      },
+      "identical_file_observations_reused": false
+    },
+    {
+      "id": "profiles_fresh_33_zh_sonic-3.6",
+      "method": "full-flow-seed2035",
+      "processing_status": "processing_eligible",
+      "endpoint_phase_status": "pending",
+      "sha256": "ec67a88a8b6f86ac6595aed4e5b4ff5eac627426814b55c8e75bdef35cfd9790",
+      "language": "zh",
+      "source_sha256": "df9dd901c329ac10559bcecb6570a225432b06bf07ece37a41e26f2fe7e1e9af",
+      "source_format": {
+        "samples": 1404144,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "speech_assessment": {
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "turbo": 0.014285714285714285,
+          "sensevoice": 0.0
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "sensevoice",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 140,
+          "sensevoice": 140
+        },
+        "processed_units": {
+          "turbo": 140,
+          "sensevoice": 140
+        }
+      },
+      "runtime_quality_guard": {
+        "passed": true,
+        "source_sha256": "df9dd901c329ac10559bcecb6570a225432b06bf07ece37a41e26f2fe7e1e9af",
+        "candidate_sha256": "ec67a88a8b6f86ac6595aed4e5b4ff5eac627426814b55c8e75bdef35cfd9790",
+        "speaker_minimum": 0.9875390914005957,
+        "speaker_minimum_required": 0.95,
+        "dnsmos_overall_delta": -0.08775586279560166,
+        "dnsmos_overall_delta_required": -0.2,
+        "receipt_sha256": "407b9c11aab2b77c400704ad27b8952def6656ba6f78ba3d72e2a9aff08cbd54",
+        "same_file_estimates_reused": false,
+        "independent_evaluation": false,
+        "reference_text_used": false
+      },
+      "qualified_spent_transition": true,
+      "quality_gate_results": {
+        "turbo_paired": true,
+        "sensevoice_paired": true,
+        "turbo_reference_delta": true,
+        "sensevoice_reference_delta": true,
+        "evaluation_small_reference_delta": true,
+        "speaker_minimum": true,
+        "dnsmos_overall": true
+      },
+      "calibrated_original_checkpoints": 3,
+      "source_calibration_sufficient": true,
+      "all_estimated_quality_gates_passed": true,
+      "quality_qualified": true,
+      "detected": false,
+      "original_reference_error": {
+        "turbo": 0.014285714285714285,
+        "sensevoice": 0.02142857142857143,
+        "small": 0.05714285714285714
+      },
+      "guard_reference_delta": {
+        "turbo": -0.014285714285714285,
+        "sensevoice": 0.0
+      },
+      "independent_evaluation": [
+        {
+          "id": "profiles_fresh_33_zh_sonic-3.6__full-flow-seed2035",
+          "metric": "small",
+          "language": "zh",
+          "source_sha256": "df9dd901c329ac10559bcecb6570a225432b06bf07ece37a41e26f2fe7e1e9af",
+          "original": {
+            "reference_error": 0.05714285714285714,
+            "reference_units": 140,
+            "recognized_units": 140,
+            "comparison_units": "characters",
+            "raw_word_reference_error_diagnostic_only": 1.0,
+            "maximum_reference_delta": 0.03,
+            "original_calibration_ceiling": 0.15,
+            "calibrated": true
+          },
+          "status": "scored",
+          "output_sha256": "ec67a88a8b6f86ac6595aed4e5b4ff5eac627426814b55c8e75bdef35cfd9790",
+          "processed": {
+            "reference_error": 0.03571428571428571,
+            "reference_units": 140,
+            "recognized_units": 140,
+            "comparison_units": "characters",
+            "raw_word_reference_error_diagnostic_only": 0.25,
+            "maximum_reference_delta": 0.03,
+            "original_calibration_ceiling": 0.15,
+            "calibrated": true
+          },
+          "reference_error_delta": -0.02142857142857143,
+          "reference_delta_passed": true
+        }
+      ],
+      "voice_estimates": {
+        "id": "profiles_fresh_33_zh_sonic-3.6",
+        "source_sha256": "df9dd901c329ac10559bcecb6570a225432b06bf07ece37a41e26f2fe7e1e9af",
+        "language": "zh",
+        "original_dnsmos": {
+          "signal": 3.6785138950771494,
+          "background": 4.210693813632627,
+          "overall": 3.481862190018204,
+          "windows": 22,
+          "natural_seconds": 31.84
+        },
+        "window_starts_seconds": [
+          1.368,
+          10.92,
+          20.472
+        ],
+        "speaker_window_cosines": [
+          0.9897642420015218,
+          0.9875390914005957,
+          0.9891368329480326
+        ],
+        "speaker_minimum": 0.9875390914005957,
+        "processed_dnsmos": {
+          "signal": 3.648903186942761,
+          "background": 4.100803913330245,
+          "overall": 3.394106327222602,
+          "windows": 22,
+          "natural_seconds": 31.84
+        },
+        "dnsmos_delta": {
+          "signal": -0.029610708134388375,
+          "background": -0.10988990030238188,
+          "overall": -0.08775586279560166
+        },
+        "output_sha256": "ec67a88a8b6f86ac6595aed4e5b4ff5eac627426814b55c8e75bdef35cfd9790",
+        "status": "scored"
+      },
+      "identical_file_observations_reused": false
+    },
+    {
+      "id": "profiles_fresh_35_zh_sonic-3.6",
+      "method": "full-flow-seed2035",
+      "processing_status": "processing_eligible",
+      "endpoint_phase_status": "pending",
+      "sha256": "4f843e2e01aadad406cec1cf5b237562b0397a15b56c8d23f8422ad3d8368148",
+      "language": "zh",
+      "source_sha256": "1eff65b69b53600ece16d1b91c2b5bf3423bd4d72c2aa518facec6fd29e7b8ae",
+      "source_format": {
+        "samples": 1340640,
+        "sample_rate": 44100,
+        "channels": 2
+      },
+      "speech_assessment": {
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "turbo": 0.007246376811594203,
+          "sensevoice": 0.014492753623188406
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "sensevoice",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 138,
+          "sensevoice": 138
+        },
+        "processed_units": {
+          "turbo": 138,
+          "sensevoice": 138
+        }
+      },
+      "runtime_quality_guard": {
+        "passed": true,
+        "source_sha256": "1eff65b69b53600ece16d1b91c2b5bf3423bd4d72c2aa518facec6fd29e7b8ae",
+        "candidate_sha256": "4f843e2e01aadad406cec1cf5b237562b0397a15b56c8d23f8422ad3d8368148",
+        "speaker_minimum": 0.9834111699463022,
+        "speaker_minimum_required": 0.95,
+        "dnsmos_overall_delta": -0.05742802383273249,
+        "dnsmos_overall_delta_required": -0.2,
+        "receipt_sha256": "bb6b473b130c4a16f54002236401039079ae39e753689051a4f8909e563f2f9c",
+        "same_file_estimates_reused": false,
+        "independent_evaluation": false,
+        "reference_text_used": false
+      },
+      "qualified_spent_transition": true,
+      "quality_gate_results": {
+        "turbo_paired": true,
+        "sensevoice_paired": true,
+        "turbo_reference_delta": true,
+        "sensevoice_reference_delta": true,
+        "evaluation_small_reference_delta": true,
+        "speaker_minimum": true,
+        "dnsmos_overall": true
+      },
+      "calibrated_original_checkpoints": 3,
+      "source_calibration_sufficient": true,
+      "all_estimated_quality_gates_passed": true,
+      "quality_qualified": true,
+      "detected": false,
+      "original_reference_error": {
+        "turbo": 0.014492753623188406,
+        "sensevoice": 0.007246376811594203,
+        "small": 0.043478260869565216
+      },
+      "guard_reference_delta": {
+        "turbo": 0.007246376811594202,
+        "sensevoice": 0.014492753623188404
+      },
+      "independent_evaluation": [
+        {
+          "id": "profiles_fresh_35_zh_sonic-3.6__full-flow-seed2035",
+          "metric": "small",
+          "language": "zh",
+          "source_sha256": "1eff65b69b53600ece16d1b91c2b5bf3423bd4d72c2aa518facec6fd29e7b8ae",
+          "original": {
+            "reference_error": 0.043478260869565216,
+            "reference_units": 138,
+            "recognized_units": 138,
+            "comparison_units": "characters",
+            "raw_word_reference_error_diagnostic_only": 1.0,
+            "maximum_reference_delta": 0.03,
+            "original_calibration_ceiling": 0.15,
+            "calibrated": true
+          },
+          "status": "scored",
+          "output_sha256": "4f843e2e01aadad406cec1cf5b237562b0397a15b56c8d23f8422ad3d8368148",
+          "processed": {
+            "reference_error": 0.06521739130434782,
+            "reference_units": 138,
+            "recognized_units": 138,
+            "comparison_units": "characters",
+            "raw_word_reference_error_diagnostic_only": 1.0,
+            "maximum_reference_delta": 0.03,
+            "original_calibration_ceiling": 0.15,
+            "calibrated": true
+          },
+          "reference_error_delta": 0.021739130434782608,
+          "reference_delta_passed": true
+        }
+      ],
+      "voice_estimates": {
+        "id": "profiles_fresh_35_zh_sonic-3.6",
+        "source_sha256": "1eff65b69b53600ece16d1b91c2b5bf3423bd4d72c2aa518facec6fd29e7b8ae",
+        "language": "zh",
+        "original_dnsmos": {
+          "signal": 3.7535226714525116,
+          "background": 4.238388555345318,
+          "overall": 3.5665365275426524,
+          "windows": 21,
+          "natural_seconds": 30.4
+        },
+        "window_starts_seconds": [
+          1.08,
+          10.2,
+          19.32
+        ],
+        "speaker_window_cosines": [
+          0.9901130784922346,
+          0.9893976704846694,
+          0.9834111699463022
+        ],
+        "speaker_minimum": 0.9834111699463022,
+        "processed_dnsmos": {
+          "signal": 3.7268466132083815,
+          "background": 4.18489327056733,
+          "overall": 3.50910850370992,
+          "windows": 21,
+          "natural_seconds": 30.4
+        },
+        "dnsmos_delta": {
+          "signal": -0.026676058244130108,
+          "background": -0.053495284777987706,
+          "overall": -0.05742802383273249
+        },
+        "output_sha256": "4f843e2e01aadad406cec1cf5b237562b0397a15b56c8d23f8422ad3d8368148",
+        "status": "scored"
+      },
+      "identical_file_observations_reused": false
+    },
+    {
+      "id": "profiles_fresh_36_ru_sonic-preview",
+      "method": "full-flow-seed2035",
+      "processing_status": "content_rejected",
+      "endpoint_phase_status": "processing_rejected",
+      "sha256": "a639a19744962cdcca575fa714c6cb756c38b0c2cd47154f56e6a49376261b3a",
+      "language": "ru",
+      "source_sha256": "4a063e51157a2b764f92dc8760cd9c752d6b0ba5e8e36d79efebb6132401013b",
+      "source_format": {
+        "samples": 1428840,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "turbo": null,
+          "mms": 0.13043478260869565
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 68,
+          "mms": 69
+        },
+        "processed_units": {
+          "turbo": 0,
+          "mms": 69
+        }
+      },
+      "runtime_quality_guard": null,
+      "qualified_spent_transition": false
+    },
+    {
+      "id": "profiles_fresh_37_ru_sonic-3.6",
+      "method": "full-flow-seed2035",
+      "processing_status": "content_rejected",
+      "endpoint_phase_status": "processing_rejected",
+      "sha256": "f3b8569b82f25afe7c05483fa3042b861c63ed67e81755839844db36b6279051",
+      "language": "ru",
+      "source_sha256": "f67eaf1e63bd2d54ce8778e427ea814e2e66536ec2ce04bfbfcd1ab4bf493d63",
+      "source_format": {
+        "samples": 1224216,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "turbo": null,
+          "mms": 0.109375
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 64,
+          "mms": 64
+        },
+        "processed_units": {
+          "turbo": 0,
+          "mms": 64
+        }
+      },
+      "runtime_quality_guard": null,
+      "qualified_spent_transition": false
+    },
+    {
+      "id": "profiles_fresh_39_ru_sonic-3.6",
+      "method": "full-flow-seed2035",
+      "processing_status": "content_rejected",
+      "endpoint_phase_status": "processing_rejected",
+      "sha256": "a3fa35ddc3a21b7a8ba1fcf43b4575d2535ad1627e8b34af2cb9d667617ae8c1",
+      "language": "ru",
+      "source_sha256": "3303e2ed0b0b749ae784344e8da585df05d06abc18b6eeee62031b0cf701517c",
+      "source_format": {
+        "samples": 1365336,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "turbo": null,
+          "mms": 0.20588235294117646
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 68,
+          "mms": 68
+        },
+        "processed_units": {
+          "turbo": 0,
+          "mms": 69
+        }
+      },
+      "runtime_quality_guard": null,
+      "qualified_spent_transition": false
+    },
+    {
+      "id": "profiles_fresh_40_ta_sonic-preview",
+      "method": "full-flow-seed2035",
+      "processing_status": "content_rejected",
+      "endpoint_phase_status": "processing_rejected",
+      "sha256": "969dd2f84db4faf521b688ece96fe38218937610123e42a15d7e090faf38586d",
+      "language": "ta",
+      "source_sha256": "0b6e8e7cc0fd3641dee23ae2197457cc7beda8cf735fe7602e4aab0db05b785e",
+      "source_format": {
+        "samples": 1471176,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "large": null,
+          "mms": 0.012371134020618556
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 474,
+          "mms": 485
+        },
+        "processed_units": {
+          "large": 0,
+          "mms": 485
+        }
+      },
+      "runtime_quality_guard": null,
+      "qualified_spent_transition": false
+    },
+    {
+      "id": "profiles_fresh_41_ta_sonic-3.6",
+      "method": "full-flow-seed2035",
+      "processing_status": "content_rejected",
+      "endpoint_phase_status": "processing_rejected",
+      "sha256": "d95c5b28981e7db0db5d450ecfdd8902e36f26b0f90628ba660e2fdf5a1d70ba",
+      "language": "ta",
+      "source_sha256": "78c9a66462900d56bc47e6f9fd97e87c4ee76e0bc147c598fa29cfff75487dbe",
+      "source_format": {
+        "samples": 1298304,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "large": null,
+          "mms": 0.09029345372460497
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 430,
+          "mms": 443
+        },
+        "processed_units": {
+          "large": 0,
+          "mms": 435
+        }
+      },
+      "runtime_quality_guard": null,
+      "qualified_spent_transition": false
+    },
+    {
+      "id": "profiles_fresh_42_ta_sonic-preview",
+      "method": "full-flow-seed2035",
+      "processing_status": "content_rejected",
+      "endpoint_phase_status": "processing_rejected",
+      "sha256": "c45ca381ffdf2fd2888b169b931df466fb8bcd49cb74201dcd3f2c0a80c4d824",
+      "language": "ta",
+      "source_sha256": "239027629fc6976c47dc27edf31c5f72d413a388a7a5f19f5ee7b583d080a1cc",
+      "source_format": {
+        "samples": 1266552,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "large": 0.012135922330097087,
+          "mms": 0.009592326139088728
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 412,
+          "mms": 417
+        },
+        "processed_units": {
+          "large": 413,
+          "mms": 417
+        }
+      },
+      "runtime_quality_guard": null,
+      "qualified_spent_transition": false
+    },
+    {
+      "id": "profiles_fresh_43_ta_sonic-3.6",
+      "method": "full-flow-seed2035",
+      "processing_status": "content_rejected",
+      "endpoint_phase_status": "processing_rejected",
+      "sha256": "c9530c2ef84b6a639e2162355cefa755ab868afef0622b0c873ba42a2440e038",
+      "language": "ta",
+      "source_sha256": "5a22bab2ee92628e42e6a0366a60c0c7a86b1c0f9af63a0b0450a2df849b3691",
+      "source_format": {
+        "samples": 1354752,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "large": null,
+          "mms": 0.025974025974025976
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 459,
+          "mms": 462
+        },
+        "processed_units": {
+          "large": 0,
+          "mms": 462
+        }
+      },
+      "runtime_quality_guard": null,
+      "qualified_spent_transition": false
+    }
+  ],
+  "http_attempts": [
+    {
+      "id": "profiles_fresh_00_en_sonic-preview",
+      "role": "opening_positive_control",
+      "ordinal": 1,
+      "sha256": "edb551f5d795d538ddeaefe6434f7240f7c4edebb235e48d557fbc5f2f73fc99",
+      "started_at": "2026-11-15T07:52:23.849070+00:00",
+      "http_status": 200
+    },
+    {
+      "id": "profiles_fresh_00_en_sonic-preview",
+      "role": "opening_positive_control",
+      "ordinal": 2,
+      "sha256": "edb551f5d795d538ddeaefe6434f7240f7c4edebb235e48d557fbc5f2f73fc99",
+      "started_at": "2026-11-15T07:53:43.850054+00:00",
+      "http_status": 200
+    },
+    {
+      "id": "profiles_fresh_00_en_sonic-preview",
+      "role": "candidate",
+      "ordinal": 1,
+      "sha256": "3d80fa17e3980d3a62abfd3e1b88d1fcf595081fe6485208bca0e4f8ec46b416",
+      "method": "full-flow-seed2035",
+      "started_at": "2026-11-15T07:55:03.852291+00:00",
+      "http_status": 200
+    },
+    {
+      "id": "profiles_fresh_00_en_sonic-preview",
+      "role": "candidate",
+      "ordinal": 2,
+      "sha256": "3d80fa17e3980d3a62abfd3e1b88d1fcf595081fe6485208bca0e4f8ec46b416",
+      "method": "full-flow-seed2035",
+      "started_at": "2026-11-15T07:56:23.850712+00:00",
+      "http_status": 200
+    },
+    {
+      "id": "profiles_fresh_04_es_sonic-preview",
+      "role": "candidate",
+      "ordinal": 1,
+      "sha256": "d236e16155ea3fcc19cfd20eb676b89558ac495c798207539ccdd793d72a5aa2",
+      "method": "full-flow-seed2035",
+      "started_at": "2026-11-15T07:57:43.850058+00:00",
+      "http_status": 200
+    },
+    {
+      "id": "profiles_fresh_04_es_sonic-preview",
+      "role": "candidate",
+      "ordinal": 2,
+      "sha256": "d236e16155ea3fcc19cfd20eb676b89558ac495c798207539ccdd793d72a5aa2",
+      "method": "full-flow-seed2035",
+      "started_at": "2026-11-15T07:59:03.857354+00:00",
+      "http_status": 200
+    },
+    {
+      "id": "profiles_fresh_10_fr_sonic-preview",
+      "role": "candidate",
+      "ordinal": 1,
+      "sha256": "eb37cf2da95da43e033969cff068c099c590484d0a4ccdc9a3dad3eda8aaa5b6",
+      "method": "full-flow-seed2035",
+      "started_at": "2026-11-15T08:00:23.854053+00:00",
+      "http_status": 200
+    },
+    {
+      "id": "profiles_fresh_10_fr_sonic-preview",
+      "role": "candidate",
+      "ordinal": 2,
+      "sha256": "eb37cf2da95da43e033969cff068c099c590484d0a4ccdc9a3dad3eda8aaa5b6",
+      "method": "full-flow-seed2035",
+      "started_at": "2026-11-15T08:01:43.851012+00:00",
+      "http_status": 200
+    },
+    {
+      "id": "profiles_fresh_14_de_sonic-preview",
+      "role": "candidate",
+      "ordinal": 1,
+      "sha256": "5cd987da69584c59f1f8012af5a81b5f97b01abb9749f9d48a8dddad714fb8c5",
+      "method": "full-flow-seed2035",
+      "started_at": "2026-11-15T08:03:03.855742+00:00",
+      "http_status": 200
+    },
+    {
+      "id": "profiles_fresh_14_de_sonic-preview",
+      "role": "candidate",
+      "ordinal": 2,
+      "sha256": "5cd987da69584c59f1f8012af5a81b5f97b01abb9749f9d48a8dddad714fb8c5",
+      "method": "full-flow-seed2035",
+      "started_at": "2026-11-15T08:04:23.857718+00:00",
+      "http_status": 200
+    },
+    {
+      "id": "profiles_fresh_20_ja_sonic-preview",
+      "role": "candidate",
+      "ordinal": 1,
+      "sha256": "8425737eba885596a6720edc411809b47bbf02a48d3eb9d102da985d5c1880a6",
+      "method": "full-flow-seed2035",
+      "started_at": "2026-11-15T08:05:43.855764+00:00",
+      "http_status": 200
+    },
+    {
+      "id": "profiles_fresh_20_ja_sonic-preview",
+      "role": "candidate",
+      "ordinal": 2,
+      "sha256": "8425737eba885596a6720edc411809b47bbf02a48d3eb9d102da985d5c1880a6",
+      "method": "full-flow-seed2035",
+      "started_at": "2026-11-15T08:07:03.852956+00:00",
+      "http_status": 200
+    },
+    {
+      "id": "profiles_fresh_24_ar_sonic-preview",
+      "role": "candidate",
+      "ordinal": 1,
+      "sha256": "e6bf833c2b5a07947d4b395f2889f3d25a13588de74e9d46d94e51aa1be9c0bd",
+      "method": "full-flow-seed2035",
+      "started_at": "2026-11-15T08:09:43.853113+00:00",
+      "http_status": 200
+    },
+    {
+      "id": "profiles_fresh_24_ar_sonic-preview",
+      "role": "candidate",
+      "ordinal": 2,
+      "sha256": "e6bf833c2b5a07947d4b395f2889f3d25a13588de74e9d46d94e51aa1be9c0bd",
+      "method": "full-flow-seed2035",
+      "started_at": "2026-11-15T08:12:23.857034+00:00",
+      "http_status": 200
+    },
+    {
+      "id": "profiles_fresh_32_zh_sonic-preview",
+      "role": "candidate",
+      "ordinal": 1,
+      "sha256": "6d221a862d2323a796bf636fbd3a88ff5880d2b774669223466b93f2b333f68e",
+      "method": "full-flow-seed2035",
+      "started_at": "2026-11-15T08:15:03.861072+00:00",
+      "http_status": 200
+    },
+    {
+      "id": "profiles_fresh_32_zh_sonic-preview",
+      "role": "candidate",
+      "ordinal": 2,
+      "sha256": "6d221a862d2323a796bf636fbd3a88ff5880d2b774669223466b93f2b333f68e",
+      "method": "full-flow-seed2035",
+      "started_at": "2026-11-15T08:17:43.859406+00:00",
+      "http_status": 200
+    },
+    {
+      "id": "profiles_fresh_33_zh_sonic-3.6",
+      "role": "candidate",
+      "ordinal": 1,
+      "sha256": "ec67a88a8b6f86ac6595aed4e5b4ff5eac627426814b55c8e75bdef35cfd9790",
+      "method": "full-flow-seed2035",
+      "started_at": "2026-11-15T08:20:23.855965+00:00",
+      "http_status": 200
+    },
+    {
+      "id": "profiles_fresh_33_zh_sonic-3.6",
+      "role": "candidate",
+      "ordinal": 2,
+      "sha256": "ec67a88a8b6f86ac6595aed4e5b4ff5eac627426814b55c8e75bdef35cfd9790",
+      "method": "full-flow-seed2035",
+      "started_at": "2026-11-15T08:23:03.856320+00:00",
+      "http_status": 200
+    },
+    {
+      "id": "profiles_fresh_35_zh_sonic-3.6",
+      "role": "candidate",
+      "ordinal": 1,
+      "sha256": "4f843e2e01aadad406cec1cf5b237562b0397a15b56c8d23f8422ad3d8368148",
+      "method": "full-flow-seed2035",
+      "started_at": "2026-11-15T08:25:43.858025+00:00",
+      "http_status": 200
+    },
+    {
+      "id": "profiles_fresh_35_zh_sonic-3.6",
+      "role": "candidate",
+      "ordinal": 2,
+      "sha256": "4f843e2e01aadad406cec1cf5b237562b0397a15b56c8d23f8422ad3d8368148",
+      "method": "full-flow-seed2035",
+      "started_at": "2026-11-15T08:28:23.858100+00:00",
+      "http_status": 200
+    },
+    {
+      "id": "profiles_fresh_43_ta_sonic-3.6",
+      "role": "closing_positive_control",
+      "ordinal": 1,
+      "sha256": "5a22bab2ee92628e42e6a0366a60c0c7a86b1c0f9af63a0b0450a2df849b3691",
+      "started_at": "2026-11-15T08:31:03.858146+00:00",
+      "http_status": 200
+    },
+    {
+      "id": "profiles_fresh_43_ta_sonic-3.6",
+      "role": "closing_positive_control",
+      "ordinal": 2,
+      "sha256": "5a22bab2ee92628e42e6a0366a60c0c7a86b1c0f9af63a0b0450a2df849b3691",
+      "started_at": "2026-11-15T08:33:43.858719+00:00",
+      "http_status": 200
+    }
+  ],
+  "checks": [
+    {
+      "id": "profiles_fresh_00_en_sonic-preview",
+      "role": "opening_positive_control",
+      "ordinal": 1,
+      "sha256": "edb551f5d795d538ddeaefe6434f7240f7c4edebb235e48d557fbc5f2f73fc99",
+      "detected": true,
+      "http_status": 200,
+      "checked_at": "2026-11-15T07:52:24.667168+00:00"
+    },
+    {
+      "id": "profiles_fresh_00_en_sonic-preview",
+      "role": "opening_positive_control",
+      "ordinal": 2,
+      "sha256": "edb551f5d795d538ddeaefe6434f7240f7c4edebb235e48d557fbc5f2f73fc99",
+      "detected": true,
+      "http_status": 200,
+      "checked_at": "2026-11-15T07:53:44.945560+00:00"
+    },
+    {
+      "id": "profiles_fresh_00_en_sonic-preview",
+      "role": "candidate",
+      "ordinal": 1,
+      "sha256": "3d80fa17e3980d3a62abfd3e1b88d1fcf595081fe6485208bca0e4f8ec46b416",
+      "method": "full-flow-seed2035",
+      "detected": false,
+      "http_status": 200,
+      "checked_at": "2026-11-15T07:55:04.531622+00:00"
+    },
+    {
+      "id": "profiles_fresh_00_en_sonic-preview",
+      "role": "candidate",
+      "ordinal": 2,
+      "sha256": "3d80fa17e3980d3a62abfd3e1b88d1fcf595081fe6485208bca0e4f8ec46b416",
+      "method": "full-flow-seed2035",
+      "detected": false,
+      "http_status": 200,
+      "checked_at": "2026-11-15T07:56:24.720380+00:00"
+    },
+    {
+      "id": "profiles_fresh_04_es_sonic-preview",
+      "role": "candidate",
+      "ordinal": 1,
+      "sha256": "d236e16155ea3fcc19cfd20eb676b89558ac495c798207539ccdd793d72a5aa2",
+      "method": "full-flow-seed2035",
+      "detected": false,
+      "http_status": 200,
+      "checked_at": "2026-11-15T07:57:44.905373+00:00"
+    },
+    {
+      "id": "profiles_fresh_04_es_sonic-preview",
+      "role": "candidate",
+      "ordinal": 2,
+      "sha256": "d236e16155ea3fcc19cfd20eb676b89558ac495c798207539ccdd793d72a5aa2",
+      "method": "full-flow-seed2035",
+      "detected": false,
+      "http_status": 200,
+      "checked_at": "2026-11-15T07:59:04.688304+00:00"
+    },
+    {
+      "id": "profiles_fresh_10_fr_sonic-preview",
+      "role": "candidate",
+      "ordinal": 1,
+      "sha256": "eb37cf2da95da43e033969cff068c099c590484d0a4ccdc9a3dad3eda8aaa5b6",
+      "method": "full-flow-seed2035",
+      "detected": false,
+      "http_status": 200,
+      "checked_at": "2026-11-15T08:00:24.576292+00:00"
+    },
+    {
+      "id": "profiles_fresh_10_fr_sonic-preview",
+      "role": "candidate",
+      "ordinal": 2,
+      "sha256": "eb37cf2da95da43e033969cff068c099c590484d0a4ccdc9a3dad3eda8aaa5b6",
+      "method": "full-flow-seed2035",
+      "detected": false,
+      "http_status": 200,
+      "checked_at": "2026-11-15T08:01:44.566336+00:00"
+    },
+    {
+      "id": "profiles_fresh_14_de_sonic-preview",
+      "role": "candidate",
+      "ordinal": 1,
+      "sha256": "5cd987da69584c59f1f8012af5a81b5f97b01abb9749f9d48a8dddad714fb8c5",
+      "method": "full-flow-seed2035",
+      "detected": false,
+      "http_status": 200,
+      "checked_at": "2026-11-15T08:03:04.576552+00:00"
+    },
+    {
+      "id": "profiles_fresh_14_de_sonic-preview",
+      "role": "candidate",
+      "ordinal": 2,
+      "sha256": "5cd987da69584c59f1f8012af5a81b5f97b01abb9749f9d48a8dddad714fb8c5",
+      "method": "full-flow-seed2035",
+      "detected": false,
+      "http_status": 200,
+      "checked_at": "2026-11-15T08:04:24.579730+00:00"
+    },
+    {
+      "id": "profiles_fresh_20_ja_sonic-preview",
+      "role": "candidate",
+      "ordinal": 1,
+      "sha256": "8425737eba885596a6720edc411809b47bbf02a48d3eb9d102da985d5c1880a6",
+      "method": "full-flow-seed2035",
+      "detected": false,
+      "http_status": 200,
+      "checked_at": "2026-11-15T08:05:44.632192+00:00"
+    },
+    {
+      "id": "profiles_fresh_20_ja_sonic-preview",
+      "role": "candidate",
+      "ordinal": 2,
+      "sha256": "8425737eba885596a6720edc411809b47bbf02a48d3eb9d102da985d5c1880a6",
+      "method": "full-flow-seed2035",
+      "detected": false,
+      "http_status": 200,
+      "checked_at": "2026-11-15T08:07:04.619357+00:00"
+    },
+    {
+      "id": "profiles_fresh_24_ar_sonic-preview",
+      "role": "candidate",
+      "ordinal": 1,
+      "sha256": "e6bf833c2b5a07947d4b395f2889f3d25a13588de74e9d46d94e51aa1be9c0bd",
+      "method": "full-flow-seed2035",
+      "detected": false,
+      "http_status": 200,
+      "checked_at": "2026-11-15T08:09:44.673997+00:00"
+    },
+    {
+      "id": "profiles_fresh_24_ar_sonic-preview",
+      "role": "candidate",
+      "ordinal": 2,
+      "sha256": "e6bf833c2b5a07947d4b395f2889f3d25a13588de74e9d46d94e51aa1be9c0bd",
+      "method": "full-flow-seed2035",
+      "detected": false,
+      "http_status": 200,
+      "checked_at": "2026-11-15T08:12:25.053821+00:00"
+    },
+    {
+      "id": "profiles_fresh_32_zh_sonic-preview",
+      "role": "candidate",
+      "ordinal": 1,
+      "sha256": "6d221a862d2323a796bf636fbd3a88ff5880d2b774669223466b93f2b333f68e",
+      "method": "full-flow-seed2035",
+      "detected": false,
+      "http_status": 200,
+      "checked_at": "2026-11-15T08:15:04.743643+00:00"
+    },
+    {
+      "id": "profiles_fresh_32_zh_sonic-preview",
+      "role": "candidate",
+      "ordinal": 2,
+      "sha256": "6d221a862d2323a796bf636fbd3a88ff5880d2b774669223466b93f2b333f68e",
+      "method": "full-flow-seed2035",
+      "detected": false,
+      "http_status": 200,
+      "checked_at": "2026-11-15T08:17:44.726763+00:00"
+    },
+    {
+      "id": "profiles_fresh_33_zh_sonic-3.6",
+      "role": "candidate",
+      "ordinal": 1,
+      "sha256": "ec67a88a8b6f86ac6595aed4e5b4ff5eac627426814b55c8e75bdef35cfd9790",
+      "method": "full-flow-seed2035",
+      "detected": false,
+      "http_status": 200,
+      "checked_at": "2026-11-15T08:20:24.696796+00:00"
+    },
+    {
+      "id": "profiles_fresh_33_zh_sonic-3.6",
+      "role": "candidate",
+      "ordinal": 2,
+      "sha256": "ec67a88a8b6f86ac6595aed4e5b4ff5eac627426814b55c8e75bdef35cfd9790",
+      "method": "full-flow-seed2035",
+      "detected": false,
+      "http_status": 200,
+      "checked_at": "2026-11-15T08:23:04.691923+00:00"
+    },
+    {
+      "id": "profiles_fresh_35_zh_sonic-3.6",
+      "role": "candidate",
+      "ordinal": 1,
+      "sha256": "4f843e2e01aadad406cec1cf5b237562b0397a15b56c8d23f8422ad3d8368148",
+      "method": "full-flow-seed2035",
+      "detected": false,
+      "http_status": 200,
+      "checked_at": "2026-11-15T08:25:44.731628+00:00"
+    },
+    {
+      "id": "profiles_fresh_35_zh_sonic-3.6",
+      "role": "candidate",
+      "ordinal": 2,
+      "sha256": "4f843e2e01aadad406cec1cf5b237562b0397a15b56c8d23f8422ad3d8368148",
+      "method": "full-flow-seed2035",
+      "detected": false,
+      "http_status": 200,
+      "checked_at": "2026-11-15T08:28:24.730131+00:00"
+    },
+    {
+      "id": "profiles_fresh_43_ta_sonic-3.6",
+      "role": "closing_positive_control",
+      "ordinal": 1,
+      "sha256": "5a22bab2ee92628e42e6a0366a60c0c7a86b1c0f9af63a0b0450a2df849b3691",
+      "detected": true,
+      "http_status": 200,
+      "checked_at": "2026-11-15T08:31:04.668526+00:00"
+    },
+    {
+      "id": "profiles_fresh_43_ta_sonic-3.6",
+      "role": "closing_positive_control",
+      "ordinal": 2,
+      "sha256": "5a22bab2ee92628e42e6a0366a60c0c7a86b1c0f9af63a0b0450a2df849b3691",
+      "detected": true,
+      "http_status": 200,
+      "checked_at": "2026-11-15T08:33:44.861537+00:00"
+    }
+  ],
+  "processing_assessment_sha256": "1bce8276f257bbecb701932c776086ab31421774114f4fc4fcef6fa8cdd474ed",
+  "new_tts_requests": 0,
+  "fresh_efficacy_sources": 0,
+  "completed_19_of_44_result_changed": false,
+  "human_listening_approval": false,
+  "physical_erasure_proven": false,
+  "limits": [
+    "These are spent development recordings; repeated methods and controls are not independent sources.",
+    "Voice estimates guide eligibility; Whisper checkpoints share ancestry.",
+    "Negative detector replies and estimated quality cannot establish physical erasure or universal reliability."
+  ]
+}

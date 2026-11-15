@@ -12,7 +12,7 @@ Tools for studying Cartesia's audio watermark, running a local detector, and exp
 | --- | --- | --- |
 | Reconstruction (default) | Rebuilds speech with a local Resemble Enhance model | Mixed detection results; slower, changes more of the signal |
 | Balanced reconstruction (experimental) | Uses a filtered starting prior with the original speech condition | 8/12 fresh marked outputs negative on both checks; can change words |
-| Full-flow reconstruction | Rebuilds speech from a random latent prior | 20/20 marked generated outputs checked negative; can change spoken words |
+| Full-flow reconstruction | Rebuilds speech from a random latent prior | Detector-negative outputs can still fail speech checks |
 | Experimental reconstruction | Rebuilds smoothed speech features with NVIDIA BigVGAN | Faster in the recorded short benchmark; a fresh Japanese case remained detected |
 | Stronger reconstruction | Uses more aggressive denoising before reconstruction | Experimental; listen for changes to the voice and words |
 | Small edits (V3) | Applies two small waveform networks with a quality guard | Preserves voice fidelity well; unreliable watermark suppression |
@@ -57,6 +57,8 @@ The newer [codec reconstruction candidate](docs/codec-reconstruction.md) combine
 The later [language-profile protocol and implementation](https://github.com/JustTalDevelops/cartesia-watermark/blob/codec-band-prior-20261114/docs/codec-profiles-study.md) cover eleven languages, long recordings and stereo derivatives. That workflow also missed the reliability target. See [codec research results](docs/codec-development.md) for the completed studies and subsequent experiments.
 
 The [completed TiCodec and middle-band follow-up](docs/codec-development.md#completed-ticodec-and-middle-band-follow-up) qualified outputs for 8 of the 25 previously failed recordings, including the earlier English pilot. Three detector-negative treatments failed reference checks. All 75 treatment records are retained. This is development evidence, with no fresh validation or change to the 19/44 study.
+
+The [fixed full-flow follow-up](results/fullflow_spent_development.json) qualified 7 of those 25 spent failures. Sixteen failed speech checks; two more cleared detection but failed separate reference checks. These follow-ups do not establish reliable removal on new recordings.
 
 The separate experimental V3 CLI needs only the inference dependencies and the bundled checkpoint:
 

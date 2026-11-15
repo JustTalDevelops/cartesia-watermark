@@ -112,6 +112,14 @@ Speech quality remains a limitation. The minimum sampled speaker-embedding cosin
 
 The verification CLI checks each new recording's actual final bytes. A finite study cannot prove physical watermark erasure, unchanged words, every future recording, or later detector behavior.
 
+The later [fixed full-flow development panel](../results/fullflow_spent_development.json)
+reused all 25 failures from the separate language-profile study. Seven qualified;
+sixteen failed speech guards, and two more cleared both detector checks but failed
+separate reference checks. All nine eligible outputs were reference-scored after
+22 HTTP attempts. This spent panel does not revise the earlier study or establish
+reliability on new recordings. The [development notes](codec-development.md#fixed-full-flow-follow-up)
+retain the exact settings and both reference failures.
+
 ## Filtered-prior candidate
 
 `tools/reconstruct_filtered_prior.py` keeps the original full-band speech condition and low-passes only the waveform used to encode the starting prior. The fixed recipe uses an eighth-order, zero-phase Butterworth filter at 2.3 kHz, prior temperature 0.8, denoising blend 0.1, 32 midpoint evaluations, seed 2035, and corrected chunk scheduling. The [completed study](../results/reconstruction_filtered_prior.json) found four fresh counterexamples to this preset alone; a fixed, exact-file-checked fallback workflow produced negative outputs for all planned sources.
