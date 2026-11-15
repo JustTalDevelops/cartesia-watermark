@@ -1,0 +1,53 @@
+{
+  "synthetic_only": true,
+  "original_author_forward_exact": true,
+  "all_three_code_and_waveform_comparisons_exact": true,
+  "full_seconds": [
+    1.9469895670190454,
+    1.9820385435596108,
+    1.9827695116400719
+  ],
+  "prefix_seconds": [
+    1.7255097134038806,
+    1.7370927818119526,
+    1.6947245048359036
+  ],
+  "median_speedup": 1.148668435861587,
+  "prefix_source_sha256": "88ddf0255658559b1a2754daac29212fab79869eb73ea80a4ccdd2fa2f73fee0",
+  "adapter_source_sha256": "4aed7d3d5a187343be94be6cfc31eec56d351495ca31bb184b9b958eb772e125",
+  "kind": "Synthetic CPU X-Codec2 exact-prefix preflight",
+  "raw_preflight_sha256": "de44333dd2bf22e4561db90262f93fb2dd0f230a43ef16ef61c45737e18d5774",
+  "rng_receipt_sha256": "289dc88623dd8d68888f429f71c0bfc12603795f60ace268c1667251059949f2",
+  "rng_advance_exact": true,
+  "model": {
+    "model": "HKUSTAudio/xcodec2",
+    "revision": "e412427ed30f0cf9d5e3c95562113deb10a32d03",
+    "weights_sha256": "a27b1544a394b9aff722da55366281f00480a5479fe5cbfc84f2e2e74eab4db0",
+    "weights_license": "CC-BY-NC-4.0",
+    "trained_by_this_project": false,
+    "sample_rate": 16000,
+    "precision": "float32",
+    "device": "cpu",
+    "threads": 4,
+    "semantic_attention": "eager",
+    "author_python_package": "xcodec2==0.1.3"
+  },
+  "input": {
+    "kind": "five-second synthetic sine wave",
+    "sample_rate": 16000,
+    "samples": 80000,
+    "speech": false
+  },
+  "new_http_requests": 0,
+  "new_tts_requests": 0,
+  "fresh_efficacy_sources": 0,
+  "detector_checked": false,
+  "independent_quality_evaluated": false,
+  "human_listening_approval": false,
+  "physical_erasure_proven": false,
+  "limits": [
+    "Component timings exclude model loading, resampling, speech recognition, API pacing and application overhead.",
+    "Synthetic parity and speed do not establish watermark suppression or speech quality.",
+    "The adapter used local pinned author sources and upstream weights; it was not a trained project model."
+  ]
+}
