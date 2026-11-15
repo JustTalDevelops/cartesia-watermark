@@ -64,6 +64,7 @@ def declaration_data(generation_path, study_path):
         raise ValueError('Use the completed generation panel and its unchanged completed study')
     registry = dict(generation['code_files_sha256'])
     registry['experiments/check_codec_frames.py'] = IMPLEMENTATION_SHA256
+    registry['docs/codec-frame-evaluation.md'] = digest(ROOT/'docs/codec-frame-evaluation.md')
     if any(digest(ROOT/name) != checksum for name, checksum in registry.items()):
         raise ValueError('Loaded checker or recorded generation code changed')
     failed = [c for c in study['cases'] if c['marked_provenance'] and not c['qualified_marked_transition']]
@@ -73,7 +74,10 @@ def declaration_data(generation_path, study_path):
             generation['planned_treatments'] != len(failed)*len(OFFSETS) or
             generation['offsets_native_samples'] != list(OFFSETS)):
         raise ValueError('Keep every failed marked source and all four fixed offsets')
-    treatments, sources = [], []
+    treatments, sources, assessment_files = [], [], {}
+    for name in ('evaluation.plan.json', 'original_guards.json', 'original_evaluation.json', 'original_voice.json'):
+        path = study_path.parent/name
+        assessment_files[str(path)] = digest(path)
     for case, old in zip(cases, failed):
         source = (ROOT/case['source']).resolve()
         source_sha = digest(source)
@@ -87,6 +91,10 @@ def declaration_data(generation_path, study_path):
         if [t['offset_native_samples'] for t in case['treatments']] != list(OFFSETS):
             raise ValueError('Keep the fixed offset order for every source')
         sources.append({'id':case['id'], 'file':str(source), 'sha256':source_sha, 'format':grid})
+        original_cache = study_path.parent/'recognition/originals'/(source_sha+'.json')
+        if digest(original_cache) != old['original_guard_calibration']['recognition_cache_sha256']:
+            raise ValueError('Original-only recognition calibration changed')
+        assessment_files[str(original_cache)] = digest(original_cache)
         for treatment in case['treatments']:
             status, model = treatment['status'], treatment['model']
             offset = treatment['offset_native_samples']
@@ -100,6 +108,8 @@ def declaration_data(generation_path, study_path):
                     raise ValueError('Historical zero-offset parity must hold')
             row = {'id':case['id'], 'offset_native_samples':offset, 'processing_status':status,
                    'sha256':model['candidate_flac_sha256'], 'detector_eligible':status == 'processing_eligible'}
+            processed_cache = generation_path.parent/'recognition/processed'/(row['sha256']+'.json')
+            assessment_files[str(processed_cache)] = digest(processed_cache)
             if status != 'content_rejected':
                 output = Path(treatment['output_file']).resolve()
                 actual = sf.info(output)
@@ -112,6 +122,10 @@ def declaration_data(generation_path, study_path):
                         quality['passed'] != (status == 'processing_eligible')):
                     raise ValueError('Eligible or voice-rejected output lacks its unchanged whole-file evidence')
                 row['file'] = str(output)
+                voice_receipt = generation_path.parent/'runtime_voice'/case['id']/(row['sha256']+'.json')
+                if digest(voice_receipt) != quality['receipt_sha256']:
+                    raise ValueError('Operational voice measurement changed')
+                assessment_files[str(voice_receipt)] = digest(voice_receipt)
             elif model['content_guard_passed'] is not False:
                 raise ValueError('A speech rejection must retain its failed processing decision')
             treatments.append(row)
@@ -120,7 +134,8 @@ def declaration_data(generation_path, study_path):
     return {'kind':'Declared spent-source frame detector panel',
             'generation_file':str(generation_path), 'generation_sha256':digest(generation_path),
             'completed_study_file':str(study_path), 'completed_study_sha256':digest(study_path),
-            'code_files_sha256':registry, 'sources':sources, 'treatments':treatments,
+            'code_files_sha256':registry, 'assessment_files_sha256':assessment_files,
+            'sources':sources, 'treatments':treatments,
             'historical_exact_file_observations':previous_observations(study),
             'minimum_detector_start_interval_seconds':80, 'repetitions_per_exact_file':2,
             'opening_source_id':sources[0]['id'], 'closing_source_id':sources[-1]['id'],
@@ -164,7 +179,8 @@ def run(declaration_path, output_path):
         if (digest(declaration_path) != declaration_sha or digest(target) != checksum or
                 digest(declaration['generation_file']) != declaration['generation_sha256'] or
                 digest(declaration['completed_study_file']) != declaration['completed_study_sha256'] or
-                any(digest(ROOT/name) != value for name,value in declaration['code_files_sha256'].items())):
+                any(digest(ROOT/name) != value for name,value in declaration['code_files_sha256'].items()) or
+                any(digest(name) != value for name,value in declaration.get('assessment_files_sha256', {}).items())):
             raise ValueError('Declared code, inventory or exact detector input changed')
 
     def counted(*args, **kwargs):

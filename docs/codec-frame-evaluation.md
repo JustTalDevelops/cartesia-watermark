@@ -56,3 +56,22 @@ It never loads synthesis or recognition models:
   --declaration .cache/removal-reliability/codec_frame_development/endpoint.declaration.json \
   --output .cache/removal-reliability/codec_frame_development/detector.json
 ```
+
+The declaration also binds original calibration, processing-recognition and voice
+receipts. Existing source transcription caches are copied byte for byte into a
+new evaluation cache; the completed study's cache is not written. The scorer
+blocks HTTP and uses the original pinned evaluator. Its report retains scores for
+all eligible offsets regardless of their detector response:
+
+```bash
+.cache/resemble-venv/bin/python experiments/codec_frame_report.py score \
+  --declaration .cache/removal-reliability/codec_frame_development/endpoint.declaration.json \
+  --detector .cache/removal-reliability/codec_frame_development/detector.json \
+  --evaluation .cache/removal-reliability/codec_frame_development/evaluation.json
+
+.cache/resemble-venv/bin/python experiments/codec_frame_report.py export \
+  --declaration .cache/removal-reliability/codec_frame_development/endpoint.declaration.json \
+  --detector .cache/removal-reliability/codec_frame_development/detector.json \
+  --evaluation .cache/removal-reliability/codec_frame_development/evaluation.json \
+  --output .cache/removal-reliability/codec_frame_development/curated_report.json
+```
