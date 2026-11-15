@@ -2,7 +2,7 @@
 
 Tools for studying Cartesia's audio watermark, running a local detector, and experimenting with speech reconstruction. Includes a local upload app for listening to and downloading processed recordings.
 
-**Removal remains unresolved.** V3 stays detectable on real recordings. In the [fresh codec study](results/codec_reliability.json), **6 of 14 marked sources** produced twice-negative files that passed all seven estimated quality criteria. Seven sources remained uncleared; another cleared detection but failed the reference-error check. Both nominal controls also passed, but they are not removal successes. These tests do not establish universal removal.
+**Removal remains unresolved.** V3 stays detectable on real recordings. The [completed language-profile study](results/codec_profiles_reliability.json) qualified **19 of 44 marked sources**; 25 failed the workflow. The [earlier codec study](results/codec_reliability.json) qualified 6/14. Qualified files checked negative twice and met their predeclared quality estimates. These results do not prove physical erasure or universal removal.
 
 **[Download the trained models](https://github.com/JustTalDevelops/cartesia-watermark/releases/tag/models-2026-11-13)** — detector heads, frozen V1–V3 editors, and separate research checkpoints. See the [model guide and catalog](docs/models.md) for contents, loading instructions, and upstream attribution.
 
@@ -54,7 +54,7 @@ A separate [speech repair candidate](docs/speech-repair.md) adds recognizer chec
 
 The newer [codec reconstruction candidate](docs/codec-reconstruction.md) combines native codec synthesis, a wide-band fallback, and two recognizer guards. Its [prospectively frozen fresh study](docs/codec-study.md) is complete and retains every failure. The current candidate did not meet the reliability target. It is an opt-in CLI, with additional upstream model assets and license terms.
 
-[Subsequent development results](docs/codec-development.md) retain repaired examples and every unresolved counterexample. These follow-ups reuse study recordings and add no fresh validation.
+The later [language-profile protocol and implementation](https://github.com/JustTalDevelops/cartesia-watermark/blob/codec-band-prior-20261114/docs/codec-profiles-study.md) cover eleven languages, long recordings and stereo derivatives. That workflow also missed the reliability target. See [codec research results](docs/codec-development.md) for the completed studies and subsequent experiments.
 
 The separate experimental V3 CLI needs only the inference dependencies and the bundled checkpoint:
 

@@ -1,8 +1,9 @@
 # Codec development results
 
-The frozen [fresh study](codec-study.md) remains **6 qualified marked sources out
-of 14**. The follow-ups below reuse its recordings. They add no fresh sources and
-do not establish reliable removal on new recordings.
+The original [fresh study](codec-study.md) remains **6 qualified marked sources out
+of 14**. The development follow-ups below reuse those recordings. A later fresh
+cohort is reported under [Completed language-profile study](#completed-language-profile-study).
+Neither study met the reliability target.
 
 | Follow-up | Observed result |
 | --- | --- |
@@ -129,19 +130,64 @@ bound float32 reference. A real full-wrapper integration reproduced the same
 checked file in 191.4 versus 269.3 seconds, about 29% less local time. Both wrapper
 runs used mocked detector callbacks; actual API pacing adds time. The
 [experimental flag](https://github.com/JustTalDevelops/cartesia-watermark/blob/codec-band-prior-20261114/docs/codec-profiles-study.md#experimental-single-file-command)
-has its own cache identity and remains outside the active float32 frozen study.
+has its own cache identity and was excluded from the completed float32 study.
 These individual CPU observations add no fresh sources or removal evidence.
 
 An additional source-only control reused all nine Hindi/Tamil originals from the
-active cohort, across eight voice IDs. Both recognizers' normalized units matched
+language-profile cohort, across eight voice IDs. Both recognizers' normalized units matched
 their frozen float32 caches for all nine. It read no candidate outputs and adds
 no detector observations or paired float32 timing comparison.
 
-The [separate frozen language-profile study](https://github.com/JustTalDevelops/cartesia-watermark/blob/codec-band-prior-20261114/docs/codec-profiles-study.md)
-declares 44 new marked requests and four matched nominal controls before
-generation. Its code, inputs, method order, evaluation roles and thresholds are
-frozen. That protocol is not efficacy evidence; its results must be reported
-separately without changing the original 6/14 study.
+## Completed language-profile study
+
+The separate [prospectively frozen study](https://github.com/JustTalDevelops/cartesia-watermark/blob/codec-band-prior-20261114/docs/codec-profiles-study.md)
+qualified **19/44 marked sources**; 25 failed the workflow. The
+[complete 48-request report](../results/codec_profiles_reliability.json) retains
+every marked failure, four matched nominal controls and all detector receipts.
+The original 6/14 result remains unchanged.
+
+There were four marked requests per language, two Sonic Preview and two Sonic 3.6,
+using 44 public voice IDs absent from the project's prior scan. Two English
+recordings exceeded 100 seconds; four marked recordings used stereo derivatives.
+This does not establish unseen training data for upstream models or coverage of
+arbitrary recordings. The small language groups are not population-rate estimates.
+
+| Language | Qualified / planned marked sources |
+| --- | ---: |
+| English | 3/4 |
+| Spanish | 3/4 |
+| French | 2/4 |
+| German | 2/4 |
+| Hindi | 0/4 |
+| Japanese | 3/4 |
+| Arabic | 2/4 |
+| Korean | 2/4 |
+| Mandarin Chinese | 1/4 |
+| Russian | 1/4 |
+| Tamil | 0/4 |
+
+All 44 marked originals tested positive twice. The 19 selected marked outputs
+tested negative twice for their exact whole-file bytes and passed the withheld
+reference-error checks and remaining declared criteria. The study recorded 96
+baseline and 130 candidate-phase HTTP checks, including repeated opening and
+closing positive source controls. Source sample rate, natural sample count and
+channel count were preserved for detection.
+
+The four nominal Sonic 3.5 controls had two positive and two negative baseline
+responses. Three processed control outputs qualified and tested negative twice;
+the fourth exhausted its routes. Their actual watermark absence is unverified,
+and none is an additional marked removal success.
+
+All eight Hindi/Tamil marked cases failed. Other failures included persistent
+detection, recognizer disagreement and an operational naturalness rejection.
+Processing recognizers and voice/MOS estimates guided selection. Only the
+declared evaluation-transcription scores were withheld; Whisper checkpoints share
+ancestry. These estimates do not replace human listening or prove physical erasure.
+
+The [pre-registered framing panel](https://github.com/JustTalDevelops/cartesia-watermark/blob/1052839/docs/codec-frame-alignment.md)
+uses this completed cohort as spent development data. Such follow-ups do not
+change its 19/44 outcome or add fresh efficacy samples. Any resulting candidate
+still requires a new frozen validation cohort.
 
 The alternative [Mimi weights](https://huggingface.co/kyutai/mimi) are upstream
 CC-BY-4.0 assets, separate from the models trained by this project. The smoothing
