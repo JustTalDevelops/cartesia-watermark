@@ -321,9 +321,32 @@ removal. The [complete 25-source generation panel](../results/xcodec2_generation
 retained eight processing-eligible outputs and seventeen speech rejections.
 All 27 actual channel controls matched codes, waveforms and RNG advancement
 exactly. The prefix path used about 15% less total codec component time in these
-ordered pairs. Every Hindi/Tamil output remained speech-rejected; none of the
-new outputs has completed detector and independent reference qualification.
+ordered pairs. Every Hindi/Tamil X-Codec2 output remained speech-rejected. Its
+later endpoint and reference results are in the complete follow-up below.
 The upstream noncommercial weights are not part of this project's model release.
+
+## Completed X-Codec2 and generated-donor repair follow-up
+
+The [complete follow-up report](../results/codec_xcodec2_repair_development.json)
+retains all 75 treatments of the same 25 spent failures: 25 X-Codec2 outputs and
+50 generated-donor repair slots, including unrendered and processing-rejected
+proposals. All eleven processing-eligible files were checked twice and then
+reference-scored, including the four files still detected. Four positive source
+controls complete the 26-request detector panel.
+
+Seven files checked negative twice. Six qualified: X-Codec2 English 00 and
+Chinese 32, 33 and 35, plus the generated-Native-donor repairs of German 13 and
+Hindi 18. The detector-negative French 10 X-Codec2 output failed the frozen
+Small recognizer reference check and remains a failure. The other four eligible
+files remained detected.
+
+The [frozen protocol](https://github.com/JustTalDevelops/cartesia-watermark/blob/775563e/docs/codec-followup-endpoint.md)
+uses the original reference roles, thresholds and source calibration. These six
+sources overlap other development panels; their count is not additional fresh
+efficacy evidence or validation of a single combined workflow. There was no new
+synthesis, no human listening approval and no change to the completed 19/44
+study. Negative replies and these estimates do not prove physical erasure or
+universal reliability.
 
 The alternative [Mimi weights](https://huggingface.co/kyutai/mimi) are upstream
 CC-BY-4.0 assets, separate from the models trained by this project. The smoothing
