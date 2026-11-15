@@ -157,16 +157,17 @@ def declare(generation_path, study_path, path):
     return value
 
 
-def run(declaration_path, output_path):
+def run(declaration_path, output_path, builder=None):
+    build = builder or declaration_data
     declaration = json.loads(declaration_path.read_text())
-    expected = declaration_data(declaration['generation_file'], declaration['completed_study_file'])
+    expected = build(declaration['generation_file'], declaration['completed_study_file'])
     if {k:v for k,v in declaration.items() if k != 'declared_at'} != expected:
         raise ValueError('Declaration inventory or recorded files changed')
     if output_path.exists() or output_path.resolve() == declaration_path.resolve():
         raise ValueError('Existing service observations are never automatically repeated')
     declaration_sha = digest(declaration_path)
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    report = {'kind':'Spent-source frame detector observations', 'declaration_sha256':declaration_sha,
+    report = {'kind':declaration.get('observation_report_kind','Spent-source frame detector observations'), 'declaration_sha256':declaration_sha,
               'complete':False, 'checks':[], 'http_attempts':[], 'observations':{},
               'treatments':declaration['treatments'], 'fresh_efficacy_sources':0, 'new_tts_requests':0,
               'independent_quality_evaluated':False, 'started_at':now()}
@@ -210,6 +211,8 @@ def run(declaration_path, output_path):
             current.update(id=row['id'], role=role, ordinal=ordinal, sha256=checksum, file=str(target))
             if 'offset_native_samples' in row:
                 current['offset_native_samples'] = row['offset_native_samples']
+            if 'method' in row:
+                current['method'] = row['method']
             status, response = cartesia.detect(target)
             if status != 200 or not isinstance(response, dict) or type(response.get('detected')) is not bool:
                 raise RuntimeError('Detector unavailable; no repeated request')
@@ -223,7 +226,8 @@ def run(declaration_path, output_path):
                     (role != 'candidate' and detected is not True)):
                 raise RuntimeError('Contradictory exact-file observation or failed positive control')
             replies.append(detected)
-            print('FRAME_DETECTOR', row['id'], role, row.get('offset_native_samples'), ordinal, detected, flush=True)
+            print(declaration.get('progress_prefix','FRAME_DETECTOR'), row['id'], role,
+                  row.get('offset_native_samples',row.get('method')), ordinal, detected, flush=True)
         return replies[0]
 
     cartesia.requests.post = counted
@@ -237,11 +241,13 @@ def run(declaration_path, output_path):
             if not reused:
                 detected = pair(row, 'candidate')
                 report['observations'][checksum] = {'detected':detected, 'id':row['id'],
-                    'offset_native_samples':row['offset_native_samples']}
+                    **{key:row[key] for key in ('offset_native_samples','method') if key in row}}
             row.update(detector_observation_group=checksum,
                        detected=report['observations'][checksum]['detected'], identical_file_observations_reused=reused)
             save(output_path, report)
         pair(declaration['sources'][-1], 'closing_positive_control')
+        if build(declaration['generation_file'], declaration['completed_study_file']) != expected:
+            raise ValueError('Declared complete inventory changed before phase completion')
         report.update(complete=True, completed_at=now())
         save(output_path, report)
     except BaseException as error:

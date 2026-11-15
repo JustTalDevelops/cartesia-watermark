@@ -50,6 +50,7 @@ class FrameEndpointTests(unittest.TestCase):
         post = Mock(side_effect=response)
         with patch.object(checker, 'declaration_data', return_value=value), \
                 patch.object(checker.cartesia.requests, 'post', post), \
+                patch.object(checker.cartesia, 'ROOT', declaration.parent), \
                 patch.object(checker.cartesia, '_pace_detector', side_effect=pace or (lambda:None)):
             checker.run(declaration, output)
         return post
