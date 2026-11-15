@@ -73,6 +73,7 @@ results/*
 !results/ticodec_pilot_development.json
 !results/ticodec_latents_generation_development.json
 !results/xcodec2_prefix_preflight.json
+!results/xcodec2_generation_development.json
 !results/codec_profiles_reliability.json
 !results/codec_repair_development.json
 !results/codec_cycles_development.json
