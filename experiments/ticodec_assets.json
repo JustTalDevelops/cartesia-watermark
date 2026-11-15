@@ -1,0 +1,33 @@
+{
+  "model": "y-ren16/TiCodec 1g4r",
+  "trained_by_this_project": false,
+  "code_repository": "https://github.com/y-ren16/TiCodec",
+  "code_revision": "13af0ebad99f01ebbe25ce449b7e33eebc56672e",
+  "code_license": "Apache-2.0, stated in upstream README",
+  "weights_repository": "https://huggingface.co/y-ren16/TiCodec",
+  "weights_revision": "2117e04dc2493fb242a8486286fb3dab2350e0a2",
+  "weights_path": "logs_conv_only/logs_convonly_Lib_1g4r_cos_from_head/g_00250000",
+  "weights_sha256": "f344d139472536407f9faef170d47950c213a84b53b589049c5f1c7004efa314",
+  "weights_bytes": 259800330,
+  "weights_license": "No explicit checkpoint license or model card in the inspected author release; not redistributed by this project",
+  "local_code_directory": ".cache/removal-reliability/upstream/TiCodec",
+  "local_weights_file": ".cache/removal-reliability/upstream/ticodec-1g4r-g_00250000.pt",
+  "configuration_file": "egs/TiCodec-24k-320d/config_24k_320d_conv_1g4r_8g3k1s.json",
+  "sample_rate": 24000,
+  "frame_samples": 320,
+  "frame_codebooks": 4,
+  "frame_codebook_size": 1024,
+  "frame_codes_bitrate_bps": 3000,
+  "global_codes_per_complete_channel": 8,
+  "global_codebook_size": 1024,
+  "source_files_sha256": {
+    "academicodec/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "academicodec/models/ticodec/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "academicodec/utils.py": "dd2c9ce9e772c90c19a06279acfcd4cd5efa91a1996cebbbd95518a88c44b83d",
+    "academicodec/models/ticodec/models.py": "397a2e0e33272e745f3ba3c283c81a52a559d0d8533bb0597de673f8ee1ab502",
+    "academicodec/models/ticodec/env.py": "f5212e8402468ba2b68f79fac906ae48b0762625db368232bbff3bc31fa2b42b",
+    "academicodec/models/ticodec/vqvae.py": "7587f50309ec0e0369c522730a5c0e1caa53a2da6ab1cf45ebbc93e32f88e45c",
+    "egs/TiCodec-24k-320d/config_24k_320d_conv_1g4r_8g3k1s.json": "33e419fa547f0a445e719550d94d6a29cecff75cb365748fcff0c8d86cf4b55a",
+    "README.md": "9c5dce34f45fbe35400d0ec44e2f15d2b1321f066bb3f50d50608650345bce5c"
+  }
+}
