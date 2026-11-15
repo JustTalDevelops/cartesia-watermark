@@ -1,8 +1,17 @@
-# TiCodec development preparation
+# TiCodec development
 
-This is preparation for another codec reconstruction experiment, with no real
-speech, detector results or independent quality measurements at preparation time.
-It does not change the completed language-profile study's 19/44 outcome.
+The fixed [25-source generation panel](../results/ticodec_generation_development.json)
+is complete: five outputs passed operational processing gates, seventeen failed
+speech checks and three failed voice estimates. All recordings were spent marked
+failures from the completed language-profile study.
+
+The [first fixed-source pilot](../results/ticodec_pilot_development.json), an English
+26.48-second stereo derivative, passed all seven frozen quality estimates. Its
+exact whole-file FLAC tested negative twice between four positive source controls.
+The withheld Small recognizer's reference error did not increase. This qualifies
+one spent source; the other four eligible files remain unverified. No fresh
+validation was added, and the completed study remains 19/44. Human listening and
+physical erasure are not established.
 
 Recent [latent-watermark research](https://arxiv.org/abs/2609.25830) reports that
 robustness differs across codec families. That result concerns other watermark
@@ -29,7 +38,7 @@ Synthetic-decoder tests cover complete mono/stereo grids, reflection removal,
 shared gain and malformed outputs. They establish no speech or removal evidence.
 Before speech generation, a separate real-weight synthetic check must match the
 author's CPU `VQVAE.encode` and decode API exactly, using shared strictly loaded
-weights. It bypasses the author's unrestricted checkpoint loader and retains
+weights. The actual real-weight check matched exactly. It bypasses the author's unrestricted checkpoint loader and retains
 weight normalization. This is implementation parity rather than comparison with
 the author's CUDA inference script or a quality evaluation.
 
@@ -60,3 +69,18 @@ panel and cannot replace or remove any of its declared treatments.
 Any resulting candidate remains spent-source development and needs a new frozen
 validation cohort. Detector negatives and estimated quality cannot establish
 physical erasure or universal reliability. Human listening approval is separate.
+
+The [generation curator](../experiments/ticodec_generation_report.py) rechecks all
+twenty-five encoded files, actual recognition caches and voice receipts. The
+[pilot curator](../experiments/ticodec_pilot_report.py) additionally checks every
+actual service receipt, reference evaluation and the frozen qualification math.
+Neither exporter runs models or calls Cartesia. Re-exporting requires the original
+local generated files and measurement receipts; raw audio and transcripts are
+not included in Git. Choose new output paths:
+
+```bash
+.cache/resemble-venv/bin/python experiments/ticodec_generation_report.py \
+  --output .cache/removal-reliability/ticodec-generation-recheck.json
+.cache/resemble-venv/bin/python experiments/ticodec_pilot_report.py \
+  --output .cache/removal-reliability/ticodec-pilot-recheck.json
+```

@@ -56,6 +56,8 @@ The newer [codec reconstruction candidate](docs/codec-reconstruction.md) combine
 
 The later [language-profile protocol and implementation](https://github.com/JustTalDevelops/cartesia-watermark/blob/codec-band-prior-20261114/docs/codec-profiles-study.md) cover eleven languages, long recordings and stereo derivatives. That workflow also missed the reliability target. See [codec research results](docs/codec-development.md) for the completed studies and subsequent experiments.
 
+A [TiCodec development pilot](docs/codec-development.md#ticodec-development-pilot) cleared one reused English recording and passed the frozen quality estimates. Its full 25-source generation panel retained 20 processing rejections; the other four eligible files remain unverified. This is development evidence, with no fresh validation or change to the 19/44 study.
+
 The separate experimental V3 CLI needs only the inference dependencies and the bundled checkpoint:
 
 ```bash

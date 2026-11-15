@@ -1,0 +1,1184 @@
+{
+  "kind": "Spent-source TiCodec 1g4r generation results only",
+  "generation_sha256": "c794af62146888ce2b94517bae466814e5fb7d2453cfcd79dc8bd581fa7eff1f",
+  "formatter_source_sha256": "137df4d6fb930a04d192c56cbbfa7151e87e977009ea9090cf72f51ac4d10f89",
+  "completed_study_sha256": "777355dff6ed90ec0beec56558b0c3a4fc974abb88c38993d95d554c6040cd4b",
+  "model": {
+    "model": "y-ren16/TiCodec 1g4r",
+    "trained_by_this_project": false,
+    "code_repository": "https://github.com/y-ren16/TiCodec",
+    "code_revision": "13af0ebad99f01ebbe25ce449b7e33eebc56672e",
+    "code_license": "Apache-2.0, stated in upstream README",
+    "weights_repository": "https://huggingface.co/y-ren16/TiCodec",
+    "weights_revision": "2117e04dc2493fb242a8486286fb3dab2350e0a2",
+    "weights_sha256": "f344d139472536407f9faef170d47950c213a84b53b589049c5f1c7004efa314",
+    "weights_license": "No explicit checkpoint license or model card in the inspected author release; not redistributed by this project",
+    "source_files_sha256": {
+      "academicodec/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "academicodec/models/ticodec/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "academicodec/utils.py": "dd2c9ce9e772c90c19a06279acfcd4cd5efa91a1996cebbbd95518a88c44b83d",
+      "academicodec/models/ticodec/models.py": "397a2e0e33272e745f3ba3c283c81a52a559d0d8533bb0597de673f8ee1ab502",
+      "academicodec/models/ticodec/env.py": "f5212e8402468ba2b68f79fac906ae48b0762625db368232bbff3bc31fa2b42b",
+      "academicodec/models/ticodec/vqvae.py": "7587f50309ec0e0369c522730a5c0e1caa53a2da6ab1cf45ebbc93e32f88e45c",
+      "egs/TiCodec-24k-320d/config_24k_320d_conv_1g4r_8g3k1s.json": "33e419fa547f0a445e719550d94d6a29cecff75cb365748fcff0c8d86cf4b55a",
+      "README.md": "9c5dce34f45fbe35400d0ec44e2f15d2b1321f066bb3f50d50608650345bce5c"
+    },
+    "frame_codes_bitrate_bps": 3000,
+    "global_codes_per_complete_channel": 8,
+    "sample_rate": 24000,
+    "precision": "float32",
+    "device": "cpu",
+    "threads": 4,
+    "adapter_sha256": "96be43a9e19b110fb98d414954b7d2339beb3cf607f13b508ad324aeef1e89b6",
+    "assets_manifest_sha256": "214bdc2a2c2fc259bb63758846420a7ebd5457ceac20a547350a5ae07b084ba7",
+    "model_downloads_during_processing": false,
+    "channel_policy": "Complete channels independently; one global token set per complete channel",
+    "boundary_policy": "Reflect to 320 samples, decode, discard model reflection, restore original grid",
+    "weight_normalization": "Original author layers retained",
+    "removal_efficacy": "Unverified"
+  },
+  "code_files_sha256": {
+    "tools/verify_reconstruction.py": "7029453889415b86111ae5294e9233ce7786fad229d23e308a2b0046a376bfcc",
+    "tools/reconstruction_worker.py": "49b8816bd54a78957d45ed3596a63ba18a11bfa5eac0416070a85c692eef22f0",
+    "tools/codec_settings.py": "4ac4ab3d31ab5e037ae2c22d6f0070a5f947cf728d214a472417ec55d439b841",
+    "tools/codec_profiles.py": "7421dc49d291bd86251f8b7a8ad9706187bc5066b89cb1a990f97c38316947c6",
+    "tools/codec_assets.json": "99d443e93f0de80e837c50b17e0f93a796e0f19c05e1427d8fb33397ab62b1a5",
+    "tools/codec_audio.py": "2a0dac863e1d7c7577cf9f029f86b3973f90a6e77b935dc6bbce9169ff018f94",
+    "tools/codec_inference.py": "1f86876e3ab07e960dd9ac9c4ad9f1a773393ac31bdef969f9d25b52370d2a9e",
+    "tools/codec_teacher.py": "abebef4244f452e3d962ec6d88c9917806a98ad48512281875f41dc4d2cf3fb4",
+    "tools/codec_content.py": "1f7af6d64a8f79b80da9bbfb77f0d7497552b126fd189c8085e388e0604d97fe",
+    "tools/codec_text.py": "2b3f9503c9e39c330d60ae727415995822fec4daa4de7560572de905eab25f96",
+    "tools/codec_repair.py": "e6839578ce6d319e9463196521860b050d96f0f81f1ed8cafc14d3fe3918561a",
+    "tools/codec_word_consensus.py": "b8afdddddc1d8fab2b93036786a88ccb63473063dbc4e4572ed5d2619807a3f2",
+    "tools/korean_spacing.py": "2a191a4103a9a96539e99d138b6d74089a31b8ab36a60d26ac4c7bf3a1a6ca3a",
+    "tools/speech_repair.py": "4e3b883c3a2e0bf00546a5c4d5e4026aa1e875bca36881c4fe871e39675eb414",
+    "tools/speech_repair_assets.json": "2d1d68d1a00a006c0dc66b401ed21df291ff76fb4ab88b0f31f96960766226e2",
+    "tools/whisper_encoder_reuse.py": "1c2492c5ce80500b172d0657c3f73406b6b8b58f9c0d72b3b79c752bd203eb82",
+    "tools/reconstruct_codec.py": "ae8a607b333237bd4c01d3d4f7e8baa900a08ac39b8d70b60aafbe0add02d7de",
+    "tools/reconstruct_codec_band.py": "b5102f096a9a070b5496ced2f93ff3c29521d2326e78a2e8694a70bb7868e195",
+    "tools/vocoder_band_prior.py": "8b153b0e25421d560c3f9a41e5e36ea44f1ed0a7ad417b0c49af76f6e69b033f",
+    "tools/reconstruct_vocoder.py": "3378845287c3f1bf874147392184c5b15b43ca954adacd6eac484715e4564db0",
+    "tools/vocoder_inference.py": "38d02df4aa5d488aab7b37320dcbf6cc6e980178e23721783145adef138c37f2",
+    "tools/vocoder_assets.json": "ea7870e32da6336a800a3ddbe555d527267124470b44f8e7e0c72603aae4e7f6",
+    "tools/cartesia.py": "599d2b8b551af9f193bcc4c280f3b732a41c48c356c178ad747f17067eff5771",
+    "tools/eval_voice_quality.py": "f45829ffa8658c1158f44f7516bde482f391c71267ae6ba8b18c3853b3d747b2",
+    "tools/remover.py": "aad94e48280117f052aa8b0ce5ff8ae254154fb2611526852038912865666e6c",
+    "tools/quality_blend.py": "c74b1a6515d1b68d5edca69622b5242b78746b25186d8fab915194613d997df4",
+    "experiments/generate_codec_study.py": "9701ea895fb6328af4e2a1d6bde9341a92dfb7f01f7b09822d91f9574f866d20",
+    "experiments/run_codec_study.py": "9aaceb24c6c2786c0ac155a78832e0dd90f29578875f95453b05ba1c46305b65",
+    "experiments/run_codec_profiles.py": "a323bd4ddd08fdee42c65df353b42b64be3130ac687e5d8218fcb6cc5c5585ac",
+    "experiments/codec_profile_cache.py": "0a4b713275e89899414001494222ec486a781347babd12da6a83f6edf618a3ca",
+    "experiments/codec_profile_evaluation.py": "d191fea3a94f8bb2d85de7f5c6ba78cb0b179a47b3a6804f2aa7829ec1111f79",
+    "experiments/score_codec_study.py": "8fa758272b28150ba655243977e8ed82418231259ae158676daa27441dd8094c",
+    "experiments/codec_evaluation_text.py": "9d05a9350507e45912e47f0200f64732ed5cf03bc3d6581e8c6ad992ff4e2876",
+    "experiments/codec_evaluation_assets.json": "df1d047b380f6d218727bd451988a7823c9f82fb652aa62d7542b81b129e3dfc",
+    "experiments/freeze_codec_profiles.py": "95c78b910d10ded5df4e5f31f6f24c7efa0ebc33bc6a13fd05f16584a055d433",
+    "requirements/codec.txt": "bfe8b7b4d36b0e59dba5cd19b03077080f733480bbdaf94c6e46b38e39e789f1",
+    "requirements/speech_repair.txt": "9a20eb7a29bbf29cdb23239aecd0c81b011c537e497903c331ecc83379647b44",
+    "requirements/verification.txt": "d9332dade574c76d8794e0e5d7cccc1b8c654f008be8ea14ae68411ceb3f6dd7",
+    "requirements/vocoder.txt": "36aaf5ee7d8f582d03f0614f50305f9de3ade062de4e65e761ae4b5601929551",
+    "requirements/codec_evaluation.txt": "c82b1fd37c9d379c98fc251ac4c5f8544daa2fbea890d04f325a1240050b37b9",
+    "requirements/eval.txt": "c429198bfcf1459b979c377136e235a953360f86c952c4c1e202d77943e03af5",
+    "requirements/inference.txt": "38c7e9ab6bb997b1265e43417d9f1b3fecb1b27dca1662a772dcd584d1779785",
+    "experiments/ticodec_adapter.py": "96be43a9e19b110fb98d414954b7d2339beb3cf607f13b508ad324aeef1e89b6",
+    "experiments/ticodec_assets.json": "214bdc2a2c2fc259bb63758846420a7ebd5457ceac20a547350a5ae07b084ba7",
+    "experiments/validate_ticodec.py": "5310d4750f86c91a9f73e9ae37ff0308b44588d3de46547f9fcc649854a715a1",
+    "experiments/probe_ticodec.py": "bbca3d80a0d35909260ada3f1827570c7827ded3df66da06fe2740aad06386b6",
+    "experiments/probe_codec_frames.py": "19e369e66ce9231fdc3f55006b9e11b523d5ed991063127518213c4d0322aeb8",
+    "experiments/codec_profiles_report.py": "047d998495ef6bb2aee144a5308e16d063d3e997e559836453a1308dbb393a25"
+  },
+  "planned_spent_sources": 25,
+  "planned_treatments": 25,
+  "operational_status_counts": {
+    "processing_eligible": 5,
+    "runtime_quality_rejected": 3,
+    "content_rejected": 17
+  },
+  "recognition_configuration_sha256": "0d0a0801070aeffaeb9447084813b7e5be1756b92b67a36eae02cd388cc9f060",
+  "cases": [
+    {
+      "id": "profiles_fresh_00_en_sonic-preview",
+      "language": "en",
+      "detected_language": "en",
+      "source_sha256": "edb551f5d795d538ddeaefe6434f7240f7c4edebb235e48d557fbc5f2f73fc99",
+      "output_sha256": "1fda386642487addd4ebd15ee5f412d420055c6a3e92753e59f4c00b53ae1b58",
+      "source_format": {
+        "samples": 1167768,
+        "sample_rate": 44100,
+        "channels": 2
+      },
+      "status": "processing_eligible",
+      "gain": 1.0,
+      "codec_elapsed_seconds": 13.666006920859218,
+      "recognition_seconds": 9.990670010447502,
+      "speech_assessment": {
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "turbo": 0.0,
+          "sensevoice": 0.023529411764705882
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "sensevoice",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 85,
+          "sensevoice": 85
+        },
+        "processed_units": {
+          "turbo": 85,
+          "sensevoice": 86
+        }
+      },
+      "recognition_cache_sha256": "bbdd2bf9992d73fa6edac65e301c6dcb4063e77b4ab7e9fbd2c7909b4d7fae26",
+      "source_model": "sonic-preview",
+      "voice_id": "4fbae271-89c4-494d-8181-6eddca393453",
+      "source_recognition_cache_sha256": "6e2159585a43271750510ebe4d05f59b92298555b0a35be5d5cd7f0a9470b631",
+      "runtime_quality_guard": {
+        "passed": true,
+        "source_sha256": "edb551f5d795d538ddeaefe6434f7240f7c4edebb235e48d557fbc5f2f73fc99",
+        "candidate_sha256": "1fda386642487addd4ebd15ee5f412d420055c6a3e92753e59f4c00b53ae1b58",
+        "speaker_minimum": 0.9586529311520329,
+        "speaker_minimum_required": 0.95,
+        "dnsmos_overall_delta": -0.06347540576798938,
+        "dnsmos_overall_delta_required": -0.2,
+        "receipt_sha256": "7fcfddefa847f91e0acf2439847f51120db667826d4662dae177e9521e2c9cd8",
+        "same_file_estimates_reused": false,
+        "independent_evaluation": false,
+        "reference_text_used": false
+      }
+    },
+    {
+      "id": "profiles_fresh_04_es_sonic-preview",
+      "language": "es",
+      "detected_language": "es",
+      "source_sha256": "9f4bb0990d5dff0d4f8a05e93e2f665702cdbe4452432a2bd4bb0e1a5212fe2b",
+      "output_sha256": "ee04ceeb3e025166d4ffae12794d26660f2f6da53fb7f97bd18f408046aeeb28",
+      "source_format": {
+        "samples": 1203048,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "status": "runtime_quality_rejected",
+      "gain": 1.0,
+      "codec_elapsed_seconds": 9.853657237254083,
+      "recognition_seconds": 19.216100212186575,
+      "speech_assessment": {
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "turbo": 0.0,
+          "mms": 0.012345679012345678
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 81,
+          "mms": 81
+        },
+        "processed_units": {
+          "turbo": 81,
+          "mms": 81
+        }
+      },
+      "recognition_cache_sha256": "b1891456da47f38e53370baa89a6402855619a4301989f755eb93367222a1e62",
+      "source_model": "sonic-preview",
+      "voice_id": "30212483-5c20-479c-8121-f93cd24e30a6",
+      "source_recognition_cache_sha256": "0dc3dcf01b4cbc5b9a545d900caaa49842c2fb243b443457f4ef81a48cdf1580",
+      "runtime_quality_guard": {
+        "passed": false,
+        "source_sha256": "9f4bb0990d5dff0d4f8a05e93e2f665702cdbe4452432a2bd4bb0e1a5212fe2b",
+        "candidate_sha256": "ee04ceeb3e025166d4ffae12794d26660f2f6da53fb7f97bd18f408046aeeb28",
+        "speaker_minimum": 0.9221707983807961,
+        "speaker_minimum_required": 0.95,
+        "dnsmos_overall_delta": -0.21127259953106847,
+        "dnsmos_overall_delta_required": -0.2,
+        "receipt_sha256": "f741ca031861a426a056d2afd397d8da88d3b645f2c3cbc427640c10193a80f8",
+        "same_file_estimates_reused": false,
+        "independent_evaluation": false,
+        "reference_text_used": false
+      }
+    },
+    {
+      "id": "profiles_fresh_10_fr_sonic-preview",
+      "language": "fr",
+      "detected_language": "fr",
+      "source_sha256": "cc9b132b7e2c8ab443ef6431fb8d1d5ba8e5b74f6cd82d901611b0d6cfa5bbce",
+      "output_sha256": "5244ecfd99fa9f63bc578fab6e6623c880ecc616c0a1564dc3948f8d91eddd6e",
+      "source_format": {
+        "samples": 1054872,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "status": "content_rejected",
+      "gain": 1.0,
+      "codec_elapsed_seconds": 8.32444481831044,
+      "recognition_seconds": 7.103173286654055,
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "turbo": null,
+          "mms": 0.037037037037037035
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 81,
+          "mms": 81
+        },
+        "processed_units": {
+          "turbo": 0,
+          "mms": 81
+        }
+      },
+      "recognition_cache_sha256": "603b0d8214a80968b359800432bef7cdb8e5018d115dc5281aea5428183e156a",
+      "source_model": "sonic-preview",
+      "voice_id": "03292898-4865-4f19-bc0f-139b9d27a841",
+      "source_recognition_cache_sha256": "5410c15d641ad24484bab330702e0f3efebd6080c361149a299873ee4a1ec462",
+      "runtime_quality_guard": null
+    },
+    {
+      "id": "profiles_fresh_11_fr_sonic-3.6",
+      "language": "fr",
+      "detected_language": "fr",
+      "source_sha256": "51c1764f7385ebca9daaf8c69f2c8f253ed2a7f6d82fa22926a252152ab54239",
+      "output_sha256": "e568820f9ad45791c0c558a0b54c16b9fd62afac1b01953bc5978b34ec94e6ff",
+      "source_format": {
+        "samples": 1100736,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "status": "content_rejected",
+      "gain": 1.0,
+      "codec_elapsed_seconds": 8.557474190369248,
+      "recognition_seconds": 7.389134679920971,
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "turbo": null,
+          "mms": 0.07692307692307693
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 80,
+          "mms": 78
+        },
+        "processed_units": {
+          "turbo": 0,
+          "mms": 78
+        }
+      },
+      "recognition_cache_sha256": "05040f9d94b5e30c29f405225560a52c6dcd853107ad37377b90e6efbe01397c",
+      "source_model": "sonic-3.6",
+      "voice_id": "26aa0590-65e4-436e-8dd9-b02e6caa5a37",
+      "source_recognition_cache_sha256": "eb4565574c6f0494c7b9afd1e5dabbe9b20554aa7113bff80a730dc18d9b6af9",
+      "runtime_quality_guard": null
+    },
+    {
+      "id": "profiles_fresh_13_de_sonic-3.6",
+      "language": "de",
+      "detected_language": "de",
+      "source_sha256": "0ff7a36f3e0071b35a20ffeafc2f260b664ef3b29f3aa5295955ea85658ab2dc",
+      "output_sha256": "27a321dd2ab069d5931b3c7e6c0d89328aa63d88ead55735b1e8195b55d04b78",
+      "source_format": {
+        "samples": 1125432,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "status": "content_rejected",
+      "gain": 1.0,
+      "codec_elapsed_seconds": 8.70489414408803,
+      "recognition_seconds": 7.599411698058248,
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "turbo": null,
+          "mms": 0.043478260869565216
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 70,
+          "mms": 69
+        },
+        "processed_units": {
+          "turbo": 0,
+          "mms": 69
+        }
+      },
+      "recognition_cache_sha256": "693d3d78cade1f11c74a902240e1be17799eab7fdcce26631f5cc113659398bc",
+      "source_model": "sonic-3.6",
+      "voice_id": "922e8304-2630-4779-8a86-effedfa99a79",
+      "source_recognition_cache_sha256": "abcae8f66d7cfbbf7d93343fe7d40d97bb2ca5daeaa1b4561c82520381c770f7",
+      "runtime_quality_guard": null
+    },
+    {
+      "id": "profiles_fresh_14_de_sonic-preview",
+      "language": "de",
+      "detected_language": "de",
+      "source_sha256": "6e9d61bef51fbe6f968192ac29b6759d926c2f2d2dabf67b2ccacfe819e87f31",
+      "output_sha256": "200f7ed007e5c9df8188d272611fabc2b10fd77715c11b366562a9e6ccccc96b",
+      "source_format": {
+        "samples": 1086624,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "status": "processing_eligible",
+      "gain": 1.0,
+      "codec_elapsed_seconds": 8.207663912326097,
+      "recognition_seconds": 16.508729801513255,
+      "speech_assessment": {
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "turbo": 0.0273972602739726,
+          "mms": 0.013888888888888888
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 73,
+          "mms": 72
+        },
+        "processed_units": {
+          "turbo": 72,
+          "mms": 72
+        }
+      },
+      "recognition_cache_sha256": "6df796780cf171b9e67465ea9bb5e5ccac439773557d3b4a36016e975d088d06",
+      "source_model": "sonic-preview",
+      "voice_id": "eede54e1-c038-4b4d-b655-809eeaa45c4c",
+      "source_recognition_cache_sha256": "c278b9e6ec2831478a2726d7ab09957134415fa576841903ae8428c3b7f4d9b7",
+      "runtime_quality_guard": {
+        "passed": true,
+        "source_sha256": "6e9d61bef51fbe6f968192ac29b6759d926c2f2d2dabf67b2ccacfe819e87f31",
+        "candidate_sha256": "200f7ed007e5c9df8188d272611fabc2b10fd77715c11b366562a9e6ccccc96b",
+        "speaker_minimum": 0.9813048334021153,
+        "speaker_minimum_required": 0.95,
+        "dnsmos_overall_delta": -0.07976415095795142,
+        "dnsmos_overall_delta_required": -0.2,
+        "receipt_sha256": "0e381bab9e764d89f34b7eacbdb920a448ec48b5b82c01e0f13ddd315d8e1dd5",
+        "same_file_estimates_reused": false,
+        "independent_evaluation": false,
+        "reference_text_used": false
+      }
+    },
+    {
+      "id": "profiles_fresh_16_hi_sonic-preview",
+      "language": "hi",
+      "detected_language": "hi",
+      "source_sha256": "f4452e1f7a0bab7c56943f879029f2a4012c2d3c568599462706888fce153b85",
+      "output_sha256": "6b570c92fb1babb66cf2fbb5d1d8117bca804a1d698dc815fa2f502802c9e0e0",
+      "source_format": {
+        "samples": 1139544,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "status": "runtime_quality_rejected",
+      "gain": 1.0,
+      "codec_elapsed_seconds": 8.586248204112053,
+      "recognition_seconds": 65.25005049072206,
+      "speech_assessment": {
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "large": 0.006711409395973154,
+          "mms": 0.00980392156862745
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 298,
+          "mms": 306
+        },
+        "processed_units": {
+          "large": 298,
+          "mms": 303
+        }
+      },
+      "recognition_cache_sha256": "fb5297a000f427d92430ffdef599504647e8ac927a7efc3020cbf0773aca285e",
+      "source_model": "sonic-preview",
+      "voice_id": "01fc5e31-71e9-40dc-a220-06dbd4b4ed7e",
+      "source_recognition_cache_sha256": "65c5fc35b4c6fe703b6a8125f2bab3ac690711e1c149b06daaeff8ec9183dde4",
+      "runtime_quality_guard": {
+        "passed": false,
+        "source_sha256": "f4452e1f7a0bab7c56943f879029f2a4012c2d3c568599462706888fce153b85",
+        "candidate_sha256": "6b570c92fb1babb66cf2fbb5d1d8117bca804a1d698dc815fa2f502802c9e0e0",
+        "speaker_minimum": 0.9200985755926905,
+        "speaker_minimum_required": 0.95,
+        "dnsmos_overall_delta": -0.07853858900242328,
+        "dnsmos_overall_delta_required": -0.2,
+        "receipt_sha256": "e59cdc6a1ee6813bc41b23049e1796b5e779233e9a0fb642d9b7f3b4d80281c5",
+        "same_file_estimates_reused": false,
+        "independent_evaluation": false,
+        "reference_text_used": false
+      }
+    },
+    {
+      "id": "profiles_fresh_17_hi_sonic-3.6",
+      "language": "hi",
+      "detected_language": "hi",
+      "source_sha256": "06e0911696fef1e4420d57414392811ad14ffbaa10192d34cb18970b37c86e63",
+      "output_sha256": "552fc4a0a9a73a9e73fa140699a081364257b412f255d87d8155afe6050d2832",
+      "source_format": {
+        "samples": 1125432,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "status": "content_rejected",
+      "gain": 1.0,
+      "codec_elapsed_seconds": 4.928102118894458,
+      "recognition_seconds": 7.623136677779257,
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "large": null,
+          "mms": 0.030405405405405407
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 286,
+          "mms": 296
+        },
+        "processed_units": {
+          "large": 0,
+          "mms": 299
+        }
+      },
+      "recognition_cache_sha256": "1c6f5332b562148d5985c8eb839210811050c412e5b5b38e22c6214933c66a34",
+      "source_model": "sonic-3.6",
+      "voice_id": "10c66789-dbc8-4759-ae3f-161c717bee10",
+      "source_recognition_cache_sha256": "54fbb592ee78b58a7e9bc40f575451f303901b24d7cd32d4163fc2c96526951c",
+      "runtime_quality_guard": null
+    },
+    {
+      "id": "profiles_fresh_18_hi_sonic-preview",
+      "language": "hi",
+      "detected_language": "hi",
+      "source_sha256": "62a6fa85d359fa5d2cd78873cbbcb7ca1ff34b3e915ffeeac7235af7b5cb24f5",
+      "output_sha256": "30dd83bf4714ea4a6e3b4266a0f98999df652ca5767d6daf8d234417b83164d3",
+      "source_format": {
+        "samples": 1181880,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "status": "content_rejected",
+      "gain": 1.0,
+      "codec_elapsed_seconds": 8.997523388825357,
+      "recognition_seconds": 7.980984104797244,
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "large": null,
+          "mms": 0.010273972602739725
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 290,
+          "mms": 292
+        },
+        "processed_units": {
+          "large": 0,
+          "mms": 294
+        }
+      },
+      "recognition_cache_sha256": "c29eac377ccc600267eb5cf30fd6a5623b9a0c3a4fa611ab54fd603d26f3e78e",
+      "source_model": "sonic-preview",
+      "voice_id": "34800b58-bdd5-4952-a888-2a19f1b236b6",
+      "source_recognition_cache_sha256": "418919859d8e6b2117ee05689cdb02c8b59e28c207f70f8aaa856311d6e8d327",
+      "runtime_quality_guard": null
+    },
+    {
+      "id": "profiles_fresh_19_hi_sonic-3.6",
+      "language": "hi",
+      "detected_language": "hi",
+      "source_sha256": "82eccc6dfe1a21a5f869efa49a17abfbcdb8acc9e2f97283d2dda56ce43ec8c0",
+      "output_sha256": "980d9f855c31822743d12f32da9c299d28f01920881ffc3603422bde1bad7b88",
+      "source_format": {
+        "samples": 1248912,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "status": "content_rejected",
+      "gain": 1.0,
+      "codec_elapsed_seconds": 9.732647630386055,
+      "recognition_seconds": 8.606850792653859,
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "large": null,
+          "mms": 0.024922118380062305
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 314,
+          "mms": 321
+        },
+        "processed_units": {
+          "large": 0,
+          "mms": 321
+        }
+      },
+      "recognition_cache_sha256": "cd468cdbf55c077a5b09f2f16797149d2cf00f08bcef5cd407020a4fd81515ed",
+      "source_model": "sonic-3.6",
+      "voice_id": "41e97793-a58d-40b7-8430-83465e186f94",
+      "source_recognition_cache_sha256": "25bcbf42f2dd0219ee8eb9c6215c61cbd0312c7971c07df40d8bdfdb587776e6",
+      "runtime_quality_guard": null
+    },
+    {
+      "id": "profiles_fresh_20_ja_sonic-preview",
+      "language": "ja",
+      "detected_language": "ja",
+      "source_sha256": "fb17c276ba05b16b56e8cf29eb6026517517c15f5dbdc317a072e4818ddd5b9c",
+      "output_sha256": "5ac6aaf852eff59ee7487c69141a6d8fd54e54d91bd9e937c739d230fdb7d2b0",
+      "source_format": {
+        "samples": 1241856,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "status": "processing_eligible",
+      "gain": 1.0,
+      "codec_elapsed_seconds": 9.726029469631612,
+      "recognition_seconds": 11.52772946190089,
+      "speech_assessment": {
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "turbo": 0.006622516556291391,
+          "sensevoice": 0.0
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "sensevoice",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 151,
+          "sensevoice": 151
+        },
+        "processed_units": {
+          "turbo": 151,
+          "sensevoice": 151
+        }
+      },
+      "recognition_cache_sha256": "9c9bc0c7fb6f2ea6b48517760cc3bd9ef8fbcec28c76c94c5bd99a8eb73167ef",
+      "source_model": "sonic-preview",
+      "voice_id": "7f822e9a-d00c-45fe-84e4-d59a3ac664d4",
+      "source_recognition_cache_sha256": "37d7794ff12613f655729c9af9f014724713d01b79475081f219ae80de084243",
+      "runtime_quality_guard": {
+        "passed": true,
+        "source_sha256": "fb17c276ba05b16b56e8cf29eb6026517517c15f5dbdc317a072e4818ddd5b9c",
+        "candidate_sha256": "5ac6aaf852eff59ee7487c69141a6d8fd54e54d91bd9e937c739d230fdb7d2b0",
+        "speaker_minimum": 0.9597854518450513,
+        "speaker_minimum_required": 0.95,
+        "dnsmos_overall_delta": -0.06617892227493005,
+        "dnsmos_overall_delta_required": -0.2,
+        "receipt_sha256": "38d2e19e8208b3d13e8ff06c879e2cfc3168e16e19447ba12d73347bcbb67cf9",
+        "same_file_estimates_reused": false,
+        "independent_evaluation": false,
+        "reference_text_used": false
+      }
+    },
+    {
+      "id": "profiles_fresh_24_ar_sonic-preview",
+      "language": "ar",
+      "detected_language": "ar",
+      "source_sha256": "fcef17ba7ccc5a5d736842c8344fa5552df94268831e53059291ac1d5efe507b",
+      "output_sha256": "114c554691c79af6b8b9c5f18479c54e814782e824ac5b918c180f43ec2b4223",
+      "source_format": {
+        "samples": 1382976,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "status": "content_rejected",
+      "gain": 1.0,
+      "codec_elapsed_seconds": 11.949934595264494,
+      "recognition_seconds": 17.9614963773638,
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "turbo": 0.05970149253731343,
+          "fastconformer": 0.029850746268656716
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "fastconformer",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 67,
+          "fastconformer": 67
+        },
+        "processed_units": {
+          "turbo": 67,
+          "fastconformer": 67
+        }
+      },
+      "recognition_cache_sha256": "4dda767b31305bfeca16f9f8c2e5384ee107903e0223153816656e7c2e89c634",
+      "source_model": "sonic-preview",
+      "voice_id": "db873303-3a70-4d9d-867a-0d70a6377195",
+      "source_recognition_cache_sha256": "0ea3397aa188da940975392b4fdf88f922ed295deb35208e474d379fd8936bb7",
+      "runtime_quality_guard": null
+    },
+    {
+      "id": "profiles_fresh_27_ar_sonic-3.6",
+      "language": "ar",
+      "detected_language": "ar",
+      "source_sha256": "8005d66011a7cc5a0066634a989f2874f34bbeaa416c664661b5f5578b441d1d",
+      "output_sha256": "7443a7046bf11bf96ee9f7908c9fa532c5c82bf41fc0d538683eb9c94512c4c9",
+      "source_format": {
+        "samples": 1330056,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "status": "content_rejected",
+      "gain": 1.0,
+      "codec_elapsed_seconds": 11.528416899964213,
+      "recognition_seconds": 0.19865514803677797,
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "turbo": null,
+          "fastconformer": 0.030303030303030304
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "fastconformer",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 67,
+          "fastconformer": 66
+        },
+        "processed_units": {
+          "turbo": 0,
+          "fastconformer": 66
+        }
+      },
+      "recognition_cache_sha256": "e86e540f399c1d79417be50cdbc13a00c759c60cd17968190ae87308c0b30eae",
+      "source_model": "sonic-3.6",
+      "voice_id": "1cd6668f-84b9-41a2-adbd-b7328f8d6ef4",
+      "source_recognition_cache_sha256": "bc14ebed2a5a2fb55f4bf851ee875cd8591159471f0d8fe41f894a723f58468b",
+      "runtime_quality_guard": null
+    },
+    {
+      "id": "profiles_fresh_28_ko_sonic-preview",
+      "language": "ko",
+      "detected_language": "ko",
+      "source_sha256": "0a702f517ecbdc1002615e6855f47aaf14cb68ef72035f4756964a9b732ee60e",
+      "output_sha256": "df70a42456d3f774f70057ea07d87c54fe678f45ac11461d0efe8dc25cda1ec1",
+      "source_format": {
+        "samples": 1273608,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "status": "content_rejected",
+      "gain": 1.0,
+      "codec_elapsed_seconds": 10.599927271716297,
+      "recognition_seconds": 1.7942983089014888,
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "turbo": null,
+          "sensevoice": 0.07547169811320754
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "sensevoice",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 53,
+          "sensevoice": 53
+        },
+        "processed_units": {
+          "turbo": 0,
+          "sensevoice": 53
+        }
+      },
+      "recognition_cache_sha256": "eeb6946610584c79f29fba41bd195474c5a173867fc143f017eb64a3e83d5857",
+      "source_model": "sonic-preview",
+      "voice_id": "cd6c48a9-774b-4397-98b4-9948c0a790f0",
+      "source_recognition_cache_sha256": "006b8b8e3fd43a6cb0401b1041f3a04df3948487f7241a9bd63048ce4e6882a7",
+      "runtime_quality_guard": null
+    },
+    {
+      "id": "profiles_fresh_30_ko_sonic-preview",
+      "language": "ko",
+      "detected_language": "ko",
+      "source_sha256": "9dc04b84b233bb3a595445761396bf195323746ed3090831705265d039d9b80a",
+      "output_sha256": "73a4b08e1633f8bf4c88767ce00ec7dc69b75eb7927d9b9dd76b132fcb60c385",
+      "source_format": {
+        "samples": 1319472,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "status": "content_rejected",
+      "gain": 1.0,
+      "codec_elapsed_seconds": 11.783833430148661,
+      "recognition_seconds": 0.40585601422935724,
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "turbo": null,
+          "sensevoice": 0.1
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "sensevoice",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 51,
+          "sensevoice": 50
+        },
+        "processed_units": {
+          "turbo": 0,
+          "sensevoice": 48
+        }
+      },
+      "recognition_cache_sha256": "8811da83345b1b7512dcc8f14fb0f22427a145d9cb0a1672fe6e6bcc1a381aeb",
+      "source_model": "sonic-preview",
+      "voice_id": "db938869-18b5-4c21-be8b-2ffdfba6d8d4",
+      "source_recognition_cache_sha256": "f95b7b27385b8901dddc55f92c9ed51eacafda240c39810207a0d01e09a7816a",
+      "runtime_quality_guard": null
+    },
+    {
+      "id": "profiles_fresh_32_zh_sonic-preview",
+      "language": "zh",
+      "detected_language": "zh",
+      "source_sha256": "cf6b35749a76df1cdf25507eb31f13d519fc06000bccf23227f8ba8289f32dbf",
+      "output_sha256": "442d3c5da33f4cf88133541b06dd18b8fb33b937511306e175dc5c5b775cddf2",
+      "source_format": {
+        "samples": 1428840,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "status": "runtime_quality_rejected",
+      "gain": 1.0,
+      "codec_elapsed_seconds": 12.354991491883993,
+      "recognition_seconds": 18.375501048751175,
+      "speech_assessment": {
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "turbo": 0.014084507042253521,
+          "sensevoice": 0.007042253521126761
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "sensevoice",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 142,
+          "sensevoice": 142
+        },
+        "processed_units": {
+          "turbo": 142,
+          "sensevoice": 142
+        }
+      },
+      "recognition_cache_sha256": "c6c58e4b5d60decc6600c38549e8b1159fe6e064d65537f89a51e88cbf3defad",
+      "source_model": "sonic-preview",
+      "voice_id": "882d4b0b-d812-4252-8cd4-fbe25cb09f61",
+      "source_recognition_cache_sha256": "16d54179bcc73737ef1201020da6a6461a0b2eb52ef3ee3b2bbc1c4e3bb6c8b4",
+      "runtime_quality_guard": {
+        "passed": false,
+        "source_sha256": "cf6b35749a76df1cdf25507eb31f13d519fc06000bccf23227f8ba8289f32dbf",
+        "candidate_sha256": "442d3c5da33f4cf88133541b06dd18b8fb33b937511306e175dc5c5b775cddf2",
+        "speaker_minimum": 0.912474539322162,
+        "speaker_minimum_required": 0.95,
+        "dnsmos_overall_delta": -0.039588541303459124,
+        "dnsmos_overall_delta_required": -0.2,
+        "receipt_sha256": "718a5a190d2fe4b5809a371b9f45c12e4f1c9711ab917968f0b37c5ea09840fc",
+        "same_file_estimates_reused": false,
+        "independent_evaluation": false,
+        "reference_text_used": false
+      }
+    },
+    {
+      "id": "profiles_fresh_33_zh_sonic-3.6",
+      "language": "zh",
+      "detected_language": "zh",
+      "source_sha256": "df9dd901c329ac10559bcecb6570a225432b06bf07ece37a41e26f2fe7e1e9af",
+      "output_sha256": "9adc08c1efa123bd66ecbe1849de5b3fb5a4adf087c1bfddb325e1fcf03a8bce",
+      "source_format": {
+        "samples": 1404144,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "status": "processing_eligible",
+      "gain": 1.0,
+      "codec_elapsed_seconds": 12.827408541925251,
+      "recognition_seconds": 17.488565457053483,
+      "speech_assessment": {
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "turbo": 0.014285714285714285,
+          "sensevoice": 0.0
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "sensevoice",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 140,
+          "sensevoice": 140
+        },
+        "processed_units": {
+          "turbo": 140,
+          "sensevoice": 140
+        }
+      },
+      "recognition_cache_sha256": "1a28e096cd7312d956503dc60892012c4ebfc551cf7946f492b83181d006783e",
+      "source_model": "sonic-3.6",
+      "voice_id": "b1ef4710-125e-4304-923e-ec243fbe0f9c",
+      "source_recognition_cache_sha256": "90bc93c85f88bcf05900341028a62406fbc01fe2281052961b44351cdc941907",
+      "runtime_quality_guard": {
+        "passed": true,
+        "source_sha256": "df9dd901c329ac10559bcecb6570a225432b06bf07ece37a41e26f2fe7e1e9af",
+        "candidate_sha256": "9adc08c1efa123bd66ecbe1849de5b3fb5a4adf087c1bfddb325e1fcf03a8bce",
+        "speaker_minimum": 0.9916614651013964,
+        "speaker_minimum_required": 0.95,
+        "dnsmos_overall_delta": -0.0793739858960083,
+        "dnsmos_overall_delta_required": -0.2,
+        "receipt_sha256": "624ecb07efd505b7f3699b31c035e174ba15e0c94af094f8eb1f27adf806222d",
+        "same_file_estimates_reused": false,
+        "independent_evaluation": false,
+        "reference_text_used": false
+      }
+    },
+    {
+      "id": "profiles_fresh_35_zh_sonic-3.6",
+      "language": "zh",
+      "detected_language": "zh",
+      "source_sha256": "1eff65b69b53600ece16d1b91c2b5bf3423bd4d72c2aa518facec6fd29e7b8ae",
+      "output_sha256": "f42d4f5e9d383201d2f0b52b6c90bd9be0a3d284128e8a31ceaf2c0aa894985e",
+      "source_format": {
+        "samples": 1340640,
+        "sample_rate": 44100,
+        "channels": 2
+      },
+      "status": "processing_eligible",
+      "gain": 1.0,
+      "codec_elapsed_seconds": 18.509199049323797,
+      "recognition_seconds": 17.437496638856828,
+      "speech_assessment": {
+        "content_guard_passed": true,
+        "paired_disagreement": {
+          "turbo": 0.007246376811594203,
+          "sensevoice": 0.007246376811594203
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "sensevoice",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 138,
+          "sensevoice": 138
+        },
+        "processed_units": {
+          "turbo": 138,
+          "sensevoice": 138
+        }
+      },
+      "recognition_cache_sha256": "6014b4957c7b6f4bc60e827be3efd9e37518b33981352451ccaef9077f84f820",
+      "source_model": "sonic-3.6",
+      "voice_id": "f1bdc97e-76d1-4bfe-95ba-f3a0bc7e6a7e",
+      "source_recognition_cache_sha256": "e8855f19cf0e19bfadc84f4c1ddf6b09ac7dd401622066e190343e3c25669354",
+      "runtime_quality_guard": {
+        "passed": true,
+        "source_sha256": "1eff65b69b53600ece16d1b91c2b5bf3423bd4d72c2aa518facec6fd29e7b8ae",
+        "candidate_sha256": "f42d4f5e9d383201d2f0b52b6c90bd9be0a3d284128e8a31ceaf2c0aa894985e",
+        "speaker_minimum": 0.9911318790166626,
+        "speaker_minimum_required": 0.95,
+        "dnsmos_overall_delta": -0.02115341342600363,
+        "dnsmos_overall_delta_required": -0.2,
+        "receipt_sha256": "253a4b71f6bd2aec00df06f14fc3b38b16f0f2579bcea4e3b10075e120f01ea1",
+        "same_file_estimates_reused": false,
+        "independent_evaluation": false,
+        "reference_text_used": false
+      }
+    },
+    {
+      "id": "profiles_fresh_36_ru_sonic-preview",
+      "language": "ru",
+      "detected_language": "ru",
+      "source_sha256": "4a063e51157a2b764f92dc8760cd9c752d6b0ba5e8e36d79efebb6132401013b",
+      "output_sha256": "7ca5f9c30ad09c0195f3a0c93ecf3057162cc8e3e806f798865fb17c1c3c0208",
+      "source_format": {
+        "samples": 1428840,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "status": "content_rejected",
+      "gain": 1.0,
+      "codec_elapsed_seconds": 6.327281875535846,
+      "recognition_seconds": 10.009013862349093,
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "turbo": null,
+          "mms": 0.057971014492753624
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 68,
+          "mms": 69
+        },
+        "processed_units": {
+          "turbo": 0,
+          "mms": 69
+        }
+      },
+      "recognition_cache_sha256": "5d3c65602ab17a152d9b9b2fddfb14d489e4071ad4707c7e72bc2774ddb4048d",
+      "source_model": "sonic-preview",
+      "voice_id": "7246935f-0668-4490-a403-309608178d8d",
+      "source_recognition_cache_sha256": "e838675e6f0857300c7b9278ce86f8afc688825afa7669b589f41d4c257fb42a",
+      "runtime_quality_guard": null
+    },
+    {
+      "id": "profiles_fresh_37_ru_sonic-3.6",
+      "language": "ru",
+      "detected_language": "ru",
+      "source_sha256": "f67eaf1e63bd2d54ce8778e427ea814e2e66536ec2ce04bfbfcd1ab4bf493d63",
+      "output_sha256": "d715107603c39726c888f3653915f84991aaade4a009e080691b9e0e6b097acf",
+      "source_format": {
+        "samples": 1224216,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "status": "content_rejected",
+      "gain": 1.0,
+      "codec_elapsed_seconds": 10.732900746166706,
+      "recognition_seconds": 8.397319539450109,
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "turbo": null,
+          "mms": 0.15625
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 64,
+          "mms": 64
+        },
+        "processed_units": {
+          "turbo": 0,
+          "mms": 64
+        }
+      },
+      "recognition_cache_sha256": "54a691d9be2c752113f0439472a723ab95949f8da8d25a3e6c5f2c09403214fa",
+      "source_model": "sonic-3.6",
+      "voice_id": "bb4ddf2f-96e1-403b-976d-1361258545d0",
+      "source_recognition_cache_sha256": "f493b9d3b838fc91497c21a182cd0a80260762cbbc7c3f2a3eb9910d134e0f3a",
+      "runtime_quality_guard": null
+    },
+    {
+      "id": "profiles_fresh_39_ru_sonic-3.6",
+      "language": "ru",
+      "detected_language": "ru",
+      "source_sha256": "3303e2ed0b0b749ae784344e8da585df05d06abc18b6eeee62031b0cf701517c",
+      "output_sha256": "75bfbcf309b5f8c9d6b6727275a032ac94d69c75f9a4be471c2c9f8135cf800e",
+      "source_format": {
+        "samples": 1365336,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "status": "content_rejected",
+      "gain": 1.0,
+      "codec_elapsed_seconds": 12.136930201202631,
+      "recognition_seconds": 9.458484183065593,
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "turbo": null,
+          "mms": 0.07352941176470588
+        },
+        "primary_guard": "turbo",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.03,
+        "original_units": {
+          "turbo": 68,
+          "mms": 68
+        },
+        "processed_units": {
+          "turbo": 0,
+          "mms": 68
+        }
+      },
+      "recognition_cache_sha256": "ffa9b7630784057a5692ced95cf892d42efce5b484175ced95a8cd19422d6201",
+      "source_model": "sonic-3.6",
+      "voice_id": "cb5e08c5-299e-4908-8409-b6549292e29b",
+      "source_recognition_cache_sha256": "a4be6cc43816f46d8eb8b8ad95d167f1a46bed3426400a5d97417d141aba11f4",
+      "runtime_quality_guard": null
+    },
+    {
+      "id": "profiles_fresh_40_ta_sonic-preview",
+      "language": "ta",
+      "detected_language": "ta",
+      "source_sha256": "0b6e8e7cc0fd3641dee23ae2197457cc7beda8cf735fe7602e4aab0db05b785e",
+      "output_sha256": "e923658951a4b64263fe166c340567bcddeb07cec0c9e68c350e8924696c05a8",
+      "source_format": {
+        "samples": 1471176,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "status": "content_rejected",
+      "gain": 1.0,
+      "codec_elapsed_seconds": 12.877902934327722,
+      "recognition_seconds": 10.388760522007942,
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "large": null,
+          "mms": 0.01443298969072165
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 474,
+          "mms": 485
+        },
+        "processed_units": {
+          "large": 0,
+          "mms": 483
+        }
+      },
+      "recognition_cache_sha256": "88a65070b83a60b081beba6afcdca6c2f4cfee36af24b2feb75624a3823b8771",
+      "source_model": "sonic-preview",
+      "voice_id": "6599f426-765e-4b73-8c5d-9f7250af3c88",
+      "source_recognition_cache_sha256": "4c0051a42b199569ee9d4d3b4995109cb75e609d7f54dbd4031dfad1f96d4457",
+      "runtime_quality_guard": null
+    },
+    {
+      "id": "profiles_fresh_41_ta_sonic-3.6",
+      "language": "ta",
+      "detected_language": "ta",
+      "source_sha256": "78c9a66462900d56bc47e6f9fd97e87c4ee76e0bc147c598fa29cfff75487dbe",
+      "output_sha256": "d951aa76646240f2a17b119aeb2e9f3d9b44bb634a85e04448e2ed81a7b68681",
+      "source_format": {
+        "samples": 1298304,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "status": "content_rejected",
+      "gain": 1.0,
+      "codec_elapsed_seconds": 10.788127170875669,
+      "recognition_seconds": 8.951757732778788,
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "large": null,
+          "mms": 0.024830699774266364
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 430,
+          "mms": 443
+        },
+        "processed_units": {
+          "large": 0,
+          "mms": 441
+        }
+      },
+      "recognition_cache_sha256": "02c1134ef543dc0f143d0ddb322c1294b7eef6aef0eb269d2cfd7c2fda646091",
+      "source_model": "sonic-3.6",
+      "voice_id": "80e4e2b3-ec54-4930-97ac-667eba950352",
+      "source_recognition_cache_sha256": "36f441d195487752cd204290872f81a0b4930e3409555846da57b554825e57a4",
+      "runtime_quality_guard": null
+    },
+    {
+      "id": "profiles_fresh_42_ta_sonic-preview",
+      "language": "ta",
+      "detected_language": "ta",
+      "source_sha256": "239027629fc6976c47dc27edf31c5f72d413a388a7a5f19f5ee7b583d080a1cc",
+      "output_sha256": "c2aa1bb81baf8e1f66aefc97d375a2d3ae716f165721e24d07702883fb670aa6",
+      "source_format": {
+        "samples": 1266552,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "status": "content_rejected",
+      "gain": 1.0,
+      "codec_elapsed_seconds": 10.22995646391064,
+      "recognition_seconds": 8.716714609414339,
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "large": null,
+          "mms": 0.03357314148681055
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 412,
+          "mms": 417
+        },
+        "processed_units": {
+          "large": 0,
+          "mms": 420
+        }
+      },
+      "recognition_cache_sha256": "7f17f1c1054238564d1afd414a72ac3fb9a873049d25d2c94e9c1d474116537f",
+      "source_model": "sonic-preview",
+      "voice_id": "96e6974d-57a9-4325-89c8-43f065f8bd95",
+      "source_recognition_cache_sha256": "fac4fb97248edad4c4ccb9bc2db4f53f3f09545d897aa5236c55e21cccc9607b",
+      "runtime_quality_guard": null
+    },
+    {
+      "id": "profiles_fresh_43_ta_sonic-3.6",
+      "language": "ta",
+      "detected_language": "ta",
+      "source_sha256": "5a22bab2ee92628e42e6a0366a60c0c7a86b1c0f9af63a0b0450a2df849b3691",
+      "output_sha256": "0f00778b88a17b1c667cac1deca75289d6b909152a146232dfb382fc3a784890",
+      "source_format": {
+        "samples": 1354752,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "status": "content_rejected",
+      "gain": 1.0,
+      "codec_elapsed_seconds": 11.530609945766628,
+      "recognition_seconds": 9.45363593660295,
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "large": null,
+          "mms": 0.017316017316017316
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 459,
+          "mms": 462
+        },
+        "processed_units": {
+          "large": 0,
+          "mms": 463
+        }
+      },
+      "recognition_cache_sha256": "b40df200e26d3ac8ce5303c1c9126c36b93b9a28b450937a5e5ee2fd454e3b34",
+      "source_model": "sonic-3.6",
+      "voice_id": "d4470f50-295e-4e11-82a2-158d45bf6abc",
+      "source_recognition_cache_sha256": "fc5ae3fdee8a1edd52621561947e61840bda144082742207d80cb34267cc2886",
+      "runtime_quality_guard": null
+    }
+  ],
+  "generator_new_http_requests": 0,
+  "new_tts_requests": 0,
+  "fresh_efficacy_sources": 0,
+  "independent_quality_evaluated_by_generation": false,
+  "completed_study_result_changed": false,
+  "human_listening_approval": false,
+  "physical_erasure_proven": false,
+  "limits": [
+    "All recordings are spent failures of the completed 19/44 study.",
+    "Processing eligibility is not removal or independent quality qualification.",
+    "Endpoint and reference measurements of a separate pilot are reported separately.",
+    "Operational voice estimates guide eligibility and are not independent confirmation."
+  ]
+}

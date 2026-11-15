@@ -189,6 +189,33 @@ uses this completed cohort as spent development data. Such follow-ups do not
 change its 19/44 outcome or add fresh efficacy samples. Any resulting candidate
 still requires a new frozen validation cohort.
 
+## TiCodec development pilot
+
+The [separate TiCodec branch](https://github.com/JustTalDevelops/cartesia-watermark/tree/codec-ticodec-20261115)
+reused all 25 marked failures from the completed language-profile study. The
+[complete generation report](../results/ticodec_generation_development.json)
+retains five processing-eligible outputs, seventeen speech rejections and three
+voice-estimate rejections. Eligibility is not a removal result.
+
+The [first fixed-source pilot](../results/ticodec_pilot_development.json), a
+26.48-second English stereo derivative, passed all seven frozen quality estimates.
+Its exact complete FLAC tested negative twice, with four positive original-source
+controls. The withheld Small recognizer's reference error did not increase.
+Sample rate, sample count and channel count matched the source. The operational
+speaker minimum was 0.9587 and the DNSMOS overall delta -0.0635; those estimates
+guided eligibility and are not independent listening approval.
+
+This qualifies one **spent** source. The other four eligible files have no
+completed endpoint/reference qualification, and all twenty processing rejections
+remain. No fresh sources were added, the original 19/44 outcome is unchanged,
+and physical erasure or universal reliability is not established.
+
+A separate [fixed middle-band recipe](https://github.com/JustTalDevelops/cartesia-watermark/blob/964c408/docs/codec-ticodec-band.md)
+combines generated Native and TiCodec stems to investigate the voice/speech
+trade-off. Its fifty planned mixtures remain development treatments; it has no
+completed removal validation. The author TiCodec weights are upstream assets,
+not models trained or redistributed by this project.
+
 The alternative [Mimi weights](https://huggingface.co/kyutai/mimi) are upstream
 CC-BY-4.0 assets, separate from the models trained by this project. The smoothing
 and codec probes are experiments; they do not change the app's processing methods

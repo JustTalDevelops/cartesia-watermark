@@ -1,0 +1,266 @@
+{
+  "kind": "Single spent-source TiCodec pilot",
+  "case_id": "profiles_fresh_00_en_sonic-preview",
+  "source_sha256": "edb551f5d795d538ddeaefe6434f7240f7c4edebb235e48d557fbc5f2f73fc99",
+  "candidate_sha256": "1fda386642487addd4ebd15ee5f412d420055c6a3e92753e59f4c00b53ae1b58",
+  "completed_study_sha256": "777355dff6ed90ec0beec56558b0c3a4fc974abb88c38993d95d554c6040cd4b",
+  "ticodec_generation_sha256": "c794af62146888ce2b94517bae466814e5fb7d2453cfcd79dc8bd581fa7eff1f",
+  "declaration_sha256": "25e44328348a0a69acf832d26e78d492ee6fec2b9f82f8c1d1877d713c865079",
+  "endpoint_sha256": "b89c005ec168f7c96a019bae9b5eaf61da5ad548c68b617fdc67feededaa1765",
+  "evaluation_sha256": "6ce967c14ff62534404003433675e0fda4f66f8457868a08b299f89872a31cbd",
+  "formatter_sha256": "1f4d0d26521dbd4be2a8edfa04048dfeec609849539c0c1f63d1f60c47784394",
+  "source_format": {
+    "samples": 1167768,
+    "sample_rate": 44100,
+    "channels": 2
+  },
+  "model": {
+    "model": "y-ren16/TiCodec 1g4r",
+    "trained_by_this_project": false,
+    "code_repository": "https://github.com/y-ren16/TiCodec",
+    "code_revision": "13af0ebad99f01ebbe25ce449b7e33eebc56672e",
+    "code_license": "Apache-2.0, stated in upstream README",
+    "weights_repository": "https://huggingface.co/y-ren16/TiCodec",
+    "weights_revision": "2117e04dc2493fb242a8486286fb3dab2350e0a2",
+    "weights_sha256": "f344d139472536407f9faef170d47950c213a84b53b589049c5f1c7004efa314",
+    "weights_license": "No explicit checkpoint license or model card in the inspected author release; not redistributed by this project",
+    "source_files_sha256": {
+      "academicodec/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "academicodec/models/ticodec/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "academicodec/utils.py": "dd2c9ce9e772c90c19a06279acfcd4cd5efa91a1996cebbbd95518a88c44b83d",
+      "academicodec/models/ticodec/models.py": "397a2e0e33272e745f3ba3c283c81a52a559d0d8533bb0597de673f8ee1ab502",
+      "academicodec/models/ticodec/env.py": "f5212e8402468ba2b68f79fac906ae48b0762625db368232bbff3bc31fa2b42b",
+      "academicodec/models/ticodec/vqvae.py": "7587f50309ec0e0369c522730a5c0e1caa53a2da6ab1cf45ebbc93e32f88e45c",
+      "egs/TiCodec-24k-320d/config_24k_320d_conv_1g4r_8g3k1s.json": "33e419fa547f0a445e719550d94d6a29cecff75cb365748fcff0c8d86cf4b55a",
+      "README.md": "9c5dce34f45fbe35400d0ec44e2f15d2b1321f066bb3f50d50608650345bce5c"
+    },
+    "frame_codes_bitrate_bps": 3000,
+    "global_codes_per_complete_channel": 8,
+    "sample_rate": 24000,
+    "precision": "float32",
+    "device": "cpu",
+    "threads": 4,
+    "adapter_sha256": "96be43a9e19b110fb98d414954b7d2339beb3cf607f13b508ad324aeef1e89b6",
+    "assets_manifest_sha256": "214bdc2a2c2fc259bb63758846420a7ebd5457ceac20a547350a5ae07b084ba7",
+    "model_downloads_during_processing": false,
+    "channel_policy": "Complete channels independently; one global token set per complete channel",
+    "boundary_policy": "Reflect to 320 samples, decode, discard model reflection, restore original grid",
+    "weight_normalization": "Original author layers retained",
+    "removal_efficacy": "Unverified"
+  },
+  "speech_assessment": {
+    "content_guard_passed": true,
+    "paired_disagreement": {
+      "turbo": 0.0,
+      "sensevoice": 0.023529411764705882
+    },
+    "primary_guard": "turbo",
+    "secondary_guard": "sensevoice",
+    "maximum_paired_disagreement": 0.03,
+    "original_units": {
+      "turbo": 85,
+      "sensevoice": 85
+    },
+    "processed_units": {
+      "turbo": 85,
+      "sensevoice": 86
+    }
+  },
+  "original_reference_error": {
+    "turbo": 0.0,
+    "sensevoice": 0.0,
+    "small": 0.0
+  },
+  "guard_reference_delta": {
+    "turbo": 0.0,
+    "sensevoice": 0.023529411764705882
+  },
+  "independent_evaluation": [
+    {
+      "id": "profiles_fresh_00_en_sonic-preview",
+      "metric": "small",
+      "language": "en",
+      "source_sha256": "edb551f5d795d538ddeaefe6434f7240f7c4edebb235e48d557fbc5f2f73fc99",
+      "original": {
+        "reference_error": 0.0,
+        "reference_units": 85,
+        "recognized_units": 85,
+        "comparison_units": "words",
+        "raw_word_reference_error_diagnostic_only": 0.0,
+        "maximum_reference_delta": 0.03,
+        "original_calibration_ceiling": 0.15,
+        "calibrated": true
+      },
+      "status": "scored",
+      "output_sha256": "1fda386642487addd4ebd15ee5f412d420055c6a3e92753e59f4c00b53ae1b58",
+      "processed": {
+        "reference_error": 0.0,
+        "reference_units": 85,
+        "recognized_units": 85,
+        "comparison_units": "words",
+        "raw_word_reference_error_diagnostic_only": 0.0,
+        "maximum_reference_delta": 0.03,
+        "original_calibration_ceiling": 0.15,
+        "calibrated": true
+      },
+      "reference_error_delta": 0.0,
+      "reference_delta_passed": true
+    }
+  ],
+  "voice_estimates": {
+    "id": "profiles_fresh_00_en_sonic-preview",
+    "source_sha256": "edb551f5d795d538ddeaefe6434f7240f7c4edebb235e48d557fbc5f2f73fc99",
+    "language": "en",
+    "original_dnsmos": {
+      "signal": 3.7554651738735703,
+      "background": 4.224490487064131,
+      "overall": 3.5506698947440998,
+      "windows": 17,
+      "natural_seconds": 26.48
+    },
+    "window_starts_seconds": [
+      0.296,
+      8.24,
+      16.184
+    ],
+    "speaker_window_cosines": [
+      0.986937579624439,
+      0.9834221772747189,
+      0.9586529311520329
+    ],
+    "speaker_minimum": 0.9586529311520329,
+    "processed_dnsmos": {
+      "signal": 3.706043257782422,
+      "background": 4.196751915441537,
+      "overall": 3.4871944889761104,
+      "windows": 17,
+      "natural_seconds": 26.48
+    },
+    "dnsmos_delta": {
+      "signal": -0.04942191609114843,
+      "background": -0.027738571622593966,
+      "overall": -0.06347540576798938
+    },
+    "output_sha256": "1fda386642487addd4ebd15ee5f412d420055c6a3e92753e59f4c00b53ae1b58",
+    "status": "scored"
+  },
+  "quality_gate_results": {
+    "turbo_paired": true,
+    "sensevoice_paired": true,
+    "turbo_reference_delta": true,
+    "sensevoice_reference_delta": true,
+    "evaluation_small_reference_delta": true,
+    "speaker_minimum": true,
+    "dnsmos_overall": true
+  },
+  "calibrated_original_checkpoints": 3,
+  "source_calibration_sufficient": true,
+  "all_estimated_quality_gates_passed": true,
+  "quality_qualified": true,
+  "candidate_detected": false,
+  "qualified_spent_transition": true,
+  "http_attempts": [
+    {
+      "role": "opening_original",
+      "ordinal": 1,
+      "sha256": "edb551f5d795d538ddeaefe6434f7240f7c4edebb235e48d557fbc5f2f73fc99",
+      "started_at": "2026-11-15T01:38:57.028008+00:00",
+      "http_status": 200
+    },
+    {
+      "role": "opening_original",
+      "ordinal": 2,
+      "sha256": "edb551f5d795d538ddeaefe6434f7240f7c4edebb235e48d557fbc5f2f73fc99",
+      "started_at": "2026-11-15T01:41:37.021628+00:00",
+      "http_status": 200
+    },
+    {
+      "role": "candidate",
+      "ordinal": 1,
+      "sha256": "1fda386642487addd4ebd15ee5f412d420055c6a3e92753e59f4c00b53ae1b58",
+      "started_at": "2026-11-15T01:44:17.022127+00:00",
+      "http_status": 200
+    },
+    {
+      "role": "candidate",
+      "ordinal": 2,
+      "sha256": "1fda386642487addd4ebd15ee5f412d420055c6a3e92753e59f4c00b53ae1b58",
+      "started_at": "2026-11-15T01:46:57.022462+00:00",
+      "http_status": 200
+    },
+    {
+      "role": "closing_original",
+      "ordinal": 1,
+      "sha256": "edb551f5d795d538ddeaefe6434f7240f7c4edebb235e48d557fbc5f2f73fc99",
+      "started_at": "2026-11-15T01:49:37.022974+00:00",
+      "http_status": 200
+    },
+    {
+      "role": "closing_original",
+      "ordinal": 2,
+      "sha256": "edb551f5d795d538ddeaefe6434f7240f7c4edebb235e48d557fbc5f2f73fc99",
+      "started_at": "2026-11-15T01:52:17.023525+00:00",
+      "http_status": 200
+    }
+  ],
+  "checks": [
+    {
+      "role": "opening_original",
+      "ordinal": 1,
+      "sha256": "edb551f5d795d538ddeaefe6434f7240f7c4edebb235e48d557fbc5f2f73fc99",
+      "detected": true,
+      "http_status": 200,
+      "checked_at": "2026-11-15T01:38:57.790977+00:00"
+    },
+    {
+      "role": "opening_original",
+      "ordinal": 2,
+      "sha256": "edb551f5d795d538ddeaefe6434f7240f7c4edebb235e48d557fbc5f2f73fc99",
+      "detected": true,
+      "http_status": 200,
+      "checked_at": "2026-11-15T01:41:37.664466+00:00"
+    },
+    {
+      "role": "candidate",
+      "ordinal": 1,
+      "sha256": "1fda386642487addd4ebd15ee5f412d420055c6a3e92753e59f4c00b53ae1b58",
+      "detected": false,
+      "http_status": 200,
+      "checked_at": "2026-11-15T01:44:18.082502+00:00"
+    },
+    {
+      "role": "candidate",
+      "ordinal": 2,
+      "sha256": "1fda386642487addd4ebd15ee5f412d420055c6a3e92753e59f4c00b53ae1b58",
+      "detected": false,
+      "http_status": 200,
+      "checked_at": "2026-11-15T01:46:57.669567+00:00"
+    },
+    {
+      "role": "closing_original",
+      "ordinal": 1,
+      "sha256": "edb551f5d795d538ddeaefe6434f7240f7c4edebb235e48d557fbc5f2f73fc99",
+      "detected": true,
+      "http_status": 200,
+      "checked_at": "2026-11-15T01:49:37.795515+00:00"
+    },
+    {
+      "role": "closing_original",
+      "ordinal": 2,
+      "sha256": "edb551f5d795d538ddeaefe6434f7240f7c4edebb235e48d557fbc5f2f73fc99",
+      "detected": true,
+      "http_status": 200,
+      "checked_at": "2026-11-15T01:52:17.790248+00:00"
+    }
+  ],
+  "new_tts_requests": 0,
+  "fresh_efficacy_sources": 0,
+  "completed_19_of_44_result_changed": false,
+  "human_listening_approval": false,
+  "physical_erasure_proven": false,
+  "limits": [
+    "One spent source; repeated calls do not add independent sources.",
+    "Operational voice estimates guide eligibility; Whisper checkpoints share ancestry.",
+    "Negative detector replies and estimated quality do not prove physical erasure or universal removal."
+  ]
+}

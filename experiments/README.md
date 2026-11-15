@@ -93,3 +93,9 @@ See the [protocol](../docs/codec-study.md) before running these service-calling 
 
 Private follow-up experiments using personal uploads remain ignored in `continuous_followup/`.
 The current runtime and its setup are documented in [reconstruction](../docs/reconstruction.md).
+
+The [TiCodec experiment](../docs/codec-ticodec.md) uses `ticodec_adapter.py`,
+`validate_ticodec.py` and `probe_ticodec.py`. Its two model-free exporters,
+`ticodec_generation_report.py` and `ticodec_pilot_report.py`, retain the complete
+25-source generation panel and the separately measured one-source pilot. These
+are spent development results and leave the completed 19/44 study unchanged.
