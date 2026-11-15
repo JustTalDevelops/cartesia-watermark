@@ -35,6 +35,14 @@ python experiments/check_ticodec_latents.py declare \
 
 python experiments/check_ticodec_latents.py detect \
   --declaration /path/to/endpoint.declaration.json --output /path/to/detector.json
+
+python experiments/ticodec_latent_report.py score \
+  --declaration /path/to/endpoint.declaration.json --detector /path/to/detector.json \
+  --evaluation /path/to/quality/evaluation.json
+
+python experiments/ticodec_latent_report.py export \
+  --declaration /path/to/endpoint.declaration.json --detector /path/to/detector.json \
+  --evaluation /path/to/quality/evaluation.json --output /path/to/curated_report.json
 ```
 
 Reference evaluation follows the complete detector phase and must include every

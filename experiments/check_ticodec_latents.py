@@ -102,7 +102,9 @@ def data(generation_path, study_path):
                        prior_candidate_detected=False, new_requests_for_this_treatment=0)
     code = dict(public['code_files_sha256'])
     for name in ('experiments/check_codec_frames.py', 'experiments/check_ticodec_latents.py',
-                 'experiments/ticodec_latent_generation_report.py', 'experiments/ticodec_pilot_report.py',
+                 'experiments/ticodec_latent_generation_report.py', 'experiments/ticodec_generation_report.py',
+                 'experiments/ticodec_pilot_report.py',
+                 'experiments/ticodec_latent_report.py', 'experiments/ticodec_panel_report.py',
                  'docs/codec-ticodec-latent-evaluation.md'):
         code[name] = digest(ROOT/name)
     pending = [t for t in treatments if t['detector_eligible']]
