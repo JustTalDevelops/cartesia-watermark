@@ -28,6 +28,13 @@ in each pair; this was not a randomized timing study. Recognition, loading,
 resampling, API pacing and app overhead are excluded. The result is a component
 measurement, not an app-speed or removal claim.
 
+The separately frozen [endpoint and reference protocol](https://github.com/JustTalDevelops/cartesia-watermark/blob/775563e/docs/codec-followup-endpoint.md)
+retains these 25 outputs and all 50 earlier generated-donor repair slots. Its
+eleven eligible unique files require at most 26 detector requests, followed by
+the unchanged independent reference checks for every eligible output. No new
+source synthesis is needed. The continuous X-Codec2 generation experiment is
+separate from that inventory.
+
 The generation panel keeps all 25 sources, including speech and voice rejections. It preserves each recording's sample count, sample rate and channel count, processes complete channels independently, and uses the original speech and voice limits. No reference text guides generation or candidate selection. Detection and independent reference scoring are separate phases.
 
 [The offline exporter](../experiments/xcodec2_generation_report.py) checks the frozen declaration, source and output checksums, sample grids, per-channel parity controls, recognizer receipts and operational voice receipts before producing a public report. It replays assessments with the recorded processing checkout, which must still be present unchanged; it rejects a different processing version already imported by the caller. It refuses partial runs and omits transcripts, embeddings, generated audio and local filesystem paths.
