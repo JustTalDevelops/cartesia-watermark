@@ -237,6 +237,16 @@ No fresh sources or synthesis requests were added, and the frozen 19/44 outcome
 is unchanged. The upstream TiCodec weights remain separate from this project's
 trained-model release.
 
+## X-Codec2 execution experiment
+
+The separate [X-Codec2 development notes](codec-xcodec2-development.md) describe an
+exact skip of semantic layers whose output the author codec does not use. A
+[three-pair synthetic CPU preflight](../results/xcodec2_prefix_preflight.json)
+matched code indices and waveform samples, with about 13% less codec component
+time; a separate check matched RNG advancement. It does not measure app speed or
+removal. The complete 25-source development generation panel is still running.
+The upstream noncommercial weights are not part of this project's model release.
+
 The alternative [Mimi weights](https://huggingface.co/kyutai/mimi) are upstream
 CC-BY-4.0 assets, separate from the models trained by this project. The smoothing
 and codec probes are experiments; they do not change the app's processing methods
