@@ -1,0 +1,4073 @@
+{
+  "kind": "Historical waveform-teacher agreement with codec service observations",
+  "teacher_checkpoint_sha256": "4fd1427e1e036d1b8742be7c8447ffa1eadda16cdac0cb6fb75173e4a1e56d72",
+  "threshold": 0.0,
+  "planned_unique_files": 169,
+  "planned_source_recordings": 48,
+  "thread_count": 4,
+  "device": "cpu",
+  "precision": "float32",
+  "torch_version": "2.15.0+cpu",
+  "numpy_version": "2.5.4",
+  "parameter_count": 8646770,
+  "model_updates": 0,
+  "new_http_requests": 0,
+  "new_tts_requests": 0,
+  "fresh_efficacy_sources": 0,
+  "all_files": {
+    "unique_files": 169,
+    "source_recordings": 48,
+    "service_positive": 134,
+    "service_negative": 35,
+    "accuracy": 0.591715976331361,
+    "always_positive_accuracy": 0.7928994082840237,
+    "sensitivity": 0.6417910447761194,
+    "specificity": 0.4,
+    "balanced_accuracy": 0.5208955223880597,
+    "auc": 0.5750533049040512,
+    "missed_service_positive": 48,
+    "false_positive_against_service": 21
+  },
+  "originals": {
+    "unique_files": 48,
+    "source_recordings": 48,
+    "service_positive": 46,
+    "service_negative": 2,
+    "accuracy": 0.6458333333333334,
+    "always_positive_accuracy": 0.9583333333333334,
+    "sensitivity": 0.6521739130434783,
+    "specificity": 0.5,
+    "balanced_accuracy": 0.5760869565217391,
+    "auc": 0.7065217391304348,
+    "missed_service_positive": 16,
+    "false_positive_against_service": 1
+  },
+  "derivatives": {
+    "unique_files": 121,
+    "source_recordings": 24,
+    "service_positive": 88,
+    "service_negative": 33,
+    "accuracy": 0.5702479338842975,
+    "always_positive_accuracy": 0.7272727272727273,
+    "sensitivity": 0.6363636363636364,
+    "specificity": 0.3939393939393939,
+    "balanced_accuracy": 0.5151515151515151,
+    "auc": 0.5637052341597797,
+    "missed_service_positive": 32,
+    "false_positive_against_service": 20
+  },
+  "candidate_families": {
+    "codec_followup_endpoint": {
+      "unique_files": 11,
+      "source_recordings": 11,
+      "service_positive": 4,
+      "service_negative": 7,
+      "accuracy": 0.36363636363636365,
+      "always_positive_accuracy": 0.36363636363636365,
+      "sensitivity": 0.75,
+      "specificity": 0.14285714285714285,
+      "balanced_accuracy": 0.4464285714285714,
+      "auc": 0.4285714285714286,
+      "missed_service_positive": 1,
+      "false_positive_against_service": 6
+    },
+    "codec_frame_development": {
+      "unique_files": 60,
+      "source_recordings": 22,
+      "service_positive": 58,
+      "service_negative": 2,
+      "accuracy": 0.7166666666666667,
+      "always_positive_accuracy": 0.9666666666666667,
+      "sensitivity": 0.7068965517241379,
+      "specificity": 1.0,
+      "balanced_accuracy": 0.853448275862069,
+      "auc": 0.7586206896551724,
+      "missed_service_positive": 17,
+      "false_positive_against_service": 0
+    },
+    "continuous_body_endpoint": {
+      "unique_files": 2,
+      "source_recordings": 1,
+      "service_positive": 2,
+      "service_negative": 0,
+      "accuracy": 0.0,
+      "always_positive_accuracy": 1.0,
+      "sensitivity": 0.0,
+      "specificity": null,
+      "balanced_accuracy": null,
+      "auc": null,
+      "missed_service_positive": 2,
+      "false_positive_against_service": 0
+    },
+    "ticodec_joint": {
+      "unique_files": 28,
+      "source_recordings": 15,
+      "service_positive": 14,
+      "service_negative": 14,
+      "accuracy": 0.4642857142857143,
+      "always_positive_accuracy": 0.5,
+      "sensitivity": 0.5,
+      "specificity": 0.42857142857142855,
+      "balanced_accuracy": 0.4642857142857143,
+      "auc": 0.4744897959183673,
+      "missed_service_positive": 7,
+      "false_positive_against_service": 8
+    },
+    "ticodec_latent_endpoint": {
+      "unique_files": 19,
+      "source_recordings": 9,
+      "service_positive": 9,
+      "service_negative": 10,
+      "accuracy": 0.47368421052631576,
+      "always_positive_accuracy": 0.47368421052631576,
+      "sensitivity": 0.5555555555555556,
+      "specificity": 0.4,
+      "balanced_accuracy": 0.4777777777777778,
+      "auc": 0.5333333333333333,
+      "missed_service_positive": 4,
+      "false_positive_against_service": 6
+    },
+    "timing_map_endpoint": {
+      "unique_files": 1,
+      "source_recordings": 1,
+      "service_positive": 1,
+      "service_negative": 0,
+      "accuracy": 0.0,
+      "always_positive_accuracy": 1.0,
+      "sensitivity": 0.0,
+      "specificity": null,
+      "balanced_accuracy": null,
+      "auc": null,
+      "missed_service_positive": 1,
+      "false_positive_against_service": 0
+    }
+  },
+  "inventory_sha256": "c5e985cfe3d952bda1c47f2cab427c1e4cfbb1c8390f23ead9eac81407259f8c",
+  "evaluation_sha256": "b6a31f77ba6fbd770c40d9f16bdba07b28bfdedf6eea9ddb897fd3f4146cab0f",
+  "teacher_config_sha256": "175e0642b7d5136359672b1772184c8ff93e5af504a77023fd90fc447cb48f11",
+  "preprocessing": "Complete file; average channels; scipy resample_poly to 16 kHz; no cropping or appended silence; existing RawOracle normalization/pooling",
+  "selection": "All exact files in the seven specified complete receipt phases; no current partial phases or unqueried outputs",
+  "complete": true,
+  "teacher_voice_overlap_files": 0,
+  "teacher_training_changed": false,
+  "removal_candidate_changed": false,
+  "completed_19_of_44_result_changed": false,
+  "limits": [
+    "This tests one existing learned teacher against observed service labels, not watermark removal.",
+    "Multiple derivatives share source recordings and voices; report their grouping explicitly.",
+    "All recordings are spent development data. No holdout claim or threshold tuning."
+  ],
+  "clips": [
+    {
+      "id": "profiles_control_ar_sonic-3.5",
+      "sha256": "bcbae413854e20045b821bb5169e4ea82af91a422c26a7c9a56589fe3a36a792",
+      "source_sha256": "bcbae413854e20045b821bb5169e4ea82af91a422c26a7c9a56589fe3a36a792",
+      "language": "ar",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 2.8413641452789307,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 480000,
+      "elapsed_seconds": 0.662691212259233
+    },
+    {
+      "id": "profiles_control_en_sonic-3.5",
+      "sha256": "38765d6491cb5caa5596a67db7035ec1ff74193ce03f396282a279841dca450e",
+      "source_sha256": "38765d6491cb5caa5596a67db7035ec1ff74193ce03f396282a279841dca450e",
+      "language": "en",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -2.334541082382202,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 409600,
+      "elapsed_seconds": 0.5843379758298397
+    },
+    {
+      "id": "profiles_control_fr_sonic-3.5",
+      "sha256": "a50d9cf160d0febfa58d7d512ba32041ce390c3b63aebfe0fb4eb07e050da4b4",
+      "source_sha256": "a50d9cf160d0febfa58d7d512ba32041ce390c3b63aebfe0fb4eb07e050da4b4",
+      "language": "fr",
+      "label": false,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -0.861142635345459,
+      "teacher_detected": false,
+      "agreement": true,
+      "teacher_input_samples": 416000,
+      "elapsed_seconds": 0.5745947863906622
+    },
+    {
+      "id": "profiles_control_ta_sonic-3.5",
+      "sha256": "f957874b7716a1101a2234a26a06976519ade6e1cdff952e7bfef24a552d8b45",
+      "source_sha256": "f957874b7716a1101a2234a26a06976519ade6e1cdff952e7bfef24a552d8b45",
+      "language": "ta",
+      "label": false,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 0.6172313690185547,
+      "teacher_detected": true,
+      "agreement": false,
+      "teacher_input_samples": 514560,
+      "elapsed_seconds": 0.687638808041811
+    },
+    {
+      "id": "profiles_fresh_00_en_sonic-preview",
+      "sha256": "edb551f5d795d538ddeaefe6434f7240f7c4edebb235e48d557fbc5f2f73fc99",
+      "source_sha256": "edb551f5d795d538ddeaefe6434f7240f7c4edebb235e48d557fbc5f2f73fc99",
+      "language": "en",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        },
+        {
+          "family": "codec_frame_development",
+          "role": "opening_positive_control",
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        },
+        {
+          "family": "ticodec_joint",
+          "role": "opening_positive_control",
+          "receipt_sha256": "a0bb3eb2d09d4a80cc0b921a587e915a7726f3fa8e2ca52d2006f257abf75560",
+          "repeated_actual_observations": 2
+        },
+        {
+          "family": "ticodec_latent_endpoint",
+          "role": "opening_positive_control",
+          "receipt_sha256": "3ae35097e09afee5cd17dc79afc308dacc8df6ccf9469b977c5ebdfb2517604d",
+          "repeated_actual_observations": 2
+        },
+        {
+          "family": "codec_followup_endpoint",
+          "role": "opening_positive_control",
+          "receipt_sha256": "b801e1bd4de0a80d522252acfc391f13f4763dc1acf16b25e351be2494a3d179",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -0.6544704437255859,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 423680,
+      "elapsed_seconds": 0.6053745411336422
+    },
+    {
+      "id": "profiles_fresh_01_en_sonic-3.6",
+      "sha256": "0a9f15e9ea5b9ea4b6ce8d8f35fb716370bcaa449c060063dd213ea34f283cb8",
+      "source_sha256": "0a9f15e9ea5b9ea4b6ce8d8f35fb716370bcaa449c060063dd213ea34f283cb8",
+      "language": "en",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -2.3280258178710938,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 426240,
+      "elapsed_seconds": 0.5825743963941932
+    },
+    {
+      "id": "profiles_fresh_02_en_sonic-preview",
+      "sha256": "c6162bb1bb413fec1a39c0138fab42566d76e67ba5198c740cb9d7b934bad541",
+      "source_sha256": "c6162bb1bb413fec1a39c0138fab42566d76e67ba5198c740cb9d7b934bad541",
+      "language": "en",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 1.5624637603759766,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 1649920,
+      "elapsed_seconds": 1.829670375213027
+    },
+    {
+      "id": "profiles_fresh_03_en_sonic-3.6",
+      "sha256": "34105336655797e1053cde891c9f4f49ec2ea0fbc6712188a28090538390b794",
+      "source_sha256": "34105336655797e1053cde891c9f4f49ec2ea0fbc6712188a28090538390b794",
+      "language": "en",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 5.374770641326904,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 1754880,
+      "elapsed_seconds": 1.9420418720692396
+    },
+    {
+      "id": "profiles_fresh_04_es_sonic-preview",
+      "sha256": "9f4bb0990d5dff0d4f8a05e93e2f665702cdbe4452432a2bd4bb0e1a5212fe2b",
+      "source_sha256": "9f4bb0990d5dff0d4f8a05e93e2f665702cdbe4452432a2bd4bb0e1a5212fe2b",
+      "language": "es",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 7.412999629974365,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 436480,
+      "elapsed_seconds": 0.5979002714157104
+    },
+    {
+      "id": "profiles_fresh_05_es_sonic-3.6",
+      "sha256": "1bb8136019d01c8cc980489f02d7fb8e467fb0e55929049be54cb03f65bf2d40",
+      "source_sha256": "1bb8136019d01c8cc980489f02d7fb8e467fb0e55929049be54cb03f65bf2d40",
+      "language": "es",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 3.516981363296509,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 422400,
+      "elapsed_seconds": 0.5981342699378729
+    },
+    {
+      "id": "profiles_fresh_06_es_sonic-preview",
+      "sha256": "9242c0ba422e629d3ce09ef45c577e7950a524cd099a2857ed14d198c962de8e",
+      "source_sha256": "9242c0ba422e629d3ce09ef45c577e7950a524cd099a2857ed14d198c962de8e",
+      "language": "es",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 6.1306657791137695,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 469760,
+      "elapsed_seconds": 0.6393570443615317
+    },
+    {
+      "id": "profiles_fresh_07_es_sonic-3.6",
+      "sha256": "7b781fd51da4a415dedb2ec18b79fd5b70839951d7ba9285f0242cd6d9f4dc58",
+      "source_sha256": "7b781fd51da4a415dedb2ec18b79fd5b70839951d7ba9285f0242cd6d9f4dc58",
+      "language": "es",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 3.564286947250366,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 464640,
+      "elapsed_seconds": 0.6346712335944176
+    },
+    {
+      "id": "profiles_fresh_08_fr_sonic-preview",
+      "sha256": "4d9fa3a5abc94308f94ab0ae296c3f5cc8ba2751c998e6dfd2e6c4b3c1e58a45",
+      "source_sha256": "4d9fa3a5abc94308f94ab0ae296c3f5cc8ba2751c998e6dfd2e6c4b3c1e58a45",
+      "language": "fr",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -3.6644439697265625,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 396800,
+      "elapsed_seconds": 0.5488609140738845
+    },
+    {
+      "id": "profiles_fresh_09_fr_sonic-3.6",
+      "sha256": "f708d0286664918dcf3b804bcb093ea9ffda6598101047531e0c01f3a4738b0f",
+      "source_sha256": "f708d0286664918dcf3b804bcb093ea9ffda6598101047531e0c01f3a4738b0f",
+      "language": "fr",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -2.5903077125549316,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 330240,
+      "elapsed_seconds": 0.4610698604956269
+    },
+    {
+      "id": "profiles_fresh_10_fr_sonic-preview",
+      "sha256": "cc9b132b7e2c8ab443ef6431fb8d1d5ba8e5b74f6cd82d901611b0d6cfa5bbce",
+      "source_sha256": "cc9b132b7e2c8ab443ef6431fb8d1d5ba8e5b74f6cd82d901611b0d6cfa5bbce",
+      "language": "fr",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 5.130032539367676,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 382720,
+      "elapsed_seconds": 0.5426761470735073
+    },
+    {
+      "id": "profiles_fresh_11_fr_sonic-3.6",
+      "sha256": "51c1764f7385ebca9daaf8c69f2c8f253ed2a7f6d82fa22926a252152ab54239",
+      "source_sha256": "51c1764f7385ebca9daaf8c69f2c8f253ed2a7f6d82fa22926a252152ab54239",
+      "language": "fr",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -1.3431446552276611,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 399360,
+      "elapsed_seconds": 0.5732893794775009
+    },
+    {
+      "id": "profiles_fresh_12_de_sonic-preview",
+      "sha256": "5d621ba25b09753aa79a368e0784b6f8b3e0539b0e1460e554d8a23f71b506ea",
+      "source_sha256": "5d621ba25b09753aa79a368e0784b6f8b3e0539b0e1460e554d8a23f71b506ea",
+      "language": "de",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 1.2723631858825684,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 531200,
+      "elapsed_seconds": 0.6849635355174541
+    },
+    {
+      "id": "profiles_fresh_13_de_sonic-3.6",
+      "sha256": "0ff7a36f3e0071b35a20ffeafc2f260b664ef3b29f3aa5295955ea85658ab2dc",
+      "source_sha256": "0ff7a36f3e0071b35a20ffeafc2f260b664ef3b29f3aa5295955ea85658ab2dc",
+      "language": "de",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 8.33297348022461,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 408320,
+      "elapsed_seconds": 0.5268888520076871
+    },
+    {
+      "id": "profiles_fresh_14_de_sonic-preview",
+      "sha256": "6e9d61bef51fbe6f968192ac29b6759d926c2f2d2dabf67b2ccacfe819e87f31",
+      "source_sha256": "6e9d61bef51fbe6f968192ac29b6759d926c2f2d2dabf67b2ccacfe819e87f31",
+      "language": "de",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 1.3786988258361816,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 394240,
+      "elapsed_seconds": 0.4932424919679761
+    },
+    {
+      "id": "profiles_fresh_15_de_sonic-3.6",
+      "sha256": "448d8472d41bcb4e167444901e1b48a5b573abd7aa5394c991a96f4f872c9d9d",
+      "source_sha256": "448d8472d41bcb4e167444901e1b48a5b573abd7aa5394c991a96f4f872c9d9d",
+      "language": "de",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 2.6102871894836426,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 424960,
+      "elapsed_seconds": 0.5434684809297323
+    },
+    {
+      "id": "profiles_fresh_16_hi_sonic-preview",
+      "sha256": "f4452e1f7a0bab7c56943f879029f2a4012c2d3c568599462706888fce153b85",
+      "source_sha256": "f4452e1f7a0bab7c56943f879029f2a4012c2d3c568599462706888fce153b85",
+      "language": "hi",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -0.8193140029907227,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 413440,
+      "elapsed_seconds": 0.5260210074484348
+    },
+    {
+      "id": "profiles_fresh_17_hi_sonic-3.6",
+      "sha256": "06e0911696fef1e4420d57414392811ad14ffbaa10192d34cb18970b37c86e63",
+      "source_sha256": "06e0911696fef1e4420d57414392811ad14ffbaa10192d34cb18970b37c86e63",
+      "language": "hi",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 6.036286354064941,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 408320,
+      "elapsed_seconds": 0.2781904386356473
+    },
+    {
+      "id": "profiles_fresh_18_hi_sonic-preview",
+      "sha256": "62a6fa85d359fa5d2cd78873cbbcb7ca1ff34b3e915ffeeac7235af7b5cb24f5",
+      "source_sha256": "62a6fa85d359fa5d2cd78873cbbcb7ca1ff34b3e915ffeeac7235af7b5cb24f5",
+      "language": "hi",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 1.6326382160186768,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 428800,
+      "elapsed_seconds": 0.5778340799733996
+    },
+    {
+      "id": "profiles_fresh_19_hi_sonic-3.6",
+      "sha256": "82eccc6dfe1a21a5f869efa49a17abfbcdb8acc9e2f97283d2dda56ce43ec8c0",
+      "source_sha256": "82eccc6dfe1a21a5f869efa49a17abfbcdb8acc9e2f97283d2dda56ce43ec8c0",
+      "language": "hi",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        },
+        {
+          "family": "continuous_body_endpoint",
+          "role": "opening_positive_control",
+          "receipt_sha256": "2c933708d0932fc9c9bc8934e76e62eef18ecd72d360505617e36c62d3ca63c3",
+          "repeated_actual_observations": 2
+        },
+        {
+          "family": "timing_map_endpoint",
+          "role": "opening_positive_control",
+          "receipt_sha256": "0c6c5cefd44a0bf844bd8b909a9cb0a522b2beca606c7515bb506fcd934f9814",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 3.5599136352539062,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 453120,
+      "elapsed_seconds": 0.6282409485429525
+    },
+    {
+      "id": "profiles_fresh_20_ja_sonic-preview",
+      "sha256": "fb17c276ba05b16b56e8cf29eb6026517517c15f5dbdc317a072e4818ddd5b9c",
+      "source_sha256": "fb17c276ba05b16b56e8cf29eb6026517517c15f5dbdc317a072e4818ddd5b9c",
+      "language": "ja",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -1.7419401407241821,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 450560,
+      "elapsed_seconds": 0.5998236769810319
+    },
+    {
+      "id": "profiles_fresh_21_ja_sonic-3.6",
+      "sha256": "19fff4a98d6d382629a1f64b7d175f0a23abb2fcea45971224893d198003bf28",
+      "source_sha256": "19fff4a98d6d382629a1f64b7d175f0a23abb2fcea45971224893d198003bf28",
+      "language": "ja",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 3.6953909397125244,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 428800,
+      "elapsed_seconds": 0.3355839168652892
+    },
+    {
+      "id": "profiles_fresh_22_ja_sonic-preview",
+      "sha256": "023e1d48e0cf2add1cb032abf88e04bc702a492e77abfbdf6ccf028cd6993159",
+      "source_sha256": "023e1d48e0cf2add1cb032abf88e04bc702a492e77abfbdf6ccf028cd6993159",
+      "language": "ja",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -0.5880424976348877,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 458240,
+      "elapsed_seconds": 0.6068223193287849
+    },
+    {
+      "id": "profiles_fresh_23_ja_sonic-3.6",
+      "sha256": "489d31f2228d9979cdf554f70cd042ef84b63a90da8d82d78f60398ee4522031",
+      "source_sha256": "489d31f2228d9979cdf554f70cd042ef84b63a90da8d82d78f60398ee4522031",
+      "language": "ja",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -0.6960361003875732,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 463360,
+      "elapsed_seconds": 0.610749582760036
+    },
+    {
+      "id": "profiles_fresh_24_ar_sonic-preview",
+      "sha256": "fcef17ba7ccc5a5d736842c8344fa5552df94268831e53059291ac1d5efe507b",
+      "source_sha256": "fcef17ba7ccc5a5d736842c8344fa5552df94268831e53059291ac1d5efe507b",
+      "language": "ar",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 2.1988015174865723,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 501760,
+      "elapsed_seconds": 0.678044949658215
+    },
+    {
+      "id": "profiles_fresh_25_ar_sonic-3.6",
+      "sha256": "357f7db543db4e5c5f401e6116954434909e7a8e78e2c3e82e93b6f91c9bf6b2",
+      "source_sha256": "357f7db543db4e5c5f401e6116954434909e7a8e78e2c3e82e93b6f91c9bf6b2",
+      "language": "ar",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 1.480489730834961,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 485120,
+      "elapsed_seconds": 0.6429887395352125
+    },
+    {
+      "id": "profiles_fresh_26_ar_sonic-preview",
+      "sha256": "6610767348c3994c1ec0b975c4c966902042d532225493b80b69ab78ab066a30",
+      "source_sha256": "6610767348c3994c1ec0b975c4c966902042d532225493b80b69ab78ab066a30",
+      "language": "ar",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 3.1737616062164307,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 490240,
+      "elapsed_seconds": 0.613518338650465
+    },
+    {
+      "id": "profiles_fresh_27_ar_sonic-3.6",
+      "sha256": "8005d66011a7cc5a0066634a989f2874f34bbeaa416c664661b5f5578b441d1d",
+      "source_sha256": "8005d66011a7cc5a0066634a989f2874f34bbeaa416c664661b5f5578b441d1d",
+      "language": "ar",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -0.6440849304199219,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 482560,
+      "elapsed_seconds": 0.5720777362585068
+    },
+    {
+      "id": "profiles_fresh_28_ko_sonic-preview",
+      "sha256": "0a702f517ecbdc1002615e6855f47aaf14cb68ef72035f4756964a9b732ee60e",
+      "source_sha256": "0a702f517ecbdc1002615e6855f47aaf14cb68ef72035f4756964a9b732ee60e",
+      "language": "ko",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 3.4185705184936523,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 462080,
+      "elapsed_seconds": 0.5586219457909465
+    },
+    {
+      "id": "profiles_fresh_29_ko_sonic-3.6",
+      "sha256": "b241e917d213d027988cc246ac5d66d10a6018491608b5d0154646e44ffb0b30",
+      "source_sha256": "b241e917d213d027988cc246ac5d66d10a6018491608b5d0154646e44ffb0b30",
+      "language": "ko",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -1.7822282314300537,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 501760,
+      "elapsed_seconds": 0.3646213300526142
+    },
+    {
+      "id": "profiles_fresh_30_ko_sonic-preview",
+      "sha256": "9dc04b84b233bb3a595445761396bf195323746ed3090831705265d039d9b80a",
+      "source_sha256": "9dc04b84b233bb3a595445761396bf195323746ed3090831705265d039d9b80a",
+      "language": "ko",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 6.8678483963012695,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 478720,
+      "elapsed_seconds": 0.5660232119262218
+    },
+    {
+      "id": "profiles_fresh_31_ko_sonic-3.6",
+      "sha256": "ecd47eb2018769d57681f7f5c9863c9b198cfaf03418088a62144dee5ff1658e",
+      "source_sha256": "ecd47eb2018769d57681f7f5c9863c9b198cfaf03418088a62144dee5ff1658e",
+      "language": "ko",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -0.7456467151641846,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 454400,
+      "elapsed_seconds": 0.554500731639564
+    },
+    {
+      "id": "profiles_fresh_32_zh_sonic-preview",
+      "sha256": "cf6b35749a76df1cdf25507eb31f13d519fc06000bccf23227f8ba8289f32dbf",
+      "source_sha256": "cf6b35749a76df1cdf25507eb31f13d519fc06000bccf23227f8ba8289f32dbf",
+      "language": "zh",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 3.4741883277893066,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 518400,
+      "elapsed_seconds": 0.704707127995789
+    },
+    {
+      "id": "profiles_fresh_33_zh_sonic-3.6",
+      "sha256": "df9dd901c329ac10559bcecb6570a225432b06bf07ece37a41e26f2fe7e1e9af",
+      "source_sha256": "df9dd901c329ac10559bcecb6570a225432b06bf07ece37a41e26f2fe7e1e9af",
+      "language": "zh",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 4.8835530281066895,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 509440,
+      "elapsed_seconds": 0.6299677472561598
+    },
+    {
+      "id": "profiles_fresh_34_zh_sonic-preview",
+      "sha256": "c21b52a02ca3ec5d2bb8a55a2987e1171e874f78312e5e0d38dcda695198f1d7",
+      "source_sha256": "c21b52a02ca3ec5d2bb8a55a2987e1171e874f78312e5e0d38dcda695198f1d7",
+      "language": "zh",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -1.5767831802368164,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 480000,
+      "elapsed_seconds": 0.3649026183411479
+    },
+    {
+      "id": "profiles_fresh_35_zh_sonic-3.6",
+      "sha256": "1eff65b69b53600ece16d1b91c2b5bf3423bd4d72c2aa518facec6fd29e7b8ae",
+      "source_sha256": "1eff65b69b53600ece16d1b91c2b5bf3423bd4d72c2aa518facec6fd29e7b8ae",
+      "language": "zh",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 0.2973179817199707,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 486400,
+      "elapsed_seconds": 0.5888525433838367
+    },
+    {
+      "id": "profiles_fresh_36_ru_sonic-preview",
+      "sha256": "4a063e51157a2b764f92dc8760cd9c752d6b0ba5e8e36d79efebb6132401013b",
+      "source_sha256": "4a063e51157a2b764f92dc8760cd9c752d6b0ba5e8e36d79efebb6132401013b",
+      "language": "ru",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 1.4829554557800293,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 518400,
+      "elapsed_seconds": 0.3979728603735566
+    },
+    {
+      "id": "profiles_fresh_37_ru_sonic-3.6",
+      "sha256": "f67eaf1e63bd2d54ce8778e427ea814e2e66536ec2ce04bfbfcd1ab4bf493d63",
+      "source_sha256": "f67eaf1e63bd2d54ce8778e427ea814e2e66536ec2ce04bfbfcd1ab4bf493d63",
+      "language": "ru",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 3.704444169998169,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 444160,
+      "elapsed_seconds": 0.5689093880355358
+    },
+    {
+      "id": "profiles_fresh_38_ru_sonic-preview",
+      "sha256": "cf3f6a02bf116dc01a3fe3790d5a40b2c5ac56aef8ffe589f2c9ccf53dbc379d",
+      "source_sha256": "cf3f6a02bf116dc01a3fe3790d5a40b2c5ac56aef8ffe589f2c9ccf53dbc379d",
+      "language": "ru",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -1.4919459819793701,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 468480,
+      "elapsed_seconds": 0.5571180433034897
+    },
+    {
+      "id": "profiles_fresh_39_ru_sonic-3.6",
+      "sha256": "3303e2ed0b0b749ae784344e8da585df05d06abc18b6eeee62031b0cf701517c",
+      "source_sha256": "3303e2ed0b0b749ae784344e8da585df05d06abc18b6eeee62031b0cf701517c",
+      "language": "ru",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 7.720211982727051,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 495360,
+      "elapsed_seconds": 0.6099949264898896
+    },
+    {
+      "id": "profiles_fresh_40_ta_sonic-preview",
+      "sha256": "0b6e8e7cc0fd3641dee23ae2197457cc7beda8cf735fe7602e4aab0db05b785e",
+      "source_sha256": "0b6e8e7cc0fd3641dee23ae2197457cc7beda8cf735fe7602e4aab0db05b785e",
+      "language": "ta",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 6.6536760330200195,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 533760,
+      "elapsed_seconds": 0.7093443525955081
+    },
+    {
+      "id": "profiles_fresh_41_ta_sonic-3.6",
+      "sha256": "78c9a66462900d56bc47e6f9fd97e87c4ee76e0bc147c598fa29cfff75487dbe",
+      "source_sha256": "78c9a66462900d56bc47e6f9fd97e87c4ee76e0bc147c598fa29cfff75487dbe",
+      "language": "ta",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 4.269690036773682,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 471040,
+      "elapsed_seconds": 0.5666425758972764
+    },
+    {
+      "id": "profiles_fresh_42_ta_sonic-preview",
+      "sha256": "239027629fc6976c47dc27edf31c5f72d413a388a7a5f19f5ee7b583d080a1cc",
+      "source_sha256": "239027629fc6976c47dc27edf31c5f72d413a388a7a5f19f5ee7b583d080a1cc",
+      "language": "ta",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        },
+        {
+          "family": "continuous_body_endpoint",
+          "role": "closing_positive_control",
+          "receipt_sha256": "2c933708d0932fc9c9bc8934e76e62eef18ecd72d360505617e36c62d3ca63c3",
+          "repeated_actual_observations": 2
+        },
+        {
+          "family": "timing_map_endpoint",
+          "role": "closing_positive_control",
+          "receipt_sha256": "0c6c5cefd44a0bf844bd8b909a9cb0a522b2beca606c7515bb506fcd934f9814",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -3.549736738204956,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 459520,
+      "elapsed_seconds": 0.5277393525466323
+    },
+    {
+      "id": "profiles_fresh_43_ta_sonic-3.6",
+      "sha256": "5a22bab2ee92628e42e6a0366a60c0c7a86b1c0f9af63a0b0450a2df849b3691",
+      "source_sha256": "5a22bab2ee92628e42e6a0366a60c0c7a86b1c0f9af63a0b0450a2df849b3691",
+      "language": "ta",
+      "label": true,
+      "original": true,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "originals",
+          "role": "original",
+          "receipt_sha256": "8e1e7c436513be7cabacfe5df21c0f5a61d7337827b6d6eab2ea7d2dfef670b9",
+          "repeated_actual_observations": 2
+        },
+        {
+          "family": "codec_frame_development",
+          "role": "closing_positive_control",
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        },
+        {
+          "family": "ticodec_joint",
+          "role": "closing_positive_control",
+          "receipt_sha256": "a0bb3eb2d09d4a80cc0b921a587e915a7726f3fa8e2ca52d2006f257abf75560",
+          "repeated_actual_observations": 2
+        },
+        {
+          "family": "ticodec_latent_endpoint",
+          "role": "closing_positive_control",
+          "receipt_sha256": "3ae35097e09afee5cd17dc79afc308dacc8df6ccf9469b977c5ebdfb2517604d",
+          "repeated_actual_observations": 2
+        },
+        {
+          "family": "codec_followup_endpoint",
+          "role": "closing_positive_control",
+          "receipt_sha256": "b801e1bd4de0a80d522252acfc391f13f4763dc1acf16b25e351be2494a3d179",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 1.1815166473388672,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 491520,
+      "elapsed_seconds": 0.6250801496207714
+    },
+    {
+      "id": "profiles_fresh_00_en_sonic-preview",
+      "sha256": "05ae28204d6036985ae06c0587288e49fbdae278c147412b1c53fa6fd4841796",
+      "source_sha256": "edb551f5d795d538ddeaefe6434f7240f7c4edebb235e48d557fbc5f2f73fc99",
+      "language": "en",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_latent_endpoint",
+          "role": "candidate",
+          "method": "continuous-both",
+          "receipt_sha256": "3ae35097e09afee5cd17dc79afc308dacc8df6ccf9469b977c5ebdfb2517604d",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -1.46738862991333,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 423680,
+      "elapsed_seconds": 0.31098056957125664
+    },
+    {
+      "id": "profiles_fresh_00_en_sonic-preview",
+      "sha256": "120e9ccc05df14f03cc7dcb0d7c51d1a6d1f13819663f466746ab847e2ca9fc6",
+      "source_sha256": "edb551f5d795d538ddeaefe6434f7240f7c4edebb235e48d557fbc5f2f73fc99",
+      "language": "en",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_joint",
+          "role": "candidate",
+          "method": "ticodec-band-narrow",
+          "receipt_sha256": "a0bb3eb2d09d4a80cc0b921a587e915a7726f3fa8e2ca52d2006f257abf75560",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -1.787315845489502,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 423680,
+      "elapsed_seconds": 0.28344361763447523
+    },
+    {
+      "id": "profiles_fresh_00_en_sonic-preview",
+      "sha256": "13e8d4d9dd3a1072ddc42257bc2bf843690e805a450f2a3a0b4b70d48e7e1f39",
+      "source_sha256": "edb551f5d795d538ddeaefe6434f7240f7c4edebb235e48d557fbc5f2f73fc99",
+      "language": "en",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_latent_endpoint",
+          "role": "candidate",
+          "method": "continuous-local",
+          "receipt_sha256": "3ae35097e09afee5cd17dc79afc308dacc8df6ccf9469b977c5ebdfb2517604d",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -1.9221692085266113,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 423680,
+      "elapsed_seconds": 0.28376983758062124
+    },
+    {
+      "id": "profiles_fresh_00_en_sonic-preview",
+      "sha256": "3bab7003538a7e2cc29f3111048bcb250fbe2c298d3ef8d38edec8746faeede8",
+      "source_sha256": "edb551f5d795d538ddeaefe6434f7240f7c4edebb235e48d557fbc5f2f73fc99",
+      "language": "en",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_latent_endpoint",
+          "role": "candidate",
+          "method": "continuous-global",
+          "receipt_sha256": "3ae35097e09afee5cd17dc79afc308dacc8df6ccf9469b977c5ebdfb2517604d",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -1.4319963455200195,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 423680,
+      "elapsed_seconds": 0.2890930837020278
+    },
+    {
+      "id": "profiles_fresh_00_en_sonic-preview",
+      "sha256": "445110dc868e3f1154d09986de3cb3f1241a643e5de9ebcee1b2a1b28a0cd11d",
+      "source_sha256": "edb551f5d795d538ddeaefe6434f7240f7c4edebb235e48d557fbc5f2f73fc99",
+      "language": "en",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 80,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -1.4101452827453613,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 423680,
+      "elapsed_seconds": 0.2851285729557276
+    },
+    {
+      "id": "profiles_fresh_00_en_sonic-preview",
+      "sha256": "568d11b2bc09f16ec4372475b5c5af9e30cf0ac38b05008bce4094a7c757074f",
+      "source_sha256": "edb551f5d795d538ddeaefe6434f7240f7c4edebb235e48d557fbc5f2f73fc99",
+      "language": "en",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 0,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -1.7010611295700073,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 423680,
+      "elapsed_seconds": 0.28671008348464966
+    },
+    {
+      "id": "profiles_fresh_00_en_sonic-preview",
+      "sha256": "6c46b905c841df2712e001a9ff99a7ab3cfb1db79cb7c7559271317d9980e336",
+      "source_sha256": "edb551f5d795d538ddeaefe6434f7240f7c4edebb235e48d557fbc5f2f73fc99",
+      "language": "en",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_joint",
+          "role": "candidate",
+          "method": "ticodec-band-wide",
+          "receipt_sha256": "a0bb3eb2d09d4a80cc0b921a587e915a7726f3fa8e2ca52d2006f257abf75560",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -3.356564521789551,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 423680,
+      "elapsed_seconds": 0.29830769542604685
+    },
+    {
+      "id": "profiles_fresh_00_en_sonic-preview",
+      "sha256": "7c0d19ca15b6f77c8b18d18677cceb4938c61968cbe918111e31b51bb216dd9d",
+      "source_sha256": "edb551f5d795d538ddeaefe6434f7240f7c4edebb235e48d557fbc5f2f73fc99",
+      "language": "en",
+      "label": false,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_followup_endpoint",
+          "role": "candidate",
+          "method": "xcodec2-800bps",
+          "receipt_sha256": "b801e1bd4de0a80d522252acfc391f13f4763dc1acf16b25e351be2494a3d179",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -3.0325512886047363,
+      "teacher_detected": false,
+      "agreement": true,
+      "teacher_input_samples": 423680,
+      "elapsed_seconds": 0.2866517538204789
+    },
+    {
+      "id": "profiles_fresh_00_en_sonic-preview",
+      "sha256": "952b8589456c48752560e392c025c87523fc0b128d40201e048767439cffdb87",
+      "source_sha256": "edb551f5d795d538ddeaefe6434f7240f7c4edebb235e48d557fbc5f2f73fc99",
+      "language": "en",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 160,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -1.4028661251068115,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 423680,
+      "elapsed_seconds": 0.2922040391713381
+    },
+    {
+      "id": "profiles_fresh_00_en_sonic-preview",
+      "sha256": "efedfcfd3be0276776e16290e8daffce920cf1f908f28632e4c286174da05822",
+      "source_sha256": "edb551f5d795d538ddeaefe6434f7240f7c4edebb235e48d557fbc5f2f73fc99",
+      "language": "en",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 240,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -1.1644315719604492,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 423680,
+      "elapsed_seconds": 0.28803672827780247
+    },
+    {
+      "id": "profiles_fresh_04_es_sonic-preview",
+      "sha256": "49a7834b6740443ec544be04efc40453635d7d976b4c42063d0078358a77f60b",
+      "source_sha256": "9f4bb0990d5dff0d4f8a05e93e2f665702cdbe4452432a2bd4bb0e1a5212fe2b",
+      "language": "es",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 160,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 7.1072468757629395,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 436480,
+      "elapsed_seconds": 0.3130324324592948
+    },
+    {
+      "id": "profiles_fresh_04_es_sonic-preview",
+      "sha256": "8fe4f78f5d57f21686b5f54a263beada6b30f9f183153bd936feee70104d98b9",
+      "source_sha256": "9f4bb0990d5dff0d4f8a05e93e2f665702cdbe4452432a2bd4bb0e1a5212fe2b",
+      "language": "es",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 0,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 6.6610283851623535,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 436480,
+      "elapsed_seconds": 0.28063863702118397
+    },
+    {
+      "id": "profiles_fresh_04_es_sonic-preview",
+      "sha256": "a5fc7c4a1a19f19c1a74c9d8ea290453f444c87d316727cc355578dc6bc1b1a7",
+      "source_sha256": "9f4bb0990d5dff0d4f8a05e93e2f665702cdbe4452432a2bd4bb0e1a5212fe2b",
+      "language": "es",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_joint",
+          "role": "candidate",
+          "method": "ticodec-band-narrow",
+          "receipt_sha256": "a0bb3eb2d09d4a80cc0b921a587e915a7726f3fa8e2ca52d2006f257abf75560",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 6.79204797744751,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 436480,
+      "elapsed_seconds": 0.27936815842986107
+    },
+    {
+      "id": "profiles_fresh_04_es_sonic-preview",
+      "sha256": "aa133e41ad8759632a532d5e214655dbc322e1c48e3b4fc10834efc44157f66c",
+      "source_sha256": "9f4bb0990d5dff0d4f8a05e93e2f665702cdbe4452432a2bd4bb0e1a5212fe2b",
+      "language": "es",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_followup_endpoint",
+          "role": "candidate",
+          "method": "xcodec2-800bps",
+          "receipt_sha256": "b801e1bd4de0a80d522252acfc391f13f4763dc1acf16b25e351be2494a3d179",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 3.712946891784668,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 436480,
+      "elapsed_seconds": 0.2827869188040495
+    },
+    {
+      "id": "profiles_fresh_04_es_sonic-preview",
+      "sha256": "b3aea7be00288c782d8f91c224031b2d7e69b84e94489a243e9f70a5f9d29c51",
+      "source_sha256": "9f4bb0990d5dff0d4f8a05e93e2f665702cdbe4452432a2bd4bb0e1a5212fe2b",
+      "language": "es",
+      "label": false,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_joint",
+          "role": "candidate",
+          "method": "ticodec-band-wide",
+          "receipt_sha256": "a0bb3eb2d09d4a80cc0b921a587e915a7726f3fa8e2ca52d2006f257abf75560",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -0.2412428855895996,
+      "teacher_detected": false,
+      "agreement": true,
+      "teacher_input_samples": 436480,
+      "elapsed_seconds": 0.27827722765505314
+    },
+    {
+      "id": "profiles_fresh_04_es_sonic-preview",
+      "sha256": "d682e0a5ca89f6c5b760c4ffd9006f4bdd3c01c924848a10bc098564fd437da4",
+      "source_sha256": "9f4bb0990d5dff0d4f8a05e93e2f665702cdbe4452432a2bd4bb0e1a5212fe2b",
+      "language": "es",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 80,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 6.837316036224365,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 436480,
+      "elapsed_seconds": 0.27914258651435375
+    },
+    {
+      "id": "profiles_fresh_04_es_sonic-preview",
+      "sha256": "d84cb554e8ebb48b316c4dcdc0dcb7237d8b1e8388adf45c9de536bc8a9f713d",
+      "source_sha256": "9f4bb0990d5dff0d4f8a05e93e2f665702cdbe4452432a2bd4bb0e1a5212fe2b",
+      "language": "es",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 240,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 6.446218013763428,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 436480,
+      "elapsed_seconds": 0.27905336022377014
+    },
+    {
+      "id": "profiles_fresh_10_fr_sonic-preview",
+      "sha256": "6797ef09b7d2ff9e0aa97d37eca4b18aebd5873158e73c7193eb38910a865d13",
+      "source_sha256": "cc9b132b7e2c8ab443ef6431fb8d1d5ba8e5b74f6cd82d901611b0d6cfa5bbce",
+      "language": "fr",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 240,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 5.01052188873291,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 382720,
+      "elapsed_seconds": 0.27901605051010847
+    },
+    {
+      "id": "profiles_fresh_10_fr_sonic-preview",
+      "sha256": "a5ec1b048880a72ff0e2bde160f5cb2f2ad4e4251876ce0428dde1de29e5dc73",
+      "source_sha256": "cc9b132b7e2c8ab443ef6431fb8d1d5ba8e5b74f6cd82d901611b0d6cfa5bbce",
+      "language": "fr",
+      "label": false,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_followup_endpoint",
+          "role": "candidate",
+          "method": "xcodec2-800bps",
+          "receipt_sha256": "b801e1bd4de0a80d522252acfc391f13f4763dc1acf16b25e351be2494a3d179",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 0.10990786552429199,
+      "teacher_detected": true,
+      "agreement": false,
+      "teacher_input_samples": 382720,
+      "elapsed_seconds": 0.2470804313197732
+    },
+    {
+      "id": "profiles_fresh_10_fr_sonic-preview",
+      "sha256": "ceda8ad2a60799a332e138c108cc8917735b369175e2f86203697151bbea40a2",
+      "source_sha256": "cc9b132b7e2c8ab443ef6431fb8d1d5ba8e5b74f6cd82d901611b0d6cfa5bbce",
+      "language": "fr",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 80,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 3.773409605026245,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 382720,
+      "elapsed_seconds": 0.24536066129803658
+    },
+    {
+      "id": "profiles_fresh_10_fr_sonic-preview",
+      "sha256": "d93e1077770b43a3bf7e00b16ccf9d7592ba036e8a058a7e64082247f8377d4f",
+      "source_sha256": "cc9b132b7e2c8ab443ef6431fb8d1d5ba8e5b74f6cd82d901611b0d6cfa5bbce",
+      "language": "fr",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_joint",
+          "role": "candidate",
+          "method": "ticodec-band-narrow",
+          "receipt_sha256": "a0bb3eb2d09d4a80cc0b921a587e915a7726f3fa8e2ca52d2006f257abf75560",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 3.204716444015503,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 382720,
+      "elapsed_seconds": 0.24618271086364985
+    },
+    {
+      "id": "profiles_fresh_10_fr_sonic-preview",
+      "sha256": "e75e71f0ea1589275a5cf5fda92624309a0a96155385c7432e13ffc2b2badac1",
+      "source_sha256": "cc9b132b7e2c8ab443ef6431fb8d1d5ba8e5b74f6cd82d901611b0d6cfa5bbce",
+      "language": "fr",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 160,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 3.4687111377716064,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 382720,
+      "elapsed_seconds": 0.24643811862915754
+    },
+    {
+      "id": "profiles_fresh_10_fr_sonic-preview",
+      "sha256": "fc774e6f335ff706aedc0e1ad06350dee9dea92209efa5f37bc323de7100fbfa",
+      "source_sha256": "cc9b132b7e2c8ab443ef6431fb8d1d5ba8e5b74f6cd82d901611b0d6cfa5bbce",
+      "language": "fr",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 0,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 3.9963409900665283,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 382720,
+      "elapsed_seconds": 0.2563537135720253
+    },
+    {
+      "id": "profiles_fresh_11_fr_sonic-3.6",
+      "sha256": "293622f02d469041f23f84ac77b4a7b941852f1434d00c202e8933ca6f040a0f",
+      "source_sha256": "51c1764f7385ebca9daaf8c69f2c8f253ed2a7f6d82fa22926a252152ab54239",
+      "language": "fr",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 160,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -0.6439154148101807,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 399360,
+      "elapsed_seconds": 0.2903556991368532
+    },
+    {
+      "id": "profiles_fresh_13_de_sonic-3.6",
+      "sha256": "39b10bfa64c0094c68c9d3c844218df65475403ee11297f99c4f79ebb8931af2",
+      "source_sha256": "0ff7a36f3e0071b35a20ffeafc2f260b664ef3b29f3aa5295955ea85658ab2dc",
+      "language": "de",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 0,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 7.403132438659668,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 408320,
+      "elapsed_seconds": 0.29393340833485126
+    },
+    {
+      "id": "profiles_fresh_13_de_sonic-3.6",
+      "sha256": "472a1c81354f236d8a9f17f4500be9b7da02e64f998a303916bcc81633b62c9d",
+      "source_sha256": "0ff7a36f3e0071b35a20ffeafc2f260b664ef3b29f3aa5295955ea85658ab2dc",
+      "language": "de",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 240,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 8.728541374206543,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 408320,
+      "elapsed_seconds": 0.2596014542505145
+    },
+    {
+      "id": "profiles_fresh_13_de_sonic-3.6",
+      "sha256": "76ad6017e42182e2600ad0179c53a99731c66e7f18220e04e093906d2fc6211b",
+      "source_sha256": "0ff7a36f3e0071b35a20ffeafc2f260b664ef3b29f3aa5295955ea85658ab2dc",
+      "language": "de",
+      "label": false,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_followup_endpoint",
+          "role": "candidate",
+          "method": "ticodec-repair-native-zero",
+          "receipt_sha256": "b801e1bd4de0a80d522252acfc391f13f4763dc1acf16b25e351be2494a3d179",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 6.46687126159668,
+      "teacher_detected": true,
+      "agreement": false,
+      "teacher_input_samples": 408320,
+      "elapsed_seconds": 0.2971643367782235
+    },
+    {
+      "id": "profiles_fresh_13_de_sonic-3.6",
+      "sha256": "c1b066e0a2d8fbc17aa340a85da38a435e73e6e7fae8e72f65beea5946d2ed5d",
+      "source_sha256": "0ff7a36f3e0071b35a20ffeafc2f260b664ef3b29f3aa5295955ea85658ab2dc",
+      "language": "de",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 160,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 9.183520317077637,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 408320,
+      "elapsed_seconds": 0.25293645542114973
+    },
+    {
+      "id": "profiles_fresh_13_de_sonic-3.6",
+      "sha256": "eff9d99cb62862b57d0ea6f8c69d53c9aacb5d1090e2762fa788ac335ff9093e",
+      "source_sha256": "0ff7a36f3e0071b35a20ffeafc2f260b664ef3b29f3aa5295955ea85658ab2dc",
+      "language": "de",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 80,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 7.613680839538574,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 408320,
+      "elapsed_seconds": 0.2586296433582902
+    },
+    {
+      "id": "profiles_fresh_14_de_sonic-preview",
+      "sha256": "1bed863d7723a40895821f098716a78e84950b34a5eb256c32099c4ecc869fc0",
+      "source_sha256": "6e9d61bef51fbe6f968192ac29b6759d926c2f2d2dabf67b2ccacfe819e87f31",
+      "language": "de",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 0,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 1.645348072052002,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 394240,
+      "elapsed_seconds": 0.2835531448945403
+    },
+    {
+      "id": "profiles_fresh_14_de_sonic-preview",
+      "sha256": "200f7ed007e5c9df8188d272611fabc2b10fd77715c11b366562a9e6ccccc96b",
+      "source_sha256": "6e9d61bef51fbe6f968192ac29b6759d926c2f2d2dabf67b2ccacfe819e87f31",
+      "language": "de",
+      "label": false,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_joint",
+          "role": "candidate",
+          "method": "ticodec-1g4r",
+          "receipt_sha256": "a0bb3eb2d09d4a80cc0b921a587e915a7726f3fa8e2ca52d2006f257abf75560",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -0.6534414291381836,
+      "teacher_detected": false,
+      "agreement": true,
+      "teacher_input_samples": 394240,
+      "elapsed_seconds": 0.2533651189878583
+    },
+    {
+      "id": "profiles_fresh_14_de_sonic-preview",
+      "sha256": "29da57fce784336924e6e0dbd3e3d29941c25b0f352ef2b935b3cd91dab6a179",
+      "source_sha256": "6e9d61bef51fbe6f968192ac29b6759d926c2f2d2dabf67b2ccacfe819e87f31",
+      "language": "de",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_joint",
+          "role": "candidate",
+          "method": "ticodec-band-wide",
+          "receipt_sha256": "a0bb3eb2d09d4a80cc0b921a587e915a7726f3fa8e2ca52d2006f257abf75560",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 0.06725096702575684,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 394240,
+      "elapsed_seconds": 0.2547087240964174
+    },
+    {
+      "id": "profiles_fresh_14_de_sonic-preview",
+      "sha256": "56ab69820d27a8fc84e8966bde4e8c3c3282d072095d22b5ef82aced471c38cc",
+      "source_sha256": "6e9d61bef51fbe6f968192ac29b6759d926c2f2d2dabf67b2ccacfe819e87f31",
+      "language": "de",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_followup_endpoint",
+          "role": "candidate",
+          "method": "xcodec2-800bps",
+          "receipt_sha256": "b801e1bd4de0a80d522252acfc391f13f4763dc1acf16b25e351be2494a3d179",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 0.5283231735229492,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 394240,
+      "elapsed_seconds": 0.2487694751471281
+    },
+    {
+      "id": "profiles_fresh_14_de_sonic-preview",
+      "sha256": "57a6def11beaa429c80531e34d2e6664ec4494febaf2f614a27f2683cc20f0ee",
+      "source_sha256": "6e9d61bef51fbe6f968192ac29b6759d926c2f2d2dabf67b2ccacfe819e87f31",
+      "language": "de",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 160,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 1.0985450744628906,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 394240,
+      "elapsed_seconds": 0.2581114238128066
+    },
+    {
+      "id": "profiles_fresh_14_de_sonic-preview",
+      "sha256": "74a3047221d8b9de6f89e43ae243a9fbd9be1fabee47c2cb1d227cc0ecfba72c",
+      "source_sha256": "6e9d61bef51fbe6f968192ac29b6759d926c2f2d2dabf67b2ccacfe819e87f31",
+      "language": "de",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_joint",
+          "role": "candidate",
+          "method": "ticodec-band-narrow",
+          "receipt_sha256": "a0bb3eb2d09d4a80cc0b921a587e915a7726f3fa8e2ca52d2006f257abf75560",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 1.7721900939941406,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 394240,
+      "elapsed_seconds": 0.2651550704613328
+    },
+    {
+      "id": "profiles_fresh_14_de_sonic-preview",
+      "sha256": "9849940166c6577c886f06a85e8b4996ca41579e20fa26f8f3d9fc5a5d05a56e",
+      "source_sha256": "6e9d61bef51fbe6f968192ac29b6759d926c2f2d2dabf67b2ccacfe819e87f31",
+      "language": "de",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_latent_endpoint",
+          "role": "candidate",
+          "method": "continuous-both",
+          "receipt_sha256": "3ae35097e09afee5cd17dc79afc308dacc8df6ccf9469b977c5ebdfb2517604d",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 3.6071596145629883,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 394240,
+      "elapsed_seconds": 0.2535806633532047
+    },
+    {
+      "id": "profiles_fresh_14_de_sonic-preview",
+      "sha256": "abc90312ae215b4965d58ff6e57da921a02be136c956e5c94dd6fb525fca1a66",
+      "source_sha256": "6e9d61bef51fbe6f968192ac29b6759d926c2f2d2dabf67b2ccacfe819e87f31",
+      "language": "de",
+      "label": false,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_latent_endpoint",
+          "role": "candidate",
+          "method": "continuous-local",
+          "receipt_sha256": "3ae35097e09afee5cd17dc79afc308dacc8df6ccf9469b977c5ebdfb2517604d",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -0.4965810775756836,
+      "teacher_detected": false,
+      "agreement": true,
+      "teacher_input_samples": 394240,
+      "elapsed_seconds": 0.2556389067322016
+    },
+    {
+      "id": "profiles_fresh_14_de_sonic-preview",
+      "sha256": "cf0c5388b665b5227cc846596c5a8f7f891beb4198e481c1bdd78574a0a09229",
+      "source_sha256": "6e9d61bef51fbe6f968192ac29b6759d926c2f2d2dabf67b2ccacfe819e87f31",
+      "language": "de",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 240,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 1.8842358589172363,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 394240,
+      "elapsed_seconds": 0.25458624493330717
+    },
+    {
+      "id": "profiles_fresh_14_de_sonic-preview",
+      "sha256": "d7b816a0a2d1ecd55168ffcde4734933215061495b1016e21d9d217025d17d39",
+      "source_sha256": "6e9d61bef51fbe6f968192ac29b6759d926c2f2d2dabf67b2ccacfe819e87f31",
+      "language": "de",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 80,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 0.9354982376098633,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 394240,
+      "elapsed_seconds": 0.2568176118656993
+    },
+    {
+      "id": "profiles_fresh_16_hi_sonic-preview",
+      "sha256": "676828b6dd09f9f16e6f4111f56a6f52d7460c869a6f327b871b6d6daba44149",
+      "source_sha256": "f4452e1f7a0bab7c56943f879029f2a4012c2d3c568599462706888fce153b85",
+      "language": "hi",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 80,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -1.5400276184082031,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 413440,
+      "elapsed_seconds": 0.2950881216675043
+    },
+    {
+      "id": "profiles_fresh_16_hi_sonic-preview",
+      "sha256": "695279fdf0d065aa33f9317605570909a4e018bda43f6d8b76c0096d1b82ef47",
+      "source_sha256": "f4452e1f7a0bab7c56943f879029f2a4012c2d3c568599462706888fce153b85",
+      "language": "hi",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_latent_endpoint",
+          "role": "candidate",
+          "method": "continuous-local",
+          "receipt_sha256": "3ae35097e09afee5cd17dc79afc308dacc8df6ccf9469b977c5ebdfb2517604d",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -0.24134016036987305,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 413440,
+      "elapsed_seconds": 0.26280273776501417
+    },
+    {
+      "id": "profiles_fresh_16_hi_sonic-preview",
+      "sha256": "7fe5bf51c0f0973511b8fa6e97e94e3b1cce25451be35838986d90bded9108cf",
+      "source_sha256": "f4452e1f7a0bab7c56943f879029f2a4012c2d3c568599462706888fce153b85",
+      "language": "hi",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 0,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -0.17076325416564941,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 413440,
+      "elapsed_seconds": 0.26331987604498863
+    },
+    {
+      "id": "profiles_fresh_16_hi_sonic-preview",
+      "sha256": "8e5c090e4e67535aa651cb05e440465e7afb1d86fc6209888ce70f0cce964a25",
+      "source_sha256": "f4452e1f7a0bab7c56943f879029f2a4012c2d3c568599462706888fce153b85",
+      "language": "hi",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 160,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -0.9266166687011719,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 413440,
+      "elapsed_seconds": 0.25664499029517174
+    },
+    {
+      "id": "profiles_fresh_16_hi_sonic-preview",
+      "sha256": "c5c9190afb922d310e3a38ced66e7716b1b9e1d965c112022a9db283f1922fc6",
+      "source_sha256": "f4452e1f7a0bab7c56943f879029f2a4012c2d3c568599462706888fce153b85",
+      "language": "hi",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 240,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -1.795304775238037,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 413440,
+      "elapsed_seconds": 0.26340840198099613
+    },
+    {
+      "id": "profiles_fresh_16_hi_sonic-preview",
+      "sha256": "e281b54717ce478b7a850677992df48374b02970d7efe8366128a9d9925406a1",
+      "source_sha256": "f4452e1f7a0bab7c56943f879029f2a4012c2d3c568599462706888fce153b85",
+      "language": "hi",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_joint",
+          "role": "candidate",
+          "method": "ticodec-band-wide",
+          "receipt_sha256": "a0bb3eb2d09d4a80cc0b921a587e915a7726f3fa8e2ca52d2006f257abf75560",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -1.8643567562103271,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 413440,
+      "elapsed_seconds": 0.2674485556781292
+    },
+    {
+      "id": "profiles_fresh_16_hi_sonic-preview",
+      "sha256": "f1db67cf9bf7ef1241e5ac8215896aec52c4e45d3a7f19493df8caca5cfe51f0",
+      "source_sha256": "f4452e1f7a0bab7c56943f879029f2a4012c2d3c568599462706888fce153b85",
+      "language": "hi",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_joint",
+          "role": "candidate",
+          "method": "ticodec-band-narrow",
+          "receipt_sha256": "a0bb3eb2d09d4a80cc0b921a587e915a7726f3fa8e2ca52d2006f257abf75560",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -0.2682826519012451,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 413440,
+      "elapsed_seconds": 0.26793734077364206
+    },
+    {
+      "id": "profiles_fresh_17_hi_sonic-3.6",
+      "sha256": "70b3d2aab9d1e0bbe66441675591a6ace80382ff7c1711369e1578d593a39c54",
+      "source_sha256": "06e0911696fef1e4420d57414392811ad14ffbaa10192d34cb18970b37c86e63",
+      "language": "hi",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 160,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 7.265377044677734,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 408320,
+      "elapsed_seconds": 0.25864665769040585
+    },
+    {
+      "id": "profiles_fresh_17_hi_sonic-3.6",
+      "sha256": "cb140e1a54e31996ddfe542f38caaeeb1d7966782aed603797582e81f5fc2bf6",
+      "source_sha256": "06e0911696fef1e4420d57414392811ad14ffbaa10192d34cb18970b37c86e63",
+      "language": "hi",
+      "label": false,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_joint",
+          "role": "candidate",
+          "method": "ticodec-band-wide",
+          "receipt_sha256": "a0bb3eb2d09d4a80cc0b921a587e915a7726f3fa8e2ca52d2006f257abf75560",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 4.306635856628418,
+      "teacher_detected": true,
+      "agreement": false,
+      "teacher_input_samples": 408320,
+      "elapsed_seconds": 0.25919922161847353
+    },
+    {
+      "id": "profiles_fresh_17_hi_sonic-3.6",
+      "sha256": "f0727c5ca6239f859b9061d625f748bae8c44f444698afe1ff2fb55d46d300e7",
+      "source_sha256": "06e0911696fef1e4420d57414392811ad14ffbaa10192d34cb18970b37c86e63",
+      "language": "hi",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 80,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 6.81702995300293,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 408320,
+      "elapsed_seconds": 0.2603234676644206
+    },
+    {
+      "id": "profiles_fresh_18_hi_sonic-preview",
+      "sha256": "0c38a2aaa8c3cfdd0a395f99024edccca1f3488d4e67ec4b1f6be1100fa7cf03",
+      "source_sha256": "62a6fa85d359fa5d2cd78873cbbcb7ca1ff34b3e915ffeeac7235af7b5cb24f5",
+      "language": "hi",
+      "label": false,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_latent_endpoint",
+          "role": "candidate",
+          "method": "continuous-both",
+          "receipt_sha256": "3ae35097e09afee5cd17dc79afc308dacc8df6ccf9469b977c5ebdfb2517604d",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 2.5158369541168213,
+      "teacher_detected": true,
+      "agreement": false,
+      "teacher_input_samples": 428800,
+      "elapsed_seconds": 0.3064100183546543
+    },
+    {
+      "id": "profiles_fresh_18_hi_sonic-preview",
+      "sha256": "457f8cd4613d43f366dc48fa8b8bf9a8ba075416981cd99239598e6b1f01f2e7",
+      "source_sha256": "62a6fa85d359fa5d2cd78873cbbcb7ca1ff34b3e915ffeeac7235af7b5cb24f5",
+      "language": "hi",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 0,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 2.5954883098602295,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 428800,
+      "elapsed_seconds": 0.2751045301556587
+    },
+    {
+      "id": "profiles_fresh_18_hi_sonic-preview",
+      "sha256": "6ebf8494e5c4e8aed0f57e7e05ce001e17d79d7d457cfcd5207008636e196c21",
+      "source_sha256": "62a6fa85d359fa5d2cd78873cbbcb7ca1ff34b3e915ffeeac7235af7b5cb24f5",
+      "language": "hi",
+      "label": false,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_joint",
+          "role": "candidate",
+          "method": "ticodec-band-wide",
+          "receipt_sha256": "a0bb3eb2d09d4a80cc0b921a587e915a7726f3fa8e2ca52d2006f257abf75560",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 2.1628730297088623,
+      "teacher_detected": true,
+      "agreement": false,
+      "teacher_input_samples": 428800,
+      "elapsed_seconds": 0.2712321886792779
+    },
+    {
+      "id": "profiles_fresh_18_hi_sonic-preview",
+      "sha256": "7523519a5b99b600a87ac6d27caa236cf2663e53ad3ffe6f56897e77bbd35e80",
+      "source_sha256": "62a6fa85d359fa5d2cd78873cbbcb7ca1ff34b3e915ffeeac7235af7b5cb24f5",
+      "language": "hi",
+      "label": false,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_followup_endpoint",
+          "role": "candidate",
+          "method": "ticodec-repair-native-zero",
+          "receipt_sha256": "b801e1bd4de0a80d522252acfc391f13f4763dc1acf16b25e351be2494a3d179",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 2.5260884761810303,
+      "teacher_detected": true,
+      "agreement": false,
+      "teacher_input_samples": 428800,
+      "elapsed_seconds": 0.272712891921401
+    },
+    {
+      "id": "profiles_fresh_18_hi_sonic-preview",
+      "sha256": "f739267bc004a88816b935b7d794abba2fc6d7f434a24e844767e5dedbbb33d8",
+      "source_sha256": "62a6fa85d359fa5d2cd78873cbbcb7ca1ff34b3e915ffeeac7235af7b5cb24f5",
+      "language": "hi",
+      "label": false,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_latent_endpoint",
+          "role": "candidate",
+          "method": "continuous-local",
+          "receipt_sha256": "3ae35097e09afee5cd17dc79afc308dacc8df6ccf9469b977c5ebdfb2517604d",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 1.88834547996521,
+      "teacher_detected": true,
+      "agreement": false,
+      "teacher_input_samples": 428800,
+      "elapsed_seconds": 0.27158974949270487
+    },
+    {
+      "id": "profiles_fresh_19_hi_sonic-3.6",
+      "sha256": "bc55afc8641d1d7b823764b5ef11f812f80ee2586476db33c262a9efd3c272ce",
+      "source_sha256": "82eccc6dfe1a21a5f869efa49a17abfbcdb8acc9e2f97283d2dda56ce43ec8c0",
+      "language": "hi",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "timing_map_endpoint",
+          "role": "candidate",
+          "method": "smooth-map-40ms",
+          "receipt_sha256": "0c6c5cefd44a0bf844bd8b909a9cb0a522b2beca606c7515bb506fcd934f9814",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -0.15927886962890625,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 453120,
+      "elapsed_seconds": 0.3294662442058325
+    },
+    {
+      "id": "profiles_fresh_20_ja_sonic-preview",
+      "sha256": "01149b47eb0dbf83e2f2b8aed88d0e7a9d4571366120f84a61be6c938e95f0c5",
+      "source_sha256": "fb17c276ba05b16b56e8cf29eb6026517517c15f5dbdc317a072e4818ddd5b9c",
+      "language": "ja",
+      "label": false,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_latent_endpoint",
+          "role": "candidate",
+          "method": "continuous-local",
+          "receipt_sha256": "3ae35097e09afee5cd17dc79afc308dacc8df6ccf9469b977c5ebdfb2517604d",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -1.2032525539398193,
+      "teacher_detected": false,
+      "agreement": true,
+      "teacher_input_samples": 450560,
+      "elapsed_seconds": 0.326651394367218
+    },
+    {
+      "id": "profiles_fresh_20_ja_sonic-preview",
+      "sha256": "50f02f43083f284ef106c94dfcc47ef62d1e6c7d6c0d0fa75471e56750a68393",
+      "source_sha256": "fb17c276ba05b16b56e8cf29eb6026517517c15f5dbdc317a072e4818ddd5b9c",
+      "language": "ja",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 80,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -2.3800759315490723,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 450560,
+      "elapsed_seconds": 0.29865421913564205
+    },
+    {
+      "id": "profiles_fresh_20_ja_sonic-preview",
+      "sha256": "5ac6aaf852eff59ee7487c69141a6d8fd54e54d91bd9e937c739d230fdb7d2b0",
+      "source_sha256": "fb17c276ba05b16b56e8cf29eb6026517517c15f5dbdc317a072e4818ddd5b9c",
+      "language": "ja",
+      "label": false,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_joint",
+          "role": "candidate",
+          "method": "ticodec-1g4r",
+          "receipt_sha256": "a0bb3eb2d09d4a80cc0b921a587e915a7726f3fa8e2ca52d2006f257abf75560",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -0.7440061569213867,
+      "teacher_detected": false,
+      "agreement": true,
+      "teacher_input_samples": 450560,
+      "elapsed_seconds": 0.2978988643735647
+    },
+    {
+      "id": "profiles_fresh_20_ja_sonic-preview",
+      "sha256": "684c89c5d4a755d224c8b36959488b0ee9e27b8bb5c43c23cf3b08996bb02052",
+      "source_sha256": "fb17c276ba05b16b56e8cf29eb6026517517c15f5dbdc317a072e4818ddd5b9c",
+      "language": "ja",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 240,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -0.68589186668396,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 450560,
+      "elapsed_seconds": 0.29612688813358545
+    },
+    {
+      "id": "profiles_fresh_20_ja_sonic-preview",
+      "sha256": "7e9b0ffdd882746a324e16fea5167113e041a368f6aaba35206d7fdac38d9e00",
+      "source_sha256": "fb17c276ba05b16b56e8cf29eb6026517517c15f5dbdc317a072e4818ddd5b9c",
+      "language": "ja",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_joint",
+          "role": "candidate",
+          "method": "ticodec-band-narrow",
+          "receipt_sha256": "a0bb3eb2d09d4a80cc0b921a587e915a7726f3fa8e2ca52d2006f257abf75560",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -1.9005658626556396,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 450560,
+      "elapsed_seconds": 0.2941392567008734
+    },
+    {
+      "id": "profiles_fresh_20_ja_sonic-preview",
+      "sha256": "c1279f654f367276123370b7a5c04e89498ce84dd206e0bc2b6a031ca216596f",
+      "source_sha256": "fb17c276ba05b16b56e8cf29eb6026517517c15f5dbdc317a072e4818ddd5b9c",
+      "language": "ja",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 0,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -1.8960355520248413,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 450560,
+      "elapsed_seconds": 0.2945523802191019
+    },
+    {
+      "id": "profiles_fresh_20_ja_sonic-preview",
+      "sha256": "c3996e34edd37920572fd52b9cbb9df848aba86fefb070c21d16973c54dfed39",
+      "source_sha256": "fb17c276ba05b16b56e8cf29eb6026517517c15f5dbdc317a072e4818ddd5b9c",
+      "language": "ja",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 160,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -2.8404247760772705,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 450560,
+      "elapsed_seconds": 0.29482391756027937
+    },
+    {
+      "id": "profiles_fresh_20_ja_sonic-preview",
+      "sha256": "cde79a91d2b91b72b1b6c363e3138dc72fe1299540751d53cf67c327db23c284",
+      "source_sha256": "fb17c276ba05b16b56e8cf29eb6026517517c15f5dbdc317a072e4818ddd5b9c",
+      "language": "ja",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_latent_endpoint",
+          "role": "candidate",
+          "method": "continuous-both",
+          "receipt_sha256": "3ae35097e09afee5cd17dc79afc308dacc8df6ccf9469b977c5ebdfb2517604d",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 0.2191479206085205,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 450560,
+      "elapsed_seconds": 0.29464226868003607
+    },
+    {
+      "id": "profiles_fresh_20_ja_sonic-preview",
+      "sha256": "f195cecb37b11257dd7b2dac0079cd7e53d5ae36f70c2f11a45cd78809a2653b",
+      "source_sha256": "fb17c276ba05b16b56e8cf29eb6026517517c15f5dbdc317a072e4818ddd5b9c",
+      "language": "ja",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_followup_endpoint",
+          "role": "candidate",
+          "method": "xcodec2-800bps",
+          "receipt_sha256": "b801e1bd4de0a80d522252acfc391f13f4763dc1acf16b25e351be2494a3d179",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 0.9109153747558594,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 450560,
+      "elapsed_seconds": 0.29528314899653196
+    },
+    {
+      "id": "profiles_fresh_20_ja_sonic-preview",
+      "sha256": "f6fb0a42c1b30898906406575fd7fce996fae09f6786f791b3efcc90652ff01b",
+      "source_sha256": "fb17c276ba05b16b56e8cf29eb6026517517c15f5dbdc317a072e4818ddd5b9c",
+      "language": "ja",
+      "label": false,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_joint",
+          "role": "candidate",
+          "method": "ticodec-band-wide",
+          "receipt_sha256": "a0bb3eb2d09d4a80cc0b921a587e915a7726f3fa8e2ca52d2006f257abf75560",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -2.515049695968628,
+      "teacher_detected": false,
+      "agreement": true,
+      "teacher_input_samples": 450560,
+      "elapsed_seconds": 0.29490465950220823
+    },
+    {
+      "id": "profiles_fresh_24_ar_sonic-preview",
+      "sha256": "08568baf65fadbad840e45526354d8dce65b50ba444e58e4985f6c71614f45b6",
+      "source_sha256": "fcef17ba7ccc5a5d736842c8344fa5552df94268831e53059291ac1d5efe507b",
+      "language": "ar",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 80,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 2.703305244445801,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 501760,
+      "elapsed_seconds": 0.4000575030222535
+    },
+    {
+      "id": "profiles_fresh_24_ar_sonic-preview",
+      "sha256": "6a47447bdbd5e7cf1c7d369838203b23163e7f01d7ac34c80ceb6ebed6635655",
+      "source_sha256": "fcef17ba7ccc5a5d736842c8344fa5552df94268831e53059291ac1d5efe507b",
+      "language": "ar",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 160,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 1.7082009315490723,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 501760,
+      "elapsed_seconds": 0.33476688899099827
+    },
+    {
+      "id": "profiles_fresh_24_ar_sonic-preview",
+      "sha256": "c59190427e6c25dc19149ff76048300e945f69ffff30e1710698ab7ea9974df3",
+      "source_sha256": "fcef17ba7ccc5a5d736842c8344fa5552df94268831e53059291ac1d5efe507b",
+      "language": "ar",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 240,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 0.7497892379760742,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 501760,
+      "elapsed_seconds": 0.3314834013581276
+    },
+    {
+      "id": "profiles_fresh_24_ar_sonic-preview",
+      "sha256": "ebe19021678311ea5226e44d49b1602cb3da32919d2bee4040af809b51b0c6f2",
+      "source_sha256": "fcef17ba7ccc5a5d736842c8344fa5552df94268831e53059291ac1d5efe507b",
+      "language": "ar",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 0,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 0.2765536308288574,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 501760,
+      "elapsed_seconds": 0.33127597253769636
+    },
+    {
+      "id": "profiles_fresh_24_ar_sonic-preview",
+      "sha256": "f36940e6cda304009dec7d2ac40d1889b79a3c6d2ec03081c5d43a976f798530",
+      "source_sha256": "fcef17ba7ccc5a5d736842c8344fa5552df94268831e53059291ac1d5efe507b",
+      "language": "ar",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_joint",
+          "role": "candidate",
+          "method": "ticodec-band-narrow",
+          "receipt_sha256": "a0bb3eb2d09d4a80cc0b921a587e915a7726f3fa8e2ca52d2006f257abf75560",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 0.9062361717224121,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 501760,
+      "elapsed_seconds": 0.3306045262143016
+    },
+    {
+      "id": "profiles_fresh_24_ar_sonic-preview",
+      "sha256": "f884d8e4a2286106bca7d16d470b5bdcf4c651e450617ffe40cb573556cce94b",
+      "source_sha256": "fcef17ba7ccc5a5d736842c8344fa5552df94268831e53059291ac1d5efe507b",
+      "language": "ar",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_joint",
+          "role": "candidate",
+          "method": "ticodec-band-wide",
+          "receipt_sha256": "a0bb3eb2d09d4a80cc0b921a587e915a7726f3fa8e2ca52d2006f257abf75560",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -0.6470839977264404,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 501760,
+      "elapsed_seconds": 0.33237836696207523
+    },
+    {
+      "id": "profiles_fresh_27_ar_sonic-3.6",
+      "sha256": "0a2637f2a915effe07209c44e902beeb927797d6843f97b387d2c01b71d024ab",
+      "source_sha256": "8005d66011a7cc5a0066634a989f2874f34bbeaa416c664661b5f5578b441d1d",
+      "language": "ar",
+      "label": false,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 160,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -1.211653709411621,
+      "teacher_detected": false,
+      "agreement": true,
+      "teacher_input_samples": 482560,
+      "elapsed_seconds": 0.3514751298353076
+    },
+    {
+      "id": "profiles_fresh_27_ar_sonic-3.6",
+      "sha256": "e9e5f0a38962a471ba39583b0cbe4d75c603ab10da79c39ae9a90678b493926b",
+      "source_sha256": "8005d66011a7cc5a0066634a989f2874f34bbeaa416c664661b5f5578b441d1d",
+      "language": "ar",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 0,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -1.5453529357910156,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 482560,
+      "elapsed_seconds": 0.3183188261464238
+    },
+    {
+      "id": "profiles_fresh_28_ko_sonic-preview",
+      "sha256": "9eda3e2a09505d2fb15ec44db60d967819ea02908340838aed9bdcf259db0f63",
+      "source_sha256": "0a702f517ecbdc1002615e6855f47aaf14cb68ef72035f4756964a9b732ee60e",
+      "language": "ko",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 80,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 1.8734631538391113,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 462080,
+      "elapsed_seconds": 0.32070212718099356
+    },
+    {
+      "id": "profiles_fresh_28_ko_sonic-preview",
+      "sha256": "f017518fb988eba80c71a55817afca410fe22c39333550ec72daa7b32c7898cc",
+      "source_sha256": "0a702f517ecbdc1002615e6855f47aaf14cb68ef72035f4756964a9b732ee60e",
+      "language": "ko",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_latent_endpoint",
+          "role": "candidate",
+          "method": "continuous-both",
+          "receipt_sha256": "3ae35097e09afee5cd17dc79afc308dacc8df6ccf9469b977c5ebdfb2517604d",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 3.477673053741455,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 462080,
+      "elapsed_seconds": 0.2871679160743952
+    },
+    {
+      "id": "profiles_fresh_30_ko_sonic-preview",
+      "sha256": "afd17d0564ce9f0fd568da95b633a54d51a491287bfeb69cbb2783dc164eaf39",
+      "source_sha256": "9dc04b84b233bb3a595445761396bf195323746ed3090831705265d039d9b80a",
+      "language": "ko",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 0,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 7.059467315673828,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 478720,
+      "elapsed_seconds": 0.3542841887101531
+    },
+    {
+      "id": "profiles_fresh_30_ko_sonic-preview",
+      "sha256": "bc5a07721e39a0f4869f86057585e522f07ffd8ecb4252fa647c19cc03ae12ff",
+      "source_sha256": "9dc04b84b233bb3a595445761396bf195323746ed3090831705265d039d9b80a",
+      "language": "ko",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_joint",
+          "role": "candidate",
+          "method": "ticodec-band-narrow",
+          "receipt_sha256": "a0bb3eb2d09d4a80cc0b921a587e915a7726f3fa8e2ca52d2006f257abf75560",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 7.601052284240723,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 478720,
+      "elapsed_seconds": 0.31789516285061836
+    },
+    {
+      "id": "profiles_fresh_30_ko_sonic-preview",
+      "sha256": "cb7a1a2beb25d1cf534b9afaa63d29d524a6aacc14f8fb63bb3622809a923fba",
+      "source_sha256": "9dc04b84b233bb3a595445761396bf195323746ed3090831705265d039d9b80a",
+      "language": "ko",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 160,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 8.431744575500488,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 478720,
+      "elapsed_seconds": 0.31709406338632107
+    },
+    {
+      "id": "profiles_fresh_32_zh_sonic-preview",
+      "sha256": "0922174265323843a1229733f2e97f2174e326a9dd544d187be75437fa8593c3",
+      "source_sha256": "cf6b35749a76df1cdf25507eb31f13d519fc06000bccf23227f8ba8289f32dbf",
+      "language": "zh",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_joint",
+          "role": "candidate",
+          "method": "ticodec-band-narrow",
+          "receipt_sha256": "a0bb3eb2d09d4a80cc0b921a587e915a7726f3fa8e2ca52d2006f257abf75560",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 5.929014682769775,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 518400,
+      "elapsed_seconds": 0.39409194607287645
+    },
+    {
+      "id": "profiles_fresh_32_zh_sonic-preview",
+      "sha256": "2dc069809610bb725755ec854d3f8f5ba228761dbaf179082b3b7055f6efd6a7",
+      "source_sha256": "cf6b35749a76df1cdf25507eb31f13d519fc06000bccf23227f8ba8289f32dbf",
+      "language": "zh",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_latent_endpoint",
+          "role": "candidate",
+          "method": "continuous-both",
+          "receipt_sha256": "3ae35097e09afee5cd17dc79afc308dacc8df6ccf9469b977c5ebdfb2517604d",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 4.984830379486084,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 518400,
+      "elapsed_seconds": 0.38855500146746635
+    },
+    {
+      "id": "profiles_fresh_32_zh_sonic-preview",
+      "sha256": "5d7be3d612e1837bbb280ad089cb772e7e6a48bd4f2fb57203a19c5e8f185765",
+      "source_sha256": "cf6b35749a76df1cdf25507eb31f13d519fc06000bccf23227f8ba8289f32dbf",
+      "language": "zh",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 240,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 6.263604640960693,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 518400,
+      "elapsed_seconds": 0.3880546046420932
+    },
+    {
+      "id": "profiles_fresh_32_zh_sonic-preview",
+      "sha256": "81b04dee7f01a8a14750e2fa645e021273503475ac50ead20ac8fdf7908eb359",
+      "source_sha256": "cf6b35749a76df1cdf25507eb31f13d519fc06000bccf23227f8ba8289f32dbf",
+      "language": "zh",
+      "label": false,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_followup_endpoint",
+          "role": "candidate",
+          "method": "xcodec2-800bps",
+          "receipt_sha256": "b801e1bd4de0a80d522252acfc391f13f4763dc1acf16b25e351be2494a3d179",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 0.6965250968933105,
+      "teacher_detected": true,
+      "agreement": false,
+      "teacher_input_samples": 518400,
+      "elapsed_seconds": 0.3828068980947137
+    },
+    {
+      "id": "profiles_fresh_32_zh_sonic-preview",
+      "sha256": "9630c04e9f1cf01fe820c823e6a938a71dd2ebd55e1952374717b51f248d5dc8",
+      "source_sha256": "cf6b35749a76df1cdf25507eb31f13d519fc06000bccf23227f8ba8289f32dbf",
+      "language": "zh",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 80,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 5.781460285186768,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 518400,
+      "elapsed_seconds": 0.3851159121841192
+    },
+    {
+      "id": "profiles_fresh_32_zh_sonic-preview",
+      "sha256": "96cfb93063acc9fb764079b123ba486007a6fcb528088ac62327aaa70a021f7c",
+      "source_sha256": "cf6b35749a76df1cdf25507eb31f13d519fc06000bccf23227f8ba8289f32dbf",
+      "language": "zh",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 160,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 5.383401393890381,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 518400,
+      "elapsed_seconds": 0.3912721173837781
+    },
+    {
+      "id": "profiles_fresh_32_zh_sonic-preview",
+      "sha256": "9771cebf990068260a76d2986bed21a59e1812db987229d07223dadb74ed80ad",
+      "source_sha256": "cf6b35749a76df1cdf25507eb31f13d519fc06000bccf23227f8ba8289f32dbf",
+      "language": "zh",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 0,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 5.669332981109619,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 518400,
+      "elapsed_seconds": 0.38606160320341587
+    },
+    {
+      "id": "profiles_fresh_32_zh_sonic-preview",
+      "sha256": "b224046a8ae0957f9c0b56d6035633d82319169202a1aa6b33cdbc21dee9d00f",
+      "source_sha256": "cf6b35749a76df1cdf25507eb31f13d519fc06000bccf23227f8ba8289f32dbf",
+      "language": "zh",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_latent_endpoint",
+          "role": "candidate",
+          "method": "continuous-local",
+          "receipt_sha256": "3ae35097e09afee5cd17dc79afc308dacc8df6ccf9469b977c5ebdfb2517604d",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 4.091500759124756,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 518400,
+      "elapsed_seconds": 0.376187227666378
+    },
+    {
+      "id": "profiles_fresh_32_zh_sonic-preview",
+      "sha256": "c17935f8c359c8ef049101648f6812a7eb065772c716bd6cbcc3f67ef7e530d8",
+      "source_sha256": "cf6b35749a76df1cdf25507eb31f13d519fc06000bccf23227f8ba8289f32dbf",
+      "language": "zh",
+      "label": false,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_joint",
+          "role": "candidate",
+          "method": "ticodec-band-wide",
+          "receipt_sha256": "a0bb3eb2d09d4a80cc0b921a587e915a7726f3fa8e2ca52d2006f257abf75560",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 4.413340091705322,
+      "teacher_detected": true,
+      "agreement": false,
+      "teacher_input_samples": 518400,
+      "elapsed_seconds": 0.3764118682593107
+    },
+    {
+      "id": "profiles_fresh_33_zh_sonic-3.6",
+      "sha256": "0e4bfc81f258442a56c449164dfa27d0b6c23e0a82af8ff0001694e312d56ec3",
+      "source_sha256": "df9dd901c329ac10559bcecb6570a225432b06bf07ece37a41e26f2fe7e1e9af",
+      "language": "zh",
+      "label": false,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_joint",
+          "role": "candidate",
+          "method": "ticodec-band-narrow",
+          "receipt_sha256": "a0bb3eb2d09d4a80cc0b921a587e915a7726f3fa8e2ca52d2006f257abf75560",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 2.0204901695251465,
+      "teacher_detected": true,
+      "agreement": false,
+      "teacher_input_samples": 509440,
+      "elapsed_seconds": 0.3918560417369008
+    },
+    {
+      "id": "profiles_fresh_33_zh_sonic-3.6",
+      "sha256": "22e6328167121fa25482c26da8ef5e7a2fc1ca6fb2b210700c60e32a2ffbc8f3",
+      "source_sha256": "df9dd901c329ac10559bcecb6570a225432b06bf07ece37a41e26f2fe7e1e9af",
+      "language": "zh",
+      "label": false,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_latent_endpoint",
+          "role": "candidate",
+          "method": "continuous-global",
+          "receipt_sha256": "3ae35097e09afee5cd17dc79afc308dacc8df6ccf9469b977c5ebdfb2517604d",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 1.1336522102355957,
+      "teacher_detected": true,
+      "agreement": false,
+      "teacher_input_samples": 509440,
+      "elapsed_seconds": 0.32658677734434605
+    },
+    {
+      "id": "profiles_fresh_33_zh_sonic-3.6",
+      "sha256": "2bfe4d939636f72428bc602624e90b47e78eab0c4563b504b57d06f47963ff9e",
+      "source_sha256": "df9dd901c329ac10559bcecb6570a225432b06bf07ece37a41e26f2fe7e1e9af",
+      "language": "zh",
+      "label": false,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_latent_endpoint",
+          "role": "candidate",
+          "method": "continuous-both",
+          "receipt_sha256": "3ae35097e09afee5cd17dc79afc308dacc8df6ccf9469b977c5ebdfb2517604d",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 0.7319135665893555,
+      "teacher_detected": true,
+      "agreement": false,
+      "teacher_input_samples": 509440,
+      "elapsed_seconds": 0.31742082722485065
+    },
+    {
+      "id": "profiles_fresh_33_zh_sonic-3.6",
+      "sha256": "64f1dd0db88c4f03b9505deba1d527ce30a8349ae299922d95ff4d91fb8def07",
+      "source_sha256": "df9dd901c329ac10559bcecb6570a225432b06bf07ece37a41e26f2fe7e1e9af",
+      "language": "zh",
+      "label": false,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_joint",
+          "role": "candidate",
+          "method": "ticodec-band-wide",
+          "receipt_sha256": "a0bb3eb2d09d4a80cc0b921a587e915a7726f3fa8e2ca52d2006f257abf75560",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 1.3088417053222656,
+      "teacher_detected": true,
+      "agreement": false,
+      "teacher_input_samples": 509440,
+      "elapsed_seconds": 0.3304745042696595
+    },
+    {
+      "id": "profiles_fresh_33_zh_sonic-3.6",
+      "sha256": "76567f09f67338fe464e9c25f9cf6452b6c6d071502c0332c1dd9abf6d7ec965",
+      "source_sha256": "df9dd901c329ac10559bcecb6570a225432b06bf07ece37a41e26f2fe7e1e9af",
+      "language": "zh",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 240,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 3.5311660766601562,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 509440,
+      "elapsed_seconds": 0.3300700793042779
+    },
+    {
+      "id": "profiles_fresh_33_zh_sonic-3.6",
+      "sha256": "9adc08c1efa123bd66ecbe1849de5b3fb5a4adf087c1bfddb325e1fcf03a8bce",
+      "source_sha256": "df9dd901c329ac10559bcecb6570a225432b06bf07ece37a41e26f2fe7e1e9af",
+      "language": "zh",
+      "label": false,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_joint",
+          "role": "candidate",
+          "method": "ticodec-1g4r",
+          "receipt_sha256": "a0bb3eb2d09d4a80cc0b921a587e915a7726f3fa8e2ca52d2006f257abf75560",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 0.25200748443603516,
+      "teacher_detected": true,
+      "agreement": false,
+      "teacher_input_samples": 509440,
+      "elapsed_seconds": 0.32840972021222115
+    },
+    {
+      "id": "profiles_fresh_33_zh_sonic-3.6",
+      "sha256": "9ee958bb473ec68cfecf0a99854a85eaabf076e5409b159e5b2704c81bc8097f",
+      "source_sha256": "df9dd901c329ac10559bcecb6570a225432b06bf07ece37a41e26f2fe7e1e9af",
+      "language": "zh",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 80,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 4.906802654266357,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 509440,
+      "elapsed_seconds": 0.32344363257288933
+    },
+    {
+      "id": "profiles_fresh_33_zh_sonic-3.6",
+      "sha256": "a38afde028bf416510de3bf65e7df99695c0ea6eec98549e4f8e1a4dd71accf6",
+      "source_sha256": "df9dd901c329ac10559bcecb6570a225432b06bf07ece37a41e26f2fe7e1e9af",
+      "language": "zh",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 160,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 1.5480899810791016,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 509440,
+      "elapsed_seconds": 0.3240569308400154
+    },
+    {
+      "id": "profiles_fresh_33_zh_sonic-3.6",
+      "sha256": "c40630ffe2892acd307a034ffe9621c755c80dcfc19c9dc439bd3bd06c17dfc3",
+      "source_sha256": "df9dd901c329ac10559bcecb6570a225432b06bf07ece37a41e26f2fe7e1e9af",
+      "language": "zh",
+      "label": false,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_followup_endpoint",
+          "role": "candidate",
+          "method": "xcodec2-800bps",
+          "receipt_sha256": "b801e1bd4de0a80d522252acfc391f13f4763dc1acf16b25e351be2494a3d179",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 1.6760225296020508,
+      "teacher_detected": true,
+      "agreement": false,
+      "teacher_input_samples": 509440,
+      "elapsed_seconds": 0.32023669872432947
+    },
+    {
+      "id": "profiles_fresh_33_zh_sonic-3.6",
+      "sha256": "e33b187353853d4c73ca184082755ac3f75c3228c9ce48ef88b2e59ee186a1e0",
+      "source_sha256": "df9dd901c329ac10559bcecb6570a225432b06bf07ece37a41e26f2fe7e1e9af",
+      "language": "zh",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 0,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 1.9403066635131836,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 509440,
+      "elapsed_seconds": 0.3201835500076413
+    },
+    {
+      "id": "profiles_fresh_33_zh_sonic-3.6",
+      "sha256": "e5924d600a07c0ea365e3dcdc28f5c3b0993654965fcb741e8a459d9eaefd015",
+      "source_sha256": "df9dd901c329ac10559bcecb6570a225432b06bf07ece37a41e26f2fe7e1e9af",
+      "language": "zh",
+      "label": false,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_latent_endpoint",
+          "role": "candidate",
+          "method": "continuous-local",
+          "receipt_sha256": "3ae35097e09afee5cd17dc79afc308dacc8df6ccf9469b977c5ebdfb2517604d",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -0.03767108917236328,
+      "teacher_detected": false,
+      "agreement": true,
+      "teacher_input_samples": 509440,
+      "elapsed_seconds": 0.3356644529849291
+    },
+    {
+      "id": "profiles_fresh_35_zh_sonic-3.6",
+      "sha256": "45417ebf26f83794214a2b470e4988452b02488a31cd22c49d50dcdc72442344",
+      "source_sha256": "1eff65b69b53600ece16d1b91c2b5bf3423bd4d72c2aa518facec6fd29e7b8ae",
+      "language": "zh",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 0,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 0.00706028938293457,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 486400,
+      "elapsed_seconds": 0.36484756879508495
+    },
+    {
+      "id": "profiles_fresh_35_zh_sonic-3.6",
+      "sha256": "4b6e4180c3787980f9e48aeb462e03f52d78a294b119b92132a00b3a3ce02327",
+      "source_sha256": "1eff65b69b53600ece16d1b91c2b5bf3423bd4d72c2aa518facec6fd29e7b8ae",
+      "language": "zh",
+      "label": false,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 160,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -0.12979507446289062,
+      "teacher_detected": false,
+      "agreement": true,
+      "teacher_input_samples": 486400,
+      "elapsed_seconds": 0.3283634139224887
+    },
+    {
+      "id": "profiles_fresh_35_zh_sonic-3.6",
+      "sha256": "515fa16ebce79b13c556fd09e0075daf1be4a4c80570069588ea66c4c4aeb83c",
+      "source_sha256": "1eff65b69b53600ece16d1b91c2b5bf3423bd4d72c2aa518facec6fd29e7b8ae",
+      "language": "zh",
+      "label": false,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_latent_endpoint",
+          "role": "candidate",
+          "method": "continuous-global",
+          "receipt_sha256": "3ae35097e09afee5cd17dc79afc308dacc8df6ccf9469b977c5ebdfb2517604d",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -0.32100892066955566,
+      "teacher_detected": false,
+      "agreement": true,
+      "teacher_input_samples": 486400,
+      "elapsed_seconds": 0.34932301472872496
+    },
+    {
+      "id": "profiles_fresh_35_zh_sonic-3.6",
+      "sha256": "5ce5dcb1f79ca07e18e950debd9b1d39da177214abbe3b42643e685f5413df57",
+      "source_sha256": "1eff65b69b53600ece16d1b91c2b5bf3423bd4d72c2aa518facec6fd29e7b8ae",
+      "language": "zh",
+      "label": false,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_latent_endpoint",
+          "role": "candidate",
+          "method": "continuous-local",
+          "receipt_sha256": "3ae35097e09afee5cd17dc79afc308dacc8df6ccf9469b977c5ebdfb2517604d",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 0.510807991027832,
+      "teacher_detected": true,
+      "agreement": false,
+      "teacher_input_samples": 486400,
+      "elapsed_seconds": 0.3250666316598654
+    },
+    {
+      "id": "profiles_fresh_35_zh_sonic-3.6",
+      "sha256": "65115881bbce1cbc40f38b84fb8d2238ae365d82817fe71f59b49594b94b9571",
+      "source_sha256": "1eff65b69b53600ece16d1b91c2b5bf3423bd4d72c2aa518facec6fd29e7b8ae",
+      "language": "zh",
+      "label": false,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_joint",
+          "role": "candidate",
+          "method": "ticodec-band-wide",
+          "receipt_sha256": "a0bb3eb2d09d4a80cc0b921a587e915a7726f3fa8e2ca52d2006f257abf75560",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -0.5556766986846924,
+      "teacher_detected": false,
+      "agreement": true,
+      "teacher_input_samples": 486400,
+      "elapsed_seconds": 0.33829470723867416
+    },
+    {
+      "id": "profiles_fresh_35_zh_sonic-3.6",
+      "sha256": "893a17a8471ee1e3c504648a8b1370d51d1281436d381fe4d28b55636d20f4ea",
+      "source_sha256": "1eff65b69b53600ece16d1b91c2b5bf3423bd4d72c2aa518facec6fd29e7b8ae",
+      "language": "zh",
+      "label": false,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_joint",
+          "role": "candidate",
+          "method": "ticodec-band-narrow",
+          "receipt_sha256": "a0bb3eb2d09d4a80cc0b921a587e915a7726f3fa8e2ca52d2006f257abf75560",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 0.44091033935546875,
+      "teacher_detected": true,
+      "agreement": false,
+      "teacher_input_samples": 486400,
+      "elapsed_seconds": 0.334362686611712
+    },
+    {
+      "id": "profiles_fresh_35_zh_sonic-3.6",
+      "sha256": "97251d5ebf85ccd510f76646255437196d6b19eabb06d47aa7d12dda6f833378",
+      "source_sha256": "1eff65b69b53600ece16d1b91c2b5bf3423bd4d72c2aa518facec6fd29e7b8ae",
+      "language": "zh",
+      "label": false,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_followup_endpoint",
+          "role": "candidate",
+          "method": "xcodec2-800bps",
+          "receipt_sha256": "b801e1bd4de0a80d522252acfc391f13f4763dc1acf16b25e351be2494a3d179",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 2.4487099647521973,
+      "teacher_detected": true,
+      "agreement": false,
+      "teacher_input_samples": 486400,
+      "elapsed_seconds": 0.3292941665276885
+    },
+    {
+      "id": "profiles_fresh_35_zh_sonic-3.6",
+      "sha256": "d9895326f93ce27d531b5df7fdd3a5cce4514de2762bf5de130f0b42ac9706c3",
+      "source_sha256": "1eff65b69b53600ece16d1b91c2b5bf3423bd4d72c2aa518facec6fd29e7b8ae",
+      "language": "zh",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 240,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 0.29314208030700684,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 486400,
+      "elapsed_seconds": 0.3262987807393074
+    },
+    {
+      "id": "profiles_fresh_35_zh_sonic-3.6",
+      "sha256": "d9f670d759303dd54d920e5fb5169db02ea73ace10e0d345df4a1e552a24c509",
+      "source_sha256": "1eff65b69b53600ece16d1b91c2b5bf3423bd4d72c2aa518facec6fd29e7b8ae",
+      "language": "zh",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 80,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 0.35152149200439453,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 486400,
+      "elapsed_seconds": 0.3335378225892782
+    },
+    {
+      "id": "profiles_fresh_35_zh_sonic-3.6",
+      "sha256": "f42d4f5e9d383201d2f0b52b6c90bd9be0a3d284128e8a31ceaf2c0aa894985e",
+      "source_sha256": "1eff65b69b53600ece16d1b91c2b5bf3423bd4d72c2aa518facec6fd29e7b8ae",
+      "language": "zh",
+      "label": false,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_joint",
+          "role": "candidate",
+          "method": "ticodec-1g4r",
+          "receipt_sha256": "a0bb3eb2d09d4a80cc0b921a587e915a7726f3fa8e2ca52d2006f257abf75560",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -0.4325296878814697,
+      "teacher_detected": false,
+      "agreement": true,
+      "teacher_input_samples": 486400,
+      "elapsed_seconds": 0.33547085151076317
+    },
+    {
+      "id": "profiles_fresh_35_zh_sonic-3.6",
+      "sha256": "f7c184a3ade61a55dd5910b8f3e1777403f8f2c1dcdc85ea34ddb1508fa22ef4",
+      "source_sha256": "1eff65b69b53600ece16d1b91c2b5bf3423bd4d72c2aa518facec6fd29e7b8ae",
+      "language": "zh",
+      "label": false,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_latent_endpoint",
+          "role": "candidate",
+          "method": "continuous-both",
+          "receipt_sha256": "3ae35097e09afee5cd17dc79afc308dacc8df6ccf9469b977c5ebdfb2517604d",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 0.05973696708679199,
+      "teacher_detected": true,
+      "agreement": false,
+      "teacher_input_samples": 486400,
+      "elapsed_seconds": 0.33821587078273296
+    },
+    {
+      "id": "profiles_fresh_36_ru_sonic-preview",
+      "sha256": "11633b49bd38d45e9bd5c6df1eff00c25395a926ddeadda5fa4ae4819e425b3a",
+      "source_sha256": "4a063e51157a2b764f92dc8760cd9c752d6b0ba5e8e36d79efebb6132401013b",
+      "language": "ru",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 240,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -1.0736429691314697,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 518400,
+      "elapsed_seconds": 0.3844185210764408
+    },
+    {
+      "id": "profiles_fresh_36_ru_sonic-preview",
+      "sha256": "4367822140c7afc0d46786b9fd76958f1429c52927dfa8854e80eba00fbc09f7",
+      "source_sha256": "4a063e51157a2b764f92dc8760cd9c752d6b0ba5e8e36d79efebb6132401013b",
+      "language": "ru",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_joint",
+          "role": "candidate",
+          "method": "ticodec-band-narrow",
+          "receipt_sha256": "a0bb3eb2d09d4a80cc0b921a587e915a7726f3fa8e2ca52d2006f257abf75560",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -0.023058414459228516,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 518400,
+      "elapsed_seconds": 0.38249606266617775
+    },
+    {
+      "id": "profiles_fresh_36_ru_sonic-preview",
+      "sha256": "7c80fcf9d7a40fc60f86d85469fc1cead68bc925faf82f6ffa85d0a17a074518",
+      "source_sha256": "4a063e51157a2b764f92dc8760cd9c752d6b0ba5e8e36d79efebb6132401013b",
+      "language": "ru",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 80,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -1.2703099250793457,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 518400,
+      "elapsed_seconds": 0.39442230947315693
+    },
+    {
+      "id": "profiles_fresh_36_ru_sonic-preview",
+      "sha256": "b5c673772ea95122e9dfa71713a43b4b800912191cb1ed50d057cafcd384d297",
+      "source_sha256": "4a063e51157a2b764f92dc8760cd9c752d6b0ba5e8e36d79efebb6132401013b",
+      "language": "ru",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 160,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -2.100585460662842,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 518400,
+      "elapsed_seconds": 0.38590352050960064
+    },
+    {
+      "id": "profiles_fresh_37_ru_sonic-3.6",
+      "sha256": "548a1493e2044ed0e167967aa9d874e9e55b7508faa0a68fc263982ef4025c9a",
+      "source_sha256": "f67eaf1e63bd2d54ce8778e427ea814e2e66536ec2ce04bfbfcd1ab4bf493d63",
+      "language": "ru",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 0,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 3.8252627849578857,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 444160,
+      "elapsed_seconds": 0.3203072836622596
+    },
+    {
+      "id": "profiles_fresh_39_ru_sonic-3.6",
+      "sha256": "2b2b242ab0c91ce570ce1d4893ba8f6002def82ef493ac1aa1ec544b7f811e93",
+      "source_sha256": "3303e2ed0b0b749ae784344e8da585df05d06abc18b6eeee62031b0cf701517c",
+      "language": "ru",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 0,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 7.692888259887695,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 495360,
+      "elapsed_seconds": 0.4160621836781502
+    },
+    {
+      "id": "profiles_fresh_41_ta_sonic-3.6",
+      "sha256": "7d5e50b253cf1f8b1e69e7b7e6e9d40a73bfa3dce889e9a70c6f94a31d38b686",
+      "source_sha256": "78c9a66462900d56bc47e6f9fd97e87c4ee76e0bc147c598fa29cfff75487dbe",
+      "language": "ta",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 0,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 4.72251558303833,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 471040,
+      "elapsed_seconds": 0.28022492211312056
+    },
+    {
+      "id": "profiles_fresh_41_ta_sonic-3.6",
+      "sha256": "86ea39b23e9e29b5ec35d0f3ba84bc115a3a0dbff39b31dbd7900353a1f796c4",
+      "source_sha256": "78c9a66462900d56bc47e6f9fd97e87c4ee76e0bc147c598fa29cfff75487dbe",
+      "language": "ta",
+      "label": false,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "ticodec_joint",
+          "role": "candidate",
+          "method": "ticodec-band-narrow",
+          "receipt_sha256": "a0bb3eb2d09d4a80cc0b921a587e915a7726f3fa8e2ca52d2006f257abf75560",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 4.888514995574951,
+      "teacher_detected": true,
+      "agreement": false,
+      "teacher_input_samples": 471040,
+      "elapsed_seconds": 0.27843678556382656
+    },
+    {
+      "id": "profiles_fresh_42_ta_sonic-preview",
+      "sha256": "a9f57ad52327649099269963040e7e08778ada75e4bc5a33044f23125bd1341d",
+      "source_sha256": "239027629fc6976c47dc27edf31c5f72d413a388a7a5f19f5ee7b583d080a1cc",
+      "language": "ta",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "continuous_body_endpoint",
+          "role": "candidate",
+          "method": "ticodec-repair-continuous-both",
+          "receipt_sha256": "2c933708d0932fc9c9bc8934e76e62eef18ecd72d360505617e36c62d3ca63c3",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -2.817599058151245,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 459520,
+      "elapsed_seconds": 0.2701740050688386
+    },
+    {
+      "id": "profiles_fresh_42_ta_sonic-preview",
+      "sha256": "ed700f3c83a365d7ed2407b82557d6d5d1288553a6a1e140606e52217c297634",
+      "source_sha256": "239027629fc6976c47dc27edf31c5f72d413a388a7a5f19f5ee7b583d080a1cc",
+      "language": "ta",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "continuous_body_endpoint",
+          "role": "candidate",
+          "method": "ticodec-repair-continuous-local",
+          "receipt_sha256": "2c933708d0932fc9c9bc8934e76e62eef18ecd72d360505617e36c62d3ca63c3",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -3.3699965476989746,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 459520,
+      "elapsed_seconds": 0.27167332265526056
+    },
+    {
+      "id": "profiles_fresh_43_ta_sonic-3.6",
+      "sha256": "593a5e13b0222dc0e2ad0546c97db99df71bbeaad59770209897f2dcedce7cf6",
+      "source_sha256": "5a22bab2ee92628e42e6a0366a60c0c7a86b1c0f9af63a0b0450a2df849b3691",
+      "language": "ta",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_followup_endpoint",
+          "role": "candidate",
+          "method": "ticodec-repair-native-zero",
+          "receipt_sha256": "b801e1bd4de0a80d522252acfc391f13f4763dc1acf16b25e351be2494a3d179",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": -0.7441298961639404,
+      "teacher_detected": false,
+      "agreement": false,
+      "teacher_input_samples": 491520,
+      "elapsed_seconds": 0.3407818367704749
+    },
+    {
+      "id": "profiles_fresh_43_ta_sonic-3.6",
+      "sha256": "832f0072ea424f597af3c98a7af69e77eb96b8e8d5e393d4e68c6388b356a125",
+      "source_sha256": "5a22bab2ee92628e42e6a0366a60c0c7a86b1c0f9af63a0b0450a2df849b3691",
+      "language": "ta",
+      "label": true,
+      "original": false,
+      "teacher_voice_overlap": false,
+      "aliases": [
+        {
+          "family": "codec_frame_development",
+          "role": "candidate",
+          "offset_native_samples": 80,
+          "receipt_sha256": "4d5852dfd5ce62c1c8a5515a476a59d1760865aa28e7f9ce6dd5d8df1e108483",
+          "repeated_actual_observations": 2
+        }
+      ],
+      "logit": 0.584965705871582,
+      "teacher_detected": true,
+      "agreement": true,
+      "teacher_input_samples": 491520,
+      "elapsed_seconds": 0.32389490120112896
+    }
+  ]
+}

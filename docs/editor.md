@@ -44,6 +44,26 @@ The [release report](../results/remover_quality_v3.release.json) records the ori
 
 DNSMOS and speaker embeddings are supplementary model estimates, not human quality ratings or identity guarantees. Historical reports refer to generated audio and intermediate artifacts retained locally; these recordings and complete run archives are not bundled in Git.
 
+## Waveform teacher transfer check
+
+The later [transfer diagnostic](../results/surrogate_codec_transfer_development.json)
+tested the existing `raw_oracle_native_r4paired` waveform teacher against completed
+Cartesia responses for 169 exact files: 48 original recordings and 121 codec or
+timing derivatives. None of their voices appeared in that teacher's recorded
+training or validation voice lists. The threshold remained zero and every
+predeclared file was scored, with no new service requests or model updates.
+
+Agreement was 59.2%, balanced accuracy 52.1%, and ROC AUC 0.575. The teacher missed
+48 of 134 service-positive files and flagged 21 of 35 service-negative files.
+Derivatives share sources and voices, so these are correlated development
+measurements. A negative score from this teacher is insufficient evidence that
+an edit will clear Cartesia's detector. It needs stronger transfer validation
+before guiding another removal-training run.
+
+This checks one historical training teacher. It does not measure the default
+local detector's accuracy, update the original V3 evaluation, or qualify any new
+removal. The recordings were already used for development.
+
 ## Training, evaluation, and export
 
 ```bash

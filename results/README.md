@@ -14,6 +14,7 @@ This directory mixes curated files included in Git with ignored local experiment
 | `align.json`, `mechanism.json`, `phase2.json`, `detect_cache.json` | Evidence for the watermark investigation |
 | `reconstruction_runtime.json` | Reconstruction worker timings and output-equivalence checks |
 | `reconstruction_flow_cache_runtime.json` | Two CPU prototypes reproduced samples, exact-file bytes and RNG state, but improved a warm 28.32-second recording by only 1–2%; neither was added to the application |
+| `surrogate_codec_transfer_development.json` | One historical waveform teacher versus completed Cartesia observations on 169 exact files: 59.2% agreement, 52.1% balanced accuracy; all outcomes retained, no threshold tuning, model updates or removal-efficacy claim |
 | `reconstruction_local_shift.json` | A generated unmarked control exposing local-detector distribution shift after reconstruction |
 | `reconstruction_reliability.json` | Whole-file endpoint checks, repeats, provenance controls, and speech-quality estimates for the frozen full-flow candidate |
 | `reconstruction_vocoder.json` | Frozen vocoder measurements, its Japanese counterexample, and the fixed detector-checked fallback workflow with selected-output quality estimates |
