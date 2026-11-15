@@ -216,6 +216,27 @@ trade-off. Its fifty planned mixtures remain development treatments; it has no
 completed removal validation. The author TiCodec weights are upstream assets,
 not models trained or redistributed by this project.
 
+## TiCodec latent-code development panel
+
+The [latent-code generation report](../results/ticodec_latents_generation_development.json)
+retains all 75 treatments of the same 25 spent failures. The three new decoder
+cells use continuous global codes, continuous local codes, or both. All 25 paired
+quantized controls reproduced the original TiCodec FLAC hashes exactly.
+
+Nineteen outputs across nine sources passed the unchanged processing guards;
+eight failed voice or naturalness estimates and forty-eight failed speech guards.
+Continuous local inputs improved processing eligibility in some Hindi and Korean
+examples, but every Tamil treatment remained speech-rejected. No thresholds were
+relaxed. These are generation results: detector clearance, separate reference
+qualification and human listening remain unmeasured for the new outputs.
+
+The [generation and endpoint protocol](https://github.com/JustTalDevelops/cartesia-watermark/blob/codec-ticodec-20261115/docs/codec-ticodec-latent-evaluation.md)
+keeps rejected rows, distinct recordings and repeated measurements separate.
+Continuous representations do not retain the original codec's nominal bitrate.
+No fresh sources or synthesis requests were added, and the frozen 19/44 outcome
+is unchanged. The upstream TiCodec weights remain separate from this project's
+trained-model release.
+
 The alternative [Mimi weights](https://huggingface.co/kyutai/mimi) are upstream
 CC-BY-4.0 assets, separate from the models trained by this project. The smoothing
 and codec probes are experiments; they do not change the app's processing methods

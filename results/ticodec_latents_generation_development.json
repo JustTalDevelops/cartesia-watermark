@@ -1,0 +1,2976 @@
+{
+  "kind": "Spent-source TiCodec local/global latent generation results only",
+  "generation_sha256": "565e502d2d9accf4fcd49659c53e164b5345892d13999d252fced49b321ccb48",
+  "formatter_source_sha256": "d2bef1d4c5b74c0d38c6db6152a2eee0fd095ffa44d0ddc326dcaa5bbf7e4c40",
+  "completed_study_sha256": "777355dff6ed90ec0beec56558b0c3a4fc974abb88c38993d95d554c6040cd4b",
+  "original_ticodec_generation_sha256": "c794af62146888ce2b94517bae466814e5fb7d2453cfcd79dc8bd581fa7eff1f",
+  "code_files_sha256": {
+    "tools/verify_reconstruction.py": "7029453889415b86111ae5294e9233ce7786fad229d23e308a2b0046a376bfcc",
+    "tools/reconstruction_worker.py": "49b8816bd54a78957d45ed3596a63ba18a11bfa5eac0416070a85c692eef22f0",
+    "tools/codec_settings.py": "4ac4ab3d31ab5e037ae2c22d6f0070a5f947cf728d214a472417ec55d439b841",
+    "tools/codec_profiles.py": "7421dc49d291bd86251f8b7a8ad9706187bc5066b89cb1a990f97c38316947c6",
+    "tools/codec_assets.json": "99d443e93f0de80e837c50b17e0f93a796e0f19c05e1427d8fb33397ab62b1a5",
+    "tools/codec_audio.py": "2a0dac863e1d7c7577cf9f029f86b3973f90a6e77b935dc6bbce9169ff018f94",
+    "tools/codec_inference.py": "1f86876e3ab07e960dd9ac9c4ad9f1a773393ac31bdef969f9d25b52370d2a9e",
+    "tools/codec_teacher.py": "abebef4244f452e3d962ec6d88c9917806a98ad48512281875f41dc4d2cf3fb4",
+    "tools/codec_content.py": "1f7af6d64a8f79b80da9bbfb77f0d7497552b126fd189c8085e388e0604d97fe",
+    "tools/codec_text.py": "2b3f9503c9e39c330d60ae727415995822fec4daa4de7560572de905eab25f96",
+    "tools/codec_repair.py": "e6839578ce6d319e9463196521860b050d96f0f81f1ed8cafc14d3fe3918561a",
+    "tools/codec_word_consensus.py": "b8afdddddc1d8fab2b93036786a88ccb63473063dbc4e4572ed5d2619807a3f2",
+    "tools/korean_spacing.py": "2a191a4103a9a96539e99d138b6d74089a31b8ab36a60d26ac4c7bf3a1a6ca3a",
+    "tools/speech_repair.py": "4e3b883c3a2e0bf00546a5c4d5e4026aa1e875bca36881c4fe871e39675eb414",
+    "tools/speech_repair_assets.json": "2d1d68d1a00a006c0dc66b401ed21df291ff76fb4ab88b0f31f96960766226e2",
+    "tools/whisper_encoder_reuse.py": "1c2492c5ce80500b172d0657c3f73406b6b8b58f9c0d72b3b79c752bd203eb82",
+    "tools/reconstruct_codec.py": "ae8a607b333237bd4c01d3d4f7e8baa900a08ac39b8d70b60aafbe0add02d7de",
+    "tools/reconstruct_codec_band.py": "b5102f096a9a070b5496ced2f93ff3c29521d2326e78a2e8694a70bb7868e195",
+    "tools/vocoder_band_prior.py": "8b153b0e25421d560c3f9a41e5e36ea44f1ed0a7ad417b0c49af76f6e69b033f",
+    "tools/reconstruct_vocoder.py": "3378845287c3f1bf874147392184c5b15b43ca954adacd6eac484715e4564db0",
+    "tools/vocoder_inference.py": "38d02df4aa5d488aab7b37320dcbf6cc6e980178e23721783145adef138c37f2",
+    "tools/vocoder_assets.json": "ea7870e32da6336a800a3ddbe555d527267124470b44f8e7e0c72603aae4e7f6",
+    "tools/cartesia.py": "599d2b8b551af9f193bcc4c280f3b732a41c48c356c178ad747f17067eff5771",
+    "tools/eval_voice_quality.py": "f45829ffa8658c1158f44f7516bde482f391c71267ae6ba8b18c3853b3d747b2",
+    "tools/remover.py": "aad94e48280117f052aa8b0ce5ff8ae254154fb2611526852038912865666e6c",
+    "tools/quality_blend.py": "c74b1a6515d1b68d5edca69622b5242b78746b25186d8fab915194613d997df4",
+    "experiments/generate_codec_study.py": "9701ea895fb6328af4e2a1d6bde9341a92dfb7f01f7b09822d91f9574f866d20",
+    "experiments/run_codec_study.py": "9aaceb24c6c2786c0ac155a78832e0dd90f29578875f95453b05ba1c46305b65",
+    "experiments/run_codec_profiles.py": "a323bd4ddd08fdee42c65df353b42b64be3130ac687e5d8218fcb6cc5c5585ac",
+    "experiments/codec_profile_cache.py": "0a4b713275e89899414001494222ec486a781347babd12da6a83f6edf618a3ca",
+    "experiments/codec_profile_evaluation.py": "d191fea3a94f8bb2d85de7f5c6ba78cb0b179a47b3a6804f2aa7829ec1111f79",
+    "experiments/score_codec_study.py": "8fa758272b28150ba655243977e8ed82418231259ae158676daa27441dd8094c",
+    "experiments/codec_evaluation_text.py": "9d05a9350507e45912e47f0200f64732ed5cf03bc3d6581e8c6ad992ff4e2876",
+    "experiments/codec_evaluation_assets.json": "df1d047b380f6d218727bd451988a7823c9f82fb652aa62d7542b81b129e3dfc",
+    "experiments/freeze_codec_profiles.py": "95c78b910d10ded5df4e5f31f6f24c7efa0ebc33bc6a13fd05f16584a055d433",
+    "requirements/codec.txt": "bfe8b7b4d36b0e59dba5cd19b03077080f733480bbdaf94c6e46b38e39e789f1",
+    "requirements/speech_repair.txt": "9a20eb7a29bbf29cdb23239aecd0c81b011c537e497903c331ecc83379647b44",
+    "requirements/verification.txt": "d9332dade574c76d8794e0e5d7cccc1b8c654f008be8ea14ae68411ceb3f6dd7",
+    "requirements/vocoder.txt": "36aaf5ee7d8f582d03f0614f50305f9de3ade062de4e65e761ae4b5601929551",
+    "requirements/codec_evaluation.txt": "c82b1fd37c9d379c98fc251ac4c5f8544daa2fbea890d04f325a1240050b37b9",
+    "requirements/eval.txt": "c429198bfcf1459b979c377136e235a953360f86c952c4c1e202d77943e03af5",
+    "requirements/inference.txt": "38c7e9ab6bb997b1265e43417d9f1b3fecb1b27dca1662a772dcd584d1779785",
+    "experiments/ticodec_adapter.py": "96be43a9e19b110fb98d414954b7d2339beb3cf607f13b508ad324aeef1e89b6",
+    "experiments/ticodec_assets.json": "214bdc2a2c2fc259bb63758846420a7ebd5457ceac20a547350a5ae07b084ba7",
+    "experiments/validate_ticodec.py": "5310d4750f86c91a9f73e9ae37ff0308b44588d3de46547f9fcc649854a715a1",
+    "experiments/probe_ticodec.py": "bbca3d80a0d35909260ada3f1827570c7827ded3df66da06fe2740aad06386b6",
+    "experiments/probe_codec_frames.py": "19e369e66ce9231fdc3f55006b9e11b523d5ed991063127518213c4d0322aeb8",
+    "experiments/codec_profiles_report.py": "047d998495ef6bb2aee144a5308e16d063d3e997e559836453a1308dbb393a25",
+    "experiments/ticodec_latents.py": "d94604ff26fbb618692e20374a90a572b2a7a0888409924a245bd597397f827c",
+    "experiments/probe_ticodec_latents.py": "bef24eff5f954ae9737dac88d7b20946cfed72cf7fe563f7bb260ad20b940fed",
+    "docs/codec-ticodec-latents.md": "af4c01db6dd67a77d045fe14d8d5c226d68096cdb8b73987175ef814fb88c9d4"
+  },
+  "model": {
+    "model": "y-ren16/TiCodec 1g4r",
+    "trained_by_this_project": false,
+    "code_repository": "https://github.com/y-ren16/TiCodec",
+    "code_revision": "13af0ebad99f01ebbe25ce449b7e33eebc56672e",
+    "code_license": "Apache-2.0, stated in upstream README",
+    "weights_repository": "https://huggingface.co/y-ren16/TiCodec",
+    "weights_revision": "2117e04dc2493fb242a8486286fb3dab2350e0a2",
+    "weights_sha256": "f344d139472536407f9faef170d47950c213a84b53b589049c5f1c7004efa314",
+    "weights_license": "No explicit checkpoint license or model card in the inspected author release; not redistributed by this project",
+    "source_files_sha256": {
+      "academicodec/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "academicodec/models/ticodec/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "academicodec/utils.py": "dd2c9ce9e772c90c19a06279acfcd4cd5efa91a1996cebbbd95518a88c44b83d",
+      "academicodec/models/ticodec/models.py": "397a2e0e33272e745f3ba3c283c81a52a559d0d8533bb0597de673f8ee1ab502",
+      "academicodec/models/ticodec/env.py": "f5212e8402468ba2b68f79fac906ae48b0762625db368232bbff3bc31fa2b42b",
+      "academicodec/models/ticodec/vqvae.py": "7587f50309ec0e0369c522730a5c0e1caa53a2da6ab1cf45ebbc93e32f88e45c",
+      "egs/TiCodec-24k-320d/config_24k_320d_conv_1g4r_8g3k1s.json": "33e419fa547f0a445e719550d94d6a29cecff75cb365748fcff0c8d86cf4b55a",
+      "README.md": "9c5dce34f45fbe35400d0ec44e2f15d2b1321f066bb3f50d50608650345bce5c"
+    },
+    "global_codes_per_complete_channel": 8,
+    "sample_rate": 24000,
+    "precision": "float32",
+    "device": "cpu",
+    "threads": 4,
+    "adapter_sha256": "96be43a9e19b110fb98d414954b7d2339beb3cf607f13b508ad324aeef1e89b6",
+    "assets_manifest_sha256": "214bdc2a2c2fc259bb63758846420a7ebd5457ceac20a547350a5ae07b084ba7",
+    "model_downloads_during_processing": false,
+    "channel_policy": "Complete channels independently; one global token set per complete channel",
+    "boundary_policy": "Reflect to 320 samples, decode, discard model reflection, restore original grid",
+    "weight_normalization": "Original author layers retained",
+    "removal_efficacy": "Unverified; spent-source development ablation",
+    "latent_ablation_sha256": "d94604ff26fbb618692e20374a90a572b2a7a0888409924a245bd597397f827c",
+    "baseline_frame_codes_bitrate_bps": 3000,
+    "continuous_local_representation_bps": 1228800,
+    "quantized_global_bits_per_complete_channel": 80,
+    "continuous_global_bits_per_complete_channel": 4096,
+    "shared_encoder": "One complete encode per channel for all four decoder cells",
+    "modes": [
+      {
+        "name": "quantized-control",
+        "local_quantized": true,
+        "global_quantized": true
+      },
+      {
+        "name": "continuous-global",
+        "local_quantized": true,
+        "global_quantized": false
+      },
+      {
+        "name": "continuous-local",
+        "local_quantized": false,
+        "global_quantized": true
+      },
+      {
+        "name": "continuous-both",
+        "local_quantized": false,
+        "global_quantized": false
+      }
+    ]
+  },
+  "synthetic_control": {
+    "exact_original_adapter_waveform": true,
+    "maximum_absolute_error": 0.0,
+    "speech_quality_evaluated": false,
+    "detector_checked": false
+  },
+  "recognition_configuration_sha256": "0d0a0801070aeffaeb9447084813b7e5be1756b92b67a36eae02cd388cc9f060",
+  "planned_spent_sources": 25,
+  "planned_treatments": 75,
+  "exact_quantized_controls": 25,
+  "cases": [
+    {
+      "id": "profiles_fresh_00_en_sonic-preview",
+      "language": "en",
+      "source_sha256": "edb551f5d795d538ddeaefe6434f7240f7c4edebb235e48d557fbc5f2f73fc99",
+      "source_format": {
+        "samples": 1167768,
+        "sample_rate": 44100,
+        "channels": 2
+      },
+      "source_model": "sonic-preview",
+      "voice_id": "4fbae271-89c4-494d-8181-6eddca393453",
+      "control_status": "exact_match",
+      "control_sha256": "1fda386642487addd4ebd15ee5f412d420055c6a3e92753e59f4c00b53ae1b58",
+      "treatments": [
+        {
+          "mode": "continuous-global",
+          "local_quantized": true,
+          "global_quantized": false,
+          "status": "processing_eligible",
+          "output_sha256": "3bab7003538a7e2cc29f3111048bcb250fbe2c298d3ef8d38edec8746faeede8",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": true,
+            "paired_disagreement": {
+              "turbo": 0.0,
+              "sensevoice": 0.023529411764705882
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "sensevoice",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 85,
+              "sensevoice": 85
+            },
+            "processed_units": {
+              "turbo": 85,
+              "sensevoice": 86
+            }
+          },
+          "recognition_cache_sha256": "86a6b54b6c00b5ef5c4ade3787ab4f4f1ee4717f1b43fbdb840419bc0c3f1c36",
+          "runtime_quality_guard": {
+            "passed": true,
+            "source_sha256": "edb551f5d795d538ddeaefe6434f7240f7c4edebb235e48d557fbc5f2f73fc99",
+            "candidate_sha256": "3bab7003538a7e2cc29f3111048bcb250fbe2c298d3ef8d38edec8746faeede8",
+            "speaker_minimum": 0.9575786459585954,
+            "speaker_minimum_required": 0.95,
+            "dnsmos_overall_delta": -0.11053343701712492,
+            "dnsmos_overall_delta_required": -0.2,
+            "receipt_sha256": "8ea1733dc885d63f99942adaba765edd3319e25fc33d07f175af35930a5a5ca4",
+            "same_file_estimates_reused": false,
+            "independent_evaluation": false,
+            "reference_text_used": false
+          }
+        },
+        {
+          "mode": "continuous-local",
+          "local_quantized": false,
+          "global_quantized": true,
+          "status": "processing_eligible",
+          "output_sha256": "13e8d4d9dd3a1072ddc42257bc2bf843690e805a450f2a3a0b4b70d48e7e1f39",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": true,
+            "paired_disagreement": {
+              "turbo": 0.0,
+              "sensevoice": 0.023529411764705882
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "sensevoice",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 85,
+              "sensevoice": 85
+            },
+            "processed_units": {
+              "turbo": 85,
+              "sensevoice": 86
+            }
+          },
+          "recognition_cache_sha256": "270e4fb57dc98e803276c66a8580d4a1041403b24ec6fbb5d8c52284c384308b",
+          "runtime_quality_guard": {
+            "passed": true,
+            "source_sha256": "edb551f5d795d538ddeaefe6434f7240f7c4edebb235e48d557fbc5f2f73fc99",
+            "candidate_sha256": "13e8d4d9dd3a1072ddc42257bc2bf843690e805a450f2a3a0b4b70d48e7e1f39",
+            "speaker_minimum": 0.9706087165879722,
+            "speaker_minimum_required": 0.95,
+            "dnsmos_overall_delta": -0.014691480782156319,
+            "dnsmos_overall_delta_required": -0.2,
+            "receipt_sha256": "3f9c2222db8dea0706ad9c51475b665094bb5a1082abec7da0f5edd3faece77d",
+            "same_file_estimates_reused": false,
+            "independent_evaluation": false,
+            "reference_text_used": false
+          }
+        },
+        {
+          "mode": "continuous-both",
+          "local_quantized": false,
+          "global_quantized": false,
+          "status": "processing_eligible",
+          "output_sha256": "05ae28204d6036985ae06c0587288e49fbdae278c147412b1c53fa6fd4841796",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": true,
+            "paired_disagreement": {
+              "turbo": 0.0,
+              "sensevoice": 0.023529411764705882
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "sensevoice",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 85,
+              "sensevoice": 85
+            },
+            "processed_units": {
+              "turbo": 85,
+              "sensevoice": 86
+            }
+          },
+          "recognition_cache_sha256": "eacca03da3e4c56d3d0ab66b6fa30135e82b014ad0fec92d1d3ed1b0f6ef9522",
+          "runtime_quality_guard": {
+            "passed": true,
+            "source_sha256": "edb551f5d795d538ddeaefe6434f7240f7c4edebb235e48d557fbc5f2f73fc99",
+            "candidate_sha256": "05ae28204d6036985ae06c0587288e49fbdae278c147412b1c53fa6fd4841796",
+            "speaker_minimum": 0.9656506804441376,
+            "speaker_minimum_required": 0.95,
+            "dnsmos_overall_delta": -0.05550523519201267,
+            "dnsmos_overall_delta_required": -0.2,
+            "receipt_sha256": "2155c92048a804c03cae6e1a791523492faa0d533ad3d12a87c4bd488c395a4b",
+            "same_file_estimates_reused": false,
+            "independent_evaluation": false,
+            "reference_text_used": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "profiles_fresh_04_es_sonic-preview",
+      "language": "es",
+      "source_sha256": "9f4bb0990d5dff0d4f8a05e93e2f665702cdbe4452432a2bd4bb0e1a5212fe2b",
+      "source_format": {
+        "samples": 1203048,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "source_model": "sonic-preview",
+      "voice_id": "30212483-5c20-479c-8121-f93cd24e30a6",
+      "control_status": "exact_match",
+      "control_sha256": "ee04ceeb3e025166d4ffae12794d26660f2f6da53fb7f97bd18f408046aeeb28",
+      "treatments": [
+        {
+          "mode": "continuous-global",
+          "local_quantized": true,
+          "global_quantized": false,
+          "status": "runtime_quality_rejected",
+          "output_sha256": "16ce19698fcf8a7577f26ab6d0b9effce8df6544243fe593cf29427294f03768",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": true,
+            "paired_disagreement": {
+              "turbo": 0.0,
+              "mms": 0.012345679012345678
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 81,
+              "mms": 81
+            },
+            "processed_units": {
+              "turbo": 81,
+              "mms": 81
+            }
+          },
+          "recognition_cache_sha256": "ae3c5300e8cadd3bb4c4b2f8b2f1eeaa8939f6e5055827c44116823f66c76202",
+          "runtime_quality_guard": {
+            "passed": false,
+            "source_sha256": "9f4bb0990d5dff0d4f8a05e93e2f665702cdbe4452432a2bd4bb0e1a5212fe2b",
+            "candidate_sha256": "16ce19698fcf8a7577f26ab6d0b9effce8df6544243fe593cf29427294f03768",
+            "speaker_minimum": 0.894807607268569,
+            "speaker_minimum_required": 0.95,
+            "dnsmos_overall_delta": -0.19658692410669065,
+            "dnsmos_overall_delta_required": -0.2,
+            "receipt_sha256": "7a0799c947f4074b600baafff13712f1c114641402e46e080558b65deb4bedd0",
+            "same_file_estimates_reused": false,
+            "independent_evaluation": false,
+            "reference_text_used": false
+          }
+        },
+        {
+          "mode": "continuous-local",
+          "local_quantized": false,
+          "global_quantized": true,
+          "status": "runtime_quality_rejected",
+          "output_sha256": "198ae75399c975c4c0288b35fcc232c33b545678a66e9d9378049e2447e9b587",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": true,
+            "paired_disagreement": {
+              "turbo": 0.0,
+              "mms": 0.0
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 81,
+              "mms": 81
+            },
+            "processed_units": {
+              "turbo": 81,
+              "mms": 81
+            }
+          },
+          "recognition_cache_sha256": "b245a986f2ac9f7f7d9c6071c430157e38caae83c5d892329438745e041f0a46",
+          "runtime_quality_guard": {
+            "passed": false,
+            "source_sha256": "9f4bb0990d5dff0d4f8a05e93e2f665702cdbe4452432a2bd4bb0e1a5212fe2b",
+            "candidate_sha256": "198ae75399c975c4c0288b35fcc232c33b545678a66e9d9378049e2447e9b587",
+            "speaker_minimum": 0.9409401676442755,
+            "speaker_minimum_required": 0.95,
+            "dnsmos_overall_delta": -0.16792544951410537,
+            "dnsmos_overall_delta_required": -0.2,
+            "receipt_sha256": "99193e4067b17b2f1409d3c87e2ab23111e0a7dc45fa55614b0f28858c220686",
+            "same_file_estimates_reused": false,
+            "independent_evaluation": false,
+            "reference_text_used": false
+          }
+        },
+        {
+          "mode": "continuous-both",
+          "local_quantized": false,
+          "global_quantized": false,
+          "status": "runtime_quality_rejected",
+          "output_sha256": "d2bff789c9c43410cce954f4e6d9d06455782037d7fefb1ece175babb70927aa",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": true,
+            "paired_disagreement": {
+              "turbo": 0.0,
+              "mms": 0.0
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 81,
+              "mms": 81
+            },
+            "processed_units": {
+              "turbo": 81,
+              "mms": 81
+            }
+          },
+          "recognition_cache_sha256": "318493d9201ad39f6b928965dddb6f6d1584071256260fcb11695641d8a052eb",
+          "runtime_quality_guard": {
+            "passed": false,
+            "source_sha256": "9f4bb0990d5dff0d4f8a05e93e2f665702cdbe4452432a2bd4bb0e1a5212fe2b",
+            "candidate_sha256": "d2bff789c9c43410cce954f4e6d9d06455782037d7fefb1ece175babb70927aa",
+            "speaker_minimum": 0.9187968082034166,
+            "speaker_minimum_required": 0.95,
+            "dnsmos_overall_delta": -0.19530567186923298,
+            "dnsmos_overall_delta_required": -0.2,
+            "receipt_sha256": "6cb9ca23f6da7eb17762da56c1a12b33ed73bb7f0779f4779cc31d4b8822ad14",
+            "same_file_estimates_reused": false,
+            "independent_evaluation": false,
+            "reference_text_used": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "profiles_fresh_10_fr_sonic-preview",
+      "language": "fr",
+      "source_sha256": "cc9b132b7e2c8ab443ef6431fb8d1d5ba8e5b74f6cd82d901611b0d6cfa5bbce",
+      "source_format": {
+        "samples": 1054872,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "source_model": "sonic-preview",
+      "voice_id": "03292898-4865-4f19-bc0f-139b9d27a841",
+      "control_status": "exact_match",
+      "control_sha256": "5244ecfd99fa9f63bc578fab6e6623c880ecc616c0a1564dc3948f8d91eddd6e",
+      "treatments": [
+        {
+          "mode": "continuous-global",
+          "local_quantized": true,
+          "global_quantized": false,
+          "status": "content_rejected",
+          "output_sha256": "ceb0d2ffb3ea62d17ec57b32e76b6a33212706e45c18ddd7c0e1bc3e299e147b",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "turbo": null,
+              "mms": 0.06172839506172839
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 81,
+              "mms": 81
+            },
+            "processed_units": {
+              "turbo": 0,
+              "mms": 81
+            }
+          },
+          "recognition_cache_sha256": "a2c4155cc68957a6d37afa5bfa231b56c121d643025c50cb71058f6acca30516",
+          "runtime_quality_guard": null
+        },
+        {
+          "mode": "continuous-local",
+          "local_quantized": false,
+          "global_quantized": true,
+          "status": "runtime_quality_rejected",
+          "output_sha256": "a76caf930c5c9b4e33ec2469e9ceb5a9fc70da9af68a1803224c38c636b1a0f3",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": true,
+            "paired_disagreement": {
+              "turbo": 0.0,
+              "mms": 0.012345679012345678
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 81,
+              "mms": 81
+            },
+            "processed_units": {
+              "turbo": 81,
+              "mms": 81
+            }
+          },
+          "recognition_cache_sha256": "1121a8b0ec735f34fa5e6d2196962fbf18fe30d63b5ba344288cd0aa2aa6ab63",
+          "runtime_quality_guard": {
+            "passed": false,
+            "source_sha256": "cc9b132b7e2c8ab443ef6431fb8d1d5ba8e5b74f6cd82d901611b0d6cfa5bbce",
+            "candidate_sha256": "a76caf930c5c9b4e33ec2469e9ceb5a9fc70da9af68a1803224c38c636b1a0f3",
+            "speaker_minimum": 0.9517829058321542,
+            "speaker_minimum_required": 0.95,
+            "dnsmos_overall_delta": -0.22826570959601966,
+            "dnsmos_overall_delta_required": -0.2,
+            "receipt_sha256": "cf11c3867764103d9e77b674f19096dd478196b9cb4dc92cdc4692d2d9c1783e",
+            "same_file_estimates_reused": false,
+            "independent_evaluation": false,
+            "reference_text_used": false
+          }
+        },
+        {
+          "mode": "continuous-both",
+          "local_quantized": false,
+          "global_quantized": false,
+          "status": "runtime_quality_rejected",
+          "output_sha256": "eb41c42223a63d50f1477b01ef304ee0b6064d3f317fd459fa780ed2460f1423",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": true,
+            "paired_disagreement": {
+              "turbo": 0.0,
+              "mms": 0.012345679012345678
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 81,
+              "mms": 81
+            },
+            "processed_units": {
+              "turbo": 81,
+              "mms": 81
+            }
+          },
+          "recognition_cache_sha256": "aa4c486176fe578f545d382037b1c5cd12258b460332f41ba23a620a08c92d3d",
+          "runtime_quality_guard": {
+            "passed": false,
+            "source_sha256": "cc9b132b7e2c8ab443ef6431fb8d1d5ba8e5b74f6cd82d901611b0d6cfa5bbce",
+            "candidate_sha256": "eb41c42223a63d50f1477b01ef304ee0b6064d3f317fd459fa780ed2460f1423",
+            "speaker_minimum": 0.9441587494340035,
+            "speaker_minimum_required": 0.95,
+            "dnsmos_overall_delta": -0.3768214417418574,
+            "dnsmos_overall_delta_required": -0.2,
+            "receipt_sha256": "bf23b89316bc384f9893d8626f791b828430620b18d9cc1cb0baa500d213b24e",
+            "same_file_estimates_reused": false,
+            "independent_evaluation": false,
+            "reference_text_used": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "profiles_fresh_11_fr_sonic-3.6",
+      "language": "fr",
+      "source_sha256": "51c1764f7385ebca9daaf8c69f2c8f253ed2a7f6d82fa22926a252152ab54239",
+      "source_format": {
+        "samples": 1100736,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "source_model": "sonic-3.6",
+      "voice_id": "26aa0590-65e4-436e-8dd9-b02e6caa5a37",
+      "control_status": "exact_match",
+      "control_sha256": "e568820f9ad45791c0c558a0b54c16b9fd62afac1b01953bc5978b34ec94e6ff",
+      "treatments": [
+        {
+          "mode": "continuous-global",
+          "local_quantized": true,
+          "global_quantized": false,
+          "status": "content_rejected",
+          "output_sha256": "162a0dad0ff86bdbd5dd31f2cd578fab79138ad1c910aca5d5ba03fd5b7dc31a",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "turbo": null,
+              "mms": 0.0641025641025641
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 80,
+              "mms": 78
+            },
+            "processed_units": {
+              "turbo": 0,
+              "mms": 78
+            }
+          },
+          "recognition_cache_sha256": "5dc216c07f0c7a83d5ab7f8ceaf1dbf3bcf116c4c2f7023a8d1c82eec7cf7df3",
+          "runtime_quality_guard": null
+        },
+        {
+          "mode": "continuous-local",
+          "local_quantized": false,
+          "global_quantized": true,
+          "status": "content_rejected",
+          "output_sha256": "7cce584fbd2aee4cc4651ef38bc1196a24bf53086cca0efa984a30184a23d9e1",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "turbo": null,
+              "mms": 0.0641025641025641
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 80,
+              "mms": 78
+            },
+            "processed_units": {
+              "turbo": 0,
+              "mms": 78
+            }
+          },
+          "recognition_cache_sha256": "87cb0c4073bd85bad08787c9a8d8c16883ec69ead696786b5e0fd9fee8e714fe",
+          "runtime_quality_guard": null
+        },
+        {
+          "mode": "continuous-both",
+          "local_quantized": false,
+          "global_quantized": false,
+          "status": "content_rejected",
+          "output_sha256": "6a0e8fd98bda2848d3c7590e37f33588621a4ac4e008fe4c49a361626114a30c",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "turbo": null,
+              "mms": 0.0641025641025641
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 80,
+              "mms": 78
+            },
+            "processed_units": {
+              "turbo": 0,
+              "mms": 78
+            }
+          },
+          "recognition_cache_sha256": "69e29b2393fa219169ee9b81e31c152c53c74294e69a8806de373bf3464f6cf3",
+          "runtime_quality_guard": null
+        }
+      ]
+    },
+    {
+      "id": "profiles_fresh_13_de_sonic-3.6",
+      "language": "de",
+      "source_sha256": "0ff7a36f3e0071b35a20ffeafc2f260b664ef3b29f3aa5295955ea85658ab2dc",
+      "source_format": {
+        "samples": 1125432,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "source_model": "sonic-3.6",
+      "voice_id": "922e8304-2630-4779-8a86-effedfa99a79",
+      "control_status": "exact_match",
+      "control_sha256": "27a321dd2ab069d5931b3c7e6c0d89328aa63d88ead55735b1e8195b55d04b78",
+      "treatments": [
+        {
+          "mode": "continuous-global",
+          "local_quantized": true,
+          "global_quantized": false,
+          "status": "content_rejected",
+          "output_sha256": "bf6fce52627615405bb79e4bb8612f06d4b71044b6b9ef3d03616dda695c9908",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "turbo": null,
+              "mms": 0.07246376811594203
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 70,
+              "mms": 69
+            },
+            "processed_units": {
+              "turbo": 0,
+              "mms": 67
+            }
+          },
+          "recognition_cache_sha256": "cac28bc46d793161c088c51aaaa7837bc39c273668d326d288ba0ce435d40346",
+          "runtime_quality_guard": null
+        },
+        {
+          "mode": "continuous-local",
+          "local_quantized": false,
+          "global_quantized": true,
+          "status": "content_rejected",
+          "output_sha256": "f41f1b2672a1e654a0b137349c3184f63f7e07aa858fc3e40730f05da3e59153",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "turbo": 0.04285714285714286,
+              "mms": 0.028985507246376812
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 70,
+              "mms": 69
+            },
+            "processed_units": {
+              "turbo": 68,
+              "mms": 70
+            }
+          },
+          "recognition_cache_sha256": "17b13d87184648794acd555e65eb0207b81b83ce42705016ea55fcc403e3908c",
+          "runtime_quality_guard": null
+        },
+        {
+          "mode": "continuous-both",
+          "local_quantized": false,
+          "global_quantized": false,
+          "status": "content_rejected",
+          "output_sha256": "ce0dfd48d3f8af7529d0db02279288e5b5701a510e039d744e92793ec31bfd34",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "turbo": 0.04285714285714286,
+              "mms": 0.028985507246376812
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 70,
+              "mms": 69
+            },
+            "processed_units": {
+              "turbo": 68,
+              "mms": 70
+            }
+          },
+          "recognition_cache_sha256": "b4dd2dad2161bfdf814fb1c867185a0dce88d317c15ebd0a51c905381fa0cdec",
+          "runtime_quality_guard": null
+        }
+      ]
+    },
+    {
+      "id": "profiles_fresh_14_de_sonic-preview",
+      "language": "de",
+      "source_sha256": "6e9d61bef51fbe6f968192ac29b6759d926c2f2d2dabf67b2ccacfe819e87f31",
+      "source_format": {
+        "samples": 1086624,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "source_model": "sonic-preview",
+      "voice_id": "eede54e1-c038-4b4d-b655-809eeaa45c4c",
+      "control_status": "exact_match",
+      "control_sha256": "200f7ed007e5c9df8188d272611fabc2b10fd77715c11b366562a9e6ccccc96b",
+      "treatments": [
+        {
+          "mode": "continuous-global",
+          "local_quantized": true,
+          "global_quantized": false,
+          "status": "content_rejected",
+          "output_sha256": "1dc9e0b24ad83e33b6e9a93430c986b32ce21b6f904dc23188cc7c534935f342",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "turbo": 0.0410958904109589,
+              "mms": 0.013888888888888888
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 73,
+              "mms": 72
+            },
+            "processed_units": {
+              "turbo": 72,
+              "mms": 72
+            }
+          },
+          "recognition_cache_sha256": "bbd7a7004fd75ff0fc61382e3656491787eaae9ded1fc326c7d12d7f48243cf0",
+          "runtime_quality_guard": null
+        },
+        {
+          "mode": "continuous-local",
+          "local_quantized": false,
+          "global_quantized": true,
+          "status": "processing_eligible",
+          "output_sha256": "abc90312ae215b4965d58ff6e57da921a02be136c956e5c94dd6fb525fca1a66",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": true,
+            "paired_disagreement": {
+              "turbo": 0.0,
+              "mms": 0.013888888888888888
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 73,
+              "mms": 72
+            },
+            "processed_units": {
+              "turbo": 73,
+              "mms": 72
+            }
+          },
+          "recognition_cache_sha256": "d25adbe6e61b6bb2797c6d31c4351a829746aff251c663b46e2d402d2689547d",
+          "runtime_quality_guard": {
+            "passed": true,
+            "source_sha256": "6e9d61bef51fbe6f968192ac29b6759d926c2f2d2dabf67b2ccacfe819e87f31",
+            "candidate_sha256": "abc90312ae215b4965d58ff6e57da921a02be136c956e5c94dd6fb525fca1a66",
+            "speaker_minimum": 0.991753525046806,
+            "speaker_minimum_required": 0.95,
+            "dnsmos_overall_delta": -0.06529812986748507,
+            "dnsmos_overall_delta_required": -0.2,
+            "receipt_sha256": "2815b1045737a05f827e4595b4444704d658ee1be144e65de2a257021fc740ce",
+            "same_file_estimates_reused": false,
+            "independent_evaluation": false,
+            "reference_text_used": false
+          }
+        },
+        {
+          "mode": "continuous-both",
+          "local_quantized": false,
+          "global_quantized": false,
+          "status": "processing_eligible",
+          "output_sha256": "9849940166c6577c886f06a85e8b4996ca41579e20fa26f8f3d9fc5a5d05a56e",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": true,
+            "paired_disagreement": {
+              "turbo": 0.0273972602739726,
+              "mms": 0.013888888888888888
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 73,
+              "mms": 72
+            },
+            "processed_units": {
+              "turbo": 72,
+              "mms": 72
+            }
+          },
+          "recognition_cache_sha256": "2c83f7510bc86346bc3a0dbf1fd9643a918ddad7e8aa9246294191ab5413f35c",
+          "runtime_quality_guard": {
+            "passed": true,
+            "source_sha256": "6e9d61bef51fbe6f968192ac29b6759d926c2f2d2dabf67b2ccacfe819e87f31",
+            "candidate_sha256": "9849940166c6577c886f06a85e8b4996ca41579e20fa26f8f3d9fc5a5d05a56e",
+            "speaker_minimum": 0.9880491095969667,
+            "speaker_minimum_required": 0.95,
+            "dnsmos_overall_delta": -0.12656896314749932,
+            "dnsmos_overall_delta_required": -0.2,
+            "receipt_sha256": "4dd6ce2902d80f929706435295e2be58ce459f220532569eb17882eabecff701",
+            "same_file_estimates_reused": false,
+            "independent_evaluation": false,
+            "reference_text_used": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "profiles_fresh_16_hi_sonic-preview",
+      "language": "hi",
+      "source_sha256": "f4452e1f7a0bab7c56943f879029f2a4012c2d3c568599462706888fce153b85",
+      "source_format": {
+        "samples": 1139544,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "source_model": "sonic-preview",
+      "voice_id": "01fc5e31-71e9-40dc-a220-06dbd4b4ed7e",
+      "control_status": "exact_match",
+      "control_sha256": "6b570c92fb1babb66cf2fbb5d1d8117bca804a1d698dc815fa2f502802c9e0e0",
+      "treatments": [
+        {
+          "mode": "continuous-global",
+          "local_quantized": true,
+          "global_quantized": false,
+          "status": "content_rejected",
+          "output_sha256": "2a2ce509bf3f32a86568e19002218d6f962bcf100db7e611d8bc667d89482164",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "large": null,
+              "mms": 0.013071895424836602
+            },
+            "primary_guard": "large",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.01,
+            "original_units": {
+              "large": 298,
+              "mms": 306
+            },
+            "processed_units": {
+              "large": 0,
+              "mms": 304
+            }
+          },
+          "recognition_cache_sha256": "4e99964f5512be03880936cff071cab0bb0669d04c0a62a2399d2ac23f543116",
+          "runtime_quality_guard": null
+        },
+        {
+          "mode": "continuous-local",
+          "local_quantized": false,
+          "global_quantized": true,
+          "status": "processing_eligible",
+          "output_sha256": "695279fdf0d065aa33f9317605570909a4e018bda43f6d8b76c0096d1b82ef47",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": true,
+            "paired_disagreement": {
+              "large": 0.006711409395973154,
+              "mms": 0.0032679738562091504
+            },
+            "primary_guard": "large",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.01,
+            "original_units": {
+              "large": 298,
+              "mms": 306
+            },
+            "processed_units": {
+              "large": 299,
+              "mms": 307
+            }
+          },
+          "recognition_cache_sha256": "6a2d97b75befd1a4837846c7cd82ad4d2e8efc36c12210f391b8947edd6d3db1",
+          "runtime_quality_guard": {
+            "passed": true,
+            "source_sha256": "f4452e1f7a0bab7c56943f879029f2a4012c2d3c568599462706888fce153b85",
+            "candidate_sha256": "695279fdf0d065aa33f9317605570909a4e018bda43f6d8b76c0096d1b82ef47",
+            "speaker_minimum": 0.9609172746713912,
+            "speaker_minimum_required": 0.95,
+            "dnsmos_overall_delta": -0.06563792837588744,
+            "dnsmos_overall_delta_required": -0.2,
+            "receipt_sha256": "fb3a3a48b1d8c2db44e6567346079d92e5d0519ea3a0290468cd16a3c3ecd50d",
+            "same_file_estimates_reused": false,
+            "independent_evaluation": false,
+            "reference_text_used": false
+          }
+        },
+        {
+          "mode": "continuous-both",
+          "local_quantized": false,
+          "global_quantized": false,
+          "status": "content_rejected",
+          "output_sha256": "1a0585a40bc2828f86d0179de52f6537022e12144b24691de986d17b0639f885",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "large": 0.010067114093959731,
+              "mms": 0.006535947712418301
+            },
+            "primary_guard": "large",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.01,
+            "original_units": {
+              "large": 298,
+              "mms": 306
+            },
+            "processed_units": {
+              "large": 300,
+              "mms": 307
+            }
+          },
+          "recognition_cache_sha256": "32ea224655f69e24f3932eee99fc9ac99cc9322a932558785c860340c6c08f2e",
+          "runtime_quality_guard": null
+        }
+      ]
+    },
+    {
+      "id": "profiles_fresh_17_hi_sonic-3.6",
+      "language": "hi",
+      "source_sha256": "06e0911696fef1e4420d57414392811ad14ffbaa10192d34cb18970b37c86e63",
+      "source_format": {
+        "samples": 1125432,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "source_model": "sonic-3.6",
+      "voice_id": "10c66789-dbc8-4759-ae3f-161c717bee10",
+      "control_status": "exact_match",
+      "control_sha256": "552fc4a0a9a73a9e73fa140699a081364257b412f255d87d8155afe6050d2832",
+      "treatments": [
+        {
+          "mode": "continuous-global",
+          "local_quantized": true,
+          "global_quantized": false,
+          "status": "content_rejected",
+          "output_sha256": "8b609e73685f02aa7cf76e2fd2a70ebe58a09ce642dd4ab664d04c47beafe03c",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "large": null,
+              "mms": 0.02702702702702703
+            },
+            "primary_guard": "large",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.01,
+            "original_units": {
+              "large": 286,
+              "mms": 296
+            },
+            "processed_units": {
+              "large": 0,
+              "mms": 299
+            }
+          },
+          "recognition_cache_sha256": "d2e704e98cbd7627c77fbed04d677a10aa75d53b4d5eca9384fc2d0f43fbecb7",
+          "runtime_quality_guard": null
+        },
+        {
+          "mode": "continuous-local",
+          "local_quantized": false,
+          "global_quantized": true,
+          "status": "content_rejected",
+          "output_sha256": "a853f5018423928ea226ab36d17c2386a6d01c3cbb78796b0d1f990be1b7ed10",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "large": null,
+              "mms": 0.02364864864864865
+            },
+            "primary_guard": "large",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.01,
+            "original_units": {
+              "large": 286,
+              "mms": 296
+            },
+            "processed_units": {
+              "large": 0,
+              "mms": 298
+            }
+          },
+          "recognition_cache_sha256": "e74f2b80110aa98537f2dad822cbae2a04805f4a786b1c8a1f5097374b262ccf",
+          "runtime_quality_guard": null
+        },
+        {
+          "mode": "continuous-both",
+          "local_quantized": false,
+          "global_quantized": false,
+          "status": "content_rejected",
+          "output_sha256": "932da0c1fa12d71f76bd249d90d23e2b5060f8b7f9794a6787dc28c153e81b14",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "large": null,
+              "mms": 0.02027027027027027
+            },
+            "primary_guard": "large",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.01,
+            "original_units": {
+              "large": 286,
+              "mms": 296
+            },
+            "processed_units": {
+              "large": 0,
+              "mms": 297
+            }
+          },
+          "recognition_cache_sha256": "7685866e3b395be84243d3026ec91e527057cd47ab57e59b7f4f995fd25d5fea",
+          "runtime_quality_guard": null
+        }
+      ]
+    },
+    {
+      "id": "profiles_fresh_18_hi_sonic-preview",
+      "language": "hi",
+      "source_sha256": "62a6fa85d359fa5d2cd78873cbbcb7ca1ff34b3e915ffeeac7235af7b5cb24f5",
+      "source_format": {
+        "samples": 1181880,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "source_model": "sonic-preview",
+      "voice_id": "34800b58-bdd5-4952-a888-2a19f1b236b6",
+      "control_status": "exact_match",
+      "control_sha256": "30dd83bf4714ea4a6e3b4266a0f98999df652ca5767d6daf8d234417b83164d3",
+      "treatments": [
+        {
+          "mode": "continuous-global",
+          "local_quantized": true,
+          "global_quantized": false,
+          "status": "content_rejected",
+          "output_sha256": "141feb94d780450cb620a3da959e5b806cab4ce72d93b5ec664175d8e51cb0d2",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "large": null,
+              "mms": 0.0136986301369863
+            },
+            "primary_guard": "large",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.01,
+            "original_units": {
+              "large": 290,
+              "mms": 292
+            },
+            "processed_units": {
+              "large": 0,
+              "mms": 294
+            }
+          },
+          "recognition_cache_sha256": "ca5e809b7ac8a1df5bf3e00b391d9019b1b9bb3bced1bd99a6f48ee9172900d4",
+          "runtime_quality_guard": null
+        },
+        {
+          "mode": "continuous-local",
+          "local_quantized": false,
+          "global_quantized": true,
+          "status": "processing_eligible",
+          "output_sha256": "f739267bc004a88816b935b7d794abba2fc6d7f434a24e844767e5dedbbb33d8",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": true,
+            "paired_disagreement": {
+              "large": 0.0034482758620689655,
+              "mms": 0.00684931506849315
+            },
+            "primary_guard": "large",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.01,
+            "original_units": {
+              "large": 290,
+              "mms": 292
+            },
+            "processed_units": {
+              "large": 290,
+              "mms": 293
+            }
+          },
+          "recognition_cache_sha256": "8f32f1286f950d11fb1c2fdf06e0c8475fd02cec53e17a8f7b763d643567d699",
+          "runtime_quality_guard": {
+            "passed": true,
+            "source_sha256": "62a6fa85d359fa5d2cd78873cbbcb7ca1ff34b3e915ffeeac7235af7b5cb24f5",
+            "candidate_sha256": "f739267bc004a88816b935b7d794abba2fc6d7f434a24e844767e5dedbbb33d8",
+            "speaker_minimum": 0.9919969747962631,
+            "speaker_minimum_required": 0.95,
+            "dnsmos_overall_delta": 0.03799799208811727,
+            "dnsmos_overall_delta_required": -0.2,
+            "receipt_sha256": "886310333c8aa420e0aeb67091c1d67f8a4764986c0a654c3167b8ea1584f102",
+            "same_file_estimates_reused": false,
+            "independent_evaluation": false,
+            "reference_text_used": false
+          }
+        },
+        {
+          "mode": "continuous-both",
+          "local_quantized": false,
+          "global_quantized": false,
+          "status": "processing_eligible",
+          "output_sha256": "0c38a2aaa8c3cfdd0a395f99024edccca1f3488d4e67ec4b1f6be1100fa7cf03",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": true,
+            "paired_disagreement": {
+              "large": 0.0034482758620689655,
+              "mms": 0.00684931506849315
+            },
+            "primary_guard": "large",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.01,
+            "original_units": {
+              "large": 290,
+              "mms": 292
+            },
+            "processed_units": {
+              "large": 290,
+              "mms": 293
+            }
+          },
+          "recognition_cache_sha256": "e2cb72836204858ee96f0545256854e30762853523cef7058785ec4e6314476f",
+          "runtime_quality_guard": {
+            "passed": true,
+            "source_sha256": "62a6fa85d359fa5d2cd78873cbbcb7ca1ff34b3e915ffeeac7235af7b5cb24f5",
+            "candidate_sha256": "0c38a2aaa8c3cfdd0a395f99024edccca1f3488d4e67ec4b1f6be1100fa7cf03",
+            "speaker_minimum": 0.9906075539535346,
+            "speaker_minimum_required": 0.95,
+            "dnsmos_overall_delta": 0.004977978861234522,
+            "dnsmos_overall_delta_required": -0.2,
+            "receipt_sha256": "504a7131c6391788901f9804b55598cbe850d2bd8ced4bd59d68fc1ca325707c",
+            "same_file_estimates_reused": false,
+            "independent_evaluation": false,
+            "reference_text_used": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "profiles_fresh_19_hi_sonic-3.6",
+      "language": "hi",
+      "source_sha256": "82eccc6dfe1a21a5f869efa49a17abfbcdb8acc9e2f97283d2dda56ce43ec8c0",
+      "source_format": {
+        "samples": 1248912,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "source_model": "sonic-3.6",
+      "voice_id": "41e97793-a58d-40b7-8430-83465e186f94",
+      "control_status": "exact_match",
+      "control_sha256": "980d9f855c31822743d12f32da9c299d28f01920881ffc3603422bde1bad7b88",
+      "treatments": [
+        {
+          "mode": "continuous-global",
+          "local_quantized": true,
+          "global_quantized": false,
+          "status": "content_rejected",
+          "output_sha256": "bbaf95a476a769701d6001327ce8ffa8bc5d8a8824b20dfab2cdb4bc2c58aee1",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "large": null,
+              "mms": 0.03115264797507788
+            },
+            "primary_guard": "large",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.01,
+            "original_units": {
+              "large": 314,
+              "mms": 321
+            },
+            "processed_units": {
+              "large": 0,
+              "mms": 319
+            }
+          },
+          "recognition_cache_sha256": "d0290f0654cdd5bd33443e211a8a9e15f18ce2349b76806a7ffaf624db6bbc47",
+          "runtime_quality_guard": null
+        },
+        {
+          "mode": "continuous-local",
+          "local_quantized": false,
+          "global_quantized": true,
+          "status": "content_rejected",
+          "output_sha256": "7c84635d6012dbaf1956a50e6f4658416216ec049fc5a3542d55082ee1e567f0",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "large": null,
+              "mms": 0.024922118380062305
+            },
+            "primary_guard": "large",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.01,
+            "original_units": {
+              "large": 314,
+              "mms": 321
+            },
+            "processed_units": {
+              "large": 0,
+              "mms": 320
+            }
+          },
+          "recognition_cache_sha256": "91e29b99fafa17b9959a4de0b5c1ae9708bc91a899425d35ff340fe33ce4b7ff",
+          "runtime_quality_guard": null
+        },
+        {
+          "mode": "continuous-both",
+          "local_quantized": false,
+          "global_quantized": false,
+          "status": "content_rejected",
+          "output_sha256": "92d286570adc582714b1f8d2693c00472b7797eb2c5d613eaf65cfe913db88da",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "large": null,
+              "mms": 0.024922118380062305
+            },
+            "primary_guard": "large",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.01,
+            "original_units": {
+              "large": 314,
+              "mms": 321
+            },
+            "processed_units": {
+              "large": 0,
+              "mms": 320
+            }
+          },
+          "recognition_cache_sha256": "0bfcffaad342137cb1408f85f8284c7480ba642e8e8ee0ac5d9ab0bd967b9ce5",
+          "runtime_quality_guard": null
+        }
+      ]
+    },
+    {
+      "id": "profiles_fresh_20_ja_sonic-preview",
+      "language": "ja",
+      "source_sha256": "fb17c276ba05b16b56e8cf29eb6026517517c15f5dbdc317a072e4818ddd5b9c",
+      "source_format": {
+        "samples": 1241856,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "source_model": "sonic-preview",
+      "voice_id": "7f822e9a-d00c-45fe-84e4-d59a3ac664d4",
+      "control_status": "exact_match",
+      "control_sha256": "5ac6aaf852eff59ee7487c69141a6d8fd54e54d91bd9e937c739d230fdb7d2b0",
+      "treatments": [
+        {
+          "mode": "continuous-global",
+          "local_quantized": true,
+          "global_quantized": false,
+          "status": "runtime_quality_rejected",
+          "output_sha256": "d8959227c1a8260f4875ca58b218273d1bcaaa722f151ae6d54a737c6e12578e",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": true,
+            "paired_disagreement": {
+              "turbo": 0.006622516556291391,
+              "sensevoice": 0.0
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "sensevoice",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 151,
+              "sensevoice": 151
+            },
+            "processed_units": {
+              "turbo": 151,
+              "sensevoice": 151
+            }
+          },
+          "recognition_cache_sha256": "3af0a15048408179cb33b9e6b395dc2683098b2e23834deca927013ead947396",
+          "runtime_quality_guard": {
+            "passed": false,
+            "source_sha256": "fb17c276ba05b16b56e8cf29eb6026517517c15f5dbdc317a072e4818ddd5b9c",
+            "candidate_sha256": "d8959227c1a8260f4875ca58b218273d1bcaaa722f151ae6d54a737c6e12578e",
+            "speaker_minimum": 0.9485666318600252,
+            "speaker_minimum_required": 0.95,
+            "dnsmos_overall_delta": -0.09228656088633347,
+            "dnsmos_overall_delta_required": -0.2,
+            "receipt_sha256": "4eba2c72b39a3093a8896d93f5a0296ab29d152d2de03b290fd80aae4143e238",
+            "same_file_estimates_reused": false,
+            "independent_evaluation": false,
+            "reference_text_used": false
+          }
+        },
+        {
+          "mode": "continuous-local",
+          "local_quantized": false,
+          "global_quantized": true,
+          "status": "processing_eligible",
+          "output_sha256": "01149b47eb0dbf83e2f2b8aed88d0e7a9d4571366120f84a61be6c938e95f0c5",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": true,
+            "paired_disagreement": {
+              "turbo": 0.0,
+              "sensevoice": 0.006622516556291391
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "sensevoice",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 151,
+              "sensevoice": 151
+            },
+            "processed_units": {
+              "turbo": 151,
+              "sensevoice": 151
+            }
+          },
+          "recognition_cache_sha256": "26994b16ef5ed26a1cfc8f0ea908c3d0a915bbc72393190c0aff9cf5e79feeed",
+          "runtime_quality_guard": {
+            "passed": true,
+            "source_sha256": "fb17c276ba05b16b56e8cf29eb6026517517c15f5dbdc317a072e4818ddd5b9c",
+            "candidate_sha256": "01149b47eb0dbf83e2f2b8aed88d0e7a9d4571366120f84a61be6c938e95f0c5",
+            "speaker_minimum": 0.973106791272542,
+            "speaker_minimum_required": 0.95,
+            "dnsmos_overall_delta": -0.10781784393314675,
+            "dnsmos_overall_delta_required": -0.2,
+            "receipt_sha256": "4220ee595de98779ef06d18da01e52331b272b8d59e6e90e9b72c6f0eb6ffacb",
+            "same_file_estimates_reused": false,
+            "independent_evaluation": false,
+            "reference_text_used": false
+          }
+        },
+        {
+          "mode": "continuous-both",
+          "local_quantized": false,
+          "global_quantized": false,
+          "status": "processing_eligible",
+          "output_sha256": "cde79a91d2b91b72b1b6c363e3138dc72fe1299540751d53cf67c327db23c284",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": true,
+            "paired_disagreement": {
+              "turbo": 0.0,
+              "sensevoice": 0.006622516556291391
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "sensevoice",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 151,
+              "sensevoice": 151
+            },
+            "processed_units": {
+              "turbo": 151,
+              "sensevoice": 151
+            }
+          },
+          "recognition_cache_sha256": "a3aea1f3e263cd23ddfaf234dae90c96f1bff53f9052b27b64ee3883b4cb6338",
+          "runtime_quality_guard": {
+            "passed": true,
+            "source_sha256": "fb17c276ba05b16b56e8cf29eb6026517517c15f5dbdc317a072e4818ddd5b9c",
+            "candidate_sha256": "cde79a91d2b91b72b1b6c363e3138dc72fe1299540751d53cf67c327db23c284",
+            "speaker_minimum": 0.9661002555884353,
+            "speaker_minimum_required": 0.95,
+            "dnsmos_overall_delta": -0.10969050523800306,
+            "dnsmos_overall_delta_required": -0.2,
+            "receipt_sha256": "aee1d48bf13cb360c7469c4b9baee5d5a0bf86789d36f97ce1e6671c0668dfb3",
+            "same_file_estimates_reused": false,
+            "independent_evaluation": false,
+            "reference_text_used": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "profiles_fresh_24_ar_sonic-preview",
+      "language": "ar",
+      "source_sha256": "fcef17ba7ccc5a5d736842c8344fa5552df94268831e53059291ac1d5efe507b",
+      "source_format": {
+        "samples": 1382976,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "source_model": "sonic-preview",
+      "voice_id": "db873303-3a70-4d9d-867a-0d70a6377195",
+      "control_status": "exact_match",
+      "control_sha256": "114c554691c79af6b8b9c5f18479c54e814782e824ac5b918c180f43ec2b4223",
+      "treatments": [
+        {
+          "mode": "continuous-global",
+          "local_quantized": true,
+          "global_quantized": false,
+          "status": "content_rejected",
+          "output_sha256": "4e0766dfdcaa07aac3c9a9df8cf8e12180148bcb58697a94020f29b30d8db9d8",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "turbo": 0.11940298507462686,
+              "fastconformer": 0.014925373134328358
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "fastconformer",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 67,
+              "fastconformer": 67
+            },
+            "processed_units": {
+              "turbo": 68,
+              "fastconformer": 67
+            }
+          },
+          "recognition_cache_sha256": "1dc98ff88aa854c5607a01d27649479e6a5fd5c656ac75f95b0f312d3295c198",
+          "runtime_quality_guard": null
+        },
+        {
+          "mode": "continuous-local",
+          "local_quantized": false,
+          "global_quantized": true,
+          "status": "content_rejected",
+          "output_sha256": "c6b9f1b395718f77218ef60a70d13c66b8c8f4496692f39b3c43040750d920ad",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "turbo": 0.04477611940298507,
+              "fastconformer": 0.0
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "fastconformer",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 67,
+              "fastconformer": 67
+            },
+            "processed_units": {
+              "turbo": 67,
+              "fastconformer": 67
+            }
+          },
+          "recognition_cache_sha256": "1ab02697d1f6bcf8e32c101fbda91d973057eedd066cff9cbc09113ddad120bb",
+          "runtime_quality_guard": null
+        },
+        {
+          "mode": "continuous-both",
+          "local_quantized": false,
+          "global_quantized": false,
+          "status": "content_rejected",
+          "output_sha256": "06b8041da8a3895e9f986764d19101c7d488b10810de6671772fe58efbf3b009",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "turbo": 0.04477611940298507,
+              "fastconformer": 0.0
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "fastconformer",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 67,
+              "fastconformer": 67
+            },
+            "processed_units": {
+              "turbo": 67,
+              "fastconformer": 67
+            }
+          },
+          "recognition_cache_sha256": "41d3bb41440ae489a286c220ae9c11b4f7b9a500dfd934f4593b5371ed44b282",
+          "runtime_quality_guard": null
+        }
+      ]
+    },
+    {
+      "id": "profiles_fresh_27_ar_sonic-3.6",
+      "language": "ar",
+      "source_sha256": "8005d66011a7cc5a0066634a989f2874f34bbeaa416c664661b5f5578b441d1d",
+      "source_format": {
+        "samples": 1330056,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "source_model": "sonic-3.6",
+      "voice_id": "1cd6668f-84b9-41a2-adbd-b7328f8d6ef4",
+      "control_status": "exact_match",
+      "control_sha256": "7443a7046bf11bf96ee9f7908c9fa532c5c82bf41fc0d538683eb9c94512c4c9",
+      "treatments": [
+        {
+          "mode": "continuous-global",
+          "local_quantized": true,
+          "global_quantized": false,
+          "status": "content_rejected",
+          "output_sha256": "fb5c37cf4a7ca0ad8412127511babf4617d31875e60c127a85cb9a84ce5168de",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "turbo": null,
+              "fastconformer": 0.045454545454545456
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "fastconformer",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 67,
+              "fastconformer": 66
+            },
+            "processed_units": {
+              "turbo": 0,
+              "fastconformer": 66
+            }
+          },
+          "recognition_cache_sha256": "9a806f87dc17dc89a82ee0f650d72aad6b808e269fd5ccc2662b38c9c84dc7b2",
+          "runtime_quality_guard": null
+        },
+        {
+          "mode": "continuous-local",
+          "local_quantized": false,
+          "global_quantized": true,
+          "status": "content_rejected",
+          "output_sha256": "3670e0c712f95eb24c58d4c101215205e2e2d4b994809628ca27b7aff6893dfd",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "turbo": null,
+              "fastconformer": 0.030303030303030304
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "fastconformer",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 67,
+              "fastconformer": 66
+            },
+            "processed_units": {
+              "turbo": 0,
+              "fastconformer": 66
+            }
+          },
+          "recognition_cache_sha256": "e35692a18de029b3087ed28a7cba7b343199e131560bedc661fc72dda7ed201c",
+          "runtime_quality_guard": null
+        },
+        {
+          "mode": "continuous-both",
+          "local_quantized": false,
+          "global_quantized": false,
+          "status": "runtime_quality_rejected",
+          "output_sha256": "397051369c6fc52bfac625aeb6b188c10d833aba88f035e0b121f929121def07",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": true,
+            "paired_disagreement": {
+              "turbo": 0.014925373134328358,
+              "fastconformer": 0.015151515151515152
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "fastconformer",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 67,
+              "fastconformer": 66
+            },
+            "processed_units": {
+              "turbo": 67,
+              "fastconformer": 66
+            }
+          },
+          "recognition_cache_sha256": "996f88306605fa1495a2c13c270c1f9329198508302440887c1befb86a5fc1e2",
+          "runtime_quality_guard": {
+            "passed": false,
+            "source_sha256": "8005d66011a7cc5a0066634a989f2874f34bbeaa416c664661b5f5578b441d1d",
+            "candidate_sha256": "397051369c6fc52bfac625aeb6b188c10d833aba88f035e0b121f929121def07",
+            "speaker_minimum": 0.9771036804825037,
+            "speaker_minimum_required": 0.95,
+            "dnsmos_overall_delta": -0.2401502381187317,
+            "dnsmos_overall_delta_required": -0.2,
+            "receipt_sha256": "5705c0de0a77df9103b902edfbc5c354a5830aef117edd3ea1a254034c90d4ac",
+            "same_file_estimates_reused": false,
+            "independent_evaluation": false,
+            "reference_text_used": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "profiles_fresh_28_ko_sonic-preview",
+      "language": "ko",
+      "source_sha256": "0a702f517ecbdc1002615e6855f47aaf14cb68ef72035f4756964a9b732ee60e",
+      "source_format": {
+        "samples": 1273608,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "source_model": "sonic-preview",
+      "voice_id": "cd6c48a9-774b-4397-98b4-9948c0a790f0",
+      "control_status": "exact_match",
+      "control_sha256": "df70a42456d3f774f70057ea07d87c54fe678f45ac11461d0efe8dc25cda1ec1",
+      "treatments": [
+        {
+          "mode": "continuous-global",
+          "local_quantized": true,
+          "global_quantized": false,
+          "status": "content_rejected",
+          "output_sha256": "7e955216790e0154537836f3798772d9e0a33db1245ae508a92a6953be0f4ece",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "turbo": null,
+              "sensevoice": 0.11320754716981132
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "sensevoice",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 53,
+              "sensevoice": 53
+            },
+            "processed_units": {
+              "turbo": 0,
+              "sensevoice": 52
+            }
+          },
+          "recognition_cache_sha256": "4736dbf0292468c2d04dddbfed1708c52602d90d820cc72a4414468b2a7f6833",
+          "runtime_quality_guard": null
+        },
+        {
+          "mode": "continuous-local",
+          "local_quantized": false,
+          "global_quantized": true,
+          "status": "content_rejected",
+          "output_sha256": "102582454996335dcb10b26b4507f44b017e2b1d7fe1f6a0e0cc3ba7e1fcb4cd",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "turbo": null,
+              "sensevoice": 0.05660377358490566
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "sensevoice",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 53,
+              "sensevoice": 53
+            },
+            "processed_units": {
+              "turbo": 0,
+              "sensevoice": 53
+            }
+          },
+          "recognition_cache_sha256": "62c24a47b304923e7e3edc2e17ffdf1ebb58aeb4c7e1a8a6937c563b3d6dc4e4",
+          "runtime_quality_guard": null
+        },
+        {
+          "mode": "continuous-both",
+          "local_quantized": false,
+          "global_quantized": false,
+          "status": "processing_eligible",
+          "output_sha256": "f017518fb988eba80c71a55817afca410fe22c39333550ec72daa7b32c7898cc",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": true,
+            "paired_disagreement": {
+              "turbo": 0.0,
+              "sensevoice": 0.018867924528301886
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "sensevoice",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 53,
+              "sensevoice": 53
+            },
+            "processed_units": {
+              "turbo": 53,
+              "sensevoice": 53
+            }
+          },
+          "recognition_cache_sha256": "cde27ce18a06bac22cd281dee46292437d382a8458440deb06e858897b13681a",
+          "runtime_quality_guard": {
+            "passed": true,
+            "source_sha256": "0a702f517ecbdc1002615e6855f47aaf14cb68ef72035f4756964a9b732ee60e",
+            "candidate_sha256": "f017518fb988eba80c71a55817afca410fe22c39333550ec72daa7b32c7898cc",
+            "speaker_minimum": 0.9813889126380454,
+            "speaker_minimum_required": 0.95,
+            "dnsmos_overall_delta": -0.06391983633501352,
+            "dnsmos_overall_delta_required": -0.2,
+            "receipt_sha256": "3a2ab90390f4219ef69b99b38d738601029023eefe7821e701133b46211ddbee",
+            "same_file_estimates_reused": false,
+            "independent_evaluation": false,
+            "reference_text_used": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "profiles_fresh_30_ko_sonic-preview",
+      "language": "ko",
+      "source_sha256": "9dc04b84b233bb3a595445761396bf195323746ed3090831705265d039d9b80a",
+      "source_format": {
+        "samples": 1319472,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "source_model": "sonic-preview",
+      "voice_id": "db938869-18b5-4c21-be8b-2ffdfba6d8d4",
+      "control_status": "exact_match",
+      "control_sha256": "73a4b08e1633f8bf4c88767ce00ec7dc69b75eb7927d9b9dd76b132fcb60c385",
+      "treatments": [
+        {
+          "mode": "continuous-global",
+          "local_quantized": true,
+          "global_quantized": false,
+          "status": "content_rejected",
+          "output_sha256": "d0dcc0c99dabdefd1f0f4a9725f953ea0cbe8cbfeddb60a25a16c63314060223",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "turbo": null,
+              "sensevoice": 0.06
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "sensevoice",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 51,
+              "sensevoice": 50
+            },
+            "processed_units": {
+              "turbo": 0,
+              "sensevoice": 49
+            }
+          },
+          "recognition_cache_sha256": "639e8dca33fb1dd9a1935c39cd88831235c61854ae3eb9944178b36ac082dd1e",
+          "runtime_quality_guard": null
+        },
+        {
+          "mode": "continuous-local",
+          "local_quantized": false,
+          "global_quantized": true,
+          "status": "content_rejected",
+          "output_sha256": "e3255f15e430669c7aea6ab373c7cbebfe797f668dcc3e79d69056871f15a254",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "turbo": null,
+              "sensevoice": 0.06
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "sensevoice",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 51,
+              "sensevoice": 50
+            },
+            "processed_units": {
+              "turbo": 0,
+              "sensevoice": 48
+            }
+          },
+          "recognition_cache_sha256": "cebecaa96b559823703d3fccbeaab7def38318c666fce4a4fb35fa43304c7205",
+          "runtime_quality_guard": null
+        },
+        {
+          "mode": "continuous-both",
+          "local_quantized": false,
+          "global_quantized": false,
+          "status": "content_rejected",
+          "output_sha256": "47895d59028dccfa57179272eb10d1fd6cdd9d5403f4283d33cebbac288f342f",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "turbo": null,
+              "sensevoice": 0.06
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "sensevoice",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 51,
+              "sensevoice": 50
+            },
+            "processed_units": {
+              "turbo": 0,
+              "sensevoice": 48
+            }
+          },
+          "recognition_cache_sha256": "ce8b3d3d6ad2ebd8e31744403c8d6c942a5c5dd9d73b8404e10de73401a2fe4e",
+          "runtime_quality_guard": null
+        }
+      ]
+    },
+    {
+      "id": "profiles_fresh_32_zh_sonic-preview",
+      "language": "zh",
+      "source_sha256": "cf6b35749a76df1cdf25507eb31f13d519fc06000bccf23227f8ba8289f32dbf",
+      "source_format": {
+        "samples": 1428840,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "source_model": "sonic-preview",
+      "voice_id": "882d4b0b-d812-4252-8cd4-fbe25cb09f61",
+      "control_status": "exact_match",
+      "control_sha256": "442d3c5da33f4cf88133541b06dd18b8fb33b937511306e175dc5c5b775cddf2",
+      "treatments": [
+        {
+          "mode": "continuous-global",
+          "local_quantized": true,
+          "global_quantized": false,
+          "status": "runtime_quality_rejected",
+          "output_sha256": "73a31986802b083a92a6a4410f9242f16dc3d3ce9dc2f7024ab514f5294c18ef",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": true,
+            "paired_disagreement": {
+              "turbo": 0.02112676056338028,
+              "sensevoice": 0.007042253521126761
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "sensevoice",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 142,
+              "sensevoice": 142
+            },
+            "processed_units": {
+              "turbo": 142,
+              "sensevoice": 142
+            }
+          },
+          "recognition_cache_sha256": "4a0d1603625033af19c5f24cbe75ae10ee3f8a52550dfcb034bc807fe505e22f",
+          "runtime_quality_guard": {
+            "passed": false,
+            "source_sha256": "cf6b35749a76df1cdf25507eb31f13d519fc06000bccf23227f8ba8289f32dbf",
+            "candidate_sha256": "73a31986802b083a92a6a4410f9242f16dc3d3ce9dc2f7024ab514f5294c18ef",
+            "speaker_minimum": 0.9052509964043545,
+            "speaker_minimum_required": 0.95,
+            "dnsmos_overall_delta": -0.08772812690624088,
+            "dnsmos_overall_delta_required": -0.2,
+            "receipt_sha256": "70d40b1c2e7224960fe76b55fbf7710a57cf9f228057205ff4a3ba7a672336ec",
+            "same_file_estimates_reused": false,
+            "independent_evaluation": false,
+            "reference_text_used": false
+          }
+        },
+        {
+          "mode": "continuous-local",
+          "local_quantized": false,
+          "global_quantized": true,
+          "status": "processing_eligible",
+          "output_sha256": "b224046a8ae0957f9c0b56d6035633d82319169202a1aa6b33cdbc21dee9d00f",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": true,
+            "paired_disagreement": {
+              "turbo": 0.0,
+              "sensevoice": 0.0
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "sensevoice",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 142,
+              "sensevoice": 142
+            },
+            "processed_units": {
+              "turbo": 142,
+              "sensevoice": 142
+            }
+          },
+          "recognition_cache_sha256": "534866bff1f64af5f7f91a423b2be6b2d360864d59ff676f7aaa7601b64a952f",
+          "runtime_quality_guard": {
+            "passed": true,
+            "source_sha256": "cf6b35749a76df1cdf25507eb31f13d519fc06000bccf23227f8ba8289f32dbf",
+            "candidate_sha256": "b224046a8ae0957f9c0b56d6035633d82319169202a1aa6b33cdbc21dee9d00f",
+            "speaker_minimum": 0.9540946801248582,
+            "speaker_minimum_required": 0.95,
+            "dnsmos_overall_delta": -0.0634471548914366,
+            "dnsmos_overall_delta_required": -0.2,
+            "receipt_sha256": "6d44ea116b3125bef5b3fd92818bf95b289bf6c9f057782f7a7882eec49fc4b0",
+            "same_file_estimates_reused": false,
+            "independent_evaluation": false,
+            "reference_text_used": false
+          }
+        },
+        {
+          "mode": "continuous-both",
+          "local_quantized": false,
+          "global_quantized": false,
+          "status": "processing_eligible",
+          "output_sha256": "2dc069809610bb725755ec854d3f8f5ba228761dbaf179082b3b7055f6efd6a7",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": true,
+            "paired_disagreement": {
+              "turbo": 0.0,
+              "sensevoice": 0.0
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "sensevoice",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 142,
+              "sensevoice": 142
+            },
+            "processed_units": {
+              "turbo": 142,
+              "sensevoice": 142
+            }
+          },
+          "recognition_cache_sha256": "32b89c610f79e37cd1cda687514aabd5e609180d58f83f97374bf8bbb80870a3",
+          "runtime_quality_guard": {
+            "passed": true,
+            "source_sha256": "cf6b35749a76df1cdf25507eb31f13d519fc06000bccf23227f8ba8289f32dbf",
+            "candidate_sha256": "2dc069809610bb725755ec854d3f8f5ba228761dbaf179082b3b7055f6efd6a7",
+            "speaker_minimum": 0.9533948706671176,
+            "speaker_minimum_required": 0.95,
+            "dnsmos_overall_delta": -0.10339022531630837,
+            "dnsmos_overall_delta_required": -0.2,
+            "receipt_sha256": "58311de605ef9be5bcd10f77fd3153e2e7167e89d1838bce775dfa49a7b504f7",
+            "same_file_estimates_reused": false,
+            "independent_evaluation": false,
+            "reference_text_used": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "profiles_fresh_33_zh_sonic-3.6",
+      "language": "zh",
+      "source_sha256": "df9dd901c329ac10559bcecb6570a225432b06bf07ece37a41e26f2fe7e1e9af",
+      "source_format": {
+        "samples": 1404144,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "source_model": "sonic-3.6",
+      "voice_id": "b1ef4710-125e-4304-923e-ec243fbe0f9c",
+      "control_status": "exact_match",
+      "control_sha256": "9adc08c1efa123bd66ecbe1849de5b3fb5a4adf087c1bfddb325e1fcf03a8bce",
+      "treatments": [
+        {
+          "mode": "continuous-global",
+          "local_quantized": true,
+          "global_quantized": false,
+          "status": "processing_eligible",
+          "output_sha256": "22e6328167121fa25482c26da8ef5e7a2fc1ca6fb2b210700c60e32a2ffbc8f3",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": true,
+            "paired_disagreement": {
+              "turbo": 0.014285714285714285,
+              "sensevoice": 0.0
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "sensevoice",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 140,
+              "sensevoice": 140
+            },
+            "processed_units": {
+              "turbo": 140,
+              "sensevoice": 140
+            }
+          },
+          "recognition_cache_sha256": "3cf87e7853646901720d6acc1695f337264d6abdf89069cc8ac05bb49a0fc108",
+          "runtime_quality_guard": {
+            "passed": true,
+            "source_sha256": "df9dd901c329ac10559bcecb6570a225432b06bf07ece37a41e26f2fe7e1e9af",
+            "candidate_sha256": "22e6328167121fa25482c26da8ef5e7a2fc1ca6fb2b210700c60e32a2ffbc8f3",
+            "speaker_minimum": 0.9916522234228708,
+            "speaker_minimum_required": 0.95,
+            "dnsmos_overall_delta": -0.1234746533025688,
+            "dnsmos_overall_delta_required": -0.2,
+            "receipt_sha256": "91dc65b53453f801cf98fe3cbdd32b20b4951bebad869a50036abc9291193a79",
+            "same_file_estimates_reused": false,
+            "independent_evaluation": false,
+            "reference_text_used": false
+          }
+        },
+        {
+          "mode": "continuous-local",
+          "local_quantized": false,
+          "global_quantized": true,
+          "status": "processing_eligible",
+          "output_sha256": "e5924d600a07c0ea365e3dcdc28f5c3b0993654965fcb741e8a459d9eaefd015",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": true,
+            "paired_disagreement": {
+              "turbo": 0.014285714285714285,
+              "sensevoice": 0.0
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "sensevoice",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 140,
+              "sensevoice": 140
+            },
+            "processed_units": {
+              "turbo": 140,
+              "sensevoice": 140
+            }
+          },
+          "recognition_cache_sha256": "c8d7b45f4be1016e833e79644a0816b9b8d8007b457969ecec45f09c9cab8f71",
+          "runtime_quality_guard": {
+            "passed": true,
+            "source_sha256": "df9dd901c329ac10559bcecb6570a225432b06bf07ece37a41e26f2fe7e1e9af",
+            "candidate_sha256": "e5924d600a07c0ea365e3dcdc28f5c3b0993654965fcb741e8a459d9eaefd015",
+            "speaker_minimum": 0.9874195235649077,
+            "speaker_minimum_required": 0.95,
+            "dnsmos_overall_delta": -0.1021111101111356,
+            "dnsmos_overall_delta_required": -0.2,
+            "receipt_sha256": "aa89e051ad35c5ee741b1c6f39f9b363e3fc841d0471603fecef0cc16beb8565",
+            "same_file_estimates_reused": false,
+            "independent_evaluation": false,
+            "reference_text_used": false
+          }
+        },
+        {
+          "mode": "continuous-both",
+          "local_quantized": false,
+          "global_quantized": false,
+          "status": "processing_eligible",
+          "output_sha256": "2bfe4d939636f72428bc602624e90b47e78eab0c4563b504b57d06f47963ff9e",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": true,
+            "paired_disagreement": {
+              "turbo": 0.014285714285714285,
+              "sensevoice": 0.007142857142857143
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "sensevoice",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 140,
+              "sensevoice": 140
+            },
+            "processed_units": {
+              "turbo": 140,
+              "sensevoice": 140
+            }
+          },
+          "recognition_cache_sha256": "e8443bc77855790d410427c37494877b3f93b4af635bda5a9c67dc35c090519e",
+          "runtime_quality_guard": {
+            "passed": true,
+            "source_sha256": "df9dd901c329ac10559bcecb6570a225432b06bf07ece37a41e26f2fe7e1e9af",
+            "candidate_sha256": "2bfe4d939636f72428bc602624e90b47e78eab0c4563b504b57d06f47963ff9e",
+            "speaker_minimum": 0.9882248265434377,
+            "speaker_minimum_required": 0.95,
+            "dnsmos_overall_delta": -0.1310966009722332,
+            "dnsmos_overall_delta_required": -0.2,
+            "receipt_sha256": "1c5bc1414b13143552485fdbe9e8fddecc278d0644b338ffc9b3e11b2857a92b",
+            "same_file_estimates_reused": false,
+            "independent_evaluation": false,
+            "reference_text_used": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "profiles_fresh_35_zh_sonic-3.6",
+      "language": "zh",
+      "source_sha256": "1eff65b69b53600ece16d1b91c2b5bf3423bd4d72c2aa518facec6fd29e7b8ae",
+      "source_format": {
+        "samples": 1340640,
+        "sample_rate": 44100,
+        "channels": 2
+      },
+      "source_model": "sonic-3.6",
+      "voice_id": "f1bdc97e-76d1-4bfe-95ba-f3a0bc7e6a7e",
+      "control_status": "exact_match",
+      "control_sha256": "f42d4f5e9d383201d2f0b52b6c90bd9be0a3d284128e8a31ceaf2c0aa894985e",
+      "treatments": [
+        {
+          "mode": "continuous-global",
+          "local_quantized": true,
+          "global_quantized": false,
+          "status": "processing_eligible",
+          "output_sha256": "515fa16ebce79b13c556fd09e0075daf1be4a4c80570069588ea66c4c4aeb83c",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": true,
+            "paired_disagreement": {
+              "turbo": 0.007246376811594203,
+              "sensevoice": 0.007246376811594203
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "sensevoice",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 138,
+              "sensevoice": 138
+            },
+            "processed_units": {
+              "turbo": 138,
+              "sensevoice": 138
+            }
+          },
+          "recognition_cache_sha256": "c3bffddf745925479e92e35f2c6be0e45c31803378e2d25d92fff904f23f612f",
+          "runtime_quality_guard": {
+            "passed": true,
+            "source_sha256": "1eff65b69b53600ece16d1b91c2b5bf3423bd4d72c2aa518facec6fd29e7b8ae",
+            "candidate_sha256": "515fa16ebce79b13c556fd09e0075daf1be4a4c80570069588ea66c4c4aeb83c",
+            "speaker_minimum": 0.9891086143985979,
+            "speaker_minimum_required": 0.95,
+            "dnsmos_overall_delta": -0.03532755973275492,
+            "dnsmos_overall_delta_required": -0.2,
+            "receipt_sha256": "f4227229d1e6b6c3ad1721bb5c0eefa3e03712be656897cd4d85170dde5f2c95",
+            "same_file_estimates_reused": false,
+            "independent_evaluation": false,
+            "reference_text_used": false
+          }
+        },
+        {
+          "mode": "continuous-local",
+          "local_quantized": false,
+          "global_quantized": true,
+          "status": "processing_eligible",
+          "output_sha256": "5ce5dcb1f79ca07e18e950debd9b1d39da177214abbe3b42643e685f5413df57",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": true,
+            "paired_disagreement": {
+              "turbo": 0.0,
+              "sensevoice": 0.0
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "sensevoice",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 138,
+              "sensevoice": 138
+            },
+            "processed_units": {
+              "turbo": 138,
+              "sensevoice": 138
+            }
+          },
+          "recognition_cache_sha256": "34b73546a52124bbdd39e35834d0babb276576b2df27a134145ebe80b8e7bcb3",
+          "runtime_quality_guard": {
+            "passed": true,
+            "source_sha256": "1eff65b69b53600ece16d1b91c2b5bf3423bd4d72c2aa518facec6fd29e7b8ae",
+            "candidate_sha256": "5ce5dcb1f79ca07e18e950debd9b1d39da177214abbe3b42643e685f5413df57",
+            "speaker_minimum": 0.9891375268556308,
+            "speaker_minimum_required": 0.95,
+            "dnsmos_overall_delta": -0.026006212811964247,
+            "dnsmos_overall_delta_required": -0.2,
+            "receipt_sha256": "695524de25fe03b95bff902a2db6b7cb1833dfb71c1416ca5e026a040503a380",
+            "same_file_estimates_reused": false,
+            "independent_evaluation": false,
+            "reference_text_used": false
+          }
+        },
+        {
+          "mode": "continuous-both",
+          "local_quantized": false,
+          "global_quantized": false,
+          "status": "processing_eligible",
+          "output_sha256": "f7c184a3ade61a55dd5910b8f3e1777403f8f2c1dcdc85ea34ddb1508fa22ef4",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": true,
+            "paired_disagreement": {
+              "turbo": 0.0,
+              "sensevoice": 0.0
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "sensevoice",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 138,
+              "sensevoice": 138
+            },
+            "processed_units": {
+              "turbo": 138,
+              "sensevoice": 138
+            }
+          },
+          "recognition_cache_sha256": "e015c88926214c80eea9715377b6dad3785f6155b75497679eb397544c9e84bb",
+          "runtime_quality_guard": {
+            "passed": true,
+            "source_sha256": "1eff65b69b53600ece16d1b91c2b5bf3423bd4d72c2aa518facec6fd29e7b8ae",
+            "candidate_sha256": "f7c184a3ade61a55dd5910b8f3e1777403f8f2c1dcdc85ea34ddb1508fa22ef4",
+            "speaker_minimum": 0.9907268279074516,
+            "speaker_minimum_required": 0.95,
+            "dnsmos_overall_delta": -0.015593186553838567,
+            "dnsmos_overall_delta_required": -0.2,
+            "receipt_sha256": "5fd78d5d94308107b91944752c919627e2a73d65776a42028cbcbac5c6d16f0f",
+            "same_file_estimates_reused": false,
+            "independent_evaluation": false,
+            "reference_text_used": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "profiles_fresh_36_ru_sonic-preview",
+      "language": "ru",
+      "source_sha256": "4a063e51157a2b764f92dc8760cd9c752d6b0ba5e8e36d79efebb6132401013b",
+      "source_format": {
+        "samples": 1428840,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "source_model": "sonic-preview",
+      "voice_id": "7246935f-0668-4490-a403-309608178d8d",
+      "control_status": "exact_match",
+      "control_sha256": "7ca5f9c30ad09c0195f3a0c93ecf3057162cc8e3e806f798865fb17c1c3c0208",
+      "treatments": [
+        {
+          "mode": "continuous-global",
+          "local_quantized": true,
+          "global_quantized": false,
+          "status": "content_rejected",
+          "output_sha256": "e685763d340ad63d650816a6357ae52eb8854ef73c942343279f3ee4d33fa60d",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "turbo": null,
+              "mms": 0.057971014492753624
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 68,
+              "mms": 69
+            },
+            "processed_units": {
+              "turbo": 0,
+              "mms": 69
+            }
+          },
+          "recognition_cache_sha256": "5354b70f8b1be679dc658715733b9088d6cbd1c63388cd174786bb5e4ffaf95c",
+          "runtime_quality_guard": null
+        },
+        {
+          "mode": "continuous-local",
+          "local_quantized": false,
+          "global_quantized": true,
+          "status": "content_rejected",
+          "output_sha256": "d6317956434412014417ae069b222c314fbb8ea7ee772f6abf59b32cb416c412",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "turbo": null,
+              "mms": 0.043478260869565216
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 68,
+              "mms": 69
+            },
+            "processed_units": {
+              "turbo": 0,
+              "mms": 69
+            }
+          },
+          "recognition_cache_sha256": "51abf3b240f599b49309433c8d8102fc52bb9b3a97105df17aecd1628b315632",
+          "runtime_quality_guard": null
+        },
+        {
+          "mode": "continuous-both",
+          "local_quantized": false,
+          "global_quantized": false,
+          "status": "content_rejected",
+          "output_sha256": "5e103efa89fbf7d5a4cbe29b597612f2b719403be712a9e5e21f0125066482bc",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "turbo": null,
+              "mms": 0.043478260869565216
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 68,
+              "mms": 69
+            },
+            "processed_units": {
+              "turbo": 0,
+              "mms": 69
+            }
+          },
+          "recognition_cache_sha256": "472aa543c9c15d01b37840f78214407efda198e56b02daf7e61177833050dffd",
+          "runtime_quality_guard": null
+        }
+      ]
+    },
+    {
+      "id": "profiles_fresh_37_ru_sonic-3.6",
+      "language": "ru",
+      "source_sha256": "f67eaf1e63bd2d54ce8778e427ea814e2e66536ec2ce04bfbfcd1ab4bf493d63",
+      "source_format": {
+        "samples": 1224216,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "source_model": "sonic-3.6",
+      "voice_id": "bb4ddf2f-96e1-403b-976d-1361258545d0",
+      "control_status": "exact_match",
+      "control_sha256": "d715107603c39726c888f3653915f84991aaade4a009e080691b9e0e6b097acf",
+      "treatments": [
+        {
+          "mode": "continuous-global",
+          "local_quantized": true,
+          "global_quantized": false,
+          "status": "content_rejected",
+          "output_sha256": "f69c4b3dfb61df3bdba83a2dd15dc3f99c8faa81ee14d0335e686b18bb5f6b15",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "turbo": null,
+              "mms": 0.15625
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 64,
+              "mms": 64
+            },
+            "processed_units": {
+              "turbo": 0,
+              "mms": 64
+            }
+          },
+          "recognition_cache_sha256": "2cd01c9c0da06337829bb60c1f891c1de34a0fc8490a58d5ed06e50ab5029340",
+          "runtime_quality_guard": null
+        },
+        {
+          "mode": "continuous-local",
+          "local_quantized": false,
+          "global_quantized": true,
+          "status": "content_rejected",
+          "output_sha256": "dc6aab8d47d4ab6410db041c302dd4d65640d5b02477cdf501dab3b026044b19",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "turbo": null,
+              "mms": 0.109375
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 64,
+              "mms": 64
+            },
+            "processed_units": {
+              "turbo": 0,
+              "mms": 63
+            }
+          },
+          "recognition_cache_sha256": "93ad9d3a168fbd39e9ce7d90f093431f63f239b4c20e2521f7683dcafc16a28c",
+          "runtime_quality_guard": null
+        },
+        {
+          "mode": "continuous-both",
+          "local_quantized": false,
+          "global_quantized": false,
+          "status": "content_rejected",
+          "output_sha256": "7c3984d2fbd94c9902f3eabb9f3515f74a906cd11cfc053abd24c82f5ca0b324",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "turbo": null,
+              "mms": 0.046875
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 64,
+              "mms": 64
+            },
+            "processed_units": {
+              "turbo": 0,
+              "mms": 64
+            }
+          },
+          "recognition_cache_sha256": "2c896fdbeb44a86b8d66056dfd3a47ab8dcbeff5042510dc7e8fc265efc0da0e",
+          "runtime_quality_guard": null
+        }
+      ]
+    },
+    {
+      "id": "profiles_fresh_39_ru_sonic-3.6",
+      "language": "ru",
+      "source_sha256": "3303e2ed0b0b749ae784344e8da585df05d06abc18b6eeee62031b0cf701517c",
+      "source_format": {
+        "samples": 1365336,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "source_model": "sonic-3.6",
+      "voice_id": "cb5e08c5-299e-4908-8409-b6549292e29b",
+      "control_status": "exact_match",
+      "control_sha256": "75bfbcf309b5f8c9d6b6727275a032ac94d69c75f9a4be471c2c9f8135cf800e",
+      "treatments": [
+        {
+          "mode": "continuous-global",
+          "local_quantized": true,
+          "global_quantized": false,
+          "status": "content_rejected",
+          "output_sha256": "897e9cb797c256241b6bcf6b961fdc46c29fce2d4bb46b9cd1f698ab87b0bb2f",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "turbo": null,
+              "mms": 0.10294117647058823
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 68,
+              "mms": 68
+            },
+            "processed_units": {
+              "turbo": 0,
+              "mms": 68
+            }
+          },
+          "recognition_cache_sha256": "13b92e01ba0d28de63e24bba2b74c7cf456cc38ade6e2efbd614fe09595de8d6",
+          "runtime_quality_guard": null
+        },
+        {
+          "mode": "continuous-local",
+          "local_quantized": false,
+          "global_quantized": true,
+          "status": "content_rejected",
+          "output_sha256": "6761ebd29f9dfb1e6a66cb17db4ef58bd0872576ab3cc647b6892c03c8839b60",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "turbo": null,
+              "mms": 0.08823529411764706
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 68,
+              "mms": 68
+            },
+            "processed_units": {
+              "turbo": 0,
+              "mms": 69
+            }
+          },
+          "recognition_cache_sha256": "f64624c380972097a4f6ba42257a670d6158dc33c23f4df4f80b950cb3bfab5d",
+          "runtime_quality_guard": null
+        },
+        {
+          "mode": "continuous-both",
+          "local_quantized": false,
+          "global_quantized": false,
+          "status": "content_rejected",
+          "output_sha256": "a1eb0ed770bf3646d963af73cca9415e20c0bb85844490cb2b94c57c30f4089d",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "turbo": null,
+              "mms": 0.08823529411764706
+            },
+            "primary_guard": "turbo",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.03,
+            "original_units": {
+              "turbo": 68,
+              "mms": 68
+            },
+            "processed_units": {
+              "turbo": 0,
+              "mms": 68
+            }
+          },
+          "recognition_cache_sha256": "b18412c8fea7e360cb3c32e73132eae459d0950047d31f6368cb8fd5201753e8",
+          "runtime_quality_guard": null
+        }
+      ]
+    },
+    {
+      "id": "profiles_fresh_40_ta_sonic-preview",
+      "language": "ta",
+      "source_sha256": "0b6e8e7cc0fd3641dee23ae2197457cc7beda8cf735fe7602e4aab0db05b785e",
+      "source_format": {
+        "samples": 1471176,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "source_model": "sonic-preview",
+      "voice_id": "6599f426-765e-4b73-8c5d-9f7250af3c88",
+      "control_status": "exact_match",
+      "control_sha256": "e923658951a4b64263fe166c340567bcddeb07cec0c9e68c350e8924696c05a8",
+      "treatments": [
+        {
+          "mode": "continuous-global",
+          "local_quantized": true,
+          "global_quantized": false,
+          "status": "content_rejected",
+          "output_sha256": "56d0b20be3061d204d8955f22ad70e071020bd0eb40dbff4231f535f254abaa0",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "large": null,
+              "mms": 0.016494845360824743
+            },
+            "primary_guard": "large",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.01,
+            "original_units": {
+              "large": 474,
+              "mms": 485
+            },
+            "processed_units": {
+              "large": 0,
+              "mms": 483
+            }
+          },
+          "recognition_cache_sha256": "12847951d58827add0286452bf631fe9a0c50fc36d55626e98e6d358d33b1050",
+          "runtime_quality_guard": null
+        },
+        {
+          "mode": "continuous-local",
+          "local_quantized": false,
+          "global_quantized": true,
+          "status": "content_rejected",
+          "output_sha256": "5b71b15a74b30d00837577884c541fbbb785166d891b9334501cead1a5d6cc29",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "large": null,
+              "mms": 0.012371134020618556
+            },
+            "primary_guard": "large",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.01,
+            "original_units": {
+              "large": 474,
+              "mms": 485
+            },
+            "processed_units": {
+              "large": 0,
+              "mms": 482
+            }
+          },
+          "recognition_cache_sha256": "681753cd6415bfc0b6cce6ba387796246d128af0a84e8b2245175b19314a5b07",
+          "runtime_quality_guard": null
+        },
+        {
+          "mode": "continuous-both",
+          "local_quantized": false,
+          "global_quantized": false,
+          "status": "content_rejected",
+          "output_sha256": "0c8632d36aad6f07cd80f83c5be642976ec19aeec6769d1a11a9dcbf7c5986d3",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "large": null,
+              "mms": 0.012371134020618556
+            },
+            "primary_guard": "large",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.01,
+            "original_units": {
+              "large": 474,
+              "mms": 485
+            },
+            "processed_units": {
+              "large": 0,
+              "mms": 482
+            }
+          },
+          "recognition_cache_sha256": "75c4a76627b8fe05681160c84f089500386146638c737beaee34b1a8d178c6b4",
+          "runtime_quality_guard": null
+        }
+      ]
+    },
+    {
+      "id": "profiles_fresh_41_ta_sonic-3.6",
+      "language": "ta",
+      "source_sha256": "78c9a66462900d56bc47e6f9fd97e87c4ee76e0bc147c598fa29cfff75487dbe",
+      "source_format": {
+        "samples": 1298304,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "source_model": "sonic-3.6",
+      "voice_id": "80e4e2b3-ec54-4930-97ac-667eba950352",
+      "control_status": "exact_match",
+      "control_sha256": "d951aa76646240f2a17b119aeb2e9f3d9b44bb634a85e04448e2ed81a7b68681",
+      "treatments": [
+        {
+          "mode": "continuous-global",
+          "local_quantized": true,
+          "global_quantized": false,
+          "status": "content_rejected",
+          "output_sha256": "1fc3f5d7c8f976e6c485f12c09eff7a35d5a61f5e62b00261082354ecfca62a6",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "large": null,
+              "mms": 0.024830699774266364
+            },
+            "primary_guard": "large",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.01,
+            "original_units": {
+              "large": 430,
+              "mms": 443
+            },
+            "processed_units": {
+              "large": 0,
+              "mms": 443
+            }
+          },
+          "recognition_cache_sha256": "4526fce749ff077322781c51b5d8e32e6ea3a3260fd57912182755ab7ccc1155",
+          "runtime_quality_guard": null
+        },
+        {
+          "mode": "continuous-local",
+          "local_quantized": false,
+          "global_quantized": true,
+          "status": "content_rejected",
+          "output_sha256": "1d6cc26e95a64d23b4eb82536db12fb52abafa956af9848ef2c6bb339129e159",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "large": null,
+              "mms": 0.020316027088036117
+            },
+            "primary_guard": "large",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.01,
+            "original_units": {
+              "large": 430,
+              "mms": 443
+            },
+            "processed_units": {
+              "large": 0,
+              "mms": 444
+            }
+          },
+          "recognition_cache_sha256": "d62909a1a04e3b95bc4bb7b18cb195739a5275e7690fc767b540a5fa42e66953",
+          "runtime_quality_guard": null
+        },
+        {
+          "mode": "continuous-both",
+          "local_quantized": false,
+          "global_quantized": false,
+          "status": "content_rejected",
+          "output_sha256": "cb9d36da3bcd0250bb54f494ab5805196e2039a5d089416de5078bf6f259cc84",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "large": null,
+              "mms": 0.01580135440180587
+            },
+            "primary_guard": "large",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.01,
+            "original_units": {
+              "large": 430,
+              "mms": 443
+            },
+            "processed_units": {
+              "large": 0,
+              "mms": 443
+            }
+          },
+          "recognition_cache_sha256": "297143853febd2411087bfa4fe8126d4dca340bccf2fd869b6384529ae3ad295",
+          "runtime_quality_guard": null
+        }
+      ]
+    },
+    {
+      "id": "profiles_fresh_42_ta_sonic-preview",
+      "language": "ta",
+      "source_sha256": "239027629fc6976c47dc27edf31c5f72d413a388a7a5f19f5ee7b583d080a1cc",
+      "source_format": {
+        "samples": 1266552,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "source_model": "sonic-preview",
+      "voice_id": "96e6974d-57a9-4325-89c8-43f065f8bd95",
+      "control_status": "exact_match",
+      "control_sha256": "c2aa1bb81baf8e1f66aefc97d375a2d3ae716f165721e24d07702883fb670aa6",
+      "treatments": [
+        {
+          "mode": "continuous-global",
+          "local_quantized": true,
+          "global_quantized": false,
+          "status": "content_rejected",
+          "output_sha256": "45b249a8eb144f44cd7d9d7cf1522bbe26f851c5a177082ed08158fd69014416",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "large": null,
+              "mms": 0.03597122302158273
+            },
+            "primary_guard": "large",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.01,
+            "original_units": {
+              "large": 412,
+              "mms": 417
+            },
+            "processed_units": {
+              "large": 0,
+              "mms": 420
+            }
+          },
+          "recognition_cache_sha256": "5b75c3b466c4079f05307b6636655df2107efe65dad266ee6f158d13b0f70833",
+          "runtime_quality_guard": null
+        },
+        {
+          "mode": "continuous-local",
+          "local_quantized": false,
+          "global_quantized": true,
+          "status": "content_rejected",
+          "output_sha256": "159c7520a491cffec1994d609624ce9f485d4558697832757057d184f845d54c",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "large": null,
+              "mms": 0.014388489208633094
+            },
+            "primary_guard": "large",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.01,
+            "original_units": {
+              "large": 412,
+              "mms": 417
+            },
+            "processed_units": {
+              "large": 0,
+              "mms": 415
+            }
+          },
+          "recognition_cache_sha256": "ae6cf90f8005e29d67bd45f4667aa2a35ef0a86ea50b8b49bb01722b236a4177",
+          "runtime_quality_guard": null
+        },
+        {
+          "mode": "continuous-both",
+          "local_quantized": false,
+          "global_quantized": false,
+          "status": "content_rejected",
+          "output_sha256": "e139ae47e5fea26eb1f508efaf783d58e00ce60ae9deace2acc5875b579102f5",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "large": null,
+              "mms": 0.011990407673860911
+            },
+            "primary_guard": "large",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.01,
+            "original_units": {
+              "large": 412,
+              "mms": 417
+            },
+            "processed_units": {
+              "large": 0,
+              "mms": 416
+            }
+          },
+          "recognition_cache_sha256": "8449669c72746fc821ba7b383192f77c54a8884950bcb109cd3c749e9defd563",
+          "runtime_quality_guard": null
+        }
+      ]
+    },
+    {
+      "id": "profiles_fresh_43_ta_sonic-3.6",
+      "language": "ta",
+      "source_sha256": "5a22bab2ee92628e42e6a0366a60c0c7a86b1c0f9af63a0b0450a2df849b3691",
+      "source_format": {
+        "samples": 1354752,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "source_model": "sonic-3.6",
+      "voice_id": "d4470f50-295e-4e11-82a2-158d45bf6abc",
+      "control_status": "exact_match",
+      "control_sha256": "0f00778b88a17b1c667cac1deca75289d6b909152a146232dfb382fc3a784890",
+      "treatments": [
+        {
+          "mode": "continuous-global",
+          "local_quantized": true,
+          "global_quantized": false,
+          "status": "content_rejected",
+          "output_sha256": "a1f2483f8a9e83aabff1c50f9b4a5200dd1127664ac59b7b51a503da558df7df",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "large": null,
+              "mms": 0.030303030303030304
+            },
+            "primary_guard": "large",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.01,
+            "original_units": {
+              "large": 459,
+              "mms": 462
+            },
+            "processed_units": {
+              "large": 0,
+              "mms": 459
+            }
+          },
+          "recognition_cache_sha256": "b2a1ad4621da6d4fdf30da3c3ea40c0c96df0e9cbe7c09ed8d75fa0526dd6d65",
+          "runtime_quality_guard": null
+        },
+        {
+          "mode": "continuous-local",
+          "local_quantized": false,
+          "global_quantized": true,
+          "status": "content_rejected",
+          "output_sha256": "ff55732328e02fa00cdb466426add7f3ad09ef3704d4b6fb05db8f5bc8ddfaa6",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "large": null,
+              "mms": 0.017316017316017316
+            },
+            "primary_guard": "large",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.01,
+            "original_units": {
+              "large": 459,
+              "mms": 462
+            },
+            "processed_units": {
+              "large": 0,
+              "mms": 464
+            }
+          },
+          "recognition_cache_sha256": "0bd9f127e3b0d0dfac8c5b5a880476a72fbe085b2dfd96d643197d1ff445239c",
+          "runtime_quality_guard": null
+        },
+        {
+          "mode": "continuous-both",
+          "local_quantized": false,
+          "global_quantized": false,
+          "status": "content_rejected",
+          "output_sha256": "cc47cd841f904b8dbee624d987c30a0a45230c8a5cdaa25a5efec4d622cd4d90",
+          "gain": 1.0,
+          "speech_assessment": {
+            "content_guard_passed": false,
+            "paired_disagreement": {
+              "large": null,
+              "mms": 0.01948051948051948
+            },
+            "primary_guard": "large",
+            "secondary_guard": "mms",
+            "maximum_paired_disagreement": 0.01,
+            "original_units": {
+              "large": 459,
+              "mms": 462
+            },
+            "processed_units": {
+              "large": 0,
+              "mms": 465
+            }
+          },
+          "recognition_cache_sha256": "bd3706f7bde3cf9c6d23532525e43ffeba495f37e32818458d830276b066829c",
+          "runtime_quality_guard": null
+        }
+      ]
+    }
+  ],
+  "operational_status_counts": {
+    "processing_eligible": 19,
+    "runtime_quality_rejected": 8,
+    "content_rejected": 48
+  },
+  "generator_new_http_requests": 0,
+  "new_tts_requests": 0,
+  "fresh_efficacy_sources": 0,
+  "independent_quality_evaluated_by_generation": false,
+  "detector_evaluated_by_generation": false,
+  "completed_study_result_changed": false,
+  "human_listening_approval": false,
+  "physical_erasure_proven": false,
+  "limits": [
+    "All recordings are spent failures of the completed 19/44 study.",
+    "The 25 exact quantized controls are paired implementation checks, not new sources.",
+    "Processing eligibility does not establish detector clearance or reference-qualified quality.",
+    "Continuous decoder inputs are outside the original quantized codec interface and nominal bitrate."
+  ]
+}

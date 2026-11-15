@@ -71,6 +71,7 @@ results/*
 !results/codec_reliability.json
 !results/ticodec_generation_development.json
 !results/ticodec_pilot_development.json
+!results/ticodec_latents_generation_development.json
 !results/codec_profiles_reliability.json
 !results/codec_repair_development.json
 !results/codec_cycles_development.json
