@@ -1,0 +1,617 @@
+{
+  "kind": "Spent hard-case generation ablations; no detector qualification",
+  "formatter_source_sha256": "6eab6091d196cccd728691aa2290bc8aa40795ee3b63edb911194928931e95a5",
+  "code_files_sha256": {
+    "tools/verify_reconstruction.py": "7029453889415b86111ae5294e9233ce7786fad229d23e308a2b0046a376bfcc",
+    "tools/reconstruction_worker.py": "49b8816bd54a78957d45ed3596a63ba18a11bfa5eac0416070a85c692eef22f0",
+    "tools/codec_settings.py": "4ac4ab3d31ab5e037ae2c22d6f0070a5f947cf728d214a472417ec55d439b841",
+    "tools/codec_profiles.py": "7421dc49d291bd86251f8b7a8ad9706187bc5066b89cb1a990f97c38316947c6",
+    "tools/codec_assets.json": "99d443e93f0de80e837c50b17e0f93a796e0f19c05e1427d8fb33397ab62b1a5",
+    "tools/codec_audio.py": "2a0dac863e1d7c7577cf9f029f86b3973f90a6e77b935dc6bbce9169ff018f94",
+    "tools/codec_inference.py": "1f86876e3ab07e960dd9ac9c4ad9f1a773393ac31bdef969f9d25b52370d2a9e",
+    "tools/codec_teacher.py": "abebef4244f452e3d962ec6d88c9917806a98ad48512281875f41dc4d2cf3fb4",
+    "tools/codec_content.py": "1f7af6d64a8f79b80da9bbfb77f0d7497552b126fd189c8085e388e0604d97fe",
+    "tools/codec_text.py": "2b3f9503c9e39c330d60ae727415995822fec4daa4de7560572de905eab25f96",
+    "tools/codec_repair.py": "e6839578ce6d319e9463196521860b050d96f0f81f1ed8cafc14d3fe3918561a",
+    "tools/codec_word_consensus.py": "b8afdddddc1d8fab2b93036786a88ccb63473063dbc4e4572ed5d2619807a3f2",
+    "tools/korean_spacing.py": "2a191a4103a9a96539e99d138b6d74089a31b8ab36a60d26ac4c7bf3a1a6ca3a",
+    "tools/speech_repair.py": "4e3b883c3a2e0bf00546a5c4d5e4026aa1e875bca36881c4fe871e39675eb414",
+    "tools/speech_repair_assets.json": "2d1d68d1a00a006c0dc66b401ed21df291ff76fb4ab88b0f31f96960766226e2",
+    "tools/whisper_encoder_reuse.py": "1c2492c5ce80500b172d0657c3f73406b6b8b58f9c0d72b3b79c752bd203eb82",
+    "tools/reconstruct_codec.py": "ae8a607b333237bd4c01d3d4f7e8baa900a08ac39b8d70b60aafbe0add02d7de",
+    "tools/reconstruct_codec_band.py": "b5102f096a9a070b5496ced2f93ff3c29521d2326e78a2e8694a70bb7868e195",
+    "tools/vocoder_band_prior.py": "8b153b0e25421d560c3f9a41e5e36ea44f1ed0a7ad417b0c49af76f6e69b033f",
+    "tools/reconstruct_vocoder.py": "3378845287c3f1bf874147392184c5b15b43ca954adacd6eac484715e4564db0",
+    "tools/vocoder_inference.py": "38d02df4aa5d488aab7b37320dcbf6cc6e980178e23721783145adef138c37f2",
+    "tools/vocoder_assets.json": "ea7870e32da6336a800a3ddbe555d527267124470b44f8e7e0c72603aae4e7f6",
+    "tools/cartesia.py": "599d2b8b551af9f193bcc4c280f3b732a41c48c356c178ad747f17067eff5771",
+    "tools/eval_voice_quality.py": "f45829ffa8658c1158f44f7516bde482f391c71267ae6ba8b18c3853b3d747b2",
+    "tools/remover.py": "aad94e48280117f052aa8b0ce5ff8ae254154fb2611526852038912865666e6c",
+    "tools/quality_blend.py": "c74b1a6515d1b68d5edca69622b5242b78746b25186d8fab915194613d997df4",
+    "experiments/generate_codec_study.py": "9701ea895fb6328af4e2a1d6bde9341a92dfb7f01f7b09822d91f9574f866d20",
+    "experiments/run_codec_study.py": "9aaceb24c6c2786c0ac155a78832e0dd90f29578875f95453b05ba1c46305b65",
+    "experiments/run_codec_profiles.py": "a323bd4ddd08fdee42c65df353b42b64be3130ac687e5d8218fcb6cc5c5585ac",
+    "experiments/codec_profile_cache.py": "0a4b713275e89899414001494222ec486a781347babd12da6a83f6edf618a3ca",
+    "experiments/codec_profile_evaluation.py": "d191fea3a94f8bb2d85de7f5c6ba78cb0b179a47b3a6804f2aa7829ec1111f79",
+    "experiments/score_codec_study.py": "8fa758272b28150ba655243977e8ed82418231259ae158676daa27441dd8094c",
+    "experiments/codec_evaluation_text.py": "9d05a9350507e45912e47f0200f64732ed5cf03bc3d6581e8c6ad992ff4e2876",
+    "experiments/codec_evaluation_assets.json": "df1d047b380f6d218727bd451988a7823c9f82fb652aa62d7542b81b129e3dfc",
+    "experiments/freeze_codec_profiles.py": "95c78b910d10ded5df4e5f31f6f24c7efa0ebc33bc6a13fd05f16584a055d433",
+    "requirements/codec.txt": "bfe8b7b4d36b0e59dba5cd19b03077080f733480bbdaf94c6e46b38e39e789f1",
+    "requirements/speech_repair.txt": "9a20eb7a29bbf29cdb23239aecd0c81b011c537e497903c331ecc83379647b44",
+    "requirements/verification.txt": "d9332dade574c76d8794e0e5d7cccc1b8c654f008be8ea14ae68411ceb3f6dd7",
+    "requirements/vocoder.txt": "36aaf5ee7d8f582d03f0614f50305f9de3ade062de4e65e761ae4b5601929551",
+    "requirements/codec_evaluation.txt": "c82b1fd37c9d379c98fc251ac4c5f8544daa2fbea890d04f325a1240050b37b9",
+    "requirements/eval.txt": "c429198bfcf1459b979c377136e235a953360f86c952c4c1e202d77943e03af5",
+    "requirements/inference.txt": "38c7e9ab6bb997b1265e43417d9f1b3fecb1b27dca1662a772dcd584d1779785",
+    "experiments/ticodec_adapter.py": "96be43a9e19b110fb98d414954b7d2339beb3cf607f13b508ad324aeef1e89b6",
+    "experiments/ticodec_assets.json": "214bdc2a2c2fc259bb63758846420a7ebd5457ceac20a547350a5ae07b084ba7",
+    "experiments/validate_ticodec.py": "5310d4750f86c91a9f73e9ae37ff0308b44588d3de46547f9fcc649854a715a1",
+    "experiments/probe_ticodec.py": "bbca3d80a0d35909260ada3f1827570c7827ded3df66da06fe2740aad06386b6",
+    "experiments/probe_codec_frames.py": "19e369e66ce9231fdc3f55006b9e11b523d5ed991063127518213c4d0322aeb8",
+    "experiments/codec_profiles_report.py": "047d998495ef6bb2aee144a5308e16d063d3e997e559836453a1308dbb393a25",
+    "private-prototype/probe_resemble_nfe128_hard3.py": "336e9a9299a84c3a47f43e6a20bd44933081e2864b54b3a62faad8f15c0c00c6",
+    "tools/reconstruct_audio.py": "25f3e120598995e398fe76a68a3fda943b53e4f294cad5887207888fb9229c96",
+    "tools/reconstruction_inference.py": "1a3c6b8ae05019f04b9650a11b81a331b4ef6b11e9dc43c34e95a0371cbf8a8f",
+    "upstream/resemble-enhance/app.py": "a3eb9a342d5d6826531f81aee1dec0967bbca57f0bb79459b17fd4b8ad0f7694",
+    "upstream/resemble-enhance/resemble_enhance/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "upstream/resemble-enhance/resemble_enhance/common.py": "675da1829bea4d8cac20a253e452dfbe546599c6886f99979d43be2578fa3916",
+    "upstream/resemble-enhance/resemble_enhance/data/__init__.py": "d85bb70e0843216e1080f687fcfd3c3ebe2d255e3ae086742cf0b5c727b95459",
+    "upstream/resemble-enhance/resemble_enhance/data/dataset.py": "c7a2988a8d49c7f3066d13ad2f9863bee654e5019ad3804b397b0d4793b33ab9",
+    "upstream/resemble-enhance/resemble_enhance/data/distorter/__init__.py": "2e48ff07b2e6efa36fbfe3dd54918e9c94e2a97f6fd3b29ed5b1789cd25ec9d1",
+    "upstream/resemble-enhance/resemble_enhance/data/distorter/base.py": "00f358781fcacaf9378aa71afca2d04809c52cd8c81b74a8e53480f3bcc95e9c",
+    "upstream/resemble-enhance/resemble_enhance/data/distorter/custom.py": "dee3898a8659b843f405ab9b7e9012562148cb48ce8bfb9eecd9289778fbf8d5",
+    "upstream/resemble-enhance/resemble_enhance/data/distorter/distorter.py": "08b4bdf4ffaefd35653c710a58b3460a598dc5ff169f0de0554ce0fc4debab3c",
+    "upstream/resemble-enhance/resemble_enhance/data/distorter/sox.py": "c5f7857c0339b375c639d1b7afb74c03d5cfab5cf7bf0a22315f32520dfa97c2",
+    "upstream/resemble-enhance/resemble_enhance/data/utils.py": "0877084924f9d4351ddee1b874979779028eb0abe25d43f9dcaca8f0d8922722",
+    "upstream/resemble-enhance/resemble_enhance/denoiser/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "upstream/resemble-enhance/resemble_enhance/denoiser/__main__.py": "d0fa73fca65fde0c197ac2756954d6f2cbd11bfebc4dfe380ef3fa13f83b9a88",
+    "upstream/resemble-enhance/resemble_enhance/denoiser/denoiser.py": "08fb8ad44cde940ad78776d7ca140dfefb113e172be7515878f39b8b1457d7e3",
+    "upstream/resemble-enhance/resemble_enhance/denoiser/hparams.py": "ab3abc1ca8f2814edd7e5a3461d78637a4c8e6c76ad1cfd2a89f86cf95b428f6",
+    "upstream/resemble-enhance/resemble_enhance/denoiser/inference.py": "986f565b978e35dfc84ab917130165cb74c98dc1bf38545281d64f469c556ac2",
+    "upstream/resemble-enhance/resemble_enhance/denoiser/train.py": "56914893fb3973449708d05121bf701952687633ba92d05c3776da2140420ff5",
+    "upstream/resemble-enhance/resemble_enhance/denoiser/unet.py": "13da1f566436e2416ca34010b595a26831fd39c1b1e296db6560fe0df4036aa5",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/__main__.py": "e4c312523314183c0029f6affe0550c1965d9a87a6b7d005bf32792944b08d64",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/download.py": "5c47bf7a47c89e74fafd9b915b2299c24df8723a8d0f78bf1d2f0f1e250b18da",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/enhancer.py": "6e6d6ece0df0f02d94c3fdf12ddd6d569f36bfd21d89f0bc81b7257166a66670",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/hparams.py": "a74036ab7b8a031d7501486a7de2e9a6de9acae6520c91e4c81e4624f8f39c89",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/inference.py": "46bc03443e477118c3e09fde94db3e4431a48f2dfac65f63d6beab57b6b91427",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/lcfm/__init__.py": "cb74de38d184a307ca9a9156859a4699daf960300034130660ebc616bf32a1de",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/lcfm/cfm.py": "e2a920d0d0dcbbaef08c6fd8fbba21fa03fc06641224db6941a9327bae3b5db2",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/lcfm/irmae.py": "10ff0e32d24b55caa7b0af02002645621d815a178e05abb7760cdde7d3ec87fd",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/lcfm/lcfm.py": "97ed3982a8c94a7070c9a3295f764610387191776a13fd504279abdcdd475dd5",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/lcfm/wn.py": "649d0c55699a0363e9e9e661b761faed98f6f3f394b022380e4fff547956eb8d",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/train.py": "1ed24e2fe84ec61235577e99f6bba7d5aecce3eff649ce2d1c82a451a51fde81",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/univnet/__init__.py": "e217a0bce1ed367d7dd8feedbe2d67a77e99256e161f64a887542a828109ec1a",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/univnet/alias_free_torch/__init__.py": "d5e4587b0a372029705f55ff1c35bf6e08763a483de36e33f391e10af7dd4f71",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/univnet/alias_free_torch/filter.py": "3534e2fe065399c9332541e6f9b600bbef8dde9fe8ad0a753b79b4346d4cd633",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/univnet/alias_free_torch/resample.py": "7f0fcf223b03d260930f86cb21d2a21932ed7930687ca0570b566fc27bb114b2",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/univnet/amp.py": "ea3e584f47ae835bfebbd6036b8ef7ed4fe9b01b3559453024256772991f7beb",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/univnet/discriminator.py": "aa6038be73b18a035f9dce80007e3987ab22afa27db89b55d75b9a84fcface59",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/univnet/lvcnet.py": "75a6cd226c087afbc7ebb79c58bd0a0a7e4c5ae4ec70760442e1e1a8ecb672cb",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/univnet/mrstft.py": "394ce2d1a5ea90bf1922bb02ad849783edc82f1ce868d760d3de33308cb7337e",
+    "upstream/resemble-enhance/resemble_enhance/enhancer/univnet/univnet.py": "c13501d780081ae8d46e2aac80cb9b88c262e053533368d11f8f14b3e31266b7",
+    "upstream/resemble-enhance/resemble_enhance/hparams.py": "f0ab1195a3e6a7869e2f1ad3279f064df57717fa6486540375ed816b00290194",
+    "upstream/resemble-enhance/resemble_enhance/inference.py": "e70f97b2203879185c4c136fbee519cddf65290264f5ac2d8bbb4f9b7e93d32e",
+    "upstream/resemble-enhance/resemble_enhance/melspec.py": "b80ddfad3e0cb10a583eead8436b63729803e3990b6d96601104d688105c32e5",
+    "upstream/resemble-enhance/resemble_enhance/utils/__init__.py": "ef7b9d042959b7ffbd74d27f80427b5f764bf509eb22d39fc7a48f38471155aa",
+    "upstream/resemble-enhance/resemble_enhance/utils/control.py": "d8f82ff89af99cf931bbd68eb6e0ccabfec1ae54fa940d91b015e13f044e04c3",
+    "upstream/resemble-enhance/resemble_enhance/utils/distributed.py": "2d9e805f9cb5a390e449534485f22901a0b1b8eee19d38381f1aa7c9e21a14af",
+    "upstream/resemble-enhance/resemble_enhance/utils/engine.py": "550bae1158d61c3f44e95939a14c8a1c0fe2578cf87ccbd7b381923acc161be4",
+    "upstream/resemble-enhance/resemble_enhance/utils/logging.py": "6bd0c8333452d7c245b17796542f6e52384117c3fc67a532554a7533ca46bee6",
+    "upstream/resemble-enhance/resemble_enhance/utils/train_loop.py": "6f8c8b95649e21777ca13cb9f88015fee3470b7218866d3e154839111c54ce19",
+    "upstream/resemble-enhance/resemble_enhance/utils/utils.py": "e004f02f45cc083ffe56d0d8869f23f423adced6226da6a769b9004e1fe224b8",
+    "upstream/resemble-enhance/setup.py": "f4a9ccd3399c3d199d59a476f26b1ed8cd07ec849f4ba82e2c49e314492cffb5",
+    "private-prototype/probe_resemble_no_denoise_hard3.py": "29e7ba33377b11d945dff92ed2e538712bec742b21d79a033996eb4fd39e7f7e",
+    "private-prototype/probe_resemble_hard3.py": "35786258f47bb4202a4bda16fb8938ff120ed4a7a1114282a18e68397d0fad9f",
+    "private-prototype/render_original_donor_hard3.py": "49b70cfb38b089fa768cc76244cc7b96c458ee4bbe9f5b64d014d6b481547046",
+    "private-prototype/assess_original_donor_hard3.py": "cd13a55ffa259263a37ccad51d48f8cb9cfa1ef828e81dad4509027b034926bc",
+    "private-prototype/curate_hard_case_ablations.py": "6eab6091d196cccd728691aa2290bc8aa40795ee3b63edb911194928931e95a5"
+  },
+  "completed_study_sha256": "777355dff6ed90ec0beec56558b0c3a4fc974abb88c38993d95d554c6040cd4b",
+  "planned_spent_sources": 3,
+  "planned_treatments": 9,
+  "processing_eligible": 0,
+  "speech_rejected": 9,
+  "panels": [
+    {
+      "method": "nfe128",
+      "processing_report_sha256": "057362c0652935ec934e568094728a294272277b6385f5d6bfc420fa7bca4e3d",
+      "settings": {
+        "nfe": 128,
+        "solver": "midpoint",
+        "lambd": 0.1,
+        "tau": 1.0,
+        "seed": 2035,
+        "original_waveform_copied": false
+      },
+      "planned_sources": 3,
+      "planned_treatments": 3,
+      "processing_eligible": 0,
+      "speech_rejected": 3
+    },
+    {
+      "method": "no-denoiser",
+      "processing_report_sha256": "5dac6122cc7ceb97d7e5982a89fa5a7dde9b2811ef826f8fa411a114144290e7",
+      "settings": {
+        "nfe": 32,
+        "solver": "midpoint",
+        "lambd": 0.0,
+        "tau": 1.0,
+        "seed": 2035,
+        "original_waveform_copied": false
+      },
+      "planned_sources": 3,
+      "planned_treatments": 3,
+      "processing_eligible": 0,
+      "speech_rejected": 3
+    },
+    {
+      "method": "marked-original-donor",
+      "processing_report_sha256": "a03ee609aa42f33822ba39c6020b74d5a038becbb74a878740c445cd746b0d15",
+      "settings": {
+        "body": "full-flow32-seed2035",
+        "padding_seconds": 0.12,
+        "maximum_regions": 8,
+        "maximum_coverage": 0.2,
+        "marked_original_is_donor": true,
+        "original_waveform_copied": true,
+        "detector_stress_views_rendered_but_not_queried": true
+      },
+      "planned_sources": 3,
+      "planned_treatments": 3,
+      "processing_eligible": 0,
+      "speech_rejected": 3
+    }
+  ],
+  "treatments": [
+    {
+      "id": "profiles_fresh_19_hi_sonic-3.6",
+      "language": "hi",
+      "method": "nfe128",
+      "source_sha256": "82eccc6dfe1a21a5f869efa49a17abfbcdb8acc9e2f97283d2dda56ce43ec8c0",
+      "source_format": {
+        "samples": 1248912,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "output_sha256": "4fe876619932506e7af3d31e377ab47d22da9de8100b0186b76a9a9b180a6fb2",
+      "processing_status": "content_rejected",
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "large": null,
+          "mms": 0.03426791277258567
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 314,
+          "mms": 321
+        },
+        "processed_units": {
+          "large": 0,
+          "mms": 318
+        }
+      },
+      "detector_checked": false,
+      "independent_quality_evaluated": false,
+      "qualified_spent_transition": false,
+      "render_seconds": 96.73985962104052
+    },
+    {
+      "id": "profiles_fresh_40_ta_sonic-preview",
+      "language": "ta",
+      "method": "nfe128",
+      "source_sha256": "0b6e8e7cc0fd3641dee23ae2197457cc7beda8cf735fe7602e4aab0db05b785e",
+      "source_format": {
+        "samples": 1471176,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "output_sha256": "efd5ffbb7a5109f21c062ef3222b588e718ba80f2122293d1561547cf821e81c",
+      "processing_status": "content_rejected",
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "large": null,
+          "mms": 0.01443298969072165
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 474,
+          "mms": 485
+        },
+        "processed_units": {
+          "large": 0,
+          "mms": 485
+        }
+      },
+      "detector_checked": false,
+      "independent_quality_evaluated": false,
+      "qualified_spent_transition": false,
+      "render_seconds": 112.62265666108578
+    },
+    {
+      "id": "profiles_fresh_42_ta_sonic-preview",
+      "language": "ta",
+      "method": "nfe128",
+      "source_sha256": "239027629fc6976c47dc27edf31c5f72d413a388a7a5f19f5ee7b583d080a1cc",
+      "source_format": {
+        "samples": 1266552,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "output_sha256": "161e8f50e2a47a49c1e20edd817d7dce06541e0c05f41af1f9ce7d09e176cf1f",
+      "processing_status": "content_rejected",
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "large": 0.01699029126213592,
+          "mms": 0.009592326139088728
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 412,
+          "mms": 417
+        },
+        "processed_units": {
+          "large": 413,
+          "mms": 417
+        }
+      },
+      "detector_checked": false,
+      "independent_quality_evaluated": false,
+      "qualified_spent_transition": false,
+      "render_seconds": 96.95913280081004
+    },
+    {
+      "id": "profiles_fresh_19_hi_sonic-3.6",
+      "language": "hi",
+      "method": "no-denoiser",
+      "source_sha256": "82eccc6dfe1a21a5f869efa49a17abfbcdb8acc9e2f97283d2dda56ce43ec8c0",
+      "source_format": {
+        "samples": 1248912,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "output_sha256": "421c3ade6ba374ef15bd00749c9edfae96f45ce6d35c038485838e79123ffb5f",
+      "processing_status": "content_rejected",
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "large": null,
+          "mms": 0.03426791277258567
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 314,
+          "mms": 321
+        },
+        "processed_units": {
+          "large": 0,
+          "mms": 318
+        }
+      },
+      "detector_checked": false,
+      "independent_quality_evaluated": false,
+      "qualified_spent_transition": false,
+      "render_seconds": 42.27520577888936,
+      "actual_denoiser_forward_calls": 0
+    },
+    {
+      "id": "profiles_fresh_40_ta_sonic-preview",
+      "language": "ta",
+      "method": "no-denoiser",
+      "source_sha256": "0b6e8e7cc0fd3641dee23ae2197457cc7beda8cf735fe7602e4aab0db05b785e",
+      "source_format": {
+        "samples": 1471176,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "output_sha256": "7e2b002029fa69f2ea9137d6c3aa892b54d406dee7badac2acca056a406e6c16",
+      "processing_status": "content_rejected",
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "large": null,
+          "mms": 0.012371134020618556
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 474,
+          "mms": 485
+        },
+        "processed_units": {
+          "large": 0,
+          "mms": 485
+        }
+      },
+      "detector_checked": false,
+      "independent_quality_evaluated": false,
+      "qualified_spent_transition": false,
+      "render_seconds": 49.13855856470764,
+      "actual_denoiser_forward_calls": 0
+    },
+    {
+      "id": "profiles_fresh_42_ta_sonic-preview",
+      "language": "ta",
+      "method": "no-denoiser",
+      "source_sha256": "239027629fc6976c47dc27edf31c5f72d413a388a7a5f19f5ee7b583d080a1cc",
+      "source_format": {
+        "samples": 1266552,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "output_sha256": "ef340f2cfd8b66f30263224e068489c908c1df93ca165543f17a6cde522bce60",
+      "processing_status": "content_rejected",
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "large": 0.012135922330097087,
+          "mms": 0.009592326139088728
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 412,
+          "mms": 417
+        },
+        "processed_units": {
+          "large": 413,
+          "mms": 417
+        }
+      },
+      "detector_checked": false,
+      "independent_quality_evaluated": false,
+      "qualified_spent_transition": false,
+      "render_seconds": 42.655548233538866,
+      "actual_denoiser_forward_calls": 0
+    },
+    {
+      "id": "profiles_fresh_19_hi_sonic-3.6",
+      "language": "hi",
+      "method": "marked-original-donor",
+      "source_sha256": "82eccc6dfe1a21a5f869efa49a17abfbcdb8acc9e2f97283d2dda56ce43ec8c0",
+      "source_format": {
+        "samples": 1248912,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "output_sha256": "2c664af080853552f54a5c9a510f9ab873419d05153228e43ceb090f6b118cd6",
+      "processing_status": "content_rejected",
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "large": null,
+          "mms": 0.012461059190031152
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 314,
+          "mms": 321
+        },
+        "processed_units": {
+          "large": 0,
+          "mms": 320
+        }
+      },
+      "detector_checked": false,
+      "independent_quality_evaluated": false,
+      "qualified_spent_transition": false,
+      "repair": {
+        "regions_seconds": [
+          [
+            0.62,
+            1.1400000000000001
+          ],
+          [
+            1.58,
+            2.2
+          ],
+          [
+            6.22,
+            6.74
+          ],
+          [
+            7.72,
+            8.08
+          ],
+          [
+            17.0,
+            17.520000000000003
+          ],
+          [
+            23.18,
+            23.66
+          ],
+          [
+            25.02,
+            25.720000000000002
+          ]
+        ],
+        "repaired_fraction": 0.13134712453719719,
+        "gain": 1.0,
+        "padding_seconds": 0.12,
+        "maximum_coverage": 0.2,
+        "maximum_regions": 8,
+        "unsafe_regions_skipped": 0,
+        "maximum_timing_drift_seconds": 0.25,
+        "native_original_unit_parity": true,
+        "donor_matching_regions_only": true,
+        "quality_verified": false,
+        "content_guard_passed": false,
+        "api_checked": false,
+        "meaning": "One experimental proposal; requires assessment of the final PCM24 file with both guards."
+      },
+      "longest_retained_interval_seconds": 0.7000000000000028
+    },
+    {
+      "id": "profiles_fresh_40_ta_sonic-preview",
+      "language": "ta",
+      "method": "marked-original-donor",
+      "source_sha256": "0b6e8e7cc0fd3641dee23ae2197457cc7beda8cf735fe7602e4aab0db05b785e",
+      "source_format": {
+        "samples": 1471176,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "output_sha256": "cddcfb910130e731bf6e5c7e3f11a8b842c6c6f4d6ff49879e80962370df6586",
+      "processing_status": "content_rejected",
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "large": 0.029535864978902954,
+          "mms": 0.006185567010309278
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 474,
+          "mms": 485
+        },
+        "processed_units": {
+          "large": 478,
+          "mms": 485
+        }
+      },
+      "detector_checked": false,
+      "independent_quality_evaluated": false,
+      "qualified_spent_transition": false,
+      "repair": {
+        "regions_seconds": [
+          [
+            0.08000000000000002,
+            0.8200000000000001
+          ],
+          [
+            1.9,
+            3.02
+          ],
+          [
+            5.3,
+            6.08
+          ],
+          [
+            8.74,
+            9.899999999999999
+          ],
+          [
+            13.9,
+            14.7
+          ]
+        ],
+        "repaired_fraction": 0.13788289096613865,
+        "gain": 1.0,
+        "padding_seconds": 0.12,
+        "maximum_coverage": 0.2,
+        "maximum_regions": 8,
+        "unsafe_regions_skipped": 0,
+        "maximum_timing_drift_seconds": 0.25,
+        "native_original_unit_parity": true,
+        "donor_matching_regions_only": true,
+        "quality_verified": false,
+        "content_guard_passed": false,
+        "api_checked": false,
+        "meaning": "One experimental proposal; requires assessment of the final PCM24 file with both guards."
+      },
+      "longest_retained_interval_seconds": 1.1599999999999984
+    },
+    {
+      "id": "profiles_fresh_42_ta_sonic-preview",
+      "language": "ta",
+      "method": "marked-original-donor",
+      "source_sha256": "239027629fc6976c47dc27edf31c5f72d413a388a7a5f19f5ee7b583d080a1cc",
+      "source_format": {
+        "samples": 1266552,
+        "sample_rate": 44100,
+        "channels": 1
+      },
+      "output_sha256": "8997c94aa4cef3f3a21fd17cb9f15e5e9cf18288049fb874498f4f38824a05f6",
+      "processing_status": "content_rejected",
+      "speech_assessment": {
+        "content_guard_passed": false,
+        "paired_disagreement": {
+          "large": 0.012135922330097087,
+          "mms": 0.009592326139088728
+        },
+        "primary_guard": "large",
+        "secondary_guard": "mms",
+        "maximum_paired_disagreement": 0.01,
+        "original_units": {
+          "large": 412,
+          "mms": 417
+        },
+        "processed_units": {
+          "large": 413,
+          "mms": 418
+        }
+      },
+      "detector_checked": false,
+      "independent_quality_evaluated": false,
+      "qualified_spent_transition": false,
+      "repair": {
+        "regions_seconds": [
+          [
+            1.2999999999999998,
+            2.3800000000000003
+          ],
+          [
+            4.44,
+            5.48
+          ],
+          [
+            11.8,
+            12.68
+          ],
+          [
+            19.98,
+            20.720000000000002
+          ]
+        ],
+        "repaired_fraction": 0.13021968304499143,
+        "gain": 1.0,
+        "padding_seconds": 0.12,
+        "maximum_coverage": 0.2,
+        "maximum_regions": 8,
+        "unsafe_regions_skipped": 0,
+        "maximum_timing_drift_seconds": 0.25,
+        "native_original_unit_parity": true,
+        "donor_matching_regions_only": true,
+        "quality_verified": false,
+        "content_guard_passed": false,
+        "api_checked": false,
+        "meaning": "One experimental proposal; requires assessment of the final PCM24 file with both guards."
+      },
+      "longest_retained_interval_seconds": 1.0800000000000005
+    }
+  ],
+  "new_http_requests": 0,
+  "new_tts_requests": 0,
+  "fresh_efficacy_sources": 0,
+  "qualified_spent_sources": 0,
+  "qualified_treatments": 0,
+  "completed_19_of_44_result_changed": false,
+  "human_listening_approval": false,
+  "physical_erasure_proven": false,
+  "model_trained_by_this_project": false,
+  "limits": [
+    "All nine outputs failed unchanged speech guards; detector responses and independent reference quality were not measured.",
+    "Source-waveform donor patches retain marked original information. No physical erasure is claimed.",
+    "These are spent development recordings, not a fresh efficacy study."
+  ]
+}

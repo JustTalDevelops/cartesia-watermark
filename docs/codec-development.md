@@ -309,6 +309,20 @@ detector result establishes physical erasure. No fresh recordings were added.
 
 ## Completed hard-case suppression failures
 
+The [generation ablation report](../results/hard_case_ablations_development.json)
+also retains nine outputs across Hindi 19 and Tamil 40 and 42. Increasing full-flow
+reconstruction from 32 to 128 function evaluations did not pass the speech guard
+on any of the three sources. Bypassing the conditioning denoiser also failed all
+three; a runtime hook verified that it made zero denoiser calls. The random prior,
+checkpoint and fixed seed were retained.
+
+A separate attempt patched short original-source intervals into the 32-step
+reconstruction. It retained roughly 13–14% marked source audio and also failed
+all three speech checks. Five-second stress views were rendered prospectively,
+but no patched output qualified for detector submission. These nine outcomes
+have no detector or independent reference measurements; their speech failures
+must not be presented as measured detector failures or successful removal.
+
 Two follow-ups reused the same fixed Hindi source 19 and Tamil sources 40 and
 42. They added no fresh recordings or synthesis and did not qualify a removal.
 
