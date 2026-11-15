@@ -244,7 +244,12 @@ exact skip of semantic layers whose output the author codec does not use. A
 [three-pair synthetic CPU preflight](../results/xcodec2_prefix_preflight.json)
 matched code indices and waveform samples, with about 13% less codec component
 time; a separate check matched RNG advancement. It does not measure app speed or
-removal. The complete 25-source development generation panel is still running.
+removal. The [complete 25-source generation panel](../results/xcodec2_generation_development.json)
+retained eight processing-eligible outputs and seventeen speech rejections.
+All 27 actual channel controls matched codes, waveforms and RNG advancement
+exactly. The prefix path used about 15% less total codec component time in these
+ordered pairs. Every Hindi/Tamil output remained speech-rejected; none of the
+new outputs has completed detector and independent reference qualification.
 The upstream noncommercial weights are not part of this project's model release.
 
 The alternative [Mimi weights](https://huggingface.co/kyutai/mimi) are upstream
