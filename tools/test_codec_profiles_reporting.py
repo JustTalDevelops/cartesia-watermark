@@ -7,7 +7,7 @@ from tempfile import TemporaryDirectory
 import unittest
 
 sys.path.insert(0,str(Path(__file__).resolve().parent.parent))
-from experiments.codec_profiles_report import protocol,index_rows,summarize_attempt,attempt_speech_evidence
+from experiments.codec_profiles_report import protocol,index_rows,summarize_attempt,attempt_speech_evidence,add_measurements
 from codec_content import assess
 from codec_word_consensus import comparison_reference
 
@@ -21,6 +21,20 @@ class ProfileEvidenceValidation(unittest.TestCase):
 
     def test_complete_matching_receipts_are_accepted(self):
         protocol(self.report)
+
+    def test_quality_measurements_keep_voice_ids_and_cannot_replace_source_identity(self):
+        row={'id':'case','voice':'public-voice-id','model':'requested-model','source_sha256':'original',
+             'language':'en','marked_provenance':True,'quality_qualified':False}
+        estimates={'speaker_minimum':.99}
+        add_measurements(row,{'voice_estimates':estimates,'quality_qualified':True})
+        self.assertEqual(row['voice'],'public-voice-id')
+        self.assertEqual(row['voice_estimates'],estimates)
+        self.assertEqual(len({row['voice']}),1)
+        original=deepcopy(row)
+        for key in ('id','voice','model','source_sha256','language','marked_provenance'):
+            with self.subTest(key=key),self.assertRaisesRegex(ValueError,'source identifiers'):
+                add_measurements(row,{key:estimates})
+            self.assertEqual(row,original)
 
     def test_unmatched_request_changed_uploaded_bytes_and_missing_pacing_are_rejected(self):
         for mutation in ('missing','changed','pacing'):
